@@ -16,6 +16,7 @@ local ba_die = function()
     end
 end
 
+-- Alich, Malebranche of the Burning Abyss
 SMODS.Joker({
     key = "ba_alich",
     atlas = 'BA',
@@ -29,7 +30,7 @@ SMODS.Joker({
         return { vars = { card.ability.extra.percent * 100 } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
+        { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -67,6 +68,8 @@ SMODS.Joker({
         end
     end
 })
+
+-- Barbar, Malebranche of the Burning Abyss
 SMODS.Joker({
     key = "ba_barbar",
     atlas = 'BA',
@@ -80,7 +83,7 @@ SMODS.Joker({
         return { vars = { card.ability.extra.mult, card.ability.extra.extra_mult, card.ability.extra.mult + (card.ability.extra.extra_mult * JoyousSpring.count_materials_in_graveyard({ { monster_type = "Fiend" } })) } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
+        { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -110,6 +113,8 @@ SMODS.Joker({
         end
     end
 })
+
+-- Cagna, Malebranche of the Burning Abyss
 SMODS.Joker({
     key = "ba_cagna",
     atlas = 'BA',
@@ -123,8 +128,8 @@ SMODS.Joker({
         return { vars = { card.ability.extra.chips, card.ability.extra.mills } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_type = "Fiend" } },                  name = localize("k_joy_mills") },
-        { properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
+        { properties = { { monster_type = "Fiend" } }, name = localize("k_joy_mills") },
+        { "j_joy_ba_beatrice",                         properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -161,6 +166,8 @@ SMODS.Joker({
         end
     end
 })
+
+-- Calcab, Malebranche of the Burning Abyss
 SMODS.Joker({
     key = "ba_calcab",
     atlas = 'BA',
@@ -174,7 +181,7 @@ SMODS.Joker({
         return { vars = { card.ability.extra.h_size } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
+        { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -207,6 +214,8 @@ SMODS.Joker({
         end
     end,
 })
+
+-- Cir, Malebranche of the Burning Abyss
 SMODS.Joker({
     key = "ba_cir",
     atlas = 'BA',
@@ -223,7 +232,7 @@ SMODS.Joker({
         return { vars = { card.ability.extra.xmult, card.ability.extra.revives } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
+        { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -259,6 +268,8 @@ SMODS.Joker({
         end
     end
 })
+
+-- Draghig, Malebranche of the Burning Abyss
 SMODS.Joker({
     key = "ba_draghig",
     atlas = 'BA',
@@ -275,7 +286,7 @@ SMODS.Joker({
         return { vars = { card.ability.extra.chips, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
+        { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -313,6 +324,8 @@ SMODS.Joker({
         end
     end,
 })
+
+-- Farfa, Malebranche of the Burning Abyss
 SMODS.Joker({
     key = "ba_farfa",
     atlas = 'BA',
@@ -329,7 +342,7 @@ SMODS.Joker({
         return { vars = { card.ability.extra.banish } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
+        { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -361,6 +374,8 @@ SMODS.Joker({
         end
     end,
 })
+
+-- Graff, Malebranche of the Burning Abyss
 SMODS.Joker({
     key = "ba_graff",
     atlas = 'BA',
@@ -377,7 +392,7 @@ SMODS.Joker({
         return { vars = { card.ability.extra.mult, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
+        { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -415,6 +430,8 @@ SMODS.Joker({
         end
     end,
 })
+
+-- Libic, Malebranche of the Burning Abyss
 SMODS.Joker({
     key = "ba_libic",
     atlas = 'BA',
@@ -431,7 +448,7 @@ SMODS.Joker({
         return { vars = { card.ability.extra.revives } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
+        { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -458,6 +475,8 @@ SMODS.Joker({
         end
     end
 })
+
+-- Rubic, Malebranche of the Burning Abyss
 SMODS.Joker({
     key = "ba_rubic",
     atlas = 'BA',
@@ -471,7 +490,7 @@ SMODS.Joker({
         return { vars = { card.ability.extra.adds } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
+        { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -503,6 +522,8 @@ SMODS.Joker({
         end
     end
 })
+
+-- Scarm, Malebranche of the Burning Abyss
 SMODS.Joker({
     key = "ba_scarm",
     atlas = 'BA',
@@ -520,7 +541,7 @@ SMODS.Joker({
     end,
     joy_desc_cards = {
         { properties = { { is_main_deck = true, monster_type = "Fiend" } }, name = "k_joy_creates" },
-        { properties = { { monster_archetypes = { "BurningAbyss" } } },     name = localize("k_joy_archetype") },
+        { "j_joy_ba_beatrice",                                              properties = { { monster_archetypes = { "BurningAbyss" } } }, name = localize("k_joy_archetype") },
     },
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -549,6 +570,8 @@ SMODS.Joker({
         end
     end
 })
+
+-- Malacoda, Netherlord of the Burning Abyss
 SMODS.Joker({
     key = "ba_malacoda",
     atlas = 'BA',
@@ -565,7 +588,7 @@ SMODS.Joker({
         }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
+        { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -600,6 +623,8 @@ SMODS.Joker({
         end
     end
 })
+
+-- Cherubini, Ebon Angel of the Burning Abyss
 SMODS.Joker({
     key = "ba_cherubini",
     atlas = 'BA',
@@ -613,7 +638,7 @@ SMODS.Joker({
         return { vars = { card.ability.extra.mills } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
+        { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -649,6 +674,8 @@ SMODS.Joker({
         end
     end
 })
+
+-- Dante, Traveler of the Burning Abyss
 SMODS.Joker({
     key = "ba_dante",
     atlas = 'BA',
@@ -666,7 +693,7 @@ SMODS.Joker({
         return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.get_graveyard_count(), card.ability.extra.detach, card.ability.extra.mills } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
+        { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -717,6 +744,8 @@ SMODS.Joker({
         end
     end
 })
+
+-- Dante, Pilgrim of the Burning Abyss
 SMODS.Joker({
     key = "ba_pilgrim",
     atlas = 'BA',
@@ -730,7 +759,7 @@ SMODS.Joker({
         return { vars = { card.ability.extra.hands, card.ability.extra.discards } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
+        { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -776,6 +805,8 @@ SMODS.Joker({
         end
     end,
 })
+
+-- Virgil, Rock Star of the Burning Abyss
 SMODS.Joker({
     key = "ba_virgil",
     atlas = 'BA',
@@ -789,7 +820,7 @@ SMODS.Joker({
         return { vars = { card.ability.extra.h_size } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
+        { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -819,6 +850,8 @@ SMODS.Joker({
         end
     end
 })
+
+-- Beatrice, Lady of the Eternal
 SMODS.Joker({
     key = "ba_beatrice",
     atlas = 'BA',
@@ -835,8 +868,8 @@ SMODS.Joker({
         return { vars = { card.ability.extra.xmult, 1 + (card.ability.extra.xmult * JoyousSpring.get_graveyard_count()), card.ability.extra.detach, card.ability.extra.revives } }
     end,
     joy_desc_cards = {
-        { "j_joy_ba_dante",                                             "j_joy_ba_pilgrim",      name = localize("k_joy_adds") },
-        { properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
+        { "j_joy_ba_dante",    "j_joy_ba_pilgrim",                                           name = localize("k_joy_adds") },
+        { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -853,7 +886,7 @@ SMODS.Joker({
                 summon_type = "XYZ",
                 attribute = "LIGHT",
                 monster_type = "Fairy",
-                monster_archetypes = { ["BurningAbyss"] = true },
+                monster_archetypes = {},
                 summon_conditions = {
                     {
                         type = "XYZ",
