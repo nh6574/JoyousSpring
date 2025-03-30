@@ -462,7 +462,7 @@ SMODS.Joker({
         return { vars = { card.ability.extra.mills, card.ability.extra.revives } }
     end,
     joy_desc_cards = {
-        { "j_joy_eld_eldlich",                                                                                name = localize("k_joy_mills") },
+        { "j_joy_eld_eldlich",                                                                                name = "k_joy_mills" },
         { properties = { { monster_archetypes = { "Eldlich" } }, { monster_archetypes = { "GoldenLand" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,

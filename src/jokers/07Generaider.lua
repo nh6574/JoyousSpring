@@ -20,7 +20,7 @@ SMODS.Joker({
         return {}
     end,
     joy_desc_cards = {
-        { "j_joy_generaider_boss_stage",                              name = localize("k_joy_creates") },
+        { "j_joy_generaider_boss_stage",                              name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Generaider" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,
@@ -742,7 +742,7 @@ SMODS.Joker({
         return { vars = { card.ability.extra.detach } }
     end,
     joy_desc_cards = {
-        { "j_joy_generaider_jormungandr",                             name = localize("k_joy_creates") },
+        { "j_joy_generaider_jormungandr",                             name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Generaider" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,

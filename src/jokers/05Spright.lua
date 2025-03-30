@@ -372,7 +372,7 @@ SMODS.Joker({
         return { vars = { card.ability.extra.base_materials, card.ability.extra.detached } }
     end,
     joy_desc_cards = {
-        { "j_joy_spright_gigantic",                                name = localize("k_joy_adds") },
+        { "j_joy_spright_gigantic",                                name = "k_joy_adds" },
         { properties = { { monster_archetypes = { "Spright" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,

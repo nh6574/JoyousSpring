@@ -20,7 +20,7 @@ SMODS.Joker({
         return { vars = { card.ability.extra.extra_slots, card.ability.extra.cards_to_create } }
     end,
     joy_desc_cards = {
-        { "j_joy_runick_fountain",                                name = localize("k_joy_creates") },
+        { "j_joy_runick_fountain",                                name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Runick" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,
@@ -136,7 +136,7 @@ SMODS.Joker({
         return { vars = { card.ability.extra.fields_to_create, card.ability.extra.cards_to_create } }
     end,
     joy_desc_cards = {
-        { "j_joy_runick_fountain",                                name = localize("k_joy_creates") },
+        { "j_joy_runick_fountain",                                name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Runick" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,

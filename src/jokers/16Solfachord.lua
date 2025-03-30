@@ -397,7 +397,7 @@ SMODS.Joker({
         return { vars = { card.ability.extra.change, card.ability.extra.repetitions, card.ability.extra.creates, card.ability.extra.scored, card.ability.extra.currently_scored } }
     end,
     joy_desc_cards = {
-        { "j_joy_solfa_harmonia",                                     name = localize("k_joy_creates") },
+        { "j_joy_solfa_harmonia",                                     name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Solfachord" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,

@@ -128,7 +128,7 @@ SMODS.Joker({
         return { vars = { card.ability.extra.chips, card.ability.extra.mills } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_type = "Fiend" } }, name = localize("k_joy_mills") },
+        { properties = { { monster_type = "Fiend" } }, name = "k_joy_mills" },
         { "j_joy_ba_beatrice",                         properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,
@@ -541,7 +541,7 @@ SMODS.Joker({
     end,
     joy_desc_cards = {
         { properties = { { is_main_deck = true, monster_type = "Fiend" } }, name = "k_joy_creates" },
-        { "j_joy_ba_beatrice",                                              properties = { { monster_archetypes = { "BurningAbyss" } } }, name = localize("k_joy_archetype") },
+        { "j_joy_ba_beatrice",                                              properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -868,7 +868,7 @@ SMODS.Joker({
         return { vars = { card.ability.extra.xmult, 1 + (card.ability.extra.xmult * JoyousSpring.get_graveyard_count()), card.ability.extra.detach, card.ability.extra.revives } }
     end,
     joy_desc_cards = {
-        { "j_joy_ba_dante",    "j_joy_ba_pilgrim",                                           name = localize("k_joy_adds") },
+        { "j_joy_ba_dante",    "j_joy_ba_pilgrim",                                           name = "k_joy_adds" },
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,
