@@ -265,7 +265,9 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
                 loc_vars = self:loc_vars({}, card) or {}
             end
             localize { type = "joy_consumable", set = self.set, key = self.key, nodes = full_UI_table.joy_consumable, vars = loc_vars.vars or {} }
-            table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_pendulum_joker" })
+            if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+                table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_pendulum_joker" })
+            end
         end
 
         -- Transferred ability
@@ -326,8 +328,14 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
             localize { type = "joy_summon_conditions", set = self.set, key = self.key, nodes = summon_desc_nodes }
         end
 
+        -- Add tooltip if it's a trap
+        if JoyousSpring.is_trap_monster(card) then
+            if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+                table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_trap" })
+            end
+        end
         -- Add tooltip if it has a related cards menu
-        if self.joy_desc_cards then
+        if self.joy_desc_cards and not card.fake_card then
             table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_related" })
         end
     end
