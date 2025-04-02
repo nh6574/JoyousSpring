@@ -813,7 +813,6 @@ SMODS.Joker({
                 if JoyousSpring.is_playing_card(context.joy_card_flipped) and pseudorandom("j_joy_lab_labyrinth") <
                     G.GAME.probabilities.normal / card.ability.extra.odds then
                     return {
-                        message = localize("k_joy_flip"),
                         func = function()
                             G.E_MANAGER:add_event(Event({
                                 trigger = 'after',
@@ -846,6 +845,7 @@ SMODS.Joker({
                                                 if card.ability.extra.any_flipped then
                                                     card.ability.extra.any_flipped = false
                                                     G.hand:shuffle("j_joy_lab_labyrinth")
+                                                    SMODS.calculate_effect({ message = localize("k_joy_flip") }, card)
                                                 end
                                                 return true
                                             end)
