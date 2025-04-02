@@ -1002,7 +1002,8 @@ SMODS.Joker({
                 monster_type = "Fairy",
                 monster_archetypes = { ["Invoked"] = true }
             },
-            tributes = 1
+            tributes = 1,
+            reduces = 2
         },
     },
     calculate = function(self, card, context)
