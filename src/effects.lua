@@ -231,14 +231,16 @@ end
 ---@param silent boolean?
 ---@param colours table?
 ---@param seed number?
-JoyousSpring.create_random_playing_card = function(enhanced_prob, silent, colours, seed)
+JoyousSpring.create_random_playing_card = function(enhanced_prob, silent, colours, seed, ranks, suits)
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 0.3,
         func = function()
-            local _rank = pseudorandom_element({ 'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K' },
+            local _rank = pseudorandom_element(
+                ranks or { 'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K' },
                 seed or pseudoseed('JoyousSpring')) or 'A'
-            local _suit = pseudorandom_element({ 'S', 'H', 'D', 'C' }, seed or pseudoseed('JoyousSpring')) or 'S'
+            local _suit = pseudorandom_element(suits or { 'S', 'H', 'D', 'C' }, seed or pseudoseed('JoyousSpring')) or
+                'S'
             local cen_pool = {}
             for k, v in pairs(G.P_CENTER_POOLS["Enhanced"]) do
                 if v.key ~= 'm_stone' then

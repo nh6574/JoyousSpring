@@ -405,7 +405,7 @@ SMODS.Joker({
             flipped = 5,
             count = 0,
             pcard_count = 0,
-            active = true,
+            active = false,
             hand_size_changed = 0
         },
     },
@@ -478,7 +478,7 @@ SMODS.Joker({
             flipped = 5,
             count = 0,
             pcard_count = 0,
-            active = true,
+            active = false,
             hand_size_changed = 0
         },
     },
@@ -549,7 +549,7 @@ SMODS.Joker({
             chips = 10,
             flipped = 10,
             count = 0,
-            active = true,
+            active = false,
             total_count = 0
         },
     },
