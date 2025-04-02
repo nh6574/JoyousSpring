@@ -394,7 +394,7 @@ end
 local cardarea_can_highlight_ref = CardArea.can_highlight
 function CardArea:can_highlight(card)
     return self.config.type == 'extra_deck' or self.config.type == 'summon_materials' or
-    cardarea_can_highlight_ref(self, card)
+        cardarea_can_highlight_ref(self, card)
 end
 
 local cardarea_add_to_highlighted_ref = CardArea.add_to_highlighted
@@ -448,10 +448,10 @@ function CardArea:align_cards()
                     (self.T.w - self.card_w) *
                     ((k - 1) / math.max(max_cards - 1, 1) - 0.5 * (#self.cards - max_cards) / math.max(max_cards - 1, 1)) +
                     0.5 * (self.card_w - card.T.w)
-                if #self.cards > 2 or (#self.cards > 1 and self == G.consumeables) or (#self.cards > 1 and self.config.spread) then
+                if #self.cards > 2 or (#self.cards > 1 and self.config.spread) then
                     card.T.x = self.T.x + (self.T.w - self.card_w) * ((k - 1) / (#self.cards - 1)) +
                         0.5 * (self.card_w - card.T.w)
-                elseif #self.cards > 1 and self ~= G.consumeables then
+                elseif #self.cards > 1 then
                     card.T.x = self.T.x + (self.T.w - self.card_w) * ((k - 0.5) / (#self.cards)) +
                         0.5 * (self.card_w - card.T.w)
                 else
