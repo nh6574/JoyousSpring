@@ -37,3 +37,14 @@ match_indent = true
 payload = '''
 AUT.joy_consumable and desc_from_rows(AUT.joy_consumable) or nil,
 '''
+
+# Better info_queue layout
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = "local nodes_per_col = math.ceil(#info_boxes/cols)"
+position = 'before'
+match_indent = true
+payload = '''
+if JoyousSpring.is_monster_card(card) then cols = 1 end
+'''

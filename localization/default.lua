@@ -2599,7 +2599,7 @@ return {
 				name = "{C:joy_trap}Paleozoic Canadia",
 				text = {
 					"Gains {C:mult}+#1#{} Mult for each {C:attention}Joker{} {C:attention}flipped",
-					"{s:0.9,C:inactive}(Even while face-down)",
+					"{s:0.9,C:inactive}(Gains even while face-down)",
 					"{C:inactive}(Currently {C:mult}+#2# {C:inactive}Mult)",
 					" ",
 					"{C:joy_effect}FLIP{}: {C:attention}Revive #3#{} {C:joy_normal}\"Paleozoic\"",
@@ -2638,7 +2638,7 @@ return {
 				name = "{C:joy_trap}Paleozoic Leanchoilia",
 				text = {
 					"Gains {C:chips}+#1#{} Chips for each {C:attention}Joker{} {C:attention}flipped",
-					"{s:0.9,C:inactive}(Even while face-down)",
+					"{s:0.9,C:inactive}(Gains even while face-down)",
 					"{C:inactive}(Currently {C:chips}+#2# {C:inactive}Chips)",
 					" ",
 					"{C:joy_effect}FLIP{}: {C:attention}Revive #3#{} {C:joy_normal}\"Paleozoic\"",
@@ -3405,6 +3405,15 @@ return {
 					"the Balatro Discord <3"
 				}
 			},
+			--#region Alt Text
+			joy_face_down = {
+				name = "Face-down monster",
+				text = {
+					"Can't use or activate abilities",
+					"{C:inactive}(Unless specified)",
+				},
+			},
+			--#endregion
 			--#region Tooltips
 			joy_tooltip_related = {
 				name = "Related Cards",

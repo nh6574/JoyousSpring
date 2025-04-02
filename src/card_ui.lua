@@ -334,6 +334,12 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
                 table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_trap" })
             end
         end
+        -- Add tooltip if it's face-down
+        if card.facing == 'back' then
+            if not card.fake_card then
+                table.insert(info_queue, 1, { set = "Other", key = "joy_face_down" })
+            end
+        end
         -- Add tooltip if it has a related cards menu
         if self.joy_desc_cards and not card.fake_card then
             table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_related" })
@@ -661,5 +667,17 @@ JoyousSpring.create_overlay_see_related = function(card)
                 }
             })
         })
+    end
+end
+
+local card_hover_ref = Card.hover
+function Card:hover()
+    card_hover_ref(self)
+    if self.facing == 'back' and (not self.states.drag.is or G.CONTROLLER.HID.touch) and not self.no_ui and JoyousSpring.is_monster_card(self) then
+        self.ability_UIBox_table = self:generate_UIBox_ability_table()
+        self.config.h_popup = G.UIDEF.card_h_popup(self)
+        self.config.h_popup_config = self:align_h_popup()
+
+        Node.hover(self)
     end
 end
