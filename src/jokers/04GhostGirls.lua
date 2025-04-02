@@ -407,7 +407,7 @@ SMODS.Joker({
         end
     end,
     get_weight = function(self, args)
-        return 0.01
+        return 0.08
     end,
     joker_display_def = function(JokerDisplay)
         return {
