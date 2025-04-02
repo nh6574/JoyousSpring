@@ -1456,7 +1456,7 @@ SMODS.Joker({
         return {
             vars = {
                 card.ability.extra.xmult,
-                card.ability.extra.current_xmult,
+                card.ability.extra.current_xmult > 0 and card.ability.extra.current_xmult or 1,
                 card.ability.extra.money,
                 card.ability.extra.creates,
                 card.ability.extra.chips,
