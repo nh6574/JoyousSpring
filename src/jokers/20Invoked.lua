@@ -604,7 +604,7 @@ SMODS.Joker({
                     invoked_detransform(card, context.joy_selection[1])
                 end
             end
-            if context.other_joker and JoyousSpring.is_summon_type(context.other_joker, "FUSION") then
+            if context.other_joker and context.other_joker.facing == "front" and JoyousSpring.is_summon_type(context.other_joker, "FUSION") then
                 return {
                     xmult = card.ability.extra.xmult,
                 }
@@ -626,7 +626,7 @@ SMODS.Joker({
         return other_card.config.center.key == "j_joy_invoked_elysium"
     end,
     joy_transfer_ability_calculate = function(self, other_card, context, config)
-        if JoyousSpring.can_use_abilities(other_card) and context.other_joker and JoyousSpring.is_summon_type(context.other_joker, "FUSION") then
+        if JoyousSpring.can_use_abilities(other_card) and context.other_joker and context.other_joker.facing == "front" and JoyousSpring.is_summon_type(context.other_joker, "FUSION") then
             return {
                 xmult = config.xmult
             }

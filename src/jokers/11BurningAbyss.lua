@@ -307,7 +307,7 @@ SMODS.Joker({
                 card.getting_sliced = true
                 card:start_dissolve()
             end
-            if context.other_joker and JoyousSpring.is_monster_type(context.other_joker, "Fiend") then
+            if context.other_joker and context.other_joker.facing == "front" and JoyousSpring.is_monster_type(context.other_joker, "Fiend") then
                 return {
                     chips = card.ability.extra.chips
                 }
@@ -413,7 +413,7 @@ SMODS.Joker({
                 card.getting_sliced = true
                 card:start_dissolve()
             end
-            if context.other_joker and JoyousSpring.is_monster_type(context.other_joker, "Fiend") then
+            if context.other_joker and context.other_joker.facing == "front" and JoyousSpring.is_monster_type(context.other_joker, "Fiend") then
                 return {
                     mult = card.ability.extra.mult
                 }

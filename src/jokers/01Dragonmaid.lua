@@ -103,7 +103,7 @@ SMODS.Joker({
                 context.end_of_round and context.game_over == false and context.main_eval then
                 JoyousSpring.transform_card(card, "j_joy_dmaid_kitchen")
             end
-            if context.other_joker and JoyousSpring.is_monster_archetype(context.other_joker, "Dragonmaid") then
+            if context.other_joker and context.other_joker.facing == "front" and JoyousSpring.is_monster_archetype(context.other_joker, "Dragonmaid") then
                 return {
                     mult = card.ability.extra.mult,
                 }
@@ -263,7 +263,7 @@ SMODS.Joker({
                 context.end_of_round and context.game_over == false and context.main_eval then
                 JoyousSpring.transform_card(card, "j_joy_dmaid_parlor")
             end
-            if context.other_joker and JoyousSpring.is_monster_archetype(context.other_joker, "Dragonmaid") then
+            if context.other_joker and context.other_joker.facing == "front" and JoyousSpring.is_monster_archetype(context.other_joker, "Dragonmaid") then
                 return {
                     xmult = card.ability.extra.xmult,
                 }

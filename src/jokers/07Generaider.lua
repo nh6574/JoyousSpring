@@ -497,7 +497,7 @@ SMODS.Joker({
                     card.ability.extra.active = false
                 end
             end
-            if context.other_joker and (JoyousSpring.is_monster_archetype(context.other_joker, "Generaider") or
+            if context.other_joker and context.other_joker.facing == "front" and (JoyousSpring.is_monster_archetype(context.other_joker, "Generaider") or
                     JoyousSpring.is_monster_type(context.other_joker, "Machine")) then
                 if card.ability.extra.active then
                     return {

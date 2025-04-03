@@ -106,7 +106,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if context.other_joker and JoyousSpring.is_monster_archetype(context.other_joker, "Dogmatika") then
+            if context.other_joker and context.other_joker.facing == "front" and JoyousSpring.is_monster_archetype(context.other_joker, "Dogmatika") then
                 return {
                     mult = card.ability.extra.mult,
                 }

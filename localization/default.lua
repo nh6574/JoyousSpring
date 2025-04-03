@@ -3584,6 +3584,7 @@ return {
 				name = "Face-down monster",
 				text = {
 					"Can't use or activate abilities",
+					"and count as blank Jokers for abilities",
 					"{C:inactive}(Unless specified)",
 				},
 			},
@@ -3618,7 +3619,9 @@ return {
 				name = "Extra Deck Joker",
 				text = {
 					"{C:joy_fusion}Fusion{}, {C:joy_synchro}Synchro{},",
-					"{C:joy_xyz}Xyz{} and {C:joy_link}Link{} {C:attention}Jokers{}"
+					"{C:joy_xyz}Xyz{} and {C:joy_link}Link{} {C:attention}Jokers{}",
+					"{s:0.9,C:inactive}(Cards in the Extra Deck don't count",
+					"{s:0.9,C:inactive}as owned for abilities)"
 				},
 			},
 			joy_tooltip_main_deck_joker = {

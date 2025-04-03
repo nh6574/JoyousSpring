@@ -624,7 +624,7 @@ SMODS.Joker({
             JoyousSpring.tribute(card, context.joy_selection)
             ease_hands_played(card.ability.extra.hands)
         end
-        if context.other_joker and JoyousSpring.is_monster_archetype(context.other_joker, "MekkKnight") then
+        if context.other_joker and context.other_joker.facing == "front" and JoyousSpring.is_monster_archetype(context.other_joker, "MekkKnight") then
             return {
                 mult = card.ability.extra.mult,
             }
