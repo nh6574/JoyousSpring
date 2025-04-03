@@ -3195,10 +3195,6 @@ return {
 					"{C:inactive}(Currently{} {C:chips}+#2#{} {C:inactive}Chips){}",
 				},
 			},
-			j_joy_heavenlyprison = {
-				name = "Lord of the Heavenly Prison",
-				text = { "TBD" }
-			},
 			j_joy_rhino = {
 				name = "{C:joy_effect}Fiendish Rhino Warrior",
 				text = {
@@ -3214,77 +3210,132 @@ return {
 					"{C:blue}Common{} or {C:green}Uncommon{} {C:joy_normal}Fiend{} when obtained",
 				}
 			},
-			j_joy_backup = {
-				name = "Backup Secretary",
+			j_joy_heavenlyprison = {
+				name = "{C:joy_effect}Lord of the Heavenly Prison",
 				text = {
-					"TBD"
+					"{X:mult,C:white}X#1#{} Mult,",
+					"gains {X:mult,C:white}X#2#{} Mult for each {C:joy_trap}Trap",
+					"{C:inactive}(Currently {X:mult,C:white}X#3#{} {C:inactive}Mult)",
+					" ",
+					"{C:joy_trap}Traps{} don't {C:attention}flip{} face-down by their own abilities",
+					"and keep their {C:joy_effect}FLIP{} abilities",
+				}
+			},
+			j_joy_backup = {
+				name = "{C:joy_effect}Backup Secretary",
+				text = {
+					"Adds {C:attention}#1#{} {C:joy_normal}Cyberse{} to the {C:joy_spell}Extra Deck{} when used as {C:attention}material{}",
+					" ",
+					"Free if you own a {C:joy_normal}Cyberse{}"
 				}
 			},
 			j_joy_wizard = {
-				name = "Cyberse Wizard",
-				text = { "TBD" }
+				name = "{C:joy_effect}Cyberse Wizard",
+				text = {
+					"{C:chips}+#1#{} Chips for each {C:joy_normal}Cyberse{}",
+					"{C:inactive}(Currently {C:chips}+#2#{} {C:inactive}Chips)",
+					" ",
+					"Free if you own a {C:joy_normal}Cyberse{}"
+				}
 			},
 			j_joy_zenoguitar = {
-				name = "Rock Band Xenoguitar",
+				name = "{C:joy_effect}Rock Band Xenoguitar",
 				text = { "TBD" }
 			},
 			j_joy_revgolem = {
-				name = "Revival Golem",
+				name = "{C:joy_effect}Revival Golem",
 				text = { "TBD" }
 			},
 			j_joy_tackcrusader = {
-				name = "Tackle Crusader",
+				name = "{C:joy_effect}Tackle Crusader",
 				text = { "TBD" }
 			},
 			j_joy_doki = {
-				name = "Doki Doki",
+				name = "{C:joy_effect}Doki Doki",
 				text = { "TBD" }
 			},
 			j_joy_blockdragon = {
-				name = "Block Dragon",
+				name = "{C:joy_effect}Block Dragon",
 				text = { "TBD" }
 			},
 			--#endregion
 			--#region Trap
 			j_joy_quantumcat = {
-				name = "Quantum Cat",
-				text = { "TBD" }
+				name = "{C:joy_trap}Quantum Cat",
+				text = {
+					"{C:chips}+#1#{} Chips",
+					" ",
+					"Treated as any {C:attention}Type{} and as any {C:attention}Attribute{} while owned"
+				}
 			},
 			j_joy_anguish = {
-				name = "Statue of Anguish Pattern",
-				text = { "TBD" }
+				name = "{C:joy_trap}Statue of Anguish Pattern",
+				text = {
+					"{C:joy_effect}FLIP{}: {C:money}+$#1#{} for each {C:joy_trap}Trap",
+					" ",
+					"{C:joy_trap}Traps{} can't be debuffed"
+				}
 			},
 			j_joy_tiki_curse = {
-				name = "Tiki Curse",
-				text = { "TBD" }
+				name = "{C:joy_trap}Tiki Curse",
+				text = {
+					"{C:chips}+#1#{} Chips for each {C:joy_trap}Trap",
+					"{C:inactive}(Currently {C:chips}+#2#{} {C:inactive}Chips)"
+				}
 			},
 			j_joy_tiki_soul = {
-				name = "Tiki Soul",
-				text = { "TBD" }
+				name = "{C:joy_trap}Tiki Soul",
+				text = {
+					"{C:mult}+#1#{} Mult for each {C:joy_trap}Trap",
+					"{C:inactive}(Currently {C:mult}+#2#{} {C:inactive}Mult)"
+				}
 			},
 			j_joy_zoma = {
-				name = "Zoma the Spirit",
-				text = { "TBD" }
+				name = "{C:joy_trap}Zoma the Spirit",
+				text = {
+					"Sell this card to lower {C:attention}Blind{}'s requirement by {C:red}#1#%",
+					"for each time this card was {C:attention}flipped{} face-up",
+					"{C:inactive}(Currently {C:red}#2#%{}{C:inactive})"
+				}
 			},
 			j_joy_zoma_earthbound = {
-				name = "Zoma the Earthbound Spirit",
-				text = { "TBD" }
+				name = "{C:joy_trap}Zoma the Earthbound Spirit",
+				text = {
+					"{C:mult}+#1#{} Mult for each time this card was {C:attention}flipped{} face-up",
+					"{C:inactive}(Currently {C:mult}+#2#{} {C:inactive}Mult)",
+					" ",
+					"Sell this card to lower {C:attention}Blind{}'s requirement by {C:red}#3#%",
+					"for each time this card was {C:attention}flipped{} face-up",
+					"{C:inactive}(Currently {C:red}#4#%{}{C:inactive})"
+				}
 			},
 			j_joy_finished = {
-				name = "You're Finished",
-				text = { "TBD" }
+				name = "{C:joy_trap}You're Finished",
+				text = {
+					"{X:mult,C:white}X#1#{} Mult if you own {C:attention}#1# Jokers{} or more",
+					" ",
+					"You can {C:attention}tribute{} this card and all other {C:attention}Jokers{} to win the current {C:attention}Blind"
+				}
 			},
 			j_joy_apophis = {
-				name = "Embodiment of Apophis",
-				text = { "TBD" }
+				name = "{C:joy_trap}Embodiment of Apophis",
+				text = {
+					"{C:mult}+#1#{} Mult"
+				}
 			},
 			j_joy_azurune = {
-				name = "Angel Statue - Azurune",
-				text = { "TBD" }
+				name = "{C:joy_trap}Angel Statue - Azurune",
+				text = {
+					"Gains {X:mult,C:white}X#1#{} Mult for each",
+					"{C:attention}Joker{} summoned this run",
+					"{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)"
+				}
 			},
 			j_joy_crukra = {
-				name = "Crusadia Krawler",
-				text = { "TBD" }
+				name = "{C:joy_trap}Crusadia Krawler",
+				text = {
+					"Each {C:joy_link}Link{} gives {X:mult,C:white}X#1#{} Mult",
+				}
 			},
 			--#endregion
 			--#region Pendulum
@@ -3299,12 +3350,29 @@ return {
 				},
 			},
 			j_joy_pendulumoon = {
-				name = "PenduLuMoon",
-				text = { "TBD" }
+				name = "{C:joy_pendulum_effect}PenduLuMoon",
+				joy_consumable = {
+					"{C:attention}Revive #1#{} {C:joy_pendulum}Pendulum{} as {C:dark_edition}Negative"
+				},
+				text = {
+					"Send {C:attention}#2#{} {C:joy_pendulum}Pendulum{} to the {C:attention}GY{}",
+					"when {C:attention}Blind{} is selected"
+				},
 			},
 			j_joy_couverture = {
-				name = "Patissciel Couverture",
-				text = { "TBD" }
+				name = "{C:joy_pendulum_fusion}Patissciel Couverture",
+				joy_consumable = {
+					"Create {C:attention}#1#{} {C:red}Rare{} {C:joy_pendulum}Pendulum{}",
+					"{C:inactive}(Must have room)"
+				},
+				text = {
+					"Add {C:attention}#2#{} {C:joy_pendulum_fusion}Patissciel Couverture{}",
+					"to the {C:joy_spell}Extra Deck{} if this card is consumed",
+					"{C:inactive}(Must have room)"
+				},
+				joy_summon_conditions = {
+					"{C:attention}2{} {C:joy_pendulum}Pendulum{}"
+				}
 			},
 			--#endregion
 			--#region Ritual
@@ -3351,18 +3419,47 @@ return {
 			--#endregion
 			--#region Synchro
 			j_joy_firewall_saber = {
-				name = "Firewall Saber Dragon",
-				text = { "TBD" }
+				name = "{C:joy_synchro}Firewall Saber Dragon",
+				text = {
+					"{C:attention}Revive #1#{} {C:joy_spell}Extra Deck{} {C:joy_normal}Cyberse{} as {C:dark_edition}Negative{} when summoned",
+					" ",
+					"Create {C:attention}#2#{} {C:dark_edition}Negative{} {C:spectral}Spectral{} when used as {C:attention}material{} for a {C:joy_link}Link"
+				},
+				joy_summon_conditions = {
+					"{C:attention}1{} {C:joy_normal}Cyberse{} {C:joy_synchro}Tuner{} +",
+					"{C:attention}1+{} non-{C:joy_synchro}Tuner{}",
+					"{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
+				}
 			},
 			--#endregion
 			--#region Xyz
 			j_joy_zeus = {
-				name = "Divine Arsenal AA-ZEUS - Sky Thunder",
-				text = { "TBD" }
+				name = "{C:joy_xyz}Divine Arsenal AA-ZEUS - Sky Thunder",
+				text = {
+					"{C:joy_xyz}Detach{} {C:attention}#1#{}: Reduce current {C:attention}Blind{}'s requirement by {C:red}#2#%",
+					"but remove all enhancements in the deck"
+				},
+				joy_summon_conditions = {
+					"{C:attention}2+{} {C:red}Rare{} {C:attention}Jokers{}",
+					"{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, {s:0.9,C:joy_link}Links{} {s:0.9,C:inactive}or {s:0.9,C:joy_token}Tokens{s:0.9,C:inactive})",
+					"OR {C:attention}1{} {C:joy_xyz}Xyz{} that detached",
+					"a {C:attention}material{} this round",
+					"{s:0.9,C:inactive}(Transfer its materials)"
+				}
 			},
 			j_joy_typhon = {
-				name = "Super Starslayer TY-PHON - Sky Crisis",
-				text = { "TBD" }
+				name = "{C:joy_xyz}Super Starslayer TY-PHON - Sky Crisis",
+				text = {
+					"{C:joy_xyz}Detach{} {C:attention}#1#{}: Turn each scored card into a",
+					"{C:attention}Red Seal{} {C:dark_edition}Polychrome{} {C:attention}Glass{} card after scoring",
+					"but reduces {C:money}money{} by {C:red}#2#%{}"
+				},
+				joy_summon_conditions = {
+					"{C:attention}2+{} {C:red}Rare{} {C:attention}Jokers{}",
+					"{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, {s:0.9,C:joy_link}Links{} {s:0.9,C:inactive}or {s:0.9,C:joy_token}Tokens{s:0.9,C:inactive})",
+					"OR {C:attention}1{} {C:attention}Joker{} if {C:attention}2{} or more",
+					"{C:attention}Jokers{} were summoned this round"
+				}
 			},
 			--#endregion
 			--#region Link
@@ -3378,16 +3475,30 @@ return {
 				}
 			},
 			j_joy_beyond = {
-				name = "Beyond the Pendulum",
-				text = { "TBD" }
+				name = "{C:joy_link}Beyond the Pendulum",
+				text = {
+					"{C:mult}+#1#{} Mult for each {C:joy_pendulum}Pendulum{}",
+					"consumed this round",
+					"{C:inactive}(Currently{} {C:mult}+#2#{} {C:inactive}Mult){}",
+					" ",
+					"Create {C:attention}#3#{} {C:joy_pendulum}Pendulum{} after {C:attention}#4#{} are consumed",
+					"{C:inactive}(#5#/#4#) (Must have room)"
+				}
 			},
 			j_joy_linkuriboh = {
-				name = "Linkuriboh",
-				text = { "TBD" }
+				name = "{C:joy_link}Linkuriboh",
+				text = {
+					"Sell this card to disable the current {C:attention}Boss Blind{} and",
+					"but sets {C:money}money{} to {C:money}$0"
+				}
 			},
 			j_joy_linguriboh = {
-				name = "Linguriboh",
-				text = { "TBD" }
+				name = "{C:joy_link}Linguriboh",
+				text = {
+					"Sell this card to disable the current {C:attention}Boss Blind{} and",
+					"but reduces hand size by {C:attention}#1#{} if not summoned",
+					"using a {C:joy_normal}\"@Ignister\"{} as {C:attention}material"
+				}
 			},
 			--#endregion
 			--#endregion
@@ -3528,6 +3639,8 @@ return {
 				name = "Pendulum Joker",
 				text = {
 					"Can be used as consumable",
+					"{C:inactive}({C:joy_spell}Special{} {C:inactive}Jokers have to be",
+					"{C:inactive}properly summoned first)"
 				},
 			},
 			joy_tooltip_banish = {
