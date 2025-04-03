@@ -28,6 +28,10 @@ SMODS.Atlas({
 ---@field joy_transfer_add_to_deck? fun(self:SMODS.Center|table, other_card:Card|table, config:table, card:Card|table?, from_debuff:boolean, materials:table[]|Card[]?) Similar to `add_to_deck` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect, `card` is the transfering material which only exists when transferred
 ---@field joy_transfer_remove_from_deck? fun(self:SMODS.Center|table, other_card:Card|table, config:table, from_debuff:boolean) Similar to `remove_from_deck` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect
 ---@field joy_transfer_calc_dollar_bonus? fun(self:SMODS.Center|table, other_card:Card|table, config:table) Similar to `calc_dollar_bonus` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect
+---@field joy_transfer_flip_effect_active? fun(self:SMODS.Center|table, ability_card:Card|table, other_card:Card|table, config:table):boolean? Similar to `joy_flip_effect_active` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
+---@field joy_transfer_modify_cost? fun(self:SMODS.Center|table, ability_card:Card|table, other_card:Card|table, config:table):boolean? Similar to `joy_modify_cost` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
+---@field joy_transfer_prevent_flip? fun(self:SMODS.Center|table, ability_card:Card|table, other_card:Card|table, config:table):boolean? Similar to `joy_prevent_flip` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
+---@field joy_transfer_apply_to_jokers_added? fun(self:SMODS.Center|table, ability_card:Card|table, added_card:Card|table, config:table):boolean? Similar to `joy_apply_to_jokers_added` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
 
 ---@alias summon_type
 ---|'"NORMAL"'
@@ -115,6 +119,8 @@ SMODS.Atlas({
 ---@field exclude_tuners boolean?
 ---@field is_trap boolean?
 ---@field exclude_traps boolean?
+---@field is_flip boolean?
+---@field exclude_flips boolean?
 ---@field has_edition boolean?
 ---@field exclude_edition boolean?
 ---@field can_flip boolean?
@@ -144,6 +150,7 @@ SMODS.Atlas({
 ---@field is_tuner boolean?
 ---@field is_pendulum boolean?
 ---@field is_trap boolean?
+---@field is_flip boolean?
 ---@field attribute attribute?
 ---@field monster_type monster_type?
 ---@field monster_archetypes table?
@@ -167,6 +174,7 @@ JoyousSpring.init_joy_table = function(params)
         is_tuner = params.is_tuner or false,
         is_pendulum = params.is_pendulum or false,
         is_trap = params.is_trap or false,
+        is_flip = params.is_flip or false,
         attribute = params.attribute or "FIRE",
         monster_type = params.monster_type or "Dragon",
         monster_archetypes = params.monster_archetypes or {},
@@ -240,6 +248,10 @@ JoyousSpring.is_trap_monster = function(card)
     return JoyousSpring.is_monster_card(card) and card.ability.extra.joyous_spring.is_trap or false
 end
 
+JoyousSpring.is_flip_monster = function(card)
+    return JoyousSpring.is_monster_card(card) and card.ability.extra.joyous_spring.is_flip or false
+end
+
 JoyousSpring.is_tuner_monster = function(card)
     return JoyousSpring.is_monster_card(card) and card.ability.extra.joyous_spring.is_tuner or false
 end
@@ -290,7 +302,7 @@ JoyousSpring.has_activated_effect = function(card)
 end
 
 JoyousSpring.cannot_flip = function(card)
-    if not JoyousSpring.is_monster_card(card) then
+    if not JoyousSpring.is_monster_card(card) or card.facing == 'back' then
         return false
     end
     if card.ability.extra.joyous_spring.cannot_flip then
@@ -301,6 +313,15 @@ JoyousSpring.cannot_flip = function(card)
         for _, joker in ipairs(G.jokers.cards) do
             if not joker.debuff and joker.config.center.joy_prevent_flip and joker.config.center.joy_prevent_flip(joker, card) then
                 return true
+            end
+            if not joker.debuff and joker.ability.extra.joyous_spring.material_effects and next(joker.ability.extra.joyous_spring.material_effects) then
+                for material_key, config in pairs(joker.ability.extra.joyous_spring.material_effects) do
+                    local material_center = G.P_CENTERS[material_key]
+
+                    if material_center and material_center.joy_transfer_prevent_flip and material_center:joy_transfer_prevent_flip(joker, card, config) then
+                        return true
+                    end
+                end
             end
         end
         for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
@@ -370,6 +391,15 @@ JoyousSpring.flip_effect_active = function(card)
         if not joker.debuff and joker.config.center.joy_flip_effect_active and joker.config.center.joy_flip_effect_active(joker, card) then
             return true
         end
+        if not joker.debuff and joker.ability.extra.joyous_spring.material_effects and next(joker.ability.extra.joyous_spring.material_effects) then
+            for material_key, config in pairs(joker.ability.extra.joyous_spring.material_effects) do
+                local material_center = G.P_CENTERS[material_key]
+
+                if material_center and material_center.joy_transfer_flip_effect_active and material_center:joy_transfer_flip_effect_active(joker, card, config) then
+                    return true
+                end
+            end
+        end
     end
     for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
         if not joker.debuff and joker.config.center.joy_flip_effect_active and joker.config.center.joy_flip_effect_active(joker, card) then
@@ -380,7 +410,7 @@ JoyousSpring.flip_effect_active = function(card)
 end
 
 JoyousSpring.is_flip_active = function(card)
-    return JoyousSpring.is_monster_card(card) and card.ability.extra.joyous_spring.flip_active
+    return JoyousSpring.is_monster_card(card) and card.ability.extra.joyous_spring.flip_active and true or false
 end
 
 ---Checks if **card** fulfills **properties**
@@ -595,6 +625,16 @@ JoyousSpring.is_material = function(card, properties, summon_type)
             return false
         end
     end
+    if properties.is_flip then
+        if not JoyousSpring.is_flip_monster(card) then
+            return false
+        end
+    end
+    if properties.exclude_flips then
+        if JoyousSpring.is_flip_monster(card) then
+            return false
+        end
+    end
     if properties.is_field_spell then
         if not JoyousSpring.is_field_spell(card) then
             return false
@@ -675,12 +715,12 @@ JoyousSpring.is_material_center = function(card_key, properties)
     if properties.is_joker then
         return not monster_card_properties
     end
-    if properties.is_monster or properties.monster_type or properties.monster_attribute or properties.monster_archetypes or properties.is_pendulum or properties.summon_type or properties.is_effect or properties.is_non_effect or properties.is_normal or properties.is_tuner or properties.is_trap then
+    if properties.is_monster or properties.monster_type or properties.monster_attribute or properties.monster_archetypes or properties.is_pendulum or properties.summon_type or properties.is_effect or properties.is_non_effect or properties.is_normal or properties.is_tuner or properties.is_trap or properties.is_flip then
         if not monster_card_properties then
             return false
         end
     end
-    if properties.exclude_monster_types or properties.exclude_monster_attributes or properties.exclude_monster_archetypes or properties.exclude_pendulum or properties.exclude_summon_types or properties.exclude_tuners or properties.exclude_traps then
+    if properties.exclude_monster_types or properties.exclude_monster_attributes or properties.exclude_monster_archetypes or properties.exclude_pendulum or properties.exclude_summon_types or properties.exclude_tuners or properties.exclude_traps or properties.exclude_flips then
         if not monster_card_properties then
             return true
         end
@@ -810,6 +850,16 @@ JoyousSpring.is_material_center = function(card_key, properties)
     end
     if properties.exclude_traps then
         if monster_card_properties.is_trap then
+            return false
+        end
+    end
+    if properties.is_flip then
+        if not monster_card_properties.is_flip then
+            return false
+        end
+    end
+    if properties.exclude_flips then
+        if monster_card_properties.is_flip then
             return false
         end
     end

@@ -201,18 +201,13 @@ SMODS.Joker({
         },
     },
     calculate = function(self, card, context)
-        if context.joy_summon and context.main_eval and not context.blueprint_card then
-            for _, joker in ipairs(context.joy_summon_materials) do
-                if joker == card then
-                    local choices = JoyousSpring.get_materials_in_collection({ { monster_type = "Fiend" } })
-                    for _ = 1, card.ability.extra.mills do
-                        local key_to_send = pseudorandom_element(choices, pseudoseed("j_joy_rhino"))
-                        JoyousSpring.send_to_graveyard(key_to_send or "j_joy_ba_cagna")
-                    end
-                    JoyousSpring.revive_pseudorandom({ { monster_type = "Fiend" } }, pseudoseed("j_joy_rhino"))
-                    break
-                end
+        if JoyousSpring.used_as_material(card, context) then
+            local choices = JoyousSpring.get_materials_in_collection({ { monster_type = "Fiend" } })
+            for _ = 1, card.ability.extra.mills do
+                local key_to_send = pseudorandom_element(choices, pseudoseed("j_joy_rhino"))
+                JoyousSpring.send_to_graveyard(key_to_send or "j_joy_ba_cagna")
             end
+            JoyousSpring.revive_pseudorandom({ { monster_type = "Fiend" } }, pseudoseed("j_joy_rhino"))
         end
     end,
 })
@@ -515,13 +510,8 @@ SMODS.Joker({
         },
     },
     calculate = function(self, card, context)
-        if context.joy_summon and context.main_eval and not context.blueprint_card then
-            for _, joker in ipairs(context.joy_summon_materials) do
-                if joker == card then
-                    G.hand:change_size(card.ability.extra.h_size_gain)
-                    break
-                end
-            end
+        if JoyousSpring.used_as_material(card, context) then
+            G.hand:change_size(card.ability.extra.h_size_gain)
         end
     end,
     add_to_deck = function(self, card, from_debuff)

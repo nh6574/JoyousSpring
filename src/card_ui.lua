@@ -34,12 +34,14 @@ JoyousSpring.get_type_ui = function(card)
     local summon_type_text = joyous_spring_table.summon_type and joyous_spring_table.summon_type ~= "NORMAL" and
         localize("k_joy_" .. joyous_spring_table.summon_type) or nil
     local pendulum_text = joyous_spring_table.is_pendulum and localize("k_joy_pendulum") or nil
+    local flip_text = joyous_spring_table.is_flip and localize("k_joy_flip") or nil
     local tuner_text = joyous_spring_table.is_tuner and localize("k_joy_tuner") or nil
     local effect_text = joyous_spring_table.is_effect and localize("k_joy_effect") or localize("k_joy_normal")
     local trap_text = joyous_spring_table.is_trap and localize("k_joy_trap") or nil
     local full_text = attribute_text ..
         "/" .. type_text .. "/" .. (summon_type_text or "") .. (summon_type_text and "/" or "") ..
         (pendulum_text or "") .. (pendulum_text and "/" or "") ..
+        (flip_text or "") .. (flip_text and "/" or "") ..
         (tuner_text or "") .. (tuner_text and "/" or "") ..
         effect_text .. (trap_text and "/" or "") ..
         (trap_text or "")
@@ -161,6 +163,27 @@ JoyousSpring.get_type_ui = function(card)
             })
         }
     }
+    local flip
+    if flip_text then
+        flip = {
+            n = G.UIT.O,
+            config = {
+                object = DynaText({
+                    string = { flip_text },
+                    colours = { G.C.JOY.EFFECT },
+                    bump = true,
+                    silent = true,
+                    pop_in = 0,
+                    pop_in_rate = 4,
+                    maxw = 5,
+                    shadow = true,
+                    y_offset = 0,
+                    spacing = math.max(0, 0.32 * (17 - #full_text)),
+                    scale = (0.4 - 0.004 * #full_text)
+                })
+            }
+        }
+    end
     local trap
     if trap_text then
         trap = {
@@ -199,6 +222,8 @@ JoyousSpring.get_type_ui = function(card)
         summon_type and separator or nil,
         pendulum,
         pendulum and separator or nil,
+        flip,
+        flip and separator or nil,
         tuner,
         tuner and separator or nil,
         effect,
@@ -328,6 +353,12 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
             localize { type = "joy_summon_conditions", set = self.set, key = self.key, nodes = summon_desc_nodes }
         end
 
+        -- Add tooltip if it's a flip
+        if JoyousSpring.is_flip_monster(card) then
+            if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+                table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_flip" })
+            end
+        end
         -- Add tooltip if it's a trap
         if JoyousSpring.is_trap_monster(card) then
             if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then

@@ -47,7 +47,7 @@ SMODS.Joker({
                 if context.joy_activate_effect and context.joy_activated_card == card and not card.ability.eternal then
                     card.ability.extra.any_flipped = false
                     return {
-                        message = localize("k_joy_flip"),
+                        message = localize("k_joy_flip_ex"),
                         func = function()
                             G.E_MANAGER:add_event(Event({
                                 trigger = 'after',
@@ -175,7 +175,7 @@ SMODS.Joker({
                         end
                     end
                     return {
-                        message = localize("k_joy_flip"),
+                        message = localize("k_joy_flip_ex"),
                         func = function()
                             G.E_MANAGER:add_event(Event({
                                 trigger = 'after',
@@ -303,7 +303,7 @@ SMODS.Joker({
                         end
                     end
                     return {
-                        message = localize("k_joy_flip"),
+                        message = localize("k_joy_flip_ex"),
                         func = function()
                             G.E_MANAGER:add_event(Event({
                                 trigger = 'after',
@@ -658,7 +658,7 @@ SMODS.Joker({
                                             if card.ability.extra.any_flipped then
                                                 card.ability.extra.any_flipped = false
                                                 G.hand:shuffle("j_joy_lab_archfiend")
-                                                SMODS.calculate_effect({ message = localize("k_joy_flip") }, card)
+                                                SMODS.calculate_effect({ message = localize("k_joy_flip_ex") }, card)
                                             end
                                             return true
                                         end)
@@ -845,7 +845,7 @@ SMODS.Joker({
                                                 if card.ability.extra.any_flipped then
                                                     card.ability.extra.any_flipped = false
                                                     G.hand:shuffle("j_joy_lab_labyrinth")
-                                                    SMODS.calculate_effect({ message = localize("k_joy_flip") }, card)
+                                                    SMODS.calculate_effect({ message = localize("k_joy_flip_ex") }, card)
                                                 end
                                                 return true
                                             end)

@@ -190,17 +190,8 @@ SMODS.Joker({
                 end
             end
         end
-        if context.joy_summon and not context.blueprint_card and JoyousSpring.is_summon_type(context.joy_card, "FUSION") then
-            for _, joker in ipairs(context.joy_summon_materials) do
-                if joker == card then
-                    if #JoyousSpring.field_spell_area.cards < JoyousSpring.field_spell_area.config.card_limit then
-                        JoyousSpring.add_to_extra_deck("j_joy_invoked_meltdown")
-                    end
-                    break
-                end
-            end
-        end
-        if context.joy_transform_summon and context.joy_card == card then
+        if (JoyousSpring.used_as_material(card, context) and JoyousSpring.is_summon_type(context.joy_card, "FUSION")) or
+            (context.joy_transform_summon and context.joy_card == card) then
             if #JoyousSpring.field_spell_area.cards < JoyousSpring.field_spell_area.config.card_limit then
                 JoyousSpring.add_to_extra_deck("j_joy_invoked_meltdown")
             end
@@ -305,6 +296,11 @@ SMODS.Joker({
     joy_modify_cost = function(card, other_card)
         if other_card.ability.set == "Booster" and other_card.config.center.kind == "JoyousSpring" then
             other_card.cost = math.max(0, other_card.cost - card.ability.extra.reduces)
+        end
+    end,
+    joy_transfer_modify_cost = function(self, ability_card, other_card, config)
+        if other_card.ability.set == "Booster" and other_card.config.center.kind == "JoyousSpring" then
+            other_card.cost = math.max(0, other_card.cost - config.reduces)
         end
     end,
     in_pool = function(self, args)
@@ -1002,8 +998,7 @@ SMODS.Joker({
                 monster_type = "Fairy",
                 monster_archetypes = { ["Invoked"] = true }
             },
-            tributes = 1,
-            reduces = 2
+            tributes = 1
         },
     },
     calculate = function(self, card, context)
@@ -1048,11 +1043,6 @@ SMODS.Joker({
     end,
     in_pool = function(self, args)
         return args and args.source and args.source == "JoyousSpring" or false
-    end,
-    joy_modify_cost = function(card, other_card)
-        if card.ability.extra.joyous_spring.material_effects["j_joy_invoked_caliga"] and other_card.ability.set == "Booster" and other_card.config.center.kind == "JoyousSpring" then
-            other_card.cost = math.max(0, other_card.cost - card.ability.extra.reduces)
-        end
     end,
 })
 

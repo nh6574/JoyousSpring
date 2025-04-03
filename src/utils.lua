@@ -258,7 +258,7 @@ JoyousSpring.calculate_flip_effect = function(card, context)
             card:flip(card)
         end
         card.ability.extra.joyous_spring.flip_active = true
-        SMODS.calculate_effect({ message = localize("k_joy_flip") }, card)
+        SMODS.calculate_effect({ message = localize("k_joy_flip_ex") }, card)
         SMODS.calculate_context({ joy_flip_activated = card, joy_other_context = context })
         return true
     end
@@ -494,6 +494,17 @@ JoyousSpring.get_name_color = function(key, set)
         name_color = color or name_color
     end
     return G.ARGS.LOC_COLOURS[name_color or "joy_normal"]
+end
+
+JoyousSpring.used_as_material = function(card, context)
+    if context.joy_summon and context.main_eval and not context.blueprint_card then
+        for _, joker in ipairs(context.joy_summon_materials) do
+            if joker == card then
+                return true
+            end
+        end
+    end
+    return false
 end
 
 --- Talisman compat

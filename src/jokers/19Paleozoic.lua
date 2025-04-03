@@ -30,6 +30,7 @@ SMODS.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                is_flip = true,
                 is_trap = true,
                 attribute = "WATER",
                 monster_type = "Aqua",
@@ -94,6 +95,7 @@ SMODS.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                is_flip = true,
                 is_trap = true,
                 attribute = "WATER",
                 monster_type = "Aqua",
@@ -164,6 +166,7 @@ SMODS.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                is_flip = true,
                 is_trap = true,
                 attribute = "WATER",
                 monster_type = "Aqua",
@@ -223,6 +226,7 @@ SMODS.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                is_flip = true,
                 is_trap = true,
                 attribute = "WATER",
                 monster_type = "Aqua",
@@ -282,6 +286,7 @@ SMODS.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                is_flip = true,
                 is_trap = true,
                 attribute = "WATER",
                 monster_type = "Aqua",
@@ -345,6 +350,7 @@ SMODS.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                is_flip = true,
                 is_trap = true,
                 attribute = "WATER",
                 monster_type = "Aqua",
@@ -402,6 +408,7 @@ SMODS.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                is_flip = true,
                 is_trap = true,
                 attribute = "WATER",
                 monster_type = "Aqua",
@@ -472,13 +479,15 @@ SMODS.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                is_flip = true,
                 is_trap = true,
                 attribute = "WATER",
                 monster_type = "Aqua",
                 monster_archetypes = { ["Paleozoic"] = true }
             },
             h_size = 2,
-            revives = 1
+            revives = 1,
+            activated = false
         },
     },
     calculate = function(self, card, context)

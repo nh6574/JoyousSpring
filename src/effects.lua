@@ -290,6 +290,15 @@ JoyousSpring.set_cost = function(card)
             if not joker.debuff and joker.config.center.joy_modify_cost then
                 joker.config.center.joy_modify_cost(joker, card)
             end
+            if not joker.debuff and joker.ability.extra.joyous_spring.material_effects and next(joker.ability.extra.joyous_spring.material_effects) then
+                for material_key, config in pairs(joker.ability.extra.joyous_spring.material_effects) do
+                    local material_center = G.P_CENTERS[material_key]
+
+                    if material_center and material_center.joy_transfer_modify_cost then
+                        material_center:joy_transfer_modify_cost(joker, card, config)
+                    end
+                end
+            end
         end
         if JoyousSpring.field_spell_area then
             for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
@@ -350,6 +359,15 @@ function Card:add_to_deck(from_debuff)
         for _, joker in ipairs(G.jokers.cards) do
             if not joker.debuff and joker.config.center.joy_apply_to_jokers_added then
                 joker.config.center.joy_apply_to_jokers_added(joker, self)
+            end
+            if not joker.debuff and joker.ability.extra.joyous_spring.material_effects and next(joker.ability.extra.joyous_spring.material_effects) then
+                for material_key, config in pairs(joker.ability.extra.joyous_spring.material_effects) do
+                    local material_center = G.P_CENTERS[material_key]
+
+                    if material_center and material_center.joy_transfer_apply_to_jokers_added then
+                        material_center:joy_transfer_apply_to_jokers_added(joker, self, config)
+                    end
+                end
             end
         end
         for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
