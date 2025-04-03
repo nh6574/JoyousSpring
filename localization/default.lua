@@ -1708,7 +1708,8 @@ return {
 					" ",
 					"All played cards become {C:attention}Gold{} cards after scoring",
 					" ",
-					"{C:joy_trap}Traps{} don't {C:attention}flip{} face-down by their own abilities and keep their {C:joy_effect}FLIP{} abilities",
+					"{C:joy_trap}Traps{} don't {C:attention}flip{} face-down on their own",
+					"and their {C:joy_effect}FLIP{} abilities activate when {C:attention}Blind{} is selected",
 				},
 				joy_summon_conditions = {
 					"{C:attention}1{} {C:joy_normal}\"Eldlich\"{} + {C:attention}1{} {C:joy_normal}Zombie{}"
@@ -2610,7 +2611,8 @@ return {
 			j_joy_shaddoll_wendigo = {
 				name = "{C:joy_fusion}El Shaddoll Wendigo",
 				text = {
-					"{C:joy_normal}\"Shaddoll\"{} {C:joy_effect}Flip{} {C:attention}Jokers{} don't {C:attention}flip{} face-down and keep their {C:joy_effect}FLIP{} abilities",
+					"{C:joy_normal}\"Shaddoll\"{} {C:joy_effect}Flip{} {C:attention}Jokers{} don't {C:attention}flip{} face-down on their own",
+					"and their {C:joy_effect}FLIP{} abilities activate when {C:attention}Blind{} is selected",
 					"A {C:joy_fusion}Fusion{} summoned using this card as {C:attention}material{} gains this ability",
 					" ",
 					"Add {C:attention}#1#{} {C:joy_normal}\"Shaddoll\"{} to the {C:joy_spell}Extra Deck",
@@ -2618,7 +2620,8 @@ return {
 					"{C:inactive}(Must have room)",
 				},
 				joy_transfer_ability = {
-					"{C:joy_normal}\"Shaddoll\"{} {C:joy_effect}Flip{} {C:attention}Jokers{} don't {C:attention}flip{} face-down and keep their {C:joy_effect}FLIP{} abilities",
+					"{C:joy_normal}\"Shaddoll\"{} {C:joy_effect}Flip{} {C:attention}Jokers{} don't {C:attention}flip{} face-down on their own",
+					"and their {C:joy_effect}FLIP{} abilities activate when {C:attention}Blind{} is selected",
 				},
 				joy_summon_conditions = {
 					"{C:attention}1{} {C:joy_normal}Spellcaster{} +",
@@ -3217,8 +3220,8 @@ return {
 					"gains {X:mult,C:white}X#2#{} Mult for each {C:joy_trap}Trap",
 					"{C:inactive}(Currently {X:mult,C:white}X#3#{} {C:inactive}Mult)",
 					" ",
-					"{C:joy_trap}Traps{} don't {C:attention}flip{} face-down by their own abilities",
-					"and keep their {C:joy_effect}FLIP{} abilities",
+					"{C:joy_trap}Traps{} don't {C:attention}flip{} face-down on their own",
+					"and their {C:joy_effect}FLIP{} abilities activate when {C:attention}Blind{} is selected",
 				}
 			},
 			j_joy_backup = {
@@ -3579,7 +3582,7 @@ return {
 					"the Balatro Discord <3"
 				}
 			},
-			--#region Alt Text
+			--#region Tooltips
 			joy_face_down = {
 				name = "Face-down monster",
 				text = {
@@ -3588,8 +3591,6 @@ return {
 					"{C:inactive}(Unless specified)",
 				},
 			},
-			--#endregion
-			--#region Tooltips
 			joy_tooltip_related = {
 				name = "Related Cards",
 				text = {
