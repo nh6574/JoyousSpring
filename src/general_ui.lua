@@ -567,3 +567,62 @@ function Game:start_run(args)
     }
     self.HUD:recalculate()
 end
+
+-- Main menu (Stolen from Cryptid)
+local game_main_menu_ref = Game.main_menu
+function Game:main_menu(change_context)
+    print(change_context)
+    local ret = game_main_menu_ref(self, change_context)
+
+    if not JoyousSpring.config.disable_main_menu then
+        local newcard = SMODS.create_card { key = "j_joy_yokai_ash", area = G.title_top, no_edition = true }
+
+        G.title_top.T.w = G.title_top.T.w * 1.7675
+        G.title_top.T.x = G.title_top.T.x - 0.8
+        G.title_top:emplace(newcard)
+
+        newcard.T.w = newcard.T.w * 1.1 * 1.2
+        newcard.T.h = newcard.T.h * 1.1 * 1.2
+        newcard.no_ui = true
+        newcard.states.visible = false
+
+        G.SPLASH_BACK:define_draw_steps({
+            {
+                shader = "splash",
+                send = {
+                    { name = "time",       ref_table = G.TIMERS, ref_value = "REAL_SHADER" },
+                    { name = "vort_speed", val = 0.4 },
+                    { name = "colour_1",   ref_table = G.C.JOY,  ref_value = "EFFECT" },
+                    { name = "colour_2",   ref_table = G.C,      ref_value = "BLACK" },
+                },
+            },
+        })
+        if change_context == "splash" then
+            G.E_MANAGER:add_event(Event({
+                trigger = "after",
+                delay = 0,
+                blockable = false,
+                blocking = false,
+                func = function()
+                    newcard.states.visible = true
+                    newcard:start_materialize({ G.C.WHITE, G.C.WHITE }, true, 2.5)
+                    return true
+                end,
+            }))
+        else
+            G.E_MANAGER:add_event(Event({
+                trigger = "after",
+                delay = 1.2,
+                blockable = false,
+                blocking = false,
+                func = function()
+                    newcard.states.visible = true
+                    newcard:start_materialize({ G.C.WHITE, G.C.WHITE }, nil, 1.2)
+                    return true
+                end,
+            }))
+        end
+    end
+
+    return ret
+end

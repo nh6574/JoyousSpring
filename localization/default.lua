@@ -3454,7 +3454,7 @@ return {
 			j_joy_typhon = {
 				name = "{C:joy_xyz}Super Starslayer TY-PHON - Sky Crisis",
 				text = {
-					"{C:joy_xyz}Detach{} {C:attention}#1#{}: Turn each scored card into a",
+					"{C:joy_xyz}Detach{} {C:attention}#1#{}: Turn each scored card this round into a",
 					"{C:attention}Red Seal{} {C:dark_edition}Polychrome{} {C:attention}Glass{} card after scoring",
 					"but reduces {C:money}money{} by {C:red}#2#%{}"
 				},
@@ -3482,7 +3482,7 @@ return {
 				name = "{C:joy_link}Beyond the Pendulum",
 				text = {
 					"{C:mult}+#1#{} Mult for each {C:joy_pendulum}Pendulum{}",
-					"consumed this round",
+					"consumed this run",
 					"{C:inactive}(Currently{} {C:mult}+#2#{} {C:inactive}Mult){}",
 					" ",
 					"Create {C:attention}#3#{} {C:joy_pendulum}Pendulum{} after {C:attention}#4#{} are consumed",
@@ -3501,7 +3501,7 @@ return {
 				text = {
 					"Sell this card to disable the current {C:attention}Boss Blind{} and",
 					"but reduces hand size by {C:attention}#1#{} if not summoned",
-					"using a {C:joy_normal}\"@Ignister\"{} as {C:attention}material"
+					"using an {C:joy_normal}\"@Ignister\"{} as {C:attention}material"
 				}
 			},
 			--#endregion
@@ -3882,6 +3882,7 @@ return {
 			--#region Config
 			k_joy_disable_tooltips = "Disable glossary tooltips",
 			k_joy_disable_booster_tag = "Disable Booster Tag from appearing naturally",
+			k_joy_disable_main_menu = "Disable Main Menu modifications",
 			k_joy_only_ygo_cards = "Only Monster Cards appear",
 			k_joy_extra_ygo_booster = "Extra Monster Card booster each shop",
 			k_joy_instant_poker_hand = "Disable poker hand level up animation (for this mod)",

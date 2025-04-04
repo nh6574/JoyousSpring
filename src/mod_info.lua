@@ -228,28 +228,6 @@ SMODS.current_mod.config_tab = function()
                                 config = { align = "cm", padding = 0.01 },
                                 nodes = {
                                     create_toggle({
-                                        label = localize('k_joy_disable_tooltips'),
-                                        ref_table = JoyousSpring.config,
-                                        ref_value = 'disable_tooltips'
-                                    })
-                                }
-                            },
-                            {
-                                n = G.UIT.R,
-                                config = { align = "cm", padding = 0.01 },
-                                nodes = {
-                                    create_toggle({
-                                        label = localize('k_joy_disable_booster_tag'),
-                                        ref_table = JoyousSpring.config,
-                                        ref_value = 'disable_booster_tag'
-                                    })
-                                }
-                            },
-                            {
-                                n = G.UIT.R,
-                                config = { align = "cm", padding = 0.01 },
-                                nodes = {
-                                    create_toggle({
                                         label = localize('k_joy_only_ygo_cards'),
                                         ref_table = JoyousSpring.config,
                                         ref_value = 'only_ygo_cards'
@@ -272,9 +250,42 @@ SMODS.current_mod.config_tab = function()
                                 config = { align = "cm", padding = 0.01 },
                                 nodes = {
                                     create_toggle({
+                                        label = localize('k_joy_disable_tooltips'),
+                                        ref_table = JoyousSpring.config,
+                                        ref_value = 'disable_tooltips'
+                                    })
+                                }
+                            },
+                            {
+                                n = G.UIT.R,
+                                config = { align = "cm", padding = 0.01 },
+                                nodes = {
+                                    create_toggle({
+                                        label = localize('k_joy_disable_booster_tag'),
+                                        ref_table = JoyousSpring.config,
+                                        ref_value = 'disable_booster_tag'
+                                    })
+                                }
+                            },
+                            {
+                                n = G.UIT.R,
+                                config = { align = "cm", padding = 0.01 },
+                                nodes = {
+                                    create_toggle({
                                         label = localize('k_joy_instant_poker_hand'),
                                         ref_table = JoyousSpring.config,
                                         ref_value = 'instant_poker_hand'
+                                    })
+                                }
+                            },
+                            {
+                                n = G.UIT.R,
+                                config = { align = "cm", padding = 0.01 },
+                                nodes = {
+                                    create_toggle({
+                                        label = localize('k_joy_disable_main_menu'),
+                                        ref_table = JoyousSpring.config,
+                                        ref_value = 'disable_main_menu'
                                     })
                                 }
                             },
