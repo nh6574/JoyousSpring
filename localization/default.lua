@@ -3276,7 +3276,8 @@ return {
 				text = {
 					"{C:joy_effect}FLIP{}: {C:money}+$#1#{} for each {C:joy_trap}Trap",
 					" ",
-					"{C:joy_trap}Traps{} can't be debuffed"
+					"{C:joy_trap}Traps{} can't be debuffed",
+					"{C:inactive}(Even while face-down)"
 				}
 			},
 			j_joy_tiki_curse = {

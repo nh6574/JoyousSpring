@@ -155,6 +155,7 @@ SMODS.Atlas({
 ---@field monster_type monster_type?
 ---@field monster_archetypes table?
 ---@field is_all_attributes boolean|table?
+---@field is_all_types boolean|table?
 ---@field is_all_materials { RITUAL:boolean?, FUSION:boolean?, SYNCHRO:boolean?, XYZ:boolean?, LINK:boolean? }?
 ---@field summon_conditions summon_conditions[]?
 ---@field summon_consumeable_conditions table?
@@ -179,6 +180,7 @@ JoyousSpring.init_joy_table = function(params)
         monster_type = params.monster_type or "Dragon",
         monster_archetypes = params.monster_archetypes or {},
         is_all_attributes = params.is_all_attributes or false,
+        is_all_types = params.is_all_types or false,
         is_all_materials = params.is_all_materials or {},
         summon_conditions = params.summon_conditions or {},
         summon_consumeable_conditions = params.summon_consumeable_conditions or nil,
@@ -211,6 +213,7 @@ end
 
 JoyousSpring.is_monster_type = function(card, monster_type)
     return JoyousSpring.is_monster_card(card) and
+        card.ability.extra.joyous_spring.is_all_types or
         card.ability.extra.joyous_spring.monster_type == monster_type
 end
 
@@ -271,6 +274,10 @@ end
 
 JoyousSpring.is_all_attributes = function(card)
     return JoyousSpring.is_monster_card(card) and card.ability.extra.joyous_spring.is_all_attributes or false
+end
+
+JoyousSpring.is_all_types = function(card)
+    return JoyousSpring.is_monster_card(card) and card.ability.extra.joyous_spring.is_all_types or false
 end
 
 JoyousSpring.is_summoned = function(card)
