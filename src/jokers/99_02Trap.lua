@@ -88,7 +88,7 @@ SMODS.Joker({
         end
     end,
     joy_apply_to_jokers_added = function(card, added_card)
-        if JoyousSpring.is_trap_monstere(added_card) and not JoyousSpring.is_perma_debuffed(added_card) then
+        if JoyousSpring.is_trap_monster(added_card) and not JoyousSpring.is_perma_debuffed(added_card) then
             SMODS.debuff_card(added_card, "prevent_debuff", "j_joy_anguish")
         end
     end,
