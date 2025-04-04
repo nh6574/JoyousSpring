@@ -28,6 +28,7 @@ JoyousSpring.calculate_context = function(context)
             1
     end
 
+    -- Global counter for flipped cards
     if context.joy_card_flipped then
         G.GAME.joy_flipped_count = G.GAME.joy_flipped_count or {}
         G.GAME.joy_flipped_count["Total"] = (G.GAME.joy_flipped_count["Total"] or 0) + 1
