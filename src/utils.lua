@@ -474,12 +474,17 @@ JoyousSpring.get_consumable_count = function(set)
     return #JoyousSpring.get_consumable_set(set)
 end
 
-JoyousSpring.get_summoned_count = function(type)
-    return G.GAME.joy_summoned_count and G.GAME.joy_summoned_count[type or "Total"] or 0
+JoyousSpring.get_summoned_count = function(type, this_round)
+    local table = not this_round and G.GAME.joy_summoned_count or G.GAME.joy_summoned_count_round
+    return table and table[type or "Total"] or 0
 end
 
 JoyousSpring.get_flipped_count = function(set)
     return G.GAME.joy_flipped_count and G.GAME.joy_flipped_count[set or "Total"] or 0
+end
+
+JoyousSpring.get_pendulum_count = function()
+    return G.GAME.joy_pendulum_count or 0
 end
 
 JoyousSpring.get_name_color = function(key, set)

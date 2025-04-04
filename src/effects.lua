@@ -26,6 +26,12 @@ JoyousSpring.calculate_context = function(context)
             1
         G.GAME.joy_summoned_count[context.joy_summon_type] = (G.GAME.joy_summoned_count[context.joy_summon_type] or 0) +
             1
+
+        G.GAME.joy_summoned_count_round = G.GAME.joy_summoned_count_round or {}
+        G.GAME.joy_summoned_count_round["Total"] = (G.GAME.joy_summoned_count_round["Total"] or 0) +
+            1
+        G.GAME.joy_summoned_count_round[context.joy_summon_type] = (G.GAME.joy_summoned_count_round[context.joy_summon_type] or 0) +
+            1
     end
 
     -- Global counter for flipped cards
@@ -37,6 +43,11 @@ JoyousSpring.calculate_context = function(context)
         end
         G.GAME.joy_flipped_count[context.joy_card_flipped.ability.set] = (G.GAME.joy_flipped_count[context.joy_card_flipped.ability.set] or 0) +
             1
+    end
+
+    --Global count for pendulum usage
+    if context.using_consumeable and JoyousSpring.is_pendulum_monster(context.consumeable) then
+        G.GAME.joy_pendulum_count = (G.GAME.joy_pendulum_count or 0) + 1
     end
 
     -- Return from Banishment
@@ -61,8 +72,10 @@ JoyousSpring.calculate_context = function(context)
         end
     end
 
-    -- Detach count
+    -- Reset counts
     if context.end_of_round and context.game_over == false then
+        G.GAME.joy_summoned_count_round = {}
+
         for _, joker in ipairs(G.jokers.cards) do
             if JoyousSpring.is_monster_card(joker) then
                 joker.ability.extra.joyous_spring.detached_count_round = 0

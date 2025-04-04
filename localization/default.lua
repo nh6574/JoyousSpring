@@ -3488,6 +3488,10 @@ return {
 					" ",
 					"Create {C:attention}#3#{} {C:joy_pendulum}Pendulum{} after {C:attention}#4#{} are consumed",
 					"{C:inactive}(#5#/#4#) (Must have room)"
+				},
+				joy_summon_conditions = {
+					"{C:attention}2 Jokers{},",
+					"including a {C:joy_pendulum}Pendulum"
 				}
 			},
 			j_joy_linkuriboh = {
@@ -3495,6 +3499,9 @@ return {
 				text = {
 					"Sell this card to disable the current {C:attention}Boss Blind{} and",
 					"but sets {C:money}money{} to {C:money}$0"
+				},
+				joy_summon_conditions = {
+					"{C:attention}1{} {C:blue}Common{} {C:attention}Joker",
 				}
 			},
 			j_joy_linguriboh = {
@@ -3503,6 +3510,9 @@ return {
 					"Sell this card to disable the current {C:attention}Boss Blind{} and",
 					"but reduces hand size by {C:attention}#1#{} if not summoned",
 					"using an {C:joy_normal}\"@Ignister\"{} as {C:attention}material"
+				},
+				joy_summon_conditions = {
+					"{C:attention}1{} {C:joy_normal}Cyberse",
 				}
 			},
 			--#endregion
