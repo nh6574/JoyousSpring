@@ -680,13 +680,7 @@ SMODS.Joker({
     },
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
-    update = function(self, card, dt)
-        if card.area and card.area == G.jokers then
-            if not card.children.xyz_materials and card.ability.extra.joyous_spring.xyz_materials then
-                card.children.xyz_materials = JoyousSpring.create_UIBox_xyz_materials(card)
-            end
-        end
-    end,
+    update = JoyousSpring.update_counter,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

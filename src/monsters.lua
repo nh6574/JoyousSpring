@@ -82,7 +82,7 @@ SMODS.Atlas({
 ---@field optional boolean?
 ---@field min number?
 ---@field max number?
----@field func function?
+---@field func string?
 ---@field facedown boolean?
 ---@field key string?
 ---@field exclude_keys string[]?
@@ -193,7 +193,9 @@ JoyousSpring.init_joy_table = function(params)
         is_free = false,
         cannot_revive = params.cannot_revive or false,
         flip_active = false,
-        cannot_flip = false
+        cannot_flip = false,
+        detached_count = 0,
+        detached_count_round = 0
     } or {
         is_field_spell = true,
         monster_archetypes = params.monster_archetypes or {},
@@ -445,8 +447,8 @@ JoyousSpring.is_material = function(card, properties, summon_type)
     if summon_type and JoyousSpring.is_all_materials(card, summon_type) then
         return true
     end
-    if properties.func then
-        if not properties.func(card, properties.func_vars) then
+    if properties.func and JoyousSpring.material_functions[properties.func] then
+        if not JoyousSpring.material_functions[properties.func](card, properties.func_vars) then
             return false
         end
     end

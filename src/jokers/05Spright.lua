@@ -467,13 +467,7 @@ SMODS.Joker({
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
-    update = function(self, card, dt)
-        if card.area and card.area == G.jokers then
-            if not card.children.xyz_materials and card.ability.extra.joyous_spring.xyz_materials then
-                card.children.xyz_materials = JoyousSpring.create_UIBox_xyz_materials(card)
-            end
-        end
-    end,
+    update = JoyousSpring.update_counter,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Spright" } } }, name = "k_joy_archetype" },
     },

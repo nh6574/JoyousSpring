@@ -31,7 +31,7 @@ JoyousSpring.revive = function(key, must_have_room, edition, card_limit_modif, d
 end
 
 ---Revives a random card that fulfills **property_list**
----@param property_list table
+---@param property_list material_properties[]
 ---@param seed number
 ---@param must_have_room boolean?
 ---@param edition any?

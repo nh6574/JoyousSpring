@@ -61,6 +61,15 @@ JoyousSpring.calculate_context = function(context)
         end
     end
 
+    -- Detach count
+    if context.end_of_round and context.game_over == false then
+        for _, joker in ipairs(G.jokers.cards) do
+            if JoyousSpring.is_monster_card(joker) then
+                joker.ability.extra.joyous_spring.detached_count_round = 0
+            end
+        end
+    end
+
     -- Add extra pack for Extra YGO Booster config
     if context.starting_shop and JoyousSpring.config.extra_ygo_booster then
         local choices = {

@@ -571,7 +571,6 @@ end
 -- Main menu (Stolen from Cryptid)
 local game_main_menu_ref = Game.main_menu
 function Game:main_menu(change_context)
-    print(change_context)
     local ret = game_main_menu_ref(self, change_context)
 
     if not JoyousSpring.config.disable_main_menu then

@@ -517,6 +517,14 @@ JoyousSpring.set_back_sprite = function(self, card, front)
     card.children.back:set_role({ major = card, role_type = 'Glued', draw_major = card })
 end
 
+JoyousSpring.update_counter = function(self, card, dt)
+    if card.area and (card.area == G.jokers or card.area.config.type == "summon_materials") then
+        if not card.children.xyz_materials and card.ability.extra.joyous_spring.xyz_materials then
+            card.children.xyz_materials = JoyousSpring.create_UIBox_xyz_materials(card)
+        end
+    end
+end
+
 ---Creates counter UI for Xyz materials
 ---@param card Card
 ---@return UIBox
@@ -705,6 +713,13 @@ local card_hover_ref = Card.hover
 function Card:hover()
     card_hover_ref(self)
     if self.facing == 'back' and (not self.states.drag.is or G.CONTROLLER.HID.touch) and not self.no_ui and JoyousSpring.is_monster_card(self) then
+        if self.children.alert and not self.config.center.alerted then
+            self.config.center.alerted = true
+            G:save_progress()
+        elseif self.children.alert and self.seal and not G.P_SEALS[self.seal].alerted then
+            G.P_SEALS[self.seal].alerted = true
+            G:save_progress()
+        end
         self.ability_UIBox_table = self:generate_UIBox_ability_table()
         self.config.h_popup = G.UIDEF.card_h_popup(self)
         self.config.h_popup_config = self:align_h_popup()

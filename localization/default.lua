@@ -3356,7 +3356,8 @@ return {
 			j_joy_pendulumoon = {
 				name = "{C:joy_pendulum_effect}PenduLuMoon",
 				joy_consumable = {
-					"{C:attention}Revive #1#{} {C:joy_pendulum}Pendulum{} as {C:dark_edition}Negative"
+					"{C:attention}Revive #1#{} {C:joy_pendulum}Pendulum{} as {C:dark_edition}Negative",
+					"{C:inactive}(Except \"PenduLuMoon\")"
 				},
 				text = {
 					"Send {C:attention}#2#{} {C:joy_pendulum}Pendulum{} to the {C:attention}GY{}",
@@ -3431,7 +3432,7 @@ return {
 				},
 				joy_summon_conditions = {
 					"{C:attention}1{} {C:joy_normal}Cyberse{} {C:joy_synchro}Tuner{} +",
-					"{C:attention}1+{} non-{C:joy_synchro}Tuner{}",
+					"{C:attention}1{} non-{C:joy_synchro}Tuner{}",
 					"{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
 				}
 			},
