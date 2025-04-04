@@ -70,7 +70,7 @@ if score == 'defeated_by' and JoyousSpring and JoyousSpring.defeated_by then
     local center = G.P_CENTERS[JoyousSpring.defeated_by]
     local text = localize{type = 'name_text', key = JoyousSpring.defeated_by, set = "Joker"}
     local sprite = Sprite(0, 0, 1.4*(71/95), 1.4, G.ASSET_ATLAS[center.atlas], center.pos)
-    JoyousSpring.defeated_by = nil
+
     sprite:define_draw_steps({
         {shader = 'dissolve', shadow_height = 0.05},
         {shader = 'dissolve'}
@@ -86,6 +86,7 @@ if score == 'defeated_by' and JoyousSpring and JoyousSpring.defeated_by then
             {n=G.UIT.O, config={object = sprite}}
         }},
     }
+    JoyousSpring.defeated_by = nil
 end'''
 match_indent = true
 
