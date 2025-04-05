@@ -102,7 +102,6 @@ SMODS.Joker({
                 is_pendulum = true,
                 attribute = "LIGHT",
                 monster_type = "Spellcaster",
-                monster_archetypes = {}
             },
             revives = 1,
             mills = 1
@@ -155,7 +154,7 @@ SMODS.Joker({
                 is_pendulum = true,
                 attribute = "DARK",
                 monster_type = "Fairy",
-                monster_archetypes = {},
+
                 summon_conditions = {
                     {
                         type = "FUSION",

@@ -24,7 +24,7 @@ SMODS.Joker({
                 summon_type = "LINK",
                 attribute = "WIND",
                 monster_type = "Fairy",
-                monster_archetypes = {},
+
                 summon_conditions = {
                     {
                         type = "LINK",
@@ -97,7 +97,7 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 attribute = "DARK",
                 monster_type = "Spellcaster",
-                monster_archetypes = {},
+
                 summon_type = "LINK",
                 summon_conditions = {
                     {
@@ -202,7 +202,7 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 attribute = "DARK",
                 monster_type = "Cyberse",
-                monster_archetypes = {},
+
                 summon_type = "LINK",
                 summon_conditions = {
                     {

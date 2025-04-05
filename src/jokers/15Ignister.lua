@@ -1608,7 +1608,6 @@ SMODS.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 is_field_spell = true,
-                monster_archetypes = {}
             },
             creates = 1,
             attributes = 6

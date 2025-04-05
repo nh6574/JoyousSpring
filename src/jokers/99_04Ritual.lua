@@ -22,7 +22,7 @@ SMODS.Joker({
                 summon_type = "RITUAL",
                 attribute = "LIGHT",
                 monster_type = "Dragon",
-                monster_archetypes = {},
+
                 summon_conditions = {
                     {
                         type = "RITUAL",

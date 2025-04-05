@@ -23,7 +23,6 @@ SMODS.Joker({
                 is_trap = true,
                 attribute = "LIGHT",
                 monster_type = "Beast",
-                monster_archetypes = {}
             },
             chips = 200
         },
@@ -61,7 +60,6 @@ SMODS.Joker({
                 is_trap = true,
                 attribute = "EARTH",
                 monster_type = "Rock",
-                monster_archetypes = {}
             },
             money = 5
         },
@@ -115,7 +113,6 @@ SMODS.Joker({
                 is_trap = true,
                 attribute = "DARK",
                 monster_type = "Rock",
-                monster_archetypes = {}
             },
             chips = 100
         },
@@ -152,7 +149,6 @@ SMODS.Joker({
                 is_trap = true,
                 attribute = "LIGHT",
                 monster_type = "Rock",
-                monster_archetypes = {}
             },
             mult = 25
         },
@@ -189,7 +185,6 @@ SMODS.Joker({
                 is_trap = true,
                 attribute = "DARK",
                 monster_type = "Zombie",
-                monster_archetypes = {}
             },
             percent = 0.1,
             current_percent = 0
@@ -232,7 +227,6 @@ SMODS.Joker({
                 is_trap = true,
                 attribute = "DARK",
                 monster_type = "Zombie",
-                monster_archetypes = {}
             },
             mult = 50,
             current_mult = 0,
@@ -288,7 +282,6 @@ SMODS.Joker({
                 is_trap = true,
                 attribute = "DARK",
                 monster_type = "Cyberse",
-                monster_archetypes = {}
             },
             xmult = 10
         },
@@ -344,7 +337,6 @@ SMODS.Joker({
                 is_trap = true,
                 attribute = "EARTH",
                 monster_type = "Reptile",
-                monster_archetypes = {}
             },
             mult = 50
         },
@@ -381,7 +373,6 @@ SMODS.Joker({
                 is_trap = true,
                 attribute = "LIGHT",
                 monster_type = "Fairy",
-                monster_archetypes = {}
             },
             xmult = 0.05
         },
@@ -418,7 +409,6 @@ SMODS.Joker({
                 is_trap = true,
                 attribute = "EARTH",
                 monster_type = "Insect",
-                monster_archetypes = {}
             },
             xmult = 1.5
         },

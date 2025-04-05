@@ -876,7 +876,7 @@ SMODS.Joker({
                 summon_type = "XYZ",
                 attribute = "LIGHT",
                 monster_type = "Fairy",
-                monster_archetypes = {},
+
                 summon_conditions = {
                     {
                         type = "XYZ",

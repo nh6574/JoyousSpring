@@ -24,7 +24,7 @@ SMODS.Joker({
                 is_effect = false,
                 attribute = "EARTH",
                 monster_type = "Beast",
-                monster_archetypes = {},
+
                 token_name = "j_joy_token"
             },
         },

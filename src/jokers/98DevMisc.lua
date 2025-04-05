@@ -1,4 +1,8 @@
 --- MISCELLANEOUS
+
+--- 0.7.0
+
+--- 0.8.0
 SMODS.Joker({
     key = "zenoguitar",
     atlas = 'Misc02',
@@ -18,7 +22,6 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 attribute = "EARTH",
                 monster_type = "Rock",
-                monster_archetypes = {}
             },
         },
     },
@@ -42,7 +45,6 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 attribute = "EARTH",
                 monster_type = "Rock",
-                monster_archetypes = {}
             },
         },
     },
@@ -66,7 +68,6 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 attribute = "EARTH",
                 monster_type = "Rock",
-                monster_archetypes = {}
             },
         },
     },
@@ -90,7 +91,6 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 attribute = "EARTH",
                 monster_type = "Rock",
-                monster_archetypes = {}
             },
         },
     },
@@ -114,7 +114,6 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 attribute = "EARTH",
                 monster_type = "Rock",
-                monster_archetypes = {}
             },
         },
     },

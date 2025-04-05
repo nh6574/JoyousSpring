@@ -30,7 +30,6 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 attribute = "LIGHT",
                 monster_type = "Machine",
-                monster_archetypes = {}
             },
             xmult = 2,
             hands = {}
@@ -122,7 +121,6 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 attribute = "FIRE",
                 monster_type = "Fiend",
-                monster_archetypes = {}
             },
             chips = 4,
         },
@@ -165,7 +163,6 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 attribute = "EARTH",
                 monster_type = "Fiend",
-                monster_archetypes = {}
             },
             mills = 5,
             revives = 1
@@ -209,7 +206,6 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 attribute = "DARK",
                 monster_type = "Fiend",
-                monster_archetypes = {}
             },
             adds = 1
         },
@@ -245,7 +241,6 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 attribute = "DARK",
                 monster_type = "Rock",
-                monster_archetypes = {}
             },
             xmult = 2,
             xmult_gain = 2
@@ -292,7 +287,6 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 attribute = "LIGHT",
                 monster_type = "Cyberse",
-                monster_archetypes = {}
             },
             adds = 1
         },
@@ -335,7 +329,6 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 attribute = "LIGHT",
                 monster_type = "Cyberse",
-                monster_archetypes = {}
             },
             chips = 50,
         },
