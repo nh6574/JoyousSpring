@@ -202,22 +202,18 @@ JoyousSpring.summon_token = function(key, edition, atlas_key, sprite_pos, joyous
         no_edition = not edition and true or nil
     })
     local pool_info = JoyousSpring.token_pool[key] or {}
-    local og_table = card.ability.extra.joyous_spring
-    og_table.token_name = joyous_spring_table and joyous_spring_table.token_name or pool_info.name or og_table
-        .token_name or "Token"
-    og_table.is_tuner = joyous_spring_table and joyous_spring_table.is_tuner or pool_info.is_tuner or og_table.is_tuner or
-        false
-    og_table.attribute = joyous_spring_table and joyous_spring_table.attribute or pool_info.attribute or
-        og_table.attribute or "EARTH"
-    og_table.monster_type = joyous_spring_table and joyous_spring_table.monster_type or pool_info.monster_type or
-        og_table.monster_type or "Beast"
-    og_table.monster_archetypes = joyous_spring_table and joyous_spring_table.monster_archetypes or
-        pool_info.monster_archetypes or og_table.monster_archetypes or {}
-    og_table.token_atlas = atlas_key or pool_info.atlas or "joy_Token"
-    og_table.token_sprite_pos = sprite_pos or pool_info.sprite_pos or
+    card.ability.extra.joyous_spring = JoyousSpring.init_joy_table(joyous_spring_table or pool_info.joyous_spring or {
+        attribute = "EARTH",
+        monster_type = "Beast"
+    })
+
+    card.ability.extra.joyous_spring.token_name = joyous_spring_table and joyous_spring_table.token_name or
+    pool_info.name or "Token"
+    card.ability.extra.joyous_spring.token_atlas = atlas_key or pool_info.atlas or "joy_Token"
+    card.ability.extra.joyous_spring.token_sprite_pos = sprite_pos or pool_info.sprite_pos or
         { x = pseudorandom("Token", 0, 1), y = pseudorandom("Token", 0, 1) }
-    card.children.center.atlas.name = og_table.token_atlas
-    card.children.center.sprite_pos = og_table.token_sprite_pos
+    card.children.center.atlas = G.ASSET_ATLAS[card.ability.extra.joyous_spring.token_atlas]
+    card.children.center.sprite_pos = card.ability.extra.joyous_spring.token_atlas.token_sprite_pos
     card.children.center:reset()
 end
 

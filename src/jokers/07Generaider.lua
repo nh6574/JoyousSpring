@@ -865,12 +865,15 @@ SMODS.Joker({
 })
 
 JoyousSpring.token_pool["generaider"] = {
+    order = 5,
     name = "j_joy_token_generaider",
     atlas = "joy_Generaider",
     sprite_pos = { x = 1, y = 3 },
-    attribute = "LIGHT",
-    monster_type = "Fairy",
-    monster_archetypes = { ["Generaider"] = true }
+    joyous_spring = {
+        attribute = "LIGHT",
+        monster_type = "Fairy",
+        monster_archetypes = { ["Generaider"] = true }
+    }
 }
 
 JoyousSpring.collection_pool[#JoyousSpring.collection_pool + 1] = {

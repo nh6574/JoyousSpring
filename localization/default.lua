@@ -3192,7 +3192,7 @@ return {
 				text = { "TBD" }
 			},
 			--#endregion
-			--#region Miscellaneous
+			--#region Free Agents
 			--#region Effect
 			j_joy_boarder = {
 				name = "{C:joy_effect}Inspector Boarder",
@@ -3255,6 +3255,145 @@ return {
 					"{C:inactive}(Currently {C:chips}+#2#{} {C:inactive}Chips)",
 					" ",
 					"Free if you own a {C:joy_normal}Cyberse{}"
+				}
+			},
+			j_joy_formud = {
+				name = "{C:joy_effect}Formud Skipper",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_angraecum = {
+				name = "{C:joy_effect}Angraecum Umbrella",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_bishbaalkin = {
+				name = "{C:joy_effect}Phantasmal Lord Ultimitl Bishbaalkin",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_token_utchatzimime = {
+				name = "{C:joy_token}Utchatzimime Token",
+				text = {
+					"This card can be used as any {C:joy_token}Token{}",
+				}
+			},
+			j_joy_eater = {
+				name = "{C:joy_effect}Eater of Millions",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_miradora = {
+				name = "{C:joy_effect}Heavenly Zephyr - Miradora",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_lycanthrope = {
+				name = "{C:joy_ritual}Lycanthrope",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_leaffish = {
+				name = "{C:joy_effect}Lifeless Leaffish",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_beautunaful = {
+				name = "{C:joy_effect}Beautunaful Princess",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_ringowurm = {
+				name = "{C:joy_effect}Ringowurm, the Dragon Guarding the Hundred Apples",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_token_ringo = {
+				name = "{C:joy_token}Hundred Apples Token",
+				text = {
+					"This card can be used as any {C:joy_token}Token{}",
+				}
+			},
+			j_joy_ghostbird = {
+				name = "{C:joy_effect}Ghost Bird of Bewitchment",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_tiamaton = {
+				name = "{C:joy_effect}Iron Dragon Tiamaton",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_stormshooter = {
+				name = "{C:joy_effect}Storm Shooter",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_procession = {
+				name = "{C:joy_effect}Procession of the Tea Jar",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_darkcat = {
+				name = "{C:joy_effect}Dark Cat with White Tail",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_dekoichi = {
+				name = "{C:joy_effect}Dekoichi the Battlechanted Locomotive",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_bokoichi = {
+				name = "{C:joy_normal}Bokoichi the Freightening Car",
+				text = {
+					"{E:1}A freight car that is exclusively for Dekoichi. It can transport{}",
+					"{E:1}anything, but most cargo arrives broken.{}",
+				}
+			},
+			j_joy_desertapir = {
+				name = "{C:joy_effect}Desertapir",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_searchlight = {
+				name = "{C:joy_effect}Searchlightman",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_sternmystic = {
+				name = "{C:joy_effect}The Stern Mystic",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_mof = {
+				name = "{C:joy_effect}Magician of Faith",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_mask = {
+				name = "{C:joy_effect}Mask of Darkness",
+				text = {
+					"TBD"
 				}
 			},
 			j_joy_zenoguitar = {
@@ -3359,6 +3498,15 @@ return {
 			},
 			--#endregion
 			--#region Pendulum
+			--#region Pendulum Normal
+			j_joy_foucault = {
+				name = "{C:joy_pendulum_normal}Foucault's Cannon",
+				text = {
+					"TBD"
+				}
+			},
+			--#endregion
+			--#region Pendulum Effect
 			j_joy_eccentrick = {
 				name = "{C:joy_pendulum_effect}Archfiend Eccentrick",
 				joy_consumable = {
@@ -3380,6 +3528,62 @@ return {
 					"when {C:attention}Blind{} is selected"
 				},
 			},
+			j_joy_pandora = {
+				name = "{C:joy_pendulum_effect}Pandora's Jewelry Box",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_anchamoufrite = {
+				name = "{C:joy_pendulum_effect}Anchamoufrite",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_zany = {
+				name = "{C:joy_pendulum_effect}Zany Zebra",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_pendulumucho = {
+				name = "{C:joy_pendulum_effect}Pendulumucho",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_moissa = {
+				name = "{C:joy_pendulum_effect}Moissa Knight, the Comet General",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_pmcaptor = {
+				name = "{C:joy_pendulum_effect}P.M. Captor",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_metrognome = {
+				name = "{C:joy_pendulum_effect}Metrognome",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_bozu = {
+				name = "{C:joy_pendulum_effect}Rain Bozu",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_disablaster = {
+				name = "{C:joy_pendulum_effect}Disablaster the Negation Fortress",
+				text = {
+					"TBD"
+				}
+			},
+			--#endregion
+			--#region Pendulum Fusion
 			j_joy_couverture = {
 				name = "{C:joy_pendulum_fusion}Patissciel Couverture",
 				joy_consumable = {
@@ -3395,6 +3599,23 @@ return {
 					"{C:attention}2{} {C:joy_pendulum}Pendulum{}"
 				}
 			},
+			--#endregion
+			--#region Pendulum Synchro
+			j_joy_nirvana = {
+				name = "{C:joy_pendulum_synchro}Nirvana High Paladin",
+				text = {
+					"TBD"
+				}
+			},
+			--#endregion
+			--#region Pendulum Xyz
+			j_joy_ooze = {
+				name = "{C:joy_pendulum_xyz}Daidaratant the Ooze Giant",
+				text = {
+					"TBD"
+				}
+			},
+			--#endregion
 			--#endregion
 			--#region Ritual
 			j_joy_sauravis = {
@@ -3450,6 +3671,24 @@ return {
 					"{C:attention}1{} {C:joy_normal}Cyberse{} {C:joy_synchro}Tuner{} +",
 					"{C:attention}1{} non-{C:joy_synchro}Tuner{}",
 					"{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
+				}
+			},
+			j_joy_afd = {
+				name = "{C:joy_synchro}Ancient Fairy Dragon",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_fishlamp = {
+				name = "{C:joy_synchro}Fish Lamp",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_token_lamp = {
+				name = "{C:joy_token}Lamp Token",
+				text = {
+					"This card can be used as any {C:joy_token}Token{}",
 				}
 			},
 			--#endregion
@@ -3510,6 +3749,12 @@ return {
 					"including a {C:joy_pendulum}Pendulum"
 				}
 			},
+			j_joy_exceed = {
+				name = "{C:joy_link}Exceed the Pendulum",
+				text = {
+					"TBD"
+				}
+			},
 			j_joy_linkuriboh = {
 				name = "{C:joy_link}Linkuriboh",
 				text = {
@@ -3529,6 +3774,80 @@ return {
 				},
 				joy_summon_conditions = {
 					"{C:attention}1{} {C:joy_normal}Cyberse",
+				}
+			},
+			j_joy_ipmasq = {
+				name = "{C:joy_link}I:P Masquerena",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_spknight = {
+				name = "{C:joy_link}S:P Little Knight",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_progleo = {
+				name = "{C:joy_link}Progleo",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_raster = {
+				name = "{C:joy_link}Rasterliger",
+				text = {
+					"TBD"
+				}
+			},
+			--#endregion
+			--#region Field Spell
+			j_joy_chickengame = {
+				name = "{C:joy_spell}Chicken Game",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_midbreaker = {
+				name = "{C:joy_spell}Magical Mid-Breaker Field",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_fusiongate = {
+				name = "{C:joy_spell}Fusion Gate",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_futurevisions = {
+				name = "{C:joy_spell}Future Visions",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_xyzterritory = {
+				name = "{C:joy_spell}Xyz Territory",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_xyzoverride = {
+				name = "{C:joy_spell}Xyz Override",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_summonbreaker = {
+				name = "{C:joy_spell}Summon Breaker",
+				text = {
+					"TBD"
+				}
+			},
+			j_joy_extranet = {
+				name = "{C:joy_spell}Extra Net",
+				text = {
+					"TBD"
 				}
 			},
 			--#endregion

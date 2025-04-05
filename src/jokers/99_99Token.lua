@@ -50,24 +50,28 @@ JoyousSpring.collection_pool[#JoyousSpring.collection_pool + 1] = {
 }
 
 JoyousSpring.token_pool["token"] = {
+    order = 1,
     name = "j_joy_token",
     atlas = "joy_Token",
     sprite_pos = { x = 0, y = 0 }
 }
 
 JoyousSpring.token_pool["token2"] = {
+    order = 2,
     name = "j_joy_token",
     atlas = "joy_Token",
     sprite_pos = { x = 1, y = 0 }
 }
 
 JoyousSpring.token_pool["token3"] = {
+    order = 3,
     name = "j_joy_token",
     atlas = "joy_Token",
     sprite_pos = { x = 0, y = 1 }
 }
 
 JoyousSpring.token_pool["token4"] = {
+    order = 4,
     name = "j_joy_token",
     atlas = "joy_Token",
     sprite_pos = { x = 1, y = 1 }

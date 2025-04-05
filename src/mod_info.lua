@@ -318,8 +318,8 @@ JoyousSpring.get_archetype_pool = function(pool)
             end
         end
         if center.original_key == "token" then
-            for k, _ in pairs(JoyousSpring.token_pool) do
-                table.insert(archetype_pool[#archetype_pool], k)
+            for k, v in pairs(JoyousSpring.token_pool) do
+                archetype_pool[#archetype_pool][v.order] = k
             end
         end
     end
@@ -426,12 +426,13 @@ JoyousSpring.card_collection_UIBox = function(_pool, rows, args)
                     G.CARD_W * args.card_scale, G.CARD_H * args.card_scale, G.P_CARDS.empty,
                     (args.center and G.P_CENTERS[args.center]) or center)
                 if token_key then
+                    card.ability.extra.joyous_spring = JoyousSpring.init_joy_table(JoyousSpring.token_pool[token_key]
+                        .joyous_spring or {
+                            attribute = "EARTH",
+                            monster_type = "Beast"
+                        })
                     card.ability.extra.joyous_spring.token_name = JoyousSpring.token_pool[token_key].name
-                    card.ability.extra.joyous_spring.attribute = JoyousSpring.token_pool[token_key].attribute or
-                        card.ability.extra.joyous_spring.attribute
-                    card.ability.extra.joyous_spring.monster_type = JoyousSpring.token_pool[token_key].monster_type or
-                        card.ability.extra.joyous_spring.monster_type
-                    card.children.center.atlas.name = JoyousSpring.token_pool[token_key].atlas
+                    card.children.center.atlas = G.ASSET_ATLAS[JoyousSpring.token_pool[token_key].atlas]
                     card.children.center.sprite_pos = JoyousSpring.token_pool[token_key].sprite_pos
                     card.children.center:reset()
                 end
