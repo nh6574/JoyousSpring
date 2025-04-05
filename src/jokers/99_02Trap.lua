@@ -205,7 +205,7 @@ SMODS.Joker({
             end
             if context.joy_card_flipped and context.joy_card_flipped == card and card.facing == "front" then
                 card.ability.extra.current_percent = math.min(1, card.ability.extra.current_percent +
-                    card.ability.extra.current_percent)
+                    card.ability.extra.percent)
             end
         end
     end,
@@ -254,7 +254,7 @@ SMODS.Joker({
             end
             if context.joy_card_flipped and context.joy_card_flipped == card and card.facing == "front" then
                 card.ability.extra.current_percent = math.min(1, card.ability.extra.current_percent +
-                    card.ability.extra.current_percent)
+                    card.ability.extra.percent)
                 card.ability.extra.current_mult = card.ability.extra.current_mult + card.ability.extra.mult
             end
         end
