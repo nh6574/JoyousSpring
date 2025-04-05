@@ -127,12 +127,15 @@ JoyousSpring.create_graveyard_tab = function()
         local count = t.count
         local summonable = t.summonable
         if count > 0 then
+            local old_used_jokers = G.GAME.used_jokers[key]
             local added_card = SMODS.create_card({
                 area = JoyousSpring.graveyard_area[math.min(4, math.floor(i / 25) + 1)],
                 key = key,
                 no_edition = true,
                 skip_materialize = true,
             })
+            -- I create the cards just before making the overlay_menu so I need to set user_jokers to what it was before because it updates
+            G.GAME.used_jokers[key] = old_used_jokers
             JoyousSpring.graveyard_area[math.min(4, math.floor(i / 25) + 1)]:emplace(added_card)
             -- copied from Cartomancer
             if not added_card.children.stack_display and (count > 1 or

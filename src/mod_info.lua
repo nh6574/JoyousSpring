@@ -422,9 +422,16 @@ JoyousSpring.card_collection_UIBox = function(_pool, rows, args)
                     token_key = center
                     center = G.P_CENTERS["j_joy_token"]
                 end
+                local old_used_jokers
+                if G.GAME and G.GAME.used_jokers then
+                    old_used_jokers = G.GAME.used_jokers[center.key]
+                end
                 local card = Card(G.your_collection[j].T.x + G.your_collection[j].T.w / 2, G.your_collection[j].T.y,
                     G.CARD_W * args.card_scale, G.CARD_H * args.card_scale, G.P_CARDS.empty,
                     (args.center and G.P_CENTERS[args.center]) or center)
+                if G.GAME and G.GAME.used_jokers then
+                    G.GAME.used_jokers[center.key] = old_used_jokers
+                end
                 if token_key then
                     card.ability.extra.joyous_spring = JoyousSpring.init_joy_table(JoyousSpring.token_pool[token_key]
                         .joyous_spring or {
