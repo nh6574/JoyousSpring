@@ -1,6 +1,6 @@
 --- GHOST GIRLS
 SMODS.Atlas({
-    key = "joy_Spright",
+    key = "Spright",
     path = "05Spright.png",
     px = 71,
     py = 95

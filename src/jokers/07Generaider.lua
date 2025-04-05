@@ -1,6 +1,6 @@
 --- GENERAIDER
 SMODS.Atlas({
-    key = "joy_Generaider",
+    key = "Generaider",
     path = "07Generaider.png",
     px = 71,
     py = 95
@@ -501,7 +501,8 @@ SMODS.Joker({
                     JoyousSpring.is_monster_type(context.other_joker, "Machine")) then
                 if card.ability.extra.active then
                     return {
-                        xmult = card.ability.extra.xmult
+                        xmult = card.ability.extra.xmult,
+                        message_card = context.other_joker
                     }
                 end
             end

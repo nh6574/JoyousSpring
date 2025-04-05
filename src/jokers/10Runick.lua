@@ -1,6 +1,6 @@
 --- RUNICK
 SMODS.Atlas({
-    key = "joy_Runick",
+    key = "Runick",
     path = "10Runick.png",
     px = 71,
     py = 95

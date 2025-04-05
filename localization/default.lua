@@ -372,6 +372,22 @@ return {
 					"All {C:joy_spell}Extra Deck{} {C:attention}Jokers{} in the shop are debuffed and free",
 				},
 				joy_summon_conditions = {
+					"{C:attention}2 Jokers{},",
+					"including a {C:joy_normal}\"Dogmatika\"{}"
+				}
+			},
+			j_joy_dogma_albazoa = {
+				name = "{C:joy_ritual}Dogmatika Alba Zoa",
+				text = {
+					"Send {C:attention}#1#{} copy of each {C:attention}Joker{}",
+					"in your {C:joy_spell}Extra Deck{} to the {C:attention}GY{}",
+					"when {C:attention}Blind{} is selected",
+					" ",
+					"Each {C:joy_normal}Main Deck{} {C:attention}Joker{} gives an extra {X:mult,C:white}X#2#{}",
+					"for each debuffed {C:joy_spell}Extra Deck{} {C:attention}Joker{}",
+					"{C:inactive}(Currently{} {X:mult,C:white}X#3#{} {C:inactive}Mult){}",
+				},
+				joy_summon_conditions = {
 					"{C:attention}2{} {C:joy_normal}\"Dogmatika\"{}"
 				}
 			},

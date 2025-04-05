@@ -1,21 +1,28 @@
 --- MISCELLANEOUS ASSETS
 SMODS.Atlas({
-    key = "joy_Misc01",
+    key = "Misc01",
     path = "99Misc01.png",
     px = 71,
     py = 95
 })
 
 SMODS.Atlas({
-    key = "joy_Misc02",
+    key = "Misc02",
     path = "99Misc02.png",
     px = 71,
     py = 95
 })
 
 SMODS.Atlas({
-    key = "joy_Misc03",
+    key = "Misc03",
     path = "99Misc03.png",
+    px = 71,
+    py = 95
+})
+
+SMODS.Atlas({
+    key = "Misc04",
+    path = "99Misc04.png",
     px = 71,
     py = 95
 })

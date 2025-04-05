@@ -1,6 +1,6 @@
 --- TOKEN
 SMODS.Atlas({
-    key = "joy_Token",
+    key = "Token",
     path = "99Token00.png",
     px = 71,
     py = 95

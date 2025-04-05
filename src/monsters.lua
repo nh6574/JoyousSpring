@@ -1,7 +1,7 @@
 --- MONSTERS
 
 SMODS.Atlas({
-    key = "joy_Back",
+    key = "Back",
     path = "back.png",
     px = 142,
     py = 190

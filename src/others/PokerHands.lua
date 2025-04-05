@@ -102,7 +102,7 @@ JoyousSpring.PokerHandDummy {
 }
 
 SMODS.Atlas({
-    key = "joy_p_eldland",
+    key = "p_eldland",
     path = "14p_eldland.png",
     px = 71,
     py = 95
@@ -111,7 +111,7 @@ SMODS.Atlas({
 SMODS.Consumable {
     set = 'Planet',
     key = 'cursed_eldland',
-    atlas = 'joy_p_eldland',
+    atlas = 'p_eldland',
     discovered = true,
     config = { hand_type = 'joy_eldlixir', softlock = true },
     pos = { x = 0, y = 0 },

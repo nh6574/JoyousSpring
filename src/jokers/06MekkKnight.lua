@@ -627,6 +627,7 @@ SMODS.Joker({
         if context.other_joker and context.other_joker.facing == "front" and JoyousSpring.is_monster_archetype(context.other_joker, "MekkKnight") then
             return {
                 mult = card.ability.extra.mult,
+                message_card = context.other_joker
             }
         end
         if context.selling_self and G.GAME.blind.in_blind and JoyousSpring.count_materials_in_graveyard({ { monster_archetypes = { "MekkKnight" } } }, false, true) >= card.ability.extra.mekk_count then

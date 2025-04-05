@@ -6,10 +6,16 @@ SMODS.Atlas({
     py = 95
 })
 
---- DOGMATIKA
 SMODS.Atlas({
     key = "Dogmatika02",
     path = "03Dogmatika02.png",
+    px = 71,
+    py = 95
+})
+
+SMODS.Atlas({
+    key = "Dogmatika03",
+    path = "03Dogmatika03.png",
     px = 71,
     py = 95
 })
@@ -109,6 +115,7 @@ SMODS.Joker({
             if context.other_joker and context.other_joker.facing == "front" and JoyousSpring.is_monster_archetype(context.other_joker, "Dogmatika") then
                 return {
                     mult = card.ability.extra.mult,
+                    message_card = context.other_joker
                 }
             end
         end
@@ -407,7 +414,7 @@ SMODS.Joker({
     key = "dogma_relic",
     atlas = 'Dogmatika',
     pos = { x = 1, y = 2 },
-    rarity = 3,
+    rarity = 2,
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
@@ -486,7 +493,7 @@ SMODS.Joker({
     key = "dogma_knight",
     atlas = 'Dogmatika',
     pos = { x = 2, y = 2 },
-    rarity = 3,
+    rarity = 2,
     discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
@@ -519,7 +526,7 @@ SMODS.Joker({
                         type = "RITUAL",
                         materials = {
                             { monster_archetypes = { "Dogmatika" } },
-                            { monster_archetypes = { "Dogmatika" } },
+                            {},
                         }
                     }
                 }
@@ -566,6 +573,80 @@ SMODS.Joker({
                 card.joker_display_values.mult = card.ability.extra.mult * debuffed_ed_count
             end
         }
+    end
+})
+
+-- Dogmatika Alba Zoa
+SMODS.Joker({
+    key = "dogma_albazoa",
+    atlas = 'Dogmatika03',
+    pos = { x = 0, y = 0 },
+    rarity = 3,
+    discovered = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    cost = 10,
+    loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_extra_deck_joker" }
+        end
+        local debuffed_ed_count = JoyousSpring.count_materials_owned({ { is_extra_deck = true, is_debuffed = true } })
+        if next(SMODS.find_card("j_joy_dogma_relic")) then
+            debuffed_ed_count = debuffed_ed_count +
+                JoyousSpring.count_materials_in_graveyard({ { is_extra_deck = true } })
+        end
+        return { vars = { card.ability.extra.mills, card.ability.extra.xmult, 1 + debuffed_ed_count * card.ability.extra.xmult } }
+    end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
+    },
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                summon_type = "RITUAL",
+                attribute = "LIGHT",
+                monster_type = "Spellcaster",
+                monster_archetypes = { ["Dogmatika"] = true },
+                summon_conditions = {
+                    {
+                        type = "RITUAL",
+                        materials = {
+                            { monster_archetypes = { "Dogmatika" } },
+                            { monster_archetypes = { "Dogmatika" } },
+                        }
+                    }
+                }
+            },
+            mills = 1,
+            xmult = 0.05
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.setting_blind and context.main_eval and #JoyousSpring.extra_deck_area.cards > 0 then
+                for _, joker in ipairs(JoyousSpring.extra_deck_area.cards) do
+                    for i = 1, card.ability.extra.mills do
+                        JoyousSpring.send_to_graveyard(joker.config.center.key)
+                    end
+                end
+                return { message = localize("k_joy_mill") }
+            end
+            if context.other_joker and JoyousSpring.is_main_deck_monster(context.other_joker) then
+                local debuffed_ed_count = JoyousSpring.count_materials_owned({ { is_extra_deck = true, is_debuffed = true } })
+                if next(SMODS.find_card("j_joy_dogma_relic")) then
+                    debuffed_ed_count = debuffed_ed_count +
+                        JoyousSpring.count_materials_in_graveyard({ { is_extra_deck = true } })
+                end
+                if debuffed_ed_count > 0 then
+                    return {
+                        xmult = 1 + card.ability.extra.xmult * debuffed_ed_count,
+                        message_card = context.other_joker
+                    }
+                end
+            end
+        end
     end
 })
 

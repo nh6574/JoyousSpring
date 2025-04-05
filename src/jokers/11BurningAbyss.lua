@@ -309,7 +309,8 @@ SMODS.Joker({
             end
             if context.other_joker and context.other_joker.facing == "front" and JoyousSpring.is_monster_type(context.other_joker, "Fiend") then
                 return {
-                    chips = card.ability.extra.chips
+                    chips = card.ability.extra.chips,
+                    message_card = context.other_joker
                 }
             end
         end
@@ -415,7 +416,8 @@ SMODS.Joker({
             end
             if context.other_joker and context.other_joker.facing == "front" and JoyousSpring.is_monster_type(context.other_joker, "Fiend") then
                 return {
-                    mult = card.ability.extra.mult
+                    mult = card.ability.extra.mult,
+                    message_card = context.other_joker
                 }
             end
         end

@@ -463,7 +463,8 @@ SMODS.Joker({
                     local other_card = context.other_card or context.other_joker or context.other_consumeable
                     if other_card and other_card.facing == 'back' then
                         return {
-                            xmult = card.ability.extra.xmult
+                            xmult = card.ability.extra.xmult,
+                            message_card = other_card
                         }
                     end
                 end

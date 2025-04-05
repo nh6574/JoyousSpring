@@ -1,6 +1,6 @@
 --- DRAGONMAID
 SMODS.Atlas({
-    key = "joy_Dragonmaid",
+    key = "Dragonmaid",
     path = "01Dragonmaid.png",
     px = 71,
     py = 95
@@ -106,6 +106,7 @@ SMODS.Joker({
             if context.other_joker and context.other_joker.facing == "front" and JoyousSpring.is_monster_archetype(context.other_joker, "Dragonmaid") then
                 return {
                     mult = card.ability.extra.mult,
+                    message_card = context.other_joker
                 }
             end
             if context.joker_main then
@@ -266,6 +267,7 @@ SMODS.Joker({
             if context.other_joker and context.other_joker.facing == "front" and JoyousSpring.is_monster_archetype(context.other_joker, "Dragonmaid") then
                 return {
                     xmult = card.ability.extra.xmult,
+                    message_card = context.other_joker
                 }
             end
             if context.joker_main then

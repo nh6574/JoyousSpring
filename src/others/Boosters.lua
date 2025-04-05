@@ -1,6 +1,6 @@
 --- RUNICK
 SMODS.Atlas({
-    key = "joy_Booster",
+    key = "Booster",
     path = "boosters.png",
     px = 71,
     py = 95
@@ -8,7 +8,7 @@ SMODS.Atlas({
 
 SMODS.Booster({
     key = "monster_pack",
-    atlas = "joy_Booster",
+    atlas = "Booster",
     pos = { x = 0, y = 1 },
     discovered = true,
     loc_vars = function(self, info_queue, card)
@@ -41,7 +41,7 @@ SMODS.Booster({
 
 SMODS.Booster({
     key = "jumbo_monster_pack",
-    atlas = "joy_Booster",
+    atlas = "Booster",
     pos = { x = 1, y = 1 },
     discovered = true,
     loc_vars = function(self, info_queue, card)
@@ -74,7 +74,7 @@ SMODS.Booster({
 
 SMODS.Booster({
     key = "mega_monster_pack",
-    atlas = "joy_Booster",
+    atlas = "Booster",
     pos = { x = 2, y = 1 },
     discovered = true,
     loc_vars = function(self, info_queue, card)
@@ -107,7 +107,7 @@ SMODS.Booster({
 
 SMODS.Booster({
     key = "extra_pack",
-    atlas = "joy_Booster",
+    atlas = "Booster",
     pos = { x = 0, y = 0 },
     discovered = true,
     loc_vars = function(self, info_queue, card)
@@ -155,7 +155,7 @@ SMODS.Booster({
 
 SMODS.Booster({
     key = "jumbo_extra_pack",
-    atlas = "joy_Booster",
+    atlas = "Booster",
     pos = { x = 1, y = 0 },
     discovered = true,
     loc_vars = function(self, info_queue, card)
@@ -203,7 +203,7 @@ SMODS.Booster({
 
 SMODS.Booster({
     key = "mega_extra_pack",
-    atlas = "joy_Booster",
+    atlas = "Booster",
     pos = { x = 2, y = 0 },
     discovered = true,
     loc_vars = function(self, info_queue, card)

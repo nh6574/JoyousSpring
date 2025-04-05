@@ -1,11 +1,4 @@
 --- MISCELLANEOUS
-SMODS.Atlas({
-    key = "joy_Misc03",
-    path = "99Misc03.png",
-    px = 71,
-    py = 95
-})
-
 SMODS.Joker({
     key = "zenoguitar",
     atlas = 'Misc02',

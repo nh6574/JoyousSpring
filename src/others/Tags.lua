@@ -1,6 +1,6 @@
 --- TAGS
 SMODS.Atlas({
-    key = "joy_Tags",
+    key = "Tags",
     path = "tags.png",
     px = 34,
     py = 34
@@ -9,7 +9,7 @@ SMODS.Atlas({
 -- Booster Tag
 SMODS.Tag({
     key = "booster",
-    atlas = "joy_Tags",
+    atlas = "Tags",
     pos = { x = 0, y = 0 },
     discovered = true,
     apply = function(self, tag, context)
@@ -29,7 +29,7 @@ SMODS.Tag({
 -- Card Tag
 SMODS.Tag({
     key = "monster",
-    atlas = "joy_Tags",
+    atlas = "Tags",
     loc_vars = function(self, info_queue, tag)
         if tag.ability.monster then
             info_queue[#info_queue + 1] = G.P_CENTERS[tag.ability.monster]

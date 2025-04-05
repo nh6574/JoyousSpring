@@ -227,7 +227,8 @@ SMODS.Joker({
             end
             if card.ability.extra.active and context.other_joker then
                 return {
-                    xmult = card.ability.extra.xmult
+                    xmult = card.ability.extra.xmult,
+                    message_card = context.other_joker
                 }
             end
         end

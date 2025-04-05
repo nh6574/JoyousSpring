@@ -607,6 +607,7 @@ SMODS.Joker({
             if context.other_joker and context.other_joker.facing == "front" and JoyousSpring.is_summon_type(context.other_joker, "FUSION") then
                 return {
                     xmult = card.ability.extra.xmult,
+                    message_card = context.other_joker
                 }
             end
         end
@@ -628,7 +629,8 @@ SMODS.Joker({
     joy_transfer_ability_calculate = function(self, other_card, context, config)
         if JoyousSpring.can_use_abilities(other_card) and context.other_joker and context.other_joker.facing == "front" and JoyousSpring.is_summon_type(context.other_joker, "FUSION") then
             return {
-                xmult = config.xmult
+                xmult = config.xmult,
+                message_card = context.other_joker
             }
         end
     end,

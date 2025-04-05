@@ -427,7 +427,8 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if context.other_joker and JoyousSpring.is_summon_type(context.other_joker, "LINK") then
                 return {
-                    xmult = card.ability.extra.xmult
+                    xmult = card.ability.extra.xmult,
+                    message_card = context.other_joker
                 }
             end
         end
