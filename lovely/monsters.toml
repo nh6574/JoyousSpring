@@ -48,3 +48,13 @@ match_indent = true
 payload = '''
 if JoyousSpring.is_monster_card(card) then cols = 1 end
 '''
+
+# Nicer display for Jokers with long names
+[[patches]]
+[patches.pattern]
+target = "functions/misc_functions.lua"
+pattern = "maxw = 5,"
+position = 'at'
+match_indent = true
+payload = '''
+'''
