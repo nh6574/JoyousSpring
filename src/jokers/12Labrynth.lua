@@ -685,7 +685,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        return { vars = { G.GAME.probabilities.normal, math.max(1, card.ability.extra.odds - JoyousSpring.count_materials_owned({ { monster_type = "Fiend" } })), card.ability.extra.extra_mult, card.ability.extra.mult } }
+        return { vars = { G.GAME.probabilities.normal or 1, math.max(1, card.ability.extra.odds - JoyousSpring.count_materials_owned({ { monster_type = "Fiend" } })), card.ability.extra.extra_mult, card.ability.extra.mult } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Labrynth" } } }, name = "k_joy_archetype" },
@@ -784,7 +784,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 8,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.money, G.GAME.probabilities.normal, card.ability.extra.odds, card.ability.extra.flips } }
+        return { vars = { card.ability.extra.money, G.GAME.probabilities.normal or 1, card.ability.extra.odds, card.ability.extra.flips } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Labrynth" } } }, name = "k_joy_archetype" },

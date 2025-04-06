@@ -13,7 +13,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * JoyousSpring.get_pendulum_count(), card.ability.extra.creates } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -24,6 +24,8 @@ SMODS.Joker({
                 attribute = "LIGHT",
                 monster_type = "Spellcaster",
             },
+            xmult = 0.05,
+            creates = 1,
         },
     },
 })
@@ -39,7 +41,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.hands } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -50,6 +52,7 @@ SMODS.Joker({
                 attribute = "DARK",
                 monster_type = "Wyrm",
             },
+            hands = 2
         },
     },
 })
@@ -65,7 +68,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.draws, card.ability.extra.h_size } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -76,6 +79,8 @@ SMODS.Joker({
                 attribute = "LIGHT",
                 monster_type = "Spellcaster",
             },
+            draws = 5,
+            h_size = 2
         },
     },
 })
@@ -91,7 +96,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.joker_amount, card.ability.extra.lose, card.ability.extra.xmult } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -102,6 +107,9 @@ SMODS.Joker({
                 attribute = "DARK",
                 monster_type = "Beast",
             },
+            joker_amount = 4,
+            lose = 1,
+            xmult = 4
         },
     },
 })
@@ -117,7 +125,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.revive_consume, card.ability.extra.revives } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -128,6 +136,8 @@ SMODS.Joker({
                 attribute = "EARTH",
                 monster_type = "WingedBeast",
             },
+            revive_consume = 1,
+            revives = 1
         },
     },
 })
@@ -143,7 +153,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.adds, card.ability.extra.chips, card.ability.extra.current_chips } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -154,6 +164,9 @@ SMODS.Joker({
                 attribute = "LIGHT",
                 monster_type = "Warrior",
             },
+            adds = 2,
+            chips = 50,
+            current_chips = 0
         },
     },
 })
@@ -196,7 +209,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.revives } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -207,6 +220,7 @@ SMODS.Joker({
                 attribute = "DARK",
                 monster_type = "Zombie",
             },
+            revives = 1
         },
     },
 })
@@ -222,7 +236,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.creates, card.ability.extra.mult } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -233,6 +247,8 @@ SMODS.Joker({
                 attribute = "EARTH",
                 monster_type = "Fairy",
             },
+            creates = 1,
+            mult = 25
         },
     },
 })
@@ -248,7 +264,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.xmult } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -260,6 +276,7 @@ SMODS.Joker({
                 attribute = "DARK",
                 monster_type = "Spellcaster",
             },
+            xmult = 2
         },
     },
 })
@@ -275,7 +292,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.attach, card.ability.extra.detach, card.ability.extra.revives } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -287,6 +304,9 @@ SMODS.Joker({
                 attribute = "WATER",
                 monster_type = "Zombie",
             },
+            attach = 2,
+            detach = 2,
+            revives = 1
         },
     },
 })
@@ -302,7 +322,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.chips, card.ability.extra.mult, card.ability.extra.current_chips, card.ability.extra.current_mult } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -313,6 +333,10 @@ SMODS.Joker({
                 attribute = "LIGHT",
                 monster_type = "Fairy",
             },
+            chips = 50,
+            mult = 10,
+            current_chips = 0,
+            current_mult = 0,
         },
     },
 })
@@ -328,7 +352,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.creates } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -338,6 +362,7 @@ SMODS.Joker({
                 attribute = "LIGHT",
                 monster_type = "Cyberse",
             },
+            creates = 1
         },
     },
 })
@@ -379,7 +404,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.banishes } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -390,6 +415,7 @@ SMODS.Joker({
                 attribute = "DARK",
                 monster_type = "Warrior",
             },
+            banishes = 1
         },
     },
 })
@@ -405,7 +431,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.banishes } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -416,6 +442,7 @@ SMODS.Joker({
                 attribute = "LIGHT",
                 monster_type = "Cyberse",
             },
+            banishes = 1
         },
     },
 })
@@ -431,7 +458,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.count_materials_in_graveyard({ { summon_type = "LINK" } }), card.ability.extra.percent * 100 } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -442,6 +469,8 @@ SMODS.Joker({
                 attribute = "LIGHT",
                 monster_type = "Cyberse",
             },
+            mult = 50,
+            percent = 0.1
         },
     },
 })
@@ -457,7 +486,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.revives, card.ability.extra.adds } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -468,6 +497,8 @@ SMODS.Joker({
                 attribute = "WATER",
                 monster_type = "Spellcaster",
             },
+            revives = 1,
+            adds = 1,
         },
     },
 })
@@ -483,7 +514,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.count_materials_owned({ { exclude_debuffed = true } }) } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -494,6 +525,7 @@ SMODS.Joker({
                 attribute = "DARK",
                 monster_type = "Dragon",
             },
+            mult = 100
         },
     },
 })
@@ -509,7 +541,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.xmult, card.ability.extra.current_xmult, card.ability.extra.banishes } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -519,6 +551,9 @@ SMODS.Joker({
                 attribute = "DARK",
                 monster_type = "Fiend",
             },
+            xmult = 0.1,
+            current_xmult = 1,
+            banishes = 1
         },
     },
 })
@@ -534,7 +569,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.percent * 100, card.ability.extra.hands, card.ability.extra.discards } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -543,6 +578,9 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 is_field_spell = true,
             },
+            percent = 0.25,
+            hands = 1,
+            discards = 1
         },
     },
 })
@@ -558,7 +596,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.xmult } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -567,6 +605,7 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 is_field_spell = true,
             },
+            xmult = 1.5
         },
     },
 })
@@ -582,7 +621,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.adds } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -591,6 +630,7 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 is_field_spell = true,
             },
+            adds = 1
         },
     },
 })
@@ -606,7 +646,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.banishes } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -615,6 +655,7 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 is_field_spell = true,
             },
+            banishes = 1
         },
     },
 })
@@ -630,7 +671,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.mult, card.ability.extra.current_mult, card.ability.extra.money } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -639,6 +680,9 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 is_field_spell = true,
             },
+            mult = 25,
+            current_mult = 0,
+            money = 5
         },
     },
 })
@@ -654,7 +698,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.tributes, card.ability.extra.attach } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -663,6 +707,8 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 is_field_spell = true,
             },
+            tributes = 1,
+            attach = 1
         },
     },
 })
@@ -702,7 +748,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.h_size } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -711,6 +757,7 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 is_field_spell = true,
             },
+            h_size = 1
         },
     },
 })
@@ -726,7 +773,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.creates, card.ability.extra.destroys_and_creates, card.ability.extra.money } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -737,6 +784,9 @@ SMODS.Joker({
                 attribute = "LIGHT",
                 monster_type = "Dragon",
             },
+            creates = 1,
+            destroys_and_creates = 1,
+            money = 10,
         },
     },
 })
@@ -752,7 +802,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.turns, card.ability.extra.xmult } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -762,6 +812,8 @@ SMODS.Joker({
                 attribute = "WIND",
                 monster_type = "Dragon",
             },
+            turns = 1,
+            xmult = 1.1
         },
     },
 })
@@ -777,7 +829,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.count_all_materials({ { is_normal = true } }) } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -788,6 +840,7 @@ SMODS.Joker({
                 attribute = "EARTH",
                 monster_type = "BeastWarrior",
             },
+            mult = 50
         },
     },
 })
@@ -803,7 +856,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.adds, card.ability.extra.creates } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -814,6 +867,8 @@ SMODS.Joker({
                 attribute = "FIRE",
                 monster_type = "Fish",
             },
+            adds = 1,
+            creates = 2
         },
     },
 })
@@ -829,7 +884,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.mills, card.ability.extra.revives } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -839,6 +894,8 @@ SMODS.Joker({
                 attribute = "WATER",
                 monster_type = "Fish",
             },
+            mills = 1,
+            revives = 1
         },
     },
 })
@@ -854,7 +911,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.creates } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -864,6 +921,7 @@ SMODS.Joker({
                 attribute = "WATER",
                 monster_type = "Fish",
             },
+            creates = 1
         },
     },
 })
@@ -879,7 +937,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.creates } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -890,6 +948,7 @@ SMODS.Joker({
                 attribute = "LIGHT",
                 monster_type = "Dragon",
             },
+            creates = 1
         },
     },
 })
@@ -905,7 +964,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.money, card.ability.extra.current_money, math.max(1, card.ability.extra.xmult - JoyousSpring.get_joker_column(card)), JoyousSpring.get_joker_column(card) } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -916,6 +975,9 @@ SMODS.Joker({
                 attribute = "LIGHT",
                 monster_type = "Machine",
             },
+            money = 1,
+            current_money = 0,
+            xmult = 7
         },
     },
 })
@@ -931,7 +993,20 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return {
+            vars = {
+                JoyousSpring.get_joker_column(card),
+                card.ability.extra.chips,
+                colours = {
+                    (JoyousSpring.get_joker_column(card) == 1) and G.C.UI.TEXT_DARK or
+                    G.C.UI.TEXT_INACTIVE,
+                    (JoyousSpring.get_joker_column(card) == 3) and G.C.UI.TEXT_DARK or
+                    G.C.UI.TEXT_INACTIVE,
+                    (JoyousSpring.get_joker_column(card) == 5) and G.C.UI.TEXT_DARK or
+                    G.C.UI.TEXT_INACTIVE
+                }
+            },
+        }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -941,6 +1016,7 @@ SMODS.Joker({
                 attribute = "DARK",
                 monster_type = "WingedBeast",
             },
+            chips = 50
         },
     },
 })
@@ -956,7 +1032,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.xmult, card.ability.extra.current_xmult, JoyousSpring.get_joker_column(card) } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -966,6 +1042,8 @@ SMODS.Joker({
                 attribute = "DARK",
                 monster_type = "Dragon",
             },
+            xmult = 0.05,
+            current_xmult = 1,
         },
     },
 })
@@ -981,7 +1059,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.column, JoyousSpring.get_joker_column(card) } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -991,6 +1069,7 @@ SMODS.Joker({
                 attribute = "WIND",
                 monster_type = "WingedBeast",
             },
+            column = 1
         },
     },
 })
@@ -1006,7 +1085,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.xmult } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -1017,6 +1096,7 @@ SMODS.Joker({
                 attribute = "DARK",
                 monster_type = "Zombie",
             },
+            xmult = 2
         },
     },
 })
@@ -1032,7 +1112,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.mult, card.ability.extra.adds } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -1043,6 +1123,8 @@ SMODS.Joker({
                 attribute = "EARTH",
                 monster_type = "Beast",
             },
+            mult = 22,
+            adds = 2
         },
     },
 })
@@ -1058,7 +1140,17 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return {
+            vars = {
+                card.ability.extra.mult,
+                card.ability.extra.mult_normal,
+                card.ability.extra.mult +
+                card.ability.extra.mult_normal * JoyousSpring.count_materials_owned({ { is_non_effect = true } }),
+                card.ability.extra.h_size,
+                card.ability.extra.h_size_normal,
+                card.ability.extra.creates
+            },
+        }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -1069,6 +1161,11 @@ SMODS.Joker({
                 attribute = "DARK",
                 monster_type = "Machine",
             },
+            mult = 10,
+            mult_normal = 25,
+            h_size = 1,
+            h_size_normal = 1,
+            creates = 1
         },
     },
 })
@@ -1110,7 +1207,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.money, card.ability.extra.flips } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -1121,6 +1218,8 @@ SMODS.Joker({
                 attribute = "EARTH",
                 monster_type = "Beast",
             },
+            money = 4,
+            flips = 2
         },
     },
 })
@@ -1136,7 +1235,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.mult, card.ability.extra.extra_mult, card.ability.extra.current_mult, G.GAME.probabilities.normal or 1, card.ability.extra.odds } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -1147,6 +1246,10 @@ SMODS.Joker({
                 attribute = "LIGHT",
                 monster_type = "Machine",
             },
+            mult = 10,
+            extra_mult = 10,
+            current_mult = 10,
+            odds = 2
         },
     },
 })
@@ -1162,7 +1265,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.chips, card.ability.extra.extra_chips, card.ability.extra.current_chips, G.GAME.probabilities.normal or 1, card.ability.extra.odds } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -1173,6 +1276,10 @@ SMODS.Joker({
                 attribute = "LIGHT",
                 monster_type = "Spellcaster",
             },
+            chips = 50,
+            extra_chips = 50,
+            current_chips = 50,
+            odds = 2
         },
     },
 })
@@ -1188,7 +1295,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.chips, card.ability.extra.chips * JoyousSpring.count_materials_in_graveyard({ { is_field_spell = true } }), card.ability.extra.creates } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -1199,6 +1306,8 @@ SMODS.Joker({
                 attribute = "LIGHT",
                 monster_type = "Spellcaster",
             },
+            chips = 200,
+            creates = 1
         },
     },
 })
@@ -1214,7 +1323,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.count_materials_in_graveyard({ { is_trap = true } }), card.ability.extra.revives } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -1225,6 +1334,8 @@ SMODS.Joker({
                 attribute = "DARK",
                 monster_type = "Fiend",
             },
+            mult = 5,
+            revives = 1
         },
     },
 })
@@ -1265,118 +1376,118 @@ JoyousSpring.token_pool["ringo"] = {
 }
 
 --- 0.8.0
-SMODS.Joker({
-    key = "zenoguitar",
-    atlas = 'Misc02',
-    pos = { x = 1, y = 1 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 0,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                attribute = "EARTH",
-                monster_type = "Rock",
-            },
-        },
-    },
-})
-SMODS.Joker({
-    key = "revgolem",
-    atlas = 'Misc02',
-    pos = { x = 0, y = 1 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 0,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                attribute = "EARTH",
-                monster_type = "Rock",
-            },
-        },
-    },
-})
-SMODS.Joker({
-    key = "tackcrusader",
-    atlas = 'Misc02',
-    pos = { x = 2, y = 1 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 0,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                attribute = "EARTH",
-                monster_type = "Rock",
-            },
-        },
-    },
-})
-SMODS.Joker({
-    key = "doki",
-    atlas = 'Misc02',
-    pos = { x = 2, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 0,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                attribute = "EARTH",
-                monster_type = "Rock",
-            },
-        },
-    },
-})
-SMODS.Joker({
-    key = "blockdragon",
-    atlas = 'Misc02',
-    pos = { x = 1, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 0,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                attribute = "EARTH",
-                monster_type = "Rock",
-            },
-        },
-    },
-})
+-- SMODS.Joker({
+--     key = "zenoguitar",
+--     atlas = 'Misc02',
+--     pos = { x = 1, y = 1 },
+--     rarity = 1,
+--     discovered = true,
+--     blueprint_compat = false,
+--     eternal_compat = true,
+--     cost = 0,
+--     loc_vars = function(self, info_queue, card)
+--         return { vars = {} }
+--     end,
+--     generate_ui = JoyousSpring.generate_info_ui,
+--     set_sprites = JoyousSpring.set_back_sprite,
+--     config = {
+--         extra = {
+--             joyous_spring = JoyousSpring.init_joy_table {
+--                 attribute = "EARTH",
+--                 monster_type = "Rock",
+--             },
+--         },
+--     },
+-- })
+-- SMODS.Joker({
+--     key = "revgolem",
+--     atlas = 'Misc02',
+--     pos = { x = 0, y = 1 },
+--     rarity = 1,
+--     discovered = true,
+--     blueprint_compat = false,
+--     eternal_compat = true,
+--     cost = 0,
+--     loc_vars = function(self, info_queue, card)
+--         return { vars = {} }
+--     end,
+--     generate_ui = JoyousSpring.generate_info_ui,
+--     set_sprites = JoyousSpring.set_back_sprite,
+--     config = {
+--         extra = {
+--             joyous_spring = JoyousSpring.init_joy_table {
+--                 attribute = "EARTH",
+--                 monster_type = "Rock",
+--             },
+--         },
+--     },
+-- })
+-- SMODS.Joker({
+--     key = "tackcrusader",
+--     atlas = 'Misc02',
+--     pos = { x = 2, y = 1 },
+--     rarity = 1,
+--     discovered = true,
+--     blueprint_compat = false,
+--     eternal_compat = true,
+--     cost = 0,
+--     loc_vars = function(self, info_queue, card)
+--         return { vars = {} }
+--     end,
+--     generate_ui = JoyousSpring.generate_info_ui,
+--     set_sprites = JoyousSpring.set_back_sprite,
+--     config = {
+--         extra = {
+--             joyous_spring = JoyousSpring.init_joy_table {
+--                 attribute = "EARTH",
+--                 monster_type = "Rock",
+--             },
+--         },
+--     },
+-- })
+-- SMODS.Joker({
+--     key = "doki",
+--     atlas = 'Misc02',
+--     pos = { x = 2, y = 0 },
+--     rarity = 1,
+--     discovered = true,
+--     blueprint_compat = false,
+--     eternal_compat = true,
+--     cost = 0,
+--     loc_vars = function(self, info_queue, card)
+--         return { vars = {} }
+--     end,
+--     generate_ui = JoyousSpring.generate_info_ui,
+--     set_sprites = JoyousSpring.set_back_sprite,
+--     config = {
+--         extra = {
+--             joyous_spring = JoyousSpring.init_joy_table {
+--                 attribute = "EARTH",
+--                 monster_type = "Rock",
+--             },
+--         },
+--     },
+-- })
+-- SMODS.Joker({
+--     key = "blockdragon",
+--     atlas = 'Misc02',
+--     pos = { x = 1, y = 0 },
+--     rarity = 1,
+--     discovered = true,
+--     blueprint_compat = false,
+--     eternal_compat = true,
+--     cost = 0,
+--     loc_vars = function(self, info_queue, card)
+--         return { vars = {} }
+--     end,
+--     generate_ui = JoyousSpring.generate_info_ui,
+--     set_sprites = JoyousSpring.set_back_sprite,
+--     config = {
+--         extra = {
+--             joyous_spring = JoyousSpring.init_joy_table {
+--                 attribute = "EARTH",
+--                 monster_type = "Rock",
+--             },
+--         },
+--     },
+-- })

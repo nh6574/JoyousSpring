@@ -190,7 +190,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 4,
     loc_vars = function(self, info_queue, card)
-        return { vars = { G.GAME.probabilities.normal, JoyousSpring.get_joker_column(card) } }
+        return { vars = { G.GAME.probabilities.normal or 1, JoyousSpring.get_joker_column(card) } }
     end,
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },

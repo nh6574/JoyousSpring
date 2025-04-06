@@ -938,7 +938,7 @@ SMODS.Joker({
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
         end
-        return { vars = { card.ability.extra.adds, G.GAME.probabilities.normal, math.max(1, card.ability.extra.odds - JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))) } }
+        return { vars = { card.ability.extra.adds, G.GAME.probabilities.normal or 1, math.max(1, card.ability.extra.odds - JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))) } }
     end,
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
@@ -1006,7 +1006,7 @@ SMODS.Joker({
         return { odds = 6 }
     end,
     joy_transfer_loc_vars = function(self, info_queue, card, config)
-        return { vars = { G.GAME.probabilities.normal, math.max(1, config.odds - JoyousSpring.get_attribute_count(JoyousSpring.get_materials(other_card))) } }
+        return { vars = { G.GAME.probabilities.normal or 1, math.max(1, config.odds - JoyousSpring.get_attribute_count(JoyousSpring.get_materials(other_card))) } }
     end
 })
 
@@ -1415,7 +1415,7 @@ SMODS.Joker({
                 card.ability.extra.creates,
                 card.ability.extra.chips,
                 card.ability.extra.mult,
-                G.GAME.probabilities.normal,
+                G.GAME.probabilities.normal or 1,
                 card.ability.extra.odds,
                 card.ability.extra.h_size,
                 colours = {

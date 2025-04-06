@@ -2802,7 +2802,7 @@ return {
 				text = {
 					"You can {C:attention}tribute #1#{} other {C:attention}Joker",
 					"to {C:attention}transform{} this card into an {C:joy_normal}\"Invoked\"",
-					"{C:inactive}(This is treated as a fusion)",
+					"{C:inactive}(This is treated as a Fusion summon)",
 					" ",
 					"A {C:joy_fusion}Fusion{} summoned using this card as {C:attention}material{} gains the following ability:",
 					"{s:0.9,C:chips}+#2#{} {s:0.9}Chips for each {s:0.9,C:joy_fusion}Fusion{} {s:0.9}summoned this run"
@@ -2817,7 +2817,7 @@ return {
 				text = {
 					"You can {C:attention}tribute #1#{} other {C:attention}Joker",
 					"to {C:attention}transform{} this card into an {C:joy_normal}\"Invoked\"",
-					"{C:inactive}(This is treated as a fusion)",
+					"{C:inactive}(This is treated as a Fusion summon)",
 					" ",
 					"Create {C:attention}#2#{} {C:joy_spell}\"Magical Meltdown\"{} when used as {C:attention}material{} for a {C:joy_fusion}Fusion{}",
 					"{C:inactive}(Must have room)",
@@ -3260,61 +3260,62 @@ return {
 			j_joy_formud = {
 				name = "{C:joy_effect}Formud Skipper",
 				text = {
-					"TBD"
+					"Treated as any {C:attention}material{} for a {C:joy_link}Link",
+					" ",
+					"Create {C:attention}#1#{} {C:joy_normal}Main Deck{} {C:red}Rare{} {C:joy_normal}Cyberse",
+					"when used as {C:attention}material{} for a {C:joy_normal}Cyberse"
 				}
 			},
 			j_joy_angraecum = {
 				name = "{C:joy_effect}Angraecum Umbrella",
 				text = {
-					"TBD"
-				}
-			},
-			j_joy_bishbaalkin = {
-				name = "{C:joy_effect}Phantasmal Lord Ultimitl Bishbaalkin",
-				text = {
-					"TBD"
-				}
-			},
-			j_joy_token_utchatzimime = {
-				name = "{C:joy_token}Utchatzimime Token",
-				text = {
-					"This card can be used as any {C:joy_token}Token{}",
+					"{C:attention}Revive #1#{} non-{C:joy_synchro}Tuner{} as {C:dark_edition}Negative{} and debuffed",
+					"and add {C:attention}#2#{} {C:joy_synchro}Synchro{} to the shop when obtained",
 				}
 			},
 			j_joy_eater = {
 				name = "{C:joy_effect}Eater of Millions",
 				text = {
-					"TBD"
+					"Gains {X:mult,C:white}X#1#{} Mult each time an {C:joy_spell}Extra Deck{} {C:attention}Joker{} banishes",
+					"{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)",
+					" ",
+					"{C:attention}Banish #3#{} non-debuffed {C:joy_spell}Extra Deck{} {C:attention}Joker{} at end of round",
+					"until {C:attention}Boss Blind{} is selected"
 				}
 			},
 			j_joy_miradora = {
 				name = "{C:joy_effect}Heavenly Zephyr - Miradora",
 				text = {
-					"TBD"
-				}
-			},
-			j_joy_lycanthrope = {
-				name = "{C:joy_ritual}Lycanthrope",
-				text = {
-					"TBD"
+					"Debuffs and turns {C:attention}#1#{} random {C:joy_spell}Extra Deck{} {C:attention}Joker{} {C:dark_edition}Negative{} when obtained",
+					" ",
+					"Each debuffed {C:joy_spell}Extra Deck{} {C:attention}Joker{} gives {X:mult,C:white}X#2#"
 				}
 			},
 			j_joy_leaffish = {
 				name = "{C:joy_effect}Lifeless Leaffish",
 				text = {
-					"TBD"
+					"Send {C:attention}#1#{} {C:joy_normal}Main Deck Fish{} to the {C:attention}GY{}",
+					"when {C:attention}Blind{} is selected",
+					" ",
+					"Sell this card to {C:attention}revive #2#{} {C:joy_normal}Fish{}",
+					"{C:inactive}(Except \"Lifeless Leaffish\"){}"
 				}
 			},
 			j_joy_beautunaful = {
 				name = "{C:joy_effect}Beautunaful Princess",
 				text = {
-					"TBD"
+					"Creates {C:attention}#1#{} {C:joy_normal}Fish{} when obtained and",
+					"when it returns from {C:attention}banishment{}",
+					"{C:inactive}(Must have room)"
 				}
 			},
 			j_joy_ringowurm = {
 				name = "{C:joy_effect}Ringowurm, the Dragon Guarding the Hundred Apples",
 				text = {
-					"TBD"
+					"Create {C:attention}#1#{} {C:dark_edition}Negative{} {C:joy_synchro}Tuner{} {C:joy_token}\"Hundred Apples Token\"{}",
+					"when used as {C:attention}material{} for a {C:joy_synchro}Synchro{}",
+					" ",
+					"Free if you own a non-{C:joy_effect}Effect{} {C:attention}Joker{}"
 				}
 			},
 			j_joy_token_ringo = {
@@ -3326,37 +3327,62 @@ return {
 			j_joy_ghostbird = {
 				name = "{C:joy_effect}Ghost Bird of Bewitchment",
 				text = {
-					"TBD"
+					"Played cards in this card's {C:attention}column{} are destroyed after scoring",
+					"{C:inactive}(Currently in {C:attention}column #1#{}{C:inactive})",
+					" ",
+					"Gets ability based on the {C:attention}column{}",
+					"{V:1}1: Scored card in this {C:attention}column{} {V:1}gains {C:chips}+#2#{} {V:1}Chips{}",
+					"{V:2}3: Retrigger scored card in this {C:attention}column{V:2} twice",
+					"{V:3}5: Played card in this {C:attention}column{} {V:3}counts for scoring{}",
 				}
 			},
 			j_joy_tiamaton = {
 				name = "{C:joy_effect}Iron Dragon Tiamaton",
 				text = {
-					"TBD"
+					"Gains {X:mult,C:white}X#1#{} Mult for each destroyed playing card",
+					"{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)",
+					" ",
+					"Played cards in this card's {C:attention}column{} are destroyed after scoring",
+					"{C:inactive}(All played cards if column is 5+)",
+					"{C:inactive}(Currently in {C:attention}column #3#{}{C:inactive})",
 				}
 			},
 			j_joy_stormshooter = {
 				name = "{C:joy_effect}Storm Shooter",
 				text = {
-					"TBD"
+					"Creates as many {C:planet}Planet{} cards for the scoring hand as possible",
+					"if an unscored card is played in this card's {C:attention}column{}",
+					"This card has to be in {C:attention}column #1#{} to use this ability",
+					"{C:inactive}(Changes each round){}",
+					"{C:inactive}(Currently in {C:attention}column #2#{}{C:inactive})",
 				}
 			},
 			j_joy_procession = {
 				name = "{C:joy_effect}Procession of the Tea Jar",
 				text = {
-					"TBD"
+					"Each face-down {C:attention}Joker{} gives {X:mult,C:white}X#1#{} Mult",
+					" ",
+					"{C:attention}Flips{} all {C:attention}Jokers{} face-down when {C:attention}Blind{} is selected"
 				}
 			},
 			j_joy_darkcat = {
 				name = "{C:joy_effect}Dark Cat with White Tail",
 				text = {
-					"TBD"
+					"{C:mult}+#1#{} Mult",
+					" ",
+					"{C:joy_effect}FLIP{}: Add {C:attention}#2#{} random {C:dark_edition}Negative{} {C:attention}Lucky{} cards to your deck"
 				}
 			},
 			j_joy_dekoichi = {
 				name = "{C:joy_effect}Dekoichi the Battlechanted Locomotive",
 				text = {
-					"TBD"
+					"{C:mult}+#1#{} Mult,",
+					"{C:mult}+#2#{} for each {C:joy_normal}Normal{} {C:attention}Joker{}",
+					"{C:inactive}(Currently {C:mult}+#3#{}{C:inactive} Mult)",
+					" ",
+					"{C:joy_effect}FLIP{}: {C:attention}+#4#{} hand size this round,",
+					"{C:attention}+#5#{} for each {C:joy_normal}Normal{} {C:attention}Joker{} then",
+					"create {C:attention}#6#{} {C:dark_edition}Negative{} {C:joy_normal}\"Bokoichi the Freightening Car\"{}"
 				}
 			},
 			j_joy_bokoichi = {
@@ -3369,31 +3395,54 @@ return {
 			j_joy_desertapir = {
 				name = "{C:joy_effect}Desertapir",
 				text = {
-					"TBD"
+					"{C:money}+$#1#{} at end of round",
+					" ",
+					"{C:joy_effect}FLIP{}: Flip {C:attention}#2#{} random {C:attention}Jokers{} face-up"
 				}
 			},
 			j_joy_searchlight = {
 				name = "{C:joy_effect}Searchlightman",
 				text = {
-					"TBD"
+					"{C:mult}+#1#{} Mult,",
+					"gains {C:mult}+#2#{} Mult for each {C:attention}Joker{} {C:attention}flipped{} face-up",
+					"{s:0.9,C:inactive}(Gains even while face-down)",
+					"{C:inactive}(Currently {C:mult}+#3# {C:inactive}Mult)",
+					" ",
+					"{C:joy_effect}FLIP{}: {C:attention}Flips{} all {C:attention}Jokers{} face-up",
+					" ",
+					"{C:green}#4# in #5#{} chance to {C:attention}flip{} when {C:attention}Blind{} is selected"
 				}
 			},
 			j_joy_sternmystic = {
 				name = "{C:joy_effect}The Stern Mystic",
 				text = {
-					"TBD"
+					"{C:chips}+#1#{} Chips,",
+					"gains {C:chips}+#2#{} Chips for each playing card {C:attention}flipped{}",
+					"{s:0.9,C:inactive}(Gains even while face-down)",
+					"{C:inactive}(Currently {C:chips}+#3# {C:inactive}Chips)",
+					" ",
+					"{C:joy_effect}FLIP{}: {C:attention}Flips{} all playing cards",
+					" ",
+					"{C:green}#4# in #5#{} chance to {C:attention}flip{} when {C:attention}Blind{} is selected"
 				}
 			},
 			j_joy_mof = {
 				name = "{C:joy_effect}Magician of Faith",
 				text = {
-					"TBD"
+					"{C:chips}+#1#{} Chips for each {C:joy_spell}Field Spell{} in the {C:attention}GY{}",
+					"{C:inactive}(Currently {C:chips}+#2#{}{C:inactive} Chips)",
+					" ",
+					"{C:joy_effect}FLIP{}: Create {C:attention}#3#{} copy of a {C:joy_spell}Field Spell{} in the {C:attention}GY{}",
+					"{C:inactive}(Must have room)"
 				}
 			},
 			j_joy_mask = {
 				name = "{C:joy_effect}Mask of Darkness",
 				text = {
-					"TBD"
+					"{C:mult}+#1#{} Mult for each {C:joy_trap}Trap{} in the {C:attention}GY{}",
+					"{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)",
+					" ",
+					"{C:joy_effect}FLIP{}: {C:attention}Revive #3#{} {C:joy_trap}Trap{}"
 				}
 			},
 			j_joy_zenoguitar = {
@@ -3501,8 +3550,14 @@ return {
 			--#region Pendulum Normal
 			j_joy_foucault = {
 				name = "{C:joy_pendulum_normal}Foucault's Cannon",
+				joy_consumable = {
+					"Create as many {C:attention}Earth{} as possible",
+					"{C:inactive}(Must have room)"
+				},
 				text = {
-					"TBD"
+					"{E:1}A mechanized life form, roving through space-time. But the{}",
+					"{E:1}mysterious thing is that its memory i... m...stly gone. W...at is{}",
+					"{E:1}t...e reason? D..... refuse t... b.... interfered w...h?{}",
 				}
 			},
 			--#endregion
@@ -3530,56 +3585,100 @@ return {
 			},
 			j_joy_pandora = {
 				name = "{C:joy_pendulum_effect}Pandora's Jewelry Box",
+				joy_consumable = {
+					"Gives a random {C:joy_pendulum}Pendulum{} a random {C:dark_edition}Edition{}"
+				},
 				text = {
-					"TBD"
+					"{C:blue}+#1#{} Hands if you have no cards",
+					"in the {C:joy_spell}Extra Deck{}"
 				}
 			},
 			j_joy_anchamoufrite = {
 				name = "{C:joy_pendulum_effect}Anchamoufrite",
+				joy_consumable = {
+					"During a {C:attention}Blind{}, draw {C:attention}#1#{} extra cards"
+				},
 				text = {
-					"TBD"
+					"{C:attention}+#2#{} hand size if you have no cards",
+					"in the {C:joy_spell}Extra Deck{}"
 				}
 			},
 			j_joy_zany = {
 				name = "{C:joy_pendulum_effect}Zany Zebra",
+				joy_consumable = {
+					"If you own {C:attention}#1# Jokers{} or less (after use),",
+					"permanently lose {C:red}#2#{} {C:attention}Joker{} slot and",
+					"give all {C:attention}Jokers{} {C:dark_edition}Polychrome{}"
+				},
 				text = {
-					"TBD"
+					"{X:mult,C:white}X#3#{} Mult if you own {C:attention}#1# Jokers{} or less"
 				}
 			},
 			j_joy_pendulumucho = {
 				name = "{C:joy_pendulum_effect}Pendulumucho",
+				joy_consumable = {
+					"{C:attention}Revive #1#{} {C:joy_pendulum}Pendulum{}",
+				},
 				text = {
-					"TBD"
+					"{C:attention}Revive #2#{} {C:joy_pendulum}Pendulum{} when obtained",
+					" ",
+					"Cannot be {C:attention}revived{}",
 				}
 			},
 			j_joy_moissa = {
 				name = "{C:joy_pendulum_effect}Moissa Knight, the Comet General",
+				joy_consumable = {
+					"Add {C:attention}#1#{} {C:joy_pendulum}Pendulum{} to the shop"
+				},
 				text = {
-					"TBD"
+					"{C:chips}+#2#{} Chips for each {C:joy_pendulum}Pendulum{} bought",
+					"{C:inactive}(Currently {C:chips}+#3#{}{C:inactive} Chips)"
 				}
 			},
 			j_joy_pmcaptor = {
 				name = "{C:joy_pendulum_effect}P.M. Captor",
+				joy_consumable = {
+					"{C:attention}Revive #1#{} {C:joy_pendulum}Pendulum{}",
+					"{C:inactive}(Except \"P.M. Captor\"){}"
+				},
 				text = {
-					"TBD"
+					"{C:joy_normal}Zombies{} cannot be debuffed",
+					"Non-{C:joy_trap}Trap{} {C:joy_normal}Zombies{} cannot be {C:attention}flipped{}"
 				}
 			},
 			j_joy_metrognome = {
 				name = "{C:joy_pendulum_effect}Metrognome",
+				joy_consumable = {
+					"Create {C:attention}#1#{} {C:joy_pendulum}Pendulum{} of the most owned rarity",
+					"{C:inactive}(Must have room) (Random if multiple)"
+				},
 				text = {
-					"TBD"
+					"Each {C:joy_pendulum}Pendulum{} that shares the", "most owned rarity gives {C:mult}+#2#{} Mult"
 				}
 			},
 			j_joy_bozu = {
 				name = "{C:joy_pendulum_effect}Rain Bozu",
+				joy_consumable = {
+					"A random {C:joy_normal}Monster{} {C:attention}Joker{} gains",
+					"this card's current Chips and Mult"
+				},
 				text = {
-					"TBD"
+					"Gains {C:chips}+#1#{} Chips for each card in the {C:joy_spell}Extra Deck{}",
+					"and {C:mult}+#2#{} Mult for each empty {C:joy_spell}Extra Deck{} slot",
+					"when {C:attention}Blind{} is selected",
+					"{C:inactive}(Currently {C:chips}+#3#{}{C:inactive} Chips and {C:mult}+#4#{} {C:inactive}Mult)"
 				}
 			},
 			j_joy_disablaster = {
 				name = "{C:joy_pendulum_effect}Disablaster the Negation Fortress",
+				joy_consumable = {
+					"{C:money}+$#1#{} for each time this card's {C:attention}Joker{} ability was used",
+					"{C:inactive}(Currently {C:money}+$#2#{}{C:inactive})"
+				},
 				text = {
-					"TBD"
+					"{X:mult,C:white}X#3#{} Mult if no card is played in this {C:attention}column{}",
+					"{C:inactive}(Lowers the higher the column)",
+					"{C:inactive}(Currently in {C:attention}column #4#{}{C:inactive})",
 				}
 			},
 			--#endregion
@@ -3603,16 +3702,30 @@ return {
 			--#region Pendulum Synchro
 			j_joy_nirvana = {
 				name = "{C:joy_pendulum_synchro}Nirvana High Paladin",
+				joy_consumable = {
+					"All {C:joy_pendulum}Pendulum{} become {C:dark_edition}Polychrome{}"
+				},
 				text = {
-					"TBD"
+					"Each {C:joy_pendulum}Pendulum{} gives {X:mult,C:white}X#1#{} Mult"
+				},
+				joy_summon_conditions = {
+					"{C:attention}1{} {C:joy_synchro}Tuner{} +",
+					"{C:attention}1{} non-{C:joy_synchro}Tuner Synchro",
 				}
 			},
 			--#endregion
 			--#region Pendulum Xyz
 			j_joy_ooze = {
 				name = "{C:joy_pendulum_xyz}Daidaratant the Ooze Giant",
+				joy_consumable = {
+					"Attach {C:attention}#1# materials{} to a random {C:joy_xyz}Xyz{}"
+				},
 				text = {
-					"TBD"
+					"{C:joy_xyz}Detach{} {C:attention}#2#{}: {C:attention}Revive #3#{} {C:joy_pendulum}Pendulum{} as {C:dark_edition}Negative{}"
+				},
+				joy_summon_conditions = {
+					"{C:attention}2{} {C:joy_pendulum}Pendulum{}",
+					"{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive})"
 				}
 			},
 			--#endregion
@@ -3631,6 +3744,17 @@ return {
 				},
 				joy_summon_conditions = {
 					"{C:attention}2 Jokers{}",
+				}
+			},
+			j_joy_lycanthrope = {
+				name = "{C:joy_ritual}Lycanthrope",
+				text = {
+					"{C:mult}+#1#{} Mult for each {C:joy_normal}Normal{} {C:attention}Joker{} owned or in the {C:attention}GY{}",
+					"{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
+				},
+				joy_summon_conditions = {
+					"{C:attention}2 Jokers{}",
+					"OR {C:attention}1{} {C:joy_normal}Normal {C:attention}Joker{}",
 				}
 			},
 			--#endregion
@@ -3676,17 +3800,59 @@ return {
 			j_joy_afd = {
 				name = "{C:joy_synchro}Ancient Fairy Dragon",
 				text = {
-					"TBD"
+					"Create {C:attention}#1#{} {C:joy_synchro}Tuner{} when summoned",
+					"{C:inactive}(Must have room)",
+					" ",
+					"Destroy {C:attention}#2#{} random {C:joy_spell}Field Spell{} when {C:attention}Blind{} is selected",
+					"to gain {C:money}+$#3#{} then create {C:attention}#2#{} {C:joy_spell}Field Spell",
+					"{C:inactive}(Must have room)",
+				},
+				joy_summon_conditions = {
+					"{C:attention}1{} {C:joy_synchro}Tuner{} +",
+					"{C:attention}1{} non-{C:joy_synchro}Tuner{}",
+					"{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
 				}
 			},
 			j_joy_fishlamp = {
 				name = "{C:joy_synchro}Fish Lamp",
 				text = {
-					"TBD"
+					"Add {C:attention}#1#{} {C:joy_normal}Fish{} {C:joy_synchro}Synchro{} to the {C:joy_spell}Extra Deck{}",
+					"when used as {C:attention}material{} and create up to {C:attention}#2#{}",
+					"{C:joy_token}\"Lamp Tokens\"{} that can be treated as any {C:attention}material{} for a {C:joy_synchro}Synchro",
+					"{C:inactive}(Must have room)",
+					" ",
+					"Treated as any {C:attention}material{} for a {C:joy_synchro}Synchro",
+				},
+				joy_summon_conditions = {
+					"{C:attention}1{} {C:joy_synchro}Tuner{} +",
+					"{C:attention}1{} non-{C:joy_synchro}Tuner{}",
+					"{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
 				}
 			},
 			j_joy_token_lamp = {
 				name = "{C:joy_token}Lamp Token",
+				text = {
+					"This card can be used as any {C:joy_token}Token{}",
+				}
+			},
+			j_joy_bishbaalkin = {
+				name = "{C:joy_synchro}Phantasmal Lord Ultimitl Bishbaalkin",
+				text = {
+					"{C:mult}+#1#{} Mult for each non-debuffed {C:attention}Joker{}",
+					"{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)",
+					" ",
+					"Destroy all other non-debuffed {C:attention}Jokers{} at end of round and",
+					"create as many {C:joy_token}\"Utchatzimime Tokens\"{}",
+					"{C:inactive}(Even if you don't have room){}"
+				},
+				joy_summon_conditions = {
+					"{C:attention}1{} {C:joy_synchro}Tuner{} +",
+					"{C:attention}1{} {C:red}Rare{} non-{C:joy_synchro}Tuner{}",
+					"{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
+				}
+			},
+			j_joy_token_utchatzimime = {
+				name = "{C:joy_token}Utchatzimime Token",
 				text = {
 					"This card can be used as any {C:joy_token}Token{}",
 				}
@@ -3752,7 +3918,15 @@ return {
 			j_joy_exceed = {
 				name = "{C:joy_link}Exceed the Pendulum",
 				text = {
-					"TBD"
+					"Gains {X:mult,C:white}X#1#{} Mult for each {C:joy_pendulum}Pendulum{} consumed this run",
+					"{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)",
+					" ",
+					"Create {C:attention}#3#{} {C:dark_edition}Negative{} {C:joy_normal}Main Deck{} {C:joy_pendulum}Pendulum{}",
+					"when {C:attention}Boss Blind{} is defeated"
+				},
+				joy_summon_conditions = {
+					"{C:attention}3 Jokers{},",
+					"including a {C:joy_pendulum}Pendulum"
 				}
 			},
 			j_joy_linkuriboh = {
@@ -3779,25 +3953,50 @@ return {
 			j_joy_ipmasq = {
 				name = "{C:joy_link}I:P Masquerena",
 				text = {
-					"TBD"
+					"{C:attention}Transforms{} into a random {C:joy_link}Link{} when {C:attention}Blind{} is selected",
+					"{C:inactive}(This is treated as a Link summon with 2 materials){}",
+					"A {C:joy_link}Link{} summoned this way gains the following ability:",
+					"{s:0.9,C:attention}Transforms{s:0.9} into {s:0.9,C:joy_link}\"I:P Masquerena\"{s:0.9} at end of round"
+				},
+				joy_summon_conditions = {
+					"{C:attention}2{} {C:joy_effect}Effect {C:attention}Jokers{}",
 				}
 			},
 			j_joy_spknight = {
 				name = "{C:joy_link}S:P Little Knight",
 				text = {
-					"TBD"
+					"{C:attention}Banishes #1#{} other {C:attention}Joker{} at end of round",
+					"until {C:attention}Boss Blind{} is selected",
+					"or until {C:attention}Blind{} is selected if summoned",
+					"using {C:attention}2{} {C:joy_spell}Extra Deck{} {C:attention}Jokers{} as {C:attention}material{}"
+				},
+				joy_summon_conditions = {
+					"{C:attention}2{} {C:joy_effect}Effect {C:attention}Jokers{}",
 				}
 			},
 			j_joy_progleo = {
 				name = "{C:joy_link}Progleo",
 				text = {
-					"TBD"
+					"{C:attention}Banishes #1#{} adjacent {C:attention}Joker{} at end of round",
+					"until {C:attention}Boss Blind{} is selected",
+				},
+				joy_summon_conditions = {
+					"{C:attention}2{} {C:attention}Jokers{},",
+					"except {C:joy_token}Tokens"
 				}
 			},
 			j_joy_raster = {
 				name = "{C:joy_link}Rasterliger",
 				text = {
-					"TBD"
+					"{C:mult}+#1#{} Mult for each {C:joy_link}Link{} in the {C:attention}GY{}",
+					"{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)",
+					" ",
+					"You can {C:attention}tribute{} all other {C:attention}Jokers{}",
+					"to reduce {C:attention}Blind{}'s requirement by {C:red}#3#%{} for each"
+				},
+				joy_summon_conditions = {
+					"{C:attention}4{} {C:attention}Jokers{},",
+					"except {C:joy_token}Tokens"
 				}
 			},
 			--#endregion
@@ -3805,49 +4004,62 @@ return {
 			j_joy_chickengame = {
 				name = "{C:joy_spell}Chicken Game",
 				text = {
-					"TBD"
+					"You can increase {C:attention}Blind{}'s requirement by {C:red}#1#%",
+					"to gain {C:blue}+#2#{} Hand and {C:red}+#3#{} Discard this round"
 				}
 			},
 			j_joy_midbreaker = {
 				name = "{C:joy_spell}Magical Mid-Breaker Field",
 				text = {
-					"TBD"
+					"{C:attention}Jokers{} each give {X:mult,C:white}X#1#{} Mult",
+					"and cannot be debuffed or {C:attention}flipped{}",
+					"during a {C:attention}Boss Blind{}",
+					" ",
+					"{C:attention}Jokers{} are {C:attention}flipped{} face-down when {C:attention}Small{} or {C:attention}Big Blind{} is selected",
+					"and {C:attention}flipped{} face-up at end of round"
 				}
 			},
 			j_joy_fusiongate = {
 				name = "{C:joy_spell}Fusion Gate",
 				text = {
-					"TBD"
+					"Add {C:attention}#1#{} {C:joy_fusion}Fusion{} to the {C:joy_spell}Extra Deck{}",
+					"when {C:attention}Boss Blind{} is defeated"
 				}
 			},
 			j_joy_futurevisions = {
 				name = "{C:joy_spell}Future Visions",
 				text = {
-					"TBD"
+					"{C:attention}Banishes #1#{} random bought {C:joy_normal}Main Deck{} {C:attention}Joker{} at end of round",
+					"until {C:attention}Blind{} is selected"
 				}
 			},
 			j_joy_xyzterritory = {
 				name = "{C:joy_spell}Xyz Territory",
 				text = {
-					"TBD"
+					"Gains {C:mult}+#1#{} Mult for each {C:joy_xyz}Xyz{} owned at end of round",
+					"{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)",
+					" ",
+					"{C:money}+$#3#{} when a {C:attention}material{} is {C:joy_xyz}detached{}"
 				}
 			},
 			j_joy_xyzoverride = {
 				name = "{C:joy_spell}Xyz Override",
 				text = {
-					"TBD"
+					"Once per round, you can {C:attention}tribute #1#{} {C:attention}Joker{}",
+					"to attach {C:attention}#2# materials{} to each {C:joy_xyz}Xyz{}"
 				}
 			},
 			j_joy_summonbreaker = {
 				name = "{C:joy_spell}Summon Breaker",
 				text = {
-					"TBD"
+					"The third {C:attention}Joker{} summoned this round becomes {C:dark_edition}Negative{}",
+					"and this card is destroyed"
 				}
 			},
 			j_joy_extranet = {
 				name = "{C:joy_spell}Extra Net",
 				text = {
-					"TBD"
+					"{C:attention}+#1#{} hand size for each {C:attention}Joker{} summoned this round"
 				}
 			},
 			--#endregion

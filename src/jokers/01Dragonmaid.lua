@@ -332,7 +332,7 @@ SMODS.Joker({
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
         end
-        return { vars = { G.GAME.probabilities.normal, card.ability.extra.odds, card.ability.extra.revives } }
+        return { vars = { G.GAME.probabilities.normal or 1, card.ability.extra.odds, card.ability.extra.revives } }
     end,
     joy_desc_cards = {
         { "j_joy_dmaid_ernus",                                        name = "k_joy_transforms_into" },
@@ -666,7 +666,7 @@ SMODS.Joker({
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
         end
-        return { vars = { G.GAME.probabilities.normal, card.ability.extra.odds, card.ability.extra.revives } }
+        return { vars = { G.GAME.probabilities.normal or 1, card.ability.extra.odds, card.ability.extra.revives } }
     end,
     joy_desc_cards = {
         { "j_joy_dmaid_chamber",                                      name = "k_joy_transforms_into" },
@@ -750,7 +750,7 @@ SMODS.Joker({
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
         end
         return {
-            vars = { G.GAME.probabilities.normal, card.ability.extra.odds }
+            vars = { G.GAME.probabilities.normal or 1, card.ability.extra.odds }
         }
     end,
     joy_desc_cards = {
