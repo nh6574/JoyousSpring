@@ -645,11 +645,13 @@ JoyousSpring.create_overlay_see_related = function(card)
                 end
                 table.sort(keys, function(a, b) return JoyousSpring.card_order[a] < JoyousSpring.card_order[b] end)
                 for j, key in ipairs(keys) do
+                    local old_used_jokers = G.GAME.used_jokers[key]
                     local added_card = SMODS.create_card({
                         key = key,
                         no_edition = true,
                         area = t.area_table[#t.area_table]
                     })
+                    G.GAME.used_jokers[key] = old_used_jokers
                     t.area_table[#t.area_table]:emplace(added_card)
                 end
 
