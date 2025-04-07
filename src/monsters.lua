@@ -323,7 +323,7 @@ JoyousSpring.cannot_flip = function(card)
             if not joker.debuff and joker.config.center.joy_prevent_flip and joker.config.center.joy_prevent_flip(joker, card) then
                 return true
             end
-            if not joker.debuff and joker.ability.extra.joyous_spring.material_effects and next(joker.ability.extra.joyous_spring.material_effects) then
+            if JoyousSpring.is_monster_card(joker) and not joker.debuff and joker.ability.extra.joyous_spring.material_effects and next(joker.ability.extra.joyous_spring.material_effects) then
                 for material_key, config in pairs(joker.ability.extra.joyous_spring.material_effects) do
                     local material_center = G.P_CENTERS[material_key]
 
@@ -400,7 +400,7 @@ JoyousSpring.flip_effect_active = function(card)
         if not joker.debuff and joker.config.center.joy_flip_effect_active and joker.config.center.joy_flip_effect_active(joker, card) then
             return true
         end
-        if not joker.debuff and joker.ability.extra.joyous_spring.material_effects and next(joker.ability.extra.joyous_spring.material_effects) then
+        if JoyousSpring.is_monster_card(joker) and not joker.debuff and joker.ability.extra.joyous_spring.material_effects and next(joker.ability.extra.joyous_spring.material_effects) then
             for material_key, config in pairs(joker.ability.extra.joyous_spring.material_effects) do
                 local material_center = G.P_CENTERS[material_key]
 
