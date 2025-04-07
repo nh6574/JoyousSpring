@@ -14,7 +14,7 @@ local shaddoll_should_flip = function(card)
         return false
     end
     for _, joker in ipairs(G.jokers.cards) do
-        if not joker.debuff and joker.ability.extra.joyous_spring.material_effects and joker.ability.extra.joyous_spring.material_effects["j_joy_shaddoll_wendigo"] then
+        if JoyousSpring.is_monster_card(joker) and not joker.debuff and joker.ability.extra.joyous_spring.material_effects and joker.ability.extra.joyous_spring.material_effects["j_joy_shaddoll_wendigo"] then
             return false
         end
     end
