@@ -63,7 +63,7 @@ SMODS.Joker({
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and G.GAME.blind.in_blind then
             G.GAME.blind.chips = math.floor(G.GAME.blind.chips -
-                G.GAME.blind.chips * card.ability.extra.current_percent)
+                G.GAME.blind.chips * card.ability.extra.percent)
             G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
         end
     end

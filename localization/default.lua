@@ -3942,7 +3942,7 @@ return {
 			j_joy_linguriboh = {
 				name = "{C:joy_link}Linguriboh",
 				text = {
-					"Sell this card to disable the current {C:attention}Boss Blind{} and",
+					"Sell this card to disable the current {C:attention}Boss Blind{}",
 					"but reduces hand size by {C:attention}#1#{} if not summoned",
 					"using an {C:joy_normal}\"@Ignister\"{} as {C:attention}material"
 				},

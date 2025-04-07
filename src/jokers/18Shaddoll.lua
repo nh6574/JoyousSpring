@@ -25,7 +25,7 @@ end
 SMODS.Joker({
     key = "shaddoll_beast",
     atlas = 'shaddoll',
-    pos = { x = 1, y = 1 },
+    pos = { x = 0, y = 1 },
     rarity = 1,
     discovered = true,
     blueprint_compat = false,
@@ -111,7 +111,7 @@ SMODS.Joker({
 SMODS.Joker({
     key = "shaddoll_dragon",
     atlas = 'shaddoll',
-    pos = { x = 0, y = 1 },
+    pos = { x = 1, y = 1 },
     rarity = 1,
     discovered = true,
     blueprint_compat = false,
