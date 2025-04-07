@@ -313,7 +313,7 @@ JoyousSpring.set_cost = function(card)
             if not joker.debuff and joker.config.center.joy_modify_cost then
                 joker.config.center.joy_modify_cost(joker, card)
             end
-            if not joker.debuff and joker.ability.extra.joyous_spring.material_effects and next(joker.ability.extra.joyous_spring.material_effects) then
+            if JoyousSpring.is_monster_card(joker) and not joker.debuff and joker.ability.extra.joyous_spring.material_effects and next(joker.ability.extra.joyous_spring.material_effects) then
                 for material_key, config in pairs(joker.ability.extra.joyous_spring.material_effects) do
                     local material_center = G.P_CENTERS[material_key]
 
@@ -383,7 +383,7 @@ function Card:add_to_deck(from_debuff)
             if not joker.debuff and joker.config.center.joy_apply_to_jokers_added then
                 joker.config.center.joy_apply_to_jokers_added(joker, self)
             end
-            if not joker.debuff and joker.ability.extra.joyous_spring.material_effects and next(joker.ability.extra.joyous_spring.material_effects) then
+            if JoyousSpring.is_monster_card(joker) and not joker.debuff and joker.ability.extra.joyous_spring.material_effects and next(joker.ability.extra.joyous_spring.material_effects) then
                 for material_key, config in pairs(joker.ability.extra.joyous_spring.material_effects) do
                     local material_center = G.P_CENTERS[material_key]
 
