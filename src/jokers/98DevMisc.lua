@@ -2,315 +2,6 @@
 
 --- 0.7.0
 
--- Exceed the Pendulum
-SMODS.Joker({
-    key = "exceed",
-    atlas = 'Misc04',
-    pos = { x = 6, y = 5 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 0,
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * JoyousSpring.get_pendulum_count(), card.ability.extra.creates } }
-    end,
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                summon_type = "LINK",
-                attribute = "LIGHT",
-                monster_type = "Spellcaster",
-            },
-            xmult = 0.05,
-            creates = 1,
-        },
-    },
-})
-
--- Pandora's Jewelry Box
-SMODS.Joker({
-    key = "pandora",
-    atlas = 'Misc04',
-    pos = { x = 7, y = 4 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 0,
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.hands } }
-    end,
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                is_pendulum = true,
-                attribute = "DARK",
-                monster_type = "Wyrm",
-            },
-            hands = 2
-        },
-    },
-})
-
--- Anchamoufrite
-SMODS.Joker({
-    key = "anchamoufrite",
-    atlas = 'Misc04',
-    pos = { x = 3, y = 4 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 0,
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.draws, card.ability.extra.h_size } }
-    end,
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                is_pendulum = true,
-                attribute = "LIGHT",
-                monster_type = "Spellcaster",
-            },
-            draws = 5,
-            h_size = 2
-        },
-    },
-})
-
--- Zany Zebra
-SMODS.Joker({
-    key = "zany",
-    atlas = 'Misc04',
-    pos = { x = 3, y = 5 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 0,
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.joker_amount, card.ability.extra.lose, card.ability.extra.xmult } }
-    end,
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                is_pendulum = true,
-                attribute = "DARK",
-                monster_type = "Beast",
-            },
-            joker_amount = 4,
-            lose = 1,
-            xmult = 4
-        },
-    },
-})
-
--- Pendulumucho
-SMODS.Joker({
-    key = "pendulumucho",
-    atlas = 'Misc04',
-    pos = { x = 0, y = 5 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 0,
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.revive_consume, card.ability.extra.revives } }
-    end,
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                is_pendulum = true,
-                attribute = "EARTH",
-                monster_type = "WingedBeast",
-            },
-            revive_consume = 1,
-            revives = 1
-        },
-    },
-})
-
--- Moissa Knight, the Comet General
-SMODS.Joker({
-    key = "moissa",
-    atlas = 'Misc04',
-    pos = { x = 6, y = 4 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 0,
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.adds, card.ability.extra.chips, card.ability.extra.current_chips } }
-    end,
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                is_pendulum = true,
-                attribute = "LIGHT",
-                monster_type = "Warrior",
-            },
-            adds = 2,
-            chips = 50,
-            current_chips = 0
-        },
-    },
-})
-
--- Foucault's Cannon
-SMODS.Joker({
-    key = "foucault",
-    atlas = 'Misc04',
-    pos = { x = 2, y = 4 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 0,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                is_effect = false,
-                is_pendulum = true,
-                attribute = "DARK",
-                monster_type = "Spellcaster",
-            },
-        },
-    },
-})
-
--- P.M. Captor
-SMODS.Joker({
-    key = "pmcaptor",
-    atlas = 'Misc04',
-    pos = { x = 1, y = 5 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 0,
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.revives } }
-    end,
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                is_pendulum = true,
-                attribute = "DARK",
-                monster_type = "Zombie",
-            },
-            revives = 1
-        },
-    },
-})
-
--- Metrognome
-SMODS.Joker({
-    key = "metrognome",
-    atlas = 'Misc04',
-    pos = { x = 5, y = 4 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 0,
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.creates, card.ability.extra.mult } }
-    end,
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                is_pendulum = true,
-                attribute = "EARTH",
-                monster_type = "Fairy",
-            },
-            creates = 1,
-            mult = 25
-        },
-    },
-})
-
--- Nirvana High Paladin
-SMODS.Joker({
-    key = "nirvana",
-    atlas = 'Misc04',
-    pos = { x = 4, y = 5 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 0,
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.xmult } }
-    end,
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                is_pendulum = true,
-                summon_type = "SYNCHRO",
-                attribute = "DARK",
-                monster_type = "Spellcaster",
-            },
-            xmult = 2
-        },
-    },
-})
-
--- Daidaratant the Ooze Giant
-SMODS.Joker({
-    key = "ooze",
-    atlas = 'Misc04',
-    pos = { x = 5, y = 5 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 0,
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.attach, card.ability.extra.detach, card.ability.extra.revives } }
-    end,
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                is_pendulum = true,
-                summon_type = "XYZ",
-                attribute = "WATER",
-                monster_type = "Zombie",
-            },
-            attach = 2,
-            detach = 2,
-            revives = 1
-        },
-    },
-})
-
 -- Rain Bozu
 SMODS.Joker({
     key = "bozu",
@@ -333,38 +24,29 @@ SMODS.Joker({
                 attribute = "LIGHT",
                 monster_type = "Fairy",
             },
-            chips = 50,
-            mult = 10,
+            chips = 25,
+            mult = 5,
             current_chips = 0,
             current_mult = 0,
         },
     },
-})
-
--- Formud Skipper
-SMODS.Joker({
-    key = "formud",
-    atlas = 'Misc04',
-    pos = { x = 7, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 0,
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.creates } }
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.setting_blind and context.main_eval then
+                card.ability.extra.current_chips = card.ability.extra.current_chips +
+                    card.ability.extra.chips * #JoyousSpring.extra_deck_area.cards
+                card.ability.extra.current_mult = card.ability.extra.current_mult +
+                    card.ability.extra.mult *
+                    math.max(0, JoyousSpring.extra_deck_area.config.card_limit - #JoyousSpring.extra_deck_area.cards)
+            end
+            if context.joker_main then
+                return {
+                    chips = card.ability.extra.current_chips,
+                    mult = card.ability.extra.current_mult
+                }
+            end
+        end
     end,
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                attribute = "LIGHT",
-                monster_type = "Cyberse",
-            },
-            creates = 1
-        },
-    },
 })
 
 -- I:P Masquerena
@@ -724,7 +406,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.summoned, JoyousSpring.get_summoned_count() } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -733,6 +415,7 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 is_field_spell = true,
             },
+            summoned = 0
         },
     },
 })

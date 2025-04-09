@@ -86,7 +86,7 @@ SMODS.Joker({
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 8,
+    cost = 7,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.get_pendulum_count(), card.ability.extra.creates, card.ability.extra.consume, card.ability.extra.consumed } }
     end,
@@ -127,6 +127,61 @@ SMODS.Joker({
                 if card.ability.extra.consumed >= card.ability.extra.consume then
                     card.ability.extra.consumed = 0
                     JoyousSpring.create_pseudorandom({ { is_pendulum = true } }, pseudoseed("j_joy_beyond"), true)
+                end
+            end
+        end
+    end,
+})
+
+-- Exceed the Pendulum
+SMODS.Joker({
+    key = "exceed",
+    atlas = 'Misc04',
+    pos = { x = 6, y = 5 },
+    rarity = 2,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 9,
+    loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_main_deck_joker" }
+        end
+        return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * JoyousSpring.get_pendulum_count(), card.ability.extra.creates } }
+    end,
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                summon_type = "LINK",
+                attribute = "LIGHT",
+                monster_type = "Spellcaster",
+                summon_conditions = {
+                    {
+                        type = "LINK",
+                        materials = {
+                            { is_pendulum = true },
+                            {},
+                            {},
+                        }
+                    }
+                },
+            },
+            xmult = 0.05,
+            creates = 1,
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    xmult = 1 + card.ability.extra.xmult * JoyousSpring.get_pendulum_count()
+                }
+            end
+            if context.end_of_round and context.game_over == false and context.main_eval and G.GAME.blind.boss then
+                for i = 1, card.ability.extra.creates do
+                    JoyousSpring.create_pseudorandom({ { is_pendulum = true } }, pseudoseed("j_joy_exceed"), true)
                 end
             end
         end
@@ -190,7 +245,6 @@ SMODS.Joker({
     cost = 7,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revives" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
         end
         return { vars = { card.ability.extra.h_size } }

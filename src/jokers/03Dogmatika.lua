@@ -343,7 +343,7 @@ SMODS.Joker({
                 JoyousSpring.revive_pseudorandom(
                     { { monster_archetypes = { "Dogmatika" } } },
                     pseudoseed("j_joy_dogma_ashiyan"),
-                    true, nil, (card.edition and card.edition.negative and 0 or -1)
+                    true
                 )
             end
         end

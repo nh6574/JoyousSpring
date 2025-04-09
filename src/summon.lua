@@ -169,7 +169,7 @@ JoyousSpring.perform_summon = function(card, card_list, summon_type)
     end
 end
 
-JoyousSpring.create_summon = function(add_params, must_have_room, card_limit_modif)
+JoyousSpring.create_summon = function(add_params, must_have_room, card_limit_modif, from_revive_key)
     local card = add_params.is and add_params:is(Card) and add_params or SMODS.create_card(add_params)
     card.states.visible = false
     G.E_MANAGER:add_event(Event({
@@ -182,6 +182,11 @@ JoyousSpring.create_summon = function(add_params, must_have_room, card_limit_mod
                 card.getting_sliced = true
                 card:remove()
                 card = nil
+                if from_revive_key then
+                    JoyousSpring.graveyard[from_revive_key].count = JoyousSpring.graveyard[from_revive_key].count + 1
+                    JoyousSpring.graveyard[from_revive_key].summonable = JoyousSpring.graveyard[from_revive_key]
+                    .summonable + 1
+                end
             end
             return true
         end
@@ -208,7 +213,7 @@ JoyousSpring.summon_token = function(key, edition, atlas_key, sprite_pos, joyous
     })
 
     card.ability.extra.joyous_spring.token_name = joyous_spring_table and joyous_spring_table.token_name or
-    pool_info.name or "Token"
+        pool_info.name or "Token"
     card.ability.extra.joyous_spring.token_atlas = atlas_key or pool_info.atlas or "joy_Token"
     card.ability.extra.joyous_spring.token_sprite_pos = sprite_pos or pool_info.sprite_pos or
         { x = pseudorandom("Token", 0, 1), y = pseudorandom("Token", 0, 1) }

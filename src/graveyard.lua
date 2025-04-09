@@ -19,7 +19,7 @@ JoyousSpring.revive = function(key, must_have_room, edition, card_limit_modif, d
         if debuff_source then
             SMODS.debuff_card(added_card, true, debuff_source)
         end
-        JoyousSpring.create_summon(added_card, must_have_room, card_limit_modif)
+        JoyousSpring.create_summon(added_card, must_have_room, card_limit_modif, key)
 
         added_card.ability.extra.joyous_spring.summoned = JoyousSpring.is_extra_deck_monster(added_card) or false
         added_card.ability.extra.joyous_spring.revived = true

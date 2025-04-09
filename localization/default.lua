@@ -3263,7 +3263,8 @@ return {
 					"Treated as any {C:attention}material{} for a {C:joy_link}Link",
 					" ",
 					"Create {C:attention}#1#{} {C:joy_normal}Main Deck{} {C:red}Rare{} {C:joy_normal}Cyberse",
-					"when used as {C:attention}material{} for a {C:joy_normal}Cyberse"
+					"when used as {C:attention}material{} for a {C:joy_normal}Cyberse",
+					"{C:inactive}(Must have room)"
 				}
 			},
 			j_joy_angraecum = {
@@ -3576,11 +3577,12 @@ return {
 				name = "{C:joy_pendulum_effect}PenduLuMoon",
 				joy_consumable = {
 					"{C:attention}Revive #1#{} {C:joy_pendulum}Pendulum{} as {C:dark_edition}Negative",
-					"{C:inactive}(Except \"PenduLuMoon\")"
 				},
 				text = {
 					"Send {C:attention}#2#{} {C:joy_pendulum}Pendulum{} to the {C:attention}GY{}",
-					"when {C:attention}Blind{} is selected"
+					"when {C:attention}Blind{} is selected",
+					" ",
+					"Cannot be {C:attention}revived{}",
 				},
 			},
 			j_joy_pandora = {
@@ -3589,8 +3591,8 @@ return {
 					"Gives a random {C:joy_pendulum}Pendulum{} a random {C:dark_edition}Edition{}"
 				},
 				text = {
-					"{C:blue}+#1#{} Hands if you have no cards",
-					"in the {C:joy_spell}Extra Deck{}"
+					"{C:blue}+#1#{} Hands when {C:attention}Blind{} is selected",
+					"if you have no cards in the {C:joy_spell}Extra Deck{}"
 				}
 			},
 			j_joy_anchamoufrite = {
@@ -3599,8 +3601,8 @@ return {
 					"During a {C:attention}Blind{}, draw {C:attention}#1#{} extra cards"
 				},
 				text = {
-					"{C:attention}+#2#{} hand size if you have no cards",
-					"in the {C:joy_spell}Extra Deck{}"
+					"{C:attention}+#2#{} hand size when {C:attention}Blind{} is selected",
+					"if you have no cards in the {C:joy_spell}Extra Deck{}"
 				}
 			},
 			j_joy_zany = {
@@ -3631,7 +3633,7 @@ return {
 					"Add {C:attention}#1#{} {C:joy_pendulum}Pendulum{} to the shop"
 				},
 				text = {
-					"{C:chips}+#2#{} Chips for each {C:joy_pendulum}Pendulum{} bought",
+					"Gains {C:chips}+#2#{} Chips for each {C:joy_pendulum}Pendulum{} bought",
 					"{C:inactive}(Currently {C:chips}+#3#{}{C:inactive} Chips)"
 				}
 			},
@@ -4053,13 +4055,14 @@ return {
 				name = "{C:joy_spell}Summon Breaker",
 				text = {
 					"The third {C:attention}Joker{} summoned this round becomes {C:dark_edition}Negative{}",
-					"and this card is destroyed"
+					"and this card is destroyed {C:inactive}(#1#/#2#){}"
 				}
 			},
 			j_joy_extranet = {
 				name = "{C:joy_spell}Extra Net",
 				text = {
-					"{C:attention}+#1#{} hand size for each {C:attention}Joker{} summoned this round"
+					"{C:attention}+#1#{} hand size for each {C:attention}Joker{} summoned this round",
+					"when {C:attention}Blind{} is selected"
 				}
 			},
 			--#endregion

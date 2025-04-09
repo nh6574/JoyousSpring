@@ -1,0 +1,612 @@
+--- PENDULUM FREE AGENTS
+
+-- Archfiend Eccentrick
+
+SMODS.Joker({
+    key = "eccentrick",
+    atlas = 'Misc01',
+    pos = { x = 1, y = 1 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 3,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.max, card.ability.extra.mult, card.ability.extra.mult * (G.GAME.joy_cards_destroyed or 0) } }
+    end,
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_pendulum = true,
+                attribute = "LIGHT",
+                monster_type = "Fiend",
+                monster_archetypes = { ["Archfiend"] = true }
+            },
+            mult = 5,
+            max = 2
+        },
+    },
+    use = function(self, card, area, copier)
+        local destroyed_cards = {}
+        for i = #G.hand.highlighted, 1, -1 do
+            destroyed_cards[#destroyed_cards + 1] = G.hand.highlighted[i]
+        end
+        JoyousSpring.pre_consumable_use(card, true)
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.2,
+            func = function()
+                for i = #G.hand.highlighted, 1, -1 do
+                    local playing_card = G.hand.highlighted[i]
+                    if SMODS.has_enhancement(playing_card, 'm_glass') then
+                        playing_card:shatter()
+                    else
+                        playing_card:start_dissolve(nil, i == #G.hand.highlighted)
+                    end
+                end
+                return true
+            end
+        }))
+        JoyousSpring.post_consumable_highlighted_use()
+        SMODS.calculate_context({ remove_playing_cards = true, removed = destroyed_cards })
+    end,
+    can_use = function(self, card)
+        return card.ability.extra.max >= #G.hand.highlighted and #G.hand.highlighted >= 1
+    end,
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    mult = card.ability.extra.mult * (G.GAME.joy_cards_destroyed or 0)
+                }
+            end
+        end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                card.joker_display_values.mult = card.ability.extra.mult * (G.GAME.joy_cards_destroyed or 0)
+            end
+        }
+    end
+})
+
+-- PenduLuMoon
+SMODS.Joker({
+    key = "pendulumoon",
+    atlas = 'Misc03',
+    pos = { x = 3, y = 3 },
+    rarity = 2,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 7,
+    loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
+        end
+        return { vars = { card.ability.extra.revives, card.ability.extra.mills } }
+    end,
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_pendulum = true,
+                attribute = "LIGHT",
+                monster_type = "Spellcaster",
+                cannot_revive = true
+            },
+            revives = 1,
+            mills = 1
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.setting_blind and context.main_eval then
+                local choices = JoyousSpring.get_materials_in_collection({ { is_pendulum = true } })
+
+                for i = 1, card.ability.extra.mills do
+                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, pseudoseed("j_joy_pendulumoon")))
+                end
+                return { message = localize("k_joy_mill") }
+            end
+        end
+    end,
+    use = function(self, card, area, copier)
+        for i = 1, card.ability.extra.revives do
+            JoyousSpring.revive_pseudorandom({ { is_pendulum = true } },
+                pseudoseed("j_joy_pendulumoon"), false,
+                "e_negative")
+        end
+    end,
+    can_use = function(self, card)
+        if card.area and card.area == G.jokers and not (#G.jokers.cards + G.GAME.joker_buffer <
+                G.jokers.config.card_limit + (card.edition and card.edition.negative and 0 or 1)) then
+            return false
+        end
+        return JoyousSpring.count_materials_in_graveyard({ { is_pendulum = true } }, true) > 0
+    end,
+})
+
+-- Pandora's Jewelry Box
+SMODS.Joker({
+    key = "pandora",
+    atlas = 'Misc04',
+    pos = { x = 7, y = 4 },
+    rarity = 2,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.hands } }
+    end,
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_pendulum = true,
+                attribute = "DARK",
+                monster_type = "Wyrm",
+            },
+            hands = 2
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.setting_blind and context.main_eval and #JoyousSpring.extra_deck_area.cards == 0 then
+                ease_hands_played(card.ability.extra.hands)
+            end
+        end
+    end,
+    use = function(self, card, area, copier)
+        local choices = JoyousSpring.get_materials_owned({ { is_pendulum = true } })
+        local joker = pseudorandom_element(choices, pseudoseed("j_joy_pandora"))
+        if joker then
+            local edition = poll_edition('j_joy_pandora', nil, true, true)
+            joker:set_edition(edition, true)
+        end
+    end,
+    can_use = function(self, card)
+        return JoyousSpring.count_materials_owned({ { is_pendulum = true } }, true) >
+            (card.area and card.area == G.jokers and 1 or 0)
+    end,
+})
+
+-- Anchamoufrite
+SMODS.Joker({
+    key = "anchamoufrite",
+    atlas = 'Misc04',
+    pos = { x = 3, y = 4 },
+    rarity = 2,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.draws, card.ability.extra.h_size } }
+    end,
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_pendulum = true,
+                attribute = "LIGHT",
+                monster_type = "Spellcaster",
+            },
+            draws = 5,
+            h_size = 2,
+            active = false
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if not card.ability.extra.active and context.setting_blind and context.main_eval and #JoyousSpring.extra_deck_area.cards == 0 then
+                card.ability.extra.active = true
+                G.hand:change_size(card.ability.extra.h_size)
+            end
+            if card.ability.extra.active and context.end_of_round and context.game_over == false and context.main_eval then
+                card.ability.extra.active = false
+                G.hand:change_size(-card.ability.extra.h_size)
+            end
+        end
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        if card.ability.extra.active then
+            card.ability.extra.active = false
+            G.hand:change_size(-card.ability.extra.h_size)
+        end
+    end,
+    use = function(self, card, area, copier)
+        for i = 1, card.ability.extra.draws do
+            draw_card(G.deck, G.hand, i * 100 / card.ability.extra.draws, 'up', false, nil, 0, nil, true)
+        end
+    end,
+    can_use = function(self, card)
+        return G.GAME.blind.in_blind
+    end,
+})
+
+-- Zany Zebra
+SMODS.Joker({
+    key = "zany",
+    atlas = 'Misc04',
+    pos = { x = 3, y = 5 },
+    rarity = 3,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 7,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.joker_amount, card.ability.extra.lose, card.ability.extra.xmult } }
+    end,
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_pendulum = true,
+                attribute = "DARK",
+                monster_type = "Beast",
+            },
+            joker_amount = 4,
+            lose = 1,
+            xmult = 4
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main and #G.jokers.cards <= card.ability.extra.joker_amount then
+                return {
+                    xmult = card.ability.extra.xmult
+                }
+            end
+        end
+    end,
+    use = function(self, card, area, copier)
+        G.jokers:change_size(-1)
+        for _, joker in ipairs(G.jokers.cards) do
+            joker:set_edition("e_polychrome")
+        end
+    end,
+    can_use = function(self, card)
+        return G.jokers.config.card_limit > 0 and #G.jokers.cards > (card.area and card.area == G.jokers and 1 or 0) and
+            #G.jokers.cards <= card.ability.extra.joker_amount + (card.area and card.area == G.jokers and 1 or 0)
+    end,
+})
+
+-- Pendulumucho
+SMODS.Joker({
+    key = "pendulumucho",
+    atlas = 'Misc04',
+    pos = { x = 0, y = 5 },
+    rarity = 2,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 6,
+    loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
+        end
+        return { vars = { card.ability.extra.revive_consume, card.ability.extra.revives } }
+    end,
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_pendulum = true,
+                attribute = "EARTH",
+                monster_type = "WingedBeast",
+                cannot_revive = true,
+            },
+            revive_consume = 1,
+            revives = 1
+        },
+    },
+    add_to_deck = function(self, card, from_debuff)
+        if not from_debuff and not card.debuff then
+            local has_revived = false
+            for i = 1, card.ability.extra.revives do
+                local revived_card = JoyousSpring.revive_pseudorandom(
+                    { { is_pendulum = true } },
+                    pseudoseed("j_joy_pendulumucho"),
+                    true
+                )
+                has_revived = (revived_card and true) or has_revived
+            end
+
+            if has_revived then
+                SMODS.calculate_effect({ message = localize("k_joy_revive") }, card)
+            end
+        end
+    end,
+    use = function(self, card, area, copier)
+        for i = 1, card.ability.extra.revives do
+            JoyousSpring.revive_pseudorandom({ { is_pendulum = true } },
+                pseudoseed("j_joy_pendulumucho"), true)
+        end
+    end,
+    can_use = function(self, card)
+        if card.area and card.area == G.jokers and not (#G.jokers.cards + G.GAME.joker_buffer <
+                G.jokers.config.card_limit + (card.edition and card.edition.negative and 0 or 1)) then
+            return false
+        end
+        return JoyousSpring.count_materials_in_graveyard({ { is_pendulum = true } }, true) > 0
+    end,
+})
+
+-- Moissa Knight, the Comet General
+SMODS.Joker({
+    key = "moissa",
+    atlas = 'Misc04',
+    pos = { x = 6, y = 4 },
+    rarity = 2,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 6,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.adds, card.ability.extra.chips, card.ability.extra.current_chips } }
+    end,
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_pendulum = true,
+                attribute = "LIGHT",
+                monster_type = "Warrior",
+            },
+            adds = 2,
+            chips = 50,
+            current_chips = 0
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    chips = card.ability.extra.current_chips
+                }
+            end
+            if context.buying_card and JoyousSpring.is_pendulum_monster(context.card) then
+                card.ability.extra.current_chips = card.ability.extra.current_chips + card.ability.extra.chips
+            end
+        end
+    end,
+    use = function(self, card, area, copier)
+        local choices = JoyousSpring.get_materials_in_collection({ { is_pendulum = true } })
+        for i = 1, card.ability.extra.adds do
+            key_to_add = pseudorandom_element(choices, pseudoseed("j_joy_moissa"))
+            JoyousSpring.add_monster_tag(key_to_add or "j_joy_eccentrick")
+        end
+    end,
+    can_use = function(self, card)
+        return true
+    end,
+})
+
+-- Foucault's Cannon
+SMODS.Joker({
+    key = "foucault",
+    atlas = 'Misc04',
+    pos = { x = 2, y = 4 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 2,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_effect = false,
+                is_pendulum = true,
+                attribute = "DARK",
+                monster_type = "Spellcaster",
+            },
+        },
+    },
+    use = function(self, card, area, copier)
+        local amount = G.consumeables.config.card_limit - #G.consumeables.cards
+        for i = 1, amount do
+            SMODS.add_card({
+                key = 'c_earth'
+            })
+        end
+    end,
+    can_use = function(self, card)
+        return #G.consumeables.cards < G.consumeables.config.card_limit
+    end,
+})
+
+-- P.M. Captor
+SMODS.Joker({
+    key = "pmcaptor",
+    atlas = 'Misc04',
+    pos = { x = 1, y = 5 },
+    rarity = 2,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 6,
+    loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
+        end
+        return { vars = { card.ability.extra.revives } }
+    end,
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_pendulum = true,
+                attribute = "DARK",
+                monster_type = "Zombie",
+            },
+            revives = 1
+        },
+    },
+    add_to_deck = function(self, card, from_debuff)
+        if not card.debuff then
+            for _, joker in ipairs(G.jokers.cards) do
+                if JoyousSpring.is_monster_type(joker, "Zombie") and not JoyousSpring.is_perma_debuffed(joker) then
+                    SMODS.debuff_card(joker, "prevent_debuff", "j_joy_pmcaptor")
+                end
+            end
+        end
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        for _, joker in ipairs(G.jokers.cards) do
+            SMODS.debuff_card(joker, false, "j_joy_pmcaptor")
+        end
+    end,
+    joy_apply_to_jokers_added = function(card, added_card)
+        if JoyousSpring.is_monster_type(added_card, "Zombie") and not JoyousSpring.is_perma_debuffed(added_card) then
+            SMODS.debuff_card(added_card, "prevent_debuff", "j_joy_pmcaptor")
+        end
+    end,
+    joy_prevent_flip = function(card, other_card)
+        return JoyousSpring.is_monster_type(other_card, "Zombie") and not JoyousSpring.is_trap_monster(other_card)
+    end,
+    use = function(self, card, area, copier)
+        for i = 1, card.ability.extra.revives do
+            JoyousSpring.revive_pseudorandom({ { is_pendulum = true }, exclude_keys = { "j_joy_pmcaptor" } },
+                pseudoseed("j_joy_pmcaptor"), true)
+        end
+    end,
+    can_use = function(self, card)
+        if card.area and card.area == G.jokers and not (#G.jokers.cards + G.GAME.joker_buffer <
+                G.jokers.config.card_limit + (card.edition and card.edition.negative and 0 or 1)) then
+            return false
+        end
+        return JoyousSpring.count_materials_in_graveyard({ { is_pendulum = true, exclude_keys = { "j_joy_pmcaptor" } } },
+            true) > 0
+    end,
+})
+
+-- Metrognome
+SMODS.Joker({
+    key = "metrognome",
+    atlas = 'Misc04',
+    pos = { x = 5, y = 4 },
+    rarity = 2,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 6,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.creates, card.ability.extra.mult } }
+    end,
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_pendulum = true,
+                attribute = "EARTH",
+                monster_type = "Fairy",
+            },
+            creates = 1,
+            mult = 25
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.other_joker and context.other_joker.facing == "front" and JoyousSpring.is_pendulum_monster(context.other_joker) then
+                local rarities, _ = JoyousSpring.most_owned_rarity()
+                if JoyousSpring.is_card_rarity_from_array(context.other_joker, rarities) then
+                    return {
+                        mult = card.ability.extra.mult,
+                        message_card = context.other_joker
+                    }
+                end
+            end
+        end
+    end,
+    use = function(self, card, area, copier)
+        local rarities, _ = JoyousSpring.most_owned_rarity()
+        local choice = pseudorandom_element(rarities, pseudoseed("j_joy_metrognome"))
+        if choice then
+            for i = 1, card.ability.extra.creates do
+                JoyousSpring.create_pseudorandom({ { is_pendulum = true, rarity = choice } },
+                    pseudoseed("j_joy_metrognome"), true)
+            end
+        end
+    end,
+    can_use = function(self, card)
+        if card.area and card.area == G.jokers and not (#G.jokers.cards + G.GAME.joker_buffer <
+                G.jokers.config.card_limit + (card.edition and card.edition.negative and 0 or 1)) then
+            return false
+        end
+        return #G.jokers.cards > (card.area and card.area == G.jokers and 1 or 0)
+    end,
+})
+
+-- Patissciel Couverture
+SMODS.Joker({
+    key = "couverture",
+    atlas = 'Misc03',
+    pos = { x = 4, y = 3 },
+    rarity = 2,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 10,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.creates, card.ability.extra.adds } }
+    end,
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                summon_type = "FUSION",
+                is_pendulum = true,
+                attribute = "DARK",
+                monster_type = "Fairy",
+
+                summon_conditions = {
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { is_pendulum = true },
+                            { is_pendulum = true },
+                        }
+                    }
+                },
+            },
+            creates = 1,
+            adds = 1
+        },
+    },
+    use = function(self, card, area, copier)
+        for i = 1, card.ability.extra.creates do
+            JoyousSpring.create_pseudorandom({ { is_pendulum = true, rarity = 3 } }, pseudoseed("j_joy_couverture"), true)
+        end
+        if #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
+            JoyousSpring.add_to_extra_deck("j_joy_couverture")
+        end
+    end,
+    can_use = function(self, card)
+        return JoyousSpring.is_summoned(card) and
+            (#G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit + (card.edition and card.edition.negative and 0 or 1))
+    end,
+})

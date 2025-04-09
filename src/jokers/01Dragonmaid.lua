@@ -365,7 +365,7 @@ SMODS.Joker({
                     local revived_card = JoyousSpring.revive_pseudorandom(
                         { { rarity = 1, monster_archetypes = { "Dragonmaid" } } },
                         pseudoseed("j_joy_dmaid_nurse"),
-                        true, nil, (card.edition and card.edition.negative and 0 or -1)
+                        true
                     )
                     has_revived = (revived_card and true) or has_revived
                 end
@@ -705,7 +705,7 @@ SMODS.Joker({
                             { rarity = 3, monster_archetypes = { "Dragonmaid" } },
                         },
                         pseudoseed("j_joy_dmaid_stern"),
-                        true, nil, (card.edition and card.edition.negative and 0 or -1)
+                        true
                     )
                     has_revived = revived_card and true or has_revived
                 end

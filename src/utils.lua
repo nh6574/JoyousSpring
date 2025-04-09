@@ -115,6 +115,9 @@ JoyousSpring.count_all_materials = function(property_list, to_revive, different_
         JoyousSpring.count_materials_owned(property_list, different_names)
 end
 
+---Get cards in the collection that fulfill *property_list*
+---@param property_list material_properties[]
+---@return table
 JoyousSpring.get_materials_in_collection = function(property_list)
     local pool = {}
     for k, _ in pairs(G.P_CENTERS) do
@@ -348,6 +351,13 @@ JoyousSpring.level_up_hand = function(card, hand_key, instant, amount)
     end
 end
 
+---Create a random card with *property_list* properties
+---@param property_list material_properties[]
+---@param seed number?
+---@param must_have_room boolean?
+---@param not_owned boolean?
+---@param edition table|string?
+---@return unknown
 JoyousSpring.create_pseudorandom = function(property_list, seed, must_have_room, not_owned, edition)
     local choices = JoyousSpring.get_materials_in_collection(property_list)
 
@@ -509,6 +519,43 @@ JoyousSpring.used_as_material = function(card, context)
             if joker == card then
                 return true
             end
+        end
+    end
+    return false
+end
+
+JoyousSpring.most_owned_rarity = function()
+    if not G.jokers then return {}, 0 end
+
+    local rarities = {}
+
+    for _, joker in ipairs(G.jokers.cards) do
+        rarities[joker.config.center.rarity] = (rarities[joker.config.center.rarity] or 0) + 1
+    end
+
+    if not next(rarities) then return {}, 0 end
+
+    local max = 0
+    for _, amount in pairs(rarities) do
+        if amount > max then
+            max = amount
+        end
+    end
+
+    local ret = {}
+    for key, amount in pairs(rarities) do
+        if amount == max then
+            table.insert(ret, key)
+        end
+    end
+
+    return ret, max
+end
+
+JoyousSpring.is_card_rarity_from_array = function(card, list)
+    for _, rarity in ipairs(list) do
+        if card.config.center.rarity == rarity then
+            return true
         end
     end
     return false

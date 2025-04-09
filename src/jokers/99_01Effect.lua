@@ -349,3 +349,42 @@ SMODS.Joker({
         end
     end
 })
+
+-- Formud Skipper
+SMODS.Joker({
+    key = "formud",
+    atlas = 'Misc04',
+    pos = { x = 7, y = 0 },
+    rarity = 2,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 6,
+    loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_main_deck_joker" }
+        end
+        return { vars = { card.ability.extra.creates } }
+    end,
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_all_materials = { LINK = true },
+                attribute = "LIGHT",
+                monster_type = "Cyberse",
+            },
+            creates = 1
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.used_as_material(card, context) and JoyousSpring.is_monster_type(context.joy_card, "Cyberse") then
+            for i = 1, card.ability.extra.creates do
+                JoyousSpring.create_pseudorandom({ { monster_type = "Cyberse", rarity = 3, is_main_deck = true } },
+                    pseudoseed("j_joy_formud"))
+            end
+        end
+    end
+})

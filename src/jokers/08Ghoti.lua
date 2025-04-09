@@ -632,13 +632,13 @@ SMODS.Joker({
                 local revive_fish = JoyousSpring.revive_pseudorandom(
                     { { monster_type = "Fish" } },
                     pseudoseed("j_joy_fish_guoglim"),
-                    true, nil, (card.edition and card.edition.negative and 0 or -1)
+                    true
                 )
                 while revive_fish and (#G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit - ((card.edition and card.edition.negative) and 0 or 1)) do
                     revive_fish = JoyousSpring.revive_pseudorandom(
                         { { monster_type = "Fish" } },
                         pseudoseed("j_joy_fish_guoglim"),
-                        true, nil, (card.edition and card.edition.negative and 0 or -1)
+                        true
                     )
                 end
             end
