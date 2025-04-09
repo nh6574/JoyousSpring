@@ -388,3 +388,47 @@ SMODS.Joker({
         end
     end
 })
+
+-- Procession of the Tea Jar
+SMODS.Joker({
+    key = "procession",
+    atlas = 'Misc04',
+    pos = { x = 6, y = 1 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 4,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xmult } }
+    end,
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_tuner = true,
+                attribute = "DARK",
+                monster_type = "Zombie",
+            },
+            xmult = 2
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.setting_blind and context.main_eval then
+                for _, joker in ipairs(G.jokers.cards) do
+                    if joker.config.center.key ~= "j_joy_procession" and joker.facing == "front" then
+                        joker:flip(card)
+                    end
+                end
+            end
+            if context.other_joker and context.other_joker.facing == "back" then
+                return {
+                    xmult = card.ability.extra.xmult,
+                    message_card = context.other_joker
+                }
+            end
+        end
+    end,
+})

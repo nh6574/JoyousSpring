@@ -549,6 +549,11 @@ SMODS.Joker({
             }
         end
     end,
+    add_to_deck = function(self, card, from_debuff)
+        if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
+            card:flip(card)
+        end
+    end,
 })
 
 -- Naelshaddoll Ariel

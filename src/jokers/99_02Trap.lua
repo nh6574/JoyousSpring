@@ -36,6 +36,11 @@ SMODS.Joker({
             end
         end
     end,
+    add_to_deck = function(self, card, from_debuff)
+        if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
+            card:flip(card)
+        end
+    end,
 })
 
 -- Statue of Anguish Pattern
@@ -72,6 +77,9 @@ SMODS.Joker({
         end
     end,
     add_to_deck = function(self, card, from_debuff)
+        if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
+            card:flip(card)
+        end
         if not card.debuff then
             for _, joker in ipairs(G.jokers.cards) do
                 if JoyousSpring.is_trap_monster(joker) and not JoyousSpring.is_perma_debuffed(joker) then
@@ -126,6 +134,11 @@ SMODS.Joker({
             end
         end
     end,
+    add_to_deck = function(self, card, from_debuff)
+        if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
+            card:flip(card)
+        end
+    end,
 })
 
 -- Tiki Soul
@@ -160,6 +173,11 @@ SMODS.Joker({
                     mult = card.ability.extra.mult * JoyousSpring.count_materials_owned({ { is_trap = true } })
                 }
             end
+        end
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
+            card:flip(card)
         end
     end,
 })
@@ -202,6 +220,11 @@ SMODS.Joker({
                 card.ability.extra.current_percent = math.min(1, card.ability.extra.current_percent +
                     card.ability.extra.percent)
             end
+        end
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
+            card:flip(card)
         end
     end,
 })
@@ -251,6 +274,11 @@ SMODS.Joker({
                     card.ability.extra.percent)
                 card.ability.extra.current_mult = card.ability.extra.current_mult + card.ability.extra.mult
             end
+        end
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
+            card:flip(card)
         end
     end,
     in_pool = function(self, args)
@@ -314,6 +342,11 @@ SMODS.Joker({
     joy_can_activate = function(card)
         return not card.ability.eternal and G.GAME.blind.in_blind and G.STATE == G.STATES.SELECTING_HAND
     end,
+    add_to_deck = function(self, card, from_debuff)
+        if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
+            card:flip(card)
+        end
+    end,
 })
 
 -- Embodiment of Apophis
@@ -348,6 +381,11 @@ SMODS.Joker({
                     mult = card.ability.extra.mult
                 }
             end
+        end
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
+            card:flip(card)
         end
     end,
 })
@@ -386,6 +424,11 @@ SMODS.Joker({
             end
         end
     end,
+    add_to_deck = function(self, card, from_debuff)
+        if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
+            card:flip(card)
+        end
+    end,
 })
 
 -- Crusadia Krawler
@@ -421,6 +464,11 @@ SMODS.Joker({
                     message_card = context.other_joker
                 }
             end
+        end
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
+            card:flip(card)
         end
     end,
 })

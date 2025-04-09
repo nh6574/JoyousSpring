@@ -44,8 +44,8 @@ end
 ---@param property_list material_properties[]
 ---@param different_names boolean?
 ---@return integer
-JoyousSpring.count_materials_owned = function(property_list, different_names)
-    return #JoyousSpring.get_materials_owned(property_list, different_names)
+JoyousSpring.count_materials_owned = function(property_list, different_names, for_tribute)
+    return #JoyousSpring.get_materials_owned(property_list, different_names, for_tribute)
 end
 
 ---Get all materials in graveyard that fulfill **property_list**
@@ -288,6 +288,8 @@ JoyousSpring.ease_detach = function(card, value)
     card.ability.extra.joyous_spring.xyz_materials = math.max(0, card.ability.extra.joyous_spring.xyz_materials - value)
     card.ability.extra.joyous_spring.detached_count = card.ability.extra.joyous_spring.detached_count + value
     card.ability.extra.joyous_spring.detached_count_round = card.ability.extra.joyous_spring.detached_count_round + value
+
+    SMODS.calculate_context({ joy_detached = true, joy_detaching_card = card, joy_deteach_value = value })
 end
 
 ---Flip all cards in all areas or in *area*

@@ -240,33 +240,6 @@ SMODS.Joker({
     },
 })
 
--- Chicken Game
-SMODS.Joker({
-    key = "chickengame",
-    atlas = 'Misc04',
-    pos = { x = 3, y = 2 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 0,
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.percent * 100, card.ability.extra.hands, card.ability.extra.discards } }
-    end,
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                is_field_spell = true,
-            },
-            percent = 0.25,
-            hands = 1,
-            discards = 1
-        },
-    },
-})
-
 -- Magical Mid-Breaker Field
 SMODS.Joker({
     key = "midbreaker",
@@ -292,31 +265,6 @@ SMODS.Joker({
     },
 })
 
--- Fusion Gate
-SMODS.Joker({
-    key = "fusiongate",
-    atlas = 'Misc04',
-    pos = { x = 5, y = 2 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 0,
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.adds } }
-    end,
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                is_field_spell = true,
-            },
-            adds = 1
-        },
-    },
-})
-
 -- Future Visions
 SMODS.Joker({
     key = "futurevisions",
@@ -338,109 +286,6 @@ SMODS.Joker({
                 is_field_spell = true,
             },
             banishes = 1
-        },
-    },
-})
-
--- Xyz Territory
-SMODS.Joker({
-    key = "xyzterritory",
-    atlas = 'Misc04',
-    pos = { x = 2, y = 3 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 0,
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.mult, card.ability.extra.current_mult, card.ability.extra.money } }
-    end,
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                is_field_spell = true,
-            },
-            mult = 25,
-            current_mult = 0,
-            money = 5
-        },
-    },
-})
-
--- Xyz Override
-SMODS.Joker({
-    key = "xyzoverride",
-    atlas = 'Misc04',
-    pos = { x = 1, y = 3 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 0,
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.tributes, card.ability.extra.attach } }
-    end,
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                is_field_spell = true,
-            },
-            tributes = 1,
-            attach = 1
-        },
-    },
-})
-
--- Summon Breaker
-SMODS.Joker({
-    key = "summonbreaker",
-    atlas = 'Misc04',
-    pos = { x = 0, y = 3 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 0,
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.summoned, JoyousSpring.get_summoned_count() } }
-    end,
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                is_field_spell = true,
-            },
-            summoned = 0
-        },
-    },
-})
-
--- Extra Net
-SMODS.Joker({
-    key = "extranet",
-    atlas = 'Misc04',
-    pos = { x = 4, y = 2 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 0,
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.h_size } }
-    end,
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                is_field_spell = true,
-            },
-            h_size = 1
         },
     },
 })
@@ -753,33 +598,6 @@ SMODS.Joker({
                 monster_type = "WingedBeast",
             },
             column = 1
-        },
-    },
-})
-
--- Procession of the Tea Jar
-SMODS.Joker({
-    key = "procession",
-    atlas = 'Misc04',
-    pos = { x = 6, y = 1 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 0,
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.xmult } }
-    end,
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                is_tuner = true,
-                attribute = "DARK",
-                monster_type = "Zombie",
-            },
-            xmult = 2
         },
     },
 })

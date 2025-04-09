@@ -3363,7 +3363,8 @@ return {
 				text = {
 					"Each face-down {C:attention}Joker{} gives {X:mult,C:white}X#1#{} Mult",
 					" ",
-					"{C:attention}Flips{} all {C:attention}Jokers{} face-down when {C:attention}Blind{} is selected"
+					"{C:attention}Flips{} all {C:attention}Jokers{} face-down when {C:attention}Blind{} is selected",
+					"{C:inactive}(Except \"Procession of the Tea Jar\"){}"
 				}
 			},
 			j_joy_darkcat = {
@@ -4048,7 +4049,7 @@ return {
 				name = "{C:joy_spell}Xyz Override",
 				text = {
 					"Once per round, you can {C:attention}tribute #1#{} {C:attention}Joker{}",
-					"to attach {C:attention}#2# materials{} to each {C:joy_xyz}Xyz{}"
+					"to attach {C:attention}#2# material{} to each {C:joy_xyz}Xyz{}"
 				}
 			},
 			j_joy_summonbreaker = {
@@ -4062,7 +4063,6 @@ return {
 				name = "{C:joy_spell}Extra Net",
 				text = {
 					"{C:attention}+#1#{} hand size for each {C:attention}Joker{} summoned this round",
-					"when {C:attention}Blind{} is selected"
 				}
 			},
 			--#endregion
