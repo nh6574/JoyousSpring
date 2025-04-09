@@ -55,11 +55,12 @@ SMODS.Joker({
         end
     end,
     use = function(self, card, area, copier)
-        for _, joker in ipairs(G.jokers.cards) do
-            if JoyousSpring.is_summon_type(joker, "XYZ") then
-                joker.ability.extra.joyous_spring.xyz_materials = joker.ability.extra.joyous_spring.xyz_materials +
-                    card.ability.extra.attach
-            end
+        local choices = JoyousSpring.get_materials_owned({ { summon_type = "XYZ" } })
+        local joker = pseudorandom_element(choices, pseudoseed("j_joy_ooze"))
+
+        if joker then
+            joker.ability.extra.joyous_spring.xyz_materials = joker.ability.extra.joyous_spring.xyz_materials +
+                card.ability.extra.attach
         end
     end,
     can_use = function(self, card)
