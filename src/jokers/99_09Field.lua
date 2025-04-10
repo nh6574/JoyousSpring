@@ -87,6 +87,9 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 7,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
+        end
         return { vars = { card.ability.extra.mult, card.ability.extra.current_mult, card.ability.extra.money } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
@@ -132,6 +135,10 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
+        end
         return { vars = { card.ability.extra.tributes, card.ability.extra.attach } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
@@ -254,4 +261,103 @@ SMODS.Joker({
             card.ability.extra.h_size_change = 0
         end
     end,
+})
+
+-- Future Visions
+SMODS.Joker({
+    key = "futurevisions",
+    atlas = 'Misc04',
+    pos = { x = 6, y = 2 },
+    rarity = 2,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 8,
+    loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
+        end
+        return { vars = { card.ability.extra.banishes } }
+    end,
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_field_spell = true,
+            },
+            banishes = 1
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                local choices = JoyousSpring.get_materials_owned({ { is_main_deck = true } })
+                local joker = pseudorandom_element(choices, pseudoseed("j_joy_futurevisions"))
+                if joker then
+                    JoyousSpring.banish(joker, "boss_selected")
+                end
+            end
+        end
+    end
+})
+
+-- Magical Mid-Breaker Field
+SMODS.Joker({
+    key = "midbreaker",
+    atlas = 'Misc04',
+    pos = { x = 7, y = 2 },
+    rarity = 2,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 7,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xmult } }
+    end,
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_field_spell = true,
+            },
+            xmult = 1.5
+        },
+    },
+    calculate = function(self, card, context)
+        if context.other_joker and G.GAME.blind.boss then
+            return {
+                xmult = card.ability.extra.xmult,
+                message_card = context.other_joker
+            }
+        end
+        if (context.setting_blind or (context.end_of_round and context.game_over == false)) and context.main_eval then
+            if G.GAME.blind.boss then
+                for _, joker in ipairs(G.jokers.cards) do
+                    SMODS.debuff_card(joker, context.setting_blind and "prevent_debuff" or false, "j_joy_midbreaker")
+                end
+            else
+                JoyousSpring.flip_all_cards(card, context.setting_blind and "back" or "front", { G.jokers })
+            end
+        end
+        if context.setting_blind and G.GAME.blind.boss then
+            for _, joker in ipairs(G.jokers.cards) do
+                SMODS.debuff_card(joker, "prevent_debuff", "j_joy_midbreaker")
+            end
+        end
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        for _, joker in ipairs(G.jokers.cards) do
+            SMODS.debuff_card(joker, false, "j_joy_midbreaker")
+        end
+    end,
+    joy_apply_to_jokers_added = function(card, added_card)
+        if G.GAME.blind.boss then
+            SMODS.debuff_card(added_card, "prevent_debuff", "j_joy_midbreaker")
+        end
+    end,
+    joy_prevent_flip = function(card, other_card)
+        return G.GAME.blind.boss and true or false
+    end
 })

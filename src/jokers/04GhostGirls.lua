@@ -291,7 +291,8 @@ SMODS.Joker({
                 if context.setting_blind and context.main_eval then
                     local eval = function(card)
                         return (card.ability.extra.consumable_count == 0) and not G
-                            .RESET_JIGGLES
+                            .RESET_JIGGLES and
+                            card.config.center.key == "j_joy_yokai_sister" -- for transformations
                     end
                     juice_card_until(card, eval, true)
                 end

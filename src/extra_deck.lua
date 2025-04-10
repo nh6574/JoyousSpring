@@ -9,7 +9,8 @@ JoyousSpring.add_to_extra_deck = function(card, args)
         card = SMODS.create_card({
             area = JoyousSpring.extra_deck_area,
             key = card,
-            no_edition = args.no_edition or false,
+            edition = args.edition or nil,
+            no_edition = args.no_edition or nil,
             skip_materialize = true,
         })
     end
@@ -66,12 +67,6 @@ JoyousSpring.create_UIBox_extra_deck = function()
                 config = {
                     object = JoyousSpring.extra_deck_area,
                     draw_layer = 1
-                }
-            },
-            {
-                n = G.UIT.O,
-                config = {
-                    object = JoyousSpring.field_spell_area
                 }
             },
         }
@@ -157,7 +152,7 @@ G.FUNCS.check_for_buy_space = function(card)
             ((card.edition and card.edition.negative) and 1 or 0) then
             return true
         else
-            alert_no_space(card, G.consumeables)
+            alert_no_space(card, JoyousSpring.field_spell_area)
             return false
         end
     end
@@ -166,7 +161,7 @@ G.FUNCS.check_for_buy_space = function(card)
             ((card.edition and card.edition.negative) and 1 or 0) then
             return true
         else
-            alert_no_space(card, G.jokers)
+            alert_no_space(card, JoyousSpring.extra_deck_area)
             return false
         end
     end
@@ -261,7 +256,7 @@ function Game:start_run(args)
     self.joy_field_spell_area = CardArea(
         0,
         0,
-        self.CARD_W * 2.3,
+        self.CARD_W * 1.9,
         self.CARD_H * 0.95,
         {
             card_limit = 1,
@@ -297,4 +292,7 @@ function Game:start_run(args)
 
     JoyousSpring.extra_deck_open = false
     JoyousSpring.extra_deck_forced = false
+
+    JoyousSpring.field_spell_area.T.x = G.consumeables.T.x + 2.3
+    JoyousSpring.field_spell_area.T.y = G.consumeables.T.y + 3
 end

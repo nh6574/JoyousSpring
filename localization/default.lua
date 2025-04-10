@@ -369,7 +369,8 @@ return {
 					"{C:joy_spell}Extra Deck{} {C:attention}Joker{}",
 					"{C:inactive}(Currently{} {C:mult}+#2# {C:inactive}Mult){}",
 					" ",
-					"All {C:joy_spell}Extra Deck{} {C:attention}Jokers{} in the shop are debuffed and free",
+					"All {C:joy_spell}Extra Deck{} {C:attention}Jokers{} in the shop",
+					"are debuffed and free",
 				},
 				joy_summon_conditions = {
 					"{C:attention}2 Jokers{},",
@@ -526,7 +527,8 @@ return {
 				name = "{C:joy_link}Spright Sprind",
 				text = {
 					"Other {C:green}Uncommon{} {C:attention}Jokers{} become {C:dark_edition}Negative{},",
-					"the rest are debuffed",
+					"the rest are debuffed if summoned",
+					"using a {C:joy_normal}\"Spright\"{} as {C:attention}material{}",
 					" ",
 					"Adds {C:joy_xyz}\"Gigantic Spright\"{} to the",
 					"{C:joy_spell}Extra Deck{} after {C:attention}#1# materials{} are {C:joy_xyz}detached{}",
@@ -651,8 +653,10 @@ return {
 				text = {
 					"Immediately wins every {C:attention}Blind{}",
 					" ",
-					"Destroys itself after a number of {C:attention}Blinds{} is defeated",
-					"equal to the {C:attention}materials{} used for its summon {C:inactive}(#1#/#2#){}",
+					"Destroys itself after a number",
+					"of {C:attention}Blinds{} is defeated",
+					"equal to the {C:attention}materials{} used",
+					"for its summon {C:inactive}(#1#/#2#){}",
 				},
 				joy_summon_conditions = {
 					"{C:attention}2+{} {C:joy_spell}Extra Deck{} summoned {C:attention}Jokers{}",
@@ -666,8 +670,10 @@ return {
 					"During a {C:attention}Blind{}, you can {C:attention}tribute #2#{}",
 					"{C:joy_normal}\"Mekk-Knight\"{} to gain {C:blue}+#3#{} Hand",
 					" ",
-					"Sell this card when there are #4# {C:joy_normal}\"Mekk-Knight\"{} in the {C:attention}GY",
-					"with different names to win the current {C:attention}Blind{}"
+					"Sell this card when there are",
+					"{C:attention}#4# {C:joy_normal}\"Mekk-Knight\"{} in the {C:attention}GY",
+					"with different names",
+					"to win the current {C:attention}Blind{}"
 				}
 			},
 			--#endregion
@@ -1634,8 +1640,8 @@ return {
 					"{C:mult}+#2#{} Mult for each {C:joy_normal}\"Subterror\"{} used",
 					"{C:inactive}(Currently{} {C:chips}+#3#{} {C:inactive}Chips and {C:mult}+#4#{} {C:inactive}Mult){}",
 					" ",
-					"Once per round, you can {C:attention}flip #5# Jokers{} face-down to create {C:attention}#6#",
-					"{C:joy_normal}\"Subterror Behemoth\"{}",
+					"Once per round, you can {C:attention}flip",
+					"{C:attention}#5# Jokers{} face-down to create {C:attention}#6# {C:joy_normal}\"Subterror Behemoth\"{}",
 					"{C:inactive}(Must have room){}"
 				},
 				joy_summon_conditions = {
@@ -2819,10 +2825,12 @@ return {
 					"to {C:attention}transform{} this card into an {C:joy_normal}\"Invoked\"",
 					"{C:inactive}(This is treated as a Fusion summon)",
 					" ",
-					"Create {C:attention}#2#{} {C:joy_spell}\"Magical Meltdown\"{} when used as {C:attention}material{} for a {C:joy_fusion}Fusion{}",
+					"Create {C:attention}#2#{} {C:joy_spell}\"Magical Meltdown\"{} when used",
+					"as {C:attention}material{} for a {C:joy_fusion}Fusion{}",
 					"{C:inactive}(Must have room)",
 					" ",
-					"A {C:joy_fusion}Fusion{} summoned using this card as {C:attention}material{} gains the following ability:",
+					"A {C:joy_fusion}Fusion{} summoned using this card",
+					"as {C:attention}material{} gains the following ability:",
 					"{s:0.9,C:mult}+#3#{} {s:0.9}Mult for each {s:0.9,C:joy_fusion}Fusion{} {s:0.9}summoned this run"
 				},
 				joy_summon_conditions = {
@@ -3333,6 +3341,7 @@ return {
 					" ",
 					"Gets ability based on the {C:attention}column{}",
 					"{V:1}1: Scored card in this {C:attention}column{} {V:1}gains {C:chips}+#2#{} {V:1}Chips{}",
+					"{V:1}and doesn't get destroyed by this card's ability",
 					"{V:2}3: Retrigger scored card in this {C:attention}column{V:2} twice",
 					"{V:3}5: Played card in this {C:attention}column{} {V:3}counts for scoring{}",
 				}
@@ -3344,7 +3353,7 @@ return {
 					"{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)",
 					" ",
 					"Played cards in this card's {C:attention}column{} are destroyed after scoring",
-					"{C:inactive}(All played cards if column is 5+)",
+					"{C:inactive}(All played cards if column is 6+)",
 					"{C:inactive}(Currently in {C:attention}column #3#{}{C:inactive})",
 				}
 			},
@@ -3372,7 +3381,7 @@ return {
 				text = {
 					"{C:mult}+#1#{} Mult",
 					" ",
-					"{C:joy_effect}FLIP{}: Add {C:attention}#2#{} random {C:dark_edition}Negative{} {C:attention}Lucky{} cards to your deck"
+					"{C:joy_effect}FLIP{}: Add {C:attention}#2#{} {C:dark_edition}Negative{} {C:attention}Lucky{} {C:attention}2{}s to your deck"
 				}
 			},
 			j_joy_dekoichi = {
@@ -3423,7 +3432,7 @@ return {
 					"{s:0.9,C:inactive}(Gains even while face-down)",
 					"{C:inactive}(Currently {C:chips}+#3# {C:inactive}Chips)",
 					" ",
-					"{C:joy_effect}FLIP{}: {C:attention}Flips{} all playing cards",
+					"{C:joy_effect}FLIP{}: {C:attention}Flips{} all cards in hand",
 					" ",
 					"{C:green}#4# in #5#{} chance to {C:attention}flip{} when {C:attention}Blind{} is selected"
 				}
@@ -3434,8 +3443,7 @@ return {
 					"{C:chips}+#1#{} Chips for each {C:joy_spell}Field Spell{} in the {C:attention}GY{}",
 					"{C:inactive}(Currently {C:chips}+#2#{}{C:inactive} Chips)",
 					" ",
-					"{C:joy_effect}FLIP{}: Create {C:attention}#3#{} copy of a {C:joy_spell}Field Spell{} in the {C:attention}GY{}",
-					"{C:inactive}(Must have room)"
+					"{C:joy_effect}FLIP{}: Create {C:attention}#3#{} {C:dark_edition}Negative{} copy of a {C:joy_spell}Field Spell{} in the {C:attention}GY{}",
 				}
 			},
 			j_joy_mask = {
@@ -3670,12 +3678,16 @@ return {
 					"and {C:mult}+#2#{} Mult for each empty {C:joy_spell}Extra Deck{} slot",
 					"when {C:attention}Blind{} is selected",
 					"{C:inactive}(Currently {C:chips}+#3#{}{C:inactive} Chips and {C:mult}+#4#{} {C:inactive}Mult)"
+				},
+				joy_transfer_ability = {
+					"{C:chips}+#1#{} Chips {C:mult}+#2#{} Mult",
 				}
 			},
 			j_joy_disablaster = {
 				name = "{C:joy_pendulum_effect}Disablaster the Negation Fortress",
 				joy_consumable = {
-					"{C:money}+$#1#{} for each time this card's {C:attention}Joker{} ability was used",
+					"{C:money}+$#1#{} for each time this card's {C:attention}Joker{} ability",
+					"increased scored Mult",
 					"{C:inactive}(Currently {C:money}+$#2#{}{C:inactive})"
 				},
 				text = {
@@ -3836,6 +3848,8 @@ return {
 				name = "{C:joy_token}Lamp Token",
 				text = {
 					"This card can be used as any {C:joy_token}Token{}",
+					" ",
+					"Treated as any {C:attention}material{} for a {C:joy_synchro}Synchro",
 				}
 			},
 			j_joy_bishbaalkin = {
@@ -3844,9 +3858,8 @@ return {
 					"{C:mult}+#1#{} Mult for each non-debuffed {C:attention}Joker{}",
 					"{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)",
 					" ",
-					"Destroy all other non-debuffed {C:attention}Jokers{} at end of round and",
-					"create as many {C:joy_token}\"Utchatzimime Tokens\"{}",
-					"{C:inactive}(Even if you don't have room){}"
+					"Destroy all other non-{C:joy_token}Token{} non-debuffed {C:attention}Jokers{} at end of round and",
+					"create as many {C:dark_edition}Negative{} {C:joy_token}\"Utchatzimime Tokens\"{}",
 				},
 				joy_summon_conditions = {
 					"{C:attention}1{} {C:joy_synchro}Tuner{} +",
@@ -3963,14 +3976,17 @@ return {
 				},
 				joy_summon_conditions = {
 					"{C:attention}2{} {C:joy_effect}Effect {C:attention}Jokers{}",
+				},
+				joy_transfer_ability = {
+					"{C:attention}Transforms{} into {C:joy_link}\"I:P Masquerena\"{} at end of round",
 				}
 			},
 			j_joy_spknight = {
 				name = "{C:joy_link}S:P Little Knight",
 				text = {
-					"{C:attention}Banishes #1#{} other {C:attention}Joker{} at end of round",
-					"until {C:attention}Boss Blind{} is selected",
-					"or until {C:attention}Blind{} is selected if summoned",
+					"{C:attention}Banishes{} itself and {C:attention}#1#{} other {C:attention}Joker{}",
+					"at end of round until {C:attention}Boss Blind{} is selected",
+					"OR until {C:attention}Blind{} is selected if summoned",
 					"using {C:attention}2{} {C:joy_spell}Extra Deck{} {C:attention}Jokers{} as {C:attention}material{}"
 				},
 				joy_summon_conditions = {
@@ -4018,7 +4034,7 @@ return {
 					"and cannot be debuffed or {C:attention}flipped{}",
 					"during a {C:attention}Boss Blind{}",
 					" ",
-					"{C:attention}Jokers{} are {C:attention}flipped{} face-down when {C:attention}Small{} or {C:attention}Big Blind{} is selected",
+					"{C:attention}Jokers{} are {C:attention}flipped{} face-down when {C:attention}Small{} or {C:attention}Big Blind{} are selected",
 					"and {C:attention}flipped{} face-up at end of round"
 				}
 			},
@@ -4032,8 +4048,8 @@ return {
 			j_joy_futurevisions = {
 				name = "{C:joy_spell}Future Visions",
 				text = {
-					"{C:attention}Banishes #1#{} random bought {C:joy_normal}Main Deck{} {C:attention}Joker{} at end of round",
-					"until {C:attention}Blind{} is selected"
+					"{C:attention}Banishes #1#{} random {C:joy_normal}Main Deck{} {C:attention}Joker{} at end of round",
+					"until {C:attention}Boss Blind{} is selected"
 				}
 			},
 			j_joy_xyzterritory = {
@@ -4149,7 +4165,7 @@ return {
 				name = "Face-down monster",
 				text = {
 					"Can't use or activate abilities",
-					"and count as blank Jokers for abilities",
+					"and counts as a blank Joker for abilities",
 					"{C:inactive}(Unless specified)",
 				},
 			},
@@ -4450,6 +4466,7 @@ return {
 			--#endregion
 			--#region Related cards
 			k_joy_related = "Related",
+			k_joy_related_individual = "Card",
 			k_joy_archetype = "Archetype",
 			k_joy_transforms_into = "Transforms into",
 			k_joy_creates = "Creates",

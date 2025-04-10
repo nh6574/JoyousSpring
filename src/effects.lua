@@ -144,7 +144,7 @@ end
 ---@param other_key string
 ---@param keep_materials boolean?
 ---@param summon_type string?
----@param summon_materials Card[]?
+---@param summon_materials Card[]|string[]?
 JoyousSpring.transform_card = function(card, other_key, keep_materials, summon_type, summon_materials)
     local joyous_spring_table = card.ability.extra.joyous_spring
     local revived = joyous_spring_table.revived
@@ -184,13 +184,20 @@ JoyousSpring.transform_card = function(card, other_key, keep_materials, summon_t
                 })
                 card.ability.extra.joyous_spring.summon_materials = { original_key }
                 card.ability.extra.joyous_spring.xyz_materials = 1
+                card.joy_transforming = original_key
                 JoyousSpring.transfer_abilities(card, original_key, card, summon_materials)
+                card.joy_transforming = nil
                 for _, joker in ipairs(summon_materials or {}) do
-                    table.insert(card.ability.extra.joyous_spring.summon_materials, joker.config.center.key)
-                    JoyousSpring.transfer_abilities(card, joker.config.center.key, joker, summon_materials)
+                    if type(joker) == "string" then
+                        table.insert(card.ability.extra.joyous_spring.summon_materials, joker)
+                        JoyousSpring.transfer_abilities(card, joker, nil, summon_materials)
+                    else
+                        table.insert(card.ability.extra.joyous_spring.summon_materials, joker.config.center.key)
+                        JoyousSpring.transfer_abilities(card, joker.config.center.key, joker, summon_materials)
+                    end
 
                     card.ability.extra.joyous_spring.xyz_materials = card.ability.extra.joyous_spring.xyz_materials + 1
-                    if JoyousSpring.is_summon_type(joker, "XYZ") then
+                    if type(joker) ~= "string" and JoyousSpring.is_summon_type(joker, "XYZ") then
                         for _, material in ipairs(joker.ability.extra.joyous_spring.summon_materials) do
                             table.insert(card.ability.extra.joyous_spring.summon_materials, material)
                         end
@@ -443,13 +450,15 @@ JoyousSpring.transfer_abilities = function(card, material_key, other_card, mater
     if not card or not material_center or not material_center.joy_can_transfer_ability or (other_card and other_card.debuff) then
         return
     end
-    if material_center:joy_can_transfer_ability(card) then
+    if material_center:joy_can_transfer_ability(card, other_card) then
         local was_material = card.ability.extra.joyous_spring.material_effects[material_key] and true or false
-        card.ability.extra.joyous_spring.material_effects[material_key] = material_center.joy_transfer_config and
-            material_center:joy_transfer_config(card) or {}
-        if not was_material and material_center.joy_transfer_add_to_deck then
+        card.ability.extra.joyous_spring.material_effects[material_key] = not was_material and
+            (material_center.joy_transfer_config and material_center:joy_transfer_config(card) or {}) or
+            card.ability.extra.joyous_spring.material_effects[material_key]
+        if material_center.joy_transfer_add_to_deck then
             material_center:joy_transfer_add_to_deck(card,
-                card.ability.extra.joyous_spring.material_effects[material_key], other_card, false, materials)
+                card.ability.extra.joyous_spring.material_effects[material_key], other_card, false, materials,
+                was_material)
         end
     end
 end

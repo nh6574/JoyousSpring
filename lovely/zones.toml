@@ -60,7 +60,7 @@ pattern = "{n=G.UIT.R, config={minw = self.T.w,minh = self.T.h,align = \"cm\", p
 position = 'at'
 match_indent = true
 payload = '''
-{n=G.UIT.R, config={minw = self.T.w,minh = self.T.h,align = "cm", padding = 0.1, mid = true, r = 0.1, colour = self.config.type == 'extra_deck' and {G.C.JOY.TRAP[1],G.C.JOY.TRAP[2],G.C.JOY.TRAP[3],0.5} or self ~= G.shop_vouchers and {0,0,0,0.1} or nil, ref_table = self}, nodes={
+{n=G.UIT.R, config={minw = self.T.w,minh = self.T.h,align = "cm", padding = 0.1, mid = true, r = 0.1, colour = self.config.type == 'extra_deck' and {G.C.JOY.SPELL[1],G.C.JOY.SPELL[2],G.C.JOY.SPELL[3],0.5} or self ~= G.shop_vouchers and {0,0,0,0.1} or nil, ref_table = self}, nodes={
 '''
 
 ## Summon Materials

@@ -604,7 +604,7 @@ SMODS.Joker({
             if shaddoll_should_flip(card) then card:flip() end
         end
     end,
-    joy_can_transfer_ability = function(self, other_card)
+    joy_can_transfer_ability = function(self, other_card, card)
         return JoyousSpring.is_summon_type(other_card, "FUSION")
     end,
     joy_transfer_ability_calculate = function(self, other_card, context, config)
@@ -681,10 +681,10 @@ SMODS.Joker({
         local targets = JoyousSpring.get_materials_owned({ { can_flip = true }, { facedown = true } })
         return next(targets) and true or false
     end,
-    joy_can_transfer_ability = function(self, other_card)
+    joy_can_transfer_ability = function(self, other_card, card)
         return JoyousSpring.is_summon_type(other_card, "FUSION")
     end,
-    joy_transfer_add_to_deck = function(self, other_card, config, card, from_debuff)
+    joy_transfer_add_to_deck = function(self, other_card, config, card, from_debuff, materials, was_material)
         other_card.ability.extra.joyous_spring.cannot_flip = true
         SMODS.debuff_card(other_card, 'prevent_debuff', 'j_joy_shaddoll_genius')
     end,
@@ -737,7 +737,7 @@ SMODS.Joker({
             if shaddoll_should_flip(card) then card:flip() end
         end
     end,
-    joy_can_transfer_ability = function(self, other_card)
+    joy_can_transfer_ability = function(self, other_card, card)
         return JoyousSpring.is_summon_type(other_card, "FUSION")
     end,
     joy_transfer_config = function(self, other_card)
@@ -806,7 +806,7 @@ SMODS.Joker({
             if shaddoll_should_flip(card) then card:flip() end
         end
     end,
-    joy_can_transfer_ability = function(self, other_card)
+    joy_can_transfer_ability = function(self, other_card, card)
         return JoyousSpring.is_summon_type(other_card, "FUSION")
     end,
     joy_transfer_config = function(self, other_card)
@@ -875,7 +875,7 @@ SMODS.Joker({
             if shaddoll_should_flip(card) then card:flip() end
         end
     end,
-    joy_can_transfer_ability = function(self, other_card)
+    joy_can_transfer_ability = function(self, other_card, card)
         return JoyousSpring.is_summon_type(other_card, "FUSION")
     end,
     joy_transfer_config = function(self, other_card)
@@ -964,7 +964,7 @@ SMODS.Joker({
             end
         end
     end,
-    joy_can_transfer_ability = function(self, other_card)
+    joy_can_transfer_ability = function(self, other_card, card)
         return JoyousSpring.is_summon_type(other_card, "FUSION")
     end,
     joy_transfer_config = function(self, other_card)
@@ -1065,10 +1065,10 @@ SMODS.Joker({
     joy_prevent_flip = function(card, other_card)
         return JoyousSpring.is_summon_type(other_card, "FUSION")
     end,
-    joy_can_transfer_ability = function(self, other_card)
+    joy_can_transfer_ability = function(self, other_card, card)
         return JoyousSpring.is_summon_type(other_card, "FUSION")
     end,
-    joy_transfer_add_to_deck = function(self, other_card, config, card, from_debuff, materials)
+    joy_transfer_add_to_deck = function(self, other_card, config, card, from_debuff, materials, was_material)
         if not other_card.debuff then
             for _, joker in ipairs(G.jokers.cards) do
                 if JoyousSpring.is_summon_type(joker, "FUSION") and not JoyousSpring.is_perma_debuffed(joker) then
@@ -1161,7 +1161,7 @@ SMODS.Joker({
             end
         end
     end,
-    joy_can_transfer_ability = function(self, other_card)
+    joy_can_transfer_ability = function(self, other_card, card)
         return JoyousSpring.is_summon_type(other_card, "FUSION")
     end,
     joy_transfer_config = function(self, other_card)
@@ -1252,7 +1252,7 @@ SMODS.Joker({
             end
         end
     end,
-    joy_can_transfer_ability = function(self, other_card)
+    joy_can_transfer_ability = function(self, other_card, card)
         return JoyousSpring.is_summon_type(other_card, "FUSION")
     end,
     joy_transfer_config = function(self, other_card)
@@ -1339,7 +1339,7 @@ SMODS.Joker({
             end
         end
     end,
-    joy_can_transfer_ability = function(self, other_card)
+    joy_can_transfer_ability = function(self, other_card, card)
         return JoyousSpring.is_summon_type(other_card, "FUSION")
     end,
     joy_transfer_config = function(self, other_card)
@@ -1418,7 +1418,7 @@ SMODS.Joker({
             G.GAME.blind:disable()
         end
     end,
-    joy_can_transfer_ability = function(self, other_card)
+    joy_can_transfer_ability = function(self, other_card, card)
         return JoyousSpring.is_summon_type(other_card, "FUSION")
     end,
     joy_transfer_ability_calculate = function(self, other_card, context, config)
@@ -1483,7 +1483,7 @@ SMODS.Joker({
     joy_flip_effect_active = function(card, other_card)
         return JoyousSpring.is_monster_archetype(other_card, "Shaddoll")
     end,
-    joy_can_transfer_ability = function(self, other_card)
+    joy_can_transfer_ability = function(self, other_card, card)
         return JoyousSpring.is_summon_type(other_card, "FUSION")
     end,
     joy_transfer_flip_effect_active = function(self, ability_card, other_card, config)
@@ -1558,10 +1558,10 @@ SMODS.Joker({
             end
         end
     end,
-    joy_can_transfer_ability = function(self, other_card)
+    joy_can_transfer_ability = function(self, other_card, card)
         return JoyousSpring.is_summon_type(other_card, "FUSION")
     end,
-    joy_transfer_add_to_deck = function(self, other_card, config, card, from_debuff, materials)
+    joy_transfer_add_to_deck = function(self, other_card, config, card, from_debuff, materials, was_material)
         other_card.ability.extra.joyous_spring.is_all_materials.FUSION = true
     end,
 })

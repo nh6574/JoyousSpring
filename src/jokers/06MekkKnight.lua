@@ -504,7 +504,9 @@ SMODS.Joker({
             if context.end_of_round and context.game_over == false and context.main_eval then
                 card.ability.extra.activated = false
                 local eval = function(card)
-                    return not card.ability.extra.activated
+                    return not card.ability.extra.activated and not G
+                        .RESET_JIGGLES and
+                        card.config.center.key == "j_joy_mekk_spectrum" -- for transformations
                 end
                 juice_card_until(card, eval, true)
             end

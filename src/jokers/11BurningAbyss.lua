@@ -669,7 +669,7 @@ SMODS.Joker({
             if context.setting_blind and context.main_eval then
                 local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "BurningAbyss" } } })
                 for _ = 1, card.ability.extra.mills do
-                    local key_to_send = pseudorandom_element(choices, pseudoseed("j_joy_ba_cagna"))
+                    local key_to_send = pseudorandom_element(choices, pseudoseed("j_joy_ba_cherubini"))
                     JoyousSpring.send_to_graveyard(key_to_send or "j_joy_ba_cagna")
                 end
             end

@@ -102,7 +102,7 @@ SMODS.Joker({
         end
         return false
     end,
-    joy_can_transfer_ability = function(self, other_card)
+    joy_can_transfer_ability = function(self, other_card, card)
         return JoyousSpring.is_summon_type(other_card, "FUSION")
     end,
     joy_transfer_ability_calculate = function(self, other_card, context, config)
@@ -205,7 +205,7 @@ SMODS.Joker({
         end
         return false
     end,
-    joy_can_transfer_ability = function(self, other_card)
+    joy_can_transfer_ability = function(self, other_card, card)
         return JoyousSpring.is_summon_type(other_card, "FUSION")
     end,
     joy_transfer_ability_calculate = function(self, other_card, context, config)
@@ -306,7 +306,7 @@ SMODS.Joker({
     in_pool = function(self, args)
         return args and args.source and args.source == "JoyousSpring" or false
     end,
-    joy_can_transfer_ability = function(self, other_card)
+    joy_can_transfer_ability = function(self, other_card, card)
         return other_card.config.center.key == "j_joy_invoked_elysium"
     end,
     joy_transfer_ability_calculate = function(self, other_card, context, config)
@@ -411,7 +411,7 @@ SMODS.Joker({
     in_pool = function(self, args)
         return args and args.source and args.source == "JoyousSpring" or false
     end,
-    joy_can_transfer_ability = function(self, other_card)
+    joy_can_transfer_ability = function(self, other_card, card)
         return other_card.config.center.key == "j_joy_invoked_elysium"
     end,
     joy_transfer_ability_calculate = function(self, other_card, context, config)
@@ -526,7 +526,7 @@ SMODS.Joker({
     in_pool = function(self, args)
         return args and args.source and args.source == "JoyousSpring" or false
     end,
-    joy_can_transfer_ability = function(self, other_card)
+    joy_can_transfer_ability = function(self, other_card, card)
         return other_card.config.center.key == "j_joy_invoked_elysium"
     end,
     joy_transfer_ability_calculate = function(self, other_card, context, config)
@@ -623,7 +623,7 @@ SMODS.Joker({
     in_pool = function(self, args)
         return args and args.source and args.source == "JoyousSpring" or false
     end,
-    joy_can_transfer_ability = function(self, other_card)
+    joy_can_transfer_ability = function(self, other_card, card)
         return other_card.config.center.key == "j_joy_invoked_elysium"
     end,
     joy_transfer_ability_calculate = function(self, other_card, context, config)
@@ -716,7 +716,7 @@ SMODS.Joker({
     in_pool = function(self, args)
         return args and args.source and args.source == "JoyousSpring" or false
     end,
-    joy_can_transfer_ability = function(self, other_card)
+    joy_can_transfer_ability = function(self, other_card, card)
         return other_card.config.center.key == "j_joy_invoked_elysium"
     end,
     joy_transfer_ability_calculate = function(self, other_card, context, config)
@@ -817,7 +817,7 @@ SMODS.Joker({
     in_pool = function(self, args)
         return args and args.source and args.source == "JoyousSpring" or false
     end,
-    joy_can_transfer_ability = function(self, other_card)
+    joy_can_transfer_ability = function(self, other_card, card)
         return other_card.config.center.key == "j_joy_invoked_elysium"
     end,
     joy_transfer_ability_calculate = function(self, other_card, context, config)
@@ -931,7 +931,7 @@ SMODS.Joker({
     in_pool = function(self, args)
         return args and args.source and args.source == "JoyousSpring" or false
     end,
-    joy_can_transfer_ability = function(self, other_card)
+    joy_can_transfer_ability = function(self, other_card, card)
         return other_card.config.center.key == "j_joy_invoked_elysium"
     end,
     joy_transfer_ability_calculate = function(self, other_card, context, config)

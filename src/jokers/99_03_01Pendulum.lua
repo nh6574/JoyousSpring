@@ -352,7 +352,7 @@ SMODS.Joker({
     key = "moissa",
     atlas = 'Misc04',
     pos = { x = 6, y = 4 },
-    rarity = 2,
+    rarity = 1,
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
@@ -389,7 +389,7 @@ SMODS.Joker({
     use = function(self, card, area, copier)
         local choices = JoyousSpring.get_materials_in_collection({ { is_pendulum = true } })
         for i = 1, card.ability.extra.adds do
-            key_to_add = pseudorandom_element(choices, pseudoseed("j_joy_moissa"))
+            local key_to_add = pseudorandom_element(choices, pseudoseed("j_joy_moissa"))
             JoyousSpring.add_monster_tag(key_to_add or "j_joy_eccentrick")
         end
     end,
@@ -557,5 +557,139 @@ SMODS.Joker({
             return false
         end
         return #G.jokers.cards > (card.area and card.area == G.jokers and 1 or 0)
+    end,
+})
+
+-- Rain Bozu
+SMODS.Joker({
+    key = "bozu",
+    atlas = 'Misc04',
+    pos = { x = 2, y = 5 },
+    rarity = 2,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 7,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.chips, card.ability.extra.mult, card.ability.extra.current_chips, card.ability.extra.current_mult } }
+    end,
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_pendulum = true,
+                attribute = "LIGHT",
+                monster_type = "Fairy",
+            },
+            chips = 25,
+            mult = 5,
+            current_chips = 0,
+            current_mult = 0,
+            transferring = false
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.setting_blind and context.main_eval then
+                card.ability.extra.current_chips = card.ability.extra.current_chips +
+                    card.ability.extra.chips * #JoyousSpring.extra_deck_area.cards
+                card.ability.extra.current_mult = card.ability.extra.current_mult +
+                    card.ability.extra.mult *
+                    math.max(0, JoyousSpring.extra_deck_area.config.card_limit - #JoyousSpring.extra_deck_area.cards)
+            end
+            if context.joker_main then
+                return {
+                    chips = card.ability.extra.current_chips,
+                    mult = card.ability.extra.current_mult
+                }
+            end
+        end
+    end,
+    use = function(self, card, area, copier)
+        local choices = JoyousSpring.get_materials_owned({ { is_monster = true } })
+        local joker = pseudorandom_element(choices, pseudoseed("j_joy_bozu"))
+        if joker then
+            card.ability.extra.transferring = true
+            JoyousSpring.transfer_abilities(joker, card.config.center.key, card)
+        end
+    end,
+    can_use = function(self, card)
+        return ((card.ability.extra.current_chips > 0) or (card.ability.extra.current_mult > 0)) and #G.jokers.cards > 1
+    end,
+    joy_can_transfer_ability = function(self, other_card, card)
+        return card and card.ability.extra.transferring or false
+    end,
+    joy_transfer_add_to_deck = function(self, other_card, config, card, from_debuff, materials, was_material)
+        if card then
+            config.mult = (config.mult or 0) + card.ability.extra.current_mult
+            config.chips = (config.chips or 0) + card.ability.extra.current_chips
+        end
+    end,
+    joy_transfer_ability_calculate = function(self, other_card, context, config)
+        if JoyousSpring.can_use_abilities(other_card) then
+            if context.joker_main then
+                return {
+                    chips = config.chips,
+                    mult = config.mult
+                }
+            end
+        end
+    end,
+    joy_transfer_config = function(self, other_card)
+        return {
+            mult = 0,
+            chips = 0,
+        }
+    end,
+    joy_transfer_loc_vars = function(self, info_queue, card, config)
+        return { vars = { config.chips, config.mult } }
+    end
+})
+
+-- Disablaster the Negation Fortress
+SMODS.Joker({
+    key = "disablaster",
+    atlas = 'Misc04',
+    pos = { x = 4, y = 4 },
+    rarity = 3,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 7,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.money, card.ability.extra.current_money, math.max(1, card.ability.extra.xmult - JoyousSpring.get_joker_column(card)), JoyousSpring.get_joker_column(card) } }
+    end,
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_pendulum = true,
+                attribute = "LIGHT",
+                monster_type = "Machine",
+            },
+            money = 1,
+            current_money = 0,
+            xmult = 7
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                if math.max(1, card.ability.extra.xmult - JoyousSpring.get_joker_column(card)) > 1 then
+                    card.ability.extra.current_money = card.ability.extra.current_money + card.ability.extra.money
+                end
+                return {
+                    xmult = math.max(1, card.ability.extra.xmult - JoyousSpring.get_joker_column(card))
+                }
+            end
+        end
+    end,
+    use = function(self, card, area, copier)
+        ease_dollars(card.ability.extra.current_money)
+    end,
+    can_use = function(self, card)
+        return card.ability.extra.current_money > 0
     end,
 })

@@ -6,6 +6,8 @@
 ---@param key string
 ---@param must_have_room boolean?
 ---@param edition any
+---@param card_limit_modif integer?
+---@param debuff_source string?
 ---@return Card?
 JoyousSpring.revive = function(key, must_have_room, edition, card_limit_modif, debuff_source)
     if JoyousSpring.graveyard[key] and JoyousSpring.graveyard[key].summonable > 0 then
@@ -37,13 +39,14 @@ end
 ---@param edition any?
 ---@param card_limit_modif integer?
 ---@param different_names boolean?
+---@param debuff_source string?
 ---@return Card?
 JoyousSpring.revive_pseudorandom = function(property_list, seed, must_have_room, edition, card_limit_modif,
-                                            different_names)
+                                            different_names, debuff_source)
     local choices = JoyousSpring.get_materials_in_graveyard(property_list, true, different_names)
     local key_to_add = pseudorandom_element(choices, seed)
     if key_to_add then
-        return JoyousSpring.revive(key_to_add, must_have_room, edition, card_limit_modif)
+        return JoyousSpring.revive(key_to_add, must_have_room, edition, card_limit_modif, debuff_source)
     end
 
     return nil

@@ -185,7 +185,7 @@ JoyousSpring.create_summon = function(add_params, must_have_room, card_limit_mod
                 if from_revive_key then
                     JoyousSpring.graveyard[from_revive_key].count = JoyousSpring.graveyard[from_revive_key].count + 1
                     JoyousSpring.graveyard[from_revive_key].summonable = JoyousSpring.graveyard[from_revive_key]
-                    .summonable + 1
+                        .summonable + 1
                 end
             end
             return true
@@ -213,12 +213,12 @@ JoyousSpring.summon_token = function(key, edition, atlas_key, sprite_pos, joyous
     })
 
     card.ability.extra.joyous_spring.token_name = joyous_spring_table and joyous_spring_table.token_name or
-        pool_info.name or "Token"
+        pool_info.name or "j_joy_token"
     card.ability.extra.joyous_spring.token_atlas = atlas_key or pool_info.atlas or "joy_Token"
     card.ability.extra.joyous_spring.token_sprite_pos = sprite_pos or pool_info.sprite_pos or
         { x = pseudorandom("Token", 0, 1), y = pseudorandom("Token", 0, 1) }
     card.children.center.atlas = G.ASSET_ATLAS[card.ability.extra.joyous_spring.token_atlas]
-    card.children.center.sprite_pos = card.ability.extra.joyous_spring.token_atlas.token_sprite_pos
+    card.children.center.sprite_pos = card.ability.extra.joyous_spring.token_sprite_pos
     card.children.center:reset()
 end
 

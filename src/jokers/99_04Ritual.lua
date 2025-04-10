@@ -22,7 +22,6 @@ SMODS.Joker({
                 summon_type = "RITUAL",
                 attribute = "LIGHT",
                 monster_type = "Dragon",
-
                 summon_conditions = {
                     {
                         type = "RITUAL",
@@ -73,5 +72,56 @@ SMODS.Joker({
                 return false
             end
         }
+    end
+})
+
+-- Lycanthrope
+SMODS.Joker({
+    key = "lycanthrope",
+    atlas = 'Misc04',
+    pos = { x = 3, y = 3 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 10,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.count_all_materials({ { is_normal = true } }) } }
+    end,
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                summon_type = "RITUAL",
+                attribute = "EARTH",
+                monster_type = "BeastWarrior",
+                summon_conditions = {
+                    {
+                        type = "RITUAL",
+                        materials = {
+                            {},
+                            {},
+                        }
+                    },
+                    {
+                        type = "RITUAL",
+                        materials = {
+                            { is_normal = true },
+                        }
+                    }
+                }
+            },
+            mult = 50
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    mult = card.ability.extra.mult * JoyousSpring.count_all_materials({ { is_normal = true } })
+                }
+            end
+        end
     end
 })

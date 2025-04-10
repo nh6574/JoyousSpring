@@ -46,7 +46,32 @@ pattern = "local nodes_per_col = math.ceil(#info_boxes/cols)"
 position = 'before'
 match_indent = true
 payload = '''
-if JoyousSpring.is_monster_card(card) then cols = 1 end
+if JoyousSpring.is_monster_card(card) then cols = card.area and card.area == G.shop_jokers and math.ceil(#info_boxes/2) or 1 end
+'''
+
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''
+{n=G.UIT.R, config={align = "cm"}, nodes={
+{n=G.UIT.R, config={align = "cm", colour = lighten(G.C.JOKER_GREY, 0.5), r = 0.1, padding = 0.05, emboss = 0.05}, nodes={
+'''
+position = 'at'
+match_indent = true
+payload = '''
+{n=G.UIT.R, config={align = JoyousSpring.is_monster_card(card) and (not card.area or card.area ~= G.shop_jokers) and ((card.T.x > G.ROOM.T.w * 0.4) and "cr" or "cl") or "cm" }, nodes={
+{n=G.UIT.R, config={align = JoyousSpring.is_monster_card(card) and (not card.area or card.area ~= G.shop_jokers) and ((card.T.x > G.ROOM.T.w * 0.4) and "cr" or "cl") or "cm", colour = lighten(G.C.JOKER_GREY, 0.5), r = 0.1, padding = 0.05, emboss = 0.05}, nodes={
+'''
+
+# More info for info_queue layout
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = "info_boxes = {{n=G.UIT.R, config = {align=\"cm\", padding = 0.05, card_pos = card.T.x }, nodes = info_cols}}"
+position = 'at'
+match_indent = true
+payload = '''
+info_boxes = {{n=G.UIT.R, config = {align="cm", padding = 0.05, card_pos = card.T.x, card = card}, nodes = info_cols}}
 '''
 
 # Nicer display for Jokers with long names

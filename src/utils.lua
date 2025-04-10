@@ -516,6 +516,7 @@ JoyousSpring.get_name_color = function(key, set)
 end
 
 JoyousSpring.used_as_material = function(card, context)
+    if type(card) ~= "table" then return false end
     if context.joy_summon and context.main_eval and not context.blueprint_card then
         for _, joker in ipairs(context.joy_summon_materials) do
             if joker == card then

@@ -244,11 +244,6 @@ end
 ---@param specific_vars table
 ---@param full_UI_table table
 JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
-    -- Change Token's name
-    if card and card.config.center.key == "j_joy_token" then
-        full_UI_table.name = localize { type = 'name', set = "Joker", key = card.ability and card.ability.extra.joyous_spring.token_name or "j_joy_token", nodes = {} }
-    end
-
     SMODS.Center.generate_ui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
 
     if desc_nodes ~= full_UI_table.main then

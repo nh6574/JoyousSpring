@@ -18,13 +18,15 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 1,
     generate_ui = JoyousSpring.generate_info_ui,
+    loc_vars = function(self, info_queue, card)
+        return { key = card.ability.extra.joyous_spring.token_name }
+    end,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 is_effect = false,
                 attribute = "EARTH",
                 monster_type = "Beast",
-
                 token_name = "j_joy_token"
             },
         },

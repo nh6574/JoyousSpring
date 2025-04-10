@@ -419,13 +419,22 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff then
-            for _, joker in ipairs(G.jokers.cards) do
-                if joker.config.center.rarity == 2 then
-                    if not joker.edition then
-                        joker:set_edition({ negative = true })
+            local spright_material = false
+            for _, key in ipairs(JoyousSpring.get_materials(card)) do
+                if JoyousSpring.is_material_center(key, { monster_archetypes = { "Spright" } }) then
+                    spright_material = true
+                    break
+                end
+            end
+            if spright_material then
+                for _, joker in ipairs(G.jokers.cards) do
+                    if joker.config.center.rarity == 2 then
+                        if not joker.edition then
+                            joker:set_edition({ negative = true })
+                        end
+                    else
+                        SMODS.debuff_card(joker, true, "j_joy_spright_sprind")
                     end
-                else
-                    SMODS.debuff_card(joker, true, "j_joy_spright_sprind")
                 end
             end
         end
@@ -437,12 +446,21 @@ SMODS.Joker({
     end,
     joy_apply_to_jokers_added = function(card, added_card)
         if not card.debuff then
-            if added_card.config.center.rarity == 2 then
-                if not added_card.edition then
-                    added_card:set_edition({ negative = true })
+            local spright_material = false
+            for _, key in ipairs(JoyousSpring.get_materials(card)) do
+                if JoyousSpring.is_material_center(key, { monster_archetypes = { "Spright" } }) then
+                    spright_material = true
+                    break
                 end
-            else
-                SMODS.debuff_card(added_card, true, "j_joy_spright_sprind")
+            end
+            if spright_material then
+                if added_card.config.center.rarity == 2 then
+                    if not added_card.edition then
+                        added_card:set_edition({ negative = true })
+                    end
+                else
+                    SMODS.debuff_card(added_card, true, "j_joy_spright_sprind")
+                end
             end
         end
     end

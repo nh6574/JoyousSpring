@@ -384,7 +384,7 @@ function Card:highlight(is_highlighted)
         end
     else
         card_highlight_ref(self, is_highlighted)
-        if self.area and (JoyousSpring.is_extra_deck_monster(self) or JoyousSpring.is_field_spell(self)) and
+        if self.area and (JoyousSpring.is_extra_deck_monster(self)) and
             (self.area == G.shop_jokers and G.shop_jokers or self.area == G.pack_cards and G.pack_cards) then
             JoyousSpring.open_extra_deck(false, is_highlighted)
         end
@@ -409,6 +409,22 @@ function CardArea:add_to_highlighted(card, silent)
         if not silent then play_sound('cardSlide1') end
     else
         cardarea_add_to_highlighted_ref(self, card, silent)
+    end
+end
+
+local g_funcs_show_infotip_ref = G.FUNCS.show_infotip
+G.FUNCS.show_infotip = function(e)
+    if e.config.ref_table and e.config.ref_table[1].config.card and
+        JoyousSpring.is_monster_card(e.config.ref_table[1].config.card) and e.config.ref_table[1].config.card.area and
+        e.config.ref_table[1].config.card.area == G.shop_jokers then
+        e.children.info = UIBox {
+            definition = { n = G.UIT.ROOT, config = { align = 'cm', colour = G.C.CLEAR, padding = 0.02 }, nodes = e.config.ref_table },
+            config = { offset = { x = 0, y = 0 }, align = 'tm', parent = e }
+        }
+        e.children.info:align_to_major()
+        e.config.ref_table = nil
+    else
+        g_funcs_show_infotip_ref(e)
     end
 end
 

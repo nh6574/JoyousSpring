@@ -918,7 +918,15 @@ SMODS.Joker({
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
         end
-        return { vars = { card.ability.extra.chips, card.ability.extra.mult, card.ability.extra.current_chips, card.ability.extra.current_mult, 2, 1 } }
+        local mult_count = 0
+        for _, material in ipairs(JoyousSpring.get_materials(card)) do
+            if JoyousSpring.is_material_center(material, { monster_archetypes = { "Subterror" } }) then
+                mult_count = mult_count + 1
+            end
+        end
+        local current_chips = card.ability.extra.chips * #JoyousSpring.get_materials(card)
+        local current_mult = card.ability.extra.mult * mult_count
+        return { vars = { card.ability.extra.chips, card.ability.extra.mult, current_chips, current_mult, card.ability.extra.flips, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
@@ -956,8 +964,6 @@ SMODS.Joker({
             },
             chips = 100,
             mult = 50,
-            current_chips = 0,
-            current_mult = 0,
             flips = 2,
             creates = 1
         },
@@ -993,9 +999,17 @@ SMODS.Joker({
                 end
             end
             if context.joker_main then
+                local mult_count = 0
+                for _, material in ipairs(JoyousSpring.get_materials(card)) do
+                    if JoyousSpring.is_material_center(material, { monster_archetypes = { "Subterror" } }) then
+                        mult_count = mult_count + 1
+                    end
+                end
+                local current_chips = card.ability.extra.chips * #JoyousSpring.get_materials(card)
+                local current_mult = card.ability.extra.mult * mult_count
                 return {
-                    chips = card.ability.extra.current_chips,
-                    mult = card.ability.extra.current_mult
+                    chips = current_chips,
+                    mult = current_mult
                 }
             end
         end
@@ -1016,16 +1030,6 @@ SMODS.Joker({
         end
         return faceup_joker >= card.ability.extra.flips
     end,
-    add_to_deck = function(self, card, from_debuff)
-        local mult_count = 0
-        for _, material in ipairs(JoyousSpring.get_materials(card)) do
-            if JoyousSpring.is_material_center(material, { monster_archetypes = { "Subterror" } }) then
-                mult_count = mult_count + 1
-            end
-        end
-        card.ability.extra.current_chips = card.ability.extra.chips * #JoyousSpring.get_materials(card)
-        card.ability.extra.current_mult = card.ability.extra.mult * mult_count
-    end
 })
 
 -- The Hidden City
