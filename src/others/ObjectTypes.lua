@@ -16,6 +16,7 @@ SMODS.ObjectType({
     cards = {},
 })
 
+local SMODS_injectItems_ref = SMODS.injectItems
 function SMODS.injectItems()
     SMODS_injectItems_ref()
     for i, v in ipairs(G.P_CENTER_POOLS.Joker) do
