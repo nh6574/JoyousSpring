@@ -216,13 +216,13 @@ end
 JoyousSpring.is_monster_type = function(card, monster_type)
     return JoyousSpring.is_monster_card(card) and
         (card.ability.extra.joyous_spring.is_all_types or
-        card.ability.extra.joyous_spring.monster_type == monster_type)
+            card.ability.extra.joyous_spring.monster_type == monster_type)
 end
 
 JoyousSpring.is_attribute = function(card, attribute)
     return JoyousSpring.is_monster_card(card) and
         (card.ability.extra.joyous_spring.is_all_attributes or
-        card.ability.extra.joyous_spring.attribute == attribute)
+            card.ability.extra.joyous_spring.attribute == attribute)
 end
 
 JoyousSpring.is_effect_monster = function(card)
@@ -357,6 +357,7 @@ JoyousSpring.can_use = function(card)
             (G.CONTROLLER.locked) or
             (G.GAME.STOP_USE and G.GAME.STOP_USE > 0)) and
         (not card.ability.eternal and not card.debuff and card.facing ~= 'back') and
+        (JoyousSpring.is_summon_type(card, "NORMAL") or JoyousSpring.is_summoned(card)) and
         G.STATE ~= G.STATES.HAND_PLAYED and G.STATE ~= G.STATES.DRAW_TO_HAND and G.STATE ~= G.STATES.PLAY_TAROT and
         card.config.center.can_use and card.config.center:can_use(card) or false
 end
