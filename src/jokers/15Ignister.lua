@@ -624,7 +624,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.used_as_material(card, context) and JoyousSpring.is_monster_type(context.joy_card, "Cyberse") and not context.joy_card.edition then
-            context.joy_card:set_edition({ negative = true })
+            context.joy_card:set_edition("e_negative")
         end
     end,
     add_to_deck = function(self, card, from_debuff)
@@ -639,7 +639,7 @@ SMODS.Joker({
             for i = 1, card.ability.extra.to_negative do
                 local to_negative = pseudorandom_element(choices, pseudoseed("j_joy_ignis_backup"))
                 if to_negative then
-                    to_negative:set_edition({ negative = true })
+                    to_negative:set_edition("e_negative")
                 end
             end
         end
@@ -736,13 +736,12 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if not context.blueprint_card and context.selling_self then
             if G.GAME.blind and ((not G.GAME.blind.disabled) and (G.GAME.blind:get_type() == 'Boss')) then
-                card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil,
-                    { message = localize('ph_boss_disabled') })
                 G.GAME.blind:disable()
 
                 if JoyousSpring.count_materials_owned({ { monster_type = "Cyberse", is_summoned = true, is_extra_deck = true } }) > 0 then
                     JoyousSpring.add_monster_tag("j_joy_ignis_kiruku")
                 end
+                return { message = localize('ph_boss_disabled') }
             end
         end
     end,

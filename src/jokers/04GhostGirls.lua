@@ -40,12 +40,7 @@ SMODS.Joker({
                 for _, joker in ipairs(SMODS.find_card("j_joy_yokai_ogre")) do
                     if joker ~= card then
                         joker.ability.extra.xmult = joker.ability.extra.xmult + joker.ability.extra.base_xmult
-                        G.E_MANAGER:add_event(Event({
-                            func = function()
-                                card_eval_status_text(joker, 'extra', nil, nil, nil,
-                                    { message = localize('k_upgrade_ex') }); return true
-                            end
-                        }))
+                        return { message = localize('k_upgrade_ex') }
                     end
                 end
                 return { remove = true, message = localize('k_upgrade_ex'), message_card = card }

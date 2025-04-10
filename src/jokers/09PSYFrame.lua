@@ -641,7 +641,7 @@ SMODS.Joker({
         if not card.debuff then
             if JoyousSpring.is_monster_type(added_card, "Psychic") and JoyousSpring.is_summon_type(added_card, "SYNCHRO") and JoyousSpring.is_summoned(added_card) then
                 if not added_card.edition then
-                    added_card:set_edition({ negative = true })
+                    added_card:set_edition("e_negative")
                 end
             end
         end

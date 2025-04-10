@@ -433,8 +433,9 @@ SMODS.Joker({
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.count_materials_owned({ { monster_archetypes = { "Lilla" } } }) > 0 then
             G.hand:change_size(card.ability.extra.h_size)
-            card_eval_status_text(card, 'extra', nil, nil, nil,
-                { message = localize { type = 'variable', key = 'a_handsize', vars = { card.ability.extra.h_size } } })
+            SMODS.calculate_effect(
+                { message = localize { type = 'variable', key = 'a_handsize', vars = { card.ability.extra.h_size } } },
+                card)
         end
     end,
     joker_display_def = function(JokerDisplay)
@@ -525,8 +526,7 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.count_materials_owned({ { monster_archetypes = { "Kisikil" } } }) > 0 then
-            ease_dollars(card.ability.extra.money)
-            card_eval_status_text(card, 'dollars', card.ability.extra.money)
+            SMODS.calculate_effect({ dollars = card.ability.extra.money }, card)
         end
     end,
     joker_display_def = function(JokerDisplay)

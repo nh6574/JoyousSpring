@@ -326,12 +326,7 @@ SMODS.Joker({
                 local card_to_destroy, _ = pseudorandom_element(G.deck.cards, pseudoseed("j_joy_runick_fountain"))
                 if card_to_destroy then
                     if i == 1 then
-                        G.E_MANAGER:add_event(Event({
-                            func = function()
-                                card_eval_status_text(card_to_destroy, 'extra', nil, nil, nil,
-                                    { message = localize('k_joy_banished') }); return true
-                            end
-                        }))
+                        SMODS.calculate_effect({ message = localize('k_joy_banished') }, card_to_destroy)
                     end
                     card_to_destroy.getting_sliced = true
                     card_to_destroy:start_dissolve()

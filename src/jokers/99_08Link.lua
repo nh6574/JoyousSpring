@@ -224,10 +224,9 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if not context.blueprint_card and context.selling_self then
             if G.GAME.blind and ((not G.GAME.blind.disabled) and (G.GAME.blind:get_type() == 'Boss')) then
-                card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil,
-                    { message = localize('ph_boss_disabled') })
                 G.GAME.blind:disable()
                 ease_dollars(-G.GAME.dollars)
+                return { message = localize('ph_boss_disabled') }
             end
         end
     end,
@@ -273,8 +272,6 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if not context.blueprint_card and context.selling_self then
             if G.GAME.blind and ((not G.GAME.blind.disabled) and (G.GAME.blind:get_type() == 'Boss')) then
-                card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil,
-                    { message = localize('ph_boss_disabled') })
                 G.GAME.blind:disable()
                 local used_ignister = false
                 for _, material in ipairs(card.ability.extra.joyous_spring.summon_materials) do
@@ -286,6 +283,7 @@ SMODS.Joker({
                 if not used_ignister then
                     G.hand:change_size(-card.ability.extra.h_size)
                 end
+                return { message = localize('ph_boss_disabled') }
             end
         end
     end,
