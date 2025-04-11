@@ -112,14 +112,3 @@ match_indent = true
 payload = '''
 if JoyousSpring and JoyousSpring.field_spell_area then table.insert(t, JoyousSpring.field_spell_area) end
 '''
-
-# Prevent weird crash
-[[patches]]
-[patches.pattern]
-target = '=[SMODS _ "src/utils.lua"]'
-pattern = "for _, v in pairs(area.cards) do"
-position = 'at'
-match_indent = true
-payload = '''
-for _, v in pairs(area.cards or {}) do
-'''

@@ -289,6 +289,17 @@ SMODS.current_mod.config_tab = function()
                                     })
                                 }
                             },
+                            {
+                                n = G.UIT.R,
+                                config = { align = "cm", padding = 0.01 },
+                                nodes = {
+                                    create_toggle({
+                                        label = localize('k_joy_disable_glow'),
+                                        ref_table = JoyousSpring.config,
+                                        ref_value = 'disable_glow'
+                                    })
+                                }
+                            },
                         }
                     },
                 }

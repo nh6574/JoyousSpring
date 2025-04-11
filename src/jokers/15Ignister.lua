@@ -1378,7 +1378,7 @@ SMODS.Joker({
                     true)
 
                 for _, joker_key in ipairs(choices) do
-                    JoyousSpring.revive(joker_key, false, "e_negative", "j_joy_ignis_templar")
+                    JoyousSpring.revive(joker_key, false, "e_negative", nil, "j_joy_ignis_templar")
                 end
             end
         end

@@ -117,7 +117,7 @@ end
 
 ---Get cards in the collection that fulfill *property_list*
 ---@param property_list material_properties[]
----@return table
+---@return string[]
 JoyousSpring.get_materials_in_collection = function(property_list)
     local pool = {}
     for k, _ in pairs(G.P_CENTERS) do

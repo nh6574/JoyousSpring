@@ -418,8 +418,8 @@ G.FUNCS.show_infotip = function(e)
         JoyousSpring.is_monster_card(e.config.ref_table[1].config.card) and e.config.ref_table[1].config.card.area and
         e.config.ref_table[1].config.card.area == G.shop_jokers then
         e.children.info = UIBox {
-            definition = { n = G.UIT.ROOT, config = { align = 'cm', colour = G.C.CLEAR, padding = 0.02 }, nodes = e.config.ref_table },
-            config = { offset = { x = 0, y = 0 }, align = 'tm', parent = e }
+            definition = { n = G.UIT.ROOT, config = { align = 'tm', colour = G.C.CLEAR, padding = 0.02 }, nodes = e.config.ref_table },
+            config = { offset = { x = 0, y = -0.1 }, align = 'bm', parent = e }
         }
         e.children.info:align_to_major()
         e.config.ref_table = nil

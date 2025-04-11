@@ -343,11 +343,12 @@ JoyousSpring.cannot_flip = function(card)
     return false
 end
 
-JoyousSpring.can_activate = function(card)
-    return not ((G.play and #G.play.cards > 0) or
-            (G.CONTROLLER.locked) or
-            (G.GAME.STOP_USE and G.GAME.STOP_USE > 0)) and (not card.debuff and card.facing ~= 'back') and
-        G.STATE ~= G.STATES.HAND_PLAYED and G.STATE ~= G.STATES.DRAW_TO_HAND and G.STATE ~= G.STATES.PLAY_TAROT and
+JoyousSpring.can_activate = function(card, for_glow)
+    return (not card.debuff and card.facing ~= 'back') and JoyousSpring.is_monster_card(card) and
+        (for_glow or (not ((G.play and #G.play.cards > 0) or
+                (G.CONTROLLER.locked) or
+                (G.GAME.STOP_USE and G.GAME.STOP_USE > 0)) and
+            G.STATE ~= G.STATES.HAND_PLAYED and G.STATE ~= G.STATES.DRAW_TO_HAND and G.STATE ~= G.STATES.PLAY_TAROT)) and
         JoyousSpring.has_activated_effect(card) and
         card.config.center.joy_can_activate(card) or false
 end
@@ -363,7 +364,7 @@ JoyousSpring.can_use = function(card)
 end
 
 JoyousSpring.can_use_abilities = function(card)
-    if not card then return false end
+    if not card or card.debuff then return false end
     if card.facing == 'front' then return true end
     for _, joker in ipairs(G.jokers.cards) do
         if not joker.debuff and joker.config.center.joy_allow_ability and joker.config.center.joy_allow_ability(joker, card) then

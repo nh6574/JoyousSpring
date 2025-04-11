@@ -826,7 +826,7 @@ JoyousSpring.create_overlay_effect_selection = function(card, card_list, min, ma
                 added_joker.ability.extra.joyous_spring[k] = v
             end
             if joker.config.center.key == "j_joy_token" then
-                added_joker.children.center.atlas.name = joker.ability.extra.joyous_spring.token_atlas
+                added_joker.children.center.atlas = G.ASSET_ATLAS[joker.ability.extra.joyous_spring.token_atlas]
                 added_joker.children.center.sprite_pos = joker.ability.extra.joyous_spring.token_sprite_pos
                 added_joker.children.center:reset()
             end
