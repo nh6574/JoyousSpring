@@ -278,7 +278,7 @@ return {
 					"{C:mult}+#2#{} Mult",
 					" ",
 					"{C:attention}Returns{} to the {C:joy_spell}Extra Deck{} and {C:attention}revives{}",
-					"{C:attention}#3#{} {C:joy_link}Evil★Twin Ki-sikil{} and {C:attention}#3#{} {C:joy_link}Evil★Twin Lil-la{}",
+					"{C:attention}#3#{} {C:joy_link}\"Evil★Twin Ki-sikil\"{} and {C:attention}#3#{} {C:joy_link}\"Evil★Twin Lil-la\"{}",
 					"at end of round",
 				},
 				joy_summon_conditions = {
