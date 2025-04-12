@@ -170,7 +170,7 @@ SMODS.Joker({
         end
         return {
             vars = { card.ability.extra.tags_to_add, card.ability.extra.dragonmaid_count,
-                card.ability.extra.extra_dragonmaid_count }
+                card.ability.extra.extra_dragonmaid_count, card.ability.extra.mills }
         }
     end,
     joy_desc_cards = {
@@ -188,7 +188,8 @@ SMODS.Joker({
             },
             tags_to_add = 1,
             dragonmaid_count = 5,
-            extra_dragonmaid_count = 15
+            extra_dragonmaid_count = 15,
+            mills = 1
         },
     },
     calculate = function(self, card, context)
@@ -221,7 +222,12 @@ SMODS.Joker({
                     add_tag(Tag('tag_joy_booster'))
                 end
             end
-            card:juice_up()
+            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Dragonmaid" }, is_main_deck = true } })
+
+            for i = 1, card.ability.extra.mills do
+                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, pseudoseed("j_joy_dmaid_laundry")))
+            end
+            SMODS.calculate_effect({ message = localize("k_joy_mill") }, card)
         end
     end,
 })
@@ -346,7 +352,7 @@ SMODS.Joker({
                 monster_archetypes = { ["Dragonmaid"] = true },
             },
             revives = 1,
-            odds = 3
+            odds = 2
         },
     },
     calculate = function(self, card, context)
@@ -473,7 +479,7 @@ SMODS.Joker({
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_main_deck_joker" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
         end
-        return { vars = { card.ability.extra.mill } }
+        return { vars = { card.ability.extra.mills } }
     end,
     joy_desc_cards = {
         { "j_joy_dmaid_nudyarl",                                      name = "k_joy_transforms_into" },
@@ -596,7 +602,7 @@ SMODS.Joker({
         end
         return {
             vars = { card.ability.extra.tags_to_add, card.ability.extra.dragonmaid_count,
-                card.ability.extra.extra_dragonmaid_count }
+                card.ability.extra.extra_dragonmaid_count, card.ability.extra.mills }
         }
     end,
     joy_desc_cards = {
@@ -682,7 +688,7 @@ SMODS.Joker({
                 monster_archetypes = { ["Dragonmaid"] = true },
             },
             revives = 1,
-            odds = 3
+            odds = 2
         },
     },
     calculate = function(self, card, context)
@@ -776,7 +782,7 @@ SMODS.Joker({
                     }
                 },
             },
-            odds = 3
+            odds = 2
         },
     },
     calculate = function(self, card, context)

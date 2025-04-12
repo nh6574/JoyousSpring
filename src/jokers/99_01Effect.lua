@@ -31,7 +31,7 @@ SMODS.Joker({
                 attribute = "LIGHT",
                 monster_type = "Machine",
             },
-            xmult = 2,
+            xmult = 5,
             hands = {}
         },
     },
@@ -122,7 +122,7 @@ SMODS.Joker({
                 attribute = "FIRE",
                 monster_type = "Fiend",
             },
-            chips = 4,
+            chips = 20,
         },
     },
     calculate = function(self, card, context)
@@ -1238,7 +1238,7 @@ SMODS.Joker({
                 if JoyousSpring.get_joker_column(card) == (JoyousSpring.index_of(context.full_hand, context.other_card)) then
                     return {
                         add_to_hand = true,
-                        --message = localize("k_joy_splash")
+                        message = context.in_scoring and localize("k_joy_splash")
                     }
                 end
             end

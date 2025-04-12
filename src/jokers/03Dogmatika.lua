@@ -120,6 +120,13 @@ SMODS.Joker({
             end
         end
     end,
+    joy_set_cost = function(card)
+        if JoyousSpring.count_materials_owned({ { is_extra_deck = true, is_debuffed = true } }) > 0 or
+            (next(SMODS.find_card("j_joy_dogma_relic")) and
+                JoyousSpring.count_materials_in_graveyard({ { is_extra_deck = true } }) > 0) then
+            card.cost = 0
+        end
+    end,
     joker_display_def = function(JokerDisplay)
         return {
             mod_function = function(card, mod_joker)
@@ -184,11 +191,11 @@ SMODS.Joker({
     key = "dogma_adin",
     atlas = 'Dogmatika',
     pos = { x = 0, y = 1 },
-    rarity = 3,
+    rarity = 1,
     discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
-    cost = 9,
+    cost = 4,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_extra_deck_joker" }
@@ -246,7 +253,7 @@ SMODS.Joker({
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_extra_deck_joker" }
         end
-        return { vars = { card.ability.extra.chips, card.ability.extra.chips * JoyousSpring.count_materials_owned({ { is_extra_deck = true, is_debuffed = true } }) } }
+        return { vars = { card.ability.extra.chips, card.ability.extra.extra_chips, card.ability.extra.chips + card.ability.extra.extra_chips * JoyousSpring.count_materials_owned({ { is_extra_deck = true, is_debuffed = true } }) } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
@@ -260,7 +267,8 @@ SMODS.Joker({
                 monster_type = "Spellcaster",
                 monster_archetypes = { ["Dogmatika"] = true },
             },
-            chips = 10
+            chips = 100,
+            extra_chips = 100
         },
     },
     calculate = function(self, card, context)
@@ -320,7 +328,7 @@ SMODS.Joker({
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_extra_deck_joker" }
         end
-        return { vars = { card.ability.extra.revives } }
+        return { vars = { card.ability.extra.revives, card.ability.extra.adds } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
@@ -334,9 +342,21 @@ SMODS.Joker({
                 monster_type = "Spellcaster",
                 monster_archetypes = { ["Dogmatika"] = true },
             },
-            revives = 1
+            revives = 1,
+            adds = 1
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.end_of_round and context.game_over == false and context.main_eval and G.GAME.blind.boss then
+                local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Dogmatika" }, summon_type = "RITUAL" } })
+                for i = 1, card.ability.extra.adds do
+                    key_to_add = pseudorandom_element(choices, pseudoseed("j_joy_dogma_ashiyan"))
+                    JoyousSpring.add_monster_tag(key_to_add or "j_joy_dogma_relic")
+                end
+            end
+        end
+    end,
     add_to_deck = function(self, card, from_debuff)
         if not from_debuff and not card.debuff then
             for i = 1, card.ability.extra.revives do
@@ -531,7 +551,7 @@ SMODS.Joker({
                     }
                 }
             },
-            mult = 10
+            mult = 25
         },
     },
     calculate = function(self, card, context)

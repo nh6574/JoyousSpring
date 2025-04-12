@@ -53,7 +53,7 @@ JoyousSpring.revive_pseudorandom = function(property_list, seed, must_have_room,
 end
 
 JoyousSpring.send_to_graveyard = function(card)
-    if JoyousSpring.graveyard and not JoyousSpring.delete_run then
+    if JoyousSpring.graveyard and not JoyousSpring.delete_run and G.jokers then
         if type(card) == "string" then
             local not_summoned = JoyousSpring.is_material_center(card, { exclude_summon_types = { "NORMAL" } })
             local cannot_revive = G.P_CENTERS[card].config.extra.joyous_spring.cannot_revive or not_summoned

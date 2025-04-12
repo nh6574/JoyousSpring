@@ -280,7 +280,8 @@ end
 ---Detach material from Joker
 ---@param card Card|table
 ---@param value integer?
-JoyousSpring.ease_detach = function(card, value)
+---@param silent boolean?
+JoyousSpring.ease_detach = function(card, value, silent)
     if not JoyousSpring.is_summon_type(card, "XYZ") then
         return
     end
@@ -290,6 +291,9 @@ JoyousSpring.ease_detach = function(card, value)
     card.ability.extra.joyous_spring.detached_count_round = card.ability.extra.joyous_spring.detached_count_round + value
 
     SMODS.calculate_context({ joy_detached = true, joy_detaching_card = card, joy_deteach_value = value })
+    if not silent then
+        SMODS.calculate_effect({ message = localize("k_joy_activated_ex") }, card)
+    end
 end
 
 ---Flip all cards in all areas or in *area*

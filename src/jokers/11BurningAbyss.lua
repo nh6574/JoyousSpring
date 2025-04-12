@@ -907,9 +907,10 @@ SMODS.Joker({
                 end
                 for _ = 1, card.ability.extra.revives do
                     local revived = JoyousSpring.revive_pseudorandom({ { monster_archetypes = { "BurningAbyss" } } },
-                        pseudoseed("j_joy_ba_beatrice"), true)
+                        pseudoseed("j_joy_ba_beatrice"), false, "e_negative")
                     if not revived then
-                        revived = JoyousSpring.revive_pseudorandom({ {} }, pseudoseed("j_joy_ba_beatrice"), true)
+                        revived = JoyousSpring.revive_pseudorandom({ {} }, pseudoseed("j_joy_ba_beatrice"), false,
+                            "e_negative")
                     end
                 end
             end

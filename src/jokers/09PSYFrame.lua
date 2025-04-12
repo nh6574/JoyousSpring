@@ -277,7 +277,7 @@ SMODS.Joker({
                 monster_archetypes = { ["PSYFrame"] = true }
             },
             cards_to_create = 1,
-            xmult = 1.2
+            xmult = 2
         },
     },
     calculate = function(self, card, context)
@@ -345,7 +345,7 @@ SMODS.Joker({
                 monster_archetypes = { ["PSYFrame"] = true }
             },
             cards_to_create = 1,
-            xmult = 1.2
+            xmult = 2
         },
     },
     calculate = function(self, card, context)

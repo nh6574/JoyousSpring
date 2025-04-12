@@ -796,11 +796,13 @@ SMODS.Joker({
             if context.joy_summon and context.main_eval and not context.blueprint_card and JoyousSpring.is_summon_type(context.joy_card, "LINK") then
                 card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.extra_chips
             end
-            if context.joker_main then
+            if context.individual and context.cardarea == G.play then
                 local current_chips = card.ability.extra.chips *
                     JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))
+                context.other_card.ability.perma_bonus = (context.other_card.ability.perma_bonus or 1) +
+                    current_chips
                 return {
-                    chips = current_chips
+                    message = localize('k_upgrade_ex'), colour = G.C.CHIPS
                 }
             end
         end
@@ -824,11 +826,13 @@ SMODS.Joker({
             if context.joy_summon and context.main_eval and not context.blueprint_card and JoyousSpring.is_summon_type(context.joy_card, "LINK") then
                 config.chips = config.chips + config.extra_chips
             end
-            if context.joker_main then
+            if context.individual and context.cardarea == G.play then
                 local current_chips = config.chips *
                     JoyousSpring.get_attribute_count(JoyousSpring.get_materials(other_card))
+                context.other_card.ability.perma_bonus = (context.other_card.ability.perma_bonus or 1) +
+                    current_chips
                 return {
-                    chips = current_chips
+                    message = localize('k_upgrade_ex'), colour = G.C.CHIPS
                 }
             end
         end

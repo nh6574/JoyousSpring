@@ -11,13 +11,13 @@ SMODS.Joker({
     key = "runick_hugin",
     atlas = 'Runick',
     pos = { x = 1, y = 0 },
-    rarity = 3,
+    rarity = 2,
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.extra_slots, card.ability.extra.cards_to_create } }
+        return { vars = { card.ability.extra.extra_slots, card.ability.extra.cards_to_create, card.ability.extra.adds } }
     end,
     joy_desc_cards = {
         { "j_joy_runick_fountain",                                name = "k_joy_creates" },
@@ -37,7 +37,8 @@ SMODS.Joker({
                 }
             },
             extra_slots = 1,
-            cards_to_create = 1
+            cards_to_create = 1,
+            adds = 1
         },
     },
     add_to_deck = function(self, card, from_debuff)
@@ -47,6 +48,13 @@ SMODS.Joker({
                 for i = 1, card.ability.extra.cards_to_create do
                     if #JoyousSpring.field_spell_area.cards < JoyousSpring.field_spell_area.config.card_limit then
                         JoyousSpring.add_to_extra_deck("j_joy_runick_fountain")
+                    end
+                end
+                local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Runick" }, is_extra_deck = true } })
+                for i = 1, card.ability.extra.adds do
+                    local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_runick_hugin"))
+                    if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
+                        JoyousSpring.add_to_extra_deck(key_to_add)
                     end
                 end
             end
@@ -70,7 +78,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.extra_slots, card.ability.extra.base_chips, card.ability.extra.chips } }
+        return { vars = { card.ability.extra.extra_slots, card.ability.extra.adds, card.ability.extra.base_xchips, card.ability.extra.xchips } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Runick" } } }, name = "k_joy_archetype" },
@@ -89,8 +97,9 @@ SMODS.Joker({
                 }
             },
             extra_slots = 1,
-            base_chips = 3,
-            chips = 0
+            adds = 1,
+            base_xchips = 0.2,
+            xchips = 1
         },
     },
     calculate = function(self, card, context)
@@ -105,7 +114,7 @@ SMODS.Joker({
             end
             if context.joker_main then
                 return {
-                    chips = card.ability.extra.chips
+                    xchips = card.ability.extra.xchips
                 }
             end
         end
@@ -113,6 +122,15 @@ SMODS.Joker({
     add_to_deck = function(self, card, from_debuff)
         if not JoyousSpring.is_perma_debuffed(card) then
             G.consumeables.config.card_limit = G.consumeables.config.card_limit + 1
+        end
+        if not from_debuff then
+            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Runick" }, is_extra_deck = true } })
+            for i = 1, card.ability.extra.adds do
+                local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_runick_munin"))
+                if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
+                    JoyousSpring.add_to_extra_deck(key_to_add)
+                end
+            end
         end
     end,
     remove_from_deck = function(self, card, from_debuff)
@@ -127,13 +145,13 @@ SMODS.Joker({
     key = "runick_geri",
     atlas = 'Runick',
     pos = { x = 0, y = 1 },
-    rarity = 3,
+    rarity = 1,
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 10,
+    cost = 7,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.fields_to_create, card.ability.extra.cards_to_create } }
+        return { vars = { card.ability.extra.fields_to_create, card.ability.extra.adds, card.ability.extra.cards_to_create } }
     end,
     joy_desc_cards = {
         { "j_joy_runick_fountain",                                name = "k_joy_creates" },
@@ -153,6 +171,7 @@ SMODS.Joker({
                 }
             },
             fields_to_create = 1,
+            adds = 1,
             cards_to_create = 2
         },
     },
@@ -178,6 +197,14 @@ SMODS.Joker({
                     JoyousSpring.add_to_extra_deck("j_joy_runick_fountain")
                 end
             end
+
+            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Runick" }, is_extra_deck = true } })
+            for i = 1, card.ability.extra.adds do
+                local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_runick_geri"))
+                if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
+                    JoyousSpring.add_to_extra_deck(key_to_add)
+                end
+            end
         end
     end,
 })
@@ -187,13 +214,13 @@ SMODS.Joker({
     key = "runick_freki",
     atlas = 'Runick',
     pos = { x = 1, y = 1 },
-    rarity = 3,
+    rarity = 1,
     discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
-    cost = 10,
+    cost = 7,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.playing_cards_to_create, card.ability.extra.cards_to_create } }
+        return { vars = { card.ability.extra.adds, card.ability.extra.playing_cards_to_create, card.ability.extra.cards_to_create } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Runick" } } }, name = "k_joy_archetype" },
@@ -211,6 +238,7 @@ SMODS.Joker({
                     tarot = 2
                 }
             },
+            adds = 1,
             playing_cards_to_create = 2,
             cards_to_create = 2
         },
@@ -236,6 +264,17 @@ SMODS.Joker({
             end
         end
     end,
+    add_to_deck = function(self, card, from_debuff)
+        if not card.debuff and not from_debuff then
+            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Runick" }, is_extra_deck = true } })
+            for i = 1, card.ability.extra.adds do
+                local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_runick_freki"))
+                if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
+                    JoyousSpring.add_to_extra_deck(key_to_add)
+                end
+            end
+        end
+    end,
 })
 
 -- Sleipnir the Runick Mane
@@ -252,7 +291,7 @@ SMODS.Joker({
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
         end
-        return { vars = { card.ability.extra.cards_to_create } }
+        return { vars = { card.ability.extra.adds, card.ability.extra.cards_to_create } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Runick" } } }, name = "k_joy_archetype" },
@@ -270,6 +309,7 @@ SMODS.Joker({
                     tarot = 4
                 }
             },
+            adds = 1,
             cards_to_create = 2
         },
     },
@@ -286,6 +326,17 @@ SMODS.Joker({
                         set = 'Tarot',
                         edition = "e_negative"
                     })
+                end
+            end
+        end
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        if not card.debuff and not from_debuff then
+            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Runick" }, is_extra_deck = true } })
+            for i = 1, card.ability.extra.adds do
+                local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_runick_sleipnir"))
+                if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
+                    JoyousSpring.add_to_extra_deck(key_to_add)
                 end
             end
         end
@@ -316,7 +367,7 @@ SMODS.Joker({
                 is_field_spell = true,
                 monster_archetypes = { ["Runick"] = true },
             },
-            cards_to_destroy = 5,
+            cards_to_destroy = 2,
             tarots_used = {}
         },
     },

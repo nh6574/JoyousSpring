@@ -387,7 +387,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.h_size, card.ability.extra.flipped, card.ability.extra.count } }
+        return { vars = { card.ability.extra.mult, card.ability.extra.h_size, card.ability.extra.flipped, card.ability.extra.count } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Labrynth" } } }, name = "k_joy_archetype" },
@@ -401,6 +401,7 @@ SMODS.Joker({
                 monster_type = "Fiend",
                 monster_archetypes = { ["Labrynth"] = true }
             },
+            mult = 10,
             h_size = 1,
             flipped = 5,
             count = 0,
@@ -411,6 +412,11 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    mult = card.ability.extra.mult
+                }
+            end
             if context.setting_blind and context.main_eval then
                 if card.ability.extra.pcard_count > 0 then
                     card.ability.extra.hand_size_changed = card.ability.extra.h_size * card.ability.extra.pcard_count
@@ -460,7 +466,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.h_size, card.ability.extra.flipped, card.ability.extra.count } }
+        return { vars = { card.ability.extra.chips, card.ability.extra.h_size, card.ability.extra.flipped, card.ability.extra.count } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Labrynth" } } }, name = "k_joy_archetype" },
@@ -474,6 +480,7 @@ SMODS.Joker({
                 monster_type = "Fiend",
                 monster_archetypes = { ["Labrynth"] = true }
             },
+            chips = 50,
             h_size = 1,
             flipped = 5,
             count = 0,
@@ -484,6 +491,11 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    chips = card.ability.extra.chips
+                }
+            end
             if context.setting_blind and context.main_eval then
                 if card.ability.extra.pcard_count > 0 then
                     card.ability.extra.hand_size_changed = card.ability.extra.h_size * card.ability.extra.pcard_count
@@ -546,7 +558,7 @@ SMODS.Joker({
                 monster_type = "Fiend",
                 monster_archetypes = { ["Labrynth"] = true }
             },
-            chips = 10,
+            chips = 25,
             flipped = 10,
             count = 0,
             active = false,

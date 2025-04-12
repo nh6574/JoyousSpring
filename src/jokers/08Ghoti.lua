@@ -728,7 +728,7 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 is_field_spell = true,
             },
-            money = 0.5,
+            money = 1,
         },
     },
     calculate = function(self, card, context)

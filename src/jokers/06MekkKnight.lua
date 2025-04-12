@@ -66,7 +66,7 @@ SMODS.Joker({
                 monster_type = "Psychic",
                 monster_archetypes = { ["MekkKnight"] = true }
             },
-            mult = 2
+            mult = 5
         },
     },
     calculate = function(self, card, context)
@@ -106,9 +106,9 @@ SMODS.Joker({
     discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
-    cost = 4,
+    cost = 6,
     loc_vars = function(self, info_queue, card)
-        return { vars = { JoyousSpring.get_joker_column(card) } }
+        return { vars = { JoyousSpring.get_joker_column(card), card.ability.extra.xchips, card.ability.extra.current_xchips } }
     end,
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
@@ -122,15 +122,36 @@ SMODS.Joker({
                 monster_type = "Psychic",
                 monster_archetypes = { ["MekkKnight"] = true }
             },
+            xchips = 0.1,
+            current_xchips = 1
         },
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    xchips = card.ability.extra.current_xchips
+                }
+            end
             if context.modify_scoring_hand then
+                local scoring = context.in_scoring
                 if next(SMODS.find_card("j_joy_mekk_spectrum")) or JoyousSpring.get_joker_column(card) == (JoyousSpring.index_of(context.full_hand, context.other_card)) then
+                    local in_hand = false
+                    if scoring then
+                        for _, pcard in ipairs(context.scoring_hand) do
+                            if pcard == context.other_card then
+                                in_hand = true
+                                break
+                            end
+                        end
+                        if not in_hand then
+                            card.ability.extra.current_xchips = card.ability.extra.current_xchips +
+                                card.ability.extra.xchips
+                        end
+                    end
                     return {
                         add_to_hand = true,
-                        --message = localize("k_joy_splash")
+                        message = not in_hand and scoring and localize("k_joy_splash") or nil
                     }
                 end
             end
@@ -190,7 +211,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 4,
     loc_vars = function(self, info_queue, card)
-        return { vars = { G.GAME.probabilities.normal or 1, JoyousSpring.get_joker_column(card) } }
+        return { vars = { (G.GAME.probabilities.normal or 1) + JoyousSpring.count_materials_owned({ { monster_archetypes = { "MekkKnight" } } }) - (card.area and card.area == G.jokers and 1 or 0), JoyousSpring.get_joker_column(card) } }
     end,
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
@@ -210,7 +231,7 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if context.repetition and context.cardarea == G.play then
                 if next(SMODS.find_card("j_joy_mekk_spectrum")) or JoyousSpring.get_joker_column(card) == (JoyousSpring.index_of(context.full_hand, context.other_card)) then
-                    if pseudorandom("j_joy_mekk_green") < G.GAME.probabilities.normal / (context.other_card.base.nominal >= 1 and context.other_card.base.nominal or 1) then
+                    if pseudorandom("j_joy_mekk_green") < (G.GAME.probabilities.normal + JoyousSpring.count_materials_owned({ { monster_archetypes = { "MekkKnight" } } }) - 1) / (context.other_card.base.nominal >= 1 and context.other_card.base.nominal or 1) then
                         return {
                             repetitions = ((context.other_card.base.nominal >= 1) and context.other_card.base.nominal or nil)
                         }
@@ -246,7 +267,7 @@ SMODS.Joker({
                 monster_type = "Psychic",
                 monster_archetypes = { ["MekkKnight"] = true }
             },
-            chips = 4
+            chips = 20
         },
     },
     calculate = function(self, card, context)
@@ -346,11 +367,11 @@ SMODS.Joker({
     key = "mekk_purple",
     atlas = 'MekkKnight',
     pos = { x = 3, y = 1 },
-    rarity = 2,
+    rarity = 1,
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 8,
+    cost = 6,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
@@ -498,17 +519,11 @@ SMODS.Joker({
                 for i = 1, card.ability.extra.cards_to_create do
                     JoyousSpring.create_pseudorandom(
                         { { monster_archetypes = { "MekkKnight" }, is_main_deck = true } },
-                        pseudoseed("j_joy_mekk_spectrum"), true)
+                        pseudoseed("j_joy_mekk_spectrum"), false, false, "e_negative")
                 end
             end
             if context.end_of_round and context.game_over == false and context.main_eval then
                 card.ability.extra.activated = false
-                local eval = function(card)
-                    return not card.ability.extra.activated and not G
-                        .RESET_JIGGLES and
-                        card.config.center.key == "j_joy_mekk_spectrum" -- for transformations
-                end
-                juice_card_until(card, eval, true)
             end
         end
     end,

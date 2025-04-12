@@ -28,7 +28,7 @@ SMODS.Joker({
                 attribute = "LIGHT",
                 monster_type = "Psychic"
             },
-            base_xmult = 0.2,
+            base_xmult = 0.5,
             xmult = 1
         },
     },
@@ -156,7 +156,7 @@ SMODS.Joker({
                 monster_type = "Zombie"
             },
             odds = 2,
-            base_xmult = 0.5,
+            base_xmult = 0.2,
             xmult = 1
         },
     },
@@ -218,7 +218,7 @@ SMODS.Joker({
                 attribute = "EARTH",
                 monster_type = "Zombie"
             },
-            base_xmult = 0.2,
+            base_xmult = 0.5,
             xmult = 1
         },
     },
@@ -280,7 +280,7 @@ SMODS.Joker({
                 attribute = "WATER",
                 monster_type = "Zombie"
             },
-            base_xmult = 0.2,
+            base_xmult = 0.5,
             xmult = 1,
             consumable_count = 0
         },
@@ -381,19 +381,6 @@ SMODS.Joker({
                 return {
                     xmult = card.ability.extra.xmult
                 }
-            end
-        end
-    end,
-    add_to_deck = function(self, card, from_debuff)
-        if not card.debuff then
-            for _, joker in ipairs(G.jokers.cards) do
-                if joker.config.center.rarity == 1 or joker.config.center.rarity == 2 then
-                    local added_card = SMODS.debuff_card(card, true, "j_joy_yokai_mourner")
-                    if added_card then
-                        added_card.joy_modify_cost = { sell_cost = 1 }
-                        added_card:set_cost()
-                    end
-                end
             end
         end
     end,

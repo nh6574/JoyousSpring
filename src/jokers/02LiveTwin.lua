@@ -287,7 +287,7 @@ SMODS.Joker({
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_main_deck_joker" }
         end
-        return { vars = { card.ability.extra.mult, card.ability.extra.h_size, card.ability.extra.mill } }
+        return { vars = { card.ability.extra.mult, card.ability.extra.h_size, card.ability.extra.mills, card.ability.extra.adds } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
@@ -312,7 +312,8 @@ SMODS.Joker({
             },
             mult = 10,
             h_size = 1,
-            mill = 1
+            mills = 1,
+            adds = 1
         },
     },
     calculate = function(self, card, context)
@@ -325,12 +326,21 @@ SMODS.Joker({
             if context.setting_blind and context.main_eval then
                 local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Lilla" }, is_main_deck = true } })
 
-                for i = 1, card.ability.extra.mill do
+                for i = 1, card.ability.extra.mills do
                     JoyousSpring.send_to_graveyard(pseudorandom_element(choices, pseudoseed("j_joy_etwin_kisikil_deal")))
                 end
                 return {
                     message = localize("k_joy_mill")
                 }
+            end
+        end
+        if JoyousSpring.used_as_material(card, context) and JoyousSpring.is_summon_type(context.joy_card, "LINK") then
+            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "EvilTwin" }, is_extra_deck = true } })
+            for i = 1, card.ability.extra.adds do
+                local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_ignis_doyon"))
+                if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
+                    JoyousSpring.add_to_extra_deck(key_to_add)
+                end
             end
         end
     end,

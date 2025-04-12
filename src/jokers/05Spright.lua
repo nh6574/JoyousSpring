@@ -394,7 +394,7 @@ SMODS.Joker({
                     }
                 }
             },
-            base_materials = 6,
+            base_materials = 4,
             detached = 0
         },
     },
