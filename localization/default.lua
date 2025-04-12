@@ -101,8 +101,8 @@ return {
 			j_joy_dmaid_chamber = {
 				name = "{C:joy_effect}Chamber Dragonmaid",
 				text = {
-					"{C:attention}#1# Voucher Tag{} when obtained if you own",
-					"{C:attention}#2#{} {C:joy_normal}\"Dragonmaids\"{},",
+					"{C:attention}#1# Voucher Tag{} when obtained",
+					"if you own {C:attention}#2#{} {C:joy_normal}\"Dragonmaids\"{},",
 					"gaining an extra for every {C:attention}#3#{} more",
 					"and send {C:attention}#4#{} {C:joy_normal}\"Dragonmaid\"{} to the {C:attention}GY{}",
 					" ",
@@ -222,7 +222,8 @@ return {
 					"when {C:attention}Blind{} is selected",
 					" ",
 					"Adds {C:attention}#4#{} {C:joy_normal}\"Evil Twin\"{} to the {C:joy_spell}Extra Deck{}",
-					"when used as {C:attention}material{} for a {C:joy_link}Link{}"
+					"when used as {C:attention}material{} for a {C:joy_link}Link{}",
+					"{C:inactive}(Must have room){}",
 				},
 				joy_summon_conditions = {
 					"{C:attention}1{} {C:joy_normal}\"Ki-sikil\"{}"
