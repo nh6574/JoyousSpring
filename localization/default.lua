@@ -396,7 +396,7 @@ return {
 					"in your {C:joy_spell}Extra Deck{} to the {C:attention}GY{}",
 					"when {C:attention}Blind{} is selected",
 					" ",
-					"Each {C:joy_normal}Main Deck{} {C:attention}Joker{} gives an extra {X:mult,C:white}X#2#{}",
+					"Each {C:joy_normal}Main Deck{} {C:attention}Joker{} gives an extra {X:mult,C:white}X#2#{} Mult",
 					"for each debuffed {C:joy_spell}Extra Deck{} {C:attention}Joker{}",
 					"{C:inactive}(Currently{} {X:mult,C:white}X#3#{} {C:inactive}Mult){}",
 				},
