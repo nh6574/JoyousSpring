@@ -618,6 +618,7 @@ SMODS.Joker({
                 monster_type = "Dragon",
                 monster_archetypes = { ["Dragonmaid"] = true },
             },
+            mills = 1,
             tags_to_add = 1,
             dragonmaid_count = 5,
             extra_dragonmaid_count = 15
@@ -653,6 +654,12 @@ SMODS.Joker({
                     add_tag(Tag('tag_voucher'))
                 end
             end
+            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Dragonmaid" }, is_main_deck = true } })
+
+            for i = 1, card.ability.extra.mills do
+                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, pseudoseed("j_joy_dmaid_laundry")))
+            end
+            SMODS.calculate_effect({ message = localize("k_joy_mill") }, card)
         end
     end,
 })
