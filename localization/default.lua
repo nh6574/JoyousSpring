@@ -818,7 +818,7 @@ return {
 			j_joy_generaider_boss_stage = {
 				name = "{C:joy_spell}Generaider Boss Stage",
 				text = {
-					"{C:joy_normal}\"Generaider\"{} each give {C:mult}+#1#{}",
+					"{C:joy_normal}\"Generaider\"{} each give {C:mult}+#1#{} Mult",
 					"for each {C:attention}tributed{} card",
 					"{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)",
 					" ",
