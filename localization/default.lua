@@ -633,7 +633,7 @@ return {
 			j_joy_mekk_purple = {
 				name = "{C:joy_effect}Mekk-Knight Purple Nightfall",
 				text = {
-					"This card {C:attention}banishes{} when {C:attention}Blind{} is selected",
+					"{C:attention}Banishes{} when {C:attention}Blind{} is selected",
 					"until {C:attention}Boss Blind{} is defeated to create {C:attention}#1#{}",
 					"{C:joy_normal}Main Deck \"Mekk-Knight\"{}",
 					"{C:inactive}(Must have room){}",
@@ -657,7 +657,7 @@ return {
 					"{C:joy_normal}\"Mekk-Knight\"{} abilities apply to",
 					"all played cards",
 					" ",
-					"Once per round, sell 1 {C:joy_normal}\"Mekk-Knight\"{}",
+					"Once per round, sell {C:attention}#1#{} {C:joy_normal}\"Mekk-Knight\"{}",
 					"to create {C:attention}#1#{} {C:dark_edition}Negative{} {C:joy_normal}Main Deck \"Mekk-Knight\"{}",
 				},
 				joy_summon_conditions = {
