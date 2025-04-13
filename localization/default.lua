@@ -1790,7 +1790,8 @@ return {
 				name = "{C:joy_fusion}Angelcaido of the Golden Land",
 				text = {
 					"Enables {C:attention}Eldlixir{} hands",
-					"Levels up when {C:joy_trap}Trap{} {C:joy_effect}FLIP{} abilities activate",
+					"Levels up when {C:joy_trap}Traps{} are {C:attention}flipped{} face-up",
+					"{C:inactive}(Or their FLIP abilities activate)",
 					" ",
 					"Sends {C:attention}#1#{} {C:joy_effect}\"Eldlich the Golden Lord\"{} to the {C:attention}GY{}",
 					"if played hand contains an {C:attention}Eldlixir{}",
@@ -4252,6 +4253,7 @@ return {
 					"Can't use or activate abilities",
 					"and counts as a blank Joker for abilities",
 					"{C:inactive}(Unless specified)",
+					"{C:inactive}(Editions still apply)",
 				},
 			},
 			joy_tooltip_related = {
