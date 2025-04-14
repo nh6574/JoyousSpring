@@ -35,6 +35,7 @@ SMODS.Joker({
                 }
             end
         end
+        JoyousSpring.calculate_flip_effect(card, context)
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
@@ -133,6 +134,7 @@ SMODS.Joker({
                 }
             end
         end
+        JoyousSpring.calculate_flip_effect(card, context)
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
@@ -174,6 +176,7 @@ SMODS.Joker({
                 }
             end
         end
+        JoyousSpring.calculate_flip_effect(card, context)
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
@@ -221,6 +224,7 @@ SMODS.Joker({
                     card.ability.extra.percent)
             end
         end
+        JoyousSpring.calculate_flip_effect(card, context)
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
@@ -275,6 +279,7 @@ SMODS.Joker({
                 card.ability.extra.current_mult = card.ability.extra.current_mult + card.ability.extra.mult
             end
         end
+        JoyousSpring.calculate_flip_effect(card, context)
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
@@ -338,6 +343,7 @@ SMODS.Joker({
                 }
             end
         end
+        JoyousSpring.calculate_flip_effect(card, context)
     end,
     joy_can_activate = function(card)
         return not card.ability.eternal and G.GAME.blind.in_blind and G.STATE == G.STATES.SELECTING_HAND
@@ -382,6 +388,7 @@ SMODS.Joker({
                 }
             end
         end
+        JoyousSpring.calculate_flip_effect(card, context)
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
@@ -423,6 +430,7 @@ SMODS.Joker({
                 }
             end
         end
+        JoyousSpring.calculate_flip_effect(card, context)
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
@@ -465,6 +473,7 @@ SMODS.Joker({
                 }
             end
         end
+        JoyousSpring.calculate_flip_effect(card, context)
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then

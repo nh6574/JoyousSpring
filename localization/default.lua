@@ -1065,7 +1065,7 @@ return {
 			j_joy_psy_zeta = {
 				name = "{C:joy_synchro}PSY-Framelord Zeta",
 				text = {
-					"This card and #1# cards in the consumable",
+					"This card and {C:attention}#1#{} cards in the consumable",
 					"area {C:attention}banish{} at the end of round",
 					"until {C:attention}Blind{} is selected",
 				},
