@@ -306,9 +306,9 @@ SMODS.Joker({
     end
 })
 
--- Eldlixir of the Exalted Golden Land
+-- Eldlixir of the Glorious Golden Land
 SMODS.Joker({
-    key = "eld_exalted",
+    key = "eld_glorious",
     atlas = 'eld',
     pos = { x = 1, y = 1 },
     rarity = 2,
@@ -356,10 +356,10 @@ SMODS.Joker({
         end
         if JoyousSpring.calculate_flip_effect(card, context) then
             local revived_card = JoyousSpring.revive_pseudorandom({ { monster_archetypes = { "GoldenLand" } } },
-                pseudoseed("j_joy_eld_exalted"), true)
+                pseudoseed("j_joy_eld_glorious"), true)
             if not revived_card then
                 JoyousSpring.revive_pseudorandom({ { is_trap = true } },
-                    pseudoseed("j_joy_eld_exalted"), true)
+                    pseudoseed("j_joy_eld_glorious"), true)
             end
         end
     end,

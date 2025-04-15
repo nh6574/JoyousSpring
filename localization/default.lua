@@ -1759,8 +1759,8 @@ return {
 					"until {C:attention}Blind{} is selected"
 				}
 			},
-			j_joy_eld_exalted = {
-				name = "{C:joy_trap}Eldlixir of the Exalted Golden Land",
+			j_joy_eld_glorious = {
+				name = "{C:joy_trap}Eldlixir of the Glorious Golden Land",
 				text = {
 					"{C:attention}Gold{} cards give {C:mult}+#1#{} Mult when scored for each",
 					"{C:joy_normal}Zombie{} owned or in the {C:attention}GY{}",
@@ -1938,7 +1938,7 @@ return {
 				}
 			},
 			j_joy_ignis_kiruku = {
-				name = "{C:joy_effect}Kurikulink @Ignister",
+				name = "{C:joy_effect}Kurikurinku @Ignister",
 				text = {
 					"Sell this card to disable the current {C:attention}Boss Blind{} and",
 					"add it to the next shop if you own a summoned {C:joy_spell}Extra Deck{} {C:joy_normal}Cyberse{}"
@@ -2042,8 +2042,8 @@ return {
 					"{C:attention}2+ {C:joy_normal}Cyberse{}"
 				}
 			},
-			j_joy_ignis_accode = {
-				name = "{C:joy_link}Accode Talker @Ignister",
+			j_joy_ignis_allied = {
+				name = "{C:joy_link}Allied Code Talker @Ignister",
 				text = {
 					"{X:mult,C:white}X#1#{} Mult for each {C:joy_link}Link",
 					"{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)",

@@ -703,7 +703,7 @@ SMODS.Joker({
     end,
 })
 
--- Kurikulink @Ignister
+-- Kurikurinku @Ignister
 SMODS.Joker({
     key = "ignis_kiruku",
     atlas = 'ignis',
@@ -1210,9 +1210,9 @@ SMODS.Joker({
     end
 })
 
--- Accode Talker @Ignister
+-- Allied Code Talker @Ignister
 SMODS.Joker({
-    key = "ignis_accode",
+    key = "ignis_allied",
     atlas = 'ignis',
     pos = { x = 4, y = 3 },
     rarity = 3,
