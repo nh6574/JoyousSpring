@@ -1224,7 +1224,7 @@ SMODS.Joker({
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
         end
-        return { vars = { card.ability.extra.xmult, card.ability.extra.xmult * JoyousSpring.count_materials_owned({ { summon_type = "LINK" } }), card.ability.extra.revives } }
+        return { vars = { card.ability.extra.xmult, math.max(1, card.ability.extra.xmult * JoyousSpring.count_materials_owned({ { summon_type = "LINK" } })), card.ability.extra.revives } }
     end,
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },

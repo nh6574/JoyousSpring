@@ -105,9 +105,6 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 8,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-
-        end
         return { vars = { card.ability.extra.chips, card.ability.extra.discards } }
     end,
     joy_desc_cards = {
@@ -179,9 +176,6 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 8,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-
-        end
         return { vars = { card.ability.extra.mult, card.ability.extra.hands } }
     end,
     joy_desc_cards = {
@@ -381,9 +375,6 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 12,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-
-        end
         return { vars = { card.ability.extra.xmult } }
     end,
     joy_desc_cards = {

@@ -240,7 +240,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.discards, card.ability.extra.current_discards, card.ability.extra.revives } }
+        return { vars = { card.ability.extra.current_discards, card.ability.extra.discards, card.ability.extra.revives } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Danger" } } }, name = "k_joy_archetype" },

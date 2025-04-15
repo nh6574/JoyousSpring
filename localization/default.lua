@@ -1236,6 +1236,7 @@ return {
 				name = "{C:joy_effect}Cagna, Malebranche of the Burning Abyss",
 				text = {
 					"{C:chips}+#1#{} Chips",
+					" ",
 					"Sends {C:attention}#2#{} {C:joy_normal}Fiend{} {C:attention}Jokers{} to the {C:attention}GY{}",
 					"when {C:attention}Blind{} is selected",
 					" ",
@@ -1256,6 +1257,7 @@ return {
 				name = "{C:joy_effect}Cir, Malebranche of the Burning Abyss",
 				text = {
 					"{X:mult,C:white}X#1#{} Mult",
+					" ",
 					"{C:attention}Revives{} {C:attention}#2#{} {C:joy_normal}\"Burning Abyss\"{}",
 					"when {C:attention}Blind{} is selected",
 					" ",
@@ -1330,7 +1332,7 @@ return {
 			j_joy_ba_malacoda = {
 				name = "{C:joy_ritual}Malacoda, Netherlord of the Burning Abyss",
 				text = {
-					"Gains {X:mult,C:white}X#1#{} for each {C:joy_normal}Fiend{} in the {C:attention}GY{}",
+					"Gains {X:mult,C:white}X#1#{} Mult for each {C:joy_normal}Fiend{} in the {C:attention}GY{}",
 					"{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}",
 					" ",
 					"{C:joy_normal}\"Burning Abyss\"{} don't get destroyed by their own effects"
@@ -1398,7 +1400,7 @@ return {
 			j_joy_ba_beatrice = {
 				name = "{C:joy_xyz}Beatrice, Lady of the Eternal",
 				text = {
-					"Gains {X:mult,C:white}X#1#{} for each {C:attention}Joker{} in the {C:attention}GY{}",
+					"Gains {X:mult,C:white}X#1#{} Mult for each {C:attention}Joker{} in the {C:attention}GY{}",
 					"{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}",
 					" ",
 					"{C:joy_xyz}Detach{} {C:attention}#3#{}: {C:attention}Revives #4#{} {C:joy_normal}\"Burning Abyss\"{} as {C:dark_edition}Negative{}",
@@ -1462,7 +1464,7 @@ return {
 					" ",
 					"Adds an {C:green}Uncommon{} {C:joy_normal}\"Labrynth\"{} to the next shop",
 					"if {C:attention}#3#{} or more cards are flipped this round while owned",
-					"{s:0.9,C:inactive}(Flipped this round #3#)"
+					"{s:0.9,C:inactive}(Flipped this round #4#)"
 				}
 			},
 			j_joy_lab_arianna = {
@@ -1475,7 +1477,7 @@ return {
 					" ",
 					"Adds a {C:blue}Common{} {C:joy_normal}\"Labrynth\"{} to the next shop",
 					"if {C:attention}#3#{} or more cards are flipped this round while owned",
-					"{s:0.9,C:inactive}(Flipped this round #3#)"
+					"{s:0.9,C:inactive}(Flipped this round #4#)"
 				}
 			},
 			j_joy_lab_arias = {
@@ -1576,7 +1578,7 @@ return {
 				name = "{C:joy_effect}Subterror Guru",
 				text = {
 					"Once per round during a {C:attention}Blind{},",
-					"you can {C:attention}flip{} this card and #1# other {C:attention}Jokers{}:",
+					"you can {C:attention}flip{} this card and {C:attention}#1#{} other {C:attention}Jokers{}:",
 					"This round, this card gives {X:mult,C:white}X#2#{} Mult for each {C:attention}flipped{} face-down",
 					"and {C:attention}+#3#{} hand size for each {C:attention}flipped{} face-up",
 					"{s:0.9,C:inactive}(Even if face-down)",
@@ -1591,7 +1593,7 @@ return {
 			j_joy_sub_stygo = {
 				name = "{C:joy_effect}Subterror Behemoth Stygokraken",
 				text = {
-					"{C:joy_effect}FLIP{}: Each face-down card gives {X:mult,C:white}X#1#{} this round",
+					"{C:joy_effect}FLIP{}: Each face-down card gives {X:mult,C:white}X#1#{} Mult this round",
 					" ",
 					"{C:attention}Flips{} face-down when obtained",
 					"{C:attention}Flips{} when {C:attention}Boss Blind{} is defeated",
@@ -1995,7 +1997,7 @@ return {
 				},
 				joy_summon_conditions = {
 					"{C:attention}1{} {C:joy_synchro}Tuner{} +",
-					"{C:attention}1+ non-{C:joy_synchro}Tuner{} {C:joy_normal}Cyberse{}",
+					"{C:attention}1+{} non-{C:joy_synchro}Tuner{} {C:joy_normal}Cyberse{}",
 					"{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
 				}
 			},
@@ -2030,13 +2032,13 @@ return {
 					" ",
 					"Scored cards gain {X:mult,C:white}X#3#{} extra Mult for each {C:attention}Attribute{} used for its summon",
 					"Amount increases {X:mult,C:white}X#4#{} when a {C:joy_link}Link{} is summoned",
-					"{C:inactive}(Currently {X:mult,C:white}X#5#{} {C:inactive}Mult)",
+					"{C:inactive}(Currently {X:mult,C:white}X#5#{} extra {C:inactive}Mult)",
 					"A {C:joy_link}Link{} summoned using this card as {C:attention}material{} gains this ability",
 				},
 				joy_transfer_ability = {
 					"Scored cards gain {X:mult,C:white}X#1#{} extra Mult for each {C:attention}Attribute{} used for its summon",
 					"Amount increases {X:mult,C:white}X#2#{} when a {C:joy_link}Link{} is summoned",
-					"{C:inactive}(Currently {X:mult,C:white}X#3#{} {C:inactive}Mult)",
+					"{C:inactive}(Currently {X:mult,C:white}X#3#{} extra {C:inactive}Mult)",
 				},
 				joy_summon_conditions = {
 					"{C:attention}2+ {C:joy_normal}Cyberse{}"
