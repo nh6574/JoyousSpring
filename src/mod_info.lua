@@ -444,10 +444,14 @@ JoyousSpring.card_collection_UIBox = function(_pool, rows, args)
                     G.GAME.used_jokers[center.key] = old_used_jokers
                 end
                 if token_key then
+                    if JoyousSpring.token_pool[token_key].joyous_spring then
+                        JoyousSpring.token_pool[token_key].joyous_spring.is_effect = false
+                    end
                     card.ability.extra.joyous_spring = JoyousSpring.init_joy_table(JoyousSpring.token_pool[token_key]
                         .joyous_spring or {
                             attribute = "EARTH",
-                            monster_type = "Beast"
+                            monster_type = "Beast",
+                            is_effect = false
                         })
                     card.ability.extra.joyous_spring.token_name = JoyousSpring.token_pool[token_key].name
                     card.children.center.atlas = G.ASSET_ATLAS[JoyousSpring.token_pool[token_key].atlas]

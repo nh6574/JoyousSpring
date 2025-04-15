@@ -207,9 +207,13 @@ JoyousSpring.summon_token = function(key, edition, atlas_key, sprite_pos, joyous
         no_edition = not edition and true or nil
     })
     local pool_info = JoyousSpring.token_pool[key] or {}
+    if joyous_spring_table then
+        joyous_spring_table.is_effect = false
+    end
     card.ability.extra.joyous_spring = JoyousSpring.init_joy_table(joyous_spring_table or pool_info.joyous_spring or {
         attribute = "EARTH",
-        monster_type = "Beast"
+        monster_type = "Beast",
+        is_effect = false
     })
 
     card.ability.extra.joyous_spring.token_name = joyous_spring_table and joyous_spring_table.token_name or

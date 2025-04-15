@@ -1,7 +1,44 @@
 --- PENDULUM FREE AGENTS
 
--- Archfiend Eccentrick
+-- Foucault's Cannon
+SMODS.Joker({
+    key = "foucault",
+    atlas = 'Misc04',
+    pos = { x = 2, y = 4 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 2,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_effect = false,
+                is_pendulum = true,
+                attribute = "DARK",
+                monster_type = "Spellcaster",
+            },
+        },
+    },
+    use = function(self, card, area, copier)
+        local amount = G.consumeables.config.card_limit - #G.consumeables.cards
+        for i = 1, amount do
+            SMODS.add_card({
+                key = 'c_earth'
+            })
+        end
+    end,
+    can_use = function(self, card)
+        return #G.consumeables.cards < G.consumeables.config.card_limit
+    end,
+})
 
+-- Archfiend Eccentrick
 SMODS.Joker({
     key = "eccentrick",
     atlas = 'Misc01',
@@ -395,44 +432,6 @@ SMODS.Joker({
     end,
     can_use = function(self, card)
         return true
-    end,
-})
-
--- Foucault's Cannon
-SMODS.Joker({
-    key = "foucault",
-    atlas = 'Misc04',
-    pos = { x = 2, y = 4 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 2,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                is_effect = false,
-                is_pendulum = true,
-                attribute = "DARK",
-                monster_type = "Spellcaster",
-            },
-        },
-    },
-    use = function(self, card, area, copier)
-        local amount = G.consumeables.config.card_limit - #G.consumeables.cards
-        for i = 1, amount do
-            SMODS.add_card({
-                key = 'c_earth'
-            })
-        end
-    end,
-    can_use = function(self, card)
-        return #G.consumeables.cards < G.consumeables.config.card_limit
     end,
 })
 

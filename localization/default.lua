@@ -3352,100 +3352,6 @@ return {
 					"{C:inactive}(Must have room)"
 				}
 			},
-			j_joy_angraecum = {
-				name = "{C:joy_effect}Angraecum Umbrella",
-				text = {
-					"{C:attention}Revives #1#{} non-{C:joy_synchro}Tuner{} as {C:dark_edition}Negative{} and debuffed",
-					"and adds {C:attention}#2#{} {C:joy_synchro}Synchro{} to the shop when obtained",
-				}
-			},
-			j_joy_eater = {
-				name = "{C:joy_effect}Eater of Millions",
-				text = {
-					"Gains {X:mult,C:white}X#1#{} Mult each time an {C:joy_spell}Extra Deck{} {C:attention}Joker{} banishes",
-					"{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)",
-					" ",
-					"{C:attention}Banishes #3#{} non-debuffed {C:joy_spell}Extra Deck{} {C:attention}Joker{} at end of round",
-					"until {C:attention}Boss Blind{} is selected"
-				}
-			},
-			j_joy_miradora = {
-				name = "{C:joy_effect}Heavenly Zephyr - Miradora",
-				text = {
-					"Debuffs and turns {C:attention}#1#{} random",
-					"{C:joy_spell}Extra Deck{} {C:attention}Joker{} {C:dark_edition}Negative{} when obtained",
-					" ",
-					"Each debuffed {C:joy_spell}Extra Deck{} {C:attention}Joker{}",
-					"gives {X:mult,C:white}X#2#"
-				}
-			},
-			j_joy_leaffish = {
-				name = "{C:joy_effect}Lifeless Leaffish",
-				text = {
-					"Sends {C:attention}#1#{} {C:joy_normal}Main Deck Fish{} to the {C:attention}GY{}",
-					"when {C:attention}Blind{} is selected",
-					" ",
-					"Sell this card to {C:attention}revive #2#{} {C:joy_normal}Fish{}",
-					"{C:inactive}(Except \"Lifeless Leaffish\"){}"
-				}
-			},
-			j_joy_beautunaful = {
-				name = "{C:joy_effect}Beautunaful Princess",
-				text = {
-					"Creates {C:attention}#1#{} {C:joy_normal}Fish{} when obtained and",
-					"when it returns from {C:attention}banishment{}",
-					"{C:inactive}(Must have room)"
-				}
-			},
-			j_joy_ringowurm = {
-				name = "{C:joy_effect}Ringowurm, the Dragon Guarding the Hundred Apples",
-				text = {
-					"Creates {C:attention}#1#{} {C:dark_edition}Negative{} {C:joy_synchro}Tuner{} {C:joy_token}\"Hundred Apples Token\"{}",
-					"when used as {C:attention}material{} for a {C:joy_synchro}Synchro{}",
-					" ",
-					"Free if you own a non-{C:joy_effect}Effect{} {C:attention}Joker{}"
-				}
-			},
-			j_joy_token_ringo = {
-				name = "{C:joy_token}Hundred Apples Token",
-				text = {
-					"This card can be used as any {C:joy_token}Token{}",
-				}
-			},
-			j_joy_ghostbird = {
-				name = "{C:joy_effect}Ghost Bird of Bewitchment",
-				text = {
-					"Played cards in this card's {C:attention}column{} are destroyed after scoring",
-					"{C:inactive}(Currently in {C:attention}column #1#{}{C:inactive})",
-					" ",
-					"Gets ability based on the {C:attention}column{}",
-					"{V:1}1: Scored card in this {C:attention}column{} {V:1}gains {C:chips}+#2#{} {V:1}Chips{}",
-					"{V:1}and doesn't get destroyed by this card's ability",
-					"{V:2}3: Retrigger scored card in this {C:attention}column{V:2} twice",
-					"{V:3}5: Played card in this {C:attention}column{} {V:3}counts for scoring{}",
-				}
-			},
-			j_joy_tiamaton = {
-				name = "{C:joy_effect}Iron Dragon Tiamaton",
-				text = {
-					"Gains {X:mult,C:white}X#1#{} Mult for each destroyed playing card",
-					"{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)",
-					" ",
-					"Played cards in this card's {C:attention}column{} are destroyed after scoring",
-					"{C:inactive}(All played cards if column is 6+)",
-					"{C:inactive}(Currently in {C:attention}column #3#{}{C:inactive})",
-				}
-			},
-			j_joy_stormshooter = {
-				name = "{C:joy_effect}Storm Shooter",
-				text = {
-					"Creates as many {C:planet}Planet{} cards for the scoring hand as possible",
-					"if an unscored card is played in this card's {C:attention}column{}",
-					"This card has to be in {C:attention}column #1#{} to use this ability",
-					"{C:inactive}(Changes each round){}",
-					"{C:inactive}(Currently in {C:attention}column #2#{}{C:inactive})",
-				}
-			},
 			j_joy_procession = {
 				name = "{C:joy_effect}Procession of the Tea Jar",
 				text = {
@@ -3532,6 +3438,100 @@ return {
 					"{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)",
 					" ",
 					"{C:joy_effect}FLIP{}: {C:attention}Revives #3#{} {C:joy_trap}Trap{}"
+				}
+			},
+			j_joy_angraecum = {
+				name = "{C:joy_effect}Angraecum Umbrella",
+				text = {
+					"{C:attention}Revives #1#{} non-{C:joy_synchro}Tuner{} as {C:dark_edition}Negative{} and debuffed",
+					"and adds {C:attention}#2#{} {C:joy_synchro}Synchro{} to the shop when obtained",
+				}
+			},
+			j_joy_eater = {
+				name = "{C:joy_effect}Eater of Millions",
+				text = {
+					"Gains {X:mult,C:white}X#1#{} Mult each time an {C:joy_spell}Extra Deck{} {C:attention}Joker{} banishes",
+					"{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)",
+					" ",
+					"{C:attention}Banishes #3#{} non-debuffed {C:joy_spell}Extra Deck{} {C:attention}Joker{} at end of round",
+					"until {C:attention}Boss Blind{} is selected"
+				}
+			},
+			j_joy_miradora = {
+				name = "{C:joy_effect}Heavenly Zephyr - Miradora",
+				text = {
+					"Debuffs and turns {C:attention}#1#{} random",
+					"{C:joy_spell}Extra Deck{} {C:attention}Joker{} {C:dark_edition}Negative{} when obtained",
+					" ",
+					"Each debuffed {C:joy_spell}Extra Deck{} {C:attention}Joker{}",
+					"gives {X:mult,C:white}X#2#"
+				}
+			},
+			j_joy_leaffish = {
+				name = "{C:joy_effect}Lifeless Leaffish",
+				text = {
+					"Sends {C:attention}#1#{} {C:joy_normal}Main Deck Fish{} to the {C:attention}GY{}",
+					"when {C:attention}Blind{} is selected",
+					" ",
+					"Sell this card to {C:attention}revive #2#{} {C:joy_normal}Fish{}",
+					"{C:inactive}(Except \"Lifeless Leaffish\"){}"
+				}
+			},
+			j_joy_beautunaful = {
+				name = "{C:joy_effect}Beautunaful Princess",
+				text = {
+					"Creates {C:attention}#1#{} {C:joy_normal}Fish{} when obtained and",
+					"when it returns from {C:attention}banishment{}",
+					"{C:inactive}(Must have room)"
+				}
+			},
+			j_joy_ringowurm = {
+				name = "{C:joy_effect}Ringowurm, the Dragon Guarding the Hundred Apples",
+				text = {
+					"Creates {C:attention}#1#{} {C:dark_edition}Negative{} {C:joy_synchro}Tuner{} {C:joy_token}\"Hundred Apples Token\"{}",
+					"when used as {C:attention}material{} for a {C:joy_synchro}Synchro{}",
+					" ",
+					"Free if you own a non-{C:joy_effect}Effect{} {C:attention}Joker{}"
+				}
+			},
+			j_joy_token_ringo = {
+				name = "{C:joy_token}Hundred Apples Token",
+				text = {
+					"This card can be used as any {C:joy_token}Token{}",
+				}
+			},
+			j_joy_stormshooter = {
+				name = "{C:joy_effect}Storm Shooter",
+				text = {
+					"Creates as many {C:planet}Planet{} cards for the scoring hand as possible",
+					"if an unscored card is played in this card's {C:attention}column{}",
+					"This card has to be in {C:attention}column #1#{} to use this ability",
+					"{C:inactive}(Changes each round){}",
+					"{C:inactive}(Currently in {C:attention}column #2#{}{C:inactive})",
+				}
+			},
+			j_joy_ghostbird = {
+				name = "{C:joy_effect}Ghost Bird of Bewitchment",
+				text = {
+					"Played cards in this card's {C:attention}column{} are destroyed after scoring",
+					"{C:inactive}(Currently in {C:attention}column #1#{}{C:inactive})",
+					" ",
+					"Gets ability based on the {C:attention}column{}",
+					"{V:1}1: Scored card in this {C:attention}column{} {V:1}gains {C:chips}+#2#{} {V:1}Chips{}",
+					"{V:1}and doesn't get destroyed by this card's ability",
+					"{V:2}3: Retrigger scored card in this {C:attention}column{V:2} twice",
+					"{V:3}5: Played card in this {C:attention}column{} {V:3}counts for scoring{}",
+				}
+			},
+			j_joy_tiamaton = {
+				name = "{C:joy_effect}Iron Dragon Tiamaton",
+				text = {
+					"Gains {X:mult,C:white}X#1#{} Mult for each destroyed playing card",
+					"{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)",
+					" ",
+					"Played cards in this card's {C:attention}column{} are destroyed after scoring",
+					"{C:inactive}(All played cards if column is 6+)",
+					"{C:inactive}(Currently in {C:attention}column #3#{}{C:inactive})",
 				}
 			},
 			j_joy_zenoguitar = {
@@ -3893,6 +3893,28 @@ return {
 					"{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
 				}
 			},
+
+			j_joy_bishbaalkin = {
+				name = "{C:joy_synchro}Phantasmal Lord Ultimitl Bishbaalkin",
+				text = {
+					"{C:mult}+#1#{} Mult for each non-debuffed {C:attention}Joker{}",
+					"{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)",
+					" ",
+					"Destroys all other non-{C:joy_token}Token{} non-debuffed {C:attention}Jokers{} at end of round and",
+					"creates as many {C:dark_edition}Negative{} {C:joy_token}\"Utchatzimime Tokens\"{}",
+				},
+				joy_summon_conditions = {
+					"{C:attention}1{} {C:joy_synchro}Tuner{} +",
+					"{C:attention}1{} {C:red}Rare{} non-{C:joy_synchro}Tuner{}",
+					"{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
+				}
+			},
+			j_joy_token_utchatzimime = {
+				name = "{C:joy_token}Utchatzimime Token",
+				text = {
+					"This card can be used as any {C:joy_token}Token{}",
+				}
+			},
 			j_joy_afd = {
 				name = "{C:joy_synchro}Ancient Fairy Dragon",
 				text = {
@@ -3931,27 +3953,6 @@ return {
 					"This card can be used as any {C:joy_token}Token{}",
 					" ",
 					"Treated as any {C:attention}material{} for a {C:joy_synchro}Synchro",
-				}
-			},
-			j_joy_bishbaalkin = {
-				name = "{C:joy_synchro}Phantasmal Lord Ultimitl Bishbaalkin",
-				text = {
-					"{C:mult}+#1#{} Mult for each non-debuffed {C:attention}Joker{}",
-					"{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)",
-					" ",
-					"Destroys all other non-{C:joy_token}Token{} non-debuffed {C:attention}Jokers{} at end of round and",
-					"creates as many {C:dark_edition}Negative{} {C:joy_token}\"Utchatzimime Tokens\"{}",
-				},
-				joy_summon_conditions = {
-					"{C:attention}1{} {C:joy_synchro}Tuner{} +",
-					"{C:attention}1{} {C:red}Rare{} non-{C:joy_synchro}Tuner{}",
-					"{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
-				}
-			},
-			j_joy_token_utchatzimime = {
-				name = "{C:joy_token}Utchatzimime Token",
-				text = {
-					"This card can be used as any {C:joy_token}Token{}",
 				}
 			},
 			--#endregion
@@ -4108,29 +4109,11 @@ return {
 					"to gain {C:blue}+#2#{} Hand and {C:red}+#3#{} Discard this round"
 				}
 			},
-			j_joy_midbreaker = {
-				name = "{C:joy_spell}Magical Mid-Breaker Field",
-				text = {
-					"{C:attention}Jokers{} each give {X:mult,C:white}X#1#{} Mult",
-					"and cannot be debuffed or {C:attention}flipped{}",
-					"during a {C:attention}Boss Blind{}",
-					" ",
-					"{C:attention}Jokers{} are {C:attention}flipped{} face-down when {C:attention}Small{} or {C:attention}Big Blind{} are selected",
-					"and {C:attention}flipped{} face-up at end of round"
-				}
-			},
 			j_joy_fusiongate = {
 				name = "{C:joy_spell}Fusion Gate",
 				text = {
 					"Adds {C:attention}#1#{} {C:joy_fusion}Fusion{} to the {C:joy_spell}Extra Deck{}",
 					"when {C:attention}Boss Blind{} is defeated"
-				}
-			},
-			j_joy_futurevisions = {
-				name = "{C:joy_spell}Future Visions",
-				text = {
-					"{C:attention}Banishes #1#{} random {C:joy_normal}Main Deck{} {C:attention}Joker{} at end of round",
-					"until {C:attention}Boss Blind{} is selected"
 				}
 			},
 			j_joy_xyzterritory = {
@@ -4160,6 +4143,24 @@ return {
 				name = "{C:joy_spell}Extra Net",
 				text = {
 					"{C:attention}+#1#{} hand size for each {C:attention}Joker{} summoned this round",
+				}
+			},
+			j_joy_futurevisions = {
+				name = "{C:joy_spell}Future Visions",
+				text = {
+					"{C:attention}Banishes #1#{} random {C:joy_normal}Main Deck{} {C:attention}Joker{} at end of round",
+					"until {C:attention}Boss Blind{} is selected"
+				}
+			},
+			j_joy_midbreaker = {
+				name = "{C:joy_spell}Magical Mid-Breaker Field",
+				text = {
+					"{C:attention}Jokers{} each give {X:mult,C:white}X#1#{} Mult",
+					"and cannot be debuffed or {C:attention}flipped{}",
+					"during a {C:attention}Boss Blind{}",
+					" ",
+					"{C:attention}Jokers{} are {C:attention}flipped{} face-down when {C:attention}Small{} or {C:attention}Big Blind{} are selected",
+					"and {C:attention}flipped{} face-up at end of round"
 				}
 			},
 			--#endregion
