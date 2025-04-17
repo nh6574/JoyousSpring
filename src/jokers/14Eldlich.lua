@@ -430,7 +430,7 @@ SMODS.Joker({
     end
 })
 
--- Angelcaido of the Golden Land
+-- Fallen Angel of the Golden Land
 SMODS.Joker({
     key = "eld_angel",
     atlas = 'eld',

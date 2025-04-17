@@ -1789,7 +1789,7 @@ return {
 				}
 			},
 			j_joy_eld_angel = {
-				name = "{C:joy_fusion}Angelcaido of the Golden Land",
+				name = "{C:joy_fusion}Fallen Angel of the Golden Land",
 				text = {
 					"Enables {C:attention}Eldlixir{} hands",
 					"Levels up {C:attention}Eldlixir{} when {C:joy_trap}Traps{} are {C:attention}flipped{} face-up",
