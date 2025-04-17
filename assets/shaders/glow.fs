@@ -98,26 +98,29 @@ vec4 HSL(vec4 c)
 vec4 effect(vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords)
 {
     vec4 base = Texel(texture, texture_coords);
+    float spriteAlpha = base.a; // Get the alpha value of the sprite
 
-    vec2 uv = (((texture_coords) * image_details) - texture_details.xy * texture_details.ba) / texture_details.ba;
+    vec2 uv = (((texture_coords) * image_details)
+              - texture_details.xy * texture_details.ba)
+              / texture_details.ba;
     float offset = 1.0 / image_details.x;
 
-    float center = base.a;
-
-    float sum = 0.0;
-    sum += Texel(texture, texture_coords + vec2( offset, 0.0)).a;
-    sum += Texel(texture, texture_coords + vec2(-offset, 0.0)).a;
-    sum += Texel(texture, texture_coords + vec2(0.0,  offset)).a;
-    sum += Texel(texture, texture_coords + vec2(0.0, -offset)).a;
-
-    float edge = step(0.01, sum) * step(center, 0.01);
+    float cornerRadius = 0.96;
+    float edgeSmooth  = 0.02;
 
     float blurredGlow = 0.0;
     for (float x = -5.0; x <= 5.0; x++) {
         for (float y = -5.0; y <= 5.0; y++) {
-            vec2 offsetUV = texture_coords + vec2(x, y) * offset;
-            float a = Texel(texture, offsetUV).a;
-            blurredGlow += step(0.01, a);
+            // compute mask at sample point
+            vec2 sampleTC = texture_coords + vec2(x, y) * offset;
+            vec2 u = ((sampleTC * image_details)
+                     - texture_details.xy * texture_details.ba)
+                     / texture_details.ba;
+            vec2 cuv = u * 2.0 - 1.0;
+            float d = length(max(abs(cuv) - cornerRadius, 0.0));
+            float shapeMask = 1.0 - smoothstep(0.0, edgeSmooth, d);
+            // accumulate if inside the rounded shape
+            blurredGlow += step(0.01, shapeMask);
         }
     }
     blurredGlow /= 121.0;
@@ -125,36 +128,34 @@ vec4 effect(vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords)
     float edgeDistance = 0.0;
     for (float x = -3.0; x <= 3.0; x++) {
         for (float y = -3.0; y <= 3.0; y++) {
-            vec2 offsetUV = texture_coords + vec2(x, y) * offset;
-            float a = Texel(texture, offsetUV).a;
-            edgeDistance += 1.0 - a;
+            vec2 sampleTC = texture_coords + vec2(x, y) * offset;
+            vec2 u = ((sampleTC * image_details)
+                     - texture_details.xy * texture_details.ba)
+                     / texture_details.ba;
+            vec2 cuv = u * 2.0 - 1.0;
+            float d = length(max(abs(cuv) - cornerRadius, 0.0));
+            float shapeMask = 1.0 - smoothstep(0.0, edgeSmooth, d);
+            edgeDistance += 1.0 - shapeMask;
         }
     }
     edgeDistance /= 49.0;
-
     float innerGlow = smoothstep(0.02, 0.2, edgeDistance);
     blurredGlow *= pow(innerGlow, 0.6);
 
-    float adjusted_time = 3 * glow.y;
-    float pulse = 1 + 0.5 * sin(adjusted_time);
-
+    float pulse = 1.0 + 0.5 * sin(3.0 * glow.y);
     float glowIntensity = blurredGlow * pulse;
 
     vec3 glowColor = vec3(1.0, 0.9, 0.3);
-    vec3 finalColor = mix(base.rgb, glowColor, glowIntensity);
-    float finalAlpha = max(base.a, glowIntensity * 0.8);
+    float combinedGlow = glowIntensity;
+    vec3 finalColor = glowColor * combinedGlow;
+    float finalAlpha = combinedGlow * 0.8;
 
-    vec2 cornerUV = uv * 2.0 - 1.0; // Convert to [-1,1] space
-    float cornerRadius = 0.96; // smaller = rounder
-    float dist = length(max(abs(cornerUV) - cornerRadius, 0.0));
-    float roundMask = 1.0 - smoothstep(0.0, 0.05, dist);
-    finalAlpha *= roundMask;
-
-    return dissolve_mask(vec4(finalColor, finalAlpha) * colour, texture_coords, uv);
+    return dissolve_mask(
+        vec4(finalColor, finalAlpha * spriteAlpha) * colour,
+        texture_coords,
+        uv
+    );
 }
-
-
-
 
 extern MY_HIGHP_OR_MEDIUMP vec2 mouse_screen_pos;
 extern MY_HIGHP_OR_MEDIUMP float hovering;
