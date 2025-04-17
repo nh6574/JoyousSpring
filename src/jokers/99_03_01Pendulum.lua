@@ -582,7 +582,7 @@ SMODS.Joker({
                 monster_type = "Fairy",
             },
             chips = 25,
-            mult = 5,
+            mult = 1,
             current_chips = 0,
             current_mult = 0,
             transferring = false
