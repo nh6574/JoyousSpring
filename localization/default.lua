@@ -3304,7 +3304,7 @@ return {
 				text = {
 					"Sends {C:attention}#1#{} {C:joy_normal}Fiends{} to the {C:attention}GY{} and",
 					"{C:attention}revive #2#{} {C:joy_normal}Fiend{} when used",
-					"as {C:attention}material{C:attention}",
+					"as {C:attention}material{}",
 				}
 			},
 			j_joy_tourguide = {
@@ -3464,7 +3464,15 @@ return {
 					"{C:joy_spell}Extra Deck{} {C:attention}Joker{} {C:dark_edition}Negative{} when obtained",
 					" ",
 					"Each debuffed {C:joy_spell}Extra Deck{} {C:attention}Joker{}",
-					"gives {X:mult,C:white}X#2#"
+					"gives {X:mult,C:white}X#2#{} Mult"
+				}
+			},
+			j_joy_beautunaful = {
+				name = "{C:joy_effect}Beautunaful Princess",
+				text = {
+					"Creates {C:attention}#1#{} {C:joy_normal}Fish{} when obtained and",
+					"when it returns from {C:attention}banishment{}",
+					"{C:inactive}(Must have room)"
 				}
 			},
 			j_joy_leaffish = {
@@ -3475,14 +3483,6 @@ return {
 					" ",
 					"Sell this card to {C:attention}revive #2#{} {C:joy_normal}Fish{}",
 					"{C:inactive}(Except \"Lifeless Leaffish\"){}"
-				}
-			},
-			j_joy_beautunaful = {
-				name = "{C:joy_effect}Beautunaful Princess",
-				text = {
-					"Creates {C:attention}#1#{} {C:joy_normal}Fish{} when obtained and",
-					"when it returns from {C:attention}banishment{}",
-					"{C:inactive}(Must have room)"
 				}
 			},
 			j_joy_ringowurm = {
@@ -3786,7 +3786,7 @@ return {
 					"{C:inactive}(Must have room)"
 				},
 				text = {
-					"Adds {C:attention}#2#{} {C:joy_pendulum_fusion}Patissciel Couverture{}",
+					"Adds {C:attention}#2#{} {C:joy_pendulum_fusion}\"Patissciel Couverture\"{}",
 					"to the {C:joy_spell}Extra Deck{} if this card is consumed",
 					"{C:inactive}(Must have room)"
 				},
@@ -3834,7 +3834,7 @@ return {
 					"{C:attention}Boss Blind{} and add it to",
 					"the next shop",
 					" ",
-					"Gains {X:mult,C:white}X#1#{} for each time",
+					"Gains {X:mult,C:white}X#1#{} Mult for each time",
 					"this ability was used this run",
 					"{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}"
 				},
@@ -3915,22 +3915,6 @@ return {
 					"This card can be used as any {C:joy_token}Token{}",
 				}
 			},
-			j_joy_afd = {
-				name = "{C:joy_synchro}Ancient Fairy Dragon",
-				text = {
-					"Creates {C:attention}#1#{} {C:joy_synchro}Tuner{} when summoned",
-					"{C:inactive}(Must have room)",
-					" ",
-					"Destroys {C:attention}#2#{} random {C:joy_spell}Field Spell{} when {C:attention}Blind{} is selected",
-					"to gain {C:money}+$#3#{} then creates {C:attention}#2#{} {C:joy_spell}Field Spell",
-					"{C:inactive}(Must have room)",
-				},
-				joy_summon_conditions = {
-					"{C:attention}1{} {C:joy_synchro}Tuner{} +",
-					"{C:attention}1{} non-{C:joy_synchro}Tuner{}",
-					"{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
-				}
-			},
 			j_joy_fishlamp = {
 				name = "{C:joy_synchro}Fish Lamp",
 				text = {
@@ -3953,6 +3937,22 @@ return {
 					"This card can be used as any {C:joy_token}Token{}",
 					" ",
 					"Treated as any {C:attention}material{} for a {C:joy_synchro}Synchro",
+				}
+			},
+			j_joy_afd = {
+				name = "{C:joy_synchro}Ancient Fairy Dragon",
+				text = {
+					"Creates {C:attention}#1#{} {C:joy_synchro}Tuner{} when summoned",
+					"{C:inactive}(Must have room)",
+					" ",
+					"Destroys {C:attention}#2#{} random {C:joy_spell}Field Spell{} when {C:attention}Blind{} is selected",
+					"to gain {C:money}+$#3#{} then creates {C:attention}#2#{} {C:joy_spell}Field Spell",
+					"{C:inactive}(Must have room)",
+				},
+				joy_summon_conditions = {
+					"{C:attention}1{} {C:joy_synchro}Tuner{} +",
+					"{C:attention}1{} non-{C:joy_synchro}Tuner{}",
+					"{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
 				}
 			},
 			--#endregion
