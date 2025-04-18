@@ -675,7 +675,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if context.joker_main and #context.scoring_hand < JoyousSpring.get_joker_column(card) then
+            if context.joker_main and #context.full_hand < JoyousSpring.get_joker_column(card) then
                 if math.max(1, card.ability.extra.xmult - JoyousSpring.get_joker_column(card)) > 1 then
                     card.ability.extra.current_money = card.ability.extra.current_money + card.ability.extra.money
                 end
