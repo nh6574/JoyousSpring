@@ -150,6 +150,7 @@ SMODS.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                is_tuner = true,
                 is_all_materials = { SYNCHRO = true },
                 summon_type = "SYNCHRO",
                 attribute = "FIRE",
