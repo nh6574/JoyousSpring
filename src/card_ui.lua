@@ -291,14 +291,9 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
         end
 
         -- Transferred ability
-        if card and not card.debuff and card.ability.extra.joyous_spring.material_effects and next(card.ability.extra.joyous_spring.material_effects) then
-            desc_nodes[#desc_nodes + 1] = {
-                {
-                    n = G.UIT.B,
-                    config = { align = "cm", w = 0, h = 0.3 },
-                },
-            }
-            desc_nodes[#desc_nodes + 1] = {
+        if card and not card.debuff and card.joy_transfer_text and card.ability.extra.joyous_spring.material_effects and next(card.ability.extra.joyous_spring.material_effects) then
+            full_UI_table.main = {}
+            full_UI_table.main[#full_UI_table.main + 1] = {
                 {
                     n = G.UIT.R,
                     config = { align = "cm" },
@@ -316,7 +311,7 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
             }
             for material_key, config in pairs(card.ability.extra.joyous_spring.material_effects) do
                 local joy_loc_string = localize { type = 'name_text', set = "Joker", key = material_key } or ''
-                desc_nodes[#desc_nodes + 1] = {
+                full_UI_table.main[#full_UI_table.main + 1] = {
                     {
                         n = G.UIT.R,
                         config = { align = "cm" },
@@ -335,7 +330,7 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
 
                 local material_center = G.P_CENTERS[material_key]
                 if material_center and G.localization.descriptions["Joker"][material_key].joy_transfer_ability then
-                    localize { type = "joy_transfer_ability", set = "Joker", key = material_key, nodes = desc_nodes, vars = material_center.joy_transfer_loc_vars and material_center:joy_transfer_loc_vars(info_queue, card, config).vars or {}, scale = 0.9 }
+                    localize { type = "joy_transfer_ability", set = "Joker", key = material_key, nodes = full_UI_table.main, vars = material_center.joy_transfer_loc_vars and material_center:joy_transfer_loc_vars(info_queue, card, config).vars or {}, scale = 0.9 }
                 end
             end
         end
@@ -365,6 +360,9 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
             if not card.fake_card then
                 table.insert(info_queue, 1, { set = "Other", key = "joy_face_down" })
             end
+        end
+        if card and not card.debuff and card.ability.extra.joyous_spring.material_effects and next(card.ability.extra.joyous_spring.material_effects) then
+            table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_transferred" })
         end
         -- Add tooltip if it has a related cards menu
         if self.joy_desc_cards and not card.fake_card then
@@ -591,6 +589,22 @@ SMODS.Keybind({
         end
 
         JoyousSpring.create_overlay_see_related(selected)
+    end
+})
+
+SMODS.Keybind({
+    key_pressed = "t",
+    action = function(self)
+        local selected = G and G.CONTROLLER and
+            (G.CONTROLLER.focused.target or G.CONTROLLER.hovering.target)
+
+        if not selected or not JoyousSpring.is_monster_card(selected) or selected.debuff or not selected.ability.extra.joyous_spring.material_effects or not next(selected.ability.extra.joyous_spring.material_effects) then
+            return
+        end
+
+        selected.joy_transfer_text = not selected.joy_transfer_text
+        selected:stop_hover()
+        selected:hover()
     end
 })
 

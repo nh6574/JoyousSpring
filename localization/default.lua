@@ -4266,6 +4266,14 @@ return {
 					"related cards",
 				},
 			},
+			joy_tooltip_transferred = {
+				name = "Transferred Abilities",
+				text = {
+					"Press {C:attention}t{} to switch",
+					"between main ability",
+					"and transferred abilities"
+				},
+			},
 			joy_tooltip_transform = {
 				name = "Transform",
 				text = {
