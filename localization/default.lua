@@ -2118,14 +2118,15 @@ return {
 					"Change rank of up to {C:attention}#1#{} selected cards to {C:attention}8{}",
 					"and level up {C:attention}Full House{}, {C:attention}Straight{} and {C:attention}Two Pair{} by {C:attention}#1#",
 				},
-				text = {
+				text = { {
 					"Scored cards with even rank give {C:mult}+#2#{} Mult for each {C:joy_normal}\"Solfachord\"",
 					"{C:inactive}(Currently{} {C:mult}+#3#{} {C:inactive}Mult){}",
-					" ",
-					"Once per round, creates {C:attention}#4#{} {C:joy_pendulum}Pendulum{} {C:joy_normal}\"Solfachord\"{}",
-					"after {C:attention}#5#{} {C:joy_pendulum}Pendulum{} are consumed",
-					"{C:inactive}(#6#/#5#) (Must have room){}",
-				}
+				},
+					{
+						"Once per round, creates {C:attention}#4#{} {C:joy_pendulum}Pendulum{} {C:joy_normal}\"Solfachord\"{}",
+						"after {C:attention}#5#{} {C:joy_pendulum}Pendulum{} are consumed",
+						"{C:inactive}(#6#/#5#) (Must have room){}",
+					} }
 			},
 			j_joy_solfa_dreamia = {
 				name = "{C:joy_pendulum_effect}ReSolfachord Dreamia",
@@ -2246,16 +2247,13 @@ return {
 			j_joy_solfa_grancoolia = {
 				name = "{C:joy_link}GranSolfachord Coolia",
 				text = {
-					"{C:chips}+#1#{} Chips for each {C:joy_pendulum}Pendulum{}",
-					"{C:inactive}(Currently {C:chips}+#2#{} {C:inactive}Chips)",
-					" ",
-					"Playing cards affected by {C:joy_normal}\"Solfachord\"{} consumable abilities",
-					"gain a random seal if possible",
-					" ",
-					"{C:money}+$#3#{} after {C:attention}#4#{} {C:joy_pendulum}Pendulum{} are consumed {C:inactive}(#5#/#4#){}",
-					" ",
-					"If scoring hand contains both even and odd ranks,",
-					"all cards held in hand count as scored for {C:joy_normal}\"Solfachord\"{} abilities",
+					{ "{C:chips}+#1#{} Chips for each {C:joy_pendulum}Pendulum{}",
+						"{C:inactive}(Currently {C:chips}+#2#{} {C:inactive}Chips)" },
+					{ "Playing cards affected by {C:joy_normal}\"Solfachord\"{} consumable abilities",
+						"gain a random seal if possible" },
+					{ "{C:money}+$#3#{} after {C:attention}#4#{} {C:joy_pendulum}Pendulum{} are consumed {C:inactive}(#5#/#4#){}" },
+					{ "If scoring hand contains both even and odd ranks,",
+						"all cards held in hand count as scored for {C:joy_normal}\"Solfachord\"{} abilities" },
 				},
 				joy_summon_conditions = {
 					"{C:attention}3 Jokers{},",

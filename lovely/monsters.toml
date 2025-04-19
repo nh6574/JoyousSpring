@@ -93,3 +93,12 @@ position = 'at'
 match_indent = true
 payload = '''
 '''
+
+# Multibox fix with types
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''table.insert(ret_val.nodes[1].nodes[1].nodes[1].nodes, 3, multi_boxes[i])'''
+position = "at"
+payload = '''table.insert(ret_val.nodes[1].nodes[1].nodes[1].nodes, JoyousSpring.is_monster_card(card) and 4 or 3, multi_boxes[i])'''
+match_indent = true
