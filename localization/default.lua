@@ -2032,13 +2032,13 @@ return {
 					" ",
 					"Scored cards gain {X:mult,C:white}X#3#{} extra Mult for each {C:attention}Attribute{} used for its summon",
 					"Amount increases {X:mult,C:white}X#4#{} when a {C:joy_link}Link{} is summoned",
-					"{C:inactive}(Currently {X:mult,C:white}X#5#{} extra {C:inactive}Mult)",
+					"{C:inactive}(Currently {X:mult,C:white}X#5#{} {C:inactive}extra Mult)",
 					"A {C:joy_link}Link{} summoned using this card as {C:attention}material{} gains this ability",
 				},
 				joy_transfer_ability = {
 					"Scored cards gain {X:mult,C:white}X#1#{} extra Mult for each {C:attention}Attribute{} used for its summon",
 					"Amount increases {X:mult,C:white}X#2#{} when a {C:joy_link}Link{} is summoned",
-					"{C:inactive}(Currently {X:mult,C:white}X#3#{} extra {C:inactive}Mult)",
+					"{C:inactive}(Currently {X:mult,C:white}X#3#{} {C:inactive}extra Mult)",
 				},
 				joy_summon_conditions = {
 					"{C:attention}2+ {C:joy_normal}Cyberse{}"
