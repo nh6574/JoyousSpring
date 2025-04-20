@@ -19,21 +19,26 @@ return {
 			j_joy_dmaid_kitchen = {
 				name = "{C:joy_effect}Kitchen Dragonmaid",
 				text = {
-					"{C:attention}#1#{} free {C:green}Reroll{} for each",
-					"{C:joy_normal}\"Dragonmaid\"{} when obtained",
-					" ",
-					"{C:attention}Transforms{} into {C:joy_effect}\"Dragonmaid Tinkhec\"",
-					"when {C:attention}Blind{} is selected",
+					{
+						"{C:attention}#1#{} free {C:green}Reroll{} for each",
+						"{C:joy_normal}\"Dragonmaid\"{} when obtained",
+					},
+					{
+						"{C:attention}Transforms{} into {C:joy_effect}\"Dragonmaid Tinkhec\"",
+						"when {C:attention}Blind{} is selected",
+					},
 				},
 			},
 			j_joy_dmaid_tinkhec = {
 				name = "{C:joy_effect}Dragonmaid Tinkhec",
 				text = {
-					"{C:joy_normal}\"Dragonmaids\"{} each",
-					"give {C:mult}+#1#{} Mult",
-					" ",
-					"{C:attention}Transforms{} into {C:joy_effect}\"Kitchen Dragonmaid\"",
-					"at end of round",
+					{
+						"{C:joy_normal}\"Dragonmaids\"{} each give {C:mult}+#1#{} Mult",
+					},
+					{
+						"{C:attention}Transforms{} into {C:joy_effect}\"Kitchen Dragonmaid\"",
+						"at end of round",
+					}
 				},
 			},
 			j_joy_dmaid_parlor = {
@@ -1400,18 +1405,23 @@ return {
 			j_joy_ba_beatrice = {
 				name = "{C:joy_xyz}Beatrice, Lady of the Eternal",
 				text = {
-					"Gains {X:mult,C:white}X#1#{} Mult for each {C:attention}Joker{} in the {C:attention}GY{}",
-					"{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}",
-					" ",
-					"{C:joy_xyz}Detach{} {C:attention}#3#{}: {C:attention}Revives #4#{} {C:joy_normal}\"Burning Abyss\"{} as {C:dark_edition}Negative{}",
-					"(or any {C:attention}Joker{} if none)",
-					" ",
-					"Sell this summoned card to add",
-					"{C:joy_xyz}\"Dante, Traveler of the Burning Abyss\"{}",
-					"and {C:joy_fusion}\"Dante, Pilgrim of the Burning Abyss\"{}",
-					"to the {C:joy_spell}Extra Deck{} {C:inactive}(Must have room){}",
-					" ",
-					"{C:joy_normal}\"Burning Abyss\"{} don't get destroyed by their own effects"
+					{
+						"Gains {X:mult,C:white}X#1#{} Mult for each {C:attention}Joker{} in the {C:attention}GY{}",
+						"{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}",
+					},
+					{
+						"{C:joy_xyz}Detach{} {C:attention}#3#{}: {C:attention}Revives #4#{} {C:joy_normal}\"Burning Abyss\"{} as {C:dark_edition}Negative{}",
+						"(or any {C:attention}Joker{} if none)",
+					},
+					{
+						"Sell this summoned card to add",
+						"{C:joy_xyz}\"Dante, Traveler of the Burning Abyss\"{}",
+						"and {C:joy_fusion}\"Dante, Pilgrim of the Burning Abyss\"{}",
+						"to the {C:joy_spell}Extra Deck{} {C:inactive}(Must have room){}",
+					},
+					{
+						"{C:joy_normal}\"Burning Abyss\"{} don't get destroyed by their own effects"
+					}
 				},
 				joy_summon_conditions = {
 					"{C:attention}2{} {C:red}Rare{} {C:attention}Jokers{}",
@@ -2247,13 +2257,21 @@ return {
 			j_joy_solfa_grancoolia = {
 				name = "{C:joy_link}GranSolfachord Coolia",
 				text = {
-					{ "{C:chips}+#1#{} Chips for each {C:joy_pendulum}Pendulum{}",
-						"{C:inactive}(Currently {C:chips}+#2#{} {C:inactive}Chips)" },
-					{ "Playing cards affected by {C:joy_normal}\"Solfachord\"{} consumable abilities",
-						"gain a random seal if possible" },
-					{ "{C:money}+$#3#{} after {C:attention}#4#{} {C:joy_pendulum}Pendulum{} are consumed {C:inactive}(#5#/#4#){}" },
-					{ "If scoring hand contains both even and odd ranks,",
-						"all cards held in hand count as scored for {C:joy_normal}\"Solfachord\"{} abilities" },
+					{
+						"{C:chips}+#1#{} Chips for each {C:joy_pendulum}Pendulum{}",
+						"{C:inactive}(Currently {C:chips}+#2#{} {C:inactive}Chips)",
+					},
+					{
+						"Playing cards affected by {C:joy_normal}\"Solfachord\"{} consumable abilities",
+						"gain a random seal if possible",
+					},
+					{
+						"{C:money}+$#3#{} after {C:attention}#4#{} {C:joy_pendulum}Pendulum{} are consumed {C:inactive}(#5#/#4#){}",
+					},
+					{
+						"If scoring hand contains both even and odd ranks,",
+						"all cards held in hand count as scored for {C:joy_normal}\"Solfachord\"{} abilities",
+					},
 				},
 				joy_summon_conditions = {
 					"{C:attention}3 Jokers{},",
