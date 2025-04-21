@@ -98,9 +98,9 @@ SMODS.Joker({
                         end
                     end
                     for i = 1, card.ability.extra.creates do
-                        JoyousSpring.create_summon({ {
+                        JoyousSpring.create_summon({ 
                             key = "j_joy_generaider_loptr"
-                        } })
+                        })
                     end
                     card.getting_sliced = true
                     card:start_dissolve()
