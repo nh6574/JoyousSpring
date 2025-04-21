@@ -1426,7 +1426,7 @@ return {
 				joy_summon_conditions = {
 					"{C:attention}2{} {C:red}Rare{} {C:attention}Jokers{}",
 					"{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, {s:0.9,C:joy_link}Links{} {s:0.9,C:inactive}or {s:0.9,C:joy_token}Tokens{s:0.9,C:inactive})",
-					"or {C:attention}1{} {C:joy_normal}\"Dante\"{}",
+					"OR {C:attention}1{} {C:joy_normal}\"Dante\"{}",
 					"{s:0.9,C:inactive}(If {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, transfer its materials)",
 				}
 			},

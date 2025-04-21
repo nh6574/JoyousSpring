@@ -235,7 +235,6 @@ end
 ---Generates Joker's description UI. This is done to:
 ---* Add type information under names
 ---* Add summoning conditions to info_queue automatically
----* Change Token's name
 ---* Remove color codes from info_queue tooltip names
 ---@param self table
 ---@param info_queue table

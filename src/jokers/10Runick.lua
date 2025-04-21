@@ -106,7 +106,7 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and not context.retrigger_joker then
                 if context.using_consumeable and G.GAME.blind.in_blind and context.consumeable.ability.set == 'Tarot' then
-                    card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.base_chips
+                    card.ability.extra.xchips = card.ability.extra.xchips + card.ability.extra.base_xchips
                     return {
                         message = localize('k_upgrade_ex')
                     }
