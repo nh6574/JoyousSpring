@@ -727,7 +727,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.creates, card.ability.extra.consumed, card.ability.extra.consumed_this_round } }
+        return { vars = { card.ability.extra.creates, card.ability.extra.consumed, card.ability.extra.consumed - card.ability.extra.consumed_this_round } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Solfachord" } } }, name = "k_joy_archetype" },
@@ -753,26 +753,21 @@ SMODS.Joker({
             },
             creates = 1,
             consumed = 4,
-            consumed_this_round = 0,
-            activated = false
+            consumed_this_round = 0
         },
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.using_consumeable and JoyousSpring.is_pendulum_monster(context.consumeable) then
                 card.ability.extra.consumed_this_round = card.ability.extra.consumed_this_round + 1
-                if not card.ability.extra.activated and card.ability.extra.consumed_this_round >= card.ability.extra.consumed then
-                    card.ability.extra.activated = true
+                if card.ability.extra.consumed_this_round >= card.ability.extra.consumed then
+                    card.ability.extra.consumed_this_round = 0
                     for i = 1, card.ability.extra.creates do
                         JoyousSpring.create_pseudorandom(
                             { { monster_archetypes = { "Solfachord" }, is_pendulum = true } },
                             pseudoseed("j_joy_solfa_cutia"), false, false, "e_negative")
                     end
                 end
-            end
-            if context.end_of_round and context.main_eval and context.game_over == false then
-                card.ability.extra.activated = false
-                card.ability.extra.consumed_this_round = 0
             end
         end
     end
