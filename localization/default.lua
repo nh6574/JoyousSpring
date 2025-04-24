@@ -684,7 +684,7 @@ return {
 					"Each {C:joy_normal}\"Mekk-Knight\"{} gives {C:mult}+#1#{} Mult",
 					" ",
 					"During a {C:attention}Blind{}, you can {C:attention}tribute #2#{}",
-					"{C:joy_normal}\"Mekk-Knight\"{} to gain {C:blue}+#3#{} Hand",
+					"{C:joy_normal}\"Mekk-Knight\"{} to gain {C:blue}+#3#{} Hand this round",
 					" ",
 					"Sell this card when there are",
 					"{C:attention}#4# {C:joy_normal}\"Mekk-Knight\"{} in the {C:attention}GY",
