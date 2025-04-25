@@ -103,9 +103,7 @@ local function summon_from_shop(card)
             G.GAME.round_scores.cards_purchased.amt = G.GAME.round_scores.cards_purchased.amt + 1
             G.GAME.current_round.jokers_purchased = G.GAME.current_round.jokers_purchased + 1
 
-            for i = 1, #G.jokers.cards do
-                G.jokers.cards[i]:calculate_joker({ buying_card = true, card = card })
-            end
+            SMODS.calculate_context({ buying_card = true, card = card })
 
             play_sound('card1')
             G.CONTROLLER:save_cardarea_focus('jokers')

@@ -407,7 +407,7 @@ SMODS.Joker({
                 if joker_to_destroy ~= card then
                     card.ability.extra.current_h_size = card.ability.extra.current_h_size +
                         card.ability.extra.h_size
-                    G.hand:change_size(card.ability.extra.current_h_size)
+                    G.hand:change_size(card.ability.extra.h_size)
                     G.E_MANAGER:add_event(Event({
                         func = function()
                             if not card.getting_sliced then
