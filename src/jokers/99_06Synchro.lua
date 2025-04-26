@@ -12,7 +12,7 @@ SMODS.Joker({
     cost = 8,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revives" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
         end
         return { vars = { card.ability.extra.revives, card.ability.extra.creates } }
