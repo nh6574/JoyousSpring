@@ -81,8 +81,8 @@ return {
 			j_joy_dmaid_laundry = {
 				name = "{C:joy_effect}Laundry Dragonmaid",
 				text = {
-					"Sends {C:attention}#1#{} random {C:joy_normal}Main Deck{}",
-					"{C:joy_normal}\"Dragonmaids\"{} to the {C:attention}GY{}",
+					"Sends {C:attention}#1#{} {C:joy_normal}Main Deck{} {C:joy_normal}\"Dragonmaid\"{}",
+					"to the {C:attention}GY{} when obtained",
 					" ",
 					"{C:attention}Transforms{} into {C:joy_effect}\"Dragonmaid Nudyarl\"",
 					"when {C:attention}Blind{} is selected",
@@ -1438,8 +1438,8 @@ return {
 				text = {
 					"You can {C:attention}tribute{} this and another {C:attention}Joker{} to",
 					"{C:attention}flip #1#{} random cards in hand",
-					"face-down (and shuffle them) and it permanently",
-					"gains {C:chips}+#2#{} Chips when scored then",
+					"face-down (and shuffle them) and they permanently",
+					"gain {C:chips}+#2#{} Chips when scored then",
 					"gain {C:money}+$#3#{} if a {C:joy_normal}Fiend{} was tributed"
 				}
 			},
@@ -1448,8 +1448,8 @@ return {
 				text = {
 					"You can {C:attention}tribute{} this and another {C:attention}Joker{} to",
 					"{C:attention}flip #1#{} random cards in hand",
-					"face-down (and shuffle them) and it permanently",
-					"gains {C:money}+$#2#{} when scored then",
+					"face-down (and shuffle them) and they permanently",
+					"gain {C:money}+$#2#{} when scored then",
 					"create {C:attention}#3#{} random Tags if a",
 					"{C:joy_normal}Fiend{} was tributed"
 				}
