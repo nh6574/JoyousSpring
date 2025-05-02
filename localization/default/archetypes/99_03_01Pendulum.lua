@@ -140,8 +140,4 @@ return {
             },
         }
     },
-    misc = {
-        dictionary = {
-        }
-    }
 }

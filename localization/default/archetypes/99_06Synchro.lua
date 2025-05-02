@@ -78,8 +78,4 @@ return {
             },
         }
     },
-    misc = {
-        dictionary = {
-        }
-    }
 }

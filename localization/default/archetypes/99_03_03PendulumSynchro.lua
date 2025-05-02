@@ -16,8 +16,4 @@ return {
             },
         }
     },
-    misc = {
-        dictionary = {
-        }
-    }
 }
