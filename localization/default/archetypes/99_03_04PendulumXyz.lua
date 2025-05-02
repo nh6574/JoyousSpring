@@ -7,7 +7,9 @@ return {
                     "Attach {C:attention}#1# materials{} to a random {C:joy_xyz}Xyz{}"
                 },
                 text = {
-                    "{C:joy_xyz}Detach{} {C:attention}#2#{}: {C:attention}Revives #3#{} {C:joy_pendulum}Pendulum{} as {C:dark_edition}Negative{}"
+                    {
+                        "{C:joy_xyz}Detach{} {C:attention}#2#{}: {C:attention}Revives #3#{} {C:joy_pendulum}Pendulum{} as {C:dark_edition}Negative{}",
+                    },
                 },
                 joy_summon_conditions = {
                     "{C:attention}2{} {C:joy_pendulum}Pendulum{}",

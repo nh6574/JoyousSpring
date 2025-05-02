@@ -4,13 +4,16 @@ return {
             j_joy_sauravis = {
                 name = "{C:joy_ritual}Sauravis, the Ancient and Ascended",
                 text = {
-                    "Sell this card to disable the current",
-                    "{C:attention}Boss Blind{} and add it to",
-                    "the next shop",
-                    " ",
-                    "Gains {X:mult,C:white}X#1#{} Mult for each time",
-                    "this ability was used this run",
-                    "{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}"
+                    {
+                        "Sell this card to disable the current",
+                        "{C:attention}Boss Blind{} and add it to",
+                        "the next shop",
+                    },
+                    {
+                        "Gains {X:mult,C:white}X#1#{} Mult for each time",
+                        "this ability was used this run",
+                        "{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}",
+                    },
                 },
                 joy_summon_conditions = {
                     "{C:attention}2 Jokers{}",
@@ -19,8 +22,10 @@ return {
             j_joy_lycanthrope = {
                 name = "{C:joy_ritual}Lycanthrope",
                 text = {
-                    "{C:mult}+#1#{} Mult for each {C:joy_normal}Normal{} {C:attention}Joker{} owned or in the {C:attention}GY{}",
-                    "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
+                    {
+                        "{C:mult}+#1#{} Mult for each {C:joy_normal}Normal{} {C:attention}Joker{} owned or in the {C:attention}GY{}",
+                        "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)",
+                    },
                 },
                 joy_summon_conditions = {
                     "{C:attention}2 Jokers{}",

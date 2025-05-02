@@ -7,7 +7,9 @@ return {
                     "All {C:joy_pendulum}Pendulum{} become {C:dark_edition}Polychrome{}"
                 },
                 text = {
-                    "Each {C:joy_pendulum}Pendulum{} gives {X:mult,C:white}X#1#{} Mult"
+                    {
+                        "Each {C:joy_pendulum}Pendulum{} gives {X:mult,C:white}X#1#{} Mult",
+                    },
                 },
                 joy_summon_conditions = {
                     "{C:attention}1{} {C:joy_synchro}Tuner{} +",
