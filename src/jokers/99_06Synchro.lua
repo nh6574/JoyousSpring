@@ -104,7 +104,7 @@ SMODS.Joker({
             if context.end_of_round and context.game_over == false and context.main_eval then
                 local count = 0
                 for _, joker in ipairs(G.jokers.cards) do
-                    if joker ~= card and not joker.debuff and joker.config.center.key ~= "j_joy_token" then
+                    if joker ~= card and not joker.ability.eternal and not joker.getting_sliced and not joker.debuff and joker.config.center.key ~= "j_joy_token" then
                         joker.getting_sliced = true
                         joker:start_dissolve()
                         count = count + 1

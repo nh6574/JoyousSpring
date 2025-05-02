@@ -3641,7 +3641,7 @@ return {
 			j_joy_foucault = {
 				name = "{C:joy_pendulum_normal}Foucault's Cannon",
 				joy_consumable = {
-					"Create as many {C:attention}Earth{} as possible",
+					"Create as many {C:planet}Earth Planet{} cards as possible",
 					"{C:inactive}(Must have room)"
 				},
 				text = {
