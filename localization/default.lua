@@ -3900,8 +3900,9 @@ return {
 					"{C:mult}+#1#{} Mult for each non-debuffed {C:attention}Joker{}",
 					"{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)",
 					" ",
-					"Destroys all other non-{C:joy_token}Token{} non-debuffed {C:attention}Jokers{} at end of round and",
-					"creates as many {C:dark_edition}Negative{} {C:joy_token}\"Utchatzimime Tokens\"{}",
+					"Destroys all other non-{C:joy_token}Token{} non-debuffed {C:attention}Jokers{}",
+					"at end of round as possible and creates that many",
+					"{C:dark_edition}Negative{} {C:joy_token}\"Utchatzimime Tokens\"{}",
 				},
 				joy_summon_conditions = {
 					"{C:attention}1{} {C:joy_synchro}Tuner{} +",
