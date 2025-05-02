@@ -4,20 +4,27 @@ return {
             j_joy_dmaid_kitchen = {
                 name = "{C:joy_effect}Kitchen Dragonmaid",
                 text = {
-                    { "{C:attention}#1#{} free {C:green}Reroll{} for each",
-                        "{C:joy_normal}\"Dragonmaid\"{} when obtained" },
-                    { "{C:attention}Transforms{} into {C:joy_effect}\"Dragonmaid Tinkhec\"",
-                        "when {C:attention}Blind{} is selected" }
+                    {
+                        "{C:attention}#1#{} free {C:green}Reroll{} for each",
+                        "{C:joy_normal}\"Dragonmaid\"{} when obtained",
+                    },
+                    {
+                        "{C:attention}Transforms{} into {C:joy_effect}\"Dragonmaid Tinkhec\"",
+                        "when {C:attention}Blind{} is selected",
+                    }
                 },
             },
             j_joy_dmaid_tinkhec = {
                 name = "{C:joy_effect}Dragonmaid Tinkhec",
                 text = {
-                    "{C:joy_normal}\"Dragonmaids\"{} each",
-                    "give {C:mult}+#1#{} Mult",
-                    " ",
-                    "{C:attention}Transforms{} into {C:joy_effect}\"Kitchen Dragonmaid\"",
-                    "at end of round",
+                    {
+                        "{C:joy_normal}\"Dragonmaids\"{} each",
+                        "give {C:mult}+#1#{} Mult",
+                    },
+                    {
+                        "{C:attention}Transforms{} into {C:joy_effect}\"Kitchen Dragonmaid\"",
+                        "at end of round",
+                    }
                 },
             },
             j_joy_dmaid_parlor = {
