@@ -902,9 +902,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and context.joy_detach and context.joy_detaching_card == card then
-                if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
-                    JoyousSpring.ease_detach(card)
-                end
+                JoyousSpring.ease_detach(card)
                 for _ = 1, card.ability.extra.revives do
                     local revived = JoyousSpring.revive_pseudorandom({ { monster_archetypes = { "BurningAbyss" } } },
                         pseudoseed("j_joy_ba_beatrice"), false, "e_negative")

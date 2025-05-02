@@ -47,9 +47,7 @@ G.FUNCS.joy_buy_and_use = function(e)
                 G.GAME.round_scores.cards_purchased.amt = G.GAME.round_scores.cards_purchased.amt + 1
                 G.GAME.current_round.jokers_purchased = G.GAME.current_round.jokers_purchased + 1
 
-                for i = 1, #G.jokers.cards do
-                    G.jokers.cards[i]:calculate_joker({ buying_card = true, card = card })
-                end
+                SMODS.calculate_context({ buying_card = true, card = card })
 
                 if G.GAME.modifiers.inflation then
                     G.GAME.inflation = G.GAME.inflation + 1

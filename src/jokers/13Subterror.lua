@@ -1035,7 +1035,8 @@ SMODS.Joker({
                 is_field_spell = true,
             },
             flips = 1,
-            money = 5
+            money = 5,
+            activated = false
         },
     },
     calculate = function(self, card, context)

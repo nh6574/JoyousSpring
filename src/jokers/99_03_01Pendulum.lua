@@ -376,7 +376,7 @@ SMODS.Joker({
         end
     end,
     can_use = function(self, card)
-        if card.area and card.area == G.jokers and not (#G.jokers.cards + G.GAME.joker_buffer <
+        if not card.area or card.area ~= G.jokers or not (#G.jokers.cards + G.GAME.joker_buffer <
                 G.jokers.config.card_limit + (card.edition and card.edition.negative and 0 or 1)) then
             return false
         end

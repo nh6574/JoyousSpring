@@ -253,7 +253,12 @@ SMODS.Joker({
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_extra_deck_joker" }
         end
-        return { vars = { card.ability.extra.chips, card.ability.extra.extra_chips, card.ability.extra.chips + card.ability.extra.extra_chips * JoyousSpring.count_materials_owned({ { is_extra_deck = true, is_debuffed = true } }) } }
+        local debuffed_ed_count = JoyousSpring.count_materials_owned({ { is_extra_deck = true, is_debuffed = true } })
+        if next(SMODS.find_card("j_joy_dogma_relic")) then
+            debuffed_ed_count = debuffed_ed_count +
+                JoyousSpring.count_materials_in_graveyard({ { is_extra_deck = true } })
+        end
+        return { vars = { card.ability.extra.chips, card.ability.extra.extra_chips, card.ability.extra.chips + card.ability.extra.extra_chips * debuffed_ed_count } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
@@ -279,11 +284,10 @@ SMODS.Joker({
                     debuffed_ed_count = debuffed_ed_count +
                         JoyousSpring.count_materials_in_graveyard({ { is_extra_deck = true } })
                 end
-                if debuffed_ed_count > 0 then
-                    return {
-                        chips = card.ability.extra.chips * debuffed_ed_count
-                    }
-                end
+
+                return {
+                    chips = card.ability.extra.chips + card.ability.extra.extra_chips * debuffed_ed_count
+                }
             end
         end
     end,
@@ -307,7 +311,8 @@ SMODS.Joker({
                     debuffed_ed_count = debuffed_ed_count +
                         JoyousSpring.count_materials_in_graveyard({ { is_extra_deck = true } })
                 end
-                card.joker_display_values.chips = card.ability.extra.chips * debuffed_ed_count
+                card.joker_display_values.chips = card.ability.extra.chips +
+                    card.ability.extra.extra_chips * debuffed_ed_count
             end
         }
     end

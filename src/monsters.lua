@@ -205,12 +205,12 @@ JoyousSpring.init_joy_table = function(params)
 end
 JoyousSpring.is_monster_card = function(card)
     return card and card.ability and card.ability.extra and type(card.ability.extra) == "table" and
-        card.ability.extra.joyous_spring or false
+        card.ability.extra.joyous_spring and true or false
 end
 
 JoyousSpring.is_monster_archetype = function(card, archetype)
     return JoyousSpring.is_monster_card(card) and
-        card.ability.extra.joyous_spring.monster_archetypes[archetype] or false
+        card.ability.extra.joyous_spring.monster_archetypes[archetype] and true or false
 end
 
 JoyousSpring.is_monster_type = function(card, monster_type)

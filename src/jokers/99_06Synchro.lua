@@ -12,7 +12,7 @@ SMODS.Joker({
     cost = 8,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revives" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
         end
         return { vars = { card.ability.extra.revives, card.ability.extra.creates } }
@@ -104,7 +104,7 @@ SMODS.Joker({
             if context.end_of_round and context.game_over == false and context.main_eval then
                 local count = 0
                 for _, joker in ipairs(G.jokers.cards) do
-                    if joker ~= card and not joker.debuff and joker.config.center.key ~= "j_joy_token" then
+                    if joker ~= card and not joker.ability.eternal and not joker.getting_sliced and not joker.debuff and joker.config.center.key ~= "j_joy_token" then
                         joker.getting_sliced = true
                         joker:start_dissolve()
                         count = count + 1

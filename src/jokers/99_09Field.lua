@@ -149,11 +149,12 @@ SMODS.Joker({
                 is_field_spell = true,
             },
             tributes = 1,
-            attach = 1
+            attach = 1,
+            activated = false
         },
     },
     calculate = function(self, card, context)
-        if context.joy_activate_effect and context.joy_activated_card == card then
+        if not card.ability.extra.activated and context.joy_activate_effect and context.joy_activated_card == card then
             local materials = JoyousSpring.get_materials_owned({ {} }, false, true)
             if #materials >= card.ability.extra.tributes then
                 JoyousSpring.create_overlay_effect_selection(card, materials, card.ability.extra.tributes,
@@ -163,7 +164,7 @@ SMODS.Joker({
         if context.joy_exit_effect_selection and context.joy_card == card and
             #context.joy_selection == card.ability.extra.tributes then
             JoyousSpring.tribute(card, context.joy_selection)
-
+            card.ability.extra.activated = true
             for _, joker in ipairs(G.jokers.cards) do
                 if JoyousSpring.is_summon_type(joker, "XYZ") then
                     joker.ability.extra.joyous_spring.xyz_materials = joker.ability.extra.joyous_spring.xyz_materials +
@@ -171,8 +172,14 @@ SMODS.Joker({
                 end
             end
         end
+        if context.end_of_round and context.game_over == false and context.main_eval then
+            card.ability.extra.activated = false
+        end
     end,
     joy_can_activate = function(card)
+        if card.ability.extra.activated then
+            return false
+        end
         local materials_owned = JoyousSpring.get_materials_owned({ {} }, false, true)
         local xyz_owned = JoyousSpring.get_materials_owned({ { summon_type = "XYZ" } })
 
