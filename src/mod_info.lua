@@ -210,6 +210,14 @@ SMODS.current_mod.extra_tabs = function()
     }
 end
 
+SMODS.current_mod.ui_config = {
+    colour = G.C.JOY.XYZ,
+    bg_colour = { G.C.JOY.MOD[1], G.C.JOY.MOD[2], G.C.JOY.MOD[3], 0.6 },
+    back_colour = darken(G.C.JOY.MOD, 0.3),
+    tab_button_colour = darken(G.C.JOY.MOD, 0.2),
+    collection_option_cycle_colour = darken(G.C.JOY.MOD, 0.2),
+}
+
 SMODS.current_mod.config_tab = function()
     return {
         n = G.UIT.ROOT,

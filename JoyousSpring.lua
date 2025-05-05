@@ -10,8 +10,8 @@ if debug then
     debug()
 end
 assert(SMODS.load_file("src/utils.lua"))()
-assert(SMODS.load_file("src/mod_info.lua"))()
 assert(SMODS.load_file("src/globals.lua"))()
+assert(SMODS.load_file("src/mod_info.lua"))()
 assert(SMODS.load_file("src/general_ui.lua"))()
 assert(SMODS.load_file("src/card_ui.lua"))()
 assert(SMODS.load_file("src/extra_deck.lua"))()
