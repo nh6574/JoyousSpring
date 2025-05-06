@@ -454,7 +454,7 @@ function localize(args, misc_cat)
     else
         local ret = localize_ref(args, misc_cat)
         -- Remove color codes from info_queue tooltip names
-        if args.type == "name_text" then
+        if type(ret) == "string" and args.type == "name_text" then
             if string.len(ret) > 2 and string.sub(ret, string.len(ret) - 1, string.len(ret)) == "{}" then
                 ret = string.sub(ret, 1, string.len(ret) - 2)
             end

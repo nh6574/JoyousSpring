@@ -75,7 +75,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and not card.ability.eternal then
+                if context.joy_activate_effect and context.joy_activated_card == card then
                     local materials = {}
                     for i, joker in ipairs(G.jokers.cards) do
                         if joker ~= card and not joker.ability.eternal then
@@ -172,7 +172,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and not card.ability.eternal then
+                if context.joy_activate_effect and context.joy_activated_card == card then
                     local materials = {}
                     for i, joker in ipairs(G.jokers.cards) do
                         if joker ~= card and not joker.ability.eternal then
