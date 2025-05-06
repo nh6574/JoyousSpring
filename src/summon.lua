@@ -213,6 +213,7 @@ JoyousSpring.summon_token = function(key, edition, atlas_key, sprite_pos, joyous
         monster_type = "Beast",
         is_effect = false
     })
+    card.ability.extra.joyous_spring.is_effect = false
 
     card.ability.extra.joyous_spring.token_name = joyous_spring_table and joyous_spring_table.token_name or
         pool_info.name or "j_joy_token"
