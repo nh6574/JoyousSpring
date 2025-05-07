@@ -34,7 +34,6 @@ else
 end
 '''
 
-
 # Add joker to Extra Deck when selecting from a pack
 [[patches]]
 [patches.pattern]

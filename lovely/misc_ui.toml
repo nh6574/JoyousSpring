@@ -39,12 +39,3 @@ colour = G.ACTIVE_MOD_UI and G.ACTIVE_MOD_UI.id == "JoyousSpring" and G.C.JOY an
 back_colour = G.ACTIVE_MOD_UI and G.ACTIVE_MOD_UI.id == "JoyousSpring" and G.C.JOY and darken(G.C.JOY.MOD, 0.3) or nil,
 back_func = (args and args.back_func) or G.ACTIVE_MOD_UI and "openModUI_"..G.ACTIVE_MOD_UI.id or 'your_collection', snap_back = args.snap_back, infotip = args.infotip, contents = {
 '''
-
-# Add enhancements to poker hand screen (copied from Cryptid)
-[[patches]]
-[patches.pattern]
-target = "functions/UI_definitions.lua"
-pattern = '''local card = Card(0,0, 0.5*G.CARD_W, 0.5*G.CARD_H, G.P_CARDS[v[1]], G.P_CENTERS.c_base)'''
-position = "at"
-payload = '''local card = Card(0,0, 0.5*G.CARD_W, 0.5*G.CARD_H, G.P_CARDS[v[1]], G.P_CENTERS[v[3] or 'c_base'])'''
-match_indent = true

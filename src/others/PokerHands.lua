@@ -34,11 +34,11 @@ SMODS.PokerHand({
     l_mult = 2,
     visible = false,
     example = {
-        { 'H_K', true, 'm_gold' },
-        { 'S_2', true, 'm_gold' },
-        { 'S_7', true, 'm_gold' },
-        { 'H_9', true, 'm_gold' },
-        { 'C_A', true, 'm_gold' },
+        { 'H_K', true, enhancement = 'm_gold' },
+        { 'S_2', true, enhancement = 'm_gold' },
+        { 'S_7', true, enhancement = 'm_gold' },
+        { 'H_9', true, enhancement = 'm_gold' },
+        { 'C_A', true, enhancement = 'm_gold' },
     },
     evaluate = function(parts, hand)
         if #hand == 5 and next(SMODS.find_card("j_joy_eld_angel")) then

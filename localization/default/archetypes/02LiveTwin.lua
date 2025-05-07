@@ -92,8 +92,8 @@ return {
                         "own a {C:joy_normal}\"Lil-la\"{} when summoned",
                     },
                     {
-                        "{C:attention}Revives #3#{} {C:joy_link}Evil★Twin Lil-la{} or {C:attention}#3#{}",
-                        "{C:joy_normal}\"Lil-la\"{} when {C:attention}Blind{} is selected",
+                        "{C:attention}Revives #3#{} {C:joy_link}Evil★Twin Lil-la{} (or {C:attention}#3#{}",
+                        "{C:joy_normal}\"Lil-la\"{} if none) when {C:attention}Blind{} is selected",
                     },
                 },
                 joy_summon_conditions = {
@@ -111,8 +111,8 @@ return {
                         "{C:money}+$#2#{} if you own a {C:joy_normal}\"Ki-sikil\"{} when summoned",
                     },
                     {
-                        "{C:attention}Revives #3#{} {C:joy_link}Evil★Twin Ki-sikil{} or {C:attention}#3#{}",
-                        "{C:joy_normal}\"Ki-sikil\"{} when {C:attention}Blind{} is selected",
+                        "{C:attention}Revives #3#{} {C:joy_link}Evil★Twin Ki-sikil{} (or {C:attention}#3#{}",
+                        "{C:joy_normal}\"Ki-sikil\"{} if none) when {C:attention}Blind{} is selected",
                     },
                 },
                 joy_summon_conditions = {
