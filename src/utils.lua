@@ -509,7 +509,7 @@ JoyousSpring.get_name_color = function(key, set)
     local name_for_color = G.localization.descriptions[set or "Joker"][key].name or
         ""
     if string.sub(name_for_color, 1, 3) == "{C:" then
-        local color = str:match("^%{C:([^}]+)%}")
+        local color = name_for_color:match("^%{C:([^}]+)%}")
         name_color = color
     end
     return G.ARGS.LOC_COLOURS[name_color or "joy_normal"]
