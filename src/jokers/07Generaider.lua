@@ -98,7 +98,7 @@ SMODS.Joker({
                         end
                     end
                     for i = 1, card.ability.extra.creates do
-                        JoyousSpring.create_summon({ 
+                        JoyousSpring.create_summon({
                             key = "j_joy_generaider_loptr"
                         })
                     end
@@ -923,7 +923,7 @@ SMODS.Joker({
     joy_can_activate = function(card)
         local tokens = JoyousSpring.get_materials_owned({ { key = "j_joy_token", monster_archetypes = { "Generaider" } } })
         return not card.debuff and
-            (not card.ability.extra.used and #G.jokers.cards + G.GAME.joker_buffer - card.ability.extra.tributes < G.jokers.config.card_limit and next(tokens)) and
+            (not card.ability.extra.used and #G.jokers.cards + G.GAME.joker_buffer - card.ability.extra.tributes < G.jokers.config.card_limit and #tokens >= card.ability.extra.tributes) and
             true or false
     end,
 })
