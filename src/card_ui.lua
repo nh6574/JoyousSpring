@@ -496,9 +496,9 @@ function init_localization()
 end
 
 ---Adds YGO's back to cards
----@param self table|SMODS.Center
+---@param self table|SMODS.Center?
 ---@param card Card
----@param front table
+---@param front table?
 JoyousSpring.set_back_sprite = function(self, card, front)
     if card.children.back then card.children.back:remove() end
     card.children.back = Sprite(card.T.x, card.T.y, card.T.w, card.T.h, G.ASSET_ATLAS["joy_Back"], { x = 0, y = 0 })

@@ -25,12 +25,7 @@ SMODS.current_mod.custom_ui = function(modNodes)
         local card = Card(G.joy_desc_area.T.x + G.joy_desc_area.T.w / 2, G.joy_desc_area.T.y,
             G.CARD_W, G.CARD_H, G.P_CARDS.empty,
             G.P_CENTERS[key])
-        card.children.back = Sprite(card.T.x, card.T.y, card.T.w, card.T.h, G.ASSET_ATLAS["joy_Back"], { x = 0, y = 0 })
-        card.children.back.states.hover = card.states.hover
-        card.children.back.states.click = card.states.click
-        card.children.back.states.drag = card.states.drag
-        card.children.back.states.collide.can = false
-        card.children.back:set_role({ major = card, role_type = 'Glued', draw_major = card })
+        JoyousSpring.set_back_sprite(nil, card)
         G.joy_desc_area:emplace(card)
         card:flip()
         G.E_MANAGER:add_event(Event({
