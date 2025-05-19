@@ -579,8 +579,7 @@ SMODS.Joker({
         if not context.blueprint and context.end_of_round and context.game_over == false and context.main_eval then
             card.ability.extra.blinds = card.ability.extra.blinds + 1
             if card.ability.extra.blinds >= #JoyousSpring.get_materials(card) then
-                card.getting_sliced = true
-                card:start_dissolve()
+                SMODS.destroy_cards(card)
             end
         end
     end,

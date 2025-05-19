@@ -71,23 +71,8 @@ SMODS.Joker({
             destroyed_cards[#destroyed_cards + 1] = G.hand.highlighted[i]
         end
         JoyousSpring.pre_consumable_use(card, true)
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 0.2,
-            func = function()
-                for i = #G.hand.highlighted, 1, -1 do
-                    local playing_card = G.hand.highlighted[i]
-                    if SMODS.has_enhancement(playing_card, 'm_glass') then
-                        playing_card:shatter()
-                    else
-                        playing_card:start_dissolve(nil, i == #G.hand.highlighted)
-                    end
-                end
-                return true
-            end
-        }))
+        SMODS.destroy_cards(G.hand.highlighted)
         JoyousSpring.post_consumable_highlighted_use()
-        SMODS.calculate_context({ remove_playing_cards = true, removed = destroyed_cards })
     end,
     can_use = function(self, card)
         return card.ability.extra.max >= #G.hand.highlighted and #G.hand.highlighted >= 1

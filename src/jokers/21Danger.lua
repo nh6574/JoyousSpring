@@ -633,8 +633,7 @@ SMODS.Joker({
             end
             for i = 1, #G.consumeables.cards do
                 if not G.consumeables.cards[i].ability.eternal and not G.consumeables.cards[i].getting_sliced then
-                    G.consumeables.cards[i]:start_dissolve()
-                    G.consumeables.cards[i].getting_sliced = true
+                    SMODS.destroy_cards(G.consumeables.cards[i])
                 end
             end
         end
