@@ -1,3 +1,6 @@
+-- Please don't copy this localization structure unless you know what you're doing
+-- Look at other mods instead
+
 local localization = {}
 local localization_files = {}
 
