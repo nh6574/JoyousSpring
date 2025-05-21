@@ -1216,7 +1216,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if context.individual and context.cardarea == G.play and JoyousSpring.get_joker_column(card) == 1 then
+            if context.individual and context.cardarea == G.play and JoyousSpring.get_joker_column(card) == 1 and JoyousSpring.get_joker_column(card) == (JoyousSpring.index_of(context.full_hand, context.other_card)) then
                 context.other_card.ability.perma_bonus = (context.other_card.ability.perma_bonus or 0) +
                     card.ability.extra.chips
                 return { message = localize('k_upgrade_ex'), colour = G.C.CHIPS }
@@ -1224,7 +1224,7 @@ SMODS.Joker({
             if ((context.destroying_card and JoyousSpring.get_joker_column(card) ~= 1) or
                     (context.destroy_card and context.cardarea == 'unscored')) and
                 JoyousSpring.get_joker_column(card) ==
-                (JoyousSpring.index_of(context.full_hand, context.destroying_card or context.destroy_card)) then
+                (JoyousSpring.index_of(context.full_hand, context.destroy_card)) then
                 return { remove = true }
             end
             if context.repetition and context.cardarea == G.play and JoyousSpring.get_joker_column(card) == 3 then
