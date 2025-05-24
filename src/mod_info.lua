@@ -492,12 +492,12 @@ JoyousSpring.card_collection_UIBox = function(_pool, rows, args)
                 nodes = {
                     create_option_cycle({
                         options = options,
-                        w = 4.5,
+                        w = 5,
                         cycle_shoulders = true,
                         opt_callback =
                         'SMODS_card_collection_page',
                         current_option = 1,
-                        colour = G.C.RED,
+                        colour = darken(G.C.JOY.MOD, 0.2),
                         no_pips = true,
                         focus_args = { snap_to = true, nav = 'wide' }
                     })
