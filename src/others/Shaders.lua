@@ -1,3 +1,5 @@
+-- SHADERS
+
 SMODS.Shader {
     key = "glow",
     path = "glow.fs",

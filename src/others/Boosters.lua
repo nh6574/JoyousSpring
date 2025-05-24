@@ -1,4 +1,4 @@
---- RUNICK
+--- BOOSTERS
 SMODS.Atlas({
     key = "Booster",
     path = "boosters.png",

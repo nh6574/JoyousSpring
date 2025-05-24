@@ -1,3 +1,5 @@
+-- OBJECT TYPES
+
 SMODS.ObjectType({
     key = "joy_monster",
     default = "j_joy_fish_paces",

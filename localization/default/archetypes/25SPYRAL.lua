@@ -1,80 +1,96 @@
 return {
     descriptions = {
         Joker = {
-            j_joy_adaman_analyzer = {
-                name = "{C:joy_effect}Adamancipator Analyzer",
+            j_joy_spy_drone = {
+                name = "{C:joy_effect}SPYRAL GEAR - Drone",
                 text = {
                     {
                         "TBD",
                     },
                 }
             },
-            j_joy_adaman_researcher = {
-                name = "{C:joy_effect}Adamancipator Researcher",
+            j_joy_spy_lastresort = {
+                name = "{C:joy_effect}SPYRAL GEAR - Last Resort",
                 text = {
                     {
                         "TBD",
                     },
                 }
             },
-            j_joy_adaman_seeker = {
-                name = "{C:joy_effect}Adamancipator Seeker",
+            j_joy_spy_double = {
+                name = "{C:joy_effect}SPYRAL Double Agent",
                 text = {
                     {
                         "TBD",
                     },
                 }
             },
-            j_joy_adaman_crysdragite = {
-                name = "{C:joy_effect}Adamancipator Crystal - Dragite",
+            j_joy_spy_masterplan = {
+                name = "{C:joy_effect}SPYRAL Master Plan",
                 text = {
                     {
                         "TBD",
                     },
                 }
             },
-            j_joy_adaman_crysraptite = {
-                name = "{C:joy_effect}Adamancipator Crystal - Raptite",
+            j_joy_spy_quik = {
+                name = "{C:joy_effect}SPYRAL Quik-Fix",
                 text = {
                     {
                         "TBD",
                     },
                 }
             },
-            j_joy_adaman_crysleonite = {
-                name = "{C:joy_effect}Adamancipator Crystal - Leonite",
+            j_joy_spy_sleeper = {
+                name = "{C:joy_effect}SPYRAL Sleeper",
                 text = {
                     {
                         "TBD",
                     },
                 }
             },
-            j_joy_adaman_dragite = {
-                name = "{C:joy_synchro}Adamancipator Risen - Dragite",
+            j_joy_spy_tough = {
+                name = "{C:joy_effect}SPYRAL Tough",
                 text = {
                     {
                         "TBD",
                     },
                 }
             },
-            j_joy_adaman_leonite = {
-                name = "{C:joy_synchro}Adamancipator Risen - Leonite",
+            j_joy_spy_super = {
+                name = "{C:joy_effect}SPYRAL Super Agent",
                 text = {
                     {
                         "TBD",
                     },
                 }
             },
-            j_joy_adaman_raptite = {
-                name = "{C:joy_synchro}Adamancipator Risen - Raptite",
+            j_joy_spy_misty = {
+                name = "{C:joy_effect}SPYGAL Misty",
                 text = {
                     {
                         "TBD",
                     },
                 }
             },
-            j_joy_adaman_laputite = {
-                name = "{C:joy_spell}Adamancipator Laputite",
+            j_joy_spy_staff = {
+                name = "{C:joy_effect}Charming Resort Staff",
+                text = {
+                    {
+                        "TBD",
+                    },
+                }
+            },
+            j_joy_spy_helix = {
+                name = "{C:joy_link}SPYRAL Double Helix",
+                text = {
+                    {
+                        "TBD",
+                    },
+                }
+            },
+            j_joy_spy_resort = {
+                name = "{C:joy_spell}SPYRAL Resort",
                 text = {
                     {
                         "TBD",
@@ -85,7 +101,7 @@ return {
     },
     misc = {
         dictionary = {
-            k_joy_archetype_adaman = "Adamancipator",
+            k_joy_archetype_spy = "SPYRAL",
         }
     }
 }
