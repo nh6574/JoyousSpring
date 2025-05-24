@@ -13,7 +13,7 @@ JoyousSpring.create_sell_and_use_buttons = function(card, args)
             nodes = {
                 {
                     n = G.UIT.C,
-                    config = { ref_table = card, align = "cr", padding = 0.1, r = 0.08, minw = 1.25, hover = true, shadow = true, colour = G.C.UI.BACKGROUND_INACTIVE, one_press = true, button = 'sell_card', func = 'can_sell_card' },
+                    config = { ref_table = card, align = "cr", padding = 0.1, r = 0.08, minw = 1.25, hover = true, shadow = true, colour = G.C.UI.BACKGROUND_INACTIVE, one_press = true, button = 'sell_card', func = 'can_sell_card', handy_insta_action = "sell" },
                     nodes = {
                         { n = G.UIT.B, config = { w = 0.1, h = 0.6 } },
                         {
@@ -50,7 +50,7 @@ JoyousSpring.create_sell_and_use_buttons = function(card, args)
 
                 {
                     n = G.UIT.C,
-                    config = { ref_table = card, align = "cr", maxw = 1.25, padding = 0.1, r = 0.08, minw = 1.25, minh = 0, hover = true, shadow = true, colour = args.can_summon and G.C.JOY[args.summon_type] or G.C.UI.BACKGROUND_INACTIVE, button = args.can_summon and 'joy_perform_summon' or nil },
+                    config = { ref_table = card, align = "cr", maxw = 1.25, padding = 0.1, r = 0.08, minw = 1.25, minh = 0, hover = true, shadow = true, colour = args.can_summon and G.C.JOY[args.summon_type] or G.C.UI.BACKGROUND_INACTIVE, button = args.can_summon and 'joy_perform_summon' or nil, handy_insta_action = "use" },
                     nodes = {
                         { n = G.UIT.B, config = { w = 0.1, h = 0.6 } },
                         { n = G.UIT.T, config = { text = localize('k_joy_summon'), colour = G.C.UI.TEXT_LIGHT, scale = 0.55, shadow = true } }
@@ -66,7 +66,7 @@ JoyousSpring.create_sell_and_use_buttons = function(card, args)
             nodes = {
                 {
                     n = G.UIT.C,
-                    config = { ref_table = card, align = "cr", maxw = 1.25, padding = 0.1, r = 0.08, minw = 1.25, minh = 0, hover = true, shadow = true, colour = G.C.JOY.XYZ or G.C.UI.BACKGROUND_INACTIVE, button = 'joy_detach_material' },
+                    config = { ref_table = card, align = "cr", maxw = 1.25, padding = 0.1, r = 0.08, minw = 1.25, minh = 0, hover = true, shadow = true, colour = G.C.JOY.XYZ or G.C.UI.BACKGROUND_INACTIVE, button = 'joy_detach_material', handy_insta_action = "use" },
                     nodes = {
                         { n = G.UIT.B, config = { w = 0.1, h = 0.6 } },
                         { n = G.UIT.T, config = { text = localize('k_joy_detach'), colour = G.C.UI.TEXT_LIGHT, scale = 0.55, shadow = true } }
@@ -83,7 +83,7 @@ JoyousSpring.create_sell_and_use_buttons = function(card, args)
 
                 {
                     n = G.UIT.C,
-                    config = { ref_table = card, align = "cr", maxw = 1.25, padding = 0.1, r = 0.08, minw = 1.25, minh = 0, hover = true, shadow = true, colour = G.C.JOY.PENDULUM or G.C.UI.BACKGROUND_INACTIVE, one_press = true, func = 'joy_can_use', button = 'joy_use_card' },
+                    config = { ref_table = card, align = "cr", maxw = 1.25, padding = 0.1, r = 0.08, minw = 1.25, minh = 0, hover = true, shadow = true, colour = G.C.JOY.PENDULUM or G.C.UI.BACKGROUND_INACTIVE, one_press = true, func = 'joy_can_use', button = 'joy_use_card', handy_insta_action = "use" },
                     nodes = {
                         { n = G.UIT.B, config = { w = 0.1, h = 0.6 } },
                         { n = G.UIT.T, config = { text = localize('b_use'), colour = G.C.UI.TEXT_LIGHT, scale = 0.55, shadow = true } }
@@ -100,7 +100,7 @@ JoyousSpring.create_sell_and_use_buttons = function(card, args)
 
                 {
                     n = G.UIT.C,
-                    config = { ref_table = card, align = "cr", maxw = 1.25, padding = 0.1, r = 0.08, minw = 1.25, minh = 0, hover = true, shadow = true, colour = G.C.JOY.EFFECT or G.C.UI.BACKGROUND_INACTIVE, one_press = true, func = 'joy_can_activate', button = 'joy_activate_effect' },
+                    config = { ref_table = card, align = "cr", maxw = 1.25, padding = 0.1, r = 0.08, minw = 1.25, minh = 0, hover = true, shadow = true, colour = G.C.JOY.EFFECT or G.C.UI.BACKGROUND_INACTIVE, one_press = true, func = 'joy_can_activate', button = 'joy_activate_effect', handy_insta_action = "use" },
                     nodes = {
                         { n = G.UIT.B, config = { w = 0.1, h = 0.6 } },
                         { n = G.UIT.T, config = { text = localize('k_joy_activate'), colour = G.C.UI.TEXT_LIGHT, scale = 0.55, shadow = true } }
