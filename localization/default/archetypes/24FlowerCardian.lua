@@ -194,6 +194,16 @@ return {
                 }
             }
         },
+        Back = {
+            b_joy_hanafuda = {
+                name = "{C:joy_spell}Flower Stacking",
+                text = {
+                    "Start with",
+                    "all random",
+                    "{C:attention,T:m_joy_hanafuda}Hanafuda{} cards"
+                }
+            }
+        },
         JoyPokerHand = {
         }
     },
