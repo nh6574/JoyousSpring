@@ -39,3 +39,34 @@ colour = G.ACTIVE_MOD_UI and G.ACTIVE_MOD_UI.id == "JoyousSpring" and G.C.JOY an
 back_colour = G.ACTIVE_MOD_UI and G.ACTIVE_MOD_UI.id == "JoyousSpring" and G.C.JOY and darken(G.C.JOY.MOD, 0.3) or nil,
 back_func = (args and args.back_func) or G.ACTIVE_MOD_UI and "openModUI_"..G.ACTIVE_MOD_UI.id or 'your_collection', snap_back = args.snap_back, infotip = args.infotip, contents = {
 '''
+
+# Add Hanafuda enhancements to poker hand screen
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''local card = Card(0,0, 0.5*G.CARD_W, 0.5*G.CARD_H, G.P_CARDS[v[1]], G.P_CENTERS[v.enhancement or 'c_base'])'''
+position = "after"
+payload = '''
+if v.joy_hanafuda then
+    G.E_MANAGER:add_event(Event({
+        blockable = false,
+        func = (function()
+            card.children.center:set_sprite_pos(JoyousSpring.hanafuda_cards[v.joy_hanafuda].pos)
+            return true
+        end)
+    }))
+end
+'''
+match_indent = true
+
+# create_popup_UIBox_tooltip
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''local r = {n=G.UIT.R, config={align = "cm", padding = 0.03}, nodes={
+                {n=G.UIT.T, config={text = text[i],colour = G.C.UI.TEXT_DARK, scale = 0.4}}}}'''
+position = "at"
+payload = '''
+local r = {n=G.UIT.R, config={align = "cm", padding = 0.03}, nodes=SMODS.localize_box(loc_parse_string(text[i]), {scale = 1.25})}
+'''
+match_indent = true

@@ -145,8 +145,54 @@ return {
         },
         Tarot = {
             c_joy_cardian_gathering = {
-                name = "{C:joy_spell}Flower Gathering"
+                name = "{C:joy_spell}Flower Gathering",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into {C:attention}Hanafuda{} cards",
+                },
             },
+        },
+        Enhanced = {
+            m_joy_hanafuda = {
+                name = "Hanafuda",
+                text = {
+                    {
+                        "{C:mult}+#4#{} Mult when scored with",
+                        "another {C:attention}Hanafuda{} card of the same {C:joy_link}Month{}",
+                        "or in a {C:attention}Koi Koi{} hand"
+                    },
+                    {
+                        "{C:joy_mod}#1#",
+                        "{C:joy_link}#2#{} / {C:joy_link}#3#",
+                    }
+                }
+            },
+            m_joy_hanafuda_chaff = {
+                name = "Hanafuda",
+                text = {
+                    {
+                        "{C:mult}+#4#{} Mult",
+                        "Always scores in {C:attention}Koi Koi{} hands"
+                    },
+                    {
+                        "{C:joy_mod}#1#",
+                        "{C:joy_link}#2#{} / {C:joy_link}#3#",
+                    }
+                }
+            },
+            m_joy_hanafuda_fake = {
+                name = "Hanafuda",
+                text = {
+                    {
+                        "{C:mult}+20{}/{C:mult}10{}/{C:mult}5{} Mult when scored with",
+                        "another hand of the same {C:joy_link}Month{}",
+                        "or in a {C:attention}Koi Koi{} hand",
+                        "OR {C:mult}+1{} Mult and scores in {C:attention}Koi Koi{} hands",
+                        "if it's {C:joy_link}Chaff",
+                        "{C:inactive}(Month/Type is random)"
+                    }
+                }
+            }
         },
         JoyPokerHand = {
         }
@@ -201,15 +247,17 @@ return {
                 "and/or up to 2 unscored cards"
             },
             joy_cardian_flowerviewing = {
-                "Chrysanthemum with Sake and Cherry Blossom with Curtain",
+                "Up to 5 Chrysanthemum with Sake and",
+                "Cherry Blossom with Curtain Hanafuda cards",
                 "with up to 3 unscored cards"
             },
             joy_cardian_moonviewing = {
-                "Chrysanthemum with Sake and Zebra Grass with Moon",
-                "with up to 3 unscored cards"
+                "Up to 5 {E:1,C:joy_mod}Chrysanthemum with Sake{} and",
+                "{C:joy_mod}Zebra Grass with Moon{} {s:1.1,C:attention}Hanafuda{} cards",
+                "{C:inactive}with up to 3 unscored {X:mult,C:white}cards"
             },
             joy_cardian_moonflowerviewing = {
-                "Hand contains Moonviewing and Flowerviewing",
+                "Hand contains {C:attention}Moonviewing{} and {C:attention}Flowerviewing{}",
                 "with up to 2 unscored cards"
             },
             joy_cardian_lightwave = {
@@ -230,6 +278,75 @@ return {
         },
         dictionary = {
             k_joy_archetype_cardian = "Flower Cardian",
+            --#region Months
+            k_joy_hanafuda_january = "January",
+            k_joy_hanafuda_february = "February",
+            k_joy_hanafuda_march = "March",
+            k_joy_hanafuda_april = "April",
+            k_joy_hanafuda_may = "May",
+            k_joy_hanafuda_june = "June",
+            k_joy_hanafuda_july = "July",
+            k_joy_hanafuda_august = "August",
+            k_joy_hanafuda_september = "September",
+            k_joy_hanafuda_october = "October",
+            k_joy_hanafuda_november = "November",
+            k_joy_hanafuda_december = "December",
+            --#endregion
+            --#region Types
+            k_joy_hanafuda_light = "Light",
+            k_joy_hanafuda_animal = "Animal",
+            k_joy_hanafuda_ribbon = "Ribbon",
+            k_joy_hanafuda_chaff = "Chaff",
+            --#endregion
+            --#region Names
+            ["k_joy_hanafuda_Pine with Crane"] = "Pine with Crane",
+            ["k_joy_hanafuda_Pine with Ribbon"] = "Pine with Ribbon",
+            ["k_joy_hanafuda_Pine"] = "Pine",
+
+            ["k_joy_hanafuda_Plum Blossom with White-eye"] = "Plum Blossom with White-eye",
+            ["k_joy_hanafuda_Plum Blossom with Ribbon"] = "Plum Blossom with Ribbon",
+            ["k_joy_hanafuda_Plum Blossom"] = "Plum Blossom",
+
+            ["k_joy_hanafuda_Cherry Blossom with Curtain"] = "Cherry Blossom with Curtain",
+            ["k_joy_hanafuda_Cherry Blossom with Ribbon"] = "Cherry Blossom with Ribbon",
+            ["k_joy_hanafuda_Cherry Blossom"] = "Cherry Blossom",
+
+            ["k_joy_hanafuda_Wisteria with Cuckoo"] = "Wisteria with Cuckoo",
+            ["k_joy_hanafuda_Wisteria with Ribbon"] = "Wisteria with Ribbon",
+            ["k_joy_hanafuda_Wisteria"] = "Wisteria",
+
+            ["k_joy_hanafuda_Water Iris with Bridge"] = "Water Iris with Bridge",
+            ["k_joy_hanafuda_Water iris with Ribbon"] = "Water iris with Ribbon",
+            ["k_joy_hanafuda_Water iris"] = "Water iris",
+
+            ["k_joy_hanafuda_Peony with Butterfly"] = "Peony with Butterfly",
+            ["k_joy_hanafuda_Peony with Ribbon"] = "Peony with Ribbon",
+            ["k_joy_hanafuda_Peony"] = "Peony",
+
+            ["k_joy_hanafuda_Clover with Boar"] = "Clover with Boar",
+            ["k_joy_hanafuda_Clover with Ribbon"] = "Clover with Ribbon",
+            ["k_joy_hanafuda_Clover"] = "Clover",
+
+            ["k_joy_hanafuda_Zebra Grass with Moon"] = "Zebra Grass with Moon",
+            ["k_joy_hanafuda_Zebra Grass with Geese"] = "Zebra Grass with Geese",
+            ["k_joy_hanafuda_Zebra Grass"] = "Zebra Grass",
+
+            ["k_joy_hanafuda_Chrysanthemum with Sake"] = "Chrysanthemum with Sake",
+            ["k_joy_hanafuda_Chrysanthemum with Ribbon"] = "Chrysanthemum with Ribbon",
+            ["k_joy_hanafuda_Chrysanthemum"] = "Chrysanthemum",
+
+            ["k_joy_hanafuda_Maple with Deer"] = "Maple with Deer",
+            ["k_joy_hanafuda_Maple with Ribbon"] = "Maple with Ribbon",
+            ["k_joy_hanafuda_Maple"] = "Maple",
+
+            ["k_joy_hanafuda_Willow with Calligrapher"] = "Willow with Calligrapher",
+            ["k_joy_hanafuda_Willow with Swallow"] = "Willow with Swallow",
+            ["k_joy_hanafuda_Willow with Ribbon"] = "Willow with Ribbon",
+            ["k_joy_hanafuda_Willow"] = "Willow",
+
+            ["k_joy_hanafuda_Paulownia with Phoenix"] = "Paulownia with Phoenix",
+            ["k_joy_hanafuda_Paulownia"] = "Paulownia",
+            --#endregion
         }
     }
 }
