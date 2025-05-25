@@ -1,10 +1,10 @@
 --- FLOWER CARDIAN
-SMODS.Atlas({
-    key = "cardian",
-    path = "24FlowerCardian.png",
-    px = 71,
-    py = 95
-})
+-- SMODS.Atlas({
+--     key = "cardian",
+--     path = "24FlowerCardian.png",
+--     px = 71,
+--     py = 95
+-- })
 
 -- Flower Cardian Pine
 SMODS.Joker({

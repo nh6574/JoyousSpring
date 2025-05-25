@@ -9,6 +9,13 @@ SMODS.Atlas {
     py = 95
 }
 
+SMODS.Atlas({
+    key = "cardian",
+    path = "24FlowerCardian.png",
+    px = 71,
+    py = 95
+})
+
 JoyousSpring.hanafuda_cards = {
     ["Pine with Crane"] = { month = "january", type = "light", pos = { x = 1, y = 0 } },
     ["Pine with Ribbon"] = { month = "january", type = "ribbon", pos = { x = 0, y = 0 } },
