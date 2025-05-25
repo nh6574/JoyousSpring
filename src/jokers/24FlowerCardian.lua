@@ -502,19 +502,6 @@ SMODS.Joker({
     },
 })
 
-SMODS.Consumable {
-    key = "cardian_koikoi",
-    set = "Planet",
-    loc_txt = {
-        name = "Super Koi-Koi",
-        text = {
-            "TBD"
-        }
-    },
-    atlas = "cardian",
-    pos = { x = 2, y = 3 }
-}
-
 JoyousSpring.collection_pool[#JoyousSpring.collection_pool + 1] = {
     keys = { "cardian" },
     label = "k_joy_archetype_cardian"

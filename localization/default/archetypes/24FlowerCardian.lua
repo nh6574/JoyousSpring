@@ -140,7 +140,11 @@ return {
         },
         Planet = {
             c_joy_cardian_koikoi = {
-                name = "{C:joy_spell}Super Koi Koi"
+                name = "{C:joy_spell}Super Koi Koi",
+                text = {
+                    "Level up all",
+                    "{C:attention}Koi Koi{} hands once",
+                },
             },
         },
         Tarot = {
@@ -288,6 +292,7 @@ return {
         },
         dictionary = {
             k_joy_archetype_cardian = "Flower Cardian",
+            k_joy_all_koikoi_hands = "All Koi Koi hands",
             --#region Months
             k_joy_hanafuda_january = "January",
             k_joy_hanafuda_february = "February",

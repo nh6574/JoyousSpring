@@ -109,15 +109,12 @@ SMODS.Atlas({
 })
 
 SMODS.Consumable {
-    set = 'Planet',
     key = 'cursed_eldland',
+    set = 'Planet',
     atlas = 'p_eldland',
     discovered = true,
     config = { hand_type = 'joy_eldlixir', softlock = true },
     pos = { x = 0, y = 0 },
-    set_card_type_badge = function(self, card, badges)
-        badges[1] = create_badge(localize('k_planet'), get_type_colour(self or card.config, card), nil, 1.2)
-    end,
     generate_ui = 0,
     process_loc_text = function(self)
         local target_text = G.localization.descriptions[self.set]['c_mercury'].text
@@ -129,7 +126,7 @@ SMODS.Consumable {
 --#endregion
 
 --#region Koi Koi
--- I'm the only one using these so I'm not going to bother making the parts properly. I don't care if a Lightwave has 4 cards sometimes
+-- I'm the only one using these so I'm not going to bother making the parts properly.
 
 JoyousSpring.hanafuda_get_hand_for_list = function(hand, has_hanafuda, has_at_least)
     local ret = {}
@@ -565,4 +562,72 @@ SMODS.PokerHand({
         return JoyousSpring.hanafuda_get_hand_for_list(hand, has_hanafuda)
     end
 })
+
+SMODS.Consumable {
+    key = "cardian_koikoi",
+    set = "Planet",
+    atlas = "cardian",
+    pos = { x = 2, y = 3 },
+    config = { joy_hand_types = {
+        "joy_cardian_chaff",
+        "joy_cardian_ribbons",
+        "joy_cardian_blueribbon",
+        "joy_cardian_redpoem",
+        "joy_cardian_redpoemblueribbon",
+        "joy_cardian_animals",
+        "joy_cardian_boardefly",
+        "joy_cardian_flowerviewing",
+        "joy_cardian_moonviewing",
+        "joy_cardian_moonflowerviewing",
+        "joy_cardian_lightwave",
+        "joy_cardian_lightshower",
+        "joy_cardian_lightshow",
+        "joy_cardian_lightflare",
+    }, softlock = true },
+    use = function(self, card, area, copier)
+        update_hand_text({ sound = 'button', volume = 0.7, pitch = 0.8, delay = 0.3 },
+            { handname = localize('k_joy_all_koikoi_hands'), chips = '...', mult = '...', level = '' })
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.2,
+            func = function()
+                play_sound('tarot1')
+                card:juice_up(0.8, 0.5)
+                G.TAROT_INTERRUPT_PULSE = true
+                return true
+            end
+        }))
+        update_hand_text({ delay = 0 }, { mult = '+', StatusText = true })
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.9,
+            func = function()
+                play_sound('tarot1')
+                card:juice_up(0.8, 0.5)
+                return true
+            end
+        }))
+        update_hand_text({ delay = 0 }, { chips = '+', StatusText = true })
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.9,
+            func = function()
+                play_sound('tarot1')
+                card:juice_up(0.8, 0.5)
+                G.TAROT_INTERRUPT_PULSE = nil
+                return true
+            end
+        }))
+        update_hand_text({ sound = 'button', volume = 0.7, pitch = 0.9, delay = 0 }, { level = '+1' })
+        delay(1.3)
+        for _, poker_hand_key in pairs(card.ability.joy_hand_types) do
+            level_up_hand(card, poker_hand_key, true)
+        end
+        update_hand_text({ sound = 'button', volume = 0.7, pitch = 1.1, delay = 0 },
+            { mult = 0, chips = 0, handname = '', level = '' })
+    end,
+    can_use = function(self, card)
+        return true
+    end
+}
 --#endregion
