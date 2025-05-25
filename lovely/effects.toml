@@ -90,17 +90,6 @@ if score == 'defeated_by' and JoyousSpring and JoyousSpring.defeated_by then
 end'''
 match_indent = true
 
-# Prevent discarding more than 5
-[[patches]]
-[patches.pattern]
-target = "functions/button_callbacks.lua"
-pattern = "if G.GAME.current_round.discards_left <= 0 or #G.hand.highlighted <= 0 then"
-position = 'at'
-match_indent = true
-payload = '''
-if G.GAME.current_round.discards_left <= 0 or #G.hand.highlighted <= 0 or #G.hand.highlighted > 5 then
-'''
-
 # Keep cards flipped after blind
 [[patches]]
 [patches.pattern]
