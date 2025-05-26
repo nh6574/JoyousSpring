@@ -1,5 +1,11 @@
 ---CARD UI
 
+SMODS.Font {
+    key = "font",
+    path = "DoHyeon-Regular.ttf",
+    FONTSCALE = 0.1
+}
+
 ---Creates UI for a monsters type information
 ---@param card Card
 ---@return table
@@ -256,24 +262,24 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
         end
     else
         -- Add type information under names
-        full_UI_table.name = {
-            {
-                n = G.UIT.C,
-                config = { align = "cm", padding = 0.05 },
-                nodes = {
-                    {
-                        n = G.UIT.R,
-                        config = { align = "cm" },
-                        nodes = full_UI_table.name
-                    },
-                    {
-                        n = G.UIT.R,
-                        config = { align = "cm" },
-                        nodes = JoyousSpring.get_type_ui(card)
-                    },
-                }
-            }
-        }
+        -- full_UI_table.name = {
+        --     {
+        --         n = G.UIT.C,
+        --         config = { align = "cm", padding = 0.05 },
+        --         nodes = {
+        --             {
+        --                 n = G.UIT.R,
+        --                 config = { align = "cm" },
+        --                 nodes = full_UI_table.name
+        --             },
+        --             {
+        --                 n = G.UIT.R,
+        --                 config = { align = "cm" },
+        --                 nodes = JoyousSpring.get_type_ui(card)
+        --             },
+        --         }
+        --     }
+        -- }
 
         -- Pendulum ability
         if card and not card.debuff and G.localization.descriptions[self.set][self.key].joy_consumable then
@@ -451,20 +457,6 @@ function localize(args, misc_cat)
                 args.nodes[#args.nodes + 1] = final_line
             end
         end
-    else
-        local ret = localize_ref(args, misc_cat)
-        -- Remove color codes from info_queue tooltip names
-        if type(ret) == "string" and args.type == "name_text" then
-            if string.len(ret) > 2 and string.sub(ret, string.len(ret) - 1, string.len(ret)) == "{}" then
-                ret = string.sub(ret, 1, string.len(ret) - 2)
-            end
-            if string.sub(ret, 1, 3) == "{C:" then
-                local _, _, _, real_name = string.find(ret, "{C:(.*)}(.*)")
-                ret = real_name
-            end
-        end
-
-        return ret
     end
     return localize_ref(args, misc_cat)
 end

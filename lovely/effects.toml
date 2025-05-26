@@ -101,19 +101,6 @@ payload = '''
 if self.name == 'Amber Acorn' and v.facing == 'back' then v:flip() end
 '''
 
-# Modify modify scoring hand context
-[[patches]]
-[patches.pattern]
-target = 'functions/state_events.lua'
-match_indent = true
-position = 'at'
-pattern = '''
-SMODS.calculate_context({modify_scoring_hand = true, other_card =  G.play.cards[i], full_hand = G.play.cards, scoring_hand = scoring_hand}, effects)
-'''
-payload = '''
-SMODS.calculate_context({modify_scoring_hand = true, other_card =  G.play.cards[i], full_hand = G.play.cards, scoring_hand = scoring_hand, in_scoring = true}, effects)
-'''
-
 # Add multiple hand_types to planets
 [[patches]]
 [patches.pattern]

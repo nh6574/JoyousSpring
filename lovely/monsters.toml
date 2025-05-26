@@ -84,12 +84,12 @@ payload = '''
 info_boxes = {{n=G.UIT.R, config = {align="cm", padding = 0.05, card_pos = card.T.x, card = card}, nodes = info_cols}}
 '''
 
-# Nicer display for Jokers with long names
-[[patches]]
-[patches.pattern]
-target = "functions/misc_functions.lua"
-pattern = "maxw = 5,"
-position = 'at'
-match_indent = true
-payload = '''
-'''
+# # Nicer display for Jokers with long names
+# [[patches]]
+# [patches.pattern]
+# target = "functions/misc_functions.lua"
+# pattern = "maxw = 5,"
+# position = 'at'
+# match_indent = true
+# payload = '''
+# '''

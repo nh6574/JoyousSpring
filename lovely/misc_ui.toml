@@ -3,43 +3,6 @@ version = "0.1.0"
 dump_lua = true
 priority = 0
 
-# Change mod's tab colours
-[[patches]]
-[patches.pattern]
-target = '=[SMODS _ "src/ui.lua"]'
-pattern = "tabs = mod_tabs"
-position = 'before'
-match_indent = true
-payload = '''
-colour = mod.id == "JoyousSpring" and G.C.JOY and darken(G.C.JOY.MOD, 0.2) or G.C.BOOSTER,
-'''
-
-[[patches]]
-[patches.pattern]
-target = '=[SMODS _ "src/ui.lua"]'
-pattern = 'back_func = "mods_button",'
-position = 'before'
-match_indent = true
-payload = '''
-bg_colour = mod.id == "JoyousSpring" and G.C.JOY and {G.C.JOY.MOD[1], G.C.JOY.MOD[2], G.C.JOY.MOD[3], 0.6} or nil,
-colour = mod.id == "JoyousSpring" and G.C.JOY and G.C.JOY.XYZ or nil,
-back_colour = mod.id == "JoyousSpring" and G.C.JOY and darken(G.C.JOY.MOD, 0.3) or nil,
-'''
-
-[[patches]]
-[patches.regex]
-target = '=[SMODS _ "src/ui.lua"]'
-pattern = 'local t =  create_UIBox_generic_options.*'
-position = 'at'
-match_indent = true
-payload = '''
-local t =  create_UIBox_generic_options({
-bg_colour = G.ACTIVE_MOD_UI and G.ACTIVE_MOD_UI.id == "JoyousSpring" and G.C.JOY and {G.C.JOY.MOD[1], G.C.JOY.MOD[2], G.C.JOY.MOD[3], 0.6} or nil,
-colour = G.ACTIVE_MOD_UI and G.ACTIVE_MOD_UI.id == "JoyousSpring" and G.C.JOY and G.C.JOY.XYZ or nil,
-back_colour = G.ACTIVE_MOD_UI and G.ACTIVE_MOD_UI.id == "JoyousSpring" and G.C.JOY and darken(G.C.JOY.MOD, 0.3) or nil,
-back_func = (args and args.back_func) or G.ACTIVE_MOD_UI and "openModUI_"..G.ACTIVE_MOD_UI.id or 'your_collection', snap_back = args.snap_back, infotip = args.infotip, contents = {
-'''
-
 # Add Hanafuda enhancements to poker hand screen
 [[patches]]
 [patches.pattern]
@@ -56,17 +19,5 @@ if v.joy_hanafuda then
         end)
     }))
 end
-'''
-match_indent = true
-
-# create_popup_UIBox_tooltip
-[[patches]]
-[patches.pattern]
-target = "functions/UI_definitions.lua"
-pattern = '''local r = {n=G.UIT.R, config={align = "cm", padding = 0.03}, nodes={
-                {n=G.UIT.T, config={text = text[i],colour = G.C.UI.TEXT_DARK, scale = 0.4}}}}'''
-position = "at"
-payload = '''
-local r = {n=G.UIT.R, config={align = "cm", padding = 0.03}, nodes=SMODS.localize_box(loc_parse_string(text[i]), {scale = 1.25})}
 '''
 match_indent = true
