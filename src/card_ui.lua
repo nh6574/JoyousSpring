@@ -262,24 +262,24 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
         end
     else
         -- Add type information under names
-        -- full_UI_table.name = {
-        --     {
-        --         n = G.UIT.C,
-        --         config = { align = "cm", padding = 0.05 },
-        --         nodes = {
-        --             {
-        --                 n = G.UIT.R,
-        --                 config = { align = "cm" },
-        --                 nodes = full_UI_table.name
-        --             },
-        --             {
-        --                 n = G.UIT.R,
-        --                 config = { align = "cm" },
-        --                 nodes = JoyousSpring.get_type_ui(card)
-        --             },
-        --         }
-        --     }
-        -- }
+        full_UI_table.name = {
+            {
+                n = G.UIT.C,
+                config = { align = "cm", padding = 0.05 },
+                nodes = {
+                    {
+                        n = G.UIT.R,
+                        config = { align = "cm" },
+                        nodes = full_UI_table.name
+                    },
+                    {
+                        n = G.UIT.R,
+                        config = { align = "cm" },
+                        nodes = JoyousSpring.get_type_ui(card)
+                    },
+                }
+            }
+        }
 
         -- Pendulum ability
         if card and not card.debuff and G.localization.descriptions[self.set][self.key].joy_consumable then
