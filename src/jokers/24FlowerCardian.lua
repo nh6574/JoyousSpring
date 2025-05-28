@@ -17,7 +17,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
@@ -46,7 +46,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
@@ -75,7 +75,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
@@ -104,7 +104,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
@@ -133,7 +133,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
@@ -163,7 +163,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
@@ -192,7 +192,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
@@ -221,7 +221,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
@@ -250,7 +250,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
@@ -279,7 +279,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
@@ -308,7 +308,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
@@ -338,7 +338,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
@@ -367,7 +367,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
@@ -396,7 +396,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
@@ -425,7 +425,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
@@ -455,7 +455,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
@@ -484,7 +484,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },

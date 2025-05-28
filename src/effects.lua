@@ -440,6 +440,55 @@ JoyousSpring.calculate_hand_highlight_limit = function(count_card, remove_card)
     G.hand.config.highlighted_limit = (maxlimit > -1) and maxlimit or G.GAME.joy_original_hand_limit
 end
 
+JoyousSpring.excavate = function(amount)
+    local amount = amount or 7
+    local copied_cards = {}
+
+    for i = 0, amount - 1 do
+        if i >= #G.deck.cards then break end
+        local added_card = copy_card(G.deck.cards[#G.deck.cards - i])
+        added_card.T.x = G.deck.cards[1].T.x
+        added_card.T.y = G.deck.cards[1].T.y
+        added_card.VT.scale = 1
+        added_card.VT.r = 0
+        added_card.no_shadow = true
+        added_card.ambient_tilt = 0
+        added_card.facing = 'back'
+        added_card.sprite_facing = 'back'
+
+        added_card.states.click.can = false
+        added_card.states.drag.can = false
+        added_card.states.visible = false
+        table.insert(copied_cards, added_card)
+    end
+
+    for _, card in ipairs(copied_cards) do
+        G.E_MANAGER:add_event(Event({
+            func = (function()
+                card.states.visible = true
+                card:flip()
+                return true
+            end)
+        }))
+        G.E_MANAGER:add_event(Event({
+            trigger = "after",
+            delay = 3,
+            func = (function()
+                card:flip()
+                return true
+            end)
+        }))
+        G.E_MANAGER:add_event(Event({
+            trigger = "after",
+            delay = 3,
+            func = (function()
+                card:remove()
+                return true
+            end)
+        }))
+    end
+end
+
 --#endregion
 
 --#region Transfer Abilities

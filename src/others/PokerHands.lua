@@ -583,7 +583,7 @@ SMODS.Consumable {
         "joy_cardian_lightshower",
         "joy_cardian_lightshow",
         "joy_cardian_lightflare",
-    }, softlock = true },
+    } },
     use = function(self, card, area, copier)
         update_hand_text({ sound = 'button', volume = 0.7, pitch = 0.8, delay = 0.3 },
             { handname = localize('k_joy_all_koikoi_hands'), chips = '...', mult = '...', level = '' })

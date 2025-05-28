@@ -143,7 +143,7 @@ return {
                 text = {
                     {
                         "Playing cards affected by {C:joy_normal}\"Solfachord\"{} consumable abilities",
-                        "gain a random edition if possible",
+                        "gain a random {C:dark_edition}Edition{} if possible",
                     },
                     {
                         "Creates {C:attention}#1#{} {C:dark_edition}Negative{} {C:joy_pendulum}Pendulum{} {C:joy_normal}\"Solfachord\"{}",
@@ -170,7 +170,7 @@ return {
                     },
                     {
                         "Playing cards affected by {C:joy_normal}\"Solfachord\"{} consumable abilities",
-                        "gain a random seal if possible",
+                        "gain a random {C:attention}Seal{} if possible",
                     },
                     {
                         "{C:money}+$#3#{} after {C:attention}#4#{} {C:joy_pendulum}Pendulum{} are consumed {C:inactive}(#5#/#4#){}",
