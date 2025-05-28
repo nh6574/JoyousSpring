@@ -93,3 +93,44 @@ position = 'at'
 match_indent = true
 payload = '''
 '''
+
+# Fix name scale when using formatting
+[[patches]]
+[patches.pattern]
+target = "functions/misc_functions.lua"
+pattern = '''
+local final_line = {}
+'''
+position = 'after'
+match_indent = true
+payload = '''
+local final_name_assembled_string = ''
+if args.type == 'name' and loc_target.name_parsed then
+    for _, part in ipairs(lines) do
+        local assembled_string_part = ''
+        for _, subpart in ipairs(part.strings) do
+            assembled_string_part = assembled_string_part..(type(subpart) == 'string' and subpart or format_ui_value(args.vars[tonumber(subpart[1])]) or 'ERROR')
+        end
+        final_name_assembled_string = final_name_assembled_string..assembled_string_part
+    end
+end
+'''
+
+[[patches]]
+[patches.pattern]
+target = "functions/misc_functions.lua"
+pattern = '''
+spacing = math.max(0, 0.32*(17 - #assembled_string)),
+'''
+position = 'at'
+match_indent = true
+payload = '''
+spacing = math.max(0, 0.32*(17 - #(final_name_assembled_string or assembled_string))),
+'''
+
+[[patches]]
+[patches.regex]
+target = 'functions/misc_functions.lua'
+position = 'at'
+pattern = '0\.004\*#assembled_string'
+payload = '0.004*#(final_name_assembled_string or assembled_string)'
