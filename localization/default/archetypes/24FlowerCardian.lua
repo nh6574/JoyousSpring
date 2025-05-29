@@ -20,6 +20,10 @@ return {
                         "that returns when {C:attention}Boss Blind{} is selected"
                     },
                     {
+                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
+                        "{C:inactive}(Must have room)"
+                    },
+                    {
                         "Free if you own a {C:joy_normal}\"Flower Cardian\""
                     }
                 }
@@ -40,6 +44,10 @@ return {
                         "Otherwise, destroys itself and",
                         "creates {C:attention}#4#{} banished {C:joy_effect}\"Flower Cardian Pine\"",
                         "that returns at end of round"
+                    },
+                    {
+                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
+                        "{C:inactive}(Must have room)"
                     },
                     {
                         "Free if you own a {C:joy_normal}\"Flower Cardian\""
@@ -65,6 +73,10 @@ return {
                         "that returns when {C:attention}Boss Blind{} is selected"
                     },
                     {
+                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
+                        "{C:inactive}(Must have room)"
+                    },
+                    {
                         "Free if you own a {C:joy_normal}\"Flower Cardian\""
                     }
                 }
@@ -85,6 +97,10 @@ return {
                         "Otherwise, destroys itself and",
                         "creates {C:attention}#4#{} banished {C:joy_effect}\"Flower Cardian Cherry Blossom\"",
                         "that returns at end of round"
+                    },
+                    {
+                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
+                        "{C:inactive}(Must have room)"
                     },
                     {
                         "Free if you own a {C:joy_normal}\"Flower Cardian\""
@@ -109,6 +125,10 @@ return {
                         "that returns at end of round"
                     },
                     {
+                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
+                        "{C:inactive}(Must have room)"
+                    },
+                    {
                         "Free if you own a {C:joy_normal}\"Flower Cardian\""
                     }
                 }
@@ -129,6 +149,10 @@ return {
                         "Otherwise, destroys itself and",
                         "creates {C:attention}#6#{} banished {C:joy_normal}\"Flower Cardian\"",
                         "that returns at end of round"
+                    },
+                    {
+                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
+                        "{C:inactive}(Must have room)"
                     },
                     {
                         "Free if you own a {C:joy_normal}\"Flower Cardian\""
@@ -154,6 +178,10 @@ return {
                         "that returns when {C:attention}Boss Blind{} is selected"
                     },
                     {
+                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
+                        "{C:inactive}(Must have room)"
+                    },
+                    {
                         "Free if you own a {C:joy_normal}\"Flower Cardian\""
                     }
                 }
@@ -171,6 +199,10 @@ return {
                         "Otherwise, destroys itself and",
                         "creates {C:attention}#3#{} banished {C:joy_effect}\"Flower Cardian Zebra Grass\"",
                         "that returns at end of round"
+                    },
+                    {
+                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
+                        "{C:inactive}(Must have room)"
                     },
                     {
                         "Free if you own a {C:joy_normal}\"Flower Cardian\""
@@ -192,6 +224,10 @@ return {
                         "Otherwise, destroys itself and",
                         "creates {C:attention}#6#{} banished {C:joy_normal}\"Flower Cardian\"",
                         "that returns at end of round"
+                    },
+                    {
+                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
+                        "{C:inactive}(Must have room)"
                     },
                     {
                         "Free if you own a {C:joy_normal}\"Flower Cardian\""
@@ -217,6 +253,10 @@ return {
                         "that returns when {C:attention}Boss Blind{} is selected"
                     },
                     {
+                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
+                        "{C:inactive}(Must have room)"
+                    },
+                    {
                         "Free if you own a {C:joy_normal}\"Flower Cardian\""
                     }
                 }
@@ -233,6 +273,10 @@ return {
                         "Otherwise, destroys itself and",
                         "creates {C:attention}#4#{} banished {C:joy_effect}\"Flower Cardian Willow\"",
                         "that returns at end of round"
+                    },
+                    {
+                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
+                        "{C:inactive}(Must have room)"
                     },
                     {
                         "Free if you own a {C:joy_normal}\"Flower Cardian\""
@@ -258,6 +302,10 @@ return {
                         "that returns when {C:attention}Boss Blind{} is selected"
                     },
                     {
+                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
+                        "{C:inactive}(Must have room)"
+                    },
+                    {
                         "Free if you own a {C:joy_normal}\"Flower Cardian\""
                     }
                 }
@@ -278,6 +326,10 @@ return {
                         "Otherwise, destroys itself and",
                         "creates {C:attention}#4#{} banished {C:joy_effect}\"Flower Cardian Paulownia\"",
                         "that returns at end of round"
+                    },
+                    {
+                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
+                        "{C:inactive}(Must have room)"
                     },
                     {
                         "Free if you own a {C:joy_normal}\"Flower Cardian\""
@@ -301,8 +353,8 @@ return {
                 joy_summon_conditions = {
                     "{C:attention}1{} {C:joy_synchro}Tuner{} +",
                     "{C:attention}1{} non-{C:joy_synchro}Tuner{}",
-                    "after playing a hand containing a",
-                    "{C:attention}Boardefly{} this run",
+                    "after playing {C:attention}5 {C:joy_link}Animal",
+                    "{C:attention}Hanafuda{} cards this run",
                     "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
                 }
             },
@@ -325,8 +377,8 @@ return {
                 joy_summon_conditions = {
                     "{C:attention}1{} {C:joy_synchro}Tuner{} +",
                     "{C:attention}1{} non-{C:joy_synchro}Tuner{}",
-                    "after playing a hand containing a",
-                    "{C:attention}Moonflowerviewing{} this run",
+                    "after playing {C:attention}3 Chrysanthemum with Sake{}",
+                    "this run",
                     "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
                 }
             },
@@ -350,8 +402,8 @@ return {
                 joy_summon_conditions = {
                     "{C:attention}1{} {C:joy_synchro}Tuner{} +",
                     "{C:attention}1{} non-{C:joy_synchro}Tuner{}",
-                    "after playing a hand containing a",
-                    "{C:attention}Lightshower{} this run",
+                    "after playing {C:attention}3 {C:joy_link}Light",
+                    "{C:attention}Hanafuda{} cards this run",
                     "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
                 }
             },
@@ -376,8 +428,8 @@ return {
                 joy_summon_conditions = {
                     "{C:attention}1{} {C:joy_synchro}Tuner{} +",
                     "{C:attention}1{} non-{C:joy_synchro}Tuner{}",
-                    "after playing a hand containing a",
-                    "{C:attention}Lightflare{} this run",
+                    "after playing {C:attention}5 {C:joy_link}Light",
+                    "{C:attention}Hanafuda{} cards this run",
                     "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
                 }
             },

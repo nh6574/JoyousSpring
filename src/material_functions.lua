@@ -13,3 +13,11 @@ end
 JoyousSpring.material_functions.played_this_run = function(card, vars)
     return G.GAME.joy_played and G.GAME.joy_played[vars.hand]
 end
+
+JoyousSpring.material_functions.hanafuda_played_this_run = function(card, vars)
+    return G.GAME.joy_hanafuda_played and (G.GAME.joy_hanafuda_played[vars.key] or 0) >= vars.min
+end
+
+JoyousSpring.material_functions.hanafuda_type_played_this_run = function(card, vars)
+    return G.GAME.joy_hanafuda_type_played and (G.GAME.joy_hanafuda_type_played[vars.type] or 0) >= vars.min
+end

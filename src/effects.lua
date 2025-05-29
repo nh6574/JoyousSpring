@@ -19,6 +19,16 @@ JoyousSpring.calculate_context = function(context)
         for key, hands in pairs(context.poker_hands) do
             G.GAME.joy_played[key] = next(hands) and true or nil
         end
+        G.GAME.joy_hanafuda_type_played = G.GAME.joy_hanafuda_type_played or {}
+        G.GAME.joy_hanafuda_played = G.GAME.joy_hanafuda_played or {}
+        for _, pcard in ipairs(context.scoring_hand) do
+            local hanafuda, key = JoyousSpring.get_hanafuda(pcard)
+            if hanafuda then
+                G.GAME.joy_hanafuda_type_played[hanafuda.type] = (G.GAME.joy_hanafuda_type_played[hanafuda.type] or 0) +
+                    1
+                G.GAME.joy_hanafuda_played[key] = (G.GAME.joy_hanafuda_played[key] or 0) + 1
+            end
+        end
     end
 
     -- Global counter for destroyed cards

@@ -447,13 +447,13 @@ JoyousSpring.is_material = function(card, properties, summon_type)
             return false
         end
     end
-    if summon_type and JoyousSpring.is_all_materials(card, summon_type) then
-        return true
-    end
     if properties.func and JoyousSpring.material_functions[properties.func] then
         if not JoyousSpring.material_functions[properties.func](card, properties.func_vars) then
             return false
         end
+    end
+    if summon_type and JoyousSpring.is_all_materials(card, summon_type) then
+        return true
     end
     if properties.key then
         if card.config.center_key ~= properties.key then

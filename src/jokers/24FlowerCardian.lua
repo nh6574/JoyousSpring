@@ -114,6 +114,13 @@ SMODS.Joker({
                 card.joy_draw = nil
                 SMODS.draw_cards(card.ability.extra.draws)
             end
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                    SMODS.add_card({
+                        key = "c_joy_cardian_gathering"
+                    })
+                end
+            end
         end
     end,
     joy_calculate_excavate = cardian_excavate,
@@ -189,6 +196,13 @@ SMODS.Joker({
             if context.first_hand_drawn and card.joy_draw then
                 card.joy_draw = nil
                 SMODS.draw_cards(card.ability.extra.draws)
+            end
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                    SMODS.add_card({
+                        key = "c_joy_cardian_gathering"
+                    })
+                end
             end
         end
     end,
@@ -271,6 +285,13 @@ SMODS.Joker({
                 card.joy_draw = nil
                 SMODS.draw_cards(card.ability.extra.draws)
             end
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                    SMODS.add_card({
+                        key = "c_joy_cardian_gathering"
+                    })
+                end
+            end
         end
     end,
     joy_calculate_excavate = cardian_excavate,
@@ -346,6 +367,13 @@ SMODS.Joker({
             if context.first_hand_drawn and card.joy_draw then
                 card.joy_draw = nil
                 SMODS.draw_cards(card.ability.extra.draws)
+            end
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                    SMODS.add_card({
+                        key = "c_joy_cardian_gathering"
+                    })
+                end
             end
         end
     end,
@@ -433,6 +461,13 @@ SMODS.Joker({
                 card.joy_draw = nil
                 SMODS.draw_cards(card.ability.extra.draws)
             end
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                    SMODS.add_card({
+                        key = "c_joy_cardian_gathering"
+                    })
+                end
+            end
         end
     end,
     joy_calculate_excavate = cardian_excavate,
@@ -518,6 +553,13 @@ SMODS.Joker({
                 card.joy_draw = nil
                 SMODS.draw_cards(card.ability.extra.draws)
             end
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                    SMODS.add_card({
+                        key = "c_joy_cardian_gathering"
+                    })
+                end
+            end
         end
     end,
     joy_calculate_excavate = cardian_excavate,
@@ -599,6 +641,13 @@ SMODS.Joker({
                 card.joy_draw = nil
                 SMODS.draw_cards(card.ability.extra.draws)
             end
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                    SMODS.add_card({
+                        key = "c_joy_cardian_gathering"
+                    })
+                end
+            end
         end
     end,
     joy_calculate_excavate = cardian_excavate,
@@ -673,6 +722,13 @@ SMODS.Joker({
                     SMODS.draw_cards(card.ability.extra.draws * card.ability.extra.hanafuda_count)
                 end
                 card.ability.extra.hanafuda_count = 0
+            end
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                    SMODS.add_card({
+                        key = "c_joy_cardian_gathering"
+                    })
+                end
             end
         end
     end,
@@ -757,6 +813,13 @@ SMODS.Joker({
                 card.joy_draw = nil
                 SMODS.draw_cards(card.ability.extra.draws)
             end
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                    SMODS.add_card({
+                        key = "c_joy_cardian_gathering"
+                    })
+                end
+            end
         end
     end,
     joy_calculate_excavate = cardian_excavate,
@@ -838,6 +901,13 @@ SMODS.Joker({
                 card.joy_draw = nil
                 SMODS.draw_cards(card.ability.extra.draws)
             end
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                    SMODS.add_card({
+                        key = "c_joy_cardian_gathering"
+                    })
+                end
+            end
         end
     end,
     joy_calculate_excavate = cardian_excavate,
@@ -914,6 +984,13 @@ SMODS.Joker({
                     SMODS.destroy_cards(card)
                 end
                 card.joy_hit = nil
+            end
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                    SMODS.add_card({
+                        key = "c_joy_cardian_gathering"
+                    })
+                end
             end
         end
     end,
@@ -996,6 +1073,13 @@ SMODS.Joker({
                 card.joy_draw = nil
                 SMODS.draw_cards(card.ability.extra.draws)
             end
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                    SMODS.add_card({
+                        key = "c_joy_cardian_gathering"
+                    })
+                end
+            end
         end
     end,
     joy_calculate_excavate = cardian_excavate,
@@ -1072,6 +1156,13 @@ SMODS.Joker({
                 card.joy_draw = nil
                 SMODS.draw_cards(card.ability.extra.draws)
             end
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                    SMODS.add_card({
+                        key = "c_joy_cardian_gathering"
+                    })
+                end
+            end
         end
     end,
     joy_calculate_excavate = cardian_excavate,
@@ -1108,7 +1199,7 @@ SMODS.Joker({
                         type = "SYNCHRO",
                         materials = {
                             { is_tuner = true, exclude_summon_types = { "XYZ", "LINK" },
-                                func = "played_this_run", func_vars = { hand = "joy_cardian_boardefly" } },
+                                func = "hanafuda_type_played_this_run", func_vars = { type = "animal", min = 5 } },
                             { exclude_tuners = true, exclude_summon_types = { "XYZ", "LINK" } },
                         },
                     }
@@ -1175,7 +1266,7 @@ SMODS.Joker({
                         type = "SYNCHRO",
                         materials = {
                             { is_tuner = true, exclude_summon_types = { "XYZ", "LINK" },
-                                func = "played_this_run", func_vars = { hand = "joy_cardian_moonflowerviewing" } },
+                                func = "hanafuda_played_this_run", func_vars = { key = "Chrysanthemum with Sake", min = 3 } },
                             { exclude_tuners = true, exclude_summon_types = { "XYZ", "LINK" } },
                         },
                     }
@@ -1231,7 +1322,7 @@ SMODS.Joker({
                         type = "SYNCHRO",
                         materials = {
                             { is_tuner = true, exclude_summon_types = { "XYZ", "LINK" },
-                                func = "played_this_run", func_vars = { hand = "joy_cardian_lightshower" } },
+                                func = "hanafuda_type_played_this_run", func_vars = { type = "light", min = 3 } },
                             { exclude_tuners = true, exclude_summon_types = { "XYZ", "LINK" } },
                         },
                     }
@@ -1300,7 +1391,7 @@ SMODS.Joker({
                         type = "SYNCHRO",
                         materials = {
                             { is_tuner = true, exclude_summon_types = { "XYZ", "LINK" },
-                                func = "played_this_run", func_vars = { hand = "joy_cardian_lightflare" } },
+                                func = "hanafuda_type_played_this_run", func_vars = { type = "light", min = 5 } },
                             { exclude_tuners = true, exclude_summon_types = { "XYZ", "LINK" } },
                         },
                     }
