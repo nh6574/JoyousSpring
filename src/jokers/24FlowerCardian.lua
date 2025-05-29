@@ -1317,7 +1317,7 @@ SMODS.Joker({
                 card.ability.extra.current_mult = card.ability.extra.current_mult + card.ability.extra.mult
                 return { message = localize('k_upgrade_ex'), message_card = card }
             end
-            if context.debuff_card and JoyousSpring.get_hanafuda(context.joy_excavated) then
+            if context.debuff_card and JoyousSpring.get_hanafuda(context.debuff_card) then
                 return {
                     prevent_debuff = true
                 }
