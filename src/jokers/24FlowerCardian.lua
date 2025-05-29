@@ -69,7 +69,7 @@ SMODS.Joker({
                 monster_archetypes = { ["FlowerCardian"] = true }
             },
             mult = 1,
-            excavates = 1,
+            excavates = 3,
             draws = 1,
             creates = 1,
         },
@@ -146,7 +146,7 @@ SMODS.Joker({
                 monster_archetypes = { ["FlowerCardian"] = true }
             },
             mult = 20,
-            excavates = 3,
+            excavates = 5,
             draws = 1,
             creates = 1
         },
@@ -226,7 +226,7 @@ SMODS.Joker({
                 monster_archetypes = { ["FlowerCardian"] = true }
             },
             mult = 1,
-            excavates = 1,
+            excavates = 3,
             draws = 1,
             creates = 1
         },
@@ -303,7 +303,7 @@ SMODS.Joker({
                 monster_archetypes = { ["FlowerCardian"] = true }
             },
             mult = 20,
-            excavates = 3,
+            excavates = 5,
             draws = 1,
             creates = 1
         },
@@ -380,7 +380,7 @@ SMODS.Joker({
                 monster_archetypes = { ["FlowerCardian"] = true }
             },
             xmult = 1.1,
-            excavates = 3,
+            excavates = 5,
             draws = 1,
             june = 3,
             adds = 1,
@@ -465,7 +465,7 @@ SMODS.Joker({
                 monster_archetypes = { ["FlowerCardian"] = true }
             },
             xmult = 1.1,
-            excavates = 3,
+            excavates = 5,
             draws = 1,
             july = 3,
             adds = 1,
@@ -554,7 +554,7 @@ SMODS.Joker({
                 monster_archetypes = { ["FlowerCardian"] = true }
             },
             money = 1,
-            excavates = 1,
+            excavates = 3,
             draws = 1,
             creates = 1
         },
@@ -630,7 +630,7 @@ SMODS.Joker({
                 monster_type = "Warrior",
                 monster_archetypes = { ["FlowerCardian"] = true }
             },
-            excavates = 5,
+            excavates = 7,
             draws = 1,
             creates = 1,
             hanafuda_count = 0
@@ -706,7 +706,7 @@ SMODS.Joker({
                 monster_archetypes = { ["FlowerCardian"] = true }
             },
             xmult = 1.1,
-            excavates = 3,
+            excavates = 5,
             draws = 1,
             october = 3,
             adds = 1,
@@ -793,7 +793,7 @@ SMODS.Joker({
                 monster_archetypes = { ["FlowerCardian"] = true }
             },
             money = 1,
-            excavates = 1,
+            excavates = 3,
             draws = 1,
             creates = 1
         },
@@ -870,7 +870,7 @@ SMODS.Joker({
                 monster_type = "Warrior",
                 monster_archetypes = { ["FlowerCardian"] = true }
             },
-            excavates = 3,
+            excavates = 5,
             november = 3,
             revives = 1,
             creates = 1,
@@ -951,7 +951,7 @@ SMODS.Joker({
                 monster_archetypes = { ["FlowerCardian"] = true }
             },
             mult = 1,
-            excavates = 1,
+            excavates = 3,
             draws = 1,
             creates = 1
         },
@@ -1028,7 +1028,7 @@ SMODS.Joker({
                 monster_archetypes = { ["FlowerCardian"] = true }
             },
             mult = 20,
-            excavates = 3,
+            excavates = 5,
             draws = 1,
             creates = 1
         },

@@ -11,7 +11,7 @@ return {
                     },
                     {
                         "When {C:attention}Blind{} is selected, {C:attention}excavate #3#{}",
-                        "and apply these based on the excavated card:",
+                        "and apply these based on the excavated cards:",
                         "- {C:spades}Spades{}: Turns it into a random {C:attention}Hanafuda{} card",
                         "- {C:joy_link}January{} or {C:joy_link}February {C:attention}Hanafuda{}: Draws {C:attention}#4#{} card",
                         " ",
@@ -56,7 +56,7 @@ return {
                     },
                     {
                         "When {C:attention}Blind{} is selected, {C:attention}excavate #3#{}",
-                        "and apply these based on the excavated card:",
+                        "and apply these based on the excavated cards:",
                         "- {C:hearts}Hearts{}: Turns it into a random {C:attention}Hanafuda{} card",
                         "- {C:joy_link}March{} or {C:joy_link}April {C:attention}Hanafuda{}: Draws {C:attention}#4#{} card",
                         " ",
@@ -145,7 +145,7 @@ return {
                     },
                     {
                         "When {C:attention}Blind{} is selected, {C:attention}excavate #3#{}",
-                        "and apply these based on the excavated card:",
+                        "and apply these based on the excavated cards:",
                         "- {C:clubs}Clubs{}: Turns it into a random {C:attention}Hanafuda{} card",
                         "- {C:joy_link}August{} or {C:joy_link}September {C:attention}Hanafuda{}: Draws {C:attention}#4#{} card",
                         " ",
@@ -208,7 +208,7 @@ return {
                     },
                     {
                         "When {C:attention}Blind{} is selected, {C:attention}excavate #3#{}",
-                        "and apply these based on the excavated card:",
+                        "and apply these based on the excavated cards:",
                         "- {C:attention}Face{} card: Turns it into a random {C:attention}Hanafuda{} card",
                         "- {C:joy_link}November {C:attention}Hanafuda{}: Draws {C:attention}#4#{} card",
                         " ",
@@ -249,7 +249,7 @@ return {
                     },
                     {
                         "When {C:attention}Blind{} is selected, {C:attention}excavate #3#{}",
-                        "and apply these based on the excavated card:",
+                        "and apply these based on the excavated cards:",
                         "- {C:diamonds}Diamonds{}: Turns it into a random {C:attention}Hanafuda{} card",
                         "- {C:joy_link}May{} or {C:joy_link}December {C:attention}Hanafuda{}: Draws {C:attention}#4#{} card",
                         " ",
