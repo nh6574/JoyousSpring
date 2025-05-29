@@ -7,5 +7,9 @@ end
 
 JoyousSpring.material_functions.summoned_this_round = function(card, vars)
     return JoyousSpring.get_summoned_count(nil, true) >= (vars.more or 0) and
-    (not vars.less or JoyousSpring.get_summoned_count(nil, true) <= vars.less)
+        (not vars.less or JoyousSpring.get_summoned_count(nil, true) <= vars.less)
+end
+
+JoyousSpring.material_functions.played_this_run = function(card, vars)
+    return G.GAME.joy_played and G.GAME.joy_played[vars.hand]
 end

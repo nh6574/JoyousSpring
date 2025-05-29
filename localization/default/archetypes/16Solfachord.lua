@@ -154,7 +154,7 @@ return {
                         "all scored cards count as both for {C:joy_normal}\"Solfachord\"{} abilities",
                     },
                     {
-                        "{C:joy_pendulum}Pendulum{} count for {C:joy_normal}\"Solfachord\"{} abilities",
+                        "{C:joy_pendulum}Pendulum{} count for other {C:joy_normal}\"Solfachord\"{} abilities",
                     },
                 },
                 joy_summon_conditions = {

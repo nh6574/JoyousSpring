@@ -9,7 +9,7 @@ JoyousSpring.get_graveyard_count = function()
 end
 
 ---Get all materials in G.jokers that fulfill **property_list**
----@param property_list material_properties[]
+---@param property_list material_properties[]?
 ---@param different_names boolean?
 ---@param for_tribute boolean?
 ---@return Card[]
@@ -19,7 +19,8 @@ JoyousSpring.get_materials_owned = function(property_list, different_names, for_
     local materials = {}
     local keys = {}
     for _, joker in ipairs(G.jokers.cards) do
-        if not property_list or #property_list == 0 then
+        if joker.getting_sliced then
+        elseif not property_list or #property_list == 0 then
             if not keys[joker.config.center_key] or not different_names then
                 table.insert(materials, joker)
                 keys[joker.config.center_key] = true
@@ -359,7 +360,7 @@ end
 
 ---Create a random card with *property_list* properties
 ---@param property_list material_properties[]
----@param seed number?
+---@param seed string|number?
 ---@param must_have_room boolean?
 ---@param not_owned boolean?
 ---@param edition table|string?
@@ -370,6 +371,7 @@ JoyousSpring.create_pseudorandom = function(property_list, seed, must_have_room,
     if not_owned then
         choices = JoyousSpring.get_not_owned(choices)
     end
+    seed = seed and type(seed) == "string" and pseudoseed(seed) or seed
     local key_to_add = pseudorandom_element(choices, seed or pseudoseed("JoyousSpring"))
     if key_to_add then
         return JoyousSpring.create_summon({

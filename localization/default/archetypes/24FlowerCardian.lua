@@ -5,136 +5,380 @@ return {
                 name = "{C:joy_effect}Flower Cardian Pine",
                 text = {
                     {
-                        "TBD",
+                        "Scored {C:joy_link}January{} and {C:joy_link}February {C:attention}Hanafuda{} cards",
+                        "give {C:mult}+#1#{} Mult for each {C:joy_normal}\"Flower Cardian\"",
+                        "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
                     },
+                    {
+                        "When {C:attention}Blind{} is selected, {C:attention}excavate #3#{}",
+                        "and apply these based on the excavated card:",
+                        "- {C:spades}Spades{}: Turns it into a random {C:attention}Hanafuda{} card",
+                        "- {C:joy_link}January{} or {C:joy_link}February {C:attention}Hanafuda{}: Draws {C:attention}#4#{} card",
+                        " ",
+                        "Otherwise, destroys itself and",
+                        "creates {C:attention}#5#{} banished {C:joy_effect}\"Flower Cardian Pine with Crane\"",
+                        "that returns when {C:attention}Boss Blind{} is selected"
+                    },
+                    {
+                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                    }
                 }
             },
             j_joy_cardian_crane = {
                 name = "{C:joy_effect}Flower Cardian Pine with Crane",
                 text = {
                     {
-                        "TBD",
+                        "{C:joy_link}January{} and {C:joy_link}February {C:attention}Hanafuda{} cards",
+                        "held in hand each give {C:mult}+#1#{} Mult",
                     },
+                    {
+                        "When {C:attention}Blind{} is selected, {C:attention}excavate #2#{}",
+                        "and apply these based on the excavated cards:",
+                        "- {C:spades}Spades{}: Turns it into a random {C:attention}Hanafuda{} card",
+                        "- {C:joy_link}January{} or {C:joy_link}February {C:attention}Hanafuda{}: Draws {C:attention}#3#{} card",
+                        " ",
+                        "Otherwise, destroys itself and",
+                        "creates {C:attention}#4#{} banished {C:joy_effect}\"Flower Cardian Pine\"",
+                        "that returns at end of round"
+                    },
+                    {
+                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                    }
                 }
             },
             j_joy_cardian_cherry = {
                 name = "{C:joy_effect}Flower Cardian Cherry Blossom",
                 text = {
                     {
-                        "TBD",
+                        "Scored {C:joy_link}March{} and {C:joy_link}April {C:attention}Hanafuda{} cards",
+                        "give {C:mult}+#1#{} Mult for each {C:joy_normal}\"Flower Cardian\"",
+                        "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
                     },
+                    {
+                        "When {C:attention}Blind{} is selected, {C:attention}excavate #3#{}",
+                        "and apply these based on the excavated card:",
+                        "- {C:hearts}Hearts{}: Turns it into a random {C:attention}Hanafuda{} card",
+                        "- {C:joy_link}March{} or {C:joy_link}April {C:attention}Hanafuda{}: Draws {C:attention}#4#{} card",
+                        " ",
+                        "Otherwise, destroys itself and",
+                        "creates {C:attention}#5#{} banished {C:joy_effect}\"Flower Cardian Cherry Blossom with Curtain\"",
+                        "that returns when {C:attention}Boss Blind{} is selected"
+                    },
+                    {
+                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                    }
                 }
             },
             j_joy_cardian_curtain = {
                 name = "{C:joy_effect}Flower Cardian Cherry Blossom with Curtain",
                 text = {
                     {
-                        "TBD",
+                        "{C:joy_link}March{} and {C:joy_link}April {C:attention}Hanafuda{} cards",
+                        "held in hand each give {C:mult}+#1#{} Mult",
                     },
+                    {
+                        "When {C:attention}Blind{} is selected, {C:attention}excavate #2#{}",
+                        "and apply these based on the excavated cards:",
+                        "- {C:hearts}Hearts{}: Turns it into a random {C:attention}Hanafuda{} card",
+                        "- {C:joy_link}March{} or {C:joy_link}April {C:attention}Hanafuda{}: Draws {C:attention}#3#{} card",
+                        " ",
+                        "Otherwise, destroys itself and",
+                        "creates {C:attention}#4#{} banished {C:joy_effect}\"Flower Cardian Cherry Blossom\"",
+                        "that returns at end of round"
+                    },
+                    {
+                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                    }
                 }
             },
             j_joy_cardian_butterfly = {
                 name = "{C:joy_effect}Flower Cardian Peony with Butterfly",
                 text = {
                     {
-                        "TBD",
+                        "Scored {C:joy_link}June {C:attention}Hanafuda{} cards give {X:mult,C:white}X#1#{} Mult",
                     },
+                    {
+                        "When {C:attention}Blind{} is selected, {C:attention}excavate #2#{}",
+                        "and apply these based on the excavated cards:",
+                        "- {C:joy_link}June {C:attention}Hanafuda{}: Draws {C:attention}#3#{} card",
+                        "- {C:attention}#4#{} {C:joy_link}June {C:attention}Hanafuda{}: Adds {C:attention}#5#{} {C:joy_normal}\"Flower Cardian\"{}",
+                        "to the {C:joy_spell}Extra Deck {C:inactive}(Must have room)",
+                        " ",
+                        "Otherwise, destroys itself and",
+                        "creates {C:attention}#6#{} banished {C:joy_normal}\"Flower Cardian\"",
+                        "that returns at end of round"
+                    },
+                    {
+                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                    }
                 }
             },
             j_joy_cardian_boar = {
                 name = "{C:joy_effect}Flower Cardian Clover with Boar",
                 text = {
                     {
-                        "TBD",
+                        "Scored {C:joy_link}July {C:attention}Hanafuda{} cards give {X:mult,C:white}X#1#{} Mult",
                     },
+                    {
+                        "When {C:attention}Blind{} is selected, {C:attention}excavate #2#{}",
+                        "and apply these based on the excavated cards:",
+                        "- {C:joy_link}July {C:attention}Hanafuda{}: Draws {C:attention}#3#{} card",
+                        "- {C:attention}#4#{} {C:joy_link}July {C:attention}Hanafuda{}: Adds {C:attention}#5#{} {C:joy_normal}\"Flower Cardian\"{}",
+                        "to the {C:joy_spell}Extra Deck {C:inactive}(Must have room)",
+                        " ",
+                        "Otherwise, destroys itself and",
+                        "creates {C:attention}#6#{} banished {C:joy_normal}\"Flower Cardian\"",
+                        "that returns at end of round"
+                    },
+                    {
+                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                    }
                 }
             },
             j_joy_cardian_zebra = {
                 name = "{C:joy_effect}Flower Cardian Zebra Grass",
                 text = {
                     {
-                        "TBD",
+                        "Scored {C:joy_link}August{} and {C:joy_link}September {C:attention}Hanafuda{} cards",
+                        "give {C:money}+$#1#{} for each {C:joy_normal}\"Flower Cardian\"",
+                        "{C:inactive}(Currently {C:money}+$#2#{}{C:inactive})"
                     },
+                    {
+                        "When {C:attention}Blind{} is selected, {C:attention}excavate #3#{}",
+                        "and apply these based on the excavated card:",
+                        "- {C:clubs}Clubs{}: Turns it into a random {C:attention}Hanafuda{} card",
+                        "- {C:joy_link}August{} or {C:joy_link}September {C:attention}Hanafuda{}: Draws {C:attention}#4#{} card",
+                        " ",
+                        "Otherwise, destroys itself and",
+                        "creates {C:attention}#5#{} banished {C:joy_effect}\"Flower Cardian Zebra Grass with Moon\"",
+                        "that returns when {C:attention}Boss Blind{} is selected"
+                    },
+                    {
+                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                    }
                 }
             },
             j_joy_cardian_moon = {
                 name = "{C:joy_effect}Flower Cardian Zebra Grass with Moon",
                 text = {
                     {
-                        "TBD",
+                        "When {C:attention}Blind{} is selected, {C:attention}excavate #1#{}",
+                        "and apply these based on the excavated cards:",
+                        "- {C:clubs}Clubs{}: Turns it into a random {C:attention}Hanafuda{} card",
+                        "- {C:joy_link}August{} or {C:joy_link}September {C:attention}Hanafuda{}: Draws {C:attention}#2#{} card",
+                        "for each excavated {C:attention}Hanafuda{} card",
+                        " ",
+                        "Otherwise, destroys itself and",
+                        "creates {C:attention}#3#{} banished {C:joy_effect}\"Flower Cardian Zebra Grass\"",
+                        "that returns at end of round"
                     },
+                    {
+                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                    }
                 }
             },
             j_joy_cardian_deer = {
                 name = "{C:joy_effect}Flower Cardian Maple with Deer",
                 text = {
                     {
-                        "TBD",
+                        "Scored {C:joy_link}October {C:attention}Hanafuda{} cards give {X:mult,C:white}X#1#{} Mult",
                     },
+                    {
+                        "When {C:attention}Blind{} is selected, {C:attention}excavate #2#{}",
+                        "and apply these based on the excavated cards:",
+                        "- {C:joy_link}October {C:attention}Hanafuda{}: Draws {C:attention}#3#{} card",
+                        "- {C:attention}#4#{} {C:joy_link}October {C:attention}Hanafuda{}: Adds {C:attention}#5#{} {C:joy_normal}\"Flower Cardian\"{} to the shop",
+                        " ",
+                        "Otherwise, destroys itself and",
+                        "creates {C:attention}#6#{} banished {C:joy_normal}\"Flower Cardian\"",
+                        "that returns at end of round"
+                    },
+                    {
+                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                    }
                 }
             },
             j_joy_cardian_willow = {
                 name = "{C:joy_effect}Flower Cardian Willow",
                 text = {
                     {
-                        "TBD",
+                        "Scored {C:joy_link}November {C:attention}Hanafuda{} cards",
+                        "give {C:money}+$#1#{} for each {C:joy_normal}\"Flower Cardian\"",
+                        "{C:inactive}(Currently {C:money}+$#2#{}{C:inactive})"
                     },
+                    {
+                        "When {C:attention}Blind{} is selected, {C:attention}excavate #3#{}",
+                        "and apply these based on the excavated card:",
+                        "- {C:attention}Face{} card: Turns it into a random {C:attention}Hanafuda{} card",
+                        "- {C:joy_link}November {C:attention}Hanafuda{}: Draws {C:attention}#4#{} card",
+                        " ",
+                        "Otherwise, destroys itself and",
+                        "creates {C:attention}#5#{} banished {C:joy_effect}\"Flower Cardian Willow with Calligrapher\"",
+                        "that returns when {C:attention}Boss Blind{} is selected"
+                    },
+                    {
+                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                    }
                 }
             },
             j_joy_cardian_calligrapher = {
                 name = "{C:joy_effect}Flower Cardian Willow with Calligrapher",
                 text = {
                     {
-                        "TBD",
+                        "When {C:attention}Blind{} is selected, {C:attention}excavate #1#{}",
+                        "and apply these based on the excavated cards:",
+                        "- {C:attention}Face{} card: Turns it into a random {C:attention}Hanafuda{} card",
+                        "- {C:attention}#2# {C:joy_link}November {C:attention}Hanafuda{}: {C:attention}Revive #3#{} {C:joy_normal}\"Flower Cardian\"",
+                        " ",
+                        "Otherwise, destroys itself and",
+                        "creates {C:attention}#4#{} banished {C:joy_effect}\"Flower Cardian Willow\"",
+                        "that returns at end of round"
                     },
+                    {
+                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                    }
                 }
             },
             j_joy_cardian_paulownia = {
                 name = "{C:joy_effect}Flower Cardian Paulownia",
                 text = {
                     {
-                        "TBD",
+                        "Scored {C:joy_link}May{} and {C:joy_link}December {C:attention}Hanafuda{} cards",
+                        "give {C:mult}+#1#{} Mult for each {C:joy_normal}\"Flower Cardian\"",
+                        "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
                     },
+                    {
+                        "When {C:attention}Blind{} is selected, {C:attention}excavate #3#{}",
+                        "and apply these based on the excavated card:",
+                        "- {C:diamonds}Diamonds{}: Turns it into a random {C:attention}Hanafuda{} card",
+                        "- {C:joy_link}May{} or {C:joy_link}December {C:attention}Hanafuda{}: Draws {C:attention}#4#{} card",
+                        " ",
+                        "Otherwise, destroys itself and",
+                        "creates {C:attention}#5#{} banished {C:joy_effect}\"Flower Cardian Paulownia with Phoenix\"",
+                        "that returns when {C:attention}Boss Blind{} is selected"
+                    },
+                    {
+                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                    }
                 }
             },
             j_joy_cardian_phoenix = {
                 name = "{C:joy_effect}Flower Cardian Paulownia with Phoenix",
                 text = {
                     {
-                        "TBD",
+                        "{C:joy_link}May{} and {C:joy_link}December {C:attention}Hanafuda{} cards",
+                        "held in hand each give {C:mult}+#1#{} Mult",
                     },
+                    {
+                        "When {C:attention}Blind{} is selected, {C:attention}excavate #2#{}",
+                        "and apply these based on the excavated cards:",
+                        "- {C:diamonds}Diamonds{}: Turns it into a random {C:attention}Hanafuda{} card",
+                        "- {C:joy_link}May{} or {C:joy_link}December {C:attention}Hanafuda{}: Draws {C:attention}#3#{} card",
+                        " ",
+                        "Otherwise, destroys itself and",
+                        "creates {C:attention}#4#{} banished {C:joy_effect}\"Flower Cardian Paulownia\"",
+                        "that returns at end of round"
+                    },
+                    {
+                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                    }
                 }
             },
             j_joy_cardian_boardefly = {
                 name = "{C:joy_synchro}Flower Cardian Boardefly",
                 text = {
                     {
-                        "TBD",
+                        "If a {C:attention}Koi-koi{} hand is played,",
+                        "add a random {C:attention}Seal{} to each scored card",
                     },
+                    {
+                        "If last hand of round was a {C:attention}Koi-koi{} hand,",
+                        "banish {C:attention}#1# Joker{} at end of round",
+                        "until {C:attention}Blind{} is selected",
+                        "for each {C:joy_link}Animal {C:attention}Hanafuda{} card scored that hand"
+                    }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}1{} {C:joy_synchro}Tuner{} +",
+                    "{C:attention}1{} non-{C:joy_synchro}Tuner{}",
+                    "after playing a hand containing a",
+                    "{C:attention}Boardefly{} this run",
+                    "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
                 }
             },
             j_joy_cardian_moonflower = {
                 name = "{C:joy_synchro}Flower Cardian Moonflowerviewing",
                 text = {
                     {
-                        "TBD",
+                        "When first hand is drawn, draw {C:attention}#1#{} card",
+                        "for each {C:joy_normal}\"Flower Cardian\""
                     },
+                    {
+                        "If a {C:attention}Koi-koi{} hand is played,",
+                        "all {C:attention}Hanafuda{} cards count for scoring",
+                        "then draw cards equal to the cards scored"
+                    },
+                    {
+                        "Treated as any {C:attention}material{} for a {C:joy_synchro}Synchro",
+                    },
+                },
+                joy_summon_conditions = {
+                    "{C:attention}1{} {C:joy_synchro}Tuner{} +",
+                    "{C:attention}1{} non-{C:joy_synchro}Tuner{}",
+                    "after playing a hand containing a",
+                    "{C:attention}Moonflowerviewing{} this run",
+                    "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
                 }
             },
             j_joy_cardian_lightshower = {
                 name = "{C:joy_synchro}Flower Cardian Lightshower",
                 text = {
                     {
-                        "TBD",
+                        "{C:joy_normal}\"Flower Cardian\"{} each give {X:mult,C:white}X#1#{} Mult",
                     },
+                    {
+                        "{C:joy_mod}Willow with Calligrapher{} and",
+                        "{C:joy_mod}Chrysanthemum with Sake{} {C:attention}Hanafuda{} cards",
+                        "always score and give {X:mult,C:white}X#2#{} Mult"
+                    },
+                    {
+                        "If a {C:attention}Koi-koi{} hand is played,",
+                        "turn {C:attention}#3#{} random non-enhanced cards in full deck",
+                        "into random {C:attention}Hanafuda{} cards"
+                    },
+                },
+                joy_summon_conditions = {
+                    "{C:attention}1{} {C:joy_synchro}Tuner{} +",
+                    "{C:attention}1{} non-{C:joy_synchro}Tuner{}",
+                    "after playing a hand containing a",
+                    "{C:attention}Lightshower{} this run",
+                    "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
                 }
             },
             j_joy_cardian_lightflare = {
                 name = "{C:joy_synchro}Flower Cardian Lightflare",
                 text = {
                     {
-                        "TBD",
+                        "Gains {C:mult}+#1#{} Mult for each excavated {C:attention}Hanafuda{} card",
+                        "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
                     },
+                    {
+                        "{C:attention}Hanafuda{} cards count as all {C:joy_link}Months{} and {C:joy_link}Types{}",
+                        "for {C:joy_normal}\"Flower Cardian\"{} abilities, also they count",
+                        "as all suits and can't be debuffed at start of {C:attention}Blind"
+                    },
+                    {
+                        "If played hand contains {C:attention}Lightflare{}, {C:attention}Moonflowerviewing{}",
+                        "or {C:attention}Red Poem and Blue Ribbon{},",
+                        "{C:attention}revive #3# {C:joy_normal}\"Flower Cardian\"{} as {C:dark_edition}Negative"
+                    }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}1{} {C:joy_synchro}Tuner{} +",
+                    "{C:attention}1{} non-{C:joy_synchro}Tuner{}",
+                    "after playing a hand containing a",
+                    "{C:attention}Lightflare{} this run",
+                    "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
                 }
             },
         },

@@ -123,3 +123,31 @@ if v.config.joy_hand_types then
     if planet ~= 0 then break end
 end
 '''
+
+# Don't shuffle after excavating
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+pattern = '''
+G.deck:shuffle('nr'..G.GAME.round_resets.ante)
+'''
+position = 'at'
+match_indent = true
+payload = '''
+if not G.GAME.joy_excavated then
+    G.deck:shuffle('nr'..G.GAME.round_resets.ante)
+end
+G.GAME.joy_excavated = nil
+'''
+
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = '''
+G.deck:shuffle('cashout'..G.GAME.round_resets.ante)
+'''
+position = 'after'
+match_indent = true
+payload = '''
+G.GAME.joy_excavated = nil
+'''

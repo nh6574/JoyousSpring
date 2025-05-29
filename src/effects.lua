@@ -13,6 +13,14 @@ end
 ---Does global effects when a context is being calculated
 ---@param context table
 JoyousSpring.calculate_context = function(context)
+    -- Check for hands contained in hands played
+    if context.before then
+        G.GAME.joy_played = G.GAME.joy_played or {}
+        for key, hands in pairs(context.poker_hands) do
+            G.GAME.joy_played[key] = next(hands) and true or nil
+        end
+    end
+
     -- Global counter for destroyed cards
     if context.remove_playing_cards then
         G.GAME.joy_cards_destroyed = G.GAME.joy_cards_destroyed and
@@ -82,6 +90,9 @@ JoyousSpring.calculate_context = function(context)
             end
         end
     end
+
+    -- Excavate
+    JoyousSpring.calculate_excavate(context)
 
     -- Add extra pack for Extra YGO Booster config
     if context.starting_shop and JoyousSpring.config.extra_ygo_booster then
@@ -432,7 +443,7 @@ JoyousSpring.calculate_hand_highlight_limit = function(count_card, remove_card)
     end
     for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
         if joker ~= remove_card and not joker.debuff and joker.config.center.joy_set_hand_highlight_limit then
-            local new_limit = joker.config.center.joy_set_hand_highlight_limit(joker)
+            local new_limit = joker.config.center.joy_set_hand_highlight_limit(joker) or -1
             maxlimit = (new_limit > maxlimit) and new_limit or maxlimit
         end
     end
@@ -440,9 +451,10 @@ JoyousSpring.calculate_hand_highlight_limit = function(count_card, remove_card)
     G.hand.config.highlighted_limit = (maxlimit > -1) and maxlimit or G.GAME.joy_original_hand_limit
 end
 
-JoyousSpring.excavate = function(amount)
-    local amount = amount or 7
+JoyousSpring.excavate = function(amount, context)
+    local amount = amount or 1
     local copied_cards = {}
+    local original_cards = {}
 
     for i = 0, amount - 1 do
         if i >= #G.deck.cards then break end
@@ -460,32 +472,61 @@ JoyousSpring.excavate = function(amount)
         added_card.states.drag.can = false
         added_card.states.visible = false
         table.insert(copied_cards, added_card)
+        table.insert(original_cards, G.deck.cards[#G.deck.cards - i])
     end
 
-    for _, card in ipairs(copied_cards) do
+    if #copied_cards > 0 then
+        SMODS.calculate_effect({ message = localize("k_joy_excavate") }, G.deck.cards[1])
+        G.GAME.joy_excavated = true
+    end
+
+    for i, card in ipairs(copied_cards) do
         G.E_MANAGER:add_event(Event({
+            trigger = "after",
+            delay = 0.5,
             func = (function()
                 card.states.visible = true
                 card:flip()
                 return true
             end)
         }))
+        SMODS.calculate_context({ joy_excavated = original_cards[i], joy_number = i, joy_other_context = context or {} })
         G.E_MANAGER:add_event(Event({
             trigger = "after",
-            delay = 3,
+            delay = 2,
             func = (function()
                 card:flip()
                 return true
-            end)
+            end),
         }))
         G.E_MANAGER:add_event(Event({
             trigger = "after",
-            delay = 3,
+            delay = 1,
             func = (function()
                 card:remove()
                 return true
             end)
         }))
+    end
+end
+
+JoyousSpring.calculate_excavate = function(context)
+    local maxlimit = 0
+    for _, joker in ipairs(G.jokers.cards) do
+        if not joker.debuff and joker.config.center.joy_calculate_excavate then
+            local new_limit = joker.config.center.joy_calculate_excavate(joker, context) or -1
+            maxlimit = (new_limit > maxlimit) and new_limit or maxlimit
+        end
+    end
+    for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
+        if not joker.debuff and joker.config.center.joy_calculate_excavate then
+            local new_limit = joker.config.center.joy_calculate_excavate(joker, context) or -1
+            maxlimit = (new_limit > maxlimit) and new_limit or maxlimit
+        end
+    end
+
+    if maxlimit > 0 then
+        JoyousSpring.excavate(maxlimit, context)
     end
 end
 
