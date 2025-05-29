@@ -9,7 +9,7 @@ SMODS.Atlas({
 -- Kitchen Dragonmaid
 SMODS.Joker({
     key = "dmaid_kitchen",
-    atlas = 'joy_Dragonmaid',
+    atlas = 'Dragonmaid',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
