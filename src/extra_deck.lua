@@ -128,8 +128,7 @@ G.FUNCS.joy_open_extra_deck = function(e)
 end
 
 G.FUNCS.joy_show_extra_deck = function(e)
-    if JoyousSpring.extra_deck_area and #JoyousSpring.extra_deck_area.cards > 0 or
-        JoyousSpring.field_spell_area and #JoyousSpring.field_spell_area.cards > 0 then
+    if JoyousSpring.extra_deck_area and #JoyousSpring.extra_deck_area.cards > 0 then
         G.GAME.joy_show_extra_deck = true
     end
     if G.GAME.joy_show_extra_deck then

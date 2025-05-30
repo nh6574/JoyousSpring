@@ -167,7 +167,7 @@ SMODS.Joker({
         end
     end,
     joy_can_activate = function(card)
-        if not G.GAME.blind and ((not G.GAME.blind.disabled) and (G.GAME.blind.boss)) then
+        if not G.GAME.blind or (not G.GAME.blind.disabled and G.GAME.blind.boss) then
             return false
         end
         local materials = JoyousSpring.get_materials_owned(
@@ -864,7 +864,7 @@ SMODS.Joker({
                 is_field_spell = true,
                 monster_archetypes = { ["Generaider"] = true },
             },
-            mult = 15,
+            mult = 1,
             current_mult = 0,
             tributes = 2,
             cards_to_create = 1,

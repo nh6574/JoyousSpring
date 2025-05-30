@@ -155,7 +155,7 @@ return {
                 text = {
                     {
                         "{C:joy_normal}\"Generaider\"{} each give {C:mult}+#1#{} Mult",
-                        "for each {C:attention}tributed{} card",
+                        "for each card {C:attention}tributed{} while owned",
                         "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)",
                     },
                     {

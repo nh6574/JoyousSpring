@@ -53,7 +53,7 @@ return {
                 name = "{C:joy_link}Linkuriboh",
                 text = {
                     {
-                        "Sell this card to disable the current {C:attention}Boss Blind{} and",
+                        "Sell this card to disable the current {C:attention}Boss Blind{}",
                         "but sets {C:money}money{} to {C:money}$0",
                     },
                 },
