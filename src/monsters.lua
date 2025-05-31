@@ -477,10 +477,10 @@ JoyousSpring.is_material = function(card, properties, summon_type)
             return false
         end
     end
-    if card.facing == 'back' then
+    if card.facing == 'back' and summon_type ~= "FUSION" then
         return properties.facedown or false
     end
-    if properties.facedown then
+    if properties.facedown and card.facing ~= 'back' then
         return false
     end
     if properties.rarity then
