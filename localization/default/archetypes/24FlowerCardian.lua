@@ -416,7 +416,7 @@ return {
                     },
                     {
                         "{C:attention}Hanafuda{} cards count as all {C:joy_link}Months{} and {C:joy_link}Types{}",
-                        "for {C:joy_normal}\"Flower Cardian\"{} abilities, also they count",
+                        "for other {C:joy_normal}\"Flower Cardian\"{} abilities, also they count",
                         "as all suits and can't be debuffed at start of {C:attention}Blind"
                     },
                     {

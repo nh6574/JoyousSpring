@@ -1213,7 +1213,7 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if context.after and SMODS.PokerHands[context.scoring_name].joy_koi_koi then
                 for _, pcard in ipairs(context.scoring_hand) do
-                    if (JoyousSpring.get_hanafuda(pcard) or {}).type == "animal" then
+                    if JoyousSpring.get_hanafuda(pcard) and (next(SMODS.find_card("j_joy_cardian_lightflare")) or JoyousSpring.get_hanafuda(pcard).type == "animal") then
                         card.ability.extra.animals_scored = card.ability.extra.animals_scored + 1
                     end
                     pcard:set_seal(SMODS.poll_seal({ guaranteed = true }))
