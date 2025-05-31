@@ -140,7 +140,8 @@ JoyousSpring.perform_summon = function(card, card_list, summon_type)
             card.ability.extra.joyous_spring.xyz_materials = card.ability.extra.joyous_spring.xyz_materials +
                 joker.ability.extra.joyous_spring.xyz_materials
         end
-        SMODS.destroy_cards(joker)
+        joker.getting_sliced = true
+        joker:start_dissolve()
     end
     card.ability.extra.joyous_spring.summoned = true
 

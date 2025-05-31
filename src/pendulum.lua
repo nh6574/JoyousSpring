@@ -133,7 +133,8 @@ G.FUNCS.joy_use_card = function(e)
             delay = 0.2,
             func = function()
                 JoyousSpring.send_to_graveyard(card)
-                SMODS.destroy_cards(card)
+                card.getting_sliced = true
+                card:start_dissolve()
                 G.E_MANAGER:add_event(Event({
                     trigger = 'after',
                     delay = 0.1,

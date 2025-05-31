@@ -40,7 +40,8 @@ SMODS.Joker({
                 context.end_of_round and context.game_over == false and context.main_eval and G.GAME.blind.boss then
                 if #JoyousSpring.field_spell_area.cards < JoyousSpring.field_spell_area.config.card_limit then
                     JoyousSpring.add_to_extra_deck("j_joy_generaider_boss_stage")
-                    SMODS.destroy_cards(card)
+                    card.getting_sliced = true
+                    card:start_dissolve()
                 end
             end
         end
@@ -101,7 +102,8 @@ SMODS.Joker({
                             key = "j_joy_generaider_loptr"
                         })
                     end
-                    SMODS.destroy_cards(card)
+                    card.getting_sliced = true
+                    card:start_dissolve()
                 end
             end
         end
@@ -822,7 +824,8 @@ SMODS.Joker({
                 context.joy_detach and context.joy_detaching_card == card then
                 for _, joker in ipairs(G.jokers.cards) do
                     if joker ~= card then
-                        SMODS.destroy_cards(joker)
+                        joker.getting_sliced = true
+                        joker:start_dissolve()
                     end
                 end
                 local added_card = JoyousSpring.create_summon({

@@ -379,7 +379,8 @@ SMODS.Joker({
                     if i == 1 then
                         SMODS.calculate_effect({ message = localize('k_joy_banished') }, card_to_destroy)
                     end
-                    SMODS.destroy_cards(card_to_destroy)
+                    card_to_destroy.getting_sliced = true
+                    card_to_destroy:start_dissolve()
                 end
             end
         end

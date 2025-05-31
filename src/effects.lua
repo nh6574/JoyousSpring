@@ -154,8 +154,9 @@ JoyousSpring.tribute = function(card, card_list)
 
     for _, material in ipairs(card_list) do
         JoyousSpring.count_as_tributed(material)
+        material.getting_sliced = true
+        material:start_dissolve()
         SMODS.calculate_context({ joy_tributed = true, joy_card = material, joy_source = card })
-        SMODS.destroy_cards(material)
     end
 end
 
