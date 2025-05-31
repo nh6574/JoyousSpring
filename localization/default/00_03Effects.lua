@@ -13,7 +13,8 @@ return {
             k_joy_add = "Add!",
             k_joy_return = "Return!",
             k_joy_excavate = "Excavate!",
-            k_joy_hit = "Hit!"
+            k_joy_hit = "Hit!",
+            k_joy_transferred = "Transferred!"
         }
     }
 }

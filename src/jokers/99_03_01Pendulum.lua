@@ -596,6 +596,7 @@ SMODS.Joker({
         if joker then
             card.ability.extra.transferring = true
             JoyousSpring.transfer_abilities(joker, card.config.center.key, card)
+            SMODS.calculate_effect({ message = localize("k_joy_transferred") }, joker)
         end
     end,
     can_use = function(self, card)
