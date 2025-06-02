@@ -9,7 +9,7 @@ Ajoute des cartes et mécaniques modernes de Yu-Gi-Oh!
 ## Installation
 
 1. Installez [Steamodded](https://github.com/Steamopollys/Steamodded) [(version >1.0.0)](https://github.com/Steamodded/smods/wiki)
-2. Téléchargez la [dernière version](https://github.com/Keraloon/JoyousSpring/releases)
+2. Téléchargez la [dernière version](https://github.com/Keraloon/JoyousSpring/releases/tag/0.7.0.8)
 3. Dézippez le dossier (et pas les fichiers) pour l'inclure dans le dossier mods de Balatro (%appdata%\Balatro\Mods)
 
 Regardez bien le Glossaire et les Configs dans le Menu > Mods > JoyousSpring
