@@ -1,6 +1,8 @@
 # JoyousSpring - Balatro Mod
 
-(French Translation of the mod)
+(French Translation of the mod) 
+
+ONLY ADDED "fr.lua" in the localization folder and translated the readme, didn't change anything else
 
 Ajoute des cartes et mécaniques modernes de Yu-Gi-Oh!
 
