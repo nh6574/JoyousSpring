@@ -14,7 +14,10 @@ return {
                 text = {
                     "{C:joy_mod}Booster Art:{} IcyEthics",
                     " ",
-                    "{C:joy_normal}Archetype Ideas:{}",
+                    "{C:joy_mod}Localization:{}",
+                    "{C:attention}French:{} Keraloon",
+                    " ",
+                    "{C:joy_mod}Archetype Ideas:{}",
                     "{C:joy_link}@Ignister{}: gyro/rina",
                     " ",
                     "Some ideas taken from these mods:",
