@@ -500,13 +500,11 @@ SMODS.Joker({
         end
     end,
     add_to_deck = function(self, card, from_debuff)
-        if not card.debuff then
-            local debuffed_ed_count = JoyousSpring.count_materials_owned({ { is_extra_deck = true, is_debuffed = true } }) +
-                JoyousSpring.count_materials_in_graveyard({ { is_extra_deck = true } })
-            debuffed_ed_count = math.floor(debuffed_ed_count / card.ability.extra.debuffed_ed_count)
-            G.hand:change_size(debuffed_ed_count)
-            card.ability.extra.h_size = debuffed_ed_count
-        end
+        local debuffed_ed_count = JoyousSpring.count_materials_owned({ { is_extra_deck = true, is_debuffed = true } }) +
+            JoyousSpring.count_materials_in_graveyard({ { is_extra_deck = true } })
+        debuffed_ed_count = math.floor(debuffed_ed_count / card.ability.extra.debuffed_ed_count)
+        G.hand:change_size(debuffed_ed_count)
+        card.ability.extra.h_size = debuffed_ed_count
     end,
     remove_from_deck = function(self, card, from_debuff)
         G.hand:change_size(-card.ability.extra.h_size)

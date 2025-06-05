@@ -24,7 +24,8 @@ return {
                         "{C:inactive}(Must have room)"
                     },
                     {
-                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                        "Can be obtained from the shop even if you don't have room",
+                        "if you own a {C:joy_normal}\"Flower Cardian\""
                     }
                 }
             },
@@ -50,7 +51,8 @@ return {
                         "{C:inactive}(Must have room)"
                     },
                     {
-                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                        "Can be obtained from the shop even if you don't have room",
+                        "if you own a {C:joy_normal}\"Flower Cardian\""
                     }
                 }
             },
@@ -77,7 +79,8 @@ return {
                         "{C:inactive}(Must have room)"
                     },
                     {
-                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                        "Can be obtained from the shop even if you don't have room",
+                        "if you own a {C:joy_normal}\"Flower Cardian\""
                     }
                 }
             },
@@ -103,7 +106,8 @@ return {
                         "{C:inactive}(Must have room)"
                     },
                     {
-                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                        "Can be obtained from the shop even if you don't have room",
+                        "if you own a {C:joy_normal}\"Flower Cardian\""
                     }
                 }
             },
@@ -117,11 +121,11 @@ return {
                         "When {C:attention}Blind{} is selected, {C:attention}excavate #2#{}",
                         "and apply these based on the excavated cards:",
                         "- {C:joy_link}June {C:attention}Hanafuda{}: Draws {C:attention}#3#{} card",
-                        "- {C:attention}#4#{} {C:joy_link}June {C:attention}Hanafuda{}: Adds {C:attention}#5#{} {C:joy_normal}\"Flower Cardian\"{}",
+                        "- {C:joy_link}Light {C:attention}Hanafuda{}: Adds {C:attention}#4#{} {C:joy_normal}\"Flower Cardian\"{}",
                         "to the {C:joy_spell}Extra Deck {C:inactive}(Must have room)",
                         " ",
                         "Otherwise, destroys itself and",
-                        "creates {C:attention}#6#{} banished {C:joy_normal}\"Flower Cardian\"",
+                        "creates {C:attention}#5#{} banished {C:joy_normal}\"Flower Cardian\"",
                         "that returns at end of round"
                     },
                     {
@@ -129,7 +133,8 @@ return {
                         "{C:inactive}(Must have room)"
                     },
                     {
-                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                        "Can be obtained from the shop even if you don't have room",
+                        "if you own a {C:joy_normal}\"Flower Cardian\""
                     }
                 }
             },
@@ -143,11 +148,11 @@ return {
                         "When {C:attention}Blind{} is selected, {C:attention}excavate #2#{}",
                         "and apply these based on the excavated cards:",
                         "- {C:joy_link}July {C:attention}Hanafuda{}: Draws {C:attention}#3#{} card",
-                        "- {C:attention}#4#{} {C:joy_link}July {C:attention}Hanafuda{}: Adds {C:attention}#5#{} {C:joy_normal}\"Flower Cardian\"{}",
+                        "- {C:joy_link}Light {C:attention}Hanafuda{}: Adds {C:attention}#4#{} {C:joy_normal}\"Flower Cardian\"{}",
                         "to the {C:joy_spell}Extra Deck {C:inactive}(Must have room)",
                         " ",
                         "Otherwise, destroys itself and",
-                        "creates {C:attention}#6#{} banished {C:joy_normal}\"Flower Cardian\"",
+                        "creates {C:attention}#5#{} banished {C:joy_normal}\"Flower Cardian\"",
                         "that returns at end of round"
                     },
                     {
@@ -155,7 +160,8 @@ return {
                         "{C:inactive}(Must have room)"
                     },
                     {
-                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                        "Can be obtained from the shop even if you don't have room",
+                        "if you own a {C:joy_normal}\"Flower Cardian\""
                     }
                 }
             },
@@ -182,7 +188,8 @@ return {
                         "{C:inactive}(Must have room)"
                     },
                     {
-                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                        "Can be obtained from the shop even if you don't have room",
+                        "if you own a {C:joy_normal}\"Flower Cardian\""
                     }
                 }
             },
@@ -205,7 +212,8 @@ return {
                         "{C:inactive}(Must have room)"
                     },
                     {
-                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                        "Can be obtained from the shop even if you don't have room",
+                        "if you own a {C:joy_normal}\"Flower Cardian\""
                     }
                 }
             },
@@ -219,10 +227,10 @@ return {
                         "When {C:attention}Blind{} is selected, {C:attention}excavate #2#{}",
                         "and apply these based on the excavated cards:",
                         "- {C:joy_link}October {C:attention}Hanafuda{}: Draws {C:attention}#3#{} card",
-                        "- {C:attention}#4#{} {C:joy_link}October {C:attention}Hanafuda{}: Adds {C:attention}#5#{} {C:joy_normal}\"Flower Cardian\"{} to the shop",
+                        "- {C:joy_link}Light {C:attention}Hanafuda{}: Adds {C:attention}#4#{} {C:joy_normal}\"Flower Cardian\"{} to the shop",
                         " ",
                         "Otherwise, destroys itself and",
-                        "creates {C:attention}#6#{} banished {C:joy_normal}\"Flower Cardian\"",
+                        "creates {C:attention}#5#{} banished {C:joy_normal}\"Flower Cardian\"",
                         "that returns at end of round"
                     },
                     {
@@ -230,7 +238,8 @@ return {
                         "{C:inactive}(Must have room)"
                     },
                     {
-                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                        "Can be obtained from the shop even if you don't have room",
+                        "if you own a {C:joy_normal}\"Flower Cardian\""
                     }
                 }
             },
@@ -257,7 +266,8 @@ return {
                         "{C:inactive}(Must have room)"
                     },
                     {
-                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                        "Can be obtained from the shop even if you don't have room",
+                        "if you own a {C:joy_normal}\"Flower Cardian\""
                     }
                 }
             },
@@ -268,10 +278,10 @@ return {
                         "When {C:attention}Blind{} is selected, {C:attention}excavate #1#{}",
                         "and apply these based on the excavated cards:",
                         "- {C:attention}Face{} card: Turns it into a random {C:attention}Hanafuda{} card",
-                        "- {C:attention}#2# {C:joy_link}November {C:attention}Hanafuda{}: {C:attention}Revive #3#{} {C:joy_normal}\"Flower Cardian\"",
+                        "- {C:joy_link}November {C:attention}Hanafuda{}: {C:attention}Revive #2#{} {C:joy_normal}\"Flower Cardian\"",
                         " ",
                         "Otherwise, destroys itself and",
-                        "creates {C:attention}#4#{} banished {C:joy_effect}\"Flower Cardian Willow\"",
+                        "creates {C:attention}#3#{} banished {C:joy_effect}\"Flower Cardian Willow\"",
                         "that returns at end of round"
                     },
                     {
@@ -279,7 +289,8 @@ return {
                         "{C:inactive}(Must have room)"
                     },
                     {
-                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                        "Can be obtained from the shop even if you don't have room",
+                        "if you own a {C:joy_normal}\"Flower Cardian\""
                     }
                 }
             },
@@ -306,7 +317,8 @@ return {
                         "{C:inactive}(Must have room)"
                     },
                     {
-                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                        "Can be obtained from the shop even if you don't have room",
+                        "if you own a {C:joy_normal}\"Flower Cardian\""
                     }
                 }
             },
@@ -332,7 +344,8 @@ return {
                         "{C:inactive}(Must have room)"
                     },
                     {
-                        "Free if you own a {C:joy_normal}\"Flower Cardian\""
+                        "Can be obtained from the shop even if you don't have room",
+                        "if you own a {C:joy_normal}\"Flower Cardian\""
                     }
                 }
             },

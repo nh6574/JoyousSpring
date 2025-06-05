@@ -12,10 +12,8 @@ local cardian_excavate = function(card, context)
     end
 end
 
-local cardian_set_cost = function(card)
-    if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 0 then
-        card.cost = 0
-    end
+local cardian_bypass_room_check = function(card, from_booster)
+    return JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 0
 end
 
 local cardian_is_hanafuda_month = function(card, months)
@@ -125,7 +123,7 @@ SMODS.Joker({
         end
     end,
     joy_calculate_excavate = cardian_excavate,
-    joy_set_cost = cardian_set_cost
+    joy_bypass_room_check = cardian_bypass_room_check
 })
 
 -- Flower Cardian Pine with Crane
@@ -209,7 +207,7 @@ SMODS.Joker({
         end
     end,
     joy_calculate_excavate = cardian_excavate,
-    joy_set_cost = cardian_set_cost
+    joy_bypass_room_check = cardian_bypass_room_check
 })
 
 -- Flower Cardian Cherry Blossom
@@ -298,7 +296,7 @@ SMODS.Joker({
         end
     end,
     joy_calculate_excavate = cardian_excavate,
-    joy_set_cost = cardian_set_cost
+    joy_bypass_room_check = cardian_bypass_room_check
 })
 
 -- Flower Cardian Cherry Blossom with Curtain
@@ -382,7 +380,7 @@ SMODS.Joker({
         end
     end,
     joy_calculate_excavate = cardian_excavate,
-    joy_set_cost = cardian_set_cost
+    joy_bypass_room_check = cardian_bypass_room_check
 })
 
 -- Flower Cardian Peony with Butterfly
@@ -396,7 +394,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 7,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.xmult, card.ability.extra.excavates, card.ability.extra.draws, card.ability.extra.june, card.ability.extra.adds, card.ability.extra.creates } }
+        return { vars = { card.ability.extra.xmult, card.ability.extra.excavates, card.ability.extra.draws, card.ability.extra.adds, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
@@ -414,10 +412,8 @@ SMODS.Joker({
             xmult = 1.1,
             excavates = 5,
             draws = 1,
-            june = 3,
             adds = 1,
             creates = 1,
-            june_count = 0
         },
     },
     calculate = function(self, card, context)
@@ -432,11 +428,10 @@ SMODS.Joker({
             if context.joy_excavated and context.joy_number <= card.ability.extra.excavates then
                 local hit
                 if cardian_is_hanafuda_month(context.joy_excavated, { "june" }) then
-                    card.ability.extra.june_count = card.ability.extra.june_count + 1
                     card.joy_draw = true
                     hit = true
                 end
-                if card.ability.extra.june_count >= card.ability.extra.june then
+                if JoyousSpring.get_hanafuda(context.joy_excavated) and (next(SMODS.find_card("j_joy_cardian_lightflare")) or JoyousSpring.get_hanafuda(context.joy_excavated).type == "light") then
                     local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "FlowerCardian" }, is_extra_deck = true } })
                     for i = 1, card.ability.extra.adds do
                         local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_cardian_butterfly"))
@@ -444,6 +439,7 @@ SMODS.Joker({
                             JoyousSpring.add_to_extra_deck(key_to_add)
                         end
                     end
+                    hit = true
                 end
                 card.joy_hit = card.joy_hit or hit
                 return {
@@ -451,7 +447,6 @@ SMODS.Joker({
                 }
             end
             if context.setting_blind then
-                card.ability.extra.june_count = 0
                 if not card.joy_hit then
                     local added_card = JoyousSpring.create_pseudorandom({ { monster_archetypes = { "FlowerCardian" } } },
                         "j_joy_cardian_butterfly", false)
@@ -476,7 +471,7 @@ SMODS.Joker({
         end
     end,
     joy_calculate_excavate = cardian_excavate,
-    joy_set_cost = cardian_set_cost
+    joy_bypass_room_check = cardian_bypass_room_check
 })
 
 -- Flower Cardian Clover with Boar
@@ -490,7 +485,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 7,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.xmult, card.ability.extra.excavates, card.ability.extra.draws, card.ability.extra.july, card.ability.extra.adds, card.ability.extra.creates } }
+        return { vars = { card.ability.extra.xmult, card.ability.extra.excavates, card.ability.extra.draws, card.ability.extra.adds, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
@@ -507,10 +502,8 @@ SMODS.Joker({
             xmult = 1.1,
             excavates = 5,
             draws = 1,
-            july = 3,
             adds = 1,
             creates = 1,
-            july_count = 0
         },
     },
     calculate = function(self, card, context)
@@ -525,11 +518,10 @@ SMODS.Joker({
             if context.joy_excavated and context.joy_number <= card.ability.extra.excavates then
                 local hit
                 if cardian_is_hanafuda_month(context.joy_excavated, { "july" }) then
-                    card.ability.extra.july_count = card.ability.extra.july_count + 1
                     card.joy_draw = true
                     hit = true
                 end
-                if card.ability.extra.july_count >= card.ability.extra.july then
+                if JoyousSpring.get_hanafuda(context.joy_excavated) and (next(SMODS.find_card("j_joy_cardian_lightflare")) or JoyousSpring.get_hanafuda(context.joy_excavated).type == "light") then
                     local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "FlowerCardian" }, is_extra_deck = true } })
                     for i = 1, card.ability.extra.adds do
                         local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_cardian_boar"))
@@ -537,6 +529,7 @@ SMODS.Joker({
                             JoyousSpring.add_to_extra_deck(key_to_add)
                         end
                     end
+                    hit = true
                 end
                 card.joy_hit = card.joy_hit or hit
                 return {
@@ -544,7 +537,6 @@ SMODS.Joker({
                 }
             end
             if context.setting_blind then
-                card.ability.extra.july_count = 0
                 if not card.joy_hit then
                     local added_card = JoyousSpring.create_pseudorandom({ { monster_archetypes = { "FlowerCardian" } } },
                         "j_joy_cardian_boar", false)
@@ -569,7 +561,7 @@ SMODS.Joker({
         end
     end,
     joy_calculate_excavate = cardian_excavate,
-    joy_set_cost = cardian_set_cost
+    joy_bypass_room_check = cardian_bypass_room_check
 })
 
 -- Flower Cardian Zebra Grass
@@ -658,7 +650,7 @@ SMODS.Joker({
         end
     end,
     joy_calculate_excavate = cardian_excavate,
-    joy_set_cost = cardian_set_cost
+    joy_bypass_room_check = cardian_bypass_room_check
 })
 
 -- Flower Cardian Zebra Grass with Moon
@@ -741,7 +733,7 @@ SMODS.Joker({
         end
     end,
     joy_calculate_excavate = cardian_excavate,
-    joy_set_cost = cardian_set_cost
+    joy_bypass_room_check = cardian_bypass_room_check
 })
 
 -- Flower Cardian Maple with Deer
@@ -755,7 +747,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 7,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.xmult, card.ability.extra.excavates, card.ability.extra.draws, card.ability.extra.october, card.ability.extra.adds, card.ability.extra.creates } }
+        return { vars = { card.ability.extra.xmult, card.ability.extra.excavates, card.ability.extra.draws, card.ability.extra.adds, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
@@ -772,10 +764,8 @@ SMODS.Joker({
             xmult = 1.1,
             excavates = 5,
             draws = 1,
-            october = 3,
             adds = 1,
             creates = 1,
-            october_count = 0
         },
     },
     calculate = function(self, card, context)
@@ -790,16 +780,16 @@ SMODS.Joker({
             if context.joy_excavated and context.joy_number <= card.ability.extra.excavates then
                 local hit
                 if cardian_is_hanafuda_month(context.joy_excavated, { "october" }) then
-                    card.ability.extra.october_count = card.ability.extra.october_count + 1
                     card.joy_draw = true
                     hit = true
                 end
-                if card.ability.extra.october_count >= card.ability.extra.october then
+                if JoyousSpring.get_hanafuda(context.joy_excavated) and (next(SMODS.find_card("j_joy_cardian_lightflare")) or JoyousSpring.get_hanafuda(context.joy_excavated).type == "light") then
                     local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "FlowerCardian" } } })
                     for i = 1, card.ability.extra.adds do
                         local key_to_add = pseudorandom_element(choices, pseudoseed("j_joy_moissa"))
                         JoyousSpring.add_monster_tag(key_to_add or "j_joy_eccentrick")
                     end
+                    hit = true
                 end
                 card.joy_hit = card.joy_hit or hit
                 return {
@@ -807,7 +797,6 @@ SMODS.Joker({
                 }
             end
             if context.setting_blind then
-                card.ability.extra.october_count = 0
                 if not card.joy_hit then
                     local added_card = JoyousSpring.create_pseudorandom({ { monster_archetypes = { "FlowerCardian" } } },
                         "j_joy_cardian_deer", false)
@@ -832,7 +821,7 @@ SMODS.Joker({
         end
     end,
     joy_calculate_excavate = cardian_excavate,
-    joy_set_cost = cardian_set_cost
+    joy_bypass_room_check = cardian_bypass_room_check
 })
 
 -- Flower Cardian Willow
@@ -921,7 +910,7 @@ SMODS.Joker({
         end
     end,
     joy_calculate_excavate = cardian_excavate,
-    joy_set_cost = cardian_set_cost
+    joy_bypass_room_check = cardian_bypass_room_check
 })
 
 -- Flower Cardian Willow with Calligrapher
@@ -935,7 +924,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.excavates, card.ability.extra.november, card.ability.extra.revives, card.ability.extra.creates } }
+        return { vars = { card.ability.extra.excavates, card.ability.extra.revives, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
@@ -951,10 +940,8 @@ SMODS.Joker({
                 monster_archetypes = { ["FlowerCardian"] = true }
             },
             excavates = 5,
-            november = 3,
             revives = 1,
             creates = 1,
-            november_count = 0
         },
     },
     calculate = function(self, card, context)
@@ -966,10 +953,6 @@ SMODS.Joker({
                     hit = true
                 end
                 if cardian_is_hanafuda_month(context.joy_excavated, { "november" }) then
-                    card.ability.extra.november_count = card.ability.extra.november_count + 1
-                    hit = true
-                end
-                if card.ability.extra.november_count >= card.ability.extra.november then
                     for i = 1, card.ability.extra.revives do
                         local revived_card = JoyousSpring.revive_pseudorandom(
                             { { monster_archetypes = { "FlowerCardian" } } },
@@ -977,6 +960,7 @@ SMODS.Joker({
                             true
                         )
                     end
+                    hit = true
                 end
                 card.joy_hit = card.joy_hit or hit
                 return {
@@ -984,7 +968,6 @@ SMODS.Joker({
                 }
             end
             if context.setting_blind then
-                card.ability.extra.november_count = 0
                 if not card.joy_hit then
                     local added_card = JoyousSpring.create_summon({
                         key = "j_joy_cardian_willow"
@@ -1006,7 +989,7 @@ SMODS.Joker({
         end
     end,
     joy_calculate_excavate = cardian_excavate,
-    joy_set_cost = cardian_set_cost
+    joy_bypass_room_check = cardian_bypass_room_check
 })
 
 -- Flower Cardian Paulownia
@@ -1095,7 +1078,7 @@ SMODS.Joker({
         end
     end,
     joy_calculate_excavate = cardian_excavate,
-    joy_set_cost = cardian_set_cost
+    joy_bypass_room_check = cardian_bypass_room_check
 })
 
 -- Flower Cardian Paulownia with Phoenix
@@ -1179,7 +1162,7 @@ SMODS.Joker({
         end
     end,
     joy_calculate_excavate = cardian_excavate,
-    joy_set_cost = cardian_set_cost
+    joy_bypass_room_check = cardian_bypass_room_check
 })
 
 -- Flower Cardian Boardefly

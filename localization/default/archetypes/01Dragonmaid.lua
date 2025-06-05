@@ -117,13 +117,13 @@ return {
                         "and send {C:attention}#4#{} {C:joy_normal}\"Dragonmaid\"{} to the {C:attention}GY{}",
                     },
                     {
-                        "{C:attention}Transforms{} into {C:joy_effect}\"Dragonmaid Stern\"",
+                        "{C:attention}Transforms{} into {C:joy_effect}\"Dragonmaid Cehrmba\"",
                         "when {C:attention}Blind{} is selected",
                     },
                 },
             },
-            j_joy_dmaid_stern = {
-                name = "{C:joy_effect}Dragonmaid Stern",
+            j_joy_dmaid_cehrmba = {
+                name = "{C:joy_effect}Dragonmaid Cehrmba",
                 text = {
                     {
                         "{C:green}#1# in #2#{} chance to {C:attention}revive #3#{}",

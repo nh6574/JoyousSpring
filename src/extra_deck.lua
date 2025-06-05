@@ -146,6 +146,7 @@ end
 
 local check_for_buy_space_ref = G.FUNCS.check_for_buy_space
 G.FUNCS.check_for_buy_space = function(card)
+    if card.ability.set ~= 'Joker' then return check_for_buy_space_ref(card) end
     if JoyousSpring.is_field_spell(card) then
         if #JoyousSpring.field_spell_area.cards < JoyousSpring.field_spell_area.config.card_limit +
             ((card.edition and card.edition.negative) and 1 or 0) then
@@ -164,13 +165,19 @@ G.FUNCS.check_for_buy_space = function(card)
             return false
         end
     end
+    if card.config.center.joy_bypass_room_check and type(card.config.center.joy_bypass_room_check) == "function" and
+        card.config.center:joy_bypass_room_check(card, false) then
+        return true
+    end
     return check_for_buy_space_ref(card)
 end
 
 local can_select_card_ref = G.FUNCS.can_select_card
 G.FUNCS.can_select_card = function(e)
     local card = e.config.ref_table
-    if card.ability.set == 'Joker' and JoyousSpring.is_field_spell(card) then
+    if card.ability.set ~= 'Joker' then
+        can_select_card_ref(e)
+    elseif JoyousSpring.is_field_spell(card) then
         if (card.edition and card.edition.negative) or
             #JoyousSpring.field_spell_area.cards < JoyousSpring.field_spell_area.config.card_limit then
             e.config.colour = G.C.GREEN
@@ -179,7 +186,7 @@ G.FUNCS.can_select_card = function(e)
             e.config.colour = G.C.UI.BACKGROUND_INACTIVE
             e.config.button = nil
         end
-    elseif card.ability.set == 'Joker' and JoyousSpring.is_extra_deck_monster(card) then
+    elseif JoyousSpring.is_extra_deck_monster(card) then
         if (card.edition and card.edition.negative) or
             #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
             e.config.colour = G.C.GREEN
@@ -188,6 +195,10 @@ G.FUNCS.can_select_card = function(e)
             e.config.colour = G.C.UI.BACKGROUND_INACTIVE
             e.config.button = nil
         end
+    elseif card.config.center.joy_bypass_room_check and type(card.config.center.joy_bypass_room_check) == "function" and
+        card.config.center:joy_bypass_room_check(card, true) then
+        e.config.colour = G.C.GREEN
+        e.config.button = 'use_card'
     else
         can_select_card_ref(e)
     end

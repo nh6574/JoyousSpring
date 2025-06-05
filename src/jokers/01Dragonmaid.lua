@@ -40,11 +40,12 @@ SMODS.Joker({
         },
     },
     calculate = function(self, card, context)
-        if JoyousSpring.can_use_abilities(card) then
-            if not context.blueprint_card and not context.retrigger_joker and
-                context.setting_blind and context.main_eval then
-                JoyousSpring.transform_card(card, "j_joy_dmaid_tinkhec")
-            end
+        if context.modify_hand then
+            mult = math.max(math.floor(mult * 0.5 + 0.5), 1)
+            hand_chips = math.max(math.floor(hand_chips * 0.5 + 0.5), 0)
+            return {
+                calculated = true
+            }
         end
     end,
     add_to_deck = function(self, card, from_debuff)
@@ -606,7 +607,7 @@ SMODS.Joker({
         }
     end,
     joy_desc_cards = {
-        { "j_joy_dmaid_stern",                                        name = "k_joy_transforms_into" },
+        { "j_joy_dmaid_cehrmba",                                      name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,
@@ -628,7 +629,7 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and not context.retrigger_joker and
                 context.setting_blind and context.main_eval then
-                JoyousSpring.transform_card(card, "j_joy_dmaid_stern")
+                JoyousSpring.transform_card(card, "j_joy_dmaid_cehrmba")
             end
         end
     end,
@@ -664,9 +665,9 @@ SMODS.Joker({
     end,
 })
 
--- Dragonmaid Stern
+-- Dragonmaid Cehrmba
 SMODS.Joker({
-    key = "dmaid_stern",
+    key = "dmaid_cehrmba",
     atlas = 'Dragonmaid',
     pos = { x = 4, y = 1 },
     rarity = 2,
@@ -709,7 +710,7 @@ SMODS.Joker({
     add_to_deck = function(self, card, from_debuff)
         if not from_debuff and not card.debuff then
             local has_revived = false
-            if pseudorandom("j_joy_dmaid_stern") < G.GAME.probabilities.normal / card.ability.extra.odds then
+            if pseudorandom("j_joy_dmaid_cehrmba") < G.GAME.probabilities.normal / card.ability.extra.odds then
                 for i = 1, card.ability.extra.revives do
                     local revived_card
                     JoyousSpring.revive_pseudorandom(
@@ -717,7 +718,7 @@ SMODS.Joker({
                             { rarity = 2, monster_archetypes = { "Dragonmaid" } },
                             { rarity = 3, monster_archetypes = { "Dragonmaid" } },
                         },
-                        pseudoseed("j_joy_dmaid_stern"),
+                        pseudoseed("j_joy_dmaid_cehrmba"),
                         true
                     )
                     has_revived = revived_card and true or has_revived

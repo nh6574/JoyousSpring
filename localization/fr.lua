@@ -110,7 +110,7 @@ return {
 					"quand la {C:attention}Blinde{} est choisie",
 				},
 			},
-			j_joy_dmaid_stern = {
+			j_joy_dmaid_cehrmba = {
 				name = "{C:joy_effect}Dragonirène Stern",
 				text = {
 					"{C:green}#1# chance sur #2#{} de {C:attention}ressusciter #3#{}",
