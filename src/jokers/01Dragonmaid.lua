@@ -40,12 +40,11 @@ SMODS.Joker({
         },
     },
     calculate = function(self, card, context)
-        if context.modify_hand then
-            mult = math.max(math.floor(mult * 0.5 + 0.5), 1)
-            hand_chips = math.max(math.floor(hand_chips * 0.5 + 0.5), 0)
-            return {
-                calculated = true
-            }
+        if JoyousSpring.can_use_abilities(card) then
+            if not context.blueprint_card and not context.retrigger_joker and
+                context.setting_blind and context.main_eval then
+                JoyousSpring.transform_card(card, "j_joy_dmaid_tinkhec")
+            end
         end
     end,
     add_to_deck = function(self, card, from_debuff)
