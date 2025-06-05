@@ -144,8 +144,8 @@ return {
         },
         poker_hand_descriptions = {
             joy_eldlixir = {
-                "5 Gold cards",
-                "(Must be enabled by an ability)"
+                "5 {C:attention}Gold{} cards",
+                "{C:inactive}(Must be enabled by an ability)"
             }
         },
         dictionary = {

@@ -369,7 +369,7 @@ SMODS.PokerHandPart({
 SMODS.PokerHand({
     key = "cardian_flowerviewing",
     joy_koi_koi = true,
-    chips = 100,
+    chips = 200,
     mult = 5,
     l_chips = 15,
     l_mult = 2,
@@ -401,7 +401,7 @@ SMODS.PokerHandPart({
 SMODS.PokerHand({
     key = "cardian_moonviewing",
     joy_koi_koi = true,
-    chips = 100,
+    chips = 200,
     mult = 5,
     l_chips = 15,
     l_mult = 2,
@@ -422,7 +422,7 @@ SMODS.PokerHand({
 SMODS.PokerHand({
     key = "cardian_moonflowerviewing",
     joy_koi_koi = true,
-    chips = 100,
+    chips = 500,
     mult = 10,
     l_chips = 15,
     l_mult = 2,
@@ -459,7 +459,7 @@ SMODS.PokerHandPart({
 SMODS.PokerHand({
     key = "cardian_lightwave",
     joy_koi_koi = true,
-    chips = 100,
+    chips = 200,
     mult = 5,
     l_chips = 15,
     l_mult = 2,
@@ -480,7 +480,7 @@ SMODS.PokerHand({
 SMODS.PokerHand({
     key = "cardian_lightshower",
     joy_koi_koi = true,
-    chips = 100,
+    chips = 500,
     mult = 7,
     l_chips = 15,
     l_mult = 2,
@@ -512,7 +512,7 @@ SMODS.PokerHand({
 SMODS.PokerHand({
     key = "cardian_lightshow",
     joy_koi_koi = true,
-    chips = 100,
+    chips = 500,
     mult = 8,
     l_chips = 15,
     l_mult = 2,
@@ -539,7 +539,7 @@ SMODS.PokerHand({
 SMODS.PokerHand({
     key = "cardian_lightflare",
     joy_koi_koi = true,
-    chips = 100,
+    chips = 1000,
     mult = 10,
     l_chips = 15,
     l_mult = 2,

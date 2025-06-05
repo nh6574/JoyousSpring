@@ -539,64 +539,64 @@ return {
         },
         poker_hand_descriptions = {
             joy_cardian_chaff = {
-                "5 Chaff Hanafuda cards",
-                "(or Chrysanthemum with Sake)"
+                "5 {C:joy_link}Chaff{} {C:attention}Hanafuda{} cards",
+                "(or {C:joy_mod}Chrysanthemum with Sake{})"
             },
             joy_cardian_ribbons = {
-                "5 Ribbon Hanafuda cards",
+                "5 {C:joy_link}Ribbon {C:attention}Hanafuda{} cards",
             },
             joy_cardian_blueribbon = {
-                "Peony with Ribbon, Chrysanthemum with Ribbon",
-                "and Maple with Ribbon Hanafuda cards",
+                "{C:joy_mod}Peony with Ribbon{}, {C:joy_mod}Chrysanthemum with Ribbon",
+                "and {C:joy_mod}Maple with Ribbon {C:attention}Hanafuda{} cards",
                 "with up to 2 unscored cards"
             },
             joy_cardian_redpoem = {
-                "Pine with Ribbon, Plum Blossom with Ribbon",
-                "and Cherry Blossom with Ribbon Hanafuda cards",
+                "{C:joy_mod}Pine with Ribbon{}, {C:joy_mod}Plum Blossom with Ribbon",
+                "and {C:joy_mod}Cherry Blossom with Ribbon {C:attention}Hanafuda{} cards",
                 "with up to 2 unscored cards"
             },
             joy_cardian_redpoemblueribbon = {
-                "Any 5 of Peony with Ribbon, Chrysanthemum with Ribbon,",
-                "Maple with Ribbon, Pine with Ribbon",
-                "Plum Blossom with Ribbon or Cherry Blossom with Ribbon Hanafuda cards",
+                "Any 5 of {C:joy_mod}Peony with Ribbon{}, {C:joy_mod}Chrysanthemum with Ribbon,",
+                "{C:joy_mod}Maple with Ribbon{}, {C:joy_mod}Pine with Ribbon",
+                "{C:joy_mod}Plum Blossom with Ribbon{} or {C:joy_mod}Cherry Blossom with Ribbon {C:attention}Hanafuda{} cards",
             },
             joy_cardian_animals = {
-                "5 Animal Hanafuda cards",
+                "5 {C:joy_link}Animal{} {C:attention}Hanafuda{} cards",
             },
             joy_cardian_boardefly = {
-                "Clover with Boar, Maple with Deer",
-                "and Peony with Butterfly Hanafuda cards",
-                "with up to 2 Animal Hanafuda cards",
+                "{C:joy_mod}Clover with Boar{}, {C:joy_mod}Maple with Deer",
+                "and {C:joy_mod}Peony with Butterfly {C:attention}Hanafuda{} cards",
+                "with up to 2 {C:joy_link}Animal{} {C:attention}Hanafuda{} cards",
                 "and/or up to 2 unscored cards"
             },
             joy_cardian_flowerviewing = {
-                "Up to 5 Chrysanthemum with Sake and",
-                "Cherry Blossom with Curtain Hanafuda cards",
+                "Up to 5 {C:joy_mod}Chrysanthemum with Sake{} and",
+                "{C:joy_mod}Cherry Blossom with Curtain {C:attention}Hanafuda{} cards",
                 "with up to 3 unscored cards"
             },
             joy_cardian_moonviewing = {
-                "Up to 5 {E:1,C:joy_mod}Chrysanthemum with Sake{} and",
-                "{C:joy_mod}Zebra Grass with Moon{} {s:1.1,C:attention}Hanafuda{} cards",
-                "{C:inactive}with up to 3 unscored {X:mult,C:white}cards"
+                "Up to 5 {C:joy_mod}Chrysanthemum with Sake{} and",
+                "{C:joy_mod}Zebra Grass with Moon{} {C:attention}Hanafuda{} cards",
+                "with up to 3 unscored cards"
             },
             joy_cardian_moonflowerviewing = {
                 "Hand contains {C:attention}Moonviewing{} and {C:attention}Flowerviewing{}",
                 "with up to 2 unscored cards"
             },
             joy_cardian_lightwave = {
-                "3 Light Hanafuda cards of different Month",
-                "(except Willow with Calligrapher)"
+                "3 {C:joy_link}Light{} {C:attention}Hanafuda{} cards of different Month",
+                "{C:inactive}(except Willow with Calligrapher)"
             },
             joy_cardian_lightshower = {
-                "4 Light Hanafuda cards of different Month,",
-                "including Willow with Calligrapher"
+                "4 {C:joy_link}Light{} {C:attention}Hanafuda{} cards of different Month,",
+                "including {C:joy_mod}Willow with Calligrapher"
             },
             joy_cardian_lightshow = {
-                "4 Light Hanafuda cards of different Month",
-                "(except Willow with Calligrapher)"
+                "4 {C:joy_link}Light{} {C:attention}Hanafuda{} cards of different Month",
+                "{C:inactive}(except Willow with Calligrapher)"
             },
             joy_cardian_lightflare = {
-                "5 Light Hanafuda cards of different Month",
+                "5 {C:joy_link}Light{} {C:attention}Hanafuda{} cards of different {C:joy_link}Month{}",
             },
         },
         dictionary = {
