@@ -6,26 +6,20 @@ return {
                 text = {
                     {
                         "Scored {C:joy_link}January{} and {C:joy_link}February {C:attention}Hanafuda{} cards",
-                        "give {C:mult}+#1#{} Mult for each {C:joy_normal}\"Flower Cardian\"",
+                        "give {C:mult}+#1#{} Mult for each {C:joy_normal}\"Flower Cardian\"{} owned or in {C:attention}GY",
                         "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
                     },
                     {
-                        "When {C:attention}Blind{} is selected, {C:attention}excavate #3#{}",
-                        "and apply these based on the excavated cards:",
-                        "- {C:spades}Spades{}: Turns it into a random {C:attention}Hanafuda{} card",
-                        "- {C:joy_link}January{} or {C:joy_link}February {C:attention}Hanafuda{}: Draws {C:attention}#4#{} card",
-                        " ",
-                        "Otherwise, destroys itself and",
-                        "creates {C:attention}#5#{} banished {C:joy_effect}\"Flower Cardian Pine with Crane\"",
-                        "that returns when {C:attention}Boss Blind{} is selected"
+                        "{C:attention}Excavate{} and check the top {C:attention}#3#{}:",
+                        "{s:0.9}- {s:0.9,C:spades}Spades{s:0.9}: Turns each into a random {s:0.9,C:attention}Hanafuda{s:0.9} card",
+                        "{s:0.9}- {s:0.9,C:joy_link}January{s:0.9} or {s:0.9,C:joy_link}February {s:0.9,C:attention}Hanafuda{s:0.9}: Draws {s:0.9,C:attention}#4#{s:0.9} card",
+                        "{s:0.9}Otherwise, destroys itself and {s:0.9}creates {s:0.9,C:attention}#5#",
+                        "{s:0.9,C:joy_effect}\"Flower Cardian Pine with Crane\"{s:0.9} banished until {s:0.9,C:attention}Boss Blind",
                     },
                     {
-                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
-                        "{C:inactive}(Must have room)"
-                    },
-                    {
-                        "Can be obtained from the shop even if you don't have room",
-                        "if you own a {C:joy_normal}\"Flower Cardian\""
+                        "If you own another {C:joy_normal}\"Flower Cardian\"{},",
+                        "can be obtained from the shop even if you don't have room, also",
+                        "creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
                     }
                 }
             },
@@ -37,22 +31,16 @@ return {
                         "held in hand each give {C:mult}+#1#{} Mult",
                     },
                     {
-                        "When {C:attention}Blind{} is selected, {C:attention}excavate #2#{}",
-                        "and apply these based on the excavated cards:",
-                        "- {C:spades}Spades{}: Turns it into a random {C:attention}Hanafuda{} card",
-                        "- {C:joy_link}January{} or {C:joy_link}February {C:attention}Hanafuda{}: Draws {C:attention}#3#{} card",
-                        " ",
-                        "Otherwise, destroys itself and",
-                        "creates {C:attention}#4#{} banished {C:joy_effect}\"Flower Cardian Pine\"",
-                        "that returns at end of round"
+                        "{C:attention}Excavate{} and check the top {C:attention}#2#{}:",
+                        "{s:0.9}- {s:0.9,C:spades}Spades{s:0.9}: Turns each into a random {s:0.9,C:attention}Hanafuda{s:0.9} card",
+                        "{s:0.9}- {s:0.9,C:joy_link}January{s:0.9} or {s:0.9,C:joy_link}February {s:0.9,C:attention}Hanafuda{s:0.9}: Draws {s:0.9,C:attention}#3#{s:0.9} card",
+                        "{s:0.9}Otherwise, destroys itself and {s:0.9}creates {s:0.9,C:attention}#4#",
+                        "{s:0.9,C:joy_effect}\"Flower Cardian Pine\"{s:0.9} banished until end of round",
                     },
                     {
-                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
-                        "{C:inactive}(Must have room)"
-                    },
-                    {
-                        "Can be obtained from the shop even if you don't have room",
-                        "if you own a {C:joy_normal}\"Flower Cardian\""
+                        "If you own another {C:joy_normal}\"Flower Cardian\"{},",
+                        "can be obtained from the shop even if you don't have room, also",
+                        "creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
                     }
                 }
             },
@@ -61,26 +49,20 @@ return {
                 text = {
                     {
                         "Scored {C:joy_link}March{} and {C:joy_link}April {C:attention}Hanafuda{} cards",
-                        "give {C:mult}+#1#{} Mult for each {C:joy_normal}\"Flower Cardian\"",
+                        "give {C:mult}+#1#{} Mult for each {C:joy_normal}\"Flower Cardian\"{} owned or in {C:attention}GY",
                         "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
                     },
                     {
-                        "When {C:attention}Blind{} is selected, {C:attention}excavate #3#{}",
-                        "and apply these based on the excavated cards:",
-                        "- {C:hearts}Hearts{}: Turns it into a random {C:attention}Hanafuda{} card",
-                        "- {C:joy_link}March{} or {C:joy_link}April {C:attention}Hanafuda{}: Draws {C:attention}#4#{} card",
-                        " ",
-                        "Otherwise, destroys itself and",
-                        "creates {C:attention}#5#{} banished {C:joy_effect}\"Flower Cardian Cherry Blossom with Curtain\"",
-                        "that returns when {C:attention}Boss Blind{} is selected"
+                        "{C:attention}Excavate{} and check the top {C:attention}#3#{}:",
+                        "{s:0.9}- {s:0.9,C:hearts}Hearts{s:0.9}: Turns each into a random {s:0.9,C:attention}Hanafuda{s:0.9} card",
+                        "{s:0.9}- {s:0.9,C:joy_link}March{s:0.9} or {s:0.9,C:joy_link}April {s:0.9,C:attention}Hanafuda{s:0.9}: Draws {s:0.9,C:attention}#4#{s:0.9} card",
+                        "{s:0.9}Otherwise, destroys itself and {s:0.9}creates {s:0.9,C:attention}#5#",
+                        "{s:0.9,C:joy_effect}\"Flower Cardian Cherry Blossom with Curtain\"{s:0.9} banished until {s:0.9,C:attention}Boss Blind",
                     },
                     {
-                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
-                        "{C:inactive}(Must have room)"
-                    },
-                    {
-                        "Can be obtained from the shop even if you don't have room",
-                        "if you own a {C:joy_normal}\"Flower Cardian\""
+                        "If you own another {C:joy_normal}\"Flower Cardian\"{},",
+                        "can be obtained from the shop even if you don't have room, also",
+                        "creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
                     }
                 }
             },
@@ -92,22 +74,16 @@ return {
                         "held in hand each give {C:mult}+#1#{} Mult",
                     },
                     {
-                        "When {C:attention}Blind{} is selected, {C:attention}excavate #2#{}",
-                        "and apply these based on the excavated cards:",
-                        "- {C:hearts}Hearts{}: Turns it into a random {C:attention}Hanafuda{} card",
-                        "- {C:joy_link}March{} or {C:joy_link}April {C:attention}Hanafuda{}: Draws {C:attention}#3#{} card",
-                        " ",
-                        "Otherwise, destroys itself and",
-                        "creates {C:attention}#4#{} banished {C:joy_effect}\"Flower Cardian Cherry Blossom\"",
-                        "that returns at end of round"
+                        "{C:attention}Excavate{} and check the top {C:attention}#2#{}:",
+                        "{s:0.9}- {s:0.9,C:hearts}Hearts{s:0.9}: Turns each into a random {s:0.9,C:attention}Hanafuda{s:0.9} card",
+                        "{s:0.9}- {s:0.9,C:joy_link}March{s:0.9} or {s:0.9,C:joy_link}April {s:0.9,C:attention}Hanafuda{s:0.9}: Draws {s:0.9,C:attention}#3#{s:0.9} card",
+                        "{s:0.9}Otherwise, destroys itself and {s:0.9}creates {s:0.9,C:attention}#4#",
+                        "{s:0.9,C:joy_effect}\"Flower Cardian Cherry Blossom\"{s:0.9} banished until end of round",
                     },
                     {
-                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
-                        "{C:inactive}(Must have room)"
-                    },
-                    {
-                        "Can be obtained from the shop even if you don't have room",
-                        "if you own a {C:joy_normal}\"Flower Cardian\""
+                        "If you own another {C:joy_normal}\"Flower Cardian\"{},",
+                        "can be obtained from the shop even if you don't have room, also",
+                        "creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
                     }
                 }
             },
@@ -118,23 +94,17 @@ return {
                         "Scored {C:joy_link}June {C:attention}Hanafuda{} cards give {X:mult,C:white}X#1#{} Mult",
                     },
                     {
-                        "When {C:attention}Blind{} is selected, {C:attention}excavate #2#{}",
-                        "and apply these based on the excavated cards:",
-                        "- {C:joy_link}June {C:attention}Hanafuda{}: Draws {C:attention}#3#{} card",
-                        "- {C:joy_link}Light {C:attention}Hanafuda{}: Adds {C:attention}#4#{} {C:joy_normal}\"Flower Cardian\"{}",
-                        "to the {C:joy_spell}Extra Deck {C:inactive}(Must have room)",
-                        " ",
-                        "Otherwise, destroys itself and",
-                        "creates {C:attention}#5#{} banished {C:joy_normal}\"Flower Cardian\"",
-                        "that returns at end of round"
+                        "{C:attention}Excavate{} and check the top {C:attention}#2#{}:",
+                        "{s:0.9}- {s:0.9,C:joy_link}June {s:0.9,C:attention}Hanafuda{s:0.9}: Draws {s:0.9,C:attention}#3#{s:0.9} card",
+                        "{s:0.9}- {s:0.9,C:joy_link}Light {s:0.9,C:attention}Hanafuda{s:0.9}: Adds {s:0.9,C:attention}#4#{s:0.9} {s:0.9,C:joy_normal}\"Flower Cardian\"{s:0.9}",
+                        "{s:0.9}to the {s:0.9,C:joy_spell}Extra Deck {s:0.9,C:inactive}(Must have room)",
+                        "{s:0.9}Otherwise, destroys itself and {s:0.9}creates {s:0.9,C:attention}#5#{s:0.9}",
+                        "{s:0.9,C:joy_normal}\"Flower Cardian\" {s:0.9}banished until end of round",
                     },
                     {
-                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
-                        "{C:inactive}(Must have room)"
-                    },
-                    {
-                        "Can be obtained from the shop even if you don't have room",
-                        "if you own a {C:joy_normal}\"Flower Cardian\""
+                        "If you own another {C:joy_normal}\"Flower Cardian\"{},",
+                        "can be obtained from the shop even if you don't have room, also",
+                        "creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
                     }
                 }
             },
@@ -145,23 +115,17 @@ return {
                         "Scored {C:joy_link}July {C:attention}Hanafuda{} cards give {X:mult,C:white}X#1#{} Mult",
                     },
                     {
-                        "When {C:attention}Blind{} is selected, {C:attention}excavate #2#{}",
-                        "and apply these based on the excavated cards:",
-                        "- {C:joy_link}July {C:attention}Hanafuda{}: Draws {C:attention}#3#{} card",
-                        "- {C:joy_link}Light {C:attention}Hanafuda{}: Adds {C:attention}#4#{} {C:joy_normal}\"Flower Cardian\"{}",
-                        "to the {C:joy_spell}Extra Deck {C:inactive}(Must have room)",
-                        " ",
-                        "Otherwise, destroys itself and",
-                        "creates {C:attention}#5#{} banished {C:joy_normal}\"Flower Cardian\"",
-                        "that returns at end of round"
+                        "{C:attention}Excavate{} and check the top {C:attention}#2#{}:",
+                        "{s:0.9}- {s:0.9,C:joy_link}July {s:0.9,C:attention}Hanafuda{s:0.9}: Draws {s:0.9,C:attention}#3#{s:0.9} card",
+                        "{s:0.9}- {s:0.9,C:joy_link}Light {s:0.9,C:attention}Hanafuda{s:0.9}: Adds {s:0.9,C:attention}#4#{s:0.9} {s:0.9,C:joy_normal}\"Flower Cardian\"{s:0.9}",
+                        "{s:0.9}to the {s:0.9,C:joy_spell}Extra Deck {s:0.9,C:inactive}(Must have room)",
+                        "{s:0.9}Otherwise, destroys itself and {s:0.9}creates {s:0.9,C:attention}#5#{s:0.9}",
+                        "{s:0.9,C:joy_normal}\"Flower Cardian\" {s:0.9}banished until end of round",
                     },
                     {
-                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
-                        "{C:inactive}(Must have room)"
-                    },
-                    {
-                        "Can be obtained from the shop even if you don't have room",
-                        "if you own a {C:joy_normal}\"Flower Cardian\""
+                        "If you own another {C:joy_normal}\"Flower Cardian\"{},",
+                        "can be obtained from the shop even if you don't have room, also",
+                        "creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
                     }
                 }
             },
@@ -170,26 +134,20 @@ return {
                 text = {
                     {
                         "Scored {C:joy_link}August{} and {C:joy_link}September {C:attention}Hanafuda{} cards",
-                        "give {C:money}+$#1#{} for each {C:joy_normal}\"Flower Cardian\"",
+                        "give {C:money}+$#1#{} for each {C:joy_normal}\"Flower Cardian\"{} owned or in {C:attention}GY",
                         "{C:inactive}(Currently {C:money}+$#2#{}{C:inactive})"
                     },
                     {
-                        "When {C:attention}Blind{} is selected, {C:attention}excavate #3#{}",
-                        "and apply these based on the excavated cards:",
-                        "- {C:clubs}Clubs{}: Turns it into a random {C:attention}Hanafuda{} card",
-                        "- {C:joy_link}August{} or {C:joy_link}September {C:attention}Hanafuda{}: Draws {C:attention}#4#{} card",
-                        " ",
-                        "Otherwise, destroys itself and",
-                        "creates {C:attention}#5#{} banished {C:joy_effect}\"Flower Cardian Zebra Grass with Moon\"",
-                        "that returns when {C:attention}Boss Blind{} is selected"
+                        "{C:attention}Excavate{} and check the top {C:attention}#3#{}:",
+                        "{s:0.9}- {s:0.9,C:clubs}Clubs{s:0.9}: Turns each into a random {s:0.9,C:attention}Hanafuda{s:0.9} card",
+                        "{s:0.9}- {s:0.9,C:joy_link}August{s:0.9} or {s:0.9,C:joy_link}September {s:0.9,C:attention}Hanafuda{s:0.9}: Draws {s:0.9,C:attention}#4#{s:0.9} card",
+                        "{s:0.9}Otherwise, destroys itself and {s:0.9}creates {s:0.9,C:attention}#5#",
+                        "{s:0.9,C:joy_effect}\"Flower Cardian Zebra Grass with Moon\"{s:0.9} banished until {s:0.9,C:attention}Boss Blind",
                     },
                     {
-                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
-                        "{C:inactive}(Must have room)"
-                    },
-                    {
-                        "Can be obtained from the shop even if you don't have room",
-                        "if you own a {C:joy_normal}\"Flower Cardian\""
+                        "If you own another {C:joy_normal}\"Flower Cardian\"{},",
+                        "can be obtained from the shop even if you don't have room, also",
+                        "creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
                     }
                 }
             },
@@ -197,23 +155,17 @@ return {
                 name = "{C:joy_effect}Flower Cardian Zebra Grass with Moon",
                 text = {
                     {
-                        "When {C:attention}Blind{} is selected, {C:attention}excavate #1#{}",
-                        "and apply these based on the excavated cards:",
-                        "- {C:clubs}Clubs{}: Turns it into a random {C:attention}Hanafuda{} card",
-                        "- {C:joy_link}August{} or {C:joy_link}September {C:attention}Hanafuda{}: Draws {C:attention}#2#{} card",
-                        "for each excavated {C:attention}Hanafuda{} card",
-                        " ",
-                        "Otherwise, destroys itself and",
-                        "creates {C:attention}#3#{} banished {C:joy_effect}\"Flower Cardian Zebra Grass\"",
-                        "that returns at end of round"
+                        "{C:attention}Excavate{} and check the top {C:attention}#1#{}:",
+                        "{s:0.9}- {s:0.9,C:clubs}Clubs{s:0.9}: Turns each into a random {s:0.9,C:attention}Hanafuda{s:0.9} card",
+                        "{s:0.9}- {s:0.9,C:joy_link}August{s:0.9} or {s:0.9,C:joy_link}September {s:0.9,C:attention}Hanafuda{s:0.9}: Draws {s:0.9,C:attention}#2#{s:0.9} card",
+                        "{s:0.9}for each excavated {s:0.9,C:attention}Hanafuda{s:0.9} card",
+                        "{s:0.9}Otherwise, destroys itself and {s:0.9}creates {s:0.9,C:attention}#3#",
+                        "{s:0.9,C:joy_effect}\"Flower Cardian Zebra Grass\"{s:0.9} banished until end of round",
                     },
                     {
-                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
-                        "{C:inactive}(Must have room)"
-                    },
-                    {
-                        "Can be obtained from the shop even if you don't have room",
-                        "if you own a {C:joy_normal}\"Flower Cardian\""
+                        "If you own another {C:joy_normal}\"Flower Cardian\"{},",
+                        "can be obtained from the shop even if you don't have room, also",
+                        "creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
                     }
                 }
             },
@@ -224,22 +176,16 @@ return {
                         "Scored {C:joy_link}October {C:attention}Hanafuda{} cards give {X:mult,C:white}X#1#{} Mult",
                     },
                     {
-                        "When {C:attention}Blind{} is selected, {C:attention}excavate #2#{}",
-                        "and apply these based on the excavated cards:",
-                        "- {C:joy_link}October {C:attention}Hanafuda{}: Draws {C:attention}#3#{} card",
-                        "- {C:joy_link}Light {C:attention}Hanafuda{}: Adds {C:attention}#4#{} {C:joy_normal}\"Flower Cardian\"{} to the shop",
-                        " ",
-                        "Otherwise, destroys itself and",
-                        "creates {C:attention}#5#{} banished {C:joy_normal}\"Flower Cardian\"",
-                        "that returns at end of round"
+                        "{C:attention}Excavate{} and check the top {C:attention}#2#{}:",
+                        "{s:0.9}- {s:0.9,C:joy_link}October {s:0.9,C:attention}Hanafuda{s:0.9}: Draws {s:0.9,C:attention}#3#{s:0.9} card",
+                        "{s:0.9}- {s:0.9,C:joy_link}Light {s:0.9,C:attention}Hanafuda{s:0.9}: Adds {s:0.9,C:attention}#4#{s:0.9} {s:0.9,C:joy_normal}\"Flower Cardian\"{s:0.9} to the shop",
+                        "{s:0.9}Otherwise, destroys itself and {s:0.9}creates {s:0.9,C:attention}#5#{s:0.9}",
+                        "{s:0.9,C:joy_normal}\"Flower Cardian\" {s:0.9}banished until end of round",
                     },
                     {
-                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
-                        "{C:inactive}(Must have room)"
-                    },
-                    {
-                        "Can be obtained from the shop even if you don't have room",
-                        "if you own a {C:joy_normal}\"Flower Cardian\""
+                        "If you own another {C:joy_normal}\"Flower Cardian\"{},",
+                        "can be obtained from the shop even if you don't have room, also",
+                        "creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
                     }
                 }
             },
@@ -248,26 +194,20 @@ return {
                 text = {
                     {
                         "Scored {C:joy_link}November {C:attention}Hanafuda{} cards",
-                        "give {C:money}+$#1#{} for each {C:joy_normal}\"Flower Cardian\"",
+                        "give {C:money}+$#1#{} for each {C:joy_normal}\"Flower Cardian\"{} owned or in {C:attention}GY",
                         "{C:inactive}(Currently {C:money}+$#2#{}{C:inactive})"
                     },
                     {
-                        "When {C:attention}Blind{} is selected, {C:attention}excavate #3#{}",
-                        "and apply these based on the excavated cards:",
-                        "- {C:attention}Face{} card: Turns it into a random {C:attention}Hanafuda{} card",
-                        "- {C:joy_link}November {C:attention}Hanafuda{}: Draws {C:attention}#4#{} card",
-                        " ",
-                        "Otherwise, destroys itself and",
-                        "creates {C:attention}#5#{} banished {C:joy_effect}\"Flower Cardian Willow with Calligrapher\"",
-                        "that returns when {C:attention}Boss Blind{} is selected"
+                        "{C:attention}Excavate{} and check the top {C:attention}#3#{}:",
+                        "{s:0.9}- {s:0.9,C:attention}Face{s:0.9} card: Turns each into a random {s:0.9,C:attention}Hanafuda{s:0.9} card",
+                        "{s:0.9}- {s:0.9,C:joy_link}November {s:0.9,C:attention}Hanafuda{s:0.9}: Draws {s:0.9,C:attention}#4#{s:0.9} card",
+                        "{s:0.9}Otherwise, destroys itself and {s:0.9}creates {s:0.9,C:attention}#5#",
+                        "{s:0.9,C:joy_effect}\"Flower Cardian Willow with Calligrapher\"{s:0.9} banished until {s:0.9,C:attention}Boss Blind",
                     },
                     {
-                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
-                        "{C:inactive}(Must have room)"
-                    },
-                    {
-                        "Can be obtained from the shop even if you don't have room",
-                        "if you own a {C:joy_normal}\"Flower Cardian\""
+                        "If you own another {C:joy_normal}\"Flower Cardian\"{},",
+                        "can be obtained from the shop even if you don't have room, also",
+                        "creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
                     }
                 }
             },
@@ -275,22 +215,16 @@ return {
                 name = "{C:joy_effect}Flower Cardian Willow with Calligrapher",
                 text = {
                     {
-                        "When {C:attention}Blind{} is selected, {C:attention}excavate #1#{}",
-                        "and apply these based on the excavated cards:",
-                        "- {C:attention}Face{} card: Turns it into a random {C:attention}Hanafuda{} card",
-                        "- {C:joy_link}November {C:attention}Hanafuda{}: {C:attention}Revive #2#{} {C:joy_normal}\"Flower Cardian\"",
-                        " ",
-                        "Otherwise, destroys itself and",
-                        "creates {C:attention}#3#{} banished {C:joy_effect}\"Flower Cardian Willow\"",
-                        "that returns at end of round"
+                        "{C:attention}Excavate{} and check the top {C:attention}#1#{}:",
+                        "{s:0.9}- {s:0.9,C:attention}Face{s:0.9} card: Turns each into a random {s:0.9,C:attention}Hanafuda{s:0.9} card",
+                        "{s:0.9}- {s:0.9,C:joy_link}November {s:0.9,C:attention}Hanafuda{s:0.9}: {s:0.9,C:attention}Revive #2#{s:0.9} {s:0.9,C:joy_normal}\"Flower Cardian\"",
+                        "{s:0.9}Otherwise, destroys itself and {s:0.9}creates {s:0.9,C:attention}#3#",
+                        "{s:0.9,C:joy_effect}\"Flower Cardian Willow\"{s:0.9} banished until end of round",
                     },
                     {
-                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
-                        "{C:inactive}(Must have room)"
-                    },
-                    {
-                        "Can be obtained from the shop even if you don't have room",
-                        "if you own a {C:joy_normal}\"Flower Cardian\""
+                        "If you own another {C:joy_normal}\"Flower Cardian\"{},",
+                        "can be obtained from the shop even if you don't have room, also",
+                        "creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
                     }
                 }
             },
@@ -299,26 +233,20 @@ return {
                 text = {
                     {
                         "Scored {C:joy_link}May{} and {C:joy_link}December {C:attention}Hanafuda{} cards",
-                        "give {C:mult}+#1#{} Mult for each {C:joy_normal}\"Flower Cardian\"",
+                        "give {C:mult}+#1#{} Mult for each {C:joy_normal}\"Flower Cardian\"{} owned or in {C:attention}GY",
                         "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
                     },
                     {
-                        "When {C:attention}Blind{} is selected, {C:attention}excavate #3#{}",
-                        "and apply these based on the excavated cards:",
-                        "- {C:diamonds}Diamonds{}: Turns it into a random {C:attention}Hanafuda{} card",
-                        "- {C:joy_link}May{} or {C:joy_link}December {C:attention}Hanafuda{}: Draws {C:attention}#4#{} card",
-                        " ",
-                        "Otherwise, destroys itself and",
-                        "creates {C:attention}#5#{} banished {C:joy_effect}\"Flower Cardian Paulownia with Phoenix\"",
-                        "that returns when {C:attention}Boss Blind{} is selected"
+                        "{C:attention}Excavate{} and check the top {C:attention}#3#{}:",
+                        "{s:0.9}- {s:0.9,C:diamonds}Diamonds{s:0.9}: Turns each into a random {s:0.9,C:attention}Hanafuda{s:0.9} card",
+                        "{s:0.9}- {s:0.9,C:joy_link}May{s:0.9} or {s:0.9,C:joy_link}December {s:0.9,C:attention}Hanafuda{s:0.9}: Draws {s:0.9,C:attention}#4#{s:0.9} card",
+                        "{s:0.9}Otherwise, destroys itself and {s:0.9}creates {s:0.9,C:attention}#5#",
+                        "{s:0.9,C:joy_effect}\"Flower Cardian Paulownia with Phoenix\"{s:0.9} banished until {s:0.9,C:attention}Boss Blind",
                     },
                     {
-                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
-                        "{C:inactive}(Must have room)"
-                    },
-                    {
-                        "Can be obtained from the shop even if you don't have room",
-                        "if you own a {C:joy_normal}\"Flower Cardian\""
+                        "If you own another {C:joy_normal}\"Flower Cardian\"{},",
+                        "can be obtained from the shop even if you don't have room, also",
+                        "creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
                     }
                 }
             },
@@ -330,22 +258,16 @@ return {
                         "held in hand each give {C:mult}+#1#{} Mult",
                     },
                     {
-                        "When {C:attention}Blind{} is selected, {C:attention}excavate #2#{}",
-                        "and apply these based on the excavated cards:",
-                        "- {C:diamonds}Diamonds{}: Turns it into a random {C:attention}Hanafuda{} card",
-                        "- {C:joy_link}May{} or {C:joy_link}December {C:attention}Hanafuda{}: Draws {C:attention}#3#{} card",
-                        " ",
-                        "Otherwise, destroys itself and",
-                        "creates {C:attention}#4#{} banished {C:joy_effect}\"Flower Cardian Paulownia\"",
-                        "that returns at end of round"
+                        "{C:attention}Excavate{} and check the top {C:attention}#3#{}:",
+                        "{s:0.9}- {s:0.9,C:diamonds}Diamonds{s:0.9}: Turns each into a random {s:0.9,C:attention}Hanafuda{s:0.9} card",
+                        "{s:0.9}- {s:0.9,C:joy_link}May{s:0.9} or {s:0.9,C:joy_link}December {s:0.9,C:attention}Hanafuda{s:0.9}: Draws {s:0.9,C:attention}#3#{s:0.9} card",
+                        "{s:0.9}Otherwise, destroys itself and {s:0.9}creates {s:0.9,C:attention}#4#",
+                        "{s:0.9,C:joy_effect}\"Flower Cardian Paulownia\"{s:0.9} banished until end of round",
                     },
                     {
-                        "Creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
-                        "{C:inactive}(Must have room)"
-                    },
-                    {
-                        "Can be obtained from the shop even if you don't have room",
-                        "if you own a {C:joy_normal}\"Flower Cardian\""
+                        "If you own another {C:joy_normal}\"Flower Cardian\"{},",
+                        "can be obtained from the shop even if you don't have room, also",
+                        "creates {C:attention}1{} {C:joy_spell}\"Flower Gathering\"{} at end of round",
                     }
                 }
             },

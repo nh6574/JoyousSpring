@@ -47,7 +47,7 @@ SMODS.Joker({
             vars = {
                 card.ability.extra.mult,
                 card.ability.extra.mult *
-                JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }),
+                JoyousSpring.count_all_materials({ { monster_archetypes = { "FlowerCardian" } } }),
                 card.ability.extra.excavates,
                 card.ability.extra.draws,
                 card.ability.extra.creates,
@@ -78,7 +78,7 @@ SMODS.Joker({
                 if cardian_is_hanafuda_month(context.other_card, { "january", "february" }) then
                     return {
                         mult = card.ability.extra.mult *
-                            JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } })
+                            JoyousSpring.count_all_materials({ { monster_archetypes = { "FlowerCardian" } } })
                     }
                 end
             end
@@ -104,8 +104,13 @@ SMODS.Joker({
                     }, false)
 
                     JoyousSpring.banish(added_card, "boss_selected")
-                    card.getting_sliced = true
-                    card:start_dissolve()
+                    G.E_MANAGER:add_event(Event({
+                        func = (function()
+                            card.getting_sliced = true
+                            card:start_dissolve()
+                            return true
+                        end),
+                    }))
                 end
                 card.joy_hit = nil
             end
@@ -114,7 +119,7 @@ SMODS.Joker({
                 SMODS.draw_cards(card.ability.extra.draws)
             end
             if context.end_of_round and context.game_over == false and context.main_eval then
-                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
                     SMODS.add_card({
                         key = "c_joy_cardian_gathering"
                     })
@@ -188,8 +193,13 @@ SMODS.Joker({
                     }, false)
 
                     JoyousSpring.banish(added_card, "end_of_round")
-                    card.getting_sliced = true
-                    card:start_dissolve()
+                    G.E_MANAGER:add_event(Event({
+                        func = (function()
+                            card.getting_sliced = true
+                            card:start_dissolve()
+                            return true
+                        end),
+                    }))
                 end
                 card.joy_hit = nil
             end
@@ -198,7 +208,7 @@ SMODS.Joker({
                 SMODS.draw_cards(card.ability.extra.draws)
             end
             if context.end_of_round and context.game_over == false and context.main_eval then
-                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
                     SMODS.add_card({
                         key = "c_joy_cardian_gathering"
                     })
@@ -223,7 +233,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return {
             vars = { card.ability.extra.mult, card.ability.extra.mult *
-            JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }), card.ability.extra
+            JoyousSpring.count_all_materials({ { monster_archetypes = { "FlowerCardian" } } }), card.ability.extra
                 .excavates, card.ability.extra.draws, card.ability.extra.creates }
         }
     end,
@@ -251,7 +261,7 @@ SMODS.Joker({
                 if cardian_is_hanafuda_month(context.other_card, { "march", "april" }) then
                     return {
                         mult = card.ability.extra.mult *
-                            JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } })
+                            JoyousSpring.count_all_materials({ { monster_archetypes = { "FlowerCardian" } } })
                     }
                 end
             end
@@ -277,8 +287,13 @@ SMODS.Joker({
                     }, false)
 
                     JoyousSpring.banish(added_card, "boss_selected")
-                    card.getting_sliced = true
-                    card:start_dissolve()
+                    G.E_MANAGER:add_event(Event({
+                        func = (function()
+                            card.getting_sliced = true
+                            card:start_dissolve()
+                            return true
+                        end),
+                    }))
                 end
                 card.joy_hit = nil
             end
@@ -287,7 +302,7 @@ SMODS.Joker({
                 SMODS.draw_cards(card.ability.extra.draws)
             end
             if context.end_of_round and context.game_over == false and context.main_eval then
-                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
                     SMODS.add_card({
                         key = "c_joy_cardian_gathering"
                     })
@@ -361,8 +376,13 @@ SMODS.Joker({
                     }, false)
 
                     JoyousSpring.banish(added_card, "end_of_round")
-                    card.getting_sliced = true
-                    card:start_dissolve()
+                    G.E_MANAGER:add_event(Event({
+                        func = (function()
+                            card.getting_sliced = true
+                            card:start_dissolve()
+                            return true
+                        end),
+                    }))
                 end
                 card.joy_hit = nil
             end
@@ -371,7 +391,7 @@ SMODS.Joker({
                 SMODS.draw_cards(card.ability.extra.draws)
             end
             if context.end_of_round and context.game_over == false and context.main_eval then
-                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
                     SMODS.add_card({
                         key = "c_joy_cardian_gathering"
                     })
@@ -452,8 +472,13 @@ SMODS.Joker({
                         "j_joy_cardian_butterfly", false)
 
                     JoyousSpring.banish(added_card, "end_of_round")
-                    card.getting_sliced = true
-                    card:start_dissolve()
+                    G.E_MANAGER:add_event(Event({
+                        func = (function()
+                            card.getting_sliced = true
+                            card:start_dissolve()
+                            return true
+                        end),
+                    }))
                 end
                 card.joy_hit = nil
             end
@@ -462,7 +487,7 @@ SMODS.Joker({
                 SMODS.draw_cards(card.ability.extra.draws)
             end
             if context.end_of_round and context.game_over == false and context.main_eval then
-                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
                     SMODS.add_card({
                         key = "c_joy_cardian_gathering"
                     })
@@ -542,8 +567,13 @@ SMODS.Joker({
                         "j_joy_cardian_boar", false)
 
                     JoyousSpring.banish(added_card, "end_of_round")
-                    card.getting_sliced = true
-                    card:start_dissolve()
+                    G.E_MANAGER:add_event(Event({
+                        func = (function()
+                            card.getting_sliced = true
+                            card:start_dissolve()
+                            return true
+                        end),
+                    }))
                 end
                 card.joy_hit = nil
             end
@@ -552,7 +582,7 @@ SMODS.Joker({
                 SMODS.draw_cards(card.ability.extra.draws)
             end
             if context.end_of_round and context.game_over == false and context.main_eval then
-                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
                     SMODS.add_card({
                         key = "c_joy_cardian_gathering"
                     })
@@ -577,7 +607,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return {
             vars = { card.ability.extra.money, card.ability.extra.money *
-            JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }), card.ability.extra
+            JoyousSpring.count_all_materials({ { monster_archetypes = { "FlowerCardian" } } }), card.ability.extra
                 .excavates, card.ability.extra.draws, card.ability.extra.creates }
         }
     end,
@@ -605,7 +635,7 @@ SMODS.Joker({
                 if cardian_is_hanafuda_month(context.other_card, { "august", "september" }) then
                     return {
                         dollars = card.ability.extra.money *
-                            JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } })
+                            JoyousSpring.count_all_materials({ { monster_archetypes = { "FlowerCardian" } } })
                     }
                 end
             end
@@ -631,8 +661,13 @@ SMODS.Joker({
                     }, false)
 
                     JoyousSpring.banish(added_card, "boss_selected")
-                    card.getting_sliced = true
-                    card:start_dissolve()
+                    G.E_MANAGER:add_event(Event({
+                        func = (function()
+                            card.getting_sliced = true
+                            card:start_dissolve()
+                            return true
+                        end),
+                    }))
                 end
                 card.joy_hit = nil
             end
@@ -641,7 +676,7 @@ SMODS.Joker({
                 SMODS.draw_cards(card.ability.extra.draws)
             end
             if context.end_of_round and context.game_over == false and context.main_eval then
-                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
                     SMODS.add_card({
                         key = "c_joy_cardian_gathering"
                     })
@@ -711,8 +746,13 @@ SMODS.Joker({
                     }, false)
 
                     JoyousSpring.banish(added_card, "end_of_round")
-                    card.getting_sliced = true
-                    card:start_dissolve()
+                    G.E_MANAGER:add_event(Event({
+                        func = (function()
+                            card.getting_sliced = true
+                            card:start_dissolve()
+                            return true
+                        end),
+                    }))
                 end
                 card.joy_hit = nil
             end
@@ -724,7 +764,7 @@ SMODS.Joker({
                 card.ability.extra.hanafuda_count = 0
             end
             if context.end_of_round and context.game_over == false and context.main_eval then
-                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
                     SMODS.add_card({
                         key = "c_joy_cardian_gathering"
                     })
@@ -802,8 +842,13 @@ SMODS.Joker({
                         "j_joy_cardian_deer", false)
 
                     JoyousSpring.banish(added_card, "end_of_round")
-                    card.getting_sliced = true
-                    card:start_dissolve()
+                    G.E_MANAGER:add_event(Event({
+                        func = (function()
+                            card.getting_sliced = true
+                            card:start_dissolve()
+                            return true
+                        end),
+                    }))
                 end
                 card.joy_hit = nil
             end
@@ -812,7 +857,7 @@ SMODS.Joker({
                 SMODS.draw_cards(card.ability.extra.draws)
             end
             if context.end_of_round and context.game_over == false and context.main_eval then
-                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
                     SMODS.add_card({
                         key = "c_joy_cardian_gathering"
                     })
@@ -837,7 +882,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return {
             vars = { card.ability.extra.money, card.ability.extra.money *
-            JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }), card.ability.extra
+            JoyousSpring.count_all_materials({ { monster_archetypes = { "FlowerCardian" } } }), card.ability.extra
                 .excavates, card.ability.extra.draws, card.ability.extra.creates }
         }
     end,
@@ -865,7 +910,7 @@ SMODS.Joker({
                 if cardian_is_hanafuda_month(context.other_card, { "november" }) then
                     return {
                         dollars = card.ability.extra.money *
-                            JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } })
+                            JoyousSpring.count_all_materials({ { monster_archetypes = { "FlowerCardian" } } })
                     }
                 end
             end
@@ -891,8 +936,13 @@ SMODS.Joker({
                     }, false)
 
                     JoyousSpring.banish(added_card, "boss_selected")
-                    card.getting_sliced = true
-                    card:start_dissolve()
+                    G.E_MANAGER:add_event(Event({
+                        func = (function()
+                            card.getting_sliced = true
+                            card:start_dissolve()
+                            return true
+                        end),
+                    }))
                 end
                 card.joy_hit = nil
             end
@@ -901,7 +951,7 @@ SMODS.Joker({
                 SMODS.draw_cards(card.ability.extra.draws)
             end
             if context.end_of_round and context.game_over == false and context.main_eval then
-                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
                     SMODS.add_card({
                         key = "c_joy_cardian_gathering"
                     })
@@ -974,13 +1024,18 @@ SMODS.Joker({
                     }, false)
 
                     JoyousSpring.banish(added_card, "end_of_round")
-                    card.getting_sliced = true
-                    card:start_dissolve()
+                    G.E_MANAGER:add_event(Event({
+                        func = (function()
+                            card.getting_sliced = true
+                            card:start_dissolve()
+                            return true
+                        end),
+                    }))
                 end
                 card.joy_hit = nil
             end
             if context.end_of_round and context.game_over == false and context.main_eval then
-                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
                     SMODS.add_card({
                         key = "c_joy_cardian_gathering"
                     })
@@ -1005,7 +1060,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return {
             vars = { card.ability.extra.mult, card.ability.extra.mult *
-            JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }), card.ability.extra
+            JoyousSpring.count_all_materials({ { monster_archetypes = { "FlowerCardian" } } }), card.ability.extra
                 .excavates, card.ability.extra.draws, card.ability.extra.creates }
         }
     end,
@@ -1033,7 +1088,7 @@ SMODS.Joker({
                 if cardian_is_hanafuda_month(context.other_card, { "may", "december" }) then
                     return {
                         mult = card.ability.extra.mult *
-                            JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } })
+                            JoyousSpring.count_all_materials({ { monster_archetypes = { "FlowerCardian" } } })
                     }
                 end
             end
@@ -1059,8 +1114,13 @@ SMODS.Joker({
                     }, false)
 
                     JoyousSpring.banish(added_card, "boss_selected")
-                    card.getting_sliced = true
-                    card:start_dissolve()
+                    G.E_MANAGER:add_event(Event({
+                        func = (function()
+                            card.getting_sliced = true
+                            card:start_dissolve()
+                            return true
+                        end),
+                    }))
                 end
                 card.joy_hit = nil
             end
@@ -1069,7 +1129,7 @@ SMODS.Joker({
                 SMODS.draw_cards(card.ability.extra.draws)
             end
             if context.end_of_round and context.game_over == false and context.main_eval then
-                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
                     SMODS.add_card({
                         key = "c_joy_cardian_gathering"
                     })
@@ -1143,8 +1203,13 @@ SMODS.Joker({
                     }, false)
 
                     JoyousSpring.banish(added_card, "end_of_round")
-                    card.getting_sliced = true
-                    card:start_dissolve()
+                    G.E_MANAGER:add_event(Event({
+                        func = (function()
+                            card.getting_sliced = true
+                            card:start_dissolve()
+                            return true
+                        end),
+                    }))
                 end
                 card.joy_hit = nil
             end
@@ -1153,7 +1218,7 @@ SMODS.Joker({
                 SMODS.draw_cards(card.ability.extra.draws)
             end
             if context.end_of_round and context.game_over == false and context.main_eval then
-                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
                     SMODS.add_card({
                         key = "c_joy_cardian_gathering"
                     })
