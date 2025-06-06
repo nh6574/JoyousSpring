@@ -167,11 +167,11 @@ SMODS.Atlas({
 
 ---Initializes joyous_spring table in Jokers
 ---@param params joyous_spring
----@return table
+---@return joyous_spring|table
 JoyousSpring.init_joy_table = function(params)
     return not params.is_field_spell and {
-        is_main_deck = params.is_main_deck or (not params.summon_type and true) or
-            (params.summon_type == "NORMAL" or params.summon_type == "RITUAL" and true) or false,
+        is_main_deck = params.is_main_deck or
+            not params.summon_type or params.summon_type == "NORMAL" or params.summon_type == "RITUAL",
         summon_type = params.summon_type or "NORMAL",
         is_effect = (params.is_effect == nil and not params.token_name) and true or params.is_effect,
         is_tuner = params.is_tuner or false,

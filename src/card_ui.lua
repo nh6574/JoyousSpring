@@ -238,10 +238,10 @@ JoyousSpring.get_type_ui = function(card)
     }
 end
 
----Generates Joker's description UI. This is done to:
----* Add type information under names
----* Add summoning conditions to info_queue automatically
----* Remove color codes from info_queue tooltip names
+---Generates Joker's description UI. This is done to add:
+---* Type information under names
+---* Some tooltips to info_queue automatically
+---* Transferred ability descriptions
 ---@param self table
 ---@param info_queue table
 ---@param card Card
