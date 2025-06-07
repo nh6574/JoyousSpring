@@ -728,7 +728,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.creates, card.ability.extra.consumed, card.ability.extra.consumed - card.ability.extra.consumed_this_round } }
+        return { vars = { card.ability.extra.creates, card.ability.extra.consumed, card.ability.extra.consumed - card.ability.extra.consumed_this_ante, card.ability.extra.consumed_increase } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Solfachord" } } }, name = "k_joy_archetype" },

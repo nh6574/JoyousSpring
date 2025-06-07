@@ -155,10 +155,9 @@ return {
                         "{C:inactive}(Except Negative){}"
                     },
                     {
-                        "Once per ante, creates {C:attention}#1#{} {C:dark_edition}Negative{}",
-                        "{C:joy_pendulum}Pendulum{} {C:joy_normal}\"Solfachord\"{}",
+                        "Once per ante, creates {C:attention}#1#{} {C:dark_edition}Negative{} {C:joy_pendulum}Pendulum{} {C:joy_normal}\"Solfachord\"{}",
                         "after {C:attention}#2#{} {C:joy_pendulum}Pendulum{} are consumed {C:inactive}(#3# remaining){}",
-                        "and increases requirement by {C:attention}#3#{}"
+                        "and increases requirement by {C:attention}#4#{}"
                     },
                     {
                         "If scoring hand contains both even and odd ranks,",
