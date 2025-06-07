@@ -22,11 +22,11 @@ local solfa_use = function(self, card, area, copier)
             func = function()
                 for _, pcard in ipairs(G.hand.highlighted) do
                     assert(SMODS.change_base(pcard, nil, card.ability.extra.rank))
-                    if next(SMODS.find_card("j_joy_solfa_musecia")) then
-                        local edition = poll_edition("j_joy_solfa_musecia", nil, nil, true) or 'e_foil'
+                    if next(SMODS.find_card("j_joy_solfa_musecia")) and not pcard.edition then
+                        local edition = poll_edition("j_joy_solfa_musecia", nil, true, true) or 'e_foil'
                         pcard:set_edition(edition, true)
                     end
-                    if next(SMODS.find_card("j_joy_solfa_grancoolia")) then
+                    if next(SMODS.find_card("j_joy_solfa_grancoolia")) and not card.seal then
                         local seal = SMODS.poll_seal({ key = "j_joy_solfa_grancoolia", guaranteed = true })
                         pcard:set_seal(seal, false, true)
                     end
@@ -37,9 +37,10 @@ local solfa_use = function(self, card, area, copier)
         JoyousSpring.post_consumable_change_use()
     end
 
-    JoyousSpring.level_up_hand(card, "Full House", false, card.ability.extra.change)
-    JoyousSpring.level_up_hand(card, "Straight", false, card.ability.extra.change)
-    JoyousSpring.level_up_hand(card, "Two Pair", false, card.ability.extra.change)
+    local level_up_amount = math.max(#G.hand.highlighted, 1)
+    JoyousSpring.level_up_hand(card, "Full House", false, level_up_amount)
+    JoyousSpring.level_up_hand(card, "Straight", false, level_up_amount)
+    JoyousSpring.level_up_hand(card, "Two Pair", false, level_up_amount)
 end
 
 local solfa_count = function()
@@ -753,22 +754,29 @@ SMODS.Joker({
             },
             creates = 1,
             consumed = 4,
-            consumed_this_round = 0
+            consumed_increase = 2,
+            consumed_this_ante = 0,
+            activated = false
         },
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if context.using_consumeable and JoyousSpring.is_pendulum_monster(context.consumeable) then
-                card.ability.extra.consumed_this_round = card.ability.extra.consumed_this_round + 1
-                if card.ability.extra.consumed_this_round >= card.ability.extra.consumed then
-                    card.ability.extra.consumed_this_round = 0
+            if context.using_consumeable and JoyousSpring.is_pendulum_monster(context.consumeable) and not card.ability.extra.activated then
+                card.ability.extra.consumed_this_ante = card.ability.extra.consumed_this_ante + 1
+                if card.ability.extra.consumed_this_ante >= card.ability.extra.consumed then
+                    card.ability.extra.activated = true
                     for i = 1, card.ability.extra.creates do
                         JoyousSpring.create_pseudorandom(
                             { { monster_archetypes = { "Solfachord" }, is_pendulum = true } },
                             pseudoseed("j_joy_solfa_cutia"), false, false, "e_negative")
                     end
+                    card.ability.extra.consumed = card.ability.extra.consumed + card.ability.extra.consumed_increase
                 end
             end
+        end
+        if context.end_of_round and context.game_over == false and context.main_eval and G.GAME.blind.boss then
+            card.ability.extra.consumed_this_ante = 0
+            card.ability.extra.activated = false
         end
     end
 })
@@ -897,11 +905,13 @@ SMODS.Joker({
                 return {
                     func = function()
                         for _, playing_card in ipairs(context.scoring_hand) do
-                            if is_even(playing_card) then
-                                playing_card:set_ability(G.P_CENTERS.m_gold, nil, true)
-                            end
-                            if is_odd(playing_card) then
-                                playing_card:set_ability(G.P_CENTERS.m_steel, nil, true)
+                            if not next(SMODS.get_enhancements(playing_card)) then
+                                if is_even(playing_card) then
+                                    playing_card:set_ability(G.P_CENTERS.m_gold, nil, true)
+                                end
+                                if is_odd(playing_card) then
+                                    playing_card:set_ability(G.P_CENTERS.m_steel, nil, true)
+                                end
                             end
                             playing_card:juice_up()
                         end
