@@ -512,11 +512,14 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.used_as_material(card, context) and JoyousSpring.is_monster_type(context.joy_card, "Cyberse") then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Ignister" }, is_extra_deck = true } })
-            for i = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_ignis_doyon"))
-                if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
-                    JoyousSpring.add_to_extra_deck(key_to_add)
+            local choices = JoyousSpring.get_materials_in_collection(
+                { { monster_archetypes = { "Ignister" }, is_extra_deck = true } }, true, true)
+            if #choices > 0 then
+                for i = 1, card.ability.extra.adds do
+                    local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_ignis_doyon"))
+                    if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
+                        JoyousSpring.add_to_extra_deck(key_to_add)
+                    end
                 end
             end
         end
@@ -763,7 +766,7 @@ SMODS.Joker({
         end
         local current_chips = card.ability.extra.chips *
             JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))
-        return { vars = { card.ability.extra.adds, card.ability.extra.chips, card.ability.extra.extra_chips, current_chips } }
+        return { vars = { card.ability.extra.adds, card.ability.extra.chips, current_chips } }
     end,
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
@@ -788,14 +791,10 @@ SMODS.Joker({
             },
             adds = 1,
             chips = 100,
-            extra_chips = 10,
         },
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if context.joy_summon and context.main_eval and not context.blueprint_card and JoyousSpring.is_summon_type(context.joy_card, "LINK") then
-                card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.extra_chips
-            end
             if context.individual and context.cardarea == G.play then
                 local current_chips = card.ability.extra.chips *
                     JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))
@@ -809,11 +808,14 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Ignister" }, is_extra_deck = true } })
-            for i = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_ignis_leviathan"))
-                if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
-                    JoyousSpring.add_to_extra_deck(key_to_add)
+            local choices = JoyousSpring.get_materials_in_collection(
+                { { monster_archetypes = { "Ignister" }, is_extra_deck = true } }, true, true)
+            if #choices > 0 then
+                for i = 1, card.ability.extra.adds do
+                    local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_ignis_leviathan"))
+                    if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
+                        JoyousSpring.add_to_extra_deck(key_to_add)
+                    end
                 end
             end
         end
@@ -823,9 +825,6 @@ SMODS.Joker({
     end,
     joy_transfer_ability_calculate = function(self, other_card, context, config)
         if JoyousSpring.can_use_abilities(other_card) then
-            if context.joy_summon and context.main_eval and not context.blueprint_card and JoyousSpring.is_summon_type(context.joy_card, "LINK") then
-                config.chips = config.chips + config.extra_chips
-            end
             if context.individual and context.cardarea == G.play then
                 local current_chips = config.chips *
                     JoyousSpring.get_attribute_count(JoyousSpring.get_materials(other_card))
@@ -838,12 +837,12 @@ SMODS.Joker({
         end
     end,
     joy_transfer_config = function(self, other_card)
-        return { chips = 100, extra_chips = 10 }
+        return { chips = 100 }
     end,
     joy_transfer_loc_vars = function(self, info_queue, card, config)
         local current_chips = config.chips *
             JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))
-        return { vars = { config.chips, config.extra_chips, current_chips } }
+        return { vars = { config.chips, current_chips } }
     end
 })
 
@@ -890,11 +889,14 @@ SMODS.Joker({
     },
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Ignister" }, is_extra_deck = true } })
-            for i = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_ignis_golem"))
-                if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
-                    JoyousSpring.add_to_extra_deck(key_to_add)
+            local choices = JoyousSpring.get_materials_in_collection(
+                { { monster_archetypes = { "Ignister" }, is_extra_deck = true } }, true, true)
+            if #choices > 0 then
+                for i = 1, card.ability.extra.adds do
+                    local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_ignis_golem"))
+                    if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
+                        JoyousSpring.add_to_extra_deck(key_to_add)
+                    end
                 end
             end
         end
@@ -979,11 +981,14 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Ignister" }, is_extra_deck = true } })
-            for i = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_ignis_pegasus"))
-                if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
-                    JoyousSpring.add_to_extra_deck(key_to_add)
+            local choices = JoyousSpring.get_materials_in_collection(
+                { { monster_archetypes = { "Ignister" }, is_extra_deck = true } }, true, true)
+            if #choices > 0 then
+                for i = 1, card.ability.extra.adds do
+                    local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_ignis_pegasus"))
+                    if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
+                        JoyousSpring.add_to_extra_deck(key_to_add)
+                    end
                 end
             end
         end
@@ -1066,11 +1071,14 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Ignister" }, is_extra_deck = true } })
-            for i = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_ignis_dragon"))
-                if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
-                    JoyousSpring.add_to_extra_deck(key_to_add)
+            local choices = JoyousSpring.get_materials_in_collection(
+                { { monster_archetypes = { "Ignister" }, is_extra_deck = true } }, true, true)
+            if #choices > 0 then
+                for i = 1, card.ability.extra.adds do
+                    local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_ignis_dragon"))
+                    if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
+                        JoyousSpring.add_to_extra_deck(key_to_add)
+                    end
                 end
             end
         end
@@ -1112,9 +1120,9 @@ SMODS.Joker({
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
         end
-        local current_xmult = card.ability.extra.xmult *
+        local current_mult = card.ability.extra.mult *
             JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))
-        return { vars = { card.ability.extra.adds, card.ability.extra.creates, card.ability.extra.xmult, card.ability.extra.extra_xmult, current_xmult } }
+        return { vars = { card.ability.extra.adds, card.ability.extra.creates, card.ability.extra.mult, current_mult } }
     end,
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
@@ -1139,34 +1147,36 @@ SMODS.Joker({
             },
             adds = 1,
             creates = 1,
-            xmult = 0.1,
-            extra_xmult = 0.05,
+            mult = 2,
         },
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.individual and context.cardarea == G.play then
-                local current_xmult = card.ability.extra.xmult *
+                local current_mult = card.ability.extra.mult *
                     JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))
-                context.other_card.ability.perma_x_mult = (context.other_card.ability.perma_x_mult or 1) +
-                    current_xmult
-                return {
-                    extra = { message = localize('k_upgrade_ex'), colour = G.C.MULT },
-                    card = card
-                }
+                context.other_card.ability.perma_mult = (context.other_card.ability.perma_mult or 1) +
+                    current_mult
+                return { message = localize('k_upgrade_ex'), colour = G.C.MULT }
             end
-            if context.joy_summon and context.main_eval and not context.blueprint_card and JoyousSpring.is_summon_type(context.joy_card, "LINK") then
-                card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.extra_xmult
+        end
+        if context.joy_summon and not context.blueprint_card then
+            if JoyousSpring.used_as_material(card, context) and JoyousSpring.is_monster_type(context.joy_card, "Cyberse") then
+                JoyousSpring.create_perma_debuffed_card("j_joy_ignis_phoenix", "j_joy_ignis_phoenix",
+                    "e_negative")
             end
         end
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Ignister" }, is_extra_deck = true } })
-            for i = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_ignis_phoenix"))
-                if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
-                    JoyousSpring.add_to_extra_deck(key_to_add)
+            local choices = JoyousSpring.get_materials_in_collection(
+                { { monster_archetypes = { "Ignister" }, is_extra_deck = true } }, true, true)
+            if #choices > 0 then
+                for i = 1, card.ability.extra.adds do
+                    local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_ignis_phoenix"))
+                    if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
+                        JoyousSpring.add_to_extra_deck(key_to_add)
+                    end
                 end
             end
         end
@@ -1177,36 +1187,22 @@ SMODS.Joker({
     joy_transfer_ability_calculate = function(self, other_card, context, config)
         if JoyousSpring.can_use_abilities(other_card) then
             if context.individual and context.cardarea == G.play then
-                local current_xmult = config.xmult *
+                local current_mult = config.mult *
                     JoyousSpring.get_attribute_count(JoyousSpring.get_materials(other_card))
-                context.other_card.ability.perma_x_mult = (context.other_card.ability.perma_x_mult or 1) + current_xmult
-                return {
-                    extra = { message = localize('k_upgrade_ex'), colour = G.C.MULT },
-                    card = other_card
-                }
-            end
-            if context.joy_summon and context.main_eval and not context.blueprint_card then
-                if JoyousSpring.used_as_material(card, context) and JoyousSpring.is_monster_type(context.joy_card, "Cyberse") then
-                    JoyousSpring.create_perma_debuffed_card("j_joy_ignis_phoenix", "j_joy_ignis_phoenix",
-                        "e_negative")
-                end
-                if JoyousSpring.is_summon_type(context.joy_card, "LINK") then
-                    config.xmult = config.xmult + config.extra_xmult
-                end
+                context.other_card.ability.perma_mult = (context.other_card.ability.perma_mult or 1) + current_mult
+                return { message = localize('k_upgrade_ex'), colour = G.C.MULT }
             end
         end
     end,
     joy_transfer_config = function(self, other_card)
         return {
-            xmult = 0.1,
-            extra_xmult = 0.05,
-            current_xmult = 0
+            mult = 2
         }
     end,
     joy_transfer_loc_vars = function(self, info_queue, card, config)
-        local current_xmult = config.xmult *
+        local current_mult = config.mult *
             JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))
-        return { vars = { config.xmult, config.extra_xmult, current_xmult } }
+        return { vars = { config.mult, current_mult } }
     end
 })
 

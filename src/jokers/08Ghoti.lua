@@ -53,7 +53,7 @@ SMODS.Joker({
                     for i = 1, c.ability.extra.revives do
                         JoyousSpring.revive_pseudorandom(
                             {
-                                { is_extra_deck = true, monster_archetypes = { "Ghoti" } },
+                                { summon_type = "SYNCHRO" },
                             },
                             pseudoseed("j_joy_fish_keaf"),
                             true

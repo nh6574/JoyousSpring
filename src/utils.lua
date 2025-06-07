@@ -116,20 +116,36 @@ JoyousSpring.count_all_materials = function(property_list, to_revive, different_
         JoyousSpring.count_materials_owned(property_list, different_names)
 end
 
+---Checks if card is in the Extra Deck
+---@param card_key string
+---@return boolean
+JoyousSpring.is_in_extra_deck = function(card_key)
+    if not JoyousSpring.extra_deck_area then return false end
+    for _, joker in ipairs(JoyousSpring.extra_deck_area.cards) do
+        if joker.config.center.key == card_key then return true end
+    end
+    return false
+end
+
 ---Get cards in the collection that fulfill *property_list*
 ---@param property_list material_properties[]
+---@param not_owned boolean?
+---@param not_extra boolean?
 ---@return string[]
-JoyousSpring.get_materials_in_collection = function(property_list)
+JoyousSpring.get_materials_in_collection = function(property_list, not_owned, not_extra)
     local pool = {}
     for k, _ in pairs(G.P_CENTERS) do
         if k:sub(1, 2) == "j_" then
-            if not property_list or #property_list == 0 then
-                table.insert(pool, k)
-            else
-                for _, property in ipairs(property_list) do
-                    if JoyousSpring.is_material_center(k, property) then
-                        table.insert(pool, k)
-                        break
+            if (not not_owned or not G.jokers or not next(SMODS.find_card(k, true))) and
+                (not not_extra or not JoyousSpring.is_in_extra_deck(k)) then
+                if not property_list or #property_list == 0 then
+                    table.insert(pool, k)
+                else
+                    for _, property in ipairs(property_list) do
+                        if JoyousSpring.is_material_center(k, property) then
+                            table.insert(pool, k)
+                            break
+                        end
                     end
                 end
             end

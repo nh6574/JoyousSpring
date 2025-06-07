@@ -7,7 +7,7 @@ return {
                     {
                         "{C:attention}Banishes{} at the end of round",
                         "until {C:attention}Blind{} is selected and",
-                        "{C:attention}revives #1#{} {C:joy_spell}Extra Deck{} {C:joy_normal}\"Ghoti\"{}",
+                        "{C:attention}revives #1#{} {C:joy_synchro}Synchro{}",
                     },
                 },
             },

@@ -267,7 +267,7 @@ SMODS.Joker({
                 monster_type = "Thunder",
                 monster_archetypes = { ["Spright"] = true }
             },
-            chips = 15,
+            chips = 40,
         },
     },
     calculate = function(self, card, context)
