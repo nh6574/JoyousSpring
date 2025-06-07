@@ -498,7 +498,7 @@ SMODS.Joker({
                 },
             },
             chips = 80,
-            money = 5,
+            money = 10,
             revives = 1
         },
     },
@@ -633,7 +633,7 @@ SMODS.Joker({
     key = "etwin_sunny",
     atlas = 'LiveTwin',
     pos = { x = 1, y = 2 },
-    rarity = 3,
+    rarity = 2,
     discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
