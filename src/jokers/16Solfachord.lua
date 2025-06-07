@@ -599,7 +599,7 @@ SMODS.Joker({
             },
             change = 7,
             rank = '2',
-            xchips = 0.2,
+            xchips = 0.1,
             banishes = 2
         },
     },
