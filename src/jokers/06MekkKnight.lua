@@ -448,7 +448,7 @@ SMODS.Joker({
                     }
                 }
             },
-            xmult = 2
+            xmult = 5
         },
     },
     calculate = function(self, card, context)
