@@ -242,7 +242,8 @@ return {
                     "{C:inactive}(Currently {C:chips}+#2#{} {C:inactive}Chips)",
                 },
                 joy_summon_conditions = {
-                    "{C:attention}1{} {C:joy_normal}Spellcaster{} +",
+                    "{C:attention}1{} {C:joy_normal}\"Shaddoll\"{}",
+                    "or {C:joy_normal}Spellcaster{} +",
                     "{C:attention}1{} {C:joy_water}WATER{} {C:attention}Joker{}",
                 }
             },
@@ -264,7 +265,8 @@ return {
                     "{C:joy_normal}\"Shaddoll\"{} {C:joy_fusion}Fusions{} can't be debuffed or {C:attention}flipped{} face-down",
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2{} {C:joy_normal}Spellcasters{}",
+                    "{C:attention}2{} {C:joy_normal}\"Shaddoll\"{} or",
+                    "{C:joy_normal}Spellcasters{}",
                     "with different {C:attention}attributes{}",
                 }
             },
@@ -288,7 +290,8 @@ return {
                     "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)",
                 },
                 joy_summon_conditions = {
-                    "{C:attention}1{} {C:joy_normal}Spellcaster{} +",
+                    "{C:attention}1{} {C:joy_normal}\"Shaddoll\"{}",
+                    "or {C:joy_normal}Spellcaster{} +",
                     "{C:attention}1{} {C:joy_dark}DARK{} {C:attention}Joker{}",
                 }
             },
@@ -310,7 +313,8 @@ return {
                     "Sends {C:attention}#1# {C:joy_normal}\"Shaddoll\"{} to the {C:attention}GY{} when {C:attention}Blind{} is selected",
                 },
                 joy_summon_conditions = {
-                    "{C:attention}1{} {C:joy_normal}Spellcaster{} +",
+                    "{C:attention}1{} {C:joy_normal}\"Shaddoll\"{}",
+                    "or {C:joy_normal}Spellcaster{} +",
                     "{C:attention}1{} {C:joy_light}LIGHT{} {C:attention}Joker{}",
                 }
             },
@@ -334,7 +338,8 @@ return {
                     "{C:inactive}(Currently {X:chips,C:white}X#2#{} {C:inactive}Chips)",
                 },
                 joy_summon_conditions = {
-                    "{C:attention}1{} {C:joy_normal}Spellcaster{} +",
+                    "{C:attention}1{} {C:joy_normal}\"Shaddoll\"{}",
+                    "or {C:joy_normal}Spellcaster{} +",
                     "{C:attention}1{} {C:joy_fire}FIRE{} {C:attention}Joker{}",
                 }
             },
@@ -356,7 +361,8 @@ return {
                     "Disables effect of every {C:attention}Boss Blind"
                 },
                 joy_summon_conditions = {
-                    "{C:attention}1{} {C:joy_normal}Spellcaster{} +",
+                    "{C:attention}1{} {C:joy_normal}\"Shaddoll\"{}",
+                    "or {C:joy_normal}Spellcaster{} +",
                     "{C:attention}1{} {C:joy_earth}EARTH{} {C:attention}Joker{}",
                 }
             },
@@ -380,7 +386,8 @@ return {
                     "and their {C:joy_effect}FLIP{} abilities activate when {C:attention}Blind{} is selected",
                 },
                 joy_summon_conditions = {
-                    "{C:attention}1{} {C:joy_normal}Spellcaster{} +",
+                    "{C:attention}1{} {C:joy_normal}\"Shaddoll\"{}",
+                    "or {C:joy_normal}Spellcaster{} +",
                     "{C:attention}1{} {C:joy_wind}WIND{} {C:attention}Joker{}",
                 }
             },

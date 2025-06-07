@@ -939,6 +939,13 @@ SMODS.Joker({
                             { monster_attribute = "WATER" },
                         },
                     },
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { monster_archetypes = { "Shaddoll" } },
+                            { monster_attribute = "WATER" },
+                        },
+                    },
                 }
             },
             chips = 10,
@@ -1022,6 +1029,26 @@ SMODS.Joker({
                         materials = {
                             { monster_type = "Spellcaster" },
                             { monster_type = "Spellcaster" },
+                        },
+                        restrictions = {
+                            different_attributes = true
+                        }
+                    },
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { monster_type = "Spellcaster" },
+                            { monster_archetypes = { "Shaddoll" } },
+                        },
+                        restrictions = {
+                            different_attributes = true
+                        }
+                    },
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { monster_archetypes = { "Shaddoll" } },
+                            { monster_archetypes = { "Shaddoll" } },
                         },
                         restrictions = {
                             different_attributes = true
@@ -1132,6 +1159,13 @@ SMODS.Joker({
                             { monster_attribute = "DARK" },
                         },
                     },
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { monster_archetypes = { "Shaddoll" } },
+                            { monster_attribute = "DARK" },
+                        },
+                    },
                 }
             },
             xmult = 2,
@@ -1226,6 +1260,13 @@ SMODS.Joker({
                             { monster_attribute = "LIGHT" },
                         },
                     },
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { monster_archetypes = { "Shaddoll" } },
+                            { monster_attribute = "LIGHT" },
+                        },
+                    },
                 }
             },
             mills = 10,
@@ -1314,6 +1355,13 @@ SMODS.Joker({
                             { monster_attribute = "FIRE" },
                         },
                     },
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { monster_archetypes = { "Shaddoll" } },
+                            { monster_attribute = "FIRE" },
+                        },
+                    },
                 }
             },
             xchips = 0.01,
@@ -1399,6 +1447,13 @@ SMODS.Joker({
                             { monster_attribute = "EARTH" },
                         },
                     },
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { monster_archetypes = { "Shaddoll" } },
+                            { monster_attribute = "EARTH" },
+                        },
+                    },
                 }
             },
             adds = 1
@@ -1461,6 +1516,13 @@ SMODS.Joker({
                         type = "FUSION",
                         materials = {
                             { monster_type = "Spellcaster" },
+                            { monster_attribute = "WIND" },
+                        },
+                    },
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { monster_archetypes = { "Shaddoll" } },
                             { monster_attribute = "WIND" },
                         },
                     },
