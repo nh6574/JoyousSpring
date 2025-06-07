@@ -354,8 +354,8 @@ return {
                         "{V:4}DARK{V:7}: Creates {V:5}#4#{} {V:6}Spectral{V:7} at end of round {s:0.9,C:inactive}(Must have room)",
                         "{V:8}WATER{V:10}: {V:9}+#5#{V:10} Chips",
                         "{V:11}FIRE{V:13}: {V:12}+#6#{V:13} Mult",
-                        "{V:14}WIND{V:17}: {V:15}#7# in #8#{V:17} chance to create a {V:16}Negative{V:17} copy of a used consumable",
-                        "{V:18}EARTH{V:20}: {V:19}+#9#{V:20} hand size",
+                        "{V:14}WIND{V:17}: {V:15}#7# in #8#{V:17} chance to create a {V:16}Negative{V:17} copy of a used {V:18}Spectral",
+                        "{V:19}EARTH{V:21}: {V:20}+#9#{V:21} hand size",
                     },
                 },
                 joy_summon_conditions = {

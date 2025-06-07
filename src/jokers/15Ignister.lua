@@ -1430,6 +1430,7 @@ SMODS.Joker({
                     card.ability.extra.attributes["WIND"] and G.C.GREEN or G.C.UI.TEXT_INACTIVE,
                     card.ability.extra.attributes["WIND"] and G.C.DARK_EDITION or G.C.UI.TEXT_INACTIVE,
                     card.ability.extra.attributes["WIND"] and G.C.UI.TEXT_DARK or G.C.UI.TEXT_INACTIVE,
+                    card.ability.extra.attributes["WIND"] and G.C.SECONDARY_SET.Spectral or G.C.UI.TEXT_INACTIVE,
                     card.ability.extra.attributes["EARTH"] and G.C.JOY.EARTH or G.C.UI.TEXT_INACTIVE,
                     card.ability.extra.attributes["EARTH"] and G.C.FILTER or G.C.UI.TEXT_INACTIVE,
                     card.ability.extra.attributes["EARTH"] and G.C.UI.TEXT_DARK or G.C.UI.TEXT_INACTIVE,
@@ -1512,7 +1513,7 @@ SMODS.Joker({
             creates = 1,
             chips = 1000,
             mult = 250,
-            odds = 6,
+            odds = 3,
             h_size = 5,
             percent = 0.5
         },
@@ -1536,7 +1537,8 @@ SMODS.Joker({
                 }
             end
             if context.using_consumeable and context.main_eval and card.ability.extra.attributes["WIND"] then
-                if pseudorandom("j_joy_ignis_arrival") < G.GAME.probabilities.normal / card.ability.extra.odds then
+                if context.consumeable.ability.set == "Spectral" and
+                    pseudorandom("j_joy_ignis_arrival") < G.GAME.probabilities.normal / card.ability.extra.odds then
                     SMODS.add_card({
                         key = context.consumeable.config.center.key,
                         edition = "e_negative"
