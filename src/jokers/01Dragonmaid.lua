@@ -585,7 +585,7 @@ SMODS.Joker({
 
 -- Cehrmba Dragonmaid
 SMODS.Joker({
-    key = "dmaid_cehrmba",
+    key = "dmaid_chamber",
     atlas = 'Dragonmaid',
     pos = { x = 3, y = 1 },
     rarity = 1,
