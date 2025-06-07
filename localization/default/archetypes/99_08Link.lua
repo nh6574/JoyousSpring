@@ -41,7 +41,7 @@ return {
                     },
                     {
                         "Creates {C:attention}#3#{} {C:dark_edition}Negative{} {C:joy_normal}Main Deck{} {C:joy_pendulum}Pendulum{}",
-                        "when {C:attention}Boss Blind{} is defeated",
+                        "the first time a {C:attention}Boss Blind{} is defeated",
                     },
                 },
                 joy_summon_conditions = {

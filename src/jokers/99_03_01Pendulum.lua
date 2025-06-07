@@ -105,11 +105,11 @@ SMODS.Joker({
     key = "pendulumoon",
     atlas = 'Misc03',
     pos = { x = 3, y = 3 },
-    rarity = 2,
+    rarity = 3,
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 7,
+    cost = 15,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }

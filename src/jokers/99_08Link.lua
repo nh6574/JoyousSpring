@@ -173,6 +173,7 @@ SMODS.Joker({
             },
             xmult = 0.05,
             creates = 1,
+            activated = true
         },
     },
     calculate = function(self, card, context)
@@ -182,7 +183,9 @@ SMODS.Joker({
                     xmult = 1 + card.ability.extra.xmult * JoyousSpring.get_pendulum_count()
                 }
             end
-            if context.end_of_round and context.game_over == false and context.main_eval and G.GAME.blind.boss then
+            if context.end_of_round and context.game_over == false and context.main_eval and G.GAME.blind.boss and
+                not card.ability.extra.activated then
+                card.ability.extra.activated = true
                 for i = 1, card.ability.extra.creates do
                     JoyousSpring.create_pseudorandom({ { is_pendulum = true, is_main_deck = true } },
                         pseudoseed("j_joy_exceed"), false, false,
