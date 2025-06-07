@@ -84,7 +84,7 @@ SMODS.Joker({
             end
             if context.joy_excavated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.setting_blind then
                 local hit
-                if context.joy_excavated:is_suit("Spades") then
+                if context.joy_excavated:is_suit("Spades") and not next(SMODS.get_enhancements(context.joy_excavated)) then
                     context.joy_excavated:set_ability("m_joy_hanafuda")
                     hit = true
                 end
@@ -173,7 +173,7 @@ SMODS.Joker({
             end
             if context.joy_excavated and context.joy_number <= card.ability.extra.excavates then
                 local hit
-                if context.joy_excavated:is_suit("Spades") then
+                if context.joy_excavated:is_suit("Spades") and not next(SMODS.get_enhancements(context.joy_excavated)) then
                     context.joy_excavated:set_ability("m_joy_hanafuda")
                     hit = true
                 end
@@ -267,7 +267,7 @@ SMODS.Joker({
             end
             if context.joy_excavated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.setting_blind then
                 local hit
-                if context.joy_excavated:is_suit("Hearts") then
+                if context.joy_excavated:is_suit("Hearts") and not next(SMODS.get_enhancements(context.joy_excavated)) then
                     context.joy_excavated:set_ability("m_joy_hanafuda")
                     hit = true
                 end
@@ -356,7 +356,7 @@ SMODS.Joker({
             end
             if context.joy_excavated and context.joy_number <= card.ability.extra.excavates then
                 local hit
-                if context.joy_excavated:is_suit("Hearts") then
+                if context.joy_excavated:is_suit("Hearts") and not next(SMODS.get_enhancements(context.joy_excavated)) then
                     context.joy_excavated:set_ability("m_joy_hanafuda")
                     hit = true
                 end
@@ -641,7 +641,7 @@ SMODS.Joker({
             end
             if context.joy_excavated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.setting_blind then
                 local hit
-                if context.joy_excavated:is_suit("Clubs") then
+                if context.joy_excavated:is_suit("Clubs") and not next(SMODS.get_enhancements(context.joy_excavated)) then
                     context.joy_excavated:set_ability("m_joy_hanafuda")
                     hit = true
                 end
@@ -723,7 +723,7 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if context.joy_excavated and context.joy_number <= card.ability.extra.excavates then
                 local hit
-                if context.joy_excavated:is_suit("Clubs") then
+                if context.joy_excavated:is_suit("Clubs") and not next(SMODS.get_enhancements(context.joy_excavated)) then
                     context.joy_excavated:set_ability("m_joy_hanafuda")
                     hit = true
                 end
@@ -916,7 +916,7 @@ SMODS.Joker({
             end
             if context.joy_excavated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.setting_blind then
                 local hit
-                if context.joy_excavated:is_face() then
+                if context.joy_excavated:is_face() and not next(SMODS.get_enhancements(context.joy_excavated)) then
                     context.joy_excavated:set_ability("m_joy_hanafuda")
                     hit = true
                 end
@@ -998,7 +998,7 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if context.joy_excavated and context.joy_number <= card.ability.extra.excavates then
                 local hit
-                if context.joy_excavated:is_face() then
+                if context.joy_excavated:is_face() and not next(SMODS.get_enhancements(context.joy_excavated)) then
                     context.joy_excavated:set_ability("m_joy_hanafuda")
                     hit = true
                 end
@@ -1094,7 +1094,7 @@ SMODS.Joker({
             end
             if context.joy_excavated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.setting_blind then
                 local hit
-                if context.joy_excavated:is_suit("Diamonds") then
+                if context.joy_excavated:is_suit("Diamonds") and not next(SMODS.get_enhancements(context.joy_excavated)) then
                     context.joy_excavated:set_ability("m_joy_hanafuda")
                     hit = true
                 end
@@ -1183,7 +1183,7 @@ SMODS.Joker({
             end
             if context.joy_excavated and context.joy_number <= card.ability.extra.excavates then
                 local hit
-                if context.joy_excavated:is_suit("Diamonds") then
+                if context.joy_excavated:is_suit("Diamonds") and not next(SMODS.get_enhancements(context.joy_excavated)) then
                     context.joy_excavated:set_ability("m_joy_hanafuda")
                     hit = true
                 end
