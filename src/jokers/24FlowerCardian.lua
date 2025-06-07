@@ -171,7 +171,7 @@ SMODS.Joker({
                     }
                 end
             end
-            if context.joy_excavated and context.joy_number <= card.ability.extra.excavates then
+            if context.joy_excavated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.setting_blind then
                 local hit
                 if context.joy_excavated:is_suit("Spades") and not next(SMODS.get_enhancements(context.joy_excavated)) then
                     context.joy_excavated:set_ability("m_joy_hanafuda")
@@ -354,7 +354,7 @@ SMODS.Joker({
                     }
                 end
             end
-            if context.joy_excavated and context.joy_number <= card.ability.extra.excavates then
+            if context.joy_excavated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.setting_blind then
                 local hit
                 if context.joy_excavated:is_suit("Hearts") and not next(SMODS.get_enhancements(context.joy_excavated)) then
                     context.joy_excavated:set_ability("m_joy_hanafuda")
@@ -445,7 +445,7 @@ SMODS.Joker({
                     }
                 end
             end
-            if context.joy_excavated and context.joy_number <= card.ability.extra.excavates then
+            if context.joy_excavated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.setting_blind then
                 local hit
                 if cardian_is_hanafuda_month(context.joy_excavated, { "june" }) then
                     card.joy_draw = true
@@ -540,7 +540,7 @@ SMODS.Joker({
                     }
                 end
             end
-            if context.joy_excavated and context.joy_number <= card.ability.extra.excavates then
+            if context.joy_excavated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.setting_blind then
                 local hit
                 if cardian_is_hanafuda_month(context.joy_excavated, { "july" }) then
                     card.joy_draw = true
@@ -721,7 +721,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if context.joy_excavated and context.joy_number <= card.ability.extra.excavates then
+            if context.joy_excavated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.setting_blind then
                 local hit
                 if context.joy_excavated:is_suit("Clubs") and not next(SMODS.get_enhancements(context.joy_excavated)) then
                     context.joy_excavated:set_ability("m_joy_hanafuda")
@@ -817,7 +817,7 @@ SMODS.Joker({
                     }
                 end
             end
-            if context.joy_excavated and context.joy_number <= card.ability.extra.excavates then
+            if context.joy_excavated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.setting_blind then
                 local hit
                 if cardian_is_hanafuda_month(context.joy_excavated, { "october" }) then
                     card.joy_draw = true
@@ -996,7 +996,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if context.joy_excavated and context.joy_number <= card.ability.extra.excavates then
+            if context.joy_excavated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.setting_blind then
                 local hit
                 if context.joy_excavated:is_face() and not next(SMODS.get_enhancements(context.joy_excavated)) then
                     context.joy_excavated:set_ability("m_joy_hanafuda")
@@ -1181,7 +1181,7 @@ SMODS.Joker({
                     }
                 end
             end
-            if context.joy_excavated and context.joy_number <= card.ability.extra.excavates then
+            if context.joy_excavated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.setting_blind then
                 local hit
                 if context.joy_excavated:is_suit("Diamonds") and not next(SMODS.get_enhancements(context.joy_excavated)) then
                     context.joy_excavated:set_ability("m_joy_hanafuda")
