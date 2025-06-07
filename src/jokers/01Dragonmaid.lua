@@ -753,7 +753,7 @@ SMODS.Joker({
     key = "dmaid_lady",
     atlas = 'Dragonmaid',
     pos = { x = 0, y = 2 },
-    rarity = 3,
+    rarity = 2,
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
@@ -958,19 +958,17 @@ SMODS.Joker({
         },
     },
     calculate = function(self, card, context)
-        if JoyousSpring.can_use_abilities(card) then
-            if not context.blueprint_card and not context.retrigger_joker and
-                context.setting_blind and context.main_eval then
-                if G.GAME.blind and ((not G.GAME.blind.disabled) and (G.GAME.blind.boss)) then
-                    G.GAME.blind:disable()
+        if not context.blueprint_card and not context.retrigger_joker and
+            context.setting_blind and context.main_eval then
+            if G.GAME.blind and ((not G.GAME.blind.disabled) and (G.GAME.blind.boss)) then
+                G.GAME.blind:disable()
 
-                    for i = 1, card.ability.extra.cards_to_create do
-                        JoyousSpring.create_pseudorandom({ { monster_archetypes = { "Dragonmaid" }, rarity = 1 } },
-                            pseudoseed("j_joy_dmaid_sheou"), true)
-                    end
-                    JoyousSpring.transform_card(card, "j_joy_dmaid_house")
-                    return { message = localize('ph_boss_disabled') }
+                for i = 1, card.ability.extra.cards_to_create do
+                    JoyousSpring.create_pseudorandom({ { monster_archetypes = { "Dragonmaid" }, rarity = 1 } },
+                        pseudoseed("j_joy_dmaid_sheou"), true)
                 end
+                JoyousSpring.transform_card(card, "j_joy_dmaid_house")
+                return { message = localize('ph_boss_disabled') }
             end
         end
     end,
