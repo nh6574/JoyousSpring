@@ -1414,7 +1414,7 @@ SMODS.Joker({
                 end
             end
         end
-        if JoyousSpring.can_use_abilities(card) and not context.blueprint_card and context.setting_blind and context.main_eval and G.GAME.blind and ((not G.GAME.blind.disabled) and (G.GAME.blind.boss)) then
+        if (JoyousSpring.can_use_abilities(card) or card.joy_faceup_before_blind) and not context.blueprint_card and context.setting_blind and context.main_eval and G.GAME.blind and ((not G.GAME.blind.disabled) and (G.GAME.blind.boss)) then
             G.GAME.blind:disable()
         end
     end,
@@ -1422,7 +1422,7 @@ SMODS.Joker({
         return JoyousSpring.is_summon_type(other_card, "FUSION")
     end,
     joy_transfer_ability_calculate = function(self, other_card, context, config)
-        if JoyousSpring.can_use_abilities(other_card) and not context.blueprint_card and context.setting_blind and context.main_eval and G.GAME.blind and ((not G.GAME.blind.disabled) and (G.GAME.blind.boss)) then
+        if (JoyousSpring.can_use_abilities(other_card) or other_card.joy_faceup_before_blind) and not context.blueprint_card and context.setting_blind and context.main_eval and G.GAME.blind and ((not G.GAME.blind.disabled) and (G.GAME.blind.boss)) then
             G.GAME.blind:disable()
         end
     end

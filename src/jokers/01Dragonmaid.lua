@@ -958,7 +958,7 @@ SMODS.Joker({
         },
     },
     calculate = function(self, card, context)
-        if JoyousSpring.can_use_abilities(card) then
+        if JoyousSpring.can_use_abilities(card) or card.joy_faceup_before_blind then
             if not context.blueprint_card and not context.retrigger_joker and
                 context.setting_blind and context.main_eval then
                 card.ability.extra.faceup_before_blind = nil

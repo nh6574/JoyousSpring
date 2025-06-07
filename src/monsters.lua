@@ -367,7 +367,7 @@ end
 
 JoyousSpring.can_use_abilities = function(card)
     if not card or card.debuff then return false end
-    if card.facing == 'front' or card.joy_faceup_before_blind then return true end
+    if card.facing == 'front' then return true end
     for _, joker in ipairs(G.jokers.cards) do
         if not joker.debuff and joker.config.center.joy_allow_ability and joker.config.center.joy_allow_ability(joker, card) then
             return true
