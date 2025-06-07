@@ -675,7 +675,7 @@ SMODS.Joker({
                 monster_archetypes = { ["Invoked"] = true }
             },
             tributes = 1,
-            mult = 100
+            mult = 50
         },
     },
     calculate = function(self, card, context)
