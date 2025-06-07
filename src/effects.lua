@@ -301,8 +301,9 @@ end
 ---@param enhanced_prob number? Probability of enhancements
 ---@param silent boolean?
 ---@param colours table?
----@param seed number?
+---@param seed string|number?
 JoyousSpring.create_random_playing_card = function(enhanced_prob, silent, colours, seed, ranks, suits)
+    local seed = seed and type(seed) == "string" and pseudoseed(seed) or seed
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 0.3,

@@ -6,18 +6,24 @@ SMODS.Atlas({
     py = 95
 })
 
+local adaman_excavate = function(card, context)
+    if context.setting_blind then
+        return card.ability.extra.excavates
+    end
+end
+
 -- Adamancipator Analyzer
 SMODS.Joker({
     key = "adaman_analyzer",
     atlas = 'adaman',
     pos = { x = 0, y = 0 },
-    rarity = 1,
+    rarity = 2,
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 0,
+    cost = 7,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = { card.ability.extra.excavates, card.ability.extra.chips, card.ability.extra.chips * card.ability.extra.excavated, card.ability.extra.creates, card.ability.extra.hands, card.ability.extra.hands - card.ability.extra.hands_played } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Adamancipator" } } }, name = "k_joy_archetype" },
@@ -32,8 +38,66 @@ SMODS.Joker({
                 monster_type = "Rock",
                 monster_archetypes = { ["Adamancipator"] = true }
             },
+            excavates = 3,
+            chips = 50,
+            excavated = 0,
+            creates = 1,
+            hands = 3,
+            hands_played = 0,
+            activated = false
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.before and next(context.poker_hands["Flush"]) and
+                not card.ability.extra.activated then
+                local is_diamond_flush = false
+                for _, hand in ipairs(context.poker_hands["Flush"]) do
+                    if hand[1] and hand[1]:is_suit("Diamonds", nil, true) then
+                        is_diamond_flush = true
+                        break
+                    end
+                end
+                if is_diamond_flush then
+                    card.ability.extra.hands_played = card.ability.extra.hands_played + 1
+                end
+                if card.ability.extra.hands_played >= card.ability.extra.hands then
+                    for _ = 1, card.ability.extra.creates do
+                        JoyousSpring.create_pseudorandom(
+                            { { monster_type = "Rock", is_main_deck = true }, },
+                            pseudoseed("j_joy_adaman_analyzer"), true)
+                    end
+                    card.ability.extra.activated = true
+                end
+            end
+            if context.individual and context.cardarea == G.play and context.other_card:is_suit("Diamonds") and card.ability.extra.excavated > 0 then
+                return {
+                    chips = card.ability.extra.chips * card.ability.extra.excavated
+                }
+            end
+            if context.joy_excavated and (SMODS.find_card("j_joy_adaman_laputite") or context.joy_number <= card.ability.extra.excavates) and context.joy_other_context.setting_blind then
+                if context.joy_excavated:is_suit("Diamonds") then
+                    card.ability.extra.excavated = card.ability.extra.excavated + 1
+                end
+            end
+        end
+        if context.end_of_round and context.game_over == false and context.main_eval then
+            card.ability.extra.excavated = 0
+            if G.GAME.blind.boss then
+                card.ability.extra.activated = false
+                card.ability.extra.hands_played = 0
+            end
+        end
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        card.ability.extra.excavated = 0
+    end,
+    joy_set_cost = function(card)
+        if JoyousSpring.count_materials_owned({ { monster_type = "Rock" } }) > 0 then
+            card.cost = 0
+        end
+    end,
+    joy_calculate_excavate = adaman_excavate,
 })
 
 -- Adamancipator Researcher
@@ -41,13 +105,13 @@ SMODS.Joker({
     key = "adaman_researcher",
     atlas = 'adaman',
     pos = { x = 1, y = 0 },
-    rarity = 1,
+    rarity = 2,
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 0,
+    cost = 7,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = { card.ability.extra.excavates, card.ability.extra.money, card.ability.extra.money * card.ability.extra.excavated, card.ability.extra.creates, card.ability.extra.hands, card.ability.extra.hands - card.ability.extra.hands_played } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Adamancipator" } } }, name = "k_joy_archetype" },
@@ -62,8 +126,66 @@ SMODS.Joker({
                 monster_type = "Rock",
                 monster_archetypes = { ["Adamancipator"] = true }
             },
+            excavates = 3,
+            money = 1,
+            excavated = 0,
+            creates = 1,
+            hands = 3,
+            hands_played = 0,
+            activated = false
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.before and next(context.poker_hands["Flush"]) and
+                not card.ability.extra.activated then
+                local is_diamond_flush = false
+                for _, hand in ipairs(context.poker_hands["Flush"]) do
+                    if hand[1] and hand[1]:is_suit("Diamonds", nil, true) then
+                        is_diamond_flush = true
+                        break
+                    end
+                end
+                if is_diamond_flush then
+                    card.ability.extra.hands_played = card.ability.extra.hands_played + 1
+                end
+                if card.ability.extra.hands_played >= card.ability.extra.hands then
+                    for _ = 1, card.ability.extra.creates do
+                        JoyousSpring.create_pseudorandom(
+                            { { monster_type = "Rock", is_main_deck = true }, },
+                            pseudoseed("j_joy_adaman_researcher"), true)
+                    end
+                    card.ability.extra.activated = true
+                end
+            end
+            if context.individual and context.cardarea == G.play and context.other_card:is_suit("Diamonds") and card.ability.extra.excavated > 0 then
+                return {
+                    dollars = card.ability.extra.money * card.ability.extra.excavated
+                }
+            end
+            if context.joy_excavated and (SMODS.find_card("j_joy_adaman_laputite") or context.joy_number <= card.ability.extra.excavates) and context.joy_other_context.setting_blind then
+                if context.joy_excavated:is_suit("Diamonds") then
+                    card.ability.extra.excavated = card.ability.extra.excavated + 1
+                end
+            end
+        end
+        if context.end_of_round and context.game_over == false and context.main_eval then
+            card.ability.extra.excavated = 0
+            if G.GAME.blind.boss then
+                card.ability.extra.activated = false
+                card.ability.extra.hands_played = 0
+            end
+        end
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        card.ability.extra.excavated = 0
+    end,
+    joy_set_cost = function(card)
+        if JoyousSpring.count_materials_owned({ { monster_type = "Rock" } }) > 0 then
+            card.cost = 0
+        end
+    end,
+    joy_calculate_excavate = adaman_excavate,
 })
 
 -- Adamancipator Seeker
@@ -71,13 +193,13 @@ SMODS.Joker({
     key = "adaman_seeker",
     atlas = 'adaman',
     pos = { x = 2, y = 0 },
-    rarity = 1,
+    rarity = 2,
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 0,
+    cost = 7,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = { card.ability.extra.excavates, card.ability.extra.mult, card.ability.extra.mult * card.ability.extra.excavated, card.ability.extra.creates, card.ability.extra.hands, card.ability.extra.hands - card.ability.extra.hands_played } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Adamancipator" } } }, name = "k_joy_archetype" },
@@ -92,8 +214,66 @@ SMODS.Joker({
                 monster_type = "Rock",
                 monster_archetypes = { ["Adamancipator"] = true }
             },
+            excavates = 3,
+            mult = 10,
+            excavated = 0,
+            creates = 1,
+            hands = 3,
+            hands_played = 0,
+            activated = false
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.before and next(context.poker_hands["Flush"]) and
+                not card.ability.extra.activated then
+                local is_diamond_flush = false
+                for _, hand in ipairs(context.poker_hands["Flush"]) do
+                    if hand[1] and hand[1]:is_suit("Diamonds", nil, true) then
+                        is_diamond_flush = true
+                        break
+                    end
+                end
+                if is_diamond_flush then
+                    card.ability.extra.hands_played = card.ability.extra.hands_played + 1
+                end
+                if card.ability.extra.hands_played >= card.ability.extra.hands then
+                    for _ = 1, card.ability.extra.creates do
+                        JoyousSpring.create_pseudorandom(
+                            { { monster_type = "Rock", is_main_deck = true }, },
+                            pseudoseed("j_joy_adaman_seeker"), true)
+                    end
+                    card.ability.extra.activated = true
+                end
+            end
+            if context.individual and context.cardarea == G.play and context.other_card:is_suit("Diamonds") and card.ability.extra.excavated > 0 then
+                return {
+                    mult = card.ability.extra.mult * card.ability.extra.excavated
+                }
+            end
+            if context.joy_excavated and (SMODS.find_card("j_joy_adaman_laputite") or context.joy_number <= card.ability.extra.excavates) and context.joy_other_context.setting_blind then
+                if context.joy_excavated:is_suit("Diamonds") then
+                    card.ability.extra.excavated = card.ability.extra.excavated + 1
+                end
+            end
+        end
+        if context.end_of_round and context.game_over == false and context.main_eval then
+            card.ability.extra.excavated = 0
+            if G.GAME.blind.boss then
+                card.ability.extra.activated = false
+                card.ability.extra.hands_played = 0
+            end
+        end
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        card.ability.extra.excavated = 0
+    end,
+    joy_set_cost = function(card)
+        if JoyousSpring.count_materials_owned({ { monster_type = "Rock" } }) > 0 then
+            card.cost = 0
+        end
+    end,
+    joy_calculate_excavate = adaman_excavate,
 })
 
 -- Adamancipator Crystal - Dragite
@@ -105,9 +285,9 @@ SMODS.Joker({
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 0,
+    cost = 4,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = { card.ability.extra.chips, card.ability.extra.chips * JoyousSpring.count_materials_owned({ { monster_type = "Rock" } }) } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Adamancipator" } } }, name = "k_joy_archetype" },
@@ -121,8 +301,47 @@ SMODS.Joker({
                 monster_type = "Rock",
                 monster_archetypes = { ["Adamancipator"] = true }
             },
+            chips = 3,
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.individual and context.cardarea == G.hand and not context.end_of_round
+                and context.other_card:is_suit("Diamonds") then
+                return {
+                    chips = card.ability.extra.chips * JoyousSpring.count_materials_owned({ { monster_type = "Rock" } })
+                }
+            end
+        end
+    end,
+    joy_can_transfer_ability = function(self, other_card, card)
+        return JoyousSpring.is_summon_type(other_card, "SYNCHRO")
+    end,
+    joy_transfer_ability_calculate = function(self, other_card, context, config)
+        if JoyousSpring.can_use_abilities(other_card) and context.joker_main then
+            local diamonds = 0
+            for _, pcard in ipairs(G.deck.cards) do
+                if pcard:is_suit("Diamonds") then
+                    diamonds = diamonds + 1
+                end
+            end
+            return {
+                chips = config.chips * diamonds
+            }
+        end
+    end,
+    joy_transfer_config = function(self, other_card)
+        return { chips = 3 }
+    end,
+    joy_transfer_loc_vars = function(self, info_queue, card, config)
+        local diamonds = 0
+        for _, pcard in ipairs(G.deck.cards) do
+            if pcard:is_suit("Diamonds") then
+                diamonds = diamonds + 1
+            end
+        end
+        return { vars = { config.chips, config.chips * diamonds } }
+    end
 })
 
 -- Adamancipator Crystal - Raptite
@@ -134,9 +353,9 @@ SMODS.Joker({
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 0,
+    cost = 4,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = { card.ability.extra.money, card.ability.extra.money * JoyousSpring.count_materials_owned({ { monster_type = "Rock" } }) } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Adamancipator" } } }, name = "k_joy_archetype" },
@@ -150,8 +369,44 @@ SMODS.Joker({
                 monster_type = "Rock",
                 monster_archetypes = { ["Adamancipator"] = true }
             },
+            money = 0.1
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.individual and context.cardarea == G.hand and not context.end_of_round
+                and context.other_card:is_suit("Diamonds") then
+                return {
+                    dollars = card.ability.extra.money *
+                        JoyousSpring.count_materials_owned({ { monster_type = "Rock" } })
+                }
+            end
+        end
+    end,
+    joy_can_transfer_ability = function(self, other_card, card)
+        return JoyousSpring.is_summon_type(other_card, "SYNCHRO")
+    end,
+    joy_transfer_calc_dollar_bonus = function(self, other_card, config)
+        local diamonds = 0
+        for _, pcard in ipairs(G.deck.cards) do
+            if pcard:is_suit("Diamonds") then
+                diamonds = diamonds + 1
+            end
+        end
+        return diamonds > 0 and config.money * diamonds or nil
+    end,
+    joy_transfer_config = function(self, other_card)
+        return { money = 0.1 }
+    end,
+    joy_transfer_loc_vars = function(self, info_queue, card, config)
+        local diamonds = 0
+        for _, pcard in ipairs(G.deck.cards) do
+            if pcard:is_suit("Diamonds") then
+                diamonds = diamonds + 1
+            end
+        end
+        return { vars = { config.money, config.money * diamonds } }
+    end
 })
 
 -- Adamancipator Crystal - Leonite
@@ -163,9 +418,9 @@ SMODS.Joker({
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 0,
+    cost = 4,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.count_materials_owned({ { monster_type = "Rock" } }) } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Adamancipator" } } }, name = "k_joy_archetype" },
@@ -179,8 +434,47 @@ SMODS.Joker({
                 monster_type = "Rock",
                 monster_archetypes = { ["Adamancipator"] = true }
             },
+            mult = 1
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.individual and context.cardarea == G.hand and not context.end_of_round
+                and context.other_card:is_suit("Diamonds") then
+                return {
+                    mult = card.ability.extra.mult * JoyousSpring.count_materials_owned({ { monster_type = "Rock" } })
+                }
+            end
+        end
+    end,
+    joy_can_transfer_ability = function(self, other_card, card)
+        return JoyousSpring.is_summon_type(other_card, "SYNCHRO")
+    end,
+    joy_transfer_ability_calculate = function(self, other_card, context, config)
+        if JoyousSpring.can_use_abilities(other_card) and context.joker_main then
+            local diamonds = 0
+            for _, pcard in ipairs(G.deck.cards) do
+                if pcard:is_suit("Diamonds") then
+                    diamonds = diamonds + 1
+                end
+            end
+            return {
+                mult = config.mult * diamonds
+            }
+        end
+    end,
+    joy_transfer_config = function(self, other_card)
+        return { mult = 1 }
+    end,
+    joy_transfer_loc_vars = function(self, info_queue, card, config)
+        local diamonds = 0
+        for _, pcard in ipairs(G.deck.cards) do
+            if pcard:is_suit("Diamonds") then
+                diamonds = diamonds + 1
+            end
+        end
+        return { vars = { config.mult, config.mult * diamonds } }
+    end
 })
 
 -- Adamancipator Risen - Dragite
@@ -188,13 +482,13 @@ SMODS.Joker({
     key = "adaman_dragite",
     atlas = 'adaman',
     pos = { x = 3, y = 1 },
-    rarity = 1,
+    rarity = 3,
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 0,
+    cost = 12,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = { card.ability.extra.excavates, card.ability.extra.xchips, card.ability.extra.creates, 1 + card.ability.extra.xchips * card.ability.extra.excavated, card.ability.extra.chips } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Adamancipator" } } }, name = "k_joy_archetype" },
@@ -206,39 +500,64 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 attribute = "WATER",
                 monster_type = "Rock",
-                monster_archetypes = { ["Adamancipator"] = true }
+                monster_archetypes = { ["Adamancipator"] = true },
+                summon_type = "SYNCHRO",
+                summon_conditions = {
+                    {
+                        type = "SYNCHRO",
+                        materials = {
+                            { monster_type = "Rock", is_tuner = true,                         exclude_summon_types = { "XYZ", "LINK" } },
+                            { exclude_tuners = true, exclude_summon_types = { "XYZ", "LINK" } },
+                        },
+                    }
+                }
             },
+            excavates = 5,
+            xchips = 1,
+            excavated = 0,
+            creates = 1,
+            chips = 10,
+            activated = false
         },
     },
-})
-
--- Adamancipator Risen - Leonite
-SMODS.Joker({
-    key = "adaman_leonite",
-    atlas = 'adaman',
-    pos = { x = 1, y = 2 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 0,
-    loc_vars = function(self, info_queue, card)
-        return {}
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    xchips = 1 + card.ability.extra.xchips * card.ability.extra.excavated
+                }
+            end
+            if context.individual and context.cardarea == G.play and context.other_card:is_suit("Diamonds") then
+                context.other_card.ability.perma_h_chips = (context.other_card.ability.perma_h_chips or 1) +
+                    card.ability.extra.chips
+                return {
+                    message = localize('k_upgrade_ex'), colour = G.C.CHIPS
+                }
+            end
+            if context.joy_excavated and (SMODS.find_card("j_joy_adaman_laputite") or context.joy_number <= card.ability.extra.excavates) and context.joy_other_context.setting_blind then
+                if context.joy_excavated:is_suit("Diamonds") then
+                    card.ability.extra.excavated = card.ability.extra.excavated + 1
+                end
+                if not card.ability.extra.activated and card.ability.extra.excavated >= card.ability.extra.excavates then
+                    card.ability.extra.activated = true
+                    for _ = 1, card.ability.extra.creates do
+                        JoyousSpring.create_pseudorandom(
+                            { { monster_type = "Rock", is_main_deck = true }, },
+                            pseudoseed("j_joy_adaman_dragite"), false)
+                    end
+                end
+            end
+        end
+        if context.end_of_round and context.game_over == false and context.main_eval then
+            card.ability.extra.excavated = 0
+            card.ability.extra.activated = false
+        end
     end,
-    joy_desc_cards = {
-        { properties = { { monster_archetypes = { "Adamancipator" } } }, name = "k_joy_archetype" },
-    },
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                attribute = "FIRE",
-                monster_type = "Rock",
-                monster_archetypes = { ["Adamancipator"] = true }
-            },
-        },
-    },
+    remove_from_deck = function(self, card, from_debuff)
+        card.ability.extra.excavated = 0
+        card.ability.extra.activated = false
+    end,
+    joy_calculate_excavate = adaman_excavate,
 })
 
 -- Adamancipator Risen - Raptite
@@ -246,13 +565,13 @@ SMODS.Joker({
     key = "adaman_raptite",
     atlas = 'adaman',
     pos = { x = 0, y = 2 },
-    rarity = 1,
+    rarity = 3,
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 0,
+    cost = 12,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = { card.ability.extra.excavates, card.ability.extra.money, card.ability.extra.creates, card.ability.extra.held_money } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Adamancipator" } } }, name = "k_joy_archetype" },
@@ -264,10 +583,145 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 attribute = "WIND",
                 monster_type = "Rock",
-                monster_archetypes = { ["Adamancipator"] = true }
+                monster_archetypes = { ["Adamancipator"] = true },
+                summon_type = "SYNCHRO",
+                summon_conditions = {
+                    {
+                        type = "SYNCHRO",
+                        materials = {
+                            { monster_type = "Rock", is_tuner = true,                         exclude_summon_types = { "XYZ", "LINK" } },
+                            { exclude_tuners = true, exclude_summon_types = { "XYZ", "LINK" } },
+                        },
+                    }
+                }
             },
+            excavates = 5,
+            money = 5,
+            excavated = 0,
+            creates = 1,
+            held_money = 0.1,
+            activated = false
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.individual and context.cardarea == G.play and context.other_card:is_suit("Diamonds") then
+                context.other_card.ability.perma_h_dollars = (context.other_card.ability.perma_h_dollars or 1) +
+                    card.ability.extra.held_money
+                return {
+                    message = localize('k_upgrade_ex'), colour = G.C.MONEY
+                }
+            end
+            if context.joy_excavated and (SMODS.find_card("j_joy_adaman_laputite") or context.joy_number <= card.ability.extra.excavates) and context.joy_other_context.setting_blind then
+                if context.joy_excavated:is_suit("Diamonds") then
+                    card.ability.extra.excavated = card.ability.extra.excavated + 1
+                end
+                if not card.ability.extra.activated and card.ability.extra.excavated >= card.ability.extra.excavates then
+                    card.ability.extra.activated = true
+                    for _ = 1, card.ability.extra.creates do
+                        JoyousSpring.create_pseudorandom(
+                            { { monster_type = "Rock", is_main_deck = true }, },
+                            pseudoseed("j_joy_adaman_raptite"), false)
+                    end
+                end
+                return {
+                    dollars = context.joy_excavated:is_suit("Diamonds") and card.ability.extra.money or nil
+                }
+            end
+        end
+        if context.end_of_round and context.game_over == false and context.main_eval then
+            card.ability.extra.excavated = 0
+            card.ability.extra.activated = false
+        end
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        card.ability.extra.excavated = 0
+        card.ability.extra.activated = false
+    end,
+    joy_calculate_excavate = adaman_excavate,
+})
+
+-- Adamancipator Risen - Leonite
+SMODS.Joker({
+    key = "adaman_leonite",
+    atlas = 'adaman',
+    pos = { x = 1, y = 2 },
+    rarity = 3,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 12,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.excavates, card.ability.extra.xmult, card.ability.extra.creates, 1 + card.ability.extra.xmult * card.ability.extra.excavated, card.ability.extra.mult } }
+    end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "Adamancipator" } } }, name = "k_joy_archetype" },
+    },
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "FIRE",
+                monster_type = "Rock",
+                monster_archetypes = { ["Adamancipator"] = true },
+                summon_type = "SYNCHRO",
+                summon_conditions = {
+                    {
+                        type = "SYNCHRO",
+                        materials = {
+                            { monster_type = "Rock", is_tuner = true,                         exclude_summon_types = { "XYZ", "LINK" } },
+                            { exclude_tuners = true, exclude_summon_types = { "XYZ", "LINK" } },
+                        },
+                    }
+                }
+            },
+            excavates = 5,
+            xmult = 1,
+            excavated = 0,
+            creates = 1,
+            mult = 1,
+            activated = false
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    xmult = 1 + card.ability.extra.xmult * card.ability.extra.excavated
+                }
+            end
+            if context.individual and context.cardarea == G.play and context.other_card:is_suit("Diamonds") then
+                context.other_card.ability.perma_h_mult = (context.other_card.ability.perma_h_mult or 1) +
+                    card.ability.extra.mult
+                return {
+                    message = localize('k_upgrade_ex'), colour = G.C.MULT
+                }
+            end
+            if context.joy_excavated and (SMODS.find_card("j_joy_adaman_laputite") or context.joy_number <= card.ability.extra.excavates) and context.joy_other_context.setting_blind then
+                if context.joy_excavated:is_suit("Diamonds") then
+                    card.ability.extra.excavated = card.ability.extra.excavated + 1
+                end
+                if not card.ability.extra.activated and card.ability.extra.excavated >= card.ability.extra.excavates then
+                    card.ability.extra.activated = true
+                    for _ = 1, card.ability.extra.creates do
+                        JoyousSpring.create_pseudorandom(
+                            { { monster_type = "Rock", is_main_deck = true }, },
+                            pseudoseed("j_joy_adaman_leonite"), false)
+                    end
+                end
+            end
+        end
+        if context.end_of_round and context.game_over == false and context.main_eval then
+            card.ability.extra.excavated = 0
+            card.ability.extra.activated = false
+        end
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        card.ability.extra.excavated = 0
+        card.ability.extra.activated = false
+    end,
+    joy_calculate_excavate = adaman_excavate,
 })
 
 -- Adamancipator Laputite
@@ -275,13 +729,13 @@ SMODS.Joker({
     key = "adaman_laputite",
     atlas = 'adaman',
     pos = { x = 2, y = 1 },
-    rarity = 1,
+    rarity = 3,
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 0,
+    cost = 15,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = { card.ability.extra.mult } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Adamancipator" } } }, name = "k_joy_archetype" },
@@ -294,8 +748,23 @@ SMODS.Joker({
                 is_field_spell = true,
                 monster_archetypes = { ["Adamancipator"] = true }
             },
+            mult = 10,
         },
     },
+    calculate = function(self, card, context)
+        if context.other_joker and context.other_joker.facing == "front" and JoyousSpring.is_monster_type(context.other_joker, "Rock") then
+            return {
+                mult = card.ability.extra.mult,
+                message_card = context.other_joker
+            }
+        end
+        if context.first_hand_drawn then
+            JoyousSpring.create_random_playing_card(1, nil, nil, "j_joy_adaman_laputite", nil, { 'D' })
+            return {
+                message = localize("k_joy_activated_ex")
+            }
+        end
+    end
 })
 
 
