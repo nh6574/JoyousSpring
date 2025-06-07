@@ -606,7 +606,7 @@ SMODS.Joker({
         }
     end,
     joy_desc_cards = {
-        { "j_joy_dmaid_cehrmba",                                      name = "k_joy_transforms_into" },
+        { "j_joy_dmaid_stern",                                        name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
     generate_ui = JoyousSpring.generate_info_ui,
@@ -628,7 +628,7 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and not context.retrigger_joker and
                 context.setting_blind and context.main_eval then
-                JoyousSpring.transform_card(card, "j_joy_dmaid_cehrmba")
+                JoyousSpring.transform_card(card, "j_joy_dmaid_stern")
             end
         end
     end,
@@ -664,9 +664,9 @@ SMODS.Joker({
     end,
 })
 
--- Dragonmaid Cehrmba
+-- Dragonmaid Stern
 SMODS.Joker({
-    key = "dmaid_cehrmba",
+    key = "dmaid_stern",
     atlas = 'Dragonmaid',
     pos = { x = 4, y = 1 },
     rarity = 2,
@@ -709,7 +709,7 @@ SMODS.Joker({
     add_to_deck = function(self, card, from_debuff)
         if not from_debuff and not card.debuff then
             local has_revived = false
-            if pseudorandom("j_joy_dmaid_cehrmba") < G.GAME.probabilities.normal / card.ability.extra.odds then
+            if pseudorandom("j_joy_dmaid_stern") < G.GAME.probabilities.normal / card.ability.extra.odds then
                 for i = 1, card.ability.extra.revives do
                     local revived_card
                     JoyousSpring.revive_pseudorandom(
@@ -717,7 +717,7 @@ SMODS.Joker({
                             { rarity = 2, monster_archetypes = { "Dragonmaid" } },
                             { rarity = 3, monster_archetypes = { "Dragonmaid" } },
                         },
-                        pseudoseed("j_joy_dmaid_cehrmba"),
+                        pseudoseed("j_joy_dmaid_stern"),
                         true
                     )
                     has_revived = revived_card and true or has_revived
@@ -753,7 +753,7 @@ SMODS.Joker({
     key = "dmaid_lady",
     atlas = 'Dragonmaid',
     pos = { x = 0, y = 2 },
-    rarity = 2,
+    rarity = 3,
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
@@ -958,17 +958,20 @@ SMODS.Joker({
         },
     },
     calculate = function(self, card, context)
-        if not context.blueprint_card and not context.retrigger_joker and
-            context.setting_blind and context.main_eval then
-            if G.GAME.blind and ((not G.GAME.blind.disabled) and (G.GAME.blind.boss)) then
-                G.GAME.blind:disable()
+        if JoyousSpring.can_use_abilities(card) then
+            if not context.blueprint_card and not context.retrigger_joker and
+                context.setting_blind and context.main_eval then
+                card.ability.extra.faceup_before_blind = nil
+                if G.GAME.blind and ((not G.GAME.blind.disabled) and (G.GAME.blind.boss)) then
+                    G.GAME.blind:disable()
 
-                for i = 1, card.ability.extra.cards_to_create do
-                    JoyousSpring.create_pseudorandom({ { monster_archetypes = { "Dragonmaid" }, rarity = 1 } },
-                        pseudoseed("j_joy_dmaid_sheou"), true)
+                    for i = 1, card.ability.extra.cards_to_create do
+                        JoyousSpring.create_pseudorandom({ { monster_archetypes = { "Dragonmaid" }, rarity = 1 } },
+                            pseudoseed("j_joy_dmaid_sheou"), true)
+                    end
+                    JoyousSpring.transform_card(card, "j_joy_dmaid_house")
+                    return { message = localize('ph_boss_disabled') }
                 end
-                JoyousSpring.transform_card(card, "j_joy_dmaid_house")
-                return { message = localize('ph_boss_disabled') }
             end
         end
     end,

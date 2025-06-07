@@ -7,12 +7,21 @@ function SMODS.calculate_context(context, return_table)
     -- The area seems to be destryoed too early when the game restarts
     if JoyousSpring.field_spell_area and not JoyousSpring.field_spell_area.cards then return {} end
     JoyousSpring.calculate_context(context)
-    return SMODS_calculate_context_ref(context, return_table)
+    local ret = SMODS_calculate_context_ref(context, return_table)
+    JoyousSpring.post_calculate_context(context)
+    return ret
 end
 
 ---Does global effects when a context is being calculated
 ---@param context table
 JoyousSpring.calculate_context = function(context)
+    -- Check if card is flipped by blind
+    if context.joy_pre_setting_blind then
+        for _, joker in ipairs(G.jokers.cards) do
+            joker.joy_faceup_before_blind = joker.facing == "front"
+        end
+    end
+
     -- Check for hands contained in hands played
     if context.before then
         G.GAME.joy_played = G.GAME.joy_played or {}
@@ -115,6 +124,17 @@ JoyousSpring.calculate_context = function(context)
             "p_joy_mega_extra_pack",
         }
         SMODS.add_booster_to_shop(pseudorandom_element(choices, pseudoseed("JoyousSpring")) or "p_joy_monster_pack")
+    end
+end
+
+---Does global effects after a context is being calculated
+---@param context table
+JoyousSpring.post_calculate_context = function(context)
+    -- Reset check if card is flipped by blind
+    if context.setting_blind then
+        for _, joker in ipairs(G.jokers.cards) do
+            joker.joy_faceup_before_blind = nil
+        end
     end
 end
 
