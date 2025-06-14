@@ -6,7 +6,6 @@ return {
                 joy_consumable = {
                     "Change rank of up to {C:attention}#1#{} selected cards to {C:attention}8{}",
                     "also level up {C:attention}Full House{}, {C:attention}Straight{} and {C:attention}Two Pair{}",
-                    "by the amount of cards selected or 1 otherwise"
                 },
                 text = {
                     {
@@ -25,7 +24,6 @@ return {
                 joy_consumable = {
                     "Change rank of up to {C:attention}#1#{} selected cards to {C:attention}7{}",
                     "also level up {C:attention}Full House{}, {C:attention}Straight{} and {C:attention}Two Pair{}",
-                    "by the amount of cards selected or 1 otherwise"
                 },
                 text = {
                     {
@@ -42,7 +40,6 @@ return {
                 joy_consumable = {
                     "Change rank of up to {C:attention}#1#{} selected cards to {C:attention}6{}",
                     "also level up {C:attention}Full House{}, {C:attention}Straight{} and {C:attention}Two Pair{}",
-                    "by the amount of cards selected or 1 otherwise"
                 },
                 text = {
                     {
@@ -61,7 +58,6 @@ return {
                 joy_consumable = {
                     "Change rank of up to {C:attention}#1#{} selected cards to {C:attention}5{}",
                     "also level up {C:attention}Full House{}, {C:attention}Straight{} and {C:attention}Two Pair{}",
-                    "by the amount of cards selected or 1 otherwise"
                 },
                 text = {
                     {
@@ -79,7 +75,6 @@ return {
                 joy_consumable = {
                     "Change rank of up to {C:attention}#1#{} selected cards to {C:attention}4{}",
                     "also level up {C:attention}Full House{}, {C:attention}Straight{} and {C:attention}Two Pair{}",
-                    "by the amount of cards selected or 1 otherwise"
                 },
                 text = {
                     {
@@ -97,7 +92,6 @@ return {
                 joy_consumable = {
                     "Change rank of up to {C:attention}#1#{} selected cards to {C:attention}3{}",
                     "also level up {C:attention}Full House{}, {C:attention}Straight{} and {C:attention}Two Pair{}",
-                    "by the amount of cards selected or 1 otherwise"
                 },
                 text = {
                     {
@@ -114,7 +108,6 @@ return {
                 joy_consumable = {
                     "Change rank of up to {C:attention}#1#{} selected cards to {C:attention}2{}",
                     "also level up {C:attention}Full House{}, {C:attention}Straight{} and {C:attention}Two Pair{}",
-                    "by the amount of cards selected or 1 otherwise"
                 },
                 text = {
                     {
@@ -133,7 +126,6 @@ return {
                 joy_consumable = {
                     "Change rank of up to {C:attention}#1#{} selected cards to {C:attention}Aces{}",
                     "also level up {C:attention}Full House{}, {C:attention}Straight{} and {C:attention}Two Pair{}",
-                    "by the amount of cards selected or 1 otherwise"
                 },
                 text = {
                     {

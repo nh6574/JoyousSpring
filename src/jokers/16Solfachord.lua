@@ -37,10 +37,9 @@ local solfa_use = function(self, card, area, copier)
         JoyousSpring.post_consumable_change_use()
     end
 
-    local level_up_amount = math.max(#G.hand.highlighted, 1)
-    JoyousSpring.level_up_hand(card, "Full House", false, level_up_amount)
-    JoyousSpring.level_up_hand(card, "Straight", false, level_up_amount)
-    JoyousSpring.level_up_hand(card, "Two Pair", false, level_up_amount)
+    JoyousSpring.level_up_hand(card, "Full House", false, 1)
+    JoyousSpring.level_up_hand(card, "Straight", false, 1)
+    JoyousSpring.level_up_hand(card, "Two Pair", false, 1)
 end
 
 local solfa_count = function()
