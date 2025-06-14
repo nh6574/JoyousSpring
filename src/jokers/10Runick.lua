@@ -52,7 +52,7 @@ SMODS.Joker({
                 end
                 local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Runick" }, is_extra_deck = true } })
                 for i = 1, card.ability.extra.adds do
-                    local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_runick_hugin"))
+                    local key_to_add, _ = pseudorandom_element(choices, 'j_joy_runick_hugin')
                     if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
                         JoyousSpring.add_to_extra_deck(key_to_add)
                     end
@@ -126,7 +126,7 @@ SMODS.Joker({
         if not from_debuff then
             local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Runick" }, is_extra_deck = true } })
             for i = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_runick_munin"))
+                local key_to_add, _ = pseudorandom_element(choices, 'j_joy_runick_munin')
                 if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
                     JoyousSpring.add_to_extra_deck(key_to_add)
                 end
@@ -200,7 +200,7 @@ SMODS.Joker({
 
             local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Runick" }, is_extra_deck = true } })
             for i = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_runick_geri"))
+                local key_to_add, _ = pseudorandom_element(choices, 'j_joy_runick_geri')
                 if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
                     JoyousSpring.add_to_extra_deck(key_to_add)
                 end
@@ -259,7 +259,7 @@ SMODS.Joker({
             if context.using_consumeable and G.GAME.blind.in_blind and context.consumeable.ability.set == 'Tarot' then
                 for i = 1, card.ability.extra.playing_cards_to_create do
                     JoyousSpring.create_random_playing_card(8, i ~= 1, { G.C.JOY.FUSION },
-                        pseudoseed("j_joy_runick_freki"))
+                        'j_joy_runick_freki')
                 end
             end
         end
@@ -268,7 +268,7 @@ SMODS.Joker({
         if not card.debuff and not from_debuff then
             local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Runick" }, is_extra_deck = true } })
             for i = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_runick_freki"))
+                local key_to_add, _ = pseudorandom_element(choices, 'j_joy_runick_freki')
                 if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
                     JoyousSpring.add_to_extra_deck(key_to_add)
                 end
@@ -334,7 +334,7 @@ SMODS.Joker({
         if not card.debuff and not from_debuff then
             local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Runick" }, is_extra_deck = true } })
             for i = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_runick_sleipnir"))
+                local key_to_add, _ = pseudorandom_element(choices, 'j_joy_runick_sleipnir')
                 if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
                     JoyousSpring.add_to_extra_deck(key_to_add)
                 end
@@ -374,7 +374,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if context.setting_blind and context.main_eval then
             for i = 1, card.ability.extra.cards_to_destroy do
-                local card_to_destroy, _ = pseudorandom_element(G.deck.cards, pseudoseed("j_joy_runick_fountain"))
+                local card_to_destroy, _ = pseudorandom_element(G.deck.cards, 'j_joy_runick_fountain')
                 if card_to_destroy then
                     if i == 1 then
                         SMODS.calculate_effect({ message = localize('k_joy_banished') }, card_to_destroy)

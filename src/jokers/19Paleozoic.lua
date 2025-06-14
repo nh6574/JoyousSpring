@@ -53,7 +53,7 @@ SMODS.Joker({
             for i = 1, card.ability.extra.revives do
                 local has_cambro = next(SMODS.find_card("j_joy_paleo_cambro")) and true or false
                 JoyousSpring.revive_pseudorandom({ { is_trap = true, monster_archetypes = { "Paleozoic" } } },
-                    pseudoseed("j_joy_paleo_canadia"), not has_cambro, has_cambro and "e_negative" or nil)
+                    'j_joy_paleo_canadia', not has_cambro, has_cambro and "e_negative" or nil)
             end
         end
         if context.joy_card_flipped and context.joy_card_flipped.ability.set == "Joker" then
@@ -118,7 +118,7 @@ SMODS.Joker({
                     end
                 end
 
-                local to_banish = pseudorandom_element(choices_exclude, pseudoseed("j_joy_paleo_dino"))
+                local to_banish = pseudorandom_element(choices_exclude, 'j_joy_paleo_dino')
                 if to_banish then
                     JoyousSpring.banish(to_banish, "blind_selected")
                 end
@@ -128,7 +128,7 @@ SMODS.Joker({
             for i = 1, card.ability.extra.revives do
                 local has_cambro = next(SMODS.find_card("j_joy_paleo_cambro")) and true or false
                 JoyousSpring.revive_pseudorandom({ { is_trap = true, monster_archetypes = { "Paleozoic" } } },
-                    pseudoseed("j_joy_paleo_dino"), not has_cambro, has_cambro and "e_negative" or nil)
+                    'j_joy_paleo_dino', not has_cambro, has_cambro and "e_negative" or nil)
             end
         end
     end,
@@ -188,7 +188,7 @@ SMODS.Joker({
             for i = 1, card.ability.extra.revives do
                 local has_cambro = next(SMODS.find_card("j_joy_paleo_cambro")) and true or false
                 JoyousSpring.revive_pseudorandom({ { is_trap = true, monster_archetypes = { "Paleozoic" } } },
-                    pseudoseed("j_joy_paleo_eldonia"), not has_cambro, has_cambro and "e_negative" or nil)
+                    'j_joy_paleo_eldonia', not has_cambro, has_cambro and "e_negative" or nil)
             end
         end
     end,
@@ -248,7 +248,7 @@ SMODS.Joker({
             for i = 1, card.ability.extra.revives do
                 local has_cambro = next(SMODS.find_card("j_joy_paleo_cambro")) and true or false
                 JoyousSpring.revive_pseudorandom({ { is_trap = true, monster_archetypes = { "Paleozoic" } } },
-                    pseudoseed("j_joy_paleo_hallu"), not has_cambro, has_cambro and "e_negative" or nil)
+                    'j_joy_paleo_hallu', not has_cambro, has_cambro and "e_negative" or nil)
             end
         end
     end,
@@ -309,7 +309,7 @@ SMODS.Joker({
             for i = 1, card.ability.extra.revives do
                 local has_cambro = next(SMODS.find_card("j_joy_paleo_cambro")) and true or false
                 JoyousSpring.revive_pseudorandom({ { is_trap = true, monster_archetypes = { "Paleozoic" } } },
-                    pseudoseed("j_joy_paleo_lean"), not has_cambro, has_cambro and "e_negative" or nil)
+                    'j_joy_paleo_lean', not has_cambro, has_cambro and "e_negative" or nil)
             end
         end
         if context.joy_card_flipped and context.joy_card_flipped.ability.set == "Joker" then
@@ -365,12 +365,12 @@ SMODS.Joker({
             for i = 1, card.ability.extra.revives do
                 local has_cambro = next(SMODS.find_card("j_joy_paleo_cambro")) and true or false
                 JoyousSpring.revive_pseudorandom({ { is_trap = true, monster_archetypes = { "Paleozoic" } } },
-                    pseudoseed("j_joy_paleo_marrella"), not has_cambro, has_cambro and "e_negative" or nil)
+                    'j_joy_paleo_marrella', not has_cambro, has_cambro and "e_negative" or nil)
             end
             local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Paleozoic" }, is_main_deck = true } })
 
             for i = 1, card.ability.extra.mills do
-                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, pseudoseed("j_joy_paleo_marrella")))
+                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_paleo_marrella'))
             end
         end
     end,
@@ -429,7 +429,7 @@ SMODS.Joker({
             for i = 1, card.ability.extra.revives do
                 local has_cambro = next(SMODS.find_card("j_joy_paleo_cambro")) and true or false
                 JoyousSpring.revive_pseudorandom({ { is_trap = true, monster_archetypes = { "Paleozoic" } } },
-                    pseudoseed("j_joy_paleo_oleno"), not has_cambro, has_cambro and "e_negative" or nil)
+                    'j_joy_paleo_oleno', not has_cambro, has_cambro and "e_negative" or nil)
             end
             if not card.ability.extra.activated then
                 card.ability.extra.activated = true
@@ -499,7 +499,7 @@ SMODS.Joker({
             for i = 1, card.ability.extra.revives do
                 local has_cambro = next(SMODS.find_card("j_joy_paleo_cambro")) and true or false
                 JoyousSpring.revive_pseudorandom({ { is_trap = true, monster_archetypes = { "Paleozoic" } } },
-                    pseudoseed("j_joy_paleo_pikaia"), not has_cambro, has_cambro and "e_negative" or nil)
+                    'j_joy_paleo_pikaia', not has_cambro, has_cambro and "e_negative" or nil)
             end
             if not card.ability.extra.activated then
                 card.ability.extra.activated = true
@@ -572,7 +572,7 @@ SMODS.Joker({
             for i = 1, card.ability.extra.adds do
                 local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Paleozoic" }, summon_type = "XYZ" } })
                 for i = 1, card.ability.extra.adds do
-                    local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_paleo_cambro"))
+                    local key_to_add, _ = pseudorandom_element(choices, 'j_joy_paleo_cambro')
                     if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
                         JoyousSpring.add_to_extra_deck(key_to_add)
                     end
@@ -709,7 +709,7 @@ SMODS.Joker({
                 end
 
                 JoyousSpring.create_pseudorandom({ { is_main_deck = true, monster_archetypes = { "Paleozoic" } } },
-                    pseudoseed("j_joy_paleo_opa"), true)
+                    'j_joy_paleo_opa', true)
             end
             if context.setting_blind and context.main_eval then
                 for _, joker in ipairs(G.jokers.cards) do

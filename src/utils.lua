@@ -231,7 +231,7 @@ JoyousSpring.flip_random_card = function(source_card, card_list, facing, seed)
             facing_cards[#facing_cards + 1] = card
         end
     end
-    local pick = pseudorandom_element(facing_cards, pseudoseed(seed or "JoyousSpring"))
+    local pick = pseudorandom_element(facing_cards, seed or "JoyousSpring")
     if pick then
         pick:flip(source_card)
     end
@@ -255,7 +255,7 @@ JoyousSpring.add_random_tag = function()
                 _poker_hands[#_poker_hands + 1] = k
             end
         end
-        tag.ability.orbital_hand = pseudorandom_element(_poker_hands, pseudoseed("cry_pickle_orbital"))
+        tag.ability.orbital_hand = pseudorandom_element(_poker_hands, "joy_orbital")
     end
     add_tag(tag)
 end
@@ -387,8 +387,7 @@ JoyousSpring.create_pseudorandom = function(property_list, seed, must_have_room,
     if not_owned then
         choices = JoyousSpring.get_not_owned(choices)
     end
-    seed = seed and type(seed) == "string" and pseudoseed(seed) or seed
-    local key_to_add = pseudorandom_element(choices, seed or pseudoseed("JoyousSpring"))
+    local key_to_add = pseudorandom_element(choices, seed or "JoyousSpring")
     if key_to_add then
         return JoyousSpring.create_summon({
             key = key_to_add,

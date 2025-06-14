@@ -43,7 +43,7 @@ SMODS.Joker({
                 for i = 1, card.ability.extra.cards_to_create do
                     JoyousSpring.create_pseudorandom(
                         { { monster_archetypes = { "Spright" }, is_main_deck = true, exclude_keys = { "j_joy_spright_blue" } } },
-                        pseudoseed("j_joy_spright_blue"), true)
+                        'j_joy_spright_blue', true)
                 end
             end
         end
@@ -89,7 +89,7 @@ SMODS.Joker({
                 local choices = JoyousSpring.get_materials_in_collection({ { rarity = 2 } })
 
                 for i = 1, card.ability.extra.mill do
-                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, pseudoseed("j_joy_spright_jet")))
+                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_spright_jet'))
                 end
             end
         end
@@ -349,7 +349,7 @@ SMODS.Joker({
                 for i = 1, card.ability.extra.revives do
                     JoyousSpring.revive_pseudorandom(
                         { { rarity = 2 } },
-                        pseudoseed("j_joy_spright_elf"),
+                        'j_joy_spright_elf',
                         true
                     )
                 end

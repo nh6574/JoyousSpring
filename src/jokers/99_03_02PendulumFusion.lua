@@ -39,7 +39,7 @@ SMODS.Joker({
     },
     use = function(self, card, area, copier)
         for i = 1, card.ability.extra.creates do
-            JoyousSpring.create_pseudorandom({ { is_pendulum = true, rarity = 3 } }, pseudoseed("j_joy_couverture"), true)
+            JoyousSpring.create_pseudorandom({ { is_pendulum = true, rarity = 3 } }, 'j_joy_couverture', true)
         end
         if #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
             JoyousSpring.add_to_extra_deck("j_joy_couverture")

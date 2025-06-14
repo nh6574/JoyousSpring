@@ -8,7 +8,7 @@ SMODS.Atlas({
 
 local aleister_transform = function(card, tribute)
     local attribute = JoyousSpring.is_monster_card(tribute) and tribute.ability.extra.joyous_spring.attribute or
-        pseudorandom_element({ "LIGHT", "DARK", "WATER", "FIRE", "EARTH", "WIND" }, pseudoseed(card.config.center.key))
+        pseudorandom_element({ "LIGHT", "DARK", "WATER", "FIRE", "EARTH", "WIND" }, card.config.center.key)
 
     local key_to_transform = "j_joy_invoked_mage"
 
@@ -390,7 +390,7 @@ SMODS.Joker({
                         table.insert(cards, joker)
                     end
                 end
-                local card_to_flip = pseudorandom_element(cards, pseudoseed("j_joy_invoked_raidjin"))
+                local card_to_flip = pseudorandom_element(cards, 'j_joy_invoked_raidjin')
                 if card_to_flip then card_to_flip:flip() end
             end
             if context.joker_main then
@@ -429,7 +429,7 @@ SMODS.Joker({
                         table.insert(cards, joker)
                     end
                 end
-                local card_to_flip = pseudorandom_element(cards, pseudoseed("j_joy_invoked_raidjin"))
+                local card_to_flip = pseudorandom_element(cards, 'j_joy_invoked_raidjin')
                 if card_to_flip then card_to_flip:flip() end
             end
         end
@@ -907,7 +907,7 @@ SMODS.Joker({
                 local choices = JoyousSpring.get_materials_in_collection({ { summon_type = "FUSION", exclude_monster_archetypes = { "Invoked" } } })
 
                 for i = 1, card.ability.extra.mills do
-                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, pseudoseed("j_joy_invoked_augo")))
+                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_invoked_augo'))
                 end
                 return { message = localize("k_joy_mill") }
             end
@@ -947,7 +947,7 @@ SMODS.Joker({
                 local choices = JoyousSpring.get_materials_in_collection({ { summon_type = "FUSION", exclude_monster_archetypes = { "Invoked" } } })
 
                 for i = 1, config.mills do
-                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, pseudoseed("j_joy_invoked_augo")))
+                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_invoked_augo'))
                 end
                 return { message = localize("k_joy_mill") }
             end

@@ -64,7 +64,7 @@ SMODS.Joker({
                     for i = 1, card.ability.extra.revives do
                         JoyousSpring.revive_pseudorandom(
                             { { monster_archetypes = { "Subterror" } } },
-                            pseudoseed("j_joy_sub_fiendess"),
+                            'j_joy_sub_fiendess',
                             false,
                             { negative = true }
                         )
@@ -189,7 +189,7 @@ SMODS.Joker({
                     card:flip(card)
                     JoyousSpring.create_pseudorandom(
                         { { monster_archetypes = { "Subterror" }, exclude_keys = { "j_joy_sub_archer" }, rarity = 1 }, { monster_archetypes = { "Subterror" }, exclude_keys = { "j_joy_sub_archer" }, rarity = 2 } },
-                        pseudoseed("j_joy_sub_archer"), false, false, "e_negative")
+                        "j_joy_sub_archer", false, false, "e_negative")
                     card.ability.extra.activated = true
                 end
             end
@@ -272,13 +272,13 @@ SMODS.Joker({
                     for i = 1, card.ability.extra.revives do
                         local revived_card = JoyousSpring.revive_pseudorandom(
                             { { monster_archetypes = { "SubterrorBehemoth" } } },
-                            pseudoseed("j_joy_sub_warrior"),
+                            'j_joy_sub_warrior',
                             true
                         )
                         if not revived_card then
                             revived_card = JoyousSpring.revive_pseudorandom(
                                 { { monster_archetypes = { "Subterror" } } },
-                                pseudoseed("j_joy_sub_warrior"),
+                                'j_joy_sub_warrior',
                                 true
                             )
                         end
@@ -289,7 +289,7 @@ SMODS.Joker({
                 local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "SubterrorBehemoth" } } })
 
                 for i = 1, card.ability.extra.mills do
-                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, pseudoseed("j_joy_sub_warrior")))
+                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_sub_warrior'))
                 end
             end
         end
@@ -388,7 +388,7 @@ SMODS.Joker({
                     for _ = 1, card.ability.extra.creates do
                         JoyousSpring.create_pseudorandom(
                             { { monster_archetypes = { "Subterror" }, exclude_keys = { "j_joy_sub_guru" }, rarity = 1 }, { monster_archetypes = { "Subterror" }, exclude_keys = { "j_joy_sub_guru" }, rarity = 2 } },
-                            pseudoseed("j_joy_sub_guru"), true)
+                            'j_joy_sub_guru', true)
                     end
                 end
             end
@@ -507,7 +507,7 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if JoyousSpring.calculate_flip_effect(card, context) then
                 local choices = JoyousSpring.get_materials_owned({ { facedown = true, exclude_edition = true }, { monster_archetypes = { "Subterror" }, exclude_edition = true } })
-                local pick = pseudorandom_element(choices, pseudoseed("j_joy_sub_drago"))
+                local pick = pseudorandom_element(choices, 'j_joy_sub_drago')
                 if pick then
                     local edition = poll_edition("j_joy_sub_drago", nil, nil, true) or 'e_foil'
                     pick:set_edition(edition)
@@ -561,9 +561,9 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if JoyousSpring.is_flip_active(card) and not context.blueprint_card and context.end_of_round and context.game_over == false and context.main_eval then
                 local choices = JoyousSpring.get_materials_owned({ { exclude_keys = { "j_joy_sub_uma" } } })
-                local to_banish, index = pseudorandom_element(choices, pseudoseed("j_joy_sub_uma"))
+                local to_banish, index = pseudorandom_element(choices, 'j_joy_sub_uma')
                 table.remove(choices, index)
-                local to_banish2 = pseudorandom_element(choices, pseudoseed("j_joy_sub_uma"))
+                local to_banish2 = pseudorandom_element(choices, 'j_joy_sub_uma')
                 if to_banish then
                     JoyousSpring.banish(to_banish, "blind_selected")
                 end
@@ -620,7 +620,7 @@ SMODS.Joker({
                 local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Subterror" } } })
 
                 for i = 1, card.ability.extra.mills do
-                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, pseudoseed("j_joy_sub_warrior")))
+                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_sub_warrior'))
                 end
             end
             if context.joker_main then
@@ -969,7 +969,7 @@ SMODS.Joker({
                     for _ = 1, card.ability.extra.creates do
                         JoyousSpring.create_pseudorandom(
                             { { monster_archetypes = { "SubterrorBehemoth" }, exclude_keys = { "j_joy_sub_befiendess" } } },
-                            pseudoseed("j_joy_sub_befiendess"), true)
+                            'j_joy_sub_befiendess', true)
                     end
                     card.ability.extra.activated = true
                 end

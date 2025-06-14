@@ -123,7 +123,7 @@ JoyousSpring.calculate_context = function(context)
             "p_joy_jumbo_extra_pack",
             "p_joy_mega_extra_pack",
         }
-        SMODS.add_booster_to_shop(pseudorandom_element(choices, pseudoseed("JoyousSpring")) or "p_joy_monster_pack")
+        SMODS.add_booster_to_shop(pseudorandom_element(choices, "JoyousSpring") or "p_joy_monster_pack")
     end
 end
 

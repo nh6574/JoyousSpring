@@ -176,7 +176,7 @@ SMODS.Joker({
                 for i = 1, card.ability.extra.cards_to_create do
                     local key_to_add = pseudorandom_element(
                         JoyousSpring.get_materials_in_collection({ { is_extra_deck = true } }),
-                        pseudoseed("j_joy_dogma_maximus"))
+                        'j_joy_dogma_maximus')
                     if key_to_add then
                         JoyousSpring.create_perma_debuffed_card(key_to_add, "Dogmatika", { negative = true })
                     end
@@ -224,7 +224,7 @@ SMODS.Joker({
                     for i = 1, card.ability.extra.cards_to_create do
                         JoyousSpring.create_pseudorandom(
                             { { monster_archetypes = { "Dogmatika" }, summon_type = "NORMAL" } },
-                            pseudoseed("j_joy_dogma_adin"), true)
+                            'j_joy_dogma_adin', true)
                     end
                 end
             end
@@ -356,7 +356,7 @@ SMODS.Joker({
             if context.end_of_round and context.game_over == false and context.main_eval and G.GAME.blind.boss then
                 local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Dogmatika" }, summon_type = "RITUAL" } })
                 for i = 1, card.ability.extra.adds do
-                    key_to_add = pseudorandom_element(choices, pseudoseed("j_joy_dogma_ashiyan"))
+                    key_to_add = pseudorandom_element(choices, 'j_joy_dogma_ashiyan')
                     JoyousSpring.add_monster_tag(key_to_add or "j_joy_dogma_relic")
                 end
             end
@@ -367,7 +367,7 @@ SMODS.Joker({
             for i = 1, card.ability.extra.revives do
                 JoyousSpring.revive_pseudorandom(
                     { { monster_archetypes = { "Dogmatika" } } },
-                    pseudoseed("j_joy_dogma_ashiyan"),
+                    'j_joy_dogma_ashiyan',
                     true
                 )
             end
@@ -421,7 +421,7 @@ SMODS.Joker({
                         JoyousSpring.get_all_material_keys({ { is_extra_deck = true } }) or
                         JoyousSpring.get_materials_owned({ { is_extra_deck = true } })
 
-                    local key_to_add = pseudorandom_element(choices, pseudoseed("j_joy_dogma_maximus"))
+                    local key_to_add = pseudorandom_element(choices, 'j_joy_dogma_maximus')
                     if key_to_add and type(key_to_add) ~= "string" then
                         key_to_add = key_to_add.config.center_key
                     end
@@ -733,7 +733,7 @@ SMODS.Joker({
                     if #G.jokers.cards + G.GAME.joker_buffer - tribute_amount < G.jokers.config.card_limit then
                         JoyousSpring.create_pseudorandom(
                             { { monster_archetypes = { "Dogmatika" } } },
-                            pseudoseed("j_joy_dogma_nation"), true, true)
+                            'j_joy_dogma_nation', true, true)
                     end
                 end
             end

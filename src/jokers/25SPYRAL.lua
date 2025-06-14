@@ -17,7 +17,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
@@ -46,7 +46,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
@@ -75,7 +75,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
@@ -104,7 +104,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
@@ -133,7 +133,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
@@ -162,7 +162,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
@@ -191,7 +191,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
@@ -220,7 +220,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
@@ -249,7 +249,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
@@ -277,7 +277,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
@@ -305,7 +305,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
@@ -334,7 +334,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = {} }
     end,
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },

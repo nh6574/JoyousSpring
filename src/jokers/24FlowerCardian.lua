@@ -462,7 +462,7 @@ SMODS.Joker({
                 if JoyousSpring.get_hanafuda(context.joy_excavated) and (next(SMODS.find_card("j_joy_cardian_lightflare")) or JoyousSpring.get_hanafuda(context.joy_excavated).type == "light") then
                     local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "FlowerCardian" }, is_extra_deck = true } })
                     for i = 1, card.ability.extra.adds do
-                        local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_cardian_butterfly"))
+                        local key_to_add, _ = pseudorandom_element(choices, 'j_joy_cardian_butterfly')
                         if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
                             JoyousSpring.add_to_extra_deck(key_to_add)
                         end
@@ -557,7 +557,7 @@ SMODS.Joker({
                 if JoyousSpring.get_hanafuda(context.joy_excavated) and (next(SMODS.find_card("j_joy_cardian_lightflare")) or JoyousSpring.get_hanafuda(context.joy_excavated).type == "light") then
                     local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "FlowerCardian" }, is_extra_deck = true } })
                     for i = 1, card.ability.extra.adds do
-                        local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_cardian_boar"))
+                        local key_to_add, _ = pseudorandom_element(choices, 'j_joy_cardian_boar')
                         if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
                             JoyousSpring.add_to_extra_deck(key_to_add)
                         end
@@ -838,7 +838,7 @@ SMODS.Joker({
                 if JoyousSpring.get_hanafuda(context.joy_excavated) and (next(SMODS.find_card("j_joy_cardian_lightflare")) or JoyousSpring.get_hanafuda(context.joy_excavated).type == "light") then
                     local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "FlowerCardian" } } })
                     for i = 1, card.ability.extra.adds do
-                        local key_to_add = pseudorandom_element(choices, pseudoseed("j_joy_moissa"))
+                        local key_to_add = pseudorandom_element(choices, 'j_joy_moissa')
                         JoyousSpring.add_monster_tag(key_to_add or "j_joy_eccentrick")
                     end
                     hit = true
@@ -1022,7 +1022,7 @@ SMODS.Joker({
                     for i = 1, card.ability.extra.revives do
                         local revived_card = JoyousSpring.revive_pseudorandom(
                             { { monster_archetypes = { "FlowerCardian" } } },
-                            pseudoseed("j_joy_cardian_calligrapher"),
+                            'j_joy_cardian_calligrapher',
                             true
                         )
                     end
@@ -1303,7 +1303,7 @@ SMODS.Joker({
             if context.end_of_round and context.game_over == false and context.main_eval then
                 local choices = JoyousSpring.get_materials_owned()
                 for i = 1, card.ability.extra.animals_scored do
-                    local to_banish, index = pseudorandom_element(choices, pseudoseed("j_joy_cardian_boardefly"))
+                    local to_banish, index = pseudorandom_element(choices, 'j_joy_cardian_boardefly')
                     if to_banish then
                         JoyousSpring.banish(to_banish, "blind_selected")
                     end
@@ -1498,7 +1498,7 @@ SMODS.Joker({
                 for i = 1, card.ability.extra.revives do
                     local revived_card = JoyousSpring.revive_pseudorandom(
                         { { monster_archetypes = { "FlowerCardian" } } },
-                        pseudoseed("j_joy_cardian_lightflare"),
+                        'j_joy_cardian_lightflare',
                         false, "e_negative"
                     )
                 end

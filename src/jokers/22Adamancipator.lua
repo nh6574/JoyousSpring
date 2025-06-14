@@ -65,7 +65,7 @@ SMODS.Joker({
                     for _ = 1, card.ability.extra.creates do
                         JoyousSpring.create_pseudorandom(
                             { { monster_type = "Rock", is_main_deck = true }, },
-                            pseudoseed("j_joy_adaman_analyzer"), true)
+                            'j_joy_adaman_analyzer', true)
                     end
                     card.ability.extra.activated = true
                 end
@@ -153,7 +153,7 @@ SMODS.Joker({
                     for _ = 1, card.ability.extra.creates do
                         JoyousSpring.create_pseudorandom(
                             { { monster_type = "Rock", is_main_deck = true }, },
-                            pseudoseed("j_joy_adaman_researcher"), true)
+                            'j_joy_adaman_researcher', true)
                     end
                     card.ability.extra.activated = true
                 end
@@ -241,7 +241,7 @@ SMODS.Joker({
                     for _ = 1, card.ability.extra.creates do
                         JoyousSpring.create_pseudorandom(
                             { { monster_type = "Rock", is_main_deck = true }, },
-                            pseudoseed("j_joy_adaman_seeker"), true)
+                            'j_joy_adaman_seeker', true)
                     end
                     card.ability.extra.activated = true
                 end
@@ -543,7 +543,7 @@ SMODS.Joker({
                     for _ = 1, card.ability.extra.creates do
                         JoyousSpring.create_pseudorandom(
                             { { monster_type = "Rock", is_main_deck = true }, },
-                            pseudoseed("j_joy_adaman_dragite"), false)
+                            'j_joy_adaman_dragite', false)
                     end
                 end
             end
@@ -621,7 +621,7 @@ SMODS.Joker({
                     for _ = 1, card.ability.extra.creates do
                         JoyousSpring.create_pseudorandom(
                             { { monster_type = "Rock", is_main_deck = true }, },
-                            pseudoseed("j_joy_adaman_raptite"), false)
+                            'j_joy_adaman_raptite', false)
                     end
                 end
                 return {
@@ -707,7 +707,7 @@ SMODS.Joker({
                     for _ = 1, card.ability.extra.creates do
                         JoyousSpring.create_pseudorandom(
                             { { monster_type = "Rock", is_main_deck = true }, },
-                            pseudoseed("j_joy_adaman_leonite"), false)
+                            'j_joy_adaman_leonite', false)
                     end
                 end
             end

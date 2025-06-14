@@ -137,7 +137,7 @@ SMODS.Enhancement {
     end,
     set_ability = function(self, card, initial, delay_sprites)
         card.ability.extra.hanafuda = card.ability.extra.hanafuda or
-            pseudorandom_element(JoyousSpring.hanafuda_pool, pseudoseed("joy_hanafuda"))
+            pseudorandom_element(JoyousSpring.hanafuda_pool, 'joy_hanafuda')
 
         G.E_MANAGER:add_event(Event({
             blockable = false,

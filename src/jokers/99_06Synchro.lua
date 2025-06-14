@@ -54,7 +54,7 @@ SMODS.Joker({
         if not from_debuff then
             for i = 1, card.ability.extra.revives do
                 JoyousSpring.revive_pseudorandom({ { is_extra_deck = true, monster_type = "Cyberse" } },
-                    pseudoseed("j_joy_firewall_saber"), false, "e_negative")
+                    "j_joy_firewall_saber", false, "e_negative")
             end
         end
     end
@@ -173,7 +173,7 @@ SMODS.Joker({
         if JoyousSpring.used_as_material(card, context) then
             local choices = JoyousSpring.get_materials_in_collection({ { monster_type = "Fish", is_extra_deck = true } })
             for _ = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_fishlamp"))
+                local key_to_add, _ = pseudorandom_element(choices, 'j_joy_fishlamp')
                 if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
                     JoyousSpring.add_to_extra_deck(key_to_add)
                 end
@@ -245,7 +245,7 @@ SMODS.Joker({
                 if #choices > 0 then
                     local destroyed = 0
                     for i = 1, card.ability.extra.destroys_and_creates do
-                        local chosen, index = pseudorandom_element(choices, pseudoseed("j_joy_afd"))
+                        local chosen, index = pseudorandom_element(choices, 'j_joy_afd')
                         if chosen then
                             chosen.getting_sliced = true
                             chosen:start_dissolve()
@@ -271,7 +271,7 @@ SMODS.Joker({
     add_to_deck = function(self, card, from_debuff)
         if not from_debuff then
             for i = 1, card.ability.extra.creates do
-                JoyousSpring.create_pseudorandom({ { is_tuner = true } }, pseudoseed("j_joy_afd"), true)
+                JoyousSpring.create_pseudorandom({ { is_tuner = true } }, 'j_joy_afd', true)
             end
         end
     end

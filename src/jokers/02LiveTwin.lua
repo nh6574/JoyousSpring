@@ -327,7 +327,7 @@ SMODS.Joker({
                 local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Lilla" }, is_main_deck = true } })
 
                 for i = 1, card.ability.extra.mills do
-                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, pseudoseed("j_joy_etwin_kisikil_deal")))
+                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_etwin_kisikil_deal'))
                 end
                 return {
                     message = localize("k_joy_mill")
@@ -337,7 +337,7 @@ SMODS.Joker({
         if JoyousSpring.used_as_material(card, context) and JoyousSpring.is_summon_type(context.joy_card, "LINK") then
             local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "EvilTwin" }, is_extra_deck = true } })
             for i = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_ignis_doyon"))
+                local key_to_add, _ = pseudorandom_element(choices, 'j_joy_ignis_doyon')
                 if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
                     JoyousSpring.add_to_extra_deck(key_to_add)
                 end
@@ -426,7 +426,7 @@ SMODS.Joker({
                     for i = 1, card.ability.extra.revives do
                         local revived_card = JoyousSpring.revive_pseudorandom(
                             { { monster_archetypes = { "Lilla" } } },
-                            pseudoseed("j_joy_etwin_kisikil"),
+                            'j_joy_etwin_kisikil',
                             true
                         )
                         has_revived = revived_card and true or has_revived
@@ -520,7 +520,7 @@ SMODS.Joker({
                     for i = 1, card.ability.extra.revives do
                         local revived_card = JoyousSpring.revive_pseudorandom(
                             { { monster_archetypes = { "Kisikil" } } },
-                            pseudoseed("j_joy_etwin_lilla"),
+                            'j_joy_etwin_lilla',
                             true
                         )
                         has_revived = revived_card and true or has_revived
@@ -790,7 +790,7 @@ SMODS.Joker({
             for i = 1, card.ability.extra.revives do
                 JoyousSpring.revive_pseudorandom(
                     { { monster_archetypes = { "Kisikil" } }, { monster_archetypes = { "Lilla" } } },
-                    pseudoseed("j_joy_ltwin_channel"),
+                    'j_joy_ltwin_channel',
                     true
                 )
             end

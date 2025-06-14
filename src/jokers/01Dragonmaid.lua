@@ -225,7 +225,7 @@ SMODS.Joker({
             local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Dragonmaid" }, is_main_deck = true } })
 
             for i = 1, card.ability.extra.mills do
-                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, pseudoseed("j_joy_dmaid_laundry")))
+                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_dmaid_laundry'))
             end
             SMODS.calculate_effect({ message = localize("k_joy_mill") }, card)
         end
@@ -370,7 +370,7 @@ SMODS.Joker({
                 for i = 1, card.ability.extra.revives do
                     local revived_card = JoyousSpring.revive_pseudorandom(
                         { { rarity = 1, monster_archetypes = { "Dragonmaid" } } },
-                        pseudoseed("j_joy_dmaid_nurse"),
+                        'j_joy_dmaid_nurse',
                         true
                     )
                     has_revived = (revived_card and true) or has_revived
@@ -510,7 +510,7 @@ SMODS.Joker({
             local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Dragonmaid" }, is_main_deck = true } })
 
             for i = 1, card.ability.extra.mills do
-                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, pseudoseed("j_joy_dmaid_laundry")))
+                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_dmaid_laundry'))
             end
             SMODS.calculate_effect({ message = localize("k_joy_mill") }, card)
         end
@@ -657,7 +657,7 @@ SMODS.Joker({
             local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Dragonmaid" }, is_main_deck = true } })
 
             for i = 1, card.ability.extra.mills do
-                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, pseudoseed("j_joy_dmaid_laundry")))
+                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_dmaid_laundry'))
             end
             SMODS.calculate_effect({ message = localize("k_joy_mill") }, card)
         end
@@ -717,7 +717,7 @@ SMODS.Joker({
                             { rarity = 2, monster_archetypes = { "Dragonmaid" } },
                             { rarity = 3, monster_archetypes = { "Dragonmaid" } },
                         },
-                        pseudoseed("j_joy_dmaid_cehrmba"),
+                        'j_joy_dmaid_cehrmba',
                         true
                     )
                     has_revived = revived_card and true or has_revived
@@ -799,7 +799,7 @@ SMODS.Joker({
                 if pseudorandom("j_joy_dmaid_lady") < G.GAME.probabilities.normal / card.ability.extra.odds then
                     local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Dragonmaid" }, rarity = 2 } })
                     JoyousSpring.transform_card(card,
-                        pseudorandom_element(choices, pseudoseed("j_joy_dmaid_lady")) or j_joy_dmaid_tinkhec)
+                        pseudorandom_element(choices, 'j_joy_dmaid_lady') or j_joy_dmaid_tinkhec)
                 end
             end
         end
@@ -967,7 +967,7 @@ SMODS.Joker({
 
                     for i = 1, card.ability.extra.cards_to_create do
                         JoyousSpring.create_pseudorandom({ { monster_archetypes = { "Dragonmaid" }, rarity = 1 } },
-                            pseudoseed("j_joy_dmaid_sheou"), true)
+                            'j_joy_dmaid_sheou', true)
                     end
                     JoyousSpring.transform_card(card, "j_joy_dmaid_house")
                     return { message = localize('ph_boss_disabled') }

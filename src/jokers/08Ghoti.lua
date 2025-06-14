@@ -55,7 +55,7 @@ SMODS.Joker({
                             {
                                 { summon_type = "SYNCHRO" },
                             },
-                            pseudoseed("j_joy_fish_keaf"),
+                            'j_joy_fish_keaf',
                             true
                         )
                     end
@@ -202,7 +202,7 @@ SMODS.Joker({
                     for i = 1, c.ability.extra.revives do
                         JoyousSpring.revive_pseudorandom(
                             { { is_main_deck = true, monster_archetypes = { "Ghoti" } } },
-                            pseudoseed("j_joy_fish_zep"),
+                            'j_joy_fish_zep',
                             true
                         )
                     end
@@ -253,7 +253,7 @@ SMODS.Joker({
                     for i = 1, c.ability.extra.cards_to_create do
                         JoyousSpring.create_pseudorandom(
                             { { monster_archetypes = { "Ghoti" }, is_main_deck = true, exclude_keys = { "j_joy_fish_ixeep" } } },
-                            pseudoseed("j_joy_fish_ixeep"), true)
+                            'j_joy_fish_ixeep', true)
                     end
                 end
                 JoyousSpring.banish(card, "boss_selected", func)
@@ -309,7 +309,7 @@ SMODS.Joker({
                     local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Ghoti" }, is_extra_deck = true } })
 
                     for i = 1, card.ability.extra.cards_to_create do
-                        local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_fish_eanoc"))
+                        local key_to_add, _ = pseudorandom_element(choices, 'j_joy_fish_eanoc')
                         if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
                             JoyousSpring.add_to_extra_deck(key_to_add)
                         end
@@ -362,7 +362,7 @@ SMODS.Joker({
                             {
                                 { is_tuner = true },
                             },
-                            pseudoseed("j_joy_fish_psiics"),
+                            'j_joy_fish_psiics',
                             false,
                             { negative = true }
                         )
@@ -419,7 +419,7 @@ SMODS.Joker({
                 end
                 for i = 1, card.ability.extra.banishes do
                     if #choices > 0 then
-                        local to_banish, pos = pseudorandom_element(choices, pseudoseed("j_joy_fish_snopios"))
+                        local to_banish, pos = pseudorandom_element(choices, 'j_joy_fish_snopios')
                         if to_banish then
                             JoyousSpring.banish(to_banish, "blind_selected")
                         end
@@ -492,7 +492,7 @@ SMODS.Joker({
                     local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Ghoti" }, is_extra_deck = true } })
 
                     for i = 1, c.ability.extra.cards_to_create do
-                        local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_fish_arionpos"))
+                        local key_to_add, _ = pseudorandom_element(choices, 'j_joy_fish_arionpos')
                         if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
                             JoyousSpring.add_to_extra_deck(key_to_add)
                         end
@@ -557,7 +557,7 @@ SMODS.Joker({
                 JoyousSpring.banish(card, "blind_selected")
 
                 local choices = JoyousSpring.get_materials_owned({ { exclude_monster_archetypes = { "Ghoti" } } })
-                local to_banish = pseudorandom_element(choices, pseudoseed("j_joy_fish_askaan"))
+                local to_banish = pseudorandom_element(choices, 'j_joy_fish_askaan')
                 if to_banish then
                     JoyousSpring.banish(to_banish, "blind_selected")
                 end
@@ -631,13 +631,13 @@ SMODS.Joker({
             if (#G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit - ((card.edition and card.edition.negative) and 0 or 1)) then
                 local revive_fish = JoyousSpring.revive_pseudorandom(
                     { { monster_type = "Fish" } },
-                    pseudoseed("j_joy_fish_guoglim"),
+                    'j_joy_fish_guoglim',
                     true
                 )
                 while revive_fish and (#G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit - ((card.edition and card.edition.negative) and 0 or 1)) do
                     revive_fish = JoyousSpring.revive_pseudorandom(
                         { { monster_type = "Fish" } },
-                        pseudoseed("j_joy_fish_guoglim"),
+                        'j_joy_fish_guoglim',
                         true
                     )
                 end

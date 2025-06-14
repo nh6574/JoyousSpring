@@ -40,7 +40,7 @@ local get_weighted_pool = function(starting_pool, default_key, _append, allow_du
             in_pool, pool_opts = v:in_pool({ source = _append })
         end
         pool_opts = pool_opts or {}
-        if not (G.GAME.used_jokers[v.key] and not pool_opts.allow_duplicates and not allow_duplicates and not next(find_joker("Showman"))) and
+        if not (G.GAME.used_jokers[v.key] and not pool_opts.allow_duplicates and not allow_duplicates and not SMODS.showman(v.key)) and
             (v.unlocked ~= false or v.rarity == 4) then
             if v.enhancement_gate then
                 add = nil
@@ -95,7 +95,7 @@ end
 ---@param allow_duplicates boolean?
 ---@return string
 local get_weighted_card = function(starting_pool, default_key, key_append, allow_duplicates)
-    local poll = pseudorandom(pseudoseed('JoyousSpring' .. G.GAME.round_resets.ante .. (key_append or '')))
+    local poll = pseudorandom('JoyousSpring' .. G.GAME.round_resets.ante .. (key_append or ''))
     local pool = get_weighted_pool(starting_pool, default_key, key_append, allow_duplicates)
     local weight_i = 0
     for _, v in ipairs(pool) do

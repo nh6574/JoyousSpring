@@ -148,7 +148,7 @@ SMODS.Joker({
                 end
                 for i = 1, card.ability.extra.banishes do
                     if #choices > 0 then
-                        local to_banish, pos = pseudorandom_element(choices, pseudoseed("j_joy_witch_potterie"))
+                        local to_banish, pos = pseudorandom_element(choices, 'j_joy_witch_potterie')
                         if to_banish then
                             JoyousSpring.banish(to_banish, "blind_selected")
                         end

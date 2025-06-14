@@ -92,7 +92,7 @@ SMODS.Joker({
                             ((card.edition and card.edition.negative) and 0 or 1) then
                             JoyousSpring.revive_pseudorandom(
                                 { { rarity = 3, monster_archetypes = { "Generaider" } } },
-                                pseudoseed("j_joy_generaider_vala"),
+                                'j_joy_generaider_vala',
                                 false
                             )
                         end
@@ -113,7 +113,7 @@ SMODS.Joker({
             local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Generaider" }, rarity = 3, is_main_deck = true } })
 
             for i = 1, card.ability.extra.mills do
-                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, pseudoseed("j_joy_generaider_vala")))
+                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_generaider_vala'))
             end
             SMODS.calculate_effect({ message = localize("k_joy_mill") }, card)
         end
@@ -394,7 +394,7 @@ SMODS.Joker({
                 #context.joy_selection == card.ability.extra.tributes then
                 JoyousSpring.tribute(card, context.joy_selection)
                 local choices = G.consumeables.cards
-                local to_banish = pseudorandom_element(choices, pseudoseed("j_joy_generaider_utgarda"))
+                local to_banish = pseudorandom_element(choices, 'j_joy_generaider_utgarda')
                 if to_banish then
                     JoyousSpring.banish(to_banish, "blind_selected")
                 end
@@ -464,7 +464,7 @@ SMODS.Joker({
                 for i = 1, card.ability.extra.cards_to_create do
                     JoyousSpring.create_pseudorandom(
                         { { monster_archetypes = { "Generaider" }, rarity = 1 }, { monster_archetypes = { "Generaider" }, rarity = 2 } },
-                        pseudoseed("j_joy_generaider_mardel"), true)
+                        'j_joy_generaider_mardel', true)
                 end
             end
         end
@@ -690,7 +690,7 @@ SMODS.Joker({
                     for i = 1, card.ability.extra.revives do
                         JoyousSpring.revive_pseudorandom(
                             { { rarity = 3, monster_archetypes = { "Generaider" } } },
-                            pseudoseed("j_joy_generaider_hela"),
+                            'j_joy_generaider_hela',
                             false,
                             { negative = true }
                         )
@@ -913,7 +913,7 @@ SMODS.Joker({
             for i = 1, card.ability.extra.cards_to_create do
                 JoyousSpring.create_pseudorandom(
                     { { monster_archetypes = { "Generaider" }, rarity = 3, is_main_deck = true } },
-                    pseudoseed("j_joy_generaider_boss_stage"), true, true)
+                    'j_joy_generaider_boss_stage', true, true)
             end
         end
         if context.end_of_round and context.main_eval then

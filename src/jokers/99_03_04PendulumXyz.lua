@@ -48,7 +48,7 @@ SMODS.Joker({
                 JoyousSpring.ease_detach(card)
 
                 for i = 1, card.ability.extra.revives do
-                    JoyousSpring.revive_pseudorandom({ { is_pendulum = true } }, pseudoseed("j_joy_ooze"), false,
+                    JoyousSpring.revive_pseudorandom({ { is_pendulum = true } }, 'j_joy_ooze', false,
                         "e_negative")
                 end
             end
@@ -56,7 +56,7 @@ SMODS.Joker({
     end,
     use = function(self, card, area, copier)
         local choices = JoyousSpring.get_materials_owned({ { summon_type = "XYZ" } })
-        local joker = pseudorandom_element(choices, pseudoseed("j_joy_ooze"))
+        local joker = pseudorandom_element(choices, 'j_joy_ooze')
 
         if joker then
             joker.ability.extra.joyous_spring.xyz_materials = joker.ability.extra.joyous_spring.xyz_materials +

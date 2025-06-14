@@ -129,7 +129,7 @@ SMODS.Joker({
                 card.ability.extra.consumed = card.ability.extra.consumed + 1
                 if card.ability.extra.consumed >= card.ability.extra.consume then
                     card.ability.extra.consumed = 0
-                    JoyousSpring.create_pseudorandom({ { is_pendulum = true } }, pseudoseed("j_joy_beyond"), true)
+                    JoyousSpring.create_pseudorandom({ { is_pendulum = true } }, 'j_joy_beyond', true)
                 end
             end
         end
@@ -188,7 +188,7 @@ SMODS.Joker({
                 card.ability.extra.activated = true
                 for i = 1, card.ability.extra.creates do
                     JoyousSpring.create_pseudorandom({ { is_pendulum = true, is_main_deck = true } },
-                        pseudoseed("j_joy_exceed"), false, false,
+                        'j_joy_exceed', false, false,
                         "e_negative")
                 end
             end
@@ -337,7 +337,7 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if context.setting_blind and context.main_eval then
                 local choices = JoyousSpring.get_materials_in_collection({ { summon_type = "LINK", exclude_keys = { "j_joy_ipmasq" } } })
-                local key_to_transform = pseudorandom_element(choices, pseudoseed("j_joy_ipmasq")) or "j_joy_spknight"
+                local key_to_transform = pseudorandom_element(choices, 'j_joy_ipmasq') or "j_joy_spknight"
                 JoyousSpring.transform_card(card, key_to_transform, false, "Link", { "j_joy_ipmasq" })
             end
         end
@@ -401,7 +401,7 @@ SMODS.Joker({
                         table.insert(choices, joker)
                     end
                 end
-                local chosen = pseudorandom_element(choices, pseudoseed("j_joy_spknight"))
+                local chosen = pseudorandom_element(choices, 'j_joy_spknight')
                 if chosen then
                     local ed_materials = 0
                     for _, material in ipairs(JoyousSpring.get_materials(card)) do
@@ -469,7 +469,7 @@ SMODS.Joker({
                 if G.jokers.cards[column + 1] then
                     choices[#choices + 1] = G.jokers.cards[column + 1]
                 end
-                local chosen = pseudorandom_element(choices, pseudoseed("j_joy_progleo"))
+                local chosen = pseudorandom_element(choices, 'j_joy_progleo')
                 if chosen then
                     JoyousSpring.banish(chosen, "boss_selected")
                 end

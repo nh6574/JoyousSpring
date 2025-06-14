@@ -52,7 +52,7 @@ SMODS.Joker({
             for i = 1, card.ability.extra.creates do
                 JoyousSpring.create_pseudorandom(
                     { { rarity = 1, monster_archetypes = { "Ignister" }, is_main_deck = true } },
-                    pseudoseed("j_joy_ignis_achichi"), true)
+                    'j_joy_ignis_achichi', true)
             end
         end
     end
@@ -162,7 +162,7 @@ SMODS.Joker({
                     for i = 1, card.ability.extra.creates do
                         JoyousSpring.create_pseudorandom(
                             { { rarity = 2, monster_archetypes = { "Ignister" }, is_main_deck = true } },
-                            pseudoseed("j_joy_ignis_hiyari"), true)
+                            'j_joy_ignis_hiyari', true)
                     end
                 end
             end
@@ -240,7 +240,7 @@ SMODS.Joker({
             for i = 1, card.ability.extra.revives do
                 JoyousSpring.revive_pseudorandom(
                     { { monster_archetypes = { "Ignister" }, is_main_deck = true } },
-                    pseudoseed("j_joy_ignis_bururu"), false, "e_negative")
+                    "j_joy_ignis_bururu", false, "e_negative")
             end
         end
     end,
@@ -249,7 +249,7 @@ SMODS.Joker({
             local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Ignister" } } })
 
             for i = 1, card.ability.extra.mills do
-                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, pseudoseed("j_joy_ignis_bururu")))
+                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_ignis_bururu'))
             end
             SMODS.calculate_effect({ message = localize("k_joy_mill") }, card)
         end
@@ -295,7 +295,7 @@ SMODS.Joker({
             for i = 1, card.ability.extra.revives do
                 JoyousSpring.revive_pseudorandom(
                     { { monster_archetypes = { "Ignister" }, is_extra_deck = true } },
-                    pseudoseed("j_joy_ignis_doshin"), true)
+                    'j_joy_ignis_doshin', true)
             end
         end
         if JoyousSpring.can_use_abilities(card) and context.joker_main then
@@ -516,7 +516,7 @@ SMODS.Joker({
                 { { monster_archetypes = { "Ignister" }, is_extra_deck = true } }, true, true)
             if #choices > 0 then
                 for i = 1, card.ability.extra.adds do
-                    local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_ignis_doyon"))
+                    local key_to_add, _ = pseudorandom_element(choices, 'j_joy_ignis_doyon')
                     if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
                         JoyousSpring.add_to_extra_deck(key_to_add)
                     end
@@ -529,7 +529,7 @@ SMODS.Joker({
             for i = 1, card.ability.extra.revives do
                 JoyousSpring.revive_pseudorandom(
                     { { monster_archetypes = { "Ignister" }, is_main_deck = true } },
-                    pseudoseed("j_joy_ignis_bururu"), true, nil, (card.edition and card.edition.negative) and 0 or -1)
+                    'j_joy_ignis_bururu', true, nil, (card.edition and card.edition.negative) and 0 or -1)
             end
         end
     end
@@ -583,7 +583,7 @@ SMODS.Joker({
                     end
                 end
                 for i = 1, card.ability.extra.banishes do
-                    local to_banish = pseudorandom_element(choices, pseudoseed("j_joy_ignis_donyoribo"))
+                    local to_banish = pseudorandom_element(choices, 'j_joy_ignis_donyoribo')
                     if to_banish then
                         JoyousSpring.banish(to_banish, "blind_selected")
                     end
@@ -640,7 +640,7 @@ SMODS.Joker({
                 end
             end
             for i = 1, card.ability.extra.to_negative do
-                local to_negative = pseudorandom_element(choices, pseudoseed("j_joy_ignis_backup"))
+                local to_negative = pseudorandom_element(choices, 'j_joy_ignis_backup')
                 if to_negative then
                     to_negative:set_edition("e_negative")
                 end
@@ -689,12 +689,12 @@ SMODS.Joker({
                     JoyousSpring.tribute(card, { card })
                     for i = 1, card.ability.extra.revives do
                         JoyousSpring.revive_pseudorandom({ { monster_type = "Cyberse" } },
-                            pseudoseed("j_joy_ignis_wizard"), true, nil,
+                            'j_joy_ignis_wizard', true, nil,
                             (card.edition and card.edition.negative) and 0 or 1, true)
                     end
                     if JoyousSpring.count_materials_owned({ { monster_type = "Cyberse", is_summoned = true, is_extra_deck = true } }) > 0 then
                         JoyousSpring.revive_pseudorandom({ { monster_archetypes = { "Ignister" } } },
-                            pseudoseed("j_joy_ignis_wizard"), false, "e_negative")
+                            "j_joy_ignis_wizard", false, "e_negative")
                     end
                 end
             end
@@ -812,7 +812,7 @@ SMODS.Joker({
                 { { monster_archetypes = { "Ignister" }, is_extra_deck = true } }, true, true)
             if #choices > 0 then
                 for i = 1, card.ability.extra.adds do
-                    local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_ignis_leviathan"))
+                    local key_to_add, _ = pseudorandom_element(choices, 'j_joy_ignis_leviathan')
                     if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
                         JoyousSpring.add_to_extra_deck(key_to_add)
                     end
@@ -893,7 +893,7 @@ SMODS.Joker({
                 { { monster_archetypes = { "Ignister" }, is_extra_deck = true } }, true, true)
             if #choices > 0 then
                 for i = 1, card.ability.extra.adds do
-                    local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_ignis_golem"))
+                    local key_to_add, _ = pseudorandom_element(choices, 'j_joy_ignis_golem')
                     if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
                         JoyousSpring.add_to_extra_deck(key_to_add)
                     end
@@ -985,7 +985,7 @@ SMODS.Joker({
                 { { monster_archetypes = { "Ignister" }, is_extra_deck = true } }, true, true)
             if #choices > 0 then
                 for i = 1, card.ability.extra.adds do
-                    local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_ignis_pegasus"))
+                    local key_to_add, _ = pseudorandom_element(choices, 'j_joy_ignis_pegasus')
                     if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
                         JoyousSpring.add_to_extra_deck(key_to_add)
                     end
@@ -1075,7 +1075,7 @@ SMODS.Joker({
                 { { monster_archetypes = { "Ignister" }, is_extra_deck = true } }, true, true)
             if #choices > 0 then
                 for i = 1, card.ability.extra.adds do
-                    local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_ignis_dragon"))
+                    local key_to_add, _ = pseudorandom_element(choices, 'j_joy_ignis_dragon')
                     if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
                         JoyousSpring.add_to_extra_deck(key_to_add)
                     end
@@ -1173,7 +1173,7 @@ SMODS.Joker({
                 { { monster_archetypes = { "Ignister" }, is_extra_deck = true } }, true, true)
             if #choices > 0 then
                 for i = 1, card.ability.extra.adds do
-                    local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_ignis_phoenix"))
+                    local key_to_add, _ = pseudorandom_element(choices, 'j_joy_ignis_phoenix')
                     if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
                         JoyousSpring.add_to_extra_deck(key_to_add)
                     end
@@ -1261,7 +1261,7 @@ SMODS.Joker({
             for i = 1, card.ability.extra.revives do
                 JoyousSpring.revive_pseudorandom(
                     { { summon_type = "LINK" } },
-                    pseudoseed("j_joy_ignis_accode"), true, nil, (card.edition and card.edition.negative) and 0 or -1)
+                    'j_joy_ignis_accode', true, nil, (card.edition and card.edition.negative) and 0 or -1)
             end
         end
     end
@@ -1367,7 +1367,7 @@ SMODS.Joker({
             for i = 1, card.ability.extra.revives do
                 JoyousSpring.revive_pseudorandom(
                     { { monster_type = "Cyberse", is_main_deck = true } },
-                    pseudoseed("j_joy_ignis_templar"), true)
+                    'j_joy_ignis_templar', true)
             end
         end
     end,
@@ -1614,7 +1614,7 @@ SMODS.Joker({
                     if (type(joker) == "string" and JoyousSpring.is_material_center(joker, { monster_archetypes = { "Ignister" } })) or JoyousSpring.is_monster_archetype(joker, "Ignister") then
                         local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Ignister" }, is_main_deck = true } })
                         for i = 1, card.ability.extra.creates do
-                            key_to_add = pseudorandom_element(choices, pseudoseed("j_joy_ignis_ailand"))
+                            key_to_add = pseudorandom_element(choices, 'j_joy_ignis_ailand')
                             JoyousSpring.add_monster_tag(key_to_add or "j_joy_ignis_achichi")
                         end
                         break

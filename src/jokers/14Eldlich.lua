@@ -75,7 +75,7 @@ SMODS.Joker({
                     for i = 1, card.ability.extra.creates do
                         JoyousSpring.create_pseudorandom(
                             { { monster_archetypes = { "GoldenLand" }, is_main_deck = true } },
-                            pseudoseed("j_joy_eld_eldlich"), true)
+                            'j_joy_eld_eldlich', true)
                     end
                 end
             end
@@ -285,7 +285,7 @@ SMODS.Joker({
             end
             if JoyousSpring.is_flip_active(card) and not context.blueprint_card and context.end_of_round and context.game_over == false and context.main_eval then
                 local choices = JoyousSpring.get_materials_owned({ { monster_type = "Zombie", exclude_keys = { "j_joy_eld_huaq" } } })
-                local to_banish = pseudorandom_element(choices, pseudoseed("j_joy_sub_uma"))
+                local to_banish = pseudorandom_element(choices, 'j_joy_sub_uma')
                 if to_banish then
                     JoyousSpring.banish(to_banish, "blind_selected")
                 end
@@ -350,10 +350,10 @@ SMODS.Joker({
         end
         if JoyousSpring.calculate_flip_effect(card, context) then
             local revived_card = JoyousSpring.revive_pseudorandom({ { monster_archetypes = { "GoldenLand" } } },
-                pseudoseed("j_joy_eld_glorious"), true)
+                'j_joy_eld_glorious', true)
             if not revived_card then
                 JoyousSpring.revive_pseudorandom({ { is_trap = true } },
-                    pseudoseed("j_joy_eld_glorious"), true)
+                    'j_joy_eld_glorious', true)
             end
         end
     end,
@@ -479,7 +479,7 @@ SMODS.Joker({
             if context.joy_sent_to_gy and context.joy_from_field and context.joy_card == card then
                 JoyousSpring.revive_pseudorandom(
                     { { monster_archetypes = { "Eldlich" } } },
-                    pseudoseed("j_joy_eld_angel"),
+                    'j_joy_eld_angel',
                     false,
                     { negative = true }
                 )

@@ -136,7 +136,7 @@ SMODS.Joker({
                 local choices = JoyousSpring.get_materials_in_collection({ { is_pendulum = true } })
 
                 for i = 1, card.ability.extra.mills do
-                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, pseudoseed("j_joy_pendulumoon")))
+                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_pendulumoon'))
                 end
                 return { message = localize("k_joy_mill") }
             end
@@ -145,7 +145,7 @@ SMODS.Joker({
     use = function(self, card, area, copier)
         for i = 1, card.ability.extra.revives do
             JoyousSpring.revive_pseudorandom({ { is_pendulum = true } },
-                pseudoseed("j_joy_pendulumoon"), false,
+                'j_joy_pendulumoon', false,
                 "e_negative")
         end
     end,
@@ -192,7 +192,7 @@ SMODS.Joker({
     end,
     use = function(self, card, area, copier)
         local choices = JoyousSpring.get_materials_owned({ { is_pendulum = true } })
-        local joker = pseudorandom_element(choices, pseudoseed("j_joy_pandora"))
+        local joker = pseudorandom_element(choices, 'j_joy_pandora')
         if joker then
             local edition = poll_edition('j_joy_pandora', nil, true, true)
             joker:set_edition(edition, true)
@@ -343,7 +343,7 @@ SMODS.Joker({
             for i = 1, card.ability.extra.revives do
                 local revived_card = JoyousSpring.revive_pseudorandom(
                     { { is_pendulum = true } },
-                    pseudoseed("j_joy_pendulumucho"),
+                    'j_joy_pendulumucho',
                     true
                 )
                 has_revived = (revived_card and true) or has_revived
@@ -357,7 +357,7 @@ SMODS.Joker({
     use = function(self, card, area, copier)
         for i = 1, card.ability.extra.revives do
             JoyousSpring.revive_pseudorandom({ { is_pendulum = true } },
-                pseudoseed("j_joy_pendulumucho"), true)
+                'j_joy_pendulumucho', true)
         end
     end,
     can_use = function(self, card)
@@ -411,7 +411,7 @@ SMODS.Joker({
     use = function(self, card, area, copier)
         local choices = JoyousSpring.get_materials_in_collection({ { is_pendulum = true } })
         for i = 1, card.ability.extra.adds do
-            local key_to_add = pseudorandom_element(choices, pseudoseed("j_joy_moissa"))
+            local key_to_add = pseudorandom_element(choices, 'j_joy_moissa')
             JoyousSpring.add_monster_tag(key_to_add or "j_joy_eccentrick")
         end
     end,
@@ -473,7 +473,7 @@ SMODS.Joker({
     use = function(self, card, area, copier)
         for i = 1, card.ability.extra.revives do
             JoyousSpring.revive_pseudorandom({ { is_pendulum = true }, exclude_keys = { "j_joy_pmcaptor" } },
-                pseudoseed("j_joy_pmcaptor"), true)
+                'j_joy_pmcaptor', true)
         end
     end,
     can_use = function(self, card)
@@ -527,11 +527,11 @@ SMODS.Joker({
     end,
     use = function(self, card, area, copier)
         local rarities, _ = JoyousSpring.most_owned_rarity()
-        local choice = pseudorandom_element(rarities, pseudoseed("j_joy_metrognome"))
+        local choice = pseudorandom_element(rarities, 'j_joy_metrognome')
         if choice then
             for i = 1, card.ability.extra.creates do
                 JoyousSpring.create_pseudorandom({ { is_pendulum = true, rarity = choice } },
-                    pseudoseed("j_joy_metrognome"), true)
+                    'j_joy_metrognome', true)
             end
         end
     end,
@@ -592,7 +592,7 @@ SMODS.Joker({
     end,
     use = function(self, card, area, copier)
         local choices = JoyousSpring.get_materials_owned({ { is_monster = true } })
-        local joker = pseudorandom_element(choices, pseudoseed("j_joy_bozu"))
+        local joker = pseudorandom_element(choices, 'j_joy_bozu')
         if joker then
             card.ability.extra.transferring = true
             JoyousSpring.transfer_abilities(joker, card.config.center.key, card)

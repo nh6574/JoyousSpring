@@ -405,7 +405,7 @@ SMODS.Joker({
                     for i = 1, card.ability.extra.cards_to_create do
                         JoyousSpring.create_pseudorandom(
                             { { monster_archetypes = { "MekkKnight" }, is_main_deck = true, exclude_keys = { "j_joy_mekk_purple" } } },
-                            pseudoseed("j_joy_mekk_purple"), true)
+                            'j_joy_mekk_purple', true)
                     end
                 end
             end
@@ -519,7 +519,7 @@ SMODS.Joker({
                 for i = 1, card.ability.extra.cards_to_create do
                     JoyousSpring.create_pseudorandom(
                         { { monster_archetypes = { "MekkKnight" }, is_main_deck = true } },
-                        pseudoseed("j_joy_mekk_spectrum"), false, false, "e_negative")
+                        "j_joy_mekk_spectrum", false, false, "e_negative")
                 end
             end
             if context.end_of_round and context.game_over == false and context.main_eval then

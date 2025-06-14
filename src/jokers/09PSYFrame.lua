@@ -421,7 +421,7 @@ SMODS.Joker({
                 for i = 1, card.ability.extra.cards_to_create do
                     JoyousSpring.create_pseudorandom(
                         { { monster_archetypes = { "PSYFrame" }, is_main_deck = true, is_effect = true, exclude_keys = { "j_joy_psy_multithreader" } } },
-                        pseudoseed("j_joy_psy_multithreader"), true)
+                        'j_joy_psy_multithreader', true)
                 end
             end
         end
@@ -479,7 +479,7 @@ SMODS.Joker({
                 end
                 for i = 1, card.ability.extra.banishes do
                     if #choices > 0 then
-                        local to_banish, pos = pseudorandom_element(choices, pseudoseed("j_joy_psy_zeta"))
+                        local to_banish, pos = pseudorandom_element(choices, 'j_joy_psy_zeta')
                         if to_banish then
                             JoyousSpring.banish(to_banish, "blind_selected")
                         end
@@ -536,7 +536,7 @@ SMODS.Joker({
             if not context.blueprint_card and context.end_of_round and context.game_over == false and context.main_eval then
                 JoyousSpring.banish(card, "blind_selected")
                 local choices = JoyousSpring.get_materials_owned({ { exclude_keys = { "j_joy_psy_omega" } } })
-                local to_banish = pseudorandom_element(choices, pseudoseed("j_joy_psy_omega"))
+                local to_banish = pseudorandom_element(choices, 'j_joy_psy_omega')
                 if to_banish then
                     JoyousSpring.banish(to_banish, "blind_selected")
                 end
@@ -593,7 +593,7 @@ SMODS.Joker({
                 local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "PSYFrame" }, is_extra_deck = true, exclude_keys = { "j_joy_psy_lambda" } } })
 
                 for i = 1, card.ability.extra.cards_to_create do
-                    local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_psy_lambda"))
+                    local key_to_add, _ = pseudorandom_element(choices, 'j_joy_psy_lambda')
                     if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
                         JoyousSpring.add_to_extra_deck(key_to_add)
                     end

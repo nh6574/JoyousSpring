@@ -33,7 +33,7 @@ SMODS.Booster({
             G.C.JOY.NORMAL,
             G.C.JOY.EFFECT
         }
-        local color = pseudorandom_element(choices, pseudoseed("JoyousSpring"))
+        local color = pseudorandom_element(choices, 'JoyousSpring')
         ease_colour(G.C.DYN_UI.MAIN, color or G.C.JOY.EFFECT)
         ease_background_colour({ new_colour = color, special_colour = G.C.BLACK, contrast = 2 })
     end,
@@ -66,7 +66,7 @@ SMODS.Booster({
             G.C.JOY.NORMAL,
             G.C.JOY.EFFECT
         }
-        local color = pseudorandom_element(choices, pseudoseed("JoyousSpring"))
+        local color = pseudorandom_element(choices, 'JoyousSpring')
         ease_colour(G.C.DYN_UI.MAIN, color or G.C.JOY.EFFECT)
         ease_background_colour({ new_colour = color, special_colour = G.C.BLACK, contrast = 2 })
     end,
@@ -99,7 +99,7 @@ SMODS.Booster({
             G.C.JOY.NORMAL,
             G.C.JOY.EFFECT
         }
-        local color = pseudorandom_element(choices, pseudoseed("JoyousSpring"))
+        local color = pseudorandom_element(choices, 'JoyousSpring')
         ease_colour(G.C.DYN_UI.MAIN, color or G.C.JOY.EFFECT)
         ease_background_colour({ new_colour = color, special_colour = G.C.BLACK, contrast = 2 })
     end,
@@ -147,7 +147,7 @@ SMODS.Booster({
             G.C.JOY.XYZ,
             G.C.JOY.LINK
         }
-        local color = pseudorandom_element(choices, pseudoseed("JoyousSpring"))
+        local color = pseudorandom_element(choices, 'JoyousSpring')
         ease_colour(G.C.DYN_UI.MAIN, color or G.C.JOY.FUSION)
         ease_background_colour({ new_colour = color, special_colour = G.C.BLACK, contrast = 2 })
     end,
@@ -195,7 +195,7 @@ SMODS.Booster({
             G.C.JOY.XYZ,
             G.C.JOY.LINK
         }
-        local color = pseudorandom_element(choices, pseudoseed("JoyousSpring"))
+        local color = pseudorandom_element(choices, 'JoyousSpring')
         ease_colour(G.C.DYN_UI.MAIN, color or G.C.JOY.FUSION)
         ease_background_colour({ new_colour = color, special_colour = G.C.BLACK, contrast = 2 })
     end,
@@ -243,7 +243,7 @@ SMODS.Booster({
             G.C.JOY.XYZ,
             G.C.JOY.LINK
         }
-        local color = pseudorandom_element(choices, pseudoseed("JoyousSpring"))
+        local color = pseudorandom_element(choices, 'JoyousSpring')
         ease_colour(G.C.DYN_UI.MAIN, color or G.C.JOY.FUSION)
         ease_background_colour({ new_colour = color, special_colour = G.C.BLACK, contrast = 2 })
     end,

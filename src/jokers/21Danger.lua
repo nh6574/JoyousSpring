@@ -14,7 +14,7 @@ local danger_destroy = function(card, context)
         end
     end
     local joker_to_destroy = #destructable_jokers > 0 and
-        pseudorandom_element(destructable_jokers, pseudoseed(card.config.center.key)) or nil
+        pseudorandom_element(destructable_jokers, card.config.center.key) or nil
 
     if joker_to_destroy and not (context.blueprint_card or card).getting_sliced then
         joker_to_destroy:start_dissolve()
@@ -92,7 +92,7 @@ SMODS.Joker({
 
             for i = 1, card.ability.extra.creates do
                 JoyousSpring.create_pseudorandom({ { monster_archetypes = { "Danger" }, is_main_deck = true } },
-                    pseudoseed('j_joy_danger_jack'), true, nil,
+                    'j_joy_danger_jack', true, nil,
                     next(SMODS.find_card("j_joy_danger_realm")) and "e_polychrome" or nil)
             end
         end
@@ -158,7 +158,7 @@ SMODS.Joker({
             inc_danger_count()
             for i = 1, card.ability.extra.creates do
                 JoyousSpring.create_pseudorandom({ { monster_archetypes = { "Danger" }, is_main_deck = true } },
-                    pseudoseed('j_joy_danger_tsuch'), true, nil,
+                    'j_joy_danger_tsuch', true, nil,
                     next(SMODS.find_card("j_joy_danger_realm")) and "e_polychrome" or nil)
             end
         end
@@ -218,7 +218,7 @@ SMODS.Joker({
             inc_danger_count()
             for i = 1, card.ability.extra.revives do
                 JoyousSpring.revive_pseudorandom({ { monster_archetypes = { "Danger" }, is_main_deck = true } },
-                    pseudoseed('j_joy_danger_chup'), true,
+                    'j_joy_danger_chup', true,
                     next(SMODS.find_card("j_joy_danger_realm")) and "e_polychrome" or nil)
             end
         end
@@ -285,7 +285,7 @@ SMODS.Joker({
             inc_danger_count()
             for i = 1, card.ability.extra.revives do
                 JoyousSpring.revive_pseudorandom({ { monster_archetypes = { "Danger" }, is_main_deck = true } },
-                    pseudoseed('j_joy_danger_moth'), true,
+                    'j_joy_danger_moth', true,
                     next(SMODS.find_card("j_joy_danger_realm")) and "e_polychrome" or nil)
             end
         end
@@ -355,7 +355,7 @@ SMODS.Joker({
             inc_danger_count()
             local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Danger" } } })
             for i = 1, card.ability.extra.adds do
-                key_to_add = pseudorandom_element(choices, pseudoseed("j_joy_danger_dog"))
+                key_to_add = pseudorandom_element(choices, 'j_joy_danger_dog')
                 JoyousSpring.add_monster_tag(key_to_add or "j_joy_danger_jack")
             end
         end
@@ -424,7 +424,7 @@ SMODS.Joker({
             inc_danger_count()
             local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Danger" } } })
             for i = 1, card.ability.extra.adds do
-                key_to_add = pseudorandom_element(choices, pseudoseed("j_joy_danger_ness"))
+                key_to_add = pseudorandom_element(choices, 'j_joy_danger_ness')
                 JoyousSpring.add_monster_tag(key_to_add or "j_joy_danger_jack")
             end
         end
@@ -551,7 +551,7 @@ SMODS.Joker({
             local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Danger" } } })
 
             for i = 1, card.ability.extra.mills do
-                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, pseudoseed("j_joy_danger_ogo")))
+                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_danger_ogo'))
             end
             return { message = localize("k_joy_mill") }
         end
@@ -623,7 +623,7 @@ SMODS.Joker({
                     end
                 end
                 local joker_to_destroy = #destructable_jokers > 0 and
-                    pseudorandom_element(destructable_jokers, pseudoseed(card.config.center.key)) or nil
+                    pseudorandom_element(destructable_jokers, card.config.center.key) or nil
 
                 if joker_to_destroy and not (context.blueprint_card or card).getting_sliced then
                     joker_to_destroy:start_dissolve()
@@ -719,7 +719,7 @@ SMODS.Joker({
             if not context.blueprint_card and context.setting_blind and context.main_eval then
                 for i = 1, card.ability.extra.creates do
                     JoyousSpring.create_pseudorandom({ { monster_archetypes = { "Danger" }, is_main_deck = true } },
-                        pseudoseed('j_joy_danger_disorder'), true)
+                        'j_joy_danger_disorder', true)
                 end
             end
             if context.joker_main then

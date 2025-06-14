@@ -153,7 +153,7 @@ SMODS.Joker({
                 else
                     local choices = JoyousSpring.get_materials_in_collection({ { monster_type = "Fiend" } })
                     for _ = 1, card.ability.extra.mills do
-                        local key_to_send = pseudorandom_element(choices, pseudoseed("j_joy_ba_cagna"))
+                        local key_to_send = pseudorandom_element(choices, 'j_joy_ba_cagna')
                         JoyousSpring.send_to_graveyard(key_to_send or "j_joy_ba_cagna")
                     end
                 end
@@ -256,7 +256,7 @@ SMODS.Joker({
                 else
                     for _ = 1, card.ability.extra.revives do
                         JoyousSpring.revive_pseudorandom({ { monster_archetypes = { "BurningAbyss" } } },
-                            pseudoseed("j_joy_ba_cir"), true)
+                            'j_joy_ba_cir', true)
                     end
                 end
             end
@@ -320,7 +320,7 @@ SMODS.Joker({
             for _ = 1, card.ability.extra.creates do
                 JoyousSpring.create_pseudorandom(
                     { { monster_archetypes = { "BurningAbyss" }, is_main_deck = true, exclude_summon_types = { "RITUAL" }, exclude_keys = { "j_joy_ba_draghig" } } },
-                    pseudoseed("j_joy_ba_draghig"), true)
+                    'j_joy_ba_draghig', true)
             end
         end
     end,
@@ -368,7 +368,7 @@ SMODS.Joker({
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.can_use_abilities(card) then
             local choices = JoyousSpring.get_materials_owned({ { exclude_keys = { "j_joy_ba_farfa" } } })
-            local to_banish = pseudorandom_element(choices, pseudoseed("j_joy_ba_farfa"))
+            local to_banish = pseudorandom_element(choices, 'j_joy_ba_farfa')
             if to_banish then
                 JoyousSpring.banish(to_banish, "end_of_round")
             end
@@ -427,7 +427,7 @@ SMODS.Joker({
             for _ = 1, card.ability.extra.creates do
                 JoyousSpring.create_pseudorandom(
                     { { monster_archetypes = { "BurningAbyss" }, is_main_deck = true, exclude_summon_types = { "RITUAL" }, exclude_keys = { "j_joy_ba_graff" } } },
-                    pseudoseed("j_joy_ba_graff"), true)
+                    'j_joy_ba_graff', true)
             end
         end
     end,
@@ -471,7 +471,7 @@ SMODS.Joker({
                 card:start_dissolve()
                 for _ = 1, card.ability.extra.revives do
                     JoyousSpring.revive_pseudorandom({ { monster_type = "Fiend" } },
-                        pseudoseed("j_joy_ba_libic"), true)
+                        'j_joy_ba_libic', true)
                 end
             end
         end
@@ -515,7 +515,7 @@ SMODS.Joker({
 
                 local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "BurningAbyss" }, is_extra_deck = true } })
                 for _ = 1, card.ability.extra.adds do
-                    local key_to_add = pseudorandom_element(choices, pseudoseed("j_joy_ba_draghig"))
+                    local key_to_add = pseudorandom_element(choices, 'j_joy_ba_draghig')
                     if #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
                         JoyousSpring.add_to_extra_deck(key_to_add or "j_joy_ba_dante")
                     end
@@ -566,7 +566,7 @@ SMODS.Joker({
                 for _ = 1, card.ability.extra.creates do
                     JoyousSpring.create_pseudorandom(
                         { { monster_type = "Fiend", is_main_deck = true, exclude_keys = { "j_joy_ba_scarm" } } },
-                        pseudoseed("j_joy_ba_scarm"), true)
+                        'j_joy_ba_scarm', true)
                 end
             end
         end
@@ -669,7 +669,7 @@ SMODS.Joker({
             if context.setting_blind and context.main_eval then
                 local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "BurningAbyss" } } })
                 for _ = 1, card.ability.extra.mills do
-                    local key_to_send = pseudorandom_element(choices, pseudoseed("j_joy_ba_cherubini"))
+                    local key_to_send = pseudorandom_element(choices, 'j_joy_ba_cherubini')
                     JoyousSpring.send_to_graveyard(key_to_send or "j_joy_ba_cagna")
                 end
             end
@@ -727,7 +727,7 @@ SMODS.Joker({
             if not context.blueprint_card and context.joy_detach and context.joy_detaching_card == card then
                 local choices = JoyousSpring.get_materials_in_collection({ { is_monster = true, exclude_tokens = true } })
                 for _ = 1, card.ability.extra.mills do
-                    local key_to_send = pseudorandom_element(choices, pseudoseed("j_joy_ba_dante"))
+                    local key_to_send = pseudorandom_element(choices, 'j_joy_ba_dante')
                     JoyousSpring.send_to_graveyard(key_to_send or "j_joy_ba_cir")
                 end
                 JoyousSpring.ease_detach(card)
@@ -905,9 +905,9 @@ SMODS.Joker({
                 JoyousSpring.ease_detach(card)
                 for _ = 1, card.ability.extra.revives do
                     local revived = JoyousSpring.revive_pseudorandom({ { monster_archetypes = { "BurningAbyss" } } },
-                        pseudoseed("j_joy_ba_beatrice"), false, "e_negative")
+                        "j_joy_ba_beatrice", false, "e_negative")
                     if not revived then
-                        revived = JoyousSpring.revive_pseudorandom({ {} }, pseudoseed("j_joy_ba_beatrice"), false,
+                        revived = JoyousSpring.revive_pseudorandom({ {} }, 'j_joy_ba_beatrice', false,
                             "e_negative")
                     end
                 end

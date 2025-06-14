@@ -66,7 +66,7 @@ SMODS.Joker({
             if context.end_of_round and context.game_over == false and context.main_eval and G.GAME.blind.boss then
                 local choices = JoyousSpring.get_materials_in_collection({ { summon_type = "FUSION" } })
                 for _ = 1, card.ability.extra.adds do
-                    local key_to_add, _ = pseudorandom_element(choices, pseudoseed(card.config.center.key))
+                    local key_to_add, _ = pseudorandom_element(choices, card.config.center.key)
                     if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
                         JoyousSpring.add_to_extra_deck(key_to_add)
                     end
@@ -300,7 +300,7 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if context.end_of_round and context.game_over == false and context.main_eval then
                 local choices = JoyousSpring.get_materials_owned({ { is_main_deck = true } })
-                local joker = pseudorandom_element(choices, pseudoseed("j_joy_futurevisions"))
+                local joker = pseudorandom_element(choices, 'j_joy_futurevisions')
                 if joker then
                     JoyousSpring.banish(joker, "boss_selected")
                 end

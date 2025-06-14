@@ -34,7 +34,7 @@ end
 
 ---Revives a random card that fulfills **property_list**
 ---@param property_list material_properties[]
----@param seed number
+---@param seed string|number?
 ---@param must_have_room boolean?
 ---@param edition any?
 ---@param card_limit_modif integer?
@@ -44,7 +44,7 @@ end
 JoyousSpring.revive_pseudorandom = function(property_list, seed, must_have_room, edition, card_limit_modif,
                                             different_names, debuff_source)
     local choices = JoyousSpring.get_materials_in_graveyard(property_list, true, different_names)
-    local key_to_add = pseudorandom_element(choices, seed)
+    local key_to_add = pseudorandom_element(choices, seed or "JoyousSpring")
     if key_to_add then
         return JoyousSpring.revive(key_to_add, must_have_room, edition, card_limit_modif, debuff_source)
     end

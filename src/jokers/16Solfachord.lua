@@ -154,7 +154,7 @@ SMODS.Joker({
                     for i = 1, card.ability.extra.creates do
                         JoyousSpring.create_pseudorandom(
                             { { monster_archetypes = { "Solfachord" }, is_pendulum = true } },
-                            pseudoseed("j_joy_solfa_cutia"), true)
+                            'j_joy_solfa_cutia', true)
                     end
                 end
             end
@@ -292,7 +292,7 @@ SMODS.Joker({
                         .scored
                     local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Solfachord" }, is_extra_deck = true } })
                     for i = 1, card.ability.extra.adds do
-                        local key_to_add, _ = pseudorandom_element(choices, pseudoseed("j_joy_solfa_eliteia"))
+                        local key_to_add, _ = pseudorandom_element(choices, 'j_joy_solfa_eliteia')
                         if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
                             JoyousSpring.add_to_extra_deck(key_to_add)
                         end
@@ -371,7 +371,7 @@ SMODS.Joker({
                     for i = 1, card.ability.extra.creates do
                         JoyousSpring.create_pseudorandom(
                             { { monster_archetypes = { "Solfachord" }, is_pendulum = true } },
-                            pseudoseed("j_joy_solfa_fancia"), true)
+                            'j_joy_solfa_fancia', true)
                     end
                 end
             end
@@ -542,7 +542,7 @@ SMODS.Joker({
                         .scored
                     for i = 1, card.ability.extra.revives do
                         JoyousSpring.revive_pseudorandom({ { monster_archetypes = { "Solfachord" } } },
-                            pseudoseed("j_joy_solfa_angelia"), true)
+                            'j_joy_solfa_angelia', true)
                     end
                 end
             end
@@ -639,7 +639,7 @@ SMODS.Joker({
             if context.end_of_round and context.main_eval and context.game_over == false then
                 local choices = JoyousSpring.get_materials_owned({ { is_pendulum = true } })
                 for i = 1, card.ability.extra.banishes do
-                    local to_banish = pseudorandom_element(choices, pseudoseed("j_joy_solfa_beautia"))
+                    local to_banish = pseudorandom_element(choices, 'j_joy_solfa_beautia')
                     if to_banish then
                         JoyousSpring.banish(to_banish, "blind_selected")
                     end
@@ -768,7 +768,7 @@ SMODS.Joker({
                     for i = 1, card.ability.extra.creates do
                         JoyousSpring.create_pseudorandom(
                             { { monster_archetypes = { "Solfachord" }, is_pendulum = true } },
-                            pseudoseed("j_joy_solfa_cutia"), false, false, "e_negative")
+                            "j_joy_solfa_cutia", false, false, "e_negative")
                     end
                     card.ability.extra.consumed = card.ability.extra.consumed + card.ability.extra.consumed_increase
                 end
@@ -884,10 +884,10 @@ SMODS.Joker({
             if context.setting_blind and context.main_eval then
                 for i = 1, card.ability.extra.revives do
                     local revived_card = JoyousSpring.revive_pseudorandom({ { monster_archetypes = { "Solfachord" } } },
-                        pseudoseed("j_joy_solfa_harmonia"), true)
+                        'j_joy_solfa_harmonia', true)
 
                     if not revived_card then
-                        JoyousSpring.revive_pseudorandom({ { is_pendulum = true } }, pseudoseed("j_joy_solfa_harmonia"),
+                        JoyousSpring.revive_pseudorandom({ { is_pendulum = true } }, 'j_joy_solfa_harmonia',
                             true)
                     end
                 end
