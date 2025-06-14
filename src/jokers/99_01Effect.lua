@@ -470,18 +470,7 @@ SMODS.Joker({
         end
         if JoyousSpring.calculate_flip_effect(card, context) then
             for i = 1, card.ability.extra.adds do
-                local _suit = pseudorandom_element({ 'S', 'H', 'D', 'C' }, 'j_joy_darkcat') or 'S'
-                local added_card = create_playing_card(
-                    {
-                        front = G.P_CARDS[_suit .. '_' .. '2'],
-                        center = G.P_CENTERS["m_lucky"]
-                    },
-                    G.GAME.blind.in_blind and G.hand or G.deck,
-                    nil,
-                    not G.GAME.blind.in_blind,
-                    { G.C.JOY.EFFECT }
-                )
-                added_card:set_edition("e_negative", not G.GAME.blind.in_blind, not G.GAME.blind.in_blind)
+                SMODS.add_card { set = "Base", enhancement = "m_lucky", edition = "e_negative", rank = 2, area = G.GAME.blind.in_blind and G.hand or G.deck }
             end
         end
     end,

@@ -759,7 +759,14 @@ SMODS.Joker({
             }
         end
         if context.first_hand_drawn then
-            JoyousSpring.create_random_playing_card(1, nil, nil, "j_joy_adaman_laputite", nil, { 'D' })
+            local cen_pool = {}
+            for _, enhancement_center in pairs(G.P_CENTER_POOLS["Enhanced"]) do
+                if enhancement_center.key ~= 'm_stone' and not enhancement_center.overrides_base_rank then
+                    cen_pool[#cen_pool + 1] = enhancement_center.key
+                end
+            end
+            local enhancement = pseudorandom_element(cen_pool, 'spe_card')
+            SMODS.add_card { set = "Base", suit = "D", enhancement = enhancement }
             return {
                 message = localize("k_joy_activated_ex")
             }

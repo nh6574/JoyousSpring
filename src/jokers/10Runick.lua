@@ -258,8 +258,7 @@ SMODS.Joker({
             end
             if context.using_consumeable and G.GAME.blind.in_blind and context.consumeable.ability.set == 'Tarot' then
                 for i = 1, card.ability.extra.playing_cards_to_create do
-                    JoyousSpring.create_random_playing_card(8, i ~= 1, { G.C.JOY.FUSION },
-                        'j_joy_runick_freki')
+                    SMODS.add_card { set = "Playing Card" }
                 end
             end
         end
