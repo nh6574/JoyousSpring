@@ -128,6 +128,17 @@ SMODS.Consumable {
 --#region Koi Koi
 -- I'm the only one using these so I'm not going to bother making the parts properly.
 
+local cardian_is_visible = function(self)
+    if G.GAME.hands[self.key].visible then
+        return true
+    end
+    for _, playing_card in ipairs(G.playing_cards or {}) do
+        if SMODS.has_enhancement(playing_card, 'm_joy_hanafuda') then
+            return true
+        end
+    end
+    return false
+end
 JoyousSpring.hanafuda_get_hand_for_list = function(hand, has_hanafuda, has_at_least)
     local ret = {}
     for _, pcard in ipairs(hand) do
@@ -160,6 +171,7 @@ SMODS.PokerHand({
     l_chips = 15,
     l_mult = 2,
     visible = true,
+    is_visible = cardian_is_visible,
     example = {
         { 'D_A', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Paulownia" },
         { 'S_2', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Paulownia_2" },
@@ -176,7 +188,7 @@ SMODS.PokerHand({
             end
         end
         return { hand }
-    end
+    end,
 })
 
 -- Ribbons
@@ -188,6 +200,7 @@ SMODS.PokerHand({
     l_chips = 15,
     l_mult = 2,
     visible = true,
+    is_visible = cardian_is_visible,
     example = {
         { 'D_A', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Plum Blossom with Ribbon" },
         { 'S_2', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Clover with Ribbon" },
@@ -204,7 +217,7 @@ SMODS.PokerHand({
             end
         end
         return { hand }
-    end
+    end,
 })
 
 -- Blue Ribbon
@@ -216,6 +229,7 @@ SMODS.PokerHand({
     l_chips = 15,
     l_mult = 2,
     visible = true,
+    is_visible = cardian_is_visible,
     example = {
         { 'D_A', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Peony with Ribbon" },
         { 'S_2', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Chrysanthemum with Ribbon" },
@@ -242,6 +256,7 @@ SMODS.PokerHand({
     l_chips = 15,
     l_mult = 2,
     visible = true,
+    is_visible = cardian_is_visible,
     example = {
         { 'D_A', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Pine with Ribbon" },
         { 'S_2', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Plum Blossom with Ribbon" },
@@ -268,6 +283,7 @@ SMODS.PokerHand({
     l_chips = 15,
     l_mult = 2,
     visible = true,
+    is_visible = cardian_is_visible,
     example = {
         { 'D_A', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Pine with Ribbon" },
         { 'S_2', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Chrysanthemum with Ribbon" },
@@ -297,6 +313,7 @@ SMODS.PokerHand({
     l_chips = 15,
     l_mult = 2,
     visible = true,
+    is_visible = cardian_is_visible,
     example = {
         { 'D_A', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Water Iris with Bridge" },
         { 'S_2', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Maple with Deer" },
@@ -325,6 +342,7 @@ SMODS.PokerHand({
     l_chips = 15,
     l_mult = 2,
     visible = true,
+    is_visible = cardian_is_visible,
     example = {
         { 'D_A', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Peony with Butterfly" },
         { 'S_2', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Maple with Deer" },
@@ -374,6 +392,7 @@ SMODS.PokerHand({
     l_chips = 15,
     l_mult = 2,
     visible = true,
+    is_visible = cardian_is_visible,
     example = {
         { 'D_A', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Chrysanthemum with Sake" },
         { 'S_2', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Cherry Blossom with Curtain" },
@@ -406,6 +425,7 @@ SMODS.PokerHand({
     l_chips = 15,
     l_mult = 2,
     visible = true,
+    is_visible = cardian_is_visible,
     example = {
         { 'D_A', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Chrysanthemum with Sake" },
         { 'S_2', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Zebra Grass with Moon" },
@@ -427,6 +447,7 @@ SMODS.PokerHand({
     l_chips = 15,
     l_mult = 2,
     visible = true,
+    is_visible = cardian_is_visible,
     example = {
         { 'D_A', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Chrysanthemum with Sake" },
         { 'S_2', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Cherry Blossom with Curtain" },
@@ -464,6 +485,7 @@ SMODS.PokerHand({
     l_chips = 15,
     l_mult = 2,
     visible = true,
+    is_visible = cardian_is_visible,
     example = {
         { 'D_A', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Pine with Crane" },
         { 'S_2', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Zebra Grass with Moon" },
@@ -485,6 +507,7 @@ SMODS.PokerHand({
     l_chips = 15,
     l_mult = 2,
     visible = true,
+    is_visible = cardian_is_visible,
     example = {
         { 'D_A', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Pine with Crane" },
         { 'S_2', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Cherry Blossom with Curtain" },
@@ -517,6 +540,7 @@ SMODS.PokerHand({
     l_chips = 15,
     l_mult = 2,
     visible = true,
+    is_visible = cardian_is_visible,
     example = {
         { 'D_A', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Pine with Crane" },
         { 'S_2', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Cherry Blossom with Curtain" },
@@ -544,6 +568,7 @@ SMODS.PokerHand({
     l_chips = 15,
     l_mult = 2,
     visible = true,
+    is_visible = cardian_is_visible,
     example = {
         { 'D_A', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Pine with Crane" },
         { 'S_2', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Cherry Blossom with Curtain" },
@@ -629,6 +654,6 @@ SMODS.Consumable {
     end,
     can_use = function(self, card)
         return true
-    end
+    end,
 }
 --#endregion

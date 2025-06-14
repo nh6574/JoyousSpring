@@ -383,7 +383,7 @@ function localize(args, misc_cat)
     end
 
     local loc_target = nil
-    if args.type == 'joy_summon_conditions' or args.type == 'joy_transfer_ability' or args.type == 'joy_consumable' then
+    if args and (args.type == 'joy_summon_conditions' or args.type == 'joy_transfer_ability' or args.type == 'joy_consumable') then
         loc_target = G.localization.descriptions[(args.set or args.node.config.center.set)]
             [args.key or args.node.config.center.key]
 

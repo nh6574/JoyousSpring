@@ -524,6 +524,8 @@ return {
         dictionary = {
             k_joy_archetype_cardian = "Flower Cardian",
             k_joy_all_koikoi_hands = "All Koi Koi hands",
+            k_joy_hanafuda_month = "Month",
+            k_joy_hanafuda_type = "Type",
             --#region Months
             k_joy_hanafuda_january = "January",
             k_joy_hanafuda_february = "February",
