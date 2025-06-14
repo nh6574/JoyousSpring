@@ -639,9 +639,10 @@ SMODS.Joker({
             if context.end_of_round and context.main_eval and context.game_over == false then
                 local choices = JoyousSpring.get_materials_owned({ { is_pendulum = true } })
                 for i = 1, card.ability.extra.banishes do
-                    local to_banish = pseudorandom_element(choices, 'j_joy_solfa_beautia')
+                    local to_banish, index = pseudorandom_element(choices, 'j_joy_solfa_beautia')
                     if to_banish then
                         JoyousSpring.banish(to_banish, "blind_selected")
+                        table.remove(choices, index)
                     end
                 end
             end
