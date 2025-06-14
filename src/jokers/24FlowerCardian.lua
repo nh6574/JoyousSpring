@@ -1361,7 +1361,7 @@ SMODS.Joker({
             if context.first_hand_drawn then
                 SMODS.draw_cards(JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }))
             end
-            if context.modify_scoring_hand and SMODS.PokerHands[context.scoring_name].joy_koi_koi and JoyousSpring.get_hanafuda(context.other_card) then
+            if context.modify_scoring_hand and (SMODS.PokerHands[context.scoring_name] or {}).joy_koi_koi and JoyousSpring.get_hanafuda(context.other_card) then
                 return {
                     add_to_hand = true
                 }
