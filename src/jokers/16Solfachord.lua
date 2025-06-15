@@ -412,7 +412,7 @@ SMODS.Joker({
             },
             change = 5,
             rank = '4',
-            repetitions = 4,
+            repetitions = 1,
             creates = 1,
             scored = 80,
             currently_scored = 0
@@ -501,7 +501,7 @@ SMODS.Joker({
             },
             change = 6,
             rank = '3',
-            repetitions = 3,
+            repetitions = 1,
             revives = 1,
             scored = 41,
             currently_scored = 0

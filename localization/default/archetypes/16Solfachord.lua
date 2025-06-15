@@ -78,7 +78,7 @@ return {
                 },
                 text = {
                     {
-                        "Retrigger each even card {C:attention}#2#{} times",
+                        "Retrigger each even card {C:attention}#2#{} time",
                     },
                     {
                         "Creates {C:attention}#3#{} {C:joy_spell}\"Solfachord Harmonia\"{}",
@@ -95,7 +95,7 @@ return {
                 },
                 text = {
                     {
-                        "Retrigger each odd card {C:attention}#2#{} times",
+                        "Retrigger each odd card {C:attention}#2#{} time",
                     },
                     {
                         "{C:attention}Revives #3#{} {C:joy_normal}\"Solfachord\"{} after {C:attention}#4#{} odd cards are scored",
