@@ -753,7 +753,7 @@ SMODS.Joker({
     key = "dmaid_lady",
     atlas = 'Dragonmaid',
     pos = { x = 0, y = 2 },
-    rarity = 3,
+    rarity = 2,
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
