@@ -418,6 +418,9 @@ SMODS.Joker({
         end
     end,
     add_to_deck = function(self, card, from_debuff)
+        if not from_debuff then
+            card.ability.extra.unique_count = #SMODS.find_card("j_joy_spright_sprind", true)
+        end
         if not card.debuff then
             local spright_material = false
             for _, key in ipairs(JoyousSpring.get_materials(card)) do
@@ -433,7 +436,7 @@ SMODS.Joker({
                             joker:set_edition({ negative = true })
                         end
                     else
-                        SMODS.debuff_card(joker, true, "j_joy_spright_sprind")
+                        SMODS.debuff_card(joker, true, "j_joy_spright_sprind" .. (card.ability.extra.unique_count or 0))
                     end
                 end
             end
@@ -441,7 +444,7 @@ SMODS.Joker({
     end,
     remove_from_deck = function(self, card, from_debuff)
         for _, joker in ipairs(G.jokers.cards) do
-            SMODS.debuff_card(joker, false, "j_joy_spright_sprind")
+            SMODS.debuff_card(joker, false, "j_joy_spright_sprind" .. (card.ability.extra.unique_count or 0))
         end
     end,
     joy_apply_to_jokers_added = function(card, added_card)
@@ -459,7 +462,7 @@ SMODS.Joker({
                         added_card:set_edition({ negative = true })
                     end
                 else
-                    SMODS.debuff_card(added_card, true, "j_joy_spright_sprind")
+                    SMODS.debuff_card(added_card, true, "j_joy_spright_sprind" .. (card.ability.extra.unique_count or 0))
                 end
             end
         end
