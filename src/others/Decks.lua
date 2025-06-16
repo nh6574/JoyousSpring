@@ -1,7 +1,7 @@
 -- DECKS
 
 --#region Hanafuda
-
+--[[
 SMODS.Back {
     key = "hanafuda",
     atlas = "hanafuda",
@@ -18,5 +18,5 @@ SMODS.Back {
         }))
     end
 }
-
+]]
 --#endregion
