@@ -1,7 +1,7 @@
 -- ENHANCEMENTS
 
 --#region Hanafuda
-
+--[[
 SMODS.Atlas {
     key = "hanafuda",
     path = "hanafuda.png",
@@ -170,5 +170,5 @@ SMODS.Consumable {
         return { vars = { card.ability.max_highlighted } }
     end,
 }
-
+]]
 --#endregion
