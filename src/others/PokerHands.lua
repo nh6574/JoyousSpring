@@ -124,7 +124,7 @@ SMODS.Consumable {
     end
 }
 --#endregion
-
+--[[
 --#region Koi Koi
 -- I'm the only one using these so I'm not going to bother making the parts properly.
 
@@ -656,4 +656,5 @@ SMODS.Consumable {
         return true
     end,
 }
+]]
 --#endregion
