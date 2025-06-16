@@ -388,73 +388,8 @@ function localize(args, misc_cat)
             [args.key or args.node.config.center.key]
 
         if loc_target then
-            for _, lines in ipairs(loc_target[args.type .. "_parsed"]) do
-                local final_line = {}
-                for _, part in ipairs(lines) do
-                    local assembled_string = ''
-                    for _, subpart in ipairs(part.strings) do
-                        assembled_string = assembled_string ..
-                            (type(subpart) == 'string' and subpart or format_ui_value(args.vars[tonumber(subpart[1])]) or 'ERROR')
-                    end
-                    local desc_scale = G.LANG.font.DESCSCALE
-                    if G.F_MOBILE_UI then desc_scale = desc_scale * 1.5 end
-                    if part.control.E then
-                        local _float, _silent, _pop_in, _bump, _spacing = nil, true, nil, nil, nil
-                        if part.control.E == '1' then
-                            _float = true; _silent = true; _pop_in = 0
-                        elseif part.control.E == '2' then
-                            _bump = true; _spacing = 1
-                        end
-                        final_line[#final_line + 1] = {
-                            n = G.UIT.O,
-                            config = {
-                                object = DynaText({
-                                    string = { assembled_string },
-                                    colours = { part.control.V and args.vars.colours[tonumber(part.control.V)] or loc_colour(part.control.C or nil) },
-                                    float = _float,
-                                    silent = _silent,
-                                    pop_in = _pop_in,
-                                    bump = _bump,
-                                    spacing = _spacing,
-                                    scale = 0.32 * (part.control.s and tonumber(part.control.s) or args.scale or 1) *
-                                        desc_scale
-                                })
-                            }
-                        }
-                    elseif part.control.X then
-                        final_line[#final_line + 1] = {
-                            n = G.UIT.C,
-                            config = { align = "m", colour = loc_colour(part.control.X), r = 0.05, padding = 0.03, res = 0.15 },
-                            nodes = {
-                                {
-                                    n = G.UIT.T,
-                                    config = {
-                                        text = assembled_string,
-                                        colour = loc_colour(part.control.C or nil),
-                                        scale = 0.32 * (part.control.s and tonumber(part.control.s) or args.scale or 1) *
-                                            desc_scale
-                                    }
-                                },
-                            }
-                        }
-                    else
-                        final_line[#final_line + 1] = {
-                            n = G.UIT.T,
-                            config = {
-                                detailed_tooltip = part.control.T and
-                                    (G.P_CENTERS[part.control.T] or G.P_TAGS[part.control.T]) or nil,
-                                text = assembled_string,
-                                shadow = args.shadow,
-                                colour = part.control.V and args.vars.colours[tonumber(part.control.V)] or
-                                    not part.control.C and args.text_colour or
-                                    loc_colour(part.control.C or nil, args.default_col),
-                                scale = 0.32 * (part.control.s and tonumber(part.control.s) or args.scale or 1) *
-                                    desc_scale
-                            },
-                        }
-                    end
-                end
-                args.nodes[#args.nodes + 1] = final_line
+            for _, line in ipairs(loc_target[args.type .. "_parsed"]) do
+                args.nodes[#args.nodes + 1] = SMODS.localize_box(line, args)
             end
         end
     end

@@ -148,7 +148,7 @@ return {
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2{} {C:joy_normal}\"Evil{C:joy_link,f:joy_font}★{}{C:joy_link}Twin\"{}"
+                    "{C:attention}2{} {C:joy_link}\"Evil{C:joy_link,f:joy_font}★{}{C:joy_link}Twin\"{}"
                 }
             },
             j_joy_ltwin_channel = {
