@@ -1,4 +1,4 @@
-G.FUNCS.joy_sort_hanafuda_hand_month = function()
+--[[ G.FUNCS.joy_sort_hanafuda_hand_month = function()
     local months = {
         january = 1,
         february = 2,
@@ -113,7 +113,7 @@ function Game:update(dt)
         end
     end
 end
-
+]]
 JoyousSpring.create_sell_and_use_buttons = function(card, args)
     local args = args or {}
     local sell = nil
