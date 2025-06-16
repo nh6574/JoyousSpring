@@ -23,16 +23,16 @@ end
 match_indent = true
 
 
-[[patches]]
-[patches.pattern]
-target = "functions/UI_definitions.lua"
-pattern = '''
-{n=G.UIT.T, config={text = localize('k_suit'), scale = text_scale*0.7, colour = G.C.UI.TEXT_LIGHT}}
-}}
-'''
-position = "after"
-payload = '''
-,JoyousSpring.create_hanafuda_month_sort_UIBox(),
-JoyousSpring.create_hanafuda_type_sort_UIBox()
-'''
-match_indent = true
+# [[patches]]
+# [patches.pattern]
+# target = "functions/UI_definitions.lua"
+# pattern = '''
+# {n=G.UIT.T, config={text = localize('k_suit'), scale = text_scale*0.7, colour = G.C.UI.TEXT_LIGHT}}
+# }}
+# '''
+# position = "after"
+# payload = '''
+# ,JoyousSpring.create_hanafuda_month_sort_UIBox(),
+# JoyousSpring.create_hanafuda_type_sort_UIBox()
+# '''
+# match_indent = true
