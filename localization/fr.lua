@@ -106,12 +106,12 @@ return {
 					"gagne un extra coupon chaque {C:attention}#3#{} supplémentaires",
 					"et envoie {C:attention}#4#{} {C:joy_normal}\"Dragonirène\"{} au {C:attention}Cimetière{}",
 					" ",
-					"{C:attention}Se transforme{} en {C:joy_effect}\"Dragonirène Stern\"",
+					"{C:attention}Se transforme{} en {C:joy_effect}\"Dragonirène Cehrmba\"",
 					"quand la {C:attention}Blinde{} est choisie",
 				},
 			},
 			j_joy_dmaid_cehrmba = {
-				name = "{C:joy_effect}Dragonirène Stern",
+				name = "{C:joy_effect}Dragonirène Cehrmba",
 				text = {
 					"{C:green}#1# chance sur #2#{} de {C:attention}ressusciter #3#{}",
 					"{C:joy_normal}\"Dragonirène\"{} {C:green}Peu Commun{} ou {C:red}Rare{} ",
@@ -4239,18 +4239,18 @@ return {
 				text = {
 					"{C:joy_mod}Booster Art:{} IcyEthics",
 					" ",
-					"{C:joy_mod}Localization:{}",
+					"{C:joy_mod}Localisation:{}",
 					"{C:attention}French:{} Keraloon",
 					" ",
-					"{C:joy_mod}Archetype Ideas:{}",
+					"{C:joy_mod}Idées d'Archétypes:{}",
 					"{C:joy_link}@Ignister{}: gyro/rina",
 					" ",
-					"Some ideas taken from these mods:",
+					"Quelques idées prises dans ces mods:",
 					"{C:joy_effect}Aikoyori's Shenanigans{}, {C:joy_effect}Balatro: Star Rail{}, {C:joy_effect}Cartomancer",
 					"{C:joy_effect}Cryptid{s:0.95}, {C:joy_effect}Lobotomy Corporation{}, {C:joy_effect}Ortalab",
 					" ",
-					"{C:joy_mod}Special Thanks{} pour the folks in",
-					"the {C:joy_mod}JoyousSpring{} et {C:attention}Balatro{} Discord servers <3"
+					"{C:joy_mod}Remerciements spéciaux{} pour les personnes sur",
+					"les Serveurs Discord {C:joy_mod}JoyousSpring{} et {C:attention}Balatro{} <3"
 				}
 			},
 			--#region Tooltips
@@ -4345,7 +4345,7 @@ return {
 				name = "Matériel",
 				text = {
 					"Cartes utilisées pour l'invocation d'un",
-					"{C:inactive}({}{C:joy_xyz}Joker Extra Deck{}",
+					"{C:inactive}{}{C:joy_xyz}Joker Extra Deck{}",
 				},
 			},
 			joy_tooltip_detach = {
@@ -4585,13 +4585,13 @@ return {
 			k_joy_DivineBeast = "Bête Divine",
 			k_joy_Dragon = "Dragon",
 			k_joy_Fairy = "Fée",
-			k_joy_Démon = "Démon",
+			k_joy_Fiend = "Démon",
 			k_joy_Fish = "Poisson",
 			k_joy_Illusion = "Illusion",
 			k_joy_Insect = "Insecte",
 			k_joy_Machine = "Machine",
 			k_joy_Plant = "Plante",
-			k_joy_Psychique = "Psychique",
+			k_joy_Psychic = "Psychique",
 			k_joy_Pyro = "Pyro",
 			k_joy_Reptile = "Reptile",
 			k_joy_Rock = "Rocher",
@@ -4652,7 +4652,7 @@ return {
 			--#region Specific
 			k_joy_arrival_text1 = ": Baisse ",
 			k_joy_arrival_text2 = "les objectifs",
-			k_joy_arrival_text3 = "de la Misee de ",
+			k_joy_arrival_text3 = "de la Mise de ",
 			k_joy_arrival_text4 = "50%",
 			--#endregion
 		}
