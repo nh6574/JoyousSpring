@@ -22,7 +22,6 @@ SMODS.Joker({
                 summon_type = "XYZ",
                 attribute = "LIGHT",
                 monster_type = "Machine",
-
                 summon_conditions = {
                     {
                         type = "XYZ",
@@ -88,7 +87,6 @@ SMODS.Joker({
                 summon_type = "XYZ",
                 attribute = "DARK",
                 monster_type = "Fiend",
-
                 summon_conditions = {
                     {
                         type = "XYZ",
