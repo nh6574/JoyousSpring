@@ -30,7 +30,7 @@ return {
                 name = "Transform",
                 text = {
                     "Changes a {C:attention}Joker{} into another",
-                    "Keeps any enhancements",
+                    "Keeps any modifiers",
                 },
             },
             joy_tooltip_revive = {
