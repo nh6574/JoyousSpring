@@ -54,6 +54,14 @@ SMODS.Joker({
     end,
     joker_display_def = function(JokerDisplay)
         return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
             reminder_text = {
                 { ref_table = "card.joker_display_values", ref_value = "active_text" },
             },
@@ -62,6 +70,7 @@ SMODS.Joker({
                     ((not G.GAME.blind.disabled) and (G.GAME.blind:get_type() == 'Boss'))
                 card.joker_display_values.active = disableable
                 card.joker_display_values.active_text = localize(disableable and 'k_active' or 'ph_no_boss_active')
+                card.joker_display_values.xmult = 1 + (card.ability.extra.xmult * (G.GAME.joy_sauravis_uses or 0))
             end,
             style_function = function(card, text, reminder_text, extra)
                 if reminder_text and reminder_text.children[1] then
@@ -72,7 +81,7 @@ SMODS.Joker({
                 return false
             end
         }
-    end
+    end,
 })
 
 -- Lycanthrope
@@ -123,5 +132,18 @@ SMODS.Joker({
                 }
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                card.joker_display_values.mult = card.ability.extra.mult *
+                JoyousSpring.count_all_materials({ { is_normal = true } })
+            end
+        }
     end
 })

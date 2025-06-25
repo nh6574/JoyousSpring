@@ -50,7 +50,7 @@ return {
                 text = {
                     {
                         "{X:mult,C:white}X#1#{} Mult,",
-                        "gains {X:mult,C:white}X#2#{} Mult for each {C:joy_trap}Trap",
+                        "gives an extra {X:mult,C:white}X#2#{} Mult for each {C:joy_trap}Trap",
                         "{C:inactive}(Currently {X:mult,C:white}X#3#{} {C:inactive}Mult)",
                     },
                     {

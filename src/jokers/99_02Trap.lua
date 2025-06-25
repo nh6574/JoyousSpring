@@ -42,6 +42,15 @@ SMODS.Joker({
             card:flip(card)
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+        }
+    end
 })
 
 -- Statue of Anguish Pattern
@@ -141,6 +150,19 @@ SMODS.Joker({
             card:flip(card)
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                card.joker_display_values.chips = card.ability.extra.chips *
+                    JoyousSpring.count_materials_owned({ { is_trap = true } })
+            end
+        }
+    end
 })
 
 -- Tiki Soul
@@ -183,6 +205,19 @@ SMODS.Joker({
             card:flip(card)
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                card.joker_display_values.mult = card.ability.extra.mult *
+                    JoyousSpring.count_materials_owned({ { is_trap = true } })
+            end
+        }
+    end
 })
 
 -- Zoma the Spirit
@@ -231,6 +266,20 @@ SMODS.Joker({
             card:flip(card)
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.joker_display_values", ref_value = "percent", colour = G.C.RED },
+                { text = "%",                              colour = G.C.RED },
+                { text = ")" },
+            },
+            calc_function = function(card)
+                card.joker_display_values.percent = card.ability.extra.current_percent * 100
+            end
+        }
+    end
 })
 
 -- Zoma the Earthbound Spirit
@@ -288,6 +337,25 @@ SMODS.Joker({
     end,
     in_pool = function(self, args)
         return G.GAME.joy_zoma_sold
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "current_mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.joker_display_values", ref_value = "percent", colour = G.C.RED },
+                { text = "%",                              colour = G.C.RED },
+                { text = ")" },
+            },
+            calc_function = function(card)
+                card.joker_display_values.percent = card.ability.extra.current_percent * 100
+            end
+        }
     end
 })
 
@@ -353,6 +421,21 @@ SMODS.Joker({
             card:flip(card)
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xmult = #G.jokers.cards >= 10 and card.ability.extra.xmult or 1
+            end
+        }
+    end
 })
 
 -- Embodiment of Apophis
@@ -395,6 +478,15 @@ SMODS.Joker({
             card:flip(card)
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+        }
+    end
 })
 
 -- Angel Statue - Azurune
@@ -437,6 +529,21 @@ SMODS.Joker({
             card:flip(card)
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xmult = 1 + card.ability.extra.xmult * JoyousSpring.get_summoned_count()
+            end
+        }
+    end
 })
 
 -- Crusadia Krawler
@@ -480,4 +587,15 @@ SMODS.Joker({
             card:flip(card)
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            mod_function = function(card, mod_joker)
+                return {
+                    x_mult = JoyousSpring.is_summon_type(card, "LINK") and
+                        mod_joker.ability.extra.xmult ^ JokerDisplay.calculate_joker_triggers(mod_joker) or nil
+                }
+            end
+        }
+    end
 })

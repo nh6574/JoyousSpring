@@ -305,6 +305,22 @@ SMODS.Joker({
         return G.jokers.config.card_limit > 0 and #G.jokers.cards > (card.area and card.area == G.jokers and 1 or 0) and
             #G.jokers.cards <= card.ability.extra.joker_amount + (card.area and card.area == G.jokers and 1 or 0)
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xmult = #G.jokers.cards <= card.ability.extra.joker_amount and
+                    card.ability.extra.xmult or 1
+            end
+        }
+    end
 })
 
 -- Pendulumucho
@@ -418,6 +434,15 @@ SMODS.Joker({
     can_use = function(self, card)
         return true
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "current_chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+        }
+    end
 })
 
 -- P.M. Captor
@@ -542,6 +567,20 @@ SMODS.Joker({
         end
         return #G.jokers.cards > (card.area and card.area == G.jokers and 1 or 0)
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            mod_function = function(card, mod_joker)
+                local is_pend = card.facing == "front" and JoyousSpring.is_pendulum_monster(card)
+                local rarities, _ = JoyousSpring.most_owned_rarity()
+                local is_most_owned = is_pend and JoyousSpring.is_card_rarity_from_array(xard, rarities)
+                return {
+                    mult = is_most_owned and
+                        mod_joker.ability.extra.mult * JokerDisplay.calculate_joker_triggers(mod_joker) or nil
+                }
+            end
+        }
+    end
 })
 
 -- Rain Bozu
@@ -629,6 +668,16 @@ SMODS.Joker({
     end,
     joy_transfer_loc_vars = function(self, info_queue, card, config)
         return { vars = { config.chips, config.mult } }
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+",                       colour = G.C.CHIPS },
+                { ref_table = "card.ability.extra", ref_value = "current_chips", retrigger_type = "mult", colour = G.C.CHIPS },
+                { text = " +",                      colour = G.C.MULT },
+                { ref_table = "card.ability.extra", ref_value = "current_mult",  retrigger_type = "mult", colour = G.C.MULT }
+            },
+        }
     end
 })
 
@@ -677,4 +726,21 @@ SMODS.Joker({
     can_use = function(self, card)
         return card.ability.extra.current_money > 0
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                local column = JoyousSpring.get_joker_column(card)
+                card.joker_display_values.xmult = #JokerDisplay.current_hand < column and
+                math.max(1, card.ability.extra.xmult - column) or 1
+            end
+        }
+    end
 })

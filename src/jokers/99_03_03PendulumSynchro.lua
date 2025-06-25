@@ -56,4 +56,15 @@ SMODS.Joker({
         return JoyousSpring.count_materials_owned({ { is_pendulum = true } }) >
             (card.area and card.area == G.jokers and 1 or 0)
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            mod_function = function(card, mod_joker)
+                return {
+                    x_mult = card.facing == "front" and JoyousSpring.is_pendulum_monster(card) and
+                        mod_joker.ability.extra.xmult ^ JokerDisplay.calculate_joker_triggers(mod_joker) or nil
+                }
+            end
+        }
+    end
 })

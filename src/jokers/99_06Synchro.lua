@@ -116,6 +116,19 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                card.joker_display_values.mult = card.ability.extra.mult *
+                JoyousSpring.count_materials_owned({ { exclude_debuffed = true } })
+            end
+        }
+    end
 })
 
 JoyousSpring.token_pool["utchatzimime"] = {

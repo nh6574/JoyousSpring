@@ -137,6 +137,18 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                card.joker_display_values.chips = card.ability.extra.chips * (G.GAME.joy_cards_banished or 0)
+            end
+        }
+    end
 })
 
 -- Fiendish Rhino Warrior
@@ -264,6 +276,22 @@ SMODS.Joker({
     end,
     joy_flip_effect_active = function(card, other_card)
         return JoyousSpring.is_trap_monster(other_card)
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xmult = card.ability.extra.xmult +
+                    (card.ability.extra.xmult_gain * JoyousSpring.count_materials_owned({ { is_trap = true } }))
+            end
+        }
     end
 })
 
@@ -350,6 +378,19 @@ SMODS.Joker({
         if JoyousSpring.count_materials_owned({ { monster_type = "Cyberse" } }) > 0 then
             card.cost = 0
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                card.joker_display_values.chips = card.ability.extra.chips *
+                    JoyousSpring.count_materials_owned({ { monster_type = "Cyberse" } })
+            end
+        }
     end
 })
 
@@ -434,6 +475,22 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xmult = 1 +
+                    card.ability.extra.xmult * JoyousSpring.count_flipped('back', { G.jokers })
+            end
+        }
+    end
 })
 
 
@@ -477,6 +534,15 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+        }
+    end
 })
 
 -- Dekoichi the Battlechanted Locomotive
@@ -553,6 +619,19 @@ SMODS.Joker({
             card.ability.extra.h_size_change = 0
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                card.joker_display_values.mult = card.ability.extra.mult +
+                    card.ability.extra.mult_normal * JoyousSpring.count_materials_owned({ { is_normal = true } })
+            end
+        }
+    end
 })
 
 -- Bokoichi the Freightening Car
@@ -624,6 +703,22 @@ SMODS.Joker({
     calc_dollar_bonus = function(self, card)
         return JoyousSpring.can_use_abilities(card) and
             card.ability.extra.money or nil
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+$" },
+                { ref_table = "card.ability.extra", ref_value = "money" },
+            },
+            text_config = { colour = G.C.GOLD },
+            reminder_text = {
+                { ref_table = "card.joker_display_values", ref_value = "localized_text" },
+            },
+            calc_function = function(card)
+                card.joker_display_values.localized_text = "(" .. localize("k_round") .. ")"
+            end
+        }
     end
 })
 
@@ -676,6 +771,18 @@ SMODS.Joker({
             card.ability.extra.current_mult = card.ability.extra.current_mult + card.ability.extra.extra_mult
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                card.joker_display_values.mult = card.ability.extra.mult + card.ability.extra.current_mult
+            end
+        }
+    end
 })
 
 -- The Stern Mystic
@@ -727,6 +834,18 @@ SMODS.Joker({
             card.ability.extra.current_chips = card.ability.extra.current_chips + card.ability.extra.extra_chips
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                card.joker_display_values.chips = card.ability.extra.chips + card.ability.extra.current_chips
+            end
+        }
+    end
 })
 
 -- Magician of Faith
@@ -774,6 +893,19 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                card.joker_display_values.chips = card.ability.extra.chips *
+                    JoyousSpring.count_materials_in_graveyard({ { is_field_spell = true } })
+            end
+        }
+    end
 })
 
 -- Mask of Darkness
@@ -819,6 +951,19 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                card.joker_display_values.mult = card.ability.extra.mult *
+                    JoyousSpring.count_materials_in_graveyard({ { is_trap = true } })
+            end
+        }
+    end
 })
 
 -- Angraecum Umbrella
@@ -913,6 +1058,18 @@ SMODS.Joker({
                 end
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.ability.extra", ref_value = "current_xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+        }
     end
 })
 
@@ -963,6 +1120,17 @@ SMODS.Joker({
                 joker:set_edition("e_negative")
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            mod_function = function(card, mod_joker)
+                return {
+                    x_mult = JoyousSpring.is_extra_deck_monster(card) and card.debuff and
+                        mod_joker.ability.extra.xmult ^ JokerDisplay.calculate_joker_triggers(mod_joker) or nil
+                }
+            end
+        }
     end
 })
 
@@ -1237,6 +1405,20 @@ SMODS.Joker({
                 end
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            retrigger_function = function(card, scoring_hand, held_in_hand, joker_card)
+                if held_in_hand then return 0 end
+                return JoyousSpring.get_joker_column(joker_card) == 3 and
+                    JoyousSpring.index_of(JokerDisplay.current_hand, card) == 3 and 2 or 0
+            end,
+            scoring_function = function(playing_card, scoring_hand, joker_card)
+                return JoyousSpring.get_joker_column(joker_card) == 5 and
+                    JoyousSpring.index_of(JokerDisplay.current_hand, playing_card) == 5
+            end
+        }
     end
 })
 
@@ -1280,5 +1462,17 @@ SMODS.Joker({
                 return { remove = true }
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.ability.extra", ref_value = "current_xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+        }
     end
 })
