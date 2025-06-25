@@ -638,7 +638,8 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.mult, card.ability.extra.extra_mult, card.ability.extra.mult + card.ability.extra.current_mult, G.GAME.probabilities.normal or 1, card.ability.extra.odds } }
+        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
+        return { vars = { card.ability.extra.mult, card.ability.extra.extra_mult, card.ability.extra.mult + card.ability.extra.current_mult, numerator, denominator } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -657,7 +658,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if context.setting_blind and context.main_eval then
-            if pseudorandom("j_joy_searchlight") < G.GAME.probabilities.normal / card.ability.extra.odds then
+            if SMODS.pseudorandom_probability(card, card.config.center.key, 1, card.ability.extra.odds) then
                 card:flip(card)
             end
         end
@@ -688,7 +689,8 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 7,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.chips, card.ability.extra.extra_chips, card.ability.extra.chips + card.ability.extra.current_chips, G.GAME.probabilities.normal or 1, card.ability.extra.odds } }
+        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
+        return { vars = { card.ability.extra.chips, card.ability.extra.extra_chips, card.ability.extra.chips + card.ability.extra.current_chips, numerator, denominator } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -707,7 +709,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if context.setting_blind and context.main_eval then
-            if pseudorandom("j_joy_sternmystic") < G.GAME.probabilities.normal / card.ability.extra.odds then
+            if SMODS.pseudorandom_probability(card, card.config.center.key, 1, card.ability.extra.odds) then
                 card:flip(card)
             end
         end

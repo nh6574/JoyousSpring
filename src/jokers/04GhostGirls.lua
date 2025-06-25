@@ -144,7 +144,8 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 12,
     loc_vars = function(self, info_queue, card)
-        return { vars = { G.GAME.probabilities.normal or 1, card.ability.extra.odds, card.ability.extra.base_xmult, card.ability.extra.xmult } }
+        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
+        return { vars = { numerator, denominator, card.ability.extra.base_xmult, card.ability.extra.xmult } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,

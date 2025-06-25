@@ -701,7 +701,7 @@ SMODS.Joker({
     end,
 })
 
--- Ghoti02
+-- The Most Distant, Deepest Depths
 SMODS.Joker({
     key = "fish_depths",
     atlas = 'Ghoti02',

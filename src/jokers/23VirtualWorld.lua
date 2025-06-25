@@ -6,6 +6,16 @@ SMODS.Atlas({
     py = 95
 })
 
+local vw_played_hand = function(handname, context)
+    if handname ~= "joy_vw_xuanwu" and handname ~= "joy_vw_qinglong" and handname ~= "joy_vw_chuche" and handname ~= "joy_vw_kauwloon" then
+        return false
+    end
+    if next(SMODS.find_card("j_joy_vw_shenshen")) then
+        return not not next(context.poker_hands[handname])
+    end
+    return context.scoring_name == handname
+end
+
 -- Virtual World Mai-Hime - Lulu
 SMODS.Joker({
     key = "vw_lulu",
@@ -491,6 +501,13 @@ SMODS.Joker({
             xchips = 5
         },
     },
+    calculate = function(self, card, context)
+        if context.after then
+            for _, pcard in ipairs(context.scoring_hand) do
+                JoyousSpring.banish(pcard, "blind_selected")
+            end
+        end
+    end
 })
 
 JoyousSpring.collection_pool[#JoyousSpring.collection_pool + 1] = {

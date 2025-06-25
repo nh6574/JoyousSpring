@@ -15,7 +15,7 @@ if next(SMODS.find_card("j_joy_yokai_ash")) and
     (G.GAME.current_round.hands_played > 0 or G.GAME.current_round.discards_used > 0) then
     for _, joker in ipairs(SMODS.find_card("j_joy_yokai_ash")) do
         if JoyousSpring.can_use_abilities(joker) and
-            pseudorandom("j_joy_yokai_ash") < G.GAME.probabilities.normal / joker.ability.extra.odds then
+            SMODS.pseudorandom_probability(joker, joker.config.center.key, 1, joker.ability.extra.odds) then
             hand_space = (#G.hand.cards == 0) and 1 or 0
             SMODS.calculate_context({joy_no_draw = true, joy_card = joker})
             break

@@ -74,6 +74,7 @@ return {
                     {
                         "{C:mult}+#1#{} Mult for each",
                         "{C:joy_normal}\"Dragonmaid\"{} in the {C:attention}GY{}",
+                        "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
                     },
                     {
                         "{C:attention}Transforms{} into {C:joy_effect}\"Nurse Dragonmaid\"",
@@ -100,6 +101,7 @@ return {
                     {
                         "{C:chips}+#1#{} Chips for each",
                         "{C:joy_normal}\"Dragonmaid\"{} in the {C:attention}GY{}",
+                        "{C:inactive}(Currently {C:chips}+#2#{}{C:inactive} Chips)"
                     },
                     {
                         "{C:attention}Transforms{} into {C:joy_effect}\"Laundry Dragonmaid\"",

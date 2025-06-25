@@ -211,7 +211,9 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 4,
     loc_vars = function(self, info_queue, card)
-        return { vars = { (G.GAME.probabilities.normal or 1) + JoyousSpring.count_materials_owned({ { monster_archetypes = { "MekkKnight" } } }) - (card.area and card.area == G.jokers and 1 or 0), JoyousSpring.get_joker_column(card) } }
+        local numerator, _ = SMODS.get_probability_vars(card,
+            JoyousSpring.count_materials_owned({ { monster_archetypes = { "MekkKnight" } } }), 1)
+        return { vars = { numerator, JoyousSpring.get_joker_column(card) } }
     end,
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
@@ -231,7 +233,7 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if context.repetition and context.cardarea == G.play then
                 if next(SMODS.find_card("j_joy_mekk_spectrum")) or JoyousSpring.get_joker_column(card) == (JoyousSpring.index_of(context.full_hand, context.other_card)) then
-                    if pseudorandom("j_joy_mekk_green") < (G.GAME.probabilities.normal + JoyousSpring.count_materials_owned({ { monster_archetypes = { "MekkKnight" } } }) - 1) / (context.other_card.base.nominal >= 1 and context.other_card.base.nominal or 1) then
+                    if SMODS.pseudorandom_probability(card, card.config.center.key, JoyousSpring.count_materials_owned({ { monster_archetypes = { "MekkKnight" } } }), context.other_card.base.nominal >= 1 and context.other_card.base.nominal or 1) then
                         return {
                             repetitions = ((context.other_card.base.nominal >= 1) and context.other_card.base.nominal or nil)
                         }

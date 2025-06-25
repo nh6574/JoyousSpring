@@ -940,7 +940,9 @@ SMODS.Joker({
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
         end
-        return { vars = { card.ability.extra.adds, G.GAME.probabilities.normal or 1, math.max(1, card.ability.extra.odds - JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))) } }
+        local numerator, denominator = SMODS.get_probability_vars(card, 1,
+            math.max(1, card.ability.extra.odds - JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))))
+        return { vars = { card.ability.extra.adds, numerator, denominator } }
     end,
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
@@ -971,7 +973,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.repetition and context.cardarea == G.play then
-                if pseudorandom("j_joy_ignis_pegasus") < G.GAME.probabilities.normal / math.max(1, card.ability.extra.odds - JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))) then
+                if SMODS.pseudorandom_probability(card, card.config.center.key, 1, math.max(1, card.ability.extra.odds - JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card)))) then
                     return {
                         repetitions = 1
                     }
@@ -999,7 +1001,7 @@ SMODS.Joker({
     joy_transfer_ability_calculate = function(self, other_card, context, config)
         if JoyousSpring.can_use_abilities(other_card) then
             if context.repetition and context.cardarea == G.play then
-                if pseudorandom("j_joy_ignis_pegasus") < G.GAME.probabilities.normal / math.max(1, config.odds - JoyousSpring.get_attribute_count(JoyousSpring.get_materials(other_card))) then
+                if SMODS.pseudorandom_probability(other_card, other_card.config.center.key, 1, math.max(1, config.odds - JoyousSpring.get_attribute_count(JoyousSpring.get_materials(other_card)))) then
                     return {
                         repetitions = 1
                     }
@@ -1011,7 +1013,9 @@ SMODS.Joker({
         return { odds = 6 }
     end,
     joy_transfer_loc_vars = function(self, info_queue, card, config)
-        return { vars = { G.GAME.probabilities.normal or 1, math.max(1, config.odds - JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))) } }
+        local numerator, denominator = SMODS.get_probability_vars(card, 1,
+            math.max(1, config.odds - JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))))
+        return { vars = { numerator, denominator } }
     end
 })
 
@@ -1401,6 +1405,7 @@ SMODS.Joker({
         end
         local current_xmult = card.ability.extra.xmult *
             JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))
+        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
         return {
             vars = {
                 card.ability.extra.xmult,
@@ -1409,8 +1414,8 @@ SMODS.Joker({
                 card.ability.extra.creates,
                 card.ability.extra.chips,
                 card.ability.extra.mult,
-                G.GAME.probabilities.normal or 1,
-                card.ability.extra.odds,
+                numerator,
+                denominator,
                 card.ability.extra.h_size,
                 colours = {
                     card.ability.extra.attributes["LIGHT"] and G.C.JOY.LIGHT or G.C.UI.TEXT_INACTIVE,
@@ -1538,7 +1543,7 @@ SMODS.Joker({
             end
             if context.using_consumeable and context.main_eval and card.ability.extra.attributes["WIND"] then
                 if context.consumeable.ability.set == "Spectral" and
-                    pseudorandom("j_joy_ignis_arrival") < G.GAME.probabilities.normal / card.ability.extra.odds then
+                    SMODS.pseudorandom_probability(card, card.config.center.key, 1, card.ability.extra.odds) then
                     SMODS.add_card({
                         key = context.consumeable.config.center.key,
                         edition = "e_negative"
