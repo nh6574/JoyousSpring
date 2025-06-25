@@ -187,10 +187,10 @@ return {
                 text = {
                     {
                         "{C:joy_xyz}Detach{} {C:attention}#1#{}: Remove up to {C:attention}#2#{} cards from the {C:attention}GY{}",
-                        "that don't share both {C:attention}Type{} and {C:attention}Atrribute{} with any owned {C:attention}Joker{}",
+                        "that don't share both {C:attention}Type{} and {C:attention}Attribute{} with any owned {C:attention}Joker{}",
                     },
                     {
-                        "If all cards in the {C:attention}GY{} share both {C:attention}Type{} and {C:attention}Atrribute{}",
+                        "If all cards in the {C:attention}GY{} share both {C:attention}Type{} and {C:attention}Attribute{}",
                         "with any owned {C:attention}Joker{}, apply the following effects:"
                     },
                     {
@@ -213,12 +213,12 @@ return {
                 text = {
                     {
                         "If this card returns from {C:attention}banishment{} and all cards",
-                        "in the {C:attention}GY{} share both {C:attention}Type{} and {C:attention}Atrribute{} with any owned {C:attention}Joker{},",
+                        "in the {C:attention}GY{} share both {C:attention}Type{} and {C:attention}Attribute{} with any owned {C:attention}Joker{},",
                         "add {C:dark_edition}Negative{} to a random {C:attention}Joker{}"
                     },
                     {
                         "{C:joy_xyz}Detach{} {C:attention}#1#{}: {C:attention}Revive #2#{} card that shares",
-                        "both {C:attention}Type{} and {C:attention}Atrribute{} with any owned {C:attention}Joker{}",
+                        "both {C:attention}Type{} and {C:attention}Attribute{} with any owned {C:attention}Joker{}",
                     }
                 },
                 joy_summon_conditions = {
@@ -264,7 +264,7 @@ return {
                         "to the {C:attention}GY{} when {C:attention}Blind{} is selected"
                     },
                     {
-                        "If all cards in the {C:attention}GY{} share both {C:attention}Type{} and {C:attention}Atrribute{}",
+                        "If all cards in the {C:attention}GY{} share both {C:attention}Type{} and {C:attention}Attribute{}",
                         "with any owned {C:attention}Joker{}, apply the following effects:"
                     },
                     {
@@ -290,11 +290,11 @@ return {
                 name = "{C:joy_synchro}Virtual World Kyubi - Shenshen",
                 text = {
                     {
-                        "Only {C:joy_wind}WIND{}/{C:joy_normal}Psychic{} and {C:joy_earth}EARTH{}/{C:joy_normal}Wyrm{} {C:attention}Jokers{}",
-                        "can be sent to the {C:attention}GY{}"
+                        "Only {C:attention}Jokers{} that share {C:attention}Type{} and {C:attention}Attribute{}",
+                        "with any of your {C:joy_normal}\"Virtual World\"{} {C:attention}Jokers{} can be sent to the {C:attention}GY{}"
                     },
                     {
-                        "If all cards in the {C:attention}GY{} share both {C:attention}Type{} and {C:attention}Atrribute{}",
+                        "If all cards in the {C:attention}GY{} share both {C:attention}Type{} and {C:attention}Attribute{}",
                         "with any owned {C:attention}Joker{}, apply the following effects:"
                     },
                     {
@@ -343,22 +343,22 @@ return {
         },
         poker_hand_descriptions = {
             joy_vw_xuanwu = {
-                "2 cards of ranks {C:attention}3{}, {C:attention}6{} or {C:attention}9{} with different rank.",
+                "2 cards of ranks {C:attention}3{}, {C:attention}6{} or {C:attention}9{} with different rank",
                 "They may be played with up to 3 other unscored cards",
                 "(Must be enabled by an ability)"
             },
             joy_vw_qinglong = {
-                "3 cards with at least 2 different ranks of {C:attention}3{}, {C:attention}6{} or {C:attention}9{}.",
+                "3 cards with at least 2 different ranks of {C:attention}3{}, {C:attention}6{} or {C:attention}9{}",
                 "They may be played with up to 2 other unscored cards",
                 "(Must be enabled by an ability)"
             },
             joy_vw_chuche = {
-                "4 cards with at least 2 different ranks of {C:attention}3{}, {C:attention}6{} or {C:attention}9{} with at least 2 different ranks.",
+                "4 cards with at least 2 different ranks of {C:attention}3{}, {C:attention}6{} or {C:attention}9{}",
                 "They may be played with 1 other unscored card",
                 "(Must be enabled by an ability)"
             },
             joy_vw_kauwloon = {
-                "5 cards of ranks {C:attention}3{}, {C:attention}6{} or {C:attention}9{}.",
+                "5 cards with at least 3 different ranks of {C:attention}3{}, {C:attention}6{} or {C:attention}9{}",
                 "(Must be enabled by an ability)"
             },
         },

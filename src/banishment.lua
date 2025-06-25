@@ -38,6 +38,7 @@ JoyousSpring.banish = function(card, banish_until, func, immediate)
         })
     else
         card.getting_sliced = true
+        card.destroyed = true
         G.E_MANAGER:add_event(Event({
             trigger = "after",
             delay = 0.3,
@@ -55,6 +56,7 @@ JoyousSpring.banish = function(card, banish_until, func, immediate)
                     G.GAME.joy_cards_banished = G.GAME.joy_cards_banished and
                         (G.GAME.joy_cards_banished + 1) or 1
                     card.getting_sliced = nil
+                    card.destroyed = nil
                     if func then
                         func(card)
                     end
@@ -80,6 +82,8 @@ JoyousSpring.return_from_banish = function(card)
     if card.ability.set == 'Joker' then
         G.jokers:emplace(card)
         G.jokers.config.card_limit = G.jokers.config.card_limit + ((card.edition and card.edition.negative) and 1 or 0)
+    elseif JoyousSpring.is_playing_card(card) then
+        G.hand:emplace(card)
     else
         G.consumeables:emplace(card)
         G.consumeables.config.card_limit = G.consumeables.config.card_limit +
