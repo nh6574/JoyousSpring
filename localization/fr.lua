@@ -106,12 +106,12 @@ return {
 					"gagne un extra coupon chaque {C:attention}#3#{} supplémentaires",
 					"et envoie {C:attention}#4#{} {C:joy_normal}\"Dragonirène\"{} au {C:attention}Cimetière{}",
 					" ",
-					"{C:attention}Se transforme{} en {C:joy_effect}\"Dragonirène Stern\"",
+					"{C:attention}Se transforme{} en {C:joy_effect}\"Dragonirène Cehrmba\"",
 					"quand la {C:attention}Blinde{} est choisie",
 				},
 			},
 			j_joy_dmaid_cehrmba = {
-				name = "{C:joy_effect}Dragonirène Stern",
+				name = "{C:joy_effect}Dragonirène Cehrmba",
 				text = {
 					"{C:green}#1# chance sur #2#{} de {C:attention}ressusciter #3#{}",
 					"{C:joy_normal}\"Dragonirène\"{} {C:green}Peu Commun{} ou {C:red}Rare{} ",
@@ -282,7 +282,7 @@ return {
 					"en fin de manche",
 				},
 				joy_summon_conditions = {
-					"{C:attention}2{} {C:joy_normal}\"Evil★Jumelle\"{}"
+					"{C:attention}2{} {C:joy_link}\"Evil{C:joy_link,f:joy_font}★{}{C:joy_link}Jumelle\"{}"{}"
 				}
 			},
 			j_joy_ltwin_channel = {
@@ -819,7 +819,7 @@ return {
 				name = "{C:joy_spell}Niveau Boss Genèraideur",
 				text = {
 					"Tous les {C:joy_normal}\"Genèraideur\"{} gagnent {C:mult}+#1#{} Mult",
-					"pour chaque carte {C:attention}sacrifiées{}",
+					"pour chaque carte {C:attention}sacrifiées{} en possédant cette carte",
 					"{C:inactive}(Actuellement: {C:mult}+#2#{}{C:inactive} Mult)",
 					" ",
 					"Crée autant de {C:joy_token}\"Jetons Genèraideur\"{}",
@@ -839,7 +839,7 @@ return {
 				text = {
 					"{C:attention}Se bannis{} en fin de manche",
 					"jusqu'à la prochaine {C:attention}Blinde{} et",
-					"{C:attention}ressuscite #1#{} {C:joy_normal}\"Ghoti\"{} {C:joy_spell}Extra Deck{}",
+					"{C:attention}ressuscite #1#{} {C:joy_synchro}Synchro{}",
 				},
 			},
 			j_joy_fish_paces = {
@@ -1908,7 +1908,7 @@ return {
 				text = {
 					"{C:attention}Ressuscite #1#{} {C:joy_normal}\"@Ignister\" Main Deck{} quand obtenu",
 					" ",
-					"Ajoute {C:attention}#2#{} {C:joy_normal}\"@Ignister\"{} à l'{C:joy_spell}Extra Deck",
+					"Ajoute {C:attention}#2#{} {C:joy_normal}\"@Ignister\"{} non obtenu à l'{C:joy_spell}Extra Deck",
 					"quand utilisé comme {C:attention}matériel{} pour un {C:joy_normal}Cyberse"
 				}
 			},
@@ -1949,17 +1949,15 @@ return {
 			j_joy_ignis_leviathan = {
 				name = "{C:joy_ritual}Léviathan d'Eau @Ignister",
 				text = {
-					"Ajoute {C:attention}#1#{} {C:joy_normal}\"@Ignister\"{} à l'{C:joy_spell}Extra Deck{} quand invoqué",
+					"Ajoute {C:attention}#1#{} {C:joy_normal}\"@Ignister\"{} non obtenu à l'{C:joy_spell}Extra Deck{} quand invoqué",
 					" ",
 					"Les cartes marquant des points gagnent {C:chips}+#2#{} Jetons pour chaque {C:attention}Attribut{} utilisé pour son invocation",
-					"Le montant augmente de {C:chips}+#3#{} quand un {C:joy_link}Lien{} est invoqué",
-					"{C:inactive}(Actuellement: {C:chips}+#4# {C:inactive}Jetons)",
+					"{C:inactive}(Actuellement: {C:chips}+#3# {C:inactive}Jetons)",
 					"Un {C:joy_link}Lien{} invoqué utilisant cette carte comme {C:attention}matériel{} gagne cet effet"
 				},
 				joy_transfer_ability = {
 					"Les cartes marquant des points gagnent {C:chips}+#1#{} Jetons pour chaque {C:attention}Attribut{} utilisé pour son invocation",
-					"Le montant augmente de {C:chips}+#2#{} quand un {C:joy_link}Lien{} est invoqué",
-					"{C:inactive}(Actuellement: {C:chips}+#3# {C:inactive}Jetons)",
+					"{C:inactive}(Actuellement: {C:chips}+#2# {C:inactive}Jetons)",
 				},
 				joy_summon_conditions = {
 					"{C:attention}2+ {C:joy_normal}Cyberse{}"
@@ -1968,7 +1966,7 @@ return {
 			j_joy_ignis_golem = {
 				name = "{C:joy_fusion}Golem de Terre @Ignister",
 				text = {
-					"Ajoute {C:attention}#1#{} {C:joy_normal}\"@Ignister\"{} à l'{C:joy_spell}Extra Deck{} quand invoqué",
+					"Ajoute {C:attention}#1#{} {C:joy_normal}\"@Ignister\"{} non obtenu à l'{C:joy_spell}Extra Deck{} quand invoqué",
 					" ",
 					"{C:attention}+#2# slot de Joker{} pour chaque {C:attention}Attribut{} utilisé pour son invocation",
 					"{C:inactive}(Actuellement: {C:attention}+#3#{C:inactive})",
@@ -1985,7 +1983,7 @@ return {
 			j_joy_ignis_pegasus = {
 				name = "{C:joy_synchro}Pégase du Vent @Ignister",
 				text = {
-					"Ajoute {C:attention}#1#{} {C:joy_normal}\"@Ignister\"{} à l'{C:joy_spell}Extra Deck{} quand invoqué",
+					"Ajoute {C:attention}#1#{} {C:joy_normal}\"@Ignister\"{} non obtenu à l'{C:joy_spell}Extra Deck{} quand invoqué",
 					" ",
 					"{C:green}#2# chance sur #3#{} de redéclencher cartes à jouer",
 					"Chance augmenté pour chaque {C:attention}Attribut{} utilisé pour son invocation",
@@ -2004,7 +2002,7 @@ return {
 			j_joy_ignis_dragon = {
 				name = "{C:joy_xyz}Dragon de Lumière @Ignister",
 				text = {
-					"Ajoute {C:attention}#1#{} {C:joy_normal}\"@Ignister\"{} à l'{C:joy_spell}Extra Deck{} quand invoqué",
+					"Ajoute {C:attention}#1#{} {C:joy_normal}\"@Ignister\"{} non obtenu à l'{C:joy_spell}Extra Deck{} quand invoqué",
 					" ",
 					"Les cartes marquant des points gagnent {C:money}+#2#${} si tenues en main en fin de manche",
 					"pour chaque {C:attention}Attribut{} utilisé pour son invocation",
@@ -2025,20 +2023,18 @@ return {
 			j_joy_ignis_phoenix = {
 				name = "{C:joy_link}Phénix de Feu @Ignister",
 				text = {
-					"Ajoute {C:attention}#1#{} {C:joy_normal}\"@Ignister\"{} à l'{C:joy_spell}Extra Deck{} quand invoqué",
+					"Ajoute {C:attention}#1#{} {C:joy_normal}\"@Ignister\"{} non obtenu à l'{C:joy_spell}Extra Deck{} quand invoqué",
 					" ",
 					"Crée {C:attention}#2#{} {C:joy_link}\"Phénix de Feu @Ignister\"{} {C:dark_edition}Négatif{} et debuff",
 					"quand utilisé comme {C:attention}matériel{} pour un {C:joy_normal}Cyberse",
 					" ",
 					"Les cartes marquant des points gagnent {X:mult,C:white}X#3#{} extra Mult pour chaque {C:attention}Attribut{} utilisé pour son invocation",
-					"Le montant est multiplié par {X:mult,C:white}#4#{} quand un {C:joy_link}Lien{} est invoqué",
-					"{C:inactive}(Actuellement: {X:mult,C:white}X#5#{} {C:inactive}extra Mult)",
+					"{C:inactive}(Actuellement: {X:mult,C:white}X#4#{} {C:inactive}extra Mult)",
 					"Un {C:joy_link}Lien{} invoqué avec cette carte comme {C:attention}matériel{} gagne cet effet",
 				},
 				joy_transfer_ability = {
 					"Les cartes marquant des points gagnent {X:mult,C:white}X#1#{} extra Mult pour chaque {C:attention}Attribut{} utilisé pour son invocation",
-					"Le montant est multiplié par {X:mult,C:white}#2#{} quand un {C:joy_link}Lien{} est invoqué",
-					"{C:inactive}(Actuellement: {X:mult,C:white}X#3#{} {C:inactive}extra Mult)",
+					"{C:inactive}(Actuellement: {X:mult,C:white}X#2#{} {C:inactive}extra Mult)",
 				},
 				joy_summon_conditions = {
 					"{C:attention}2+ {C:joy_normal}Cyberse{}"
@@ -2229,10 +2225,11 @@ return {
 				name = "{C:joy_link}GranSolfaccord Musecia",
 				text = {
 					"Les cartes à jouer affectés par les effets consommables des {C:joy_normal}\"Solfaccord\"{}",
-					"gagnent une édition aléatoire si possible",
+					"gagnent une {C:dark_edition}édition{} aléatoire si possible",
 					" ",
 					"Crée {C:attention}#1#{} {C:joy_normal}\"Solfaccord\"{} {C:joy_pendulum}Pendule{} {C:dark_edition}Négatif{}",
-					"après avoir consommé {C:attention}#2#{} {C:joy_pendulum}Pendules{} {C:inactive}(#3# remaining){}",
+					"après avoir consommé {C:attention}#2#{} {C:joy_pendulum}Pendules{} {C:inactive}(#3# restant){}",
+					"et augmente les conditions de {C:attention}#4#{}
 					" ",
 					"Si la main marquant des points contient des cartes paires et impaires,",
 					"toutes les cartes comptent pour les deux pour les effets {C:joy_normal}\"Solfaccord\"{}",
@@ -2250,7 +2247,7 @@ return {
 					"{C:inactive}(Actuellement: {C:chips}+#2#{} {C:inactive}Jetons)",
 					" ",
 					"Les cartes à jouer affectés par les effets consommables des {C:joy_normal}\"Solfaccord\"{}",
-					"gagnent un sceau aléatoire si possible",
+					"gagnent un {C:attention}Sceau{} aléatoire si possible",
 					" ",
 					"{C:money}+#3#${} après que {C:attention}#4#{} {C:joy_pendulum}Pendules{} soient consommés {C:inactive}(#5#/#4#){}",
 					" ",
@@ -2592,7 +2589,8 @@ return {
 					"{C:inactive}(Actuellement: {C:chips}+#2#{} {C:inactive}Jetons)",
 				},
 				joy_summon_conditions = {
-					"{C:attention}1{} {C:joy_normal}Magicien{} +",
+					"{C:attention}1{} {C:joy_normal}Magicien{} ou",
+					"{C:joy_normal}\"Marionnette de l'Ombre\"{} +",
 					"{C:attention}1{} {C:attention}Joker{} {C:joy_water}EAU{}",
 				}
 			},
@@ -2611,7 +2609,8 @@ return {
 					"Les {C:joy_fusion}Fusions{} {C:joy_normal}\"Marionnette de l'Ombre\"{} ne peuvent pas être debuff ou {C:attention}retournée{} face verso",
 				},
 				joy_summon_conditions = {
-					"{C:attention}2{} {C:joy_normal}Magiciens{}",
+					"{C:attention}2{} {C:joy_normal}Magiciens{} ou",
+					"{C:joy_normal}\"Marionnette de l'Ombre\"{} +",
 					"d'{C:attention}attributs{} différents",
 				}
 			},
@@ -2632,7 +2631,8 @@ return {
 					"{C:inactive}(Actuellement: {X:mult,C:white}X#2#{} {C:inactive}Mult)",
 				},
 				joy_summon_conditions = {
-					"{C:attention}1{} {C:joy_normal}Magicien{} +",
+					"{C:attention}1{} {C:joy_normal}Magicien{} ou",
+					"{C:joy_normal}\"Marionnette de l'Ombre\"{} +",
 					"{C:attention}1{} {C:attention}Joker{} {C:joy_dark}TÉNÈBRES{}",
 				}
 			},
@@ -2651,7 +2651,8 @@ return {
 					"Envoie {C:attention}#1# {C:joy_normal}\"Marionnette de l'Ombre\"{} au {C:attention}Cimetière{} quand la {C:attention}Blinde{} est choisie",
 				},
 				joy_summon_conditions = {
-					"{C:attention}1{} {C:joy_normal}Magicien{} +",
+					"{C:attention}1{} {C:joy_normal}Magicien{} ou",
+					"{C:joy_normal}\"Marionnette de l'Ombre\"{} +",
 					"{C:attention}1{} {C:attention}Joker{} {C:joy_light}LUMIÈRE{}",
 				}
 			},
@@ -2672,7 +2673,8 @@ return {
 					"{C:inactive}(Actuellement: {X:chips,C:white}X#2#{} {C:inactive}Jetons)",
 				},
 				joy_summon_conditions = {
-					"{C:attention}1{} {C:joy_normal}Magicien{} +",
+					"{C:attention}1{} {C:joy_normal}Magicien{} ou",
+					"{C:joy_normal}\"Marionnette de l'Ombre\"{} +",
 					"{C:attention}1{} {C:attention}Joker{} {C:joy_fire}FEU{}",
 				}
 			},
@@ -2691,7 +2693,8 @@ return {
 					"Désactive l'effet de chaque {C:attention}Blinde Boss"
 				},
 				joy_summon_conditions = {
-					"{C:attention}1{} {C:joy_normal}Magicien{} +",
+					"{C:attention}1{} {C:joy_normal}Magicien{} ou",
+					"{C:joy_normal}\"Marionnette de l'Ombre\"{} +",
 					"{C:attention}1{} {C:attention}Joker{} {C:joy_earth}TERRE{}",
 				}
 			},
@@ -2712,7 +2715,8 @@ return {
 					"effets et leurs effets {C:joy_effect}FLIP{} s'activent quand la {C:attention}Blinde{} est choisie",
 				},
 				joy_summon_conditions = {
-					"{C:attention}1{} {C:joy_normal}Magicien{} +",
+					"{C:attention}1{} {C:joy_normal}Magicien{} ou",
+					"{C:joy_normal}\"Marionnette de l'Ombre\"{} +",
 					"{C:attention}1{} {C:attention}Joker{} {C:joy_wind}VENT{}",
 				}
 			},
@@ -3237,44 +3241,34 @@ return {
 			--#endregion
 			--#region Adamancipator
 			j_joy_adaman_analyzer = {
-				name = "Adamancipator Analyzer",
-				text = { "TBD" }
+				name = "Analyseur Inflexcipateur",
 			},
 			j_joy_adaman_researcher = {
-				name = "Adamancipator Researcher",
-				text = { "TBD" }
+				name = "Rechercheuse Inflexcipateur",
 			},
 			j_joy_adaman_seeker = {
-				name = "Adamancipator Seeker",
-				text = { "TBD" }
+				name = "Chercheur Inflexcipateur",
 			},
 			j_joy_adaman_crysdragite = {
-				name = "Adamancipator Crystal - Dragite",
-				text = { "TBD" }
+				name = "Cristal Inflexcipateur - Dragite",
 			},
 			j_joy_adaman_crysraptite = {
-				name = "Adamancipator Crystal - Raptite",
-				text = { "TBD" }
+				name = "Cristal Inflexcipateur - Raptite",
 			},
 			j_joy_adaman_crysleonite = {
-				name = "Adamancipator Crystal - Leonite",
-				text = { "TBD" }
+				name = "Cristal Inflexcipateur - Lionite",
 			},
 			j_joy_adaman_dragite = {
-				name = "Adamancipator Risen - Dragite",
-				text = { "TBD" }
+				name = "Éveillé Inflexcipateur - Dragite",
 			},
 			j_joy_adaman_leonite = {
-				name = "Adamancipator Risen - Leonite",
-				text = { "TBD" }
+				name = "Éveillé Inflexcipateur - Lionite",
 			},
 			j_joy_adaman_raptite = {
-				name = "Adamancipator Risen - Raptite",
-				text = { "TBD" }
+				name = "Éveillé Inflexcipateur - Raptite",
 			},
 			j_joy_adaman_laputite = {
-				name = "Adamancipator Laputite",
-				text = { "TBD" }
+				name = "Laputite Inflexcipateur",
 			},
 			--#endregion
 			--#region Free Agents
@@ -4021,7 +4015,7 @@ return {
 					"{C:inactive}(Actuellement: {X:mult,C:white}X#2#{}{C:inactive} Mult)",
 					" ",
 					"Crée {C:attention}#3#{} {C:joy_pendulum}Pendule{} {C:joy_normal}Main Deck{} {C:dark_edition}Négatif{}",
-					"quand la {C:attention}Blinde Boss{} est vaincue"
+					"La première fois que la {C:attention}Blinde Boss{} est vaincue"
 				},
 				joy_summon_conditions = {
 					"{C:attention}3 Jokers{},",
@@ -4239,18 +4233,18 @@ return {
 				text = {
 					"{C:joy_mod}Booster Art:{} IcyEthics",
 					" ",
-					"{C:joy_mod}Localization:{}",
+					"{C:joy_mod}Localisation:{}",
 					"{C:attention}French:{} Keraloon",
 					" ",
-					"{C:joy_mod}Archetype Ideas:{}",
+					"{C:joy_mod}Idées d'Archétypes:{}",
 					"{C:joy_link}@Ignister{}: gyro/rina",
 					" ",
-					"Some ideas taken from these mods:",
+					"Quelques idées prises dans ces mods:",
 					"{C:joy_effect}Aikoyori's Shenanigans{}, {C:joy_effect}Balatro: Star Rail{}, {C:joy_effect}Cartomancer",
 					"{C:joy_effect}Cryptid{s:0.95}, {C:joy_effect}Lobotomy Corporation{}, {C:joy_effect}Ortalab",
 					" ",
-					"{C:joy_mod}Special Thanks{} pour the folks in",
-					"the {C:joy_mod}JoyousSpring{} et {C:attention}Balatro{} Discord servers <3"
+					"{C:joy_mod}Remerciements spéciaux{} pour les personnes sur",
+					"les Serveurs Discord {C:joy_mod}JoyousSpring{} et {C:attention}Balatro{} <3"
 				}
 			},
 			--#region Tooltips
@@ -4345,7 +4339,7 @@ return {
 				name = "Matériel",
 				text = {
 					"Cartes utilisées pour l'invocation d'un",
-					"{C:inactive}({}{C:joy_xyz}Joker Extra Deck{}",
+					"{C:inactive}{}{C:joy_xyz}Joker Extra Deck{}",
 				},
 			},
 			joy_tooltip_detach = {
@@ -4507,8 +4501,8 @@ return {
 		},
 		poker_hand_descriptions = {
 			joy_eldlixir = {
-				"5 Cartes dorées",
-				"(Doit être activé par un effet)"
+				"5 Cartes {C:attention}dorées{}",
+				"{C:inactive}(Doit être activé par un effet)"
 			}
 		},
 		dictionary = {
@@ -4585,13 +4579,13 @@ return {
 			k_joy_DivineBeast = "Bête Divine",
 			k_joy_Dragon = "Dragon",
 			k_joy_Fairy = "Fée",
-			k_joy_Démon = "Démon",
+			k_joy_Fiend = "Démon",
 			k_joy_Fish = "Poisson",
 			k_joy_Illusion = "Illusion",
 			k_joy_Insect = "Insecte",
 			k_joy_Machine = "Machine",
 			k_joy_Plant = "Plante",
-			k_joy_Psychique = "Psychique",
+			k_joy_Psychic = "Psychique",
 			k_joy_Pyro = "Pyro",
 			k_joy_Reptile = "Reptile",
 			k_joy_Rock = "Rocher",
@@ -4652,7 +4646,7 @@ return {
 			--#region Specific
 			k_joy_arrival_text1 = ": Baisse ",
 			k_joy_arrival_text2 = "les objectifs",
-			k_joy_arrival_text3 = "de la Misee de ",
+			k_joy_arrival_text3 = "de la Mise de ",
 			k_joy_arrival_text4 = "50%",
 			--#endregion
 		}
