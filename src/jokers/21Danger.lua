@@ -534,12 +534,19 @@ SMODS.Joker({
         if context.joy_danger == card and not card.ability.extra.activated then
             card.ability.extra.activated = true
             inc_danger_count()
+            local count = 0
             for i = 1, #G.jokers.cards do
                 if G.jokers.cards[i] ~= card and not G.jokers.cards[i].ability.eternal and not G.jokers.cards[i].getting_sliced then
                     G.jokers.cards[i]:start_dissolve()
                     SMODS.calculate_context({ joy_danger = G.jokers.cards[i] })
                     G.jokers.cards[i].getting_sliced = true
+                    count = count + 1
                 end
+            end
+            for i = 1, count do
+                JoyousSpring.create_pseudorandom({ { monster_archetypes = { "Danger" }, is_main_deck = true } },
+                    'j_joy_danger_big', true, nil,
+                    next(SMODS.find_card("j_joy_danger_realm")) and "e_polychrome" or nil)
             end
         end
     end,
@@ -702,11 +709,18 @@ SMODS.Joker({
                     joker_to_destroy.getting_sliced = true
                 end
             end
+            local count = 0
             for i = 1, #G.consumeables.cards do
                 if not G.consumeables.cards[i].ability.eternal and not G.consumeables.cards[i].getting_sliced then
                     G.consumeables.cards[i].getting_sliced = true
                     G.consumeables.cards[i]:start_dissolve()
+                    count = count + 1
                 end
+            end
+            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Danger" } } })
+            for i = 1, count do
+                key_to_add = pseudorandom_element(choices, 'j_joy_danger_thunder')
+                JoyousSpring.add_monster_tag(key_to_add or "j_joy_danger_jack")
             end
         end
     end,

@@ -126,6 +126,8 @@ return {
                     {
                         "Destroys all other {C:attention}Jokers{}",
                         "when destroyed by a {C:joy_normal}\"Danger!\"{} ability",
+                        "and creates a {C:joy_normal}\"Danger!\"{} for each",
+                        "{C:inactive}(Must have room)"
                     },
                 }
             },
@@ -163,6 +165,8 @@ return {
                     {
                         "Destroys {C:attention}#4#{} other {C:attention}Joker{} and all {C:attention}Consumables",
                         "when destroyed by a {C:joy_normal}\"Danger!\"{} ability",
+                        "and adds a {C:joy_normal}\"Danger!\"{} to the shop",
+                        "for each {C:attention}Consumable{} destroyed"
                     },
                 }
             },
