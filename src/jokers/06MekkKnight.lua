@@ -82,6 +82,11 @@ SMODS.Joker({
     end,
     joker_display_def = function(JokerDisplay)
         return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
             reminder_text = {
                 { text = "(" },
                 { ref_table = "card.joker_display_values", ref_value = "localized_text" },
@@ -90,8 +95,19 @@ SMODS.Joker({
                 { text = ")" },
             },
             calc_function = function(card)
+                local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+                local mult = 0
+                local column = JoyousSpring.get_joker_column(card)
+                if text ~= 'Unknown' then
+                    for _, scoring_card in pairs(scoring_hand) do
+                        if next(SMODS.find_card("j_joy_mekk_spectrum")) or column == (JoyousSpring.index_of(JokerDisplay.current_hand, scoring_card)) then
+                            mult = mult + scoring_card.base.nominal * card.ability.extra.mult
+                        end
+                    end
+                end
+                card.joker_display_values.mult = mult
                 card.joker_display_values.localized_text = localize("k_joy_column")
-                card.joker_display_values.column = JoyousSpring.get_joker_column(card)
+                card.joker_display_values.column = column
             end
         }
     end
@@ -157,6 +173,35 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.ability.extra", ref_value = "current_xchips", retrigger_type = "exp" }
+                    },
+                    border_colour = G.C.CHIPS
+                }
+            },
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.joker_display_values", ref_value = "localized_text" },
+                { text = " " },
+                { ref_table = "card.joker_display_values", ref_value = "column" },
+                { text = ")" },
+            },
+            calc_function = function(card)
+                local column = JoyousSpring.get_joker_column(card)
+                card.joker_display_values.localized_text = localize("k_joy_column")
+                card.joker_display_values.column = column
+            end,
+            scoring_function = function(playing_card, scoring_hand, joker_card)
+                return not not (next(SMODS.find_card("j_joy_mekk_spectrum")) or JoyousSpring.get_joker_column(joker_card) == (JoyousSpring.index_of(JokerDisplay.current_hand, playing_card)))
+            end
+        }
+    end
 })
 
 -- Mekk-Knight Yellow Star
@@ -198,6 +243,37 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+$" },
+                { ref_table = "card.joker_display_values", ref_value = "money", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.GOLD },
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.joker_display_values", ref_value = "localized_text" },
+                { text = " " },
+                { ref_table = "card.joker_display_values", ref_value = "column" },
+                { text = ")" },
+            },
+            calc_function = function(card)
+                local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+                local money = 0
+                local column = JoyousSpring.get_joker_column(card)
+                if text ~= 'Unknown' then
+                    for _, scoring_card in pairs(scoring_hand) do
+                        if next(SMODS.find_card("j_joy_mekk_spectrum")) or column == (JoyousSpring.index_of(JokerDisplay.current_hand, scoring_card)) then
+                            money = money + scoring_card.base.nominal * card.ability.extra.money
+                        end
+                    end
+                end
+                card.joker_display_values.money = money
+                card.joker_display_values.localized_text = localize("k_joy_column")
+                card.joker_display_values.column = column
+            end
+        }
+    end
 })
 
 -- Mekk-Knight Green Horizon
@@ -242,6 +318,22 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.joker_display_values", ref_value = "localized_text" },
+                { text = " " },
+                { ref_table = "card.joker_display_values", ref_value = "column" },
+                { text = ")" },
+            },
+            calc_function = function(card)
+                local column = JoyousSpring.get_joker_column(card)
+                card.joker_display_values.localized_text = localize("k_joy_column")
+                card.joker_display_values.column = column
+            end
+        }
+    end
 })
 
 -- Mekk-Knight Blue Sky
@@ -283,6 +375,37 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.joker_display_values", ref_value = "localized_text" },
+                { text = " " },
+                { ref_table = "card.joker_display_values", ref_value = "column" },
+                { text = ")" },
+            },
+            calc_function = function(card)
+                local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+                local chips = 0
+                local column = JoyousSpring.get_joker_column(card)
+                if text ~= 'Unknown' then
+                    for _, scoring_card in pairs(scoring_hand) do
+                        if next(SMODS.find_card("j_joy_mekk_spectrum")) or column == (JoyousSpring.index_of(JokerDisplay.current_hand, scoring_card)) then
+                            chips = chips + scoring_card.base.nominal * card.ability.extra.chips
+                        end
+                    end
+                end
+                card.joker_display_values.chips = chips
+                card.joker_display_values.localized_text = localize("k_joy_column")
+                card.joker_display_values.column = column
+            end
+        }
+    end
 })
 
 -- Mekk-Knight Indigo Eclipse
@@ -330,9 +453,9 @@ SMODS.Joker({
                 monster_type = "Psychic",
                 monster_archetypes = { ["MekkKnight"] = true }
             },
-            chips = 20,
-            mult = 20,
-            xmult = 2,
+            chips = 80,
+            mult = 15,
+            xmult = 1.5,
             money = 5
         },
     },
@@ -362,6 +485,57 @@ SMODS.Joker({
             (next(SMODS.find_card("j_joy_mekk_spectrum")) or JoyousSpring.get_joker_column(card) >= 5) and
             card.ability.extra.money or nil
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+",                              colour = G.C.CHIPS },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult", colour = G.C.CHIPS },
+                { text = " +",                             colour = G.C.MULT },
+                { ref_table = "card.joker_display_values", ref_value = "mult",  retrigger_type = "mult", colour = G.C.MULT }
+            },
+            extra = {
+                {
+                    {
+                        border_nodes = {
+                            { text = "X" },
+                            { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                        }
+                    },
+                    { text = " +$",                            colour = G.C.GOLD },
+                    { ref_table = "card.joker_display_values", ref_value = "money", retrigger_type = "mult", colour = G.C.GOLD }
+                }
+            },
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.joker_display_values", ref_value = "localized_text" },
+                { text = " " },
+                { ref_table = "card.joker_display_values", ref_value = "column" },
+                { text = ")" },
+            },
+            calc_function = function(card)
+                local column = JoyousSpring.get_joker_column(card)
+                local has_spectrum = next(SMODS.find_card("j_joy_mekk_spectrum"))
+                card.joker_display_values.chips = (has_spectrum or JoyousSpring.get_joker_column(card) == 2) and
+                    card.ability.extra.chips or
+                    0
+                card.joker_display_values.mult = (has_spectrum or JoyousSpring.get_joker_column(card) == 3) and
+                    card.ability.extra.mult or 0
+                card.joker_display_values.xmult = (has_spectrum or JoyousSpring.get_joker_column(card) == 4) and
+                    card.ability.extra.xmult or
+                    1
+                card.joker_display_values.money = (has_spectrum or JoyousSpring.get_joker_column(card) >= 5) and
+                    card.ability.extra.money or 0
+                card.joker_display_values.localized_text = localize("k_joy_column")
+                card.joker_display_values.column = column
+            end,
+            retrigger_function = function(playing_card, scoring_hand, held_in_hand, joker_card)
+                if held_in_hand then return 0 end
+                return next(SMODS.find_card("j_joy_mekk_spectrum")) or JoyousSpring.get_joker_column(joker_card) == 1 and
+                    1 * JokerDisplay.calculate_joker_triggers(joker_card) or 0
+            end
+        }
+    end
 })
 
 -- Mekk-Knight Purple Nightfall
@@ -468,6 +642,44 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.joker_display_values", ref_value = "localized_text" },
+                { text = " " },
+                { ref_table = "card.joker_display_values", ref_value = "column" },
+                { text = ")" },
+            },
+            calc_function = function(card)
+                local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+                local xmult = 1
+                local column = JoyousSpring.get_joker_column(card)
+                if text ~= 'Unknown' then
+                    for _, scoring_card in pairs(scoring_hand) do
+                        local card_column = JoyousSpring.index_of(JokerDisplay.current_hand, scoring_card)
+                        if next(SMODS.find_card("j_joy_mekk_spectrum")) or column + 1 == card_column or column - 1 == card_column and
+                            G.jokers.cards[card_column] and
+                            JoyousSpring.is_monster_archetype(G.jokers.cards[card_column], "MekkKnight") then
+                            xmult = xmult * card.ability.extra.xmult
+                        end
+                    end
+                end
+                card.joker_display_values.xmult = xmult
+                card.joker_display_values.localized_text = localize("k_joy_column")
+                card.joker_display_values.column = column
+            end
+        }
+    end
 })
 
 -- Mekk-Knight Spectrum Supreme
@@ -593,6 +805,21 @@ SMODS.Joker({
             G.STATE_COMPLETE = true
             end_round()
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.ability.extra",        ref_value = "blinds" },
+                { text = "/" },
+                { ref_table = "card.joker_display_values", ref_value = "materials" },
+                { text = ")" },
+            },
+            calc_function = function(card)
+                card.joker_display_values.materials = #JoyousSpring.get_materials(card)
+            end
+        }
     end
 })
 
@@ -666,6 +893,16 @@ SMODS.Joker({
         local materials = JoyousSpring.get_materials_owned({ { monster_archetypes = { "MekkKnight" } } }, false, true)
         return next(materials) and true or false
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            mod_function = function(card, mod_joker)
+                return {
+                    mult = (JoyousSpring.is_monster_archetype(card, "MekkKnight") and mod_joker.ability.extra.mult and
+                        mod_joker.ability.extra.mult * JokerDisplay.calculate_joker_triggers(mod_joker) or nil)
+                }
+            end
+        }
+    end
 })
 
 JoyousSpring.collection_pool[#JoyousSpring.collection_pool + 1] = {

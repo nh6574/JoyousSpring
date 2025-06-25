@@ -285,6 +285,15 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         card.ability.extra.current_chips = card.ability.extra.chips * JoyousSpring.count_set_tributed("Tarot")
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "current_chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+        }
     end
 })
 
@@ -384,6 +393,15 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         card.ability.extra.current_mult = card.ability.extra.mult * JoyousSpring.count_set_tributed("Tarot")
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "current_mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+        }
     end
 })
 
@@ -468,6 +486,18 @@ SMODS.Joker({
         local materials = JoyousSpring.get_consumable_count("Tarot")
         return materials >= card.ability.extra.tributes
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.ability.extra", ref_value = "hands_played" },
+                { text = "/" },
+                { ref_table = "card.ability.extra", ref_value = "hands_to_play" },
+                { text = ")" },
+            },
+        }
+    end
 })
 
 -- Witchcrafter Haine
@@ -617,6 +647,23 @@ SMODS.Joker({
                 })
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xmult = card.ability.extra.current_xmult > 1 and
+                    card.ability.extra.current_xmult or
+                    1
+            end
+        }
     end
 })
 
@@ -687,6 +734,15 @@ SMODS.Joker({
             card.cost = 0
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "current_mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+        }
+    end
 })
 
 -- Witchcrafter Vice-Madame
@@ -755,6 +811,18 @@ SMODS.Joker({
         if other_card.ability.set == "Booster" and other_card.config.center.kind == "Arcana" then
             other_card.cost = 0
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.ability.extra", ref_value = "consumables_used" },
+                { text = "/" },
+                { ref_table = "card.ability.extra", ref_value = "consumables" },
+                { text = ")" },
+            },
+        }
     end
 })
 

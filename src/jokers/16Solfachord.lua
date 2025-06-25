@@ -162,6 +162,34 @@ SMODS.Joker({
                 card.ability.extra.consumed_this_round = 0
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.ability.extra", ref_value = "consumed_this_round" },
+                { text = "/" },
+                { ref_table = "card.ability.extra", ref_value = "consumed" },
+                { text = ")" },
+            },
+            calc_function = function(card)
+                local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+                local mult = 0
+                if text ~= 'Unknown' then
+                    for _, scoring_card in pairs(scoring_hand) do
+                        if is_even(scoring_card) then
+                            mult = mult + card.ability.extra.mult * solfa_count()
+                        end
+                    end
+                end
+                card.joker_display_values.mult = mult
+            end
+        }
     end
 })
 
@@ -227,6 +255,27 @@ SMODS.Joker({
             card.cost = 0
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+                local mult = 0
+                if text ~= 'Unknown' then
+                    for _, scoring_card in pairs(scoring_hand) do
+                        if is_odd(scoring_card) then
+                            mult = mult + card.ability.extra.mult * solfa_count()
+                        end
+                    end
+                end
+                card.joker_display_values.mult = mult
+            end
+        }
+    end
 })
 
 -- MiSolfachord Eliteia
@@ -305,6 +354,22 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "current_chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.ability.extra", ref_value = "currently_scored" },
+                { text = "/" },
+                { ref_table = "card.ability.extra", ref_value = "scored" },
+                { text = ")" },
+            },
+        }
+    end
 })
 
 -- FaSolfachord Fancia
@@ -381,6 +446,23 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "current_chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.ability.extra", ref_value = "currently_scored" },
+                { text = "/" },
+                { ref_table = "card.ability.extra", ref_value = "scored" },
+                { text = ")" },
+            },
+        }
+    end
 })
 
 -- SolSolfachord Gracia
@@ -468,6 +550,21 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.ability.extra", ref_value = "currently_scored" },
+                { text = "/" },
+                { ref_table = "card.ability.extra", ref_value = "scored" },
+                { text = ")" },
+            },
+            retrigger_function = function(card, scoring_hand, held_in_hand, joker_card)
+                return is_even(card) and joker_card.ability.extra.repetitions or 0
+            end
+        }
+    end
 })
 
 -- LaSolfachord Angelia
@@ -565,6 +662,21 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.ability.extra", ref_value = "currently_scored" },
+                { text = "/" },
+                { ref_table = "card.ability.extra", ref_value = "scored" },
+                { text = ")" },
+            },
+            retrigger_function = function(card, scoring_hand, held_in_hand, joker_card)
+                return is_odd(card) and joker_card.ability.extra.repetitions or 0
+            end
+        }
+    end
 })
 
 -- TiSolfachord Beautia
@@ -646,6 +758,32 @@ SMODS.Joker({
                 end
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xchips", retrigger_type = "exp" }
+                    },
+                    border_colour = G.C.CHIPS
+                }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+                local count = 0
+                if text ~= 'Unknown' then
+                    for _, scoring_card in pairs(scoring_hand) do
+                        if is_even(scoring_card) then
+                            count = count + JokerDisplay.calculate_card_triggers(scoring_card)
+                        end
+                    end
+                end
+                card.joker_display_values.xchips = (1 + card.ability.extra.xchips * solfa_count()) ^ count
+            end
+        }
     end
 })
 
@@ -714,6 +852,31 @@ SMODS.Joker({
                 end
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    },
+                }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+                local count = 0
+                if text ~= 'Unknown' then
+                    for _, scoring_card in pairs(scoring_hand) do
+                        if is_odd(scoring_card) then
+                            count = count + JokerDisplay.calculate_card_triggers(scoring_card)
+                        end
+                    end
+                end
+                card.joker_display_values.xmult = (1 + card.ability.extra.xmult * solfa_count()) ^ count
+            end
+        }
     end
 })
 
@@ -844,6 +1007,18 @@ SMODS.Joker({
                 card.ability.extra.consumed_this_round = 0
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                card.joker_display_values.chips = card.ability.extra.chips * pend_count()
+            end
+        }
     end
 })
 

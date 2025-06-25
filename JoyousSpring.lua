@@ -24,6 +24,7 @@ assert(SMODS.load_file("src/monsters.lua"))()
 assert(SMODS.load_file("src/material_functions.lua"))()
 assert(SMODS.load_file("src/effects.lua"))()
 assert(SMODS.load_file("src/custom_pool.lua"))()
+assert(SMODS.load_file("src/cross_mod.lua"))()
 
 -- Jokers
 local joker_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/jokers")

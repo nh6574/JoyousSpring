@@ -11,6 +11,7 @@ SMODS.Atlas({
     px = 71,
     py = 95
 })
+
 -- PSY-Frame Driver
 SMODS.Joker({
     key = "psy_driver",
@@ -72,7 +73,7 @@ SMODS.Joker({
             },
             cards_to_create = 1,
             xmult = 1.1,
-            active = true
+            active = false
         },
     },
     calculate = function(self, card, context)
@@ -108,6 +109,33 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "x_mult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                local playing_hand = next(G.play.cards)
+                local count = 0
+                if card.ability.extra.active then
+                    for _, playing_card in ipairs(G.hand.cards) do
+                        if playing_hand or not playing_card.highlighted then
+                            if not (playing_card.facing == 'back') and not playing_card.debuff then
+                                count = count + JokerDisplay.calculate_card_triggers(playing_card, nil, true)
+                            end
+                        end
+                    end
+                end
+                card.joker_display_values.x_mult = card.ability.extra.xmult ^ count
+            end
+        }
+    end
 })
 
 -- PSY-Framegear Beta
@@ -140,7 +168,8 @@ SMODS.Joker({
                 monster_archetypes = { ["PSYFrame"] = true }
             },
             cards_to_create = 1,
-            xmult = 1.5
+            xmult = 1.5,
+            active = false
         },
     },
     calculate = function(self, card, context)
@@ -176,6 +205,31 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "x_mult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                local count = 0
+                local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+                if card.ability.extra.active and text ~= 'Unknown' then
+                    for _, scoring_card in pairs(scoring_hand) do
+                        if not scoring_card.debuff then
+                            count = count + JokerDisplay.calculate_card_triggers(scoring_card, nil, true)
+                        end
+                    end
+                end
+                card.joker_display_values.x_mult = card.ability.extra.xmult ^ count
+            end
+        }
+    end
 })
 
 -- PSY-Framegear Gamma
@@ -208,7 +262,8 @@ SMODS.Joker({
                 monster_archetypes = { ["PSYFrame"] = true }
             },
             cards_to_create = 1,
-            xmult = 1.2
+            xmult = 1.2,
+            active = false
         },
     },
     calculate = function(self, card, context)
@@ -245,6 +300,16 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            mod_function = function(card, mod_joker)
+                return {
+                    x_mult = mod_joker.ability.extra.active and
+                        mod_joker.ability.extra.xmult ^ JokerDisplay.calculate_joker_triggers(mod_joker) or nil
+                }
+            end
+        }
+    end
 })
 
 -- PSY-Framegear Delta
@@ -277,7 +342,8 @@ SMODS.Joker({
                 monster_archetypes = { ["PSYFrame"] = true }
             },
             cards_to_create = 1,
-            xmult = 2
+            xmult = 2,
+            active = false
         },
     },
     calculate = function(self, card, context)
@@ -313,6 +379,30 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "x_mult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                local count = 0
+                if card.ability.extra.active then
+                    for _, consumable in pairs(G.consumeables.cards) do
+                        if consumable.ability.set == "Tarot" then
+                            count = count + 1
+                        end
+                    end
+                end
+                card.joker_display_values.x_mult = card.ability.extra.xmult ^ count
+            end
+        }
+    end
 })
 
 -- PSY-Framegear Epsilon
@@ -345,7 +435,8 @@ SMODS.Joker({
                 monster_archetypes = { ["PSYFrame"] = true }
             },
             cards_to_create = 1,
-            xmult = 2
+            xmult = 2,
+            active = false
         },
     },
     calculate = function(self, card, context)
@@ -381,6 +472,30 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "x_mult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                local count = 0
+                if card.ability.extra.active then
+                    for _, consumable in pairs(G.consumeables.cards) do
+                        if consumable.ability.set == "Planet" then
+                            count = count + 1
+                        end
+                    end
+                end
+                card.joker_display_values.x_mult = card.ability.extra.xmult ^ count
+            end
+        }
+    end
 })
 
 -- PSY-Frame Multi-Threader

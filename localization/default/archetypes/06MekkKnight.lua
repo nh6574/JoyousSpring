@@ -29,7 +29,7 @@ return {
                     },
                     {
                         "Gains {X:chips,C:white}X#2#{} Chips each time",
-                        "this ability triggers",
+                        "this card's ability makes a card count for scoring",
                         "{C:inactive}(Currently {X:chips,C:white}X#3#{}{C:inactive} Chips)",
                     },
                 },
@@ -109,7 +109,7 @@ return {
                 text = {
                     {
                         "{C:joy_normal}\"Mekk-Knight\"{} abilities apply to",
-                        "all played cards",
+                        "all played cards and {C:attention}columns",
                     },
                     {
                         "Once per round, sell {C:attention}#1#{} {C:joy_normal}\"Mekk-Knight\"{}",

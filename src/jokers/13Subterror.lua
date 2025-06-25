@@ -132,6 +132,19 @@ SMODS.Joker({
                 JoyousSpring.flip_all_cards(card, 'front')
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                card.joker_display_values.chips = card.ability.extra.chips *
+                    (JoyousSpring.count_flipped('back', { G.jokers }) + JoyousSpring.count_materials_owned({ { monster_archetypes = { "Subterror" } } }))
+            end
+        }
     end
 })
 
@@ -417,6 +430,22 @@ SMODS.Joker({
         if card.ability.extra.current_h_size > 0 then
             G.hand:change_size(-card.ability.extra.h_size)
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xmult = card.ability.extra.current_xmult > 0 and
+                    card.ability.extra.current_xmult or 1
+            end
+        }
     end
 })
 
@@ -472,6 +501,43 @@ SMODS.Joker({
         if not card.debuff and not from_debuff then
             card:flip(card)
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "x_mult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                local playing_hand = next(G.play.cards)
+                local count = 0
+                if JoyousSpring.is_flip_active(card) then
+                    for _, playing_card in ipairs(G.hand.cards) do
+                        if playing_hand or not playing_card.highlighted then
+                            if playing_card.facing == 'back' and not playing_card.debuff then
+                                count = count + JokerDisplay.calculate_card_triggers(playing_card, nil, true)
+                            end
+                        end
+                    end
+                    for _, consumable in ipairs(G.consumeables.cards) do
+                        if consumable.facing == 'back' then
+                            count = count + 1
+                        end
+                    end
+                    for _, joker in ipairs(G.jokers.cards) do
+                        if joker.facing == 'back' then
+                            count = count + 1
+                        end
+                    end
+                end
+                card.joker_display_values.x_mult = card.ability.extra.xmult ^ count
+            end
+        }
     end
 })
 
@@ -638,6 +704,19 @@ SMODS.Joker({
         if not card.debuff and not from_debuff then
             card:flip(card)
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                card.joker_display_values.chips = card.ability.extra.chips *
+                    JoyousSpring.count_materials_in_graveyard({ { monster_type = "Aqua" }, { monster_archetypes = { "Subterror" } } })
+            end
+        }
     end
 })
 
@@ -693,6 +772,19 @@ SMODS.Joker({
         if not card.debuff and not from_debuff then
             card:flip(card)
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                card.joker_display_values.mult = card.ability.extra.mult *
+                    JoyousSpring.count_flipped('back')
+            end
+        }
     end
 })
 
@@ -818,6 +910,21 @@ SMODS.Joker({
         if not card.debuff and not from_debuff then
             card:flip(card)
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xmult = 1 + card.ability.extra.xmult
+            end
+        }
     end
 })
 
@@ -877,6 +984,19 @@ SMODS.Joker({
         if not card.debuff and not from_debuff then
             card:flip(card)
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                card.joker_display_values.chips = card.ability.extra.chips *
+                    JoyousSpring.count_flipped('back')
+            end
+        }
     end
 })
 
@@ -895,12 +1015,13 @@ SMODS.Joker({
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
         end
         local mult_count = 0
-        for _, material in ipairs(JoyousSpring.get_materials(card)) do
+        local materials = JoyousSpring.get_materials(card)
+        for _, material in ipairs(materials) do
             if JoyousSpring.is_material_center(material, { monster_archetypes = { "Subterror" } }) then
                 mult_count = mult_count + 1
             end
         end
-        local current_chips = card.ability.extra.chips * #JoyousSpring.get_materials(card)
+        local current_chips = card.ability.extra.chips * #materials
         local current_mult = card.ability.extra.mult * mult_count
         return { vars = { card.ability.extra.chips, card.ability.extra.mult, current_chips, current_mult, card.ability.extra.flips, card.ability.extra.creates } }
     end,
@@ -976,12 +1097,13 @@ SMODS.Joker({
             end
             if context.joker_main then
                 local mult_count = 0
-                for _, material in ipairs(JoyousSpring.get_materials(card)) do
+                local materials = JoyousSpring.get_materials(card)
+                for _, material in ipairs(materials) do
                     if JoyousSpring.is_material_center(material, { monster_archetypes = { "Subterror" } }) then
                         mult_count = mult_count + 1
                     end
                 end
-                local current_chips = card.ability.extra.chips * #JoyousSpring.get_materials(card)
+                local current_chips = card.ability.extra.chips * #materials
                 local current_mult = card.ability.extra.mult * mult_count
                 return {
                     chips = current_chips,
@@ -1006,6 +1128,28 @@ SMODS.Joker({
         end
         return faceup_joker >= card.ability.extra.flips
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+",                              colour = G.C.CHIPS },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult", colour = G.C.CHIPS },
+                { text = " +",                             colour = G.C.MULT },
+                { ref_table = "card.joker_display_values", ref_value = "mult",  retrigger_type = "mult", colour = G.C.MULT }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                local mult_count = 0
+                local materials = JoyousSpring.get_materials(card)
+                for _, material in ipairs(materials) do
+                    if JoyousSpring.is_material_center(material, { monster_archetypes = { "Subterror" } }) then
+                        mult_count = mult_count + 1
+                    end
+                end
+                card.joker_display_values.chips = card.ability.extra.chips * #materials
+                card.joker_display_values.mult = card.ability.extra.mult * mult_count
+            end
+        }
+    end
 })
 
 -- The Hidden City

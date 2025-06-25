@@ -55,6 +55,15 @@ SMODS.Joker({
                     'j_joy_ignis_achichi', true)
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+        }
     end
 })
 
@@ -100,6 +109,22 @@ SMODS.Joker({
                 end
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+$" },
+                { ref_table = "card.ability.extra", ref_value = "dollars" },
+            },
+            text_config = { colour = G.C.GOLD },
+            reminder_text = {
+                { ref_table = "card.joker_display_values", ref_value = "localized_text" },
+            },
+            calc_function = function(card)
+                card.joker_display_values.localized_text = "(" .. localize("k_round") .. ")"
+            end
+        }
     end
 })
 
@@ -304,6 +329,15 @@ SMODS.Joker({
             }
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+        }
+    end
 })
 
 -- Gatchiri @Ignister
@@ -356,6 +390,19 @@ SMODS.Joker({
     end,
     joy_transfer_loc_vars = function(self, info_queue, card, config)
         return { vars = {} }
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.ability.extra", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+        }
     end
 })
 
@@ -420,6 +467,15 @@ SMODS.Joker({
     end,
     joy_transfer_loc_vars = function(self, info_queue, card, config)
         return { vars = { config.mult, config.current_mult } }
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+        }
     end
 })
 
@@ -1254,10 +1310,13 @@ SMODS.Joker({
         },
     },
     calculate = function(self, card, context)
-        if JoyousSpring.can_use_abilities(card) and context.joker_main and JoyousSpring.count_materials_owned({ { summon_type = "LINK" } }) > 0 then
-            return {
-                xmult = card.ability.extra.xmult * JoyousSpring.count_materials_owned({ { summon_type = "LINK" } })
-            }
+        if JoyousSpring.can_use_abilities(card) and context.joker_main then
+            local link_count = JoyousSpring.count_materials_owned({ { summon_type = "LINK" } })
+            if link_count > 0 then
+                return {
+                    xmult = card.ability.extra.xmult * link_count
+                }
+            end
         end
     end,
     add_to_deck = function(self, card, from_debuff)
@@ -1268,6 +1327,22 @@ SMODS.Joker({
                     'j_joy_ignis_accode', true, nil, (card.edition and card.edition.negative) and 0 or -1)
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                local link_count = JoyousSpring.count_materials_owned({ { summon_type = "LINK" } })
+                card.joker_display_values.xmult = link_count > 0 and card.ability.extra.xmult * link_count or 1
+            end
+        }
     end
 })
 
@@ -1577,6 +1652,43 @@ SMODS.Joker({
         if card.ability.extra.attributes["EARTH"] then
             G.hand:change_size(-card.ability.extra.h_size)
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            extra = {
+                {
+                    { text = "+",                              colour = G.C.CHIPS },
+                    { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult", colour = G.C.CHIPS },
+                    { text = " +",                             colour = G.C.MULT },
+                    { ref_table = "card.joker_display_values", ref_value = "mult",  retrigger_type = "mult", colour = G.C.MULT }
+                },
+                {
+                    { text = "+$",                             colour = G.C.GOLD },
+                    { ref_table = "card.joker_display_values", ref_value = "money",          colour = G.C.GOLD },
+                    { ref_table = "card.joker_display_values", ref_value = "localized_text", colour = G.C.UI.TEXT_INACTIVE },
+                }
+            },
+            calc_function = function(card)
+                local current_xmult = card.ability.extra.xmult *
+                    JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))
+                card.joker_display_values.xmult = current_xmult > 0 and current_xmult or 1
+                card.joker_display_values.chips = card.ability.extra.attributes["WATER"] and card.ability.extra.chips or
+                    0
+                card.joker_display_values.mult = card.ability.extra.attributes["FIRE"] and card.ability.extra.mult or 0
+                card.joker_display_values.money = card.ability.extra.attributes["LIGHT"] and card.ability.extra.money or
+                0
+                card.joker_display_values.localized_text = " (" .. localize("k_round") .. ")"
+            end
+        }
     end
 })
 

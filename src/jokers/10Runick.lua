@@ -138,6 +138,20 @@ SMODS.Joker({
             G.consumeables.config.card_limit = G.consumeables.config.card_limit - 1
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.ability.extra", ref_value = "xchips", retrigger_type = "exp" }
+                    },
+                    border_colour = G.C.CHIPS
+                }
+            },
+        }
+    end
 })
 
 -- Geri the Runick Fangs

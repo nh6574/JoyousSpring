@@ -452,6 +452,22 @@ SMODS.Joker({
             G.hand:change_size(-card.ability.extra.hand_size_changed)
             card.ability.extra.hand_size_changed = 0
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.ability.extra", ref_value = "count" },
+                { text = "/" },
+                { ref_table = "card.ability.extra", ref_value = "flipped" },
+                { text = ")" },
+            },
+        }
     end
 })
 
@@ -530,6 +546,22 @@ SMODS.Joker({
             G.hand:change_size(-card.ability.extra.hand_size_changed)
             card.ability.extra.hand_size_changed = 0
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.ability.extra", ref_value = "count" },
+                { text = "/" },
+                { ref_table = "card.ability.extra", ref_value = "flipped" },
+                { text = ")" },
+            },
+        }
     end
 })
 
@@ -597,6 +629,26 @@ SMODS.Joker({
             card.cost = 0
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.ability.extra", ref_value = "count" },
+                { text = "/" },
+                { ref_table = "card.ability.extra", ref_value = "flipped" },
+                { text = ")" },
+            },
+            calc_function = function(card)
+                card.joker_display_values.chips = card.ability.extra.chips * card.ability.extra.total_count
+            end
+        }
+    end
 })
 
 -- Labrynth Archfiend
@@ -683,6 +735,19 @@ SMODS.Joker({
                 }
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                card.joker_display_values.mult = card.ability.extra.mult *
+                    JoyousSpring.count_materials_in_graveyard({ { monster_type = "Fiend" } })
+            end
+        }
     end
 })
 
@@ -736,6 +801,15 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+        }
+    end
 })
 
 -- Lady Labrynth of the Silver Castle
@@ -782,6 +856,22 @@ SMODS.Joker({
     joy_allow_ability = function(card, other_card)
         return not JoyousSpring.is_trap_monster(other_card) and JoyousSpring.is_monster_type(other_card, "Fiend") and
             true or false
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xmult = 1 + card.ability.extra.xmult
+            end
+        }
     end
 })
 

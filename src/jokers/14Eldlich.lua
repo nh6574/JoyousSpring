@@ -92,6 +92,28 @@ SMODS.Joker({
             true)
         return next(materials) and true or false
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+$" },
+                { ref_table = "card.joker_display_values", ref_value = "money", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.GOLD },
+            calc_function = function(card)
+                local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+                local money = 0
+                if text ~= 'Unknown' then
+                    local materials = JoyousSpring.count_all_materials({ { monster_type = "Zombie" } })
+                    for _, scoring_card in pairs(scoring_hand) do
+                        if SMODS.has_enhancement(scoring_card, 'm_gold') then
+                            money = money + card.ability.extra.money * materials
+                        end
+                    end
+                end
+                card.joker_display_values.money = money
+            end
+        }
+    end
 })
 
 -- Conquistador of the Golden Land
@@ -163,6 +185,33 @@ SMODS.Joker({
             ease_discard(-card.ability.extra.discards)
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+                local chips = 0
+                if text ~= 'Unknown' then
+                    local materials = JoyousSpring.count_all_materials({ { monster_type = "Zombie" } })
+                    for _, scoring_card in pairs(scoring_hand) do
+                        if SMODS.has_enhancement(scoring_card, 'm_gold') then
+                            chips = chips + card.ability.extra.chips * materials
+                        end
+                    end
+                end
+                card.joker_display_values.chips = chips
+            end,
+            retrigger_function = function(card, scoring_hand, held_in_hand, joker_card)
+                if held_in_hand and not (JoyousSpring.count_materials_owned({ { monster_archetypes = { "Eldlich" } } }) > 0) then return 0 end
+                return next(SMODS.get_enhancements(scoring_card)) and 1 or 0
+            end
+        }
+    end
 })
 
 -- Guardian of the Golden Land
@@ -234,6 +283,33 @@ SMODS.Joker({
             ease_hands_played(-card.ability.extra.hands)
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+                local mult = 0
+                if text ~= 'Unknown' then
+                    local materials = JoyousSpring.count_all_materials({ { monster_type = "Zombie" } })
+                    for _, scoring_card in pairs(scoring_hand) do
+                        if SMODS.has_enhancement(scoring_card, 'm_gold') then
+                            mult = mult + card.ability.extra.mult * materials
+                        end
+                    end
+                end
+                card.joker_display_values.mult = mult
+            end,
+            retrigger_function = function(card, scoring_hand, held_in_hand, joker_card)
+                if held_in_hand and not (JoyousSpring.count_materials_owned({ { monster_archetypes = { "Eldlich" } } }) > 0) then return 0 end
+                return next(SMODS.get_enhancements(scoring_card)) and 1 or 0
+            end
+        }
+    end
 })
 
 -- Huaquero of the Golden Land
@@ -297,6 +373,33 @@ SMODS.Joker({
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
             card:flip(card)
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+                local chips = 0
+                if text ~= 'Unknown' then
+                    local materials = JoyousSpring.count_all_materials({ { monster_type = "Zombie" } })
+                    for _, scoring_card in pairs(scoring_hand) do
+                        if SMODS.has_enhancement(scoring_card, 'm_gold') then
+                            chips = chips + card.ability.extra.chips * materials
+                        end
+                    end
+                end
+                card.joker_display_values.chips = chips
+            end,
+            retrigger_function = function(card, scoring_hand, held_in_hand, joker_card)
+                if held_in_hand and not (JoyousSpring.count_materials_owned({ { monster_archetypes = { "Eldlich" } } }) > 0) then return 0 end
+                return next(SMODS.get_enhancements(scoring_card)) and 1 or 0
+            end
+        }
     end
 })
 
@@ -361,6 +464,33 @@ SMODS.Joker({
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
             card:flip(card)
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+                local mult = 0
+                if text ~= 'Unknown' then
+                    local materials = JoyousSpring.count_all_materials({ { monster_type = "Zombie" } })
+                    for _, scoring_card in pairs(scoring_hand) do
+                        if SMODS.has_enhancement(scoring_card, 'm_gold') then
+                            mult = mult + card.ability.extra.mult * materials
+                        end
+                    end
+                end
+                card.joker_display_values.mult = mult
+            end,
+            retrigger_function = function(card, scoring_hand, held_in_hand, joker_card)
+                if held_in_hand and not (JoyousSpring.count_materials_owned({ { monster_archetypes = { "Eldlich" } } }) > 0) then return 0 end
+                return next(SMODS.get_enhancements(scoring_card)) and 1 or 0
+            end
+        }
     end
 })
 
@@ -427,6 +557,31 @@ SMODS.Joker({
     end,
     joy_flip_effect_active = function(card, other_card)
         return JoyousSpring.is_trap_monster(other_card)
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "x_mult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                local count = 0
+                local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+                if text ~= 'Unknown' then
+                    for _, scoring_card in pairs(scoring_hand) do
+                        if not scoring_card.debuff and SMODS.has_enhancement(scoring_card, 'm_gold') then
+                            count = count + JokerDisplay.calculate_card_triggers(scoring_card, nil, true)
+                        end
+                    end
+                end
+                card.joker_display_values.x_mult = (1 + card.ability.extra.xmult) ^ count
+            end
+        }
     end
 })
 

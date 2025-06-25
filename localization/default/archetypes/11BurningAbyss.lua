@@ -157,7 +157,7 @@ return {
                 name = "{C:joy_ritual}Malacoda, Netherlord of the Burning Abyss",
                 text = {
                     {
-                        "Gains {X:mult,C:white}X#1#{} Mult for each {C:joy_normal}Fiend{} in the {C:attention}GY{}",
+                        "{X:mult,C:white}X#1#{} Mult for each {C:joy_normal}Fiend{} in the {C:attention}GY{}",
                         "{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}",
                     },
                     {

@@ -111,6 +111,16 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+        }
+    end
 })
 
 -- Shif, Fairy of the Ghoti
@@ -158,6 +168,16 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.mult", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+        }
+    end
 })
 
 -- Zep, Ruby of the Ghoti
@@ -318,6 +338,18 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.ability.extra", ref_value = "returned" },
+                { text = "/" },
+                { ref_table = "card.ability.extra", ref_value = "times" },
+                { text = ")" },
+            },
+        }
+    end
 })
 
 -- Psiics, Moonlight of the Ghoti
@@ -440,6 +472,18 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.ability.extra", ref_value = "returned" },
+                { text = "/" },
+                { ref_table = "card.ability.extra", ref_value = "times" },
+                { text = ")" },
+            },
+        }
+    end
 })
 
 -- Arionpos, Serpent of the Ghoti
@@ -507,6 +551,18 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                card.joker_display_values.chips = card.ability.extra.chips * (G.GAME.joy_cards_banished or 0)
+            end
+        }
+    end
 })
 
 -- Askaan, the Bicorned Ghoti
@@ -569,6 +625,18 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                card.joker_display_values.mult = card.ability.extra.mult * (G.GAME.joy_cards_banished or 0)
+            end
+        }
+    end
 })
 
 -- Guoglim, Spear of the Ghoti
@@ -644,6 +712,21 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xmult = 1 + (card.ability.extra.xmult * (G.GAME.joy_cards_banished or 0))
+            end
+        }
+    end
 })
 
 -- Ghoti of the Deep Beyond

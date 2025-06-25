@@ -1,4 +1,4 @@
---- GHOST GIRLS
+--- SPRIGHT
 SMODS.Atlas({
     key = "Spright",
     path = "05Spright.png",
@@ -466,6 +466,18 @@ SMODS.Joker({
                 end
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.ability.extra", ref_value = "detached" },
+                { text = "/" },
+                { ref_table = "card.ability.extra", ref_value = "base_materials" },
+                { text = ")" },
+            },
+        }
     end
 })
 

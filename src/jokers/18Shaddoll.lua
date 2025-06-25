@@ -554,6 +554,21 @@ SMODS.Joker({
             card:flip(card)
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xmult = JoyousSpring.is_flip_active(card) and card.ability.extra.xmult or 1
+            end
+        }
+    end
 })
 
 -- Naelshaddoll Ariel
@@ -992,6 +1007,19 @@ SMODS.Joker({
                 }
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                card.joker_display_values.chips = card.ability.extra.chips *
+                    JoyousSpring.count_materials_in_graveyard({ { monster_archetypes = { "Shaddoll" } } })
+            end
+        }
     end
 })
 
@@ -1221,6 +1249,24 @@ SMODS.Joker({
                 end
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                local empty_spaces = math.max(0, G.jokers.config.card_limit - #G.jokers.cards + G.GAME.joker_buffer)
+                local mult_count = empty_spaces +
+                    JoyousSpring.count_materials_owned({ { facedown = true }, { monster_archetypes = { "Shaddoll" } } })
+                card.joker_display_values.xmult = mult_count > 0 and card.ability.extra.xmult * mult_count or 1
+            end
+        }
     end
 })
 
@@ -1408,6 +1454,24 @@ SMODS.Joker({
                 }
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xchips", retrigger_type = "exp" }
+                    },
+                    border_colour = G.C.CHIPS
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xchips = 1 + card.ability.extra.xchips *
+                    JoyousSpring.count_materials_in_graveyard({ { monster_archetypes = { "Shaddoll" } } })
+            end
+        }
     end
 })
 
@@ -1681,6 +1745,18 @@ SMODS.Joker({
         end
         return JoyousSpring.count_materials_in_graveyard({ { summon_type = "FUSION" } }, true) > 0
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                card.joker_display_values.chips = card.ability.extra.chips * card.ability.extra.counters
+            end
+        }
+    end
 })
 JoyousSpring.collection_pool[#JoyousSpring.collection_pool + 1] = {
     keys = { "shaddoll" },

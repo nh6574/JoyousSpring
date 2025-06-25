@@ -324,6 +324,22 @@ SMODS.Joker({
     end,
     joy_transfer_loc_vars = function(self, info_queue, card, config)
         return { vars = { config.xmult, config.xmult * JoyousSpring.count_set_tributed("Joker", true), config.reduces } }
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xmult = 1 +
+                    card.ability.extra.xmult * JoyousSpring.count_set_tributed("Joker", true)
+            end
+        }
     end
 })
 
@@ -442,6 +458,22 @@ SMODS.Joker({
     end,
     joy_transfer_loc_vars = function(self, info_queue, card, config)
         return { vars = { config.xmult, 1 + config.xmult * JoyousSpring.get_flipped_count("Joker"), config.flips } }
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xmult = 1 +
+                    card.ability.extra.xmult * JoyousSpring.get_flipped_count("Joker")
+            end
+        }
     end
 })
 
@@ -641,6 +673,16 @@ SMODS.Joker({
     end,
     joy_transfer_loc_vars = function(self, info_queue, card, config)
         return { vars = { config.xmult } }
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            mod_function = function(card, mod_joker)
+                return {
+                    x_mult = card.facing == "front" and JoyousSpring.is_summon_type(card, "FUSION") and
+                        mod_joker.ability.extra.xmult ^ JokerDisplay.calculate_joker_triggers(mod_joker) or nil
+                }
+            end
+        }
     end
 })
 
@@ -733,6 +775,15 @@ SMODS.Joker({
     end,
     joy_transfer_loc_vars = function(self, info_queue, card, config)
         return { vars = { config.mult } }
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+        }
     end
 })
 
@@ -965,6 +1016,23 @@ SMODS.Joker({
             config.xmult *
             JoyousSpring.count_materials_in_graveyard({ { summon_type = "FUSION" } }), config.mills }
         }
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xmult = 1 +
+                    card.ability.extra.xmult *
+                    JoyousSpring.count_materials_in_graveyard({ { summon_type = "FUSION" } })
+            end
+        }
     end
 })
 
@@ -1128,6 +1196,22 @@ SMODS.Joker({
     end,
     joy_prevent_flip = function(card, other_card)
         return JoyousSpring.is_summon_type(other_card, "FUSION")
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xmult = 1 +
+                card.ability.extra.xmult * JoyousSpring.get_summoned_count("FUSION")
+            end
+        }
     end
 })
 

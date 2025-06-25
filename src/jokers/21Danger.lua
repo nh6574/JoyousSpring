@@ -97,6 +97,19 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                card.joker_display_values.chips = card.ability.extra.current_chips +
+                    (card.ability.extra.dest_chips * get_danger_count())
+            end
+        }
+    end
 })
 
 -- Danger!? Tsuchinoko?
@@ -163,6 +176,19 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                card.joker_display_values.mult = card.ability.extra.current_mult +
+                    (card.ability.extra.dest_mult * get_danger_count())
+            end
+        }
+    end
 })
 
 -- Danger! Chupacabra!
@@ -227,6 +253,22 @@ SMODS.Joker({
         return JoyousSpring.can_use_abilities(card) and
             card.ability.extra.current_money or nil
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+$" },
+                { ref_table = "card.ability.extra", ref_value = "current_money" },
+            },
+            text_config = { colour = G.C.GOLD },
+            reminder_text = {
+                { ref_table = "card.joker_display_values", ref_value = "localized_text" },
+            },
+            calc_function = function(card)
+                card.joker_display_values.localized_text = "(" .. localize("k_round") .. ")"
+            end
+        }
+    end
 })
 
 -- Danger! Mothman!
@@ -501,6 +543,22 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xmult = card.ability.extra.current_xmult +
+                    (card.ability.extra.dest_xmult * get_danger_count())
+            end
+        }
+    end
 })
 
 -- Danger! Ogopogo!
@@ -556,6 +614,19 @@ SMODS.Joker({
             return { message = localize("k_joy_mill") }
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                card.joker_display_values.chips = card.ability.extra.chips *
+                    JoyousSpring.count_materials_in_graveyard({ { monster_archetypes = { "Danger" } } })
+            end
+        }
+    end
 })
 
 -- Danger! Thunderbird!
@@ -639,6 +710,23 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xchips", retrigger_type = "exp" }
+                    },
+                    border_colour = G.C.CHIPS
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xchips = card.ability.extra.current_xchips +
+                    (card.ability.extra.dest_xchips * get_danger_count())
+            end
+        }
+    end
 })
 
 -- Realm of Danger!
@@ -749,7 +837,19 @@ SMODS.Joker({
             SMODS.debuff_card(added_card, true, "j_joy_danger_disorder")
         end
     end,
-
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                card.joker_display_values.mult = card.ability.extra.mult *
+                    JoyousSpring.count_materials_in_graveyard({ { monster_archetypes = { "Danger" } } })
+            end
+        }
+    end
 })
 JoyousSpring.collection_pool[#JoyousSpring.collection_pool + 1] = {
     keys = { "danger" },

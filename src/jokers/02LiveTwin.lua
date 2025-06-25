@@ -278,7 +278,7 @@ SMODS.Joker({
     key = "etwin_kisikil_deal",
     atlas = 'LiveTwin',
     pos = { x = 2, y = 1 },
-    rarity = 2,
+    rarity = 1,
     discovered = true,
     blueprint_compat = true,
     eternal_compat = true,

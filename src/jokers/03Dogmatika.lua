@@ -670,6 +670,21 @@ SMODS.Joker({
                 end
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            mod_function = function(card, mod_joker)
+                local debuffed_ed_count = JoyousSpring.count_materials_owned({ { is_extra_deck = true, is_debuffed = true } })
+                if next(SMODS.find_card("j_joy_dogma_relic")) then
+                    debuffed_ed_count = debuffed_ed_count +
+                        JoyousSpring.count_materials_in_graveyard({ { is_extra_deck = true } })
+                end
+                return {
+                    x_mult = (JoyousSpring.is_main_deck_monster(card) and mod_joker.ability.extra.xmult and debuffed_ed_count > 0 and
+                        1 + mod_joker.ability.extra.xmult * debuffed_ed_count or nil)
+                }
+            end
+        }
     end
 })
 
@@ -755,6 +770,28 @@ SMODS.Joker({
         local materials = JoyousSpring.get_materials_owned({ { is_extra_deck = true } }, false, true)
         return #materials >= card.ability.extra.tributes
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+$" },
+                { ref_table = "card.joker_display_values", ref_value = "money" },
+            },
+            text_config = { colour = G.C.GOLD },
+            reminder_text = {
+                { ref_table = "card.joker_display_values", ref_value = "localized_text" },
+            },
+            calc_function = function(card)
+                local debuffed_ed_count = JoyousSpring.count_materials_owned({ { is_extra_deck = true, is_debuffed = true } })
+                if next(SMODS.find_card("j_joy_dogma_relic")) then
+                    debuffed_ed_count = debuffed_ed_count +
+                        JoyousSpring.count_materials_in_graveyard({ { is_extra_deck = true } })
+                end
+                card.joker_display_values.money = card.ability.extra.money * debuffed_ed_count
+                card.joker_display_values.localized_text = "(" .. localize("k_round") .. ")"
+            end
+        }
+    end
 })
 
 JoyousSpring.collection_pool[#JoyousSpring.collection_pool + 1] = {
