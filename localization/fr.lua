@@ -282,7 +282,7 @@ return {
 					"en fin de manche",
 				},
 				joy_summon_conditions = {
-					"{C:attention}2{} {C:joy_link}\"Evil{C:joy_link,f:joy_font}★{}{C:joy_link}Jumelle\"{}"{}"
+					"{C:attention}2{} {C:joy_link}\"Evil{C:joy_link,f:joy_font}★{}{C:joy_link}Jumelle\"{}"
 				}
 			},
 			j_joy_ltwin_channel = {
@@ -2229,8 +2229,7 @@ return {
 					" ",
 					"Crée {C:attention}#1#{} {C:joy_normal}\"Solfaccord\"{} {C:joy_pendulum}Pendule{} {C:dark_edition}Négatif{}",
 					"après avoir consommé {C:attention}#2#{} {C:joy_pendulum}Pendules{} {C:inactive}(#3# restant){}",
-					"et augmente les conditions de {C:attention}#4#{}
-					" ",
+					"et augmente les conditions de {C:attention}#4#{}",
 					"Si la main marquant des points contient des cartes paires et impaires,",
 					"toutes les cartes comptent pour les deux pour les effets {C:joy_normal}\"Solfaccord\"{}",
 					" ",
