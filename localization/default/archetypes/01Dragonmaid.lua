@@ -150,6 +150,7 @@ return {
                         "{C:green}#1# in #2#{} chance to {C:attention}transform{} into an",
                         "{C:green}Uncommon{} {C:joy_normal}\"Dragonmaid\"{}",
                         "when {C:attention}Blind{} is selected",
+                        "{C:inactive}(Except \"Lady's Dragonmaid\"){}"
                     },
                 },
                 joy_summon_conditions = {

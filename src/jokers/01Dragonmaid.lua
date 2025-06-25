@@ -800,7 +800,7 @@ SMODS.Joker({
             if not context.blueprint_card and not context.retrigger_joker and
                 context.setting_blind and context.main_eval then
                 if SMODS.pseudorandom_probability(card, card.config.center.key, 1, card.ability.extra.odds) then
-                    local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Dragonmaid" }, rarity = 2 } })
+                    local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Dragonmaid" }, rarity = 2, exclude_keys = { "j_joy_dmaid_lady" } } })
                     JoyousSpring.transform_card(card,
                         pseudorandom_element(choices, 'j_joy_dmaid_lady') or j_joy_dmaid_tinkhec)
                 end
