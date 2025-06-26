@@ -22,7 +22,7 @@ end
 '''
 match_indent = true
 
-
+# Add Hanafuda sorting
 [[patches]]
 [patches.pattern]
 target = "functions/UI_definitions.lua"
@@ -34,5 +34,20 @@ position = "after"
 payload = '''
 ,JoyousSpring.create_hanafuda_month_sort_UIBox(),
 JoyousSpring.create_hanafuda_type_sort_UIBox()
+'''
+match_indent = true
+
+# Add controller UI
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''
+--The card UI can have BUY, REDEEM, USE, and SELL buttons depending on the context of the card
+'''
+position = "after"
+payload = '''
+if JoyousSpring.is_monster_card(card) then
+    return JoyousSpring.card_focus_ui(card, base_background)
+end
 '''
 match_indent = true

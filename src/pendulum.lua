@@ -24,7 +24,7 @@ G.FUNCS.joy_can_buy_and_use = function(e)
         if card.highlighted then
             e.UIBox.states.visible = true
         end
-        e.config.colour = G.C.SECONDARY_SET.Voucher
+        e.config.colour = G.C.JOY.PENDULUM
         e.config.button = 'joy_buy_and_use'
     end
 end
