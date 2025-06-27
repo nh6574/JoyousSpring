@@ -26,7 +26,7 @@ SMODS.Tag({
     end,
 })
 
--- Card Tag
+-- Monster Tag
 SMODS.Tag({
     key = "monster",
     atlas = "Tags",
