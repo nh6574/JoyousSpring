@@ -18,7 +18,7 @@ return {
                 name = "{C:joy_effect}Spright Jet",
                 text = {
                     {
-                        "Adds {C:attention}#1#{} {C:green}Uncommon{} {C:attention}Jokers{}",
+                        "Sends {C:attention}#1#{} {C:green}Uncommon{} {C:attention}Jokers{}",
                         "to the {C:attention}GY{} when {C:attention}Blind{} is selected",
                     },
                     {
