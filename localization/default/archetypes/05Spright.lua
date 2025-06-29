@@ -85,9 +85,9 @@ return {
                 name = "{C:joy_link}Spright Sprind",
                 text = {
                     {
-                        "Other {C:green}Uncommon{} {C:attention}Jokers{} become {C:dark_edition}Negative{},",
-                        "the rest are debuffed if summoned",
-                        "using a {C:joy_normal}\"Spright\"{} as {C:attention}material{}",
+                        "If summoned using a {C:joy_normal}\"Spright\"{} as {C:attention}material{},",
+                        "other {C:green}Uncommon{} {C:attention}Jokers{} become {C:dark_edition}Negative{}",
+                        "and the rest are debuffed.",
                     },
                     {
                         "Adds {C:joy_xyz}\"Gigantic Spright\"{} to the",
