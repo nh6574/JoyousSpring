@@ -892,7 +892,7 @@ function Card:flip(source)
                 break
             end
         end
-        if is_play_area or (G.hand and self.area == G.hand and G.GAME.blind.in_blind) then
+        if is_play_area or (G.hand and self.area == G.hand) then
             SMODS.calculate_context({
                 joy_card_flipped = self,
                 joy_source = source and type(source) == "table" and
