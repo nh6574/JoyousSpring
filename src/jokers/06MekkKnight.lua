@@ -751,7 +751,7 @@ SMODS.Joker({
     rarity = 3,
     discovered = true,
     blueprint_compat = false,
-    eternal_compat = true,
+    eternal_compat = false,
     cost = 12,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.blinds, #JoyousSpring.get_materials(card) } }
