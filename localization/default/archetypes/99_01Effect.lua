@@ -12,7 +12,7 @@ return {
                         "{C:blue}Hands{} equal {C:joy_spell}Extra Deck{} types owned + 1",
                         "No repeat hand types",
                         "{C:joy_normal}Main Deck{} {C:attention}Jokers{} are debuffed",
-                        "{C:inactive}(Except{} {C:joy_effect}\"Inspector Boarder\"{}{C:inactive}){}",
+                        "{C:inactive}(Except \"Inspector Boarder\"){}",
                     },
                 },
             },
