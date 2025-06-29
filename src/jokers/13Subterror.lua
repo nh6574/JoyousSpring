@@ -1070,14 +1070,8 @@ SMODS.Joker({
             if not context.blueprint_card then
                 if not card.ability.extra.activated and context.joy_activate_effect and context.joy_activated_card == card then
                     local targets = JoyousSpring.get_materials_owned({ { can_flip = true } })
-                    local materials = {}
-                    for i, joker in ipairs(targets) do
-                        if joker ~= card and joker.facing == 'front' then
-                            materials[#materials + 1] = joker
-                        end
-                    end
-                    if next(materials) then
-                        JoyousSpring.create_overlay_effect_selection(card, materials, card.ability.extra.flips,
+                    if next(targets) then
+                        JoyousSpring.create_overlay_effect_selection(card, targets, card.ability.extra.flips,
                             card.ability.extra.flips, localize("k_joy_select"))
                     end
                 end
@@ -1120,13 +1114,7 @@ SMODS.Joker({
             return false
         end
         local targets = JoyousSpring.get_materials_owned({ { can_flip = true } })
-        local faceup_joker = 0
-        for _, joker in ipairs(targets) do
-            if joker ~= card and joker.facing == 'front' then
-                faceup_joker = faceup_joker + 1
-            end
-        end
-        return faceup_joker >= card.ability.extra.flips
+        return #targets >= card.ability.extra.flips
     end,
     joker_display_def = function(JokerDisplay)
         return {

@@ -198,7 +198,7 @@ return {
                     },
                     {
                         "Once per round, you can {C:attention}flip",
-                        "{C:attention}#5# Jokers{} face-down to create {C:attention}#6# {C:joy_normal}\"Subterror Behemoth\"{}",
+                        "{C:attention}#5# Jokers{} to create {C:attention}#6# {C:joy_normal}\"Subterror Behemoth\"{}",
                         "{C:inactive}(Must have room){}",
                     },
                 },
