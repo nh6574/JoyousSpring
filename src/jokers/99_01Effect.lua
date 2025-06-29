@@ -1290,7 +1290,7 @@ SMODS.Joker({
     key = "stormshooter",
     atlas = 'Misc04',
     pos = { x = 1, y = 2 },
-    rarity = 3,
+    rarity = 2,
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
