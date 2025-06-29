@@ -62,6 +62,8 @@ return {
                     {
                         "Permanently debuffs every obtained",
                         "{C:blue}Common{} and {C:green}Uncommon{} {C:attention}Joker{}",
+                    },
+                    {
                         "Gains {X:mult,C:white}X#1#{} Mult for each debuffed card sold",
                         "{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}",
                     },
