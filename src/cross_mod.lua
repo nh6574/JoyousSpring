@@ -27,10 +27,6 @@ if CardSleeves then
         key = "hanafuda",
         atlas = "sleeves",
         pos = { x = 0, y = 0 },
-        loc_txt = {
-            name = "Hanafuda Sleeve",
-            text = { "Does nothing" }
-        },
         loc_vars = function(self)
             if self.get_current_deck_key() == "b_joy_hanafuda" then
                 return { key = "sleeve_joy_hanafuda_alt" }
