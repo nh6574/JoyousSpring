@@ -439,6 +439,24 @@ return {
                 }
             }
         },
+        Sleeve = {
+            sleeve_joy_hanafuda = {
+                name = "{C:joy_spell}Recardination",
+                text = {
+                    "Start with",
+                    "all random",
+                    "{C:attention,T:m_joy_hanafuda}Hanafuda{} cards"
+                }
+            },
+            sleeve_joy_hanafuda_alt = {
+                name = "{C:joy_spell}Recardination",
+                text = {
+                    "Start with all {C:attention,T:m_joy_hanafuda}Hanafuda{} cards",
+                    "instead of random plus extra",
+                    "{C:joy_mod}Chrysanthemum with Sake"
+                }
+            },
+        },
         JoyPokerHand = {
         }
     },
