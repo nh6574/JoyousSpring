@@ -13,7 +13,7 @@ if JokerDisplay then
     end
 end
 
--- Card Sleeves
+-- CardSleeves
 
 if CardSleeves then
     SMODS.Atlas {
