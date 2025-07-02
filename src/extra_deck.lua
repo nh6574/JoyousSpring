@@ -275,6 +275,7 @@ function Game:start_run(args)
         }
     )
     JoyousSpring.field_spell_area = G.joy_field_spell_area
+    if JoyousSpring.hide_ui then JoyousSpring.field_spell_area.states.visible = false end
     self.joy_extra_deck_area = CardArea(
         0,
         0,

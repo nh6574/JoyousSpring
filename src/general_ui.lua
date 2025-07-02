@@ -548,7 +548,7 @@ local cardarea_draw_ref = CardArea.draw
 function CardArea:draw()
     cardarea_draw_ref(self)
 
-    if self.config.type == 'extra_deck' or self.config.type == 'summon_materials' then
+    if self.states.visible and self.config.type == 'extra_deck' or self.config.type == 'summon_materials' then
         for k, v in ipairs(self.ARGS.draw_layers) do
             for i = 1, #self.cards do
                 if self.cards[i] ~= G.CONTROLLER.focused.target then
@@ -697,6 +697,7 @@ function Game:start_run(args)
             bond = 'Weak'
         }
     }
+    if JoyousSpring.hide_ui then self.joy_extra_buttons.states.visible = false end
     self.HUD:recalculate()
 end
 

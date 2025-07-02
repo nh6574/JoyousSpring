@@ -347,7 +347,7 @@ JoyousSpring.create_graveyard_tab = function()
     }
 end
 
-JoyousSpring.create_overlay_graveyard = function()
+JoyousSpring.create_overlay_graveyard = function(open_banishment)
     G.FUNCS.overlay_menu({
         definition = create_UIBox_generic_options({
             back_colour = G.C.JOY.TRAP,
@@ -361,12 +361,12 @@ JoyousSpring.create_overlay_graveyard = function()
                             tabs = {
                                 {
                                     label = localize('k_joy_graveyard'),
-                                    chosen = true,
+                                    chosen = not open_banishment,
                                     tab_definition_function = JoyousSpring.create_graveyard_tab
                                 },
                                 {
                                     label = localize('k_joy_banishment'),
-                                    chosen = false,
+                                    chosen = not not open_banishment,
                                     tab_definition_function = JoyousSpring.create_banishment_tab
                                 },
                             }
