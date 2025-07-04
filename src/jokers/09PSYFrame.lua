@@ -650,7 +650,12 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and context.end_of_round and context.game_over == false and context.main_eval then
                 JoyousSpring.banish(card, "blind_selected")
-                local choices = JoyousSpring.get_materials_owned({ { exclude_keys = { "j_joy_psy_omega" } } })
+                local choices = {}
+                for _, joker in ipairs(G.jokers.cards) do
+                    if joker ~= card then
+                        table.insert(choices, joker)
+                    end
+                end
                 local to_banish = pseudorandom_element(choices, 'j_joy_psy_omega')
                 if to_banish then
                     JoyousSpring.banish(to_banish, "blind_selected")
