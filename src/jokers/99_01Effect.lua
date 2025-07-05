@@ -1312,7 +1312,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.after and JoyousSpring.get_joker_column(card) == card.ability.extra.column and
-                #context.full_hand >= card.ability.extra.column and #context.scoring_hand < card.ability.extra.column and
+                #context.full_hand >= card.ability.extra.column and not SMODS.in_scoring(context.full_hand[card.ability.extra.column], context.scoring_hand) and
                 #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                 local planet
                 for _, center in pairs(G.P_CENTER_POOLS.Planet) do

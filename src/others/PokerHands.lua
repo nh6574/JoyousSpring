@@ -554,8 +554,7 @@ SMODS.PokerHand({
     mult = 10,
     l_chips = 15,
     l_mult = 2,
-    visible = true,
-    is_visible = cardian_is_visible,
+    visible = cardian_is_visible,
     example = {
         { 'D_A', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Pine with Crane" },
         { 'S_2', true, enhancement = 'm_joy_hanafuda', joy_hanafuda = "Cherry Blossom with Curtain" },

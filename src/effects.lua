@@ -306,7 +306,8 @@ JoyousSpring.set_cost = function(card)
             card.sell_cost = 1
         elseif JoyousSpring.is_summoned(card) then
             card.sell_cost = card.cost + (card.ability.extra_value or 0)
-        elseif JoyousSpring.is_revived(card) then
+        end
+        if JoyousSpring.is_revived(card) then
             card.sell_cost = 1 + (card.ability.extra_value or 0)
         end
         if card.config.center.joy_set_cost then

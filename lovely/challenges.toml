@@ -7,7 +7,7 @@ priority = 0
 
 # Custom rules
 [[patches]]
-[patches.regex]
+[patches.pattern]
 target = "game.lua"
 pattern = "if v.pinned then _joker.pinned = true end"
 position = 'after'

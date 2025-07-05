@@ -19,7 +19,7 @@ return {
                         "{C:attention}Chuche{}: Destroys unscored cards in played hand"
                     },
                     {
-                        "{C:attention}Kauwloon{}: Once per round, creates {C:attention}#3#{} {C:joy_normal} Main Deck \"Virtual World\"{}",
+                        "{C:attention}Kauwloon{}: Once per round, creates {C:attention}#3#{} {C:joy_normal}Main Deck \"Virtual World\"{}",
                         "{C:inactive}(Must have room)"
                     }
                 }
@@ -345,21 +345,21 @@ return {
             joy_vw_xuanwu = {
                 "2 cards of ranks {C:attention}3{}, {C:attention}6{} or {C:attention}9{} with different rank",
                 "They may be played with up to 3 other unscored cards",
-                "(Must be enabled by an ability)"
+                "{C:inactive}(Must be enabled by an ability)"
             },
             joy_vw_qinglong = {
                 "3 cards with at least 2 different ranks of {C:attention}3{}, {C:attention}6{} or {C:attention}9{}",
                 "They may be played with up to 2 other unscored cards",
-                "(Must be enabled by an ability)"
+                "{C:inactive}(Must be enabled by an ability)"
             },
             joy_vw_chuche = {
                 "4 cards with at least 2 different ranks of {C:attention}3{}, {C:attention}6{} or {C:attention}9{}",
                 "They may be played with 1 other unscored card",
-                "(Must be enabled by an ability)"
+                "{C:inactive}(Must be enabled by an ability)"
             },
             joy_vw_kauwloon = {
                 "5 cards with at least 3 different ranks of {C:attention}3{}, {C:attention}6{} or {C:attention}9{}",
-                "(Must be enabled by an ability)"
+                "{C:inactive}(Must be enabled by an ability)"
             },
         },
         dictionary = {
