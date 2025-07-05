@@ -996,7 +996,7 @@ SMODS.Joker({
         },
     },
     add_to_deck = function(self, card, from_debuff)
-        if not from_debuff then
+        if not from_debuff and not card.debuff then
             for i = 1, card.ability.extra.revives do
                 JoyousSpring.revive_pseudorandom({ { exclude_tuners = true } }, 'j_joy_angraecum', false,
                     "e_negative", nil, nil, "j_joy_angraecum")
@@ -1112,7 +1112,7 @@ SMODS.Joker({
         end
     end,
     add_to_deck = function(self, card, from_debuff)
-        if not from_debuff then
+        if not from_debuff and not card.debuff then
             local choices = JoyousSpring.get_materials_owned({ { exclude_debuffed = true, is_extra_deck = true } })
             local joker = pseudorandom_element(choices, 'j_joy_miradora')
             if joker then
@@ -1173,7 +1173,7 @@ SMODS.Joker({
         end
     end,
     add_to_deck = function(self, card, from_debuff)
-        if not from_debuff then
+        if not from_debuff and not card.debuff then
             for _ = 1, card.ability.extra.creates do
                 JoyousSpring.create_pseudorandom(
                     { { monster_type = "Fish", is_main_deck = true } },

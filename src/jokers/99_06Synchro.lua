@@ -51,7 +51,7 @@ SMODS.Joker({
         end
     end,
     add_to_deck = function(self, card, from_debuff)
-        if not from_debuff then
+        if not from_debuff and not card.debuff then
             for i = 1, card.ability.extra.revives do
                 JoyousSpring.revive_pseudorandom({ { is_extra_deck = true, monster_type = "Cyberse" } },
                     "j_joy_firewall_saber", false, "e_negative")
@@ -125,7 +125,7 @@ SMODS.Joker({
             text_config = { colour = G.C.MULT },
             calc_function = function(card)
                 card.joker_display_values.mult = card.ability.extra.mult *
-                JoyousSpring.count_materials_owned({ { exclude_debuffed = true } })
+                    JoyousSpring.count_materials_owned({ { exclude_debuffed = true } })
             end
         }
     end
@@ -282,7 +282,7 @@ SMODS.Joker({
         end
     end,
     add_to_deck = function(self, card, from_debuff)
-        if not from_debuff then
+        if not from_debuff and not card.debuff then
             for i = 1, card.ability.extra.creates do
                 JoyousSpring.create_pseudorandom({ { is_tuner = true } }, 'j_joy_afd', true)
             end

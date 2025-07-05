@@ -573,7 +573,7 @@ SMODS.Joker({
         return materials >= card.ability.extra.tributes
     end,
     add_to_deck = function(self, card, from_debuff)
-        if not from_debuff and JoyousSpring.count_set_tributed("Tarot") > 0 then
+        if not from_debuff and not card.debuff and JoyousSpring.count_set_tributed("Tarot") > 0 then
             ease_dollars(card.ability.extra.money * JoyousSpring.count_set_tributed("Tarot"))
         end
     end

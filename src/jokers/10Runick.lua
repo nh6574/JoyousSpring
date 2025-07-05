@@ -123,7 +123,7 @@ SMODS.Joker({
         if not JoyousSpring.is_perma_debuffed(card) then
             G.consumeables.config.card_limit = G.consumeables.config.card_limit + 1
         end
-        if not from_debuff then
+        if not from_debuff and not card.debuff then
             local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Runick" }, is_extra_deck = true } })
             for i = 1, card.ability.extra.adds do
                 local key_to_add, _ = pseudorandom_element(choices, 'j_joy_runick_munin')
