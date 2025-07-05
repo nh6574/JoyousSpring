@@ -37,7 +37,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and not context.retrigger_joker and
-                context.end_of_round and context.game_over == false and context.main_eval and G.GAME.blind.boss then
+                context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then
                 if #JoyousSpring.field_spell_area.cards < JoyousSpring.field_spell_area.config.card_limit then
                     JoyousSpring.add_to_extra_deck("j_joy_generaider_boss_stage")
                     card.getting_sliced = true
@@ -84,7 +84,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and not context.retrigger_joker and
-                context.end_of_round and context.game_over == false and context.main_eval and G.GAME.blind.boss then
+                context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then
                 if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit +
                     ((card.edition and card.edition.negative) and 0 or 1) then
                     for i = 1, card.ability.extra.revives do

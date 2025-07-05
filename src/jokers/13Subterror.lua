@@ -207,7 +207,7 @@ SMODS.Joker({
                 end
             end
         end
-        if context.end_of_round and context.game_over == false and context.main_eval and G.GAME.blind.boss then
+        if context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then
             card.ability.extra.activated = false
         end
     end,
@@ -493,7 +493,7 @@ SMODS.Joker({
                 end
             end
         end
-        if context.end_of_round and context.game_over == false and context.main_eval and G.GAME.blind.boss then
+        if context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then
             card:flip(card)
         end
     end,
@@ -580,7 +580,7 @@ SMODS.Joker({
                 end
             end
         end
-        if context.end_of_round and context.game_over == false and context.main_eval and G.GAME.blind.boss then
+        if context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then
             card:flip(card)
         end
     end,
@@ -639,7 +639,7 @@ SMODS.Joker({
             end
             JoyousSpring.calculate_flip_effect(card, context)
         end
-        if context.end_of_round and context.game_over == false and context.main_eval and G.GAME.blind.boss then
+        if context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then
             card:flip(card)
         end
     end,
@@ -696,7 +696,7 @@ SMODS.Joker({
                 }
             end
         end
-        if context.end_of_round and context.game_over == false and context.main_eval and G.GAME.blind.boss then
+        if context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then
             card:flip(card)
         end
     end,
@@ -902,7 +902,7 @@ SMODS.Joker({
         if context.joy_card_flipped then
             card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.extra_xmult
         end
-        if context.end_of_round and context.game_over == false and context.main_eval and G.GAME.blind.boss then
+        if context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then
             card:flip(card)
         end
     end,
@@ -976,7 +976,7 @@ SMODS.Joker({
                 }
             end
         end
-        if context.end_of_round and context.game_over == false and context.main_eval and G.GAME.blind.boss then
+        if context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then
             card:flip(card)
         end
     end,

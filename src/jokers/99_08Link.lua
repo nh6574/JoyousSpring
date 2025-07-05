@@ -202,7 +202,7 @@ SMODS.Joker({
                     xmult = 1 + card.ability.extra.xmult * JoyousSpring.get_pendulum_count()
                 }
             end
-            if context.end_of_round and context.game_over == false and context.main_eval and G.GAME.blind.boss and
+            if context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss and
                 not card.ability.extra.activated then
                 card.ability.extra.activated = true
                 for i = 1, card.ability.extra.creates do

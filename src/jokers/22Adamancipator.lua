@@ -83,7 +83,7 @@ SMODS.Joker({
         end
         if context.end_of_round and context.game_over == false and context.main_eval then
             card.ability.extra.excavated = 0
-            if G.GAME.blind.boss then
+            if context.beat_boss then
                 card.ability.extra.activated = false
                 card.ability.extra.hands_played = 0
             end
@@ -171,7 +171,7 @@ SMODS.Joker({
         end
         if context.end_of_round and context.game_over == false and context.main_eval then
             card.ability.extra.excavated = 0
-            if G.GAME.blind.boss then
+            if context.beat_boss then
                 card.ability.extra.activated = false
                 card.ability.extra.hands_played = 0
             end
@@ -259,7 +259,7 @@ SMODS.Joker({
         end
         if context.end_of_round and context.game_over == false and context.main_eval then
             card.ability.extra.excavated = 0
-            if G.GAME.blind.boss then
+            if context.beat_boss then
                 card.ability.extra.activated = false
                 card.ability.extra.hands_played = 0
             end

@@ -935,7 +935,7 @@ SMODS.Joker({
                 end
             end
         end
-        if context.end_of_round and context.game_over == false and context.main_eval and G.GAME.blind.boss then
+        if context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then
             card.ability.extra.consumed_this_ante = 0
             card.ability.extra.activated = false
         end
