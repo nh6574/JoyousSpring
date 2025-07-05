@@ -52,7 +52,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if context.before then
-            if vw_played_hand("qinglong") and not card.ability.extra.shop_activated then
+            if vw_played_hand("qinglong", context) and not card.ability.extra.shop_activated then
                 card.ability.extra.shop_activated = true
                 local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "VirtualWorld" }, is_extra_deck = true } })
                 for _ = 1, card.ability.extra.shop_add do
@@ -60,7 +60,7 @@ SMODS.Joker({
                     JoyousSpring.add_monster_tag(key_to_add)
                 end
             end
-            if vw_played_hand("kauwloon") and not card.ability.extra.create_activated then
+            if vw_played_hand("kauwloon", context) and not card.ability.extra.create_activated then
                 card.ability.extra.create_activated = true
                 for _ = 1, card.ability.extra.creates do
                     JoyousSpring.create_pseudorandom(
@@ -121,7 +121,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if context.before then
-            if vw_played_hand("qinglong") and not card.ability.extra.shop_activated then
+            if vw_played_hand("qinglong", context) and not card.ability.extra.shop_activated then
                 card.ability.extra.shop_activated = true
                 local choices = { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon" }
                 for _ = 1, card.ability.extra.shop_add do
@@ -129,7 +129,7 @@ SMODS.Joker({
                     JoyousSpring.add_monster_tag(key_to_add)
                 end
             end
-            if vw_played_hand("kauwloon") and not card.ability.extra.create_activated then
+            if vw_played_hand("kauwloon", context) and not card.ability.extra.create_activated then
                 card.ability.extra.create_activated = true
                 local choices = { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon" }
                 for _ = 1, card.ability.extra.creates do
@@ -142,6 +142,7 @@ SMODS.Joker({
             end
             if vw_played_hand("chuche", context) and not card.ability.extra.banish_activated then
                 card.ability.extra.banish_activated = true
+                card.ability.extra.joyous_spring.is_tuner = true
             end
         end
         if context.individual and context.cardarea == G.play and vw_played_hand("xuanwu", context) then
@@ -168,8 +169,10 @@ SMODS.Joker({
             card.ability.extra.banish_activated = false
         end
         if context.joy_banished and context.joy_banished_card == card and card.ability.extra.create_activated then
+            print("yes")
             local choices = SMODS.merge_lists(JoyousSpring.banish_boss_selected_area.cards,
                 JoyousSpring.banish_end_of_ante_area.cards)
+            print(choices)
             local new_choices = {}
             for _, joker in ipairs(choices) do
                 if joker ~= card then

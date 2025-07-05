@@ -922,4 +922,65 @@ SMODS.PokerHand({
         return parts.joy_vw_kauwloon_part
     end
 })
+
+SMODS.Consumable {
+    key = 'vw_xuanwu',
+    set = 'Planet',
+    atlas = 'vw',
+    discovered = true,
+    config = { hand_type = 'joy_vw_xuanwu', softlock = true },
+    pos = { x = 0, y = 3 },
+    generate_ui = 0,
+    process_loc_text = function(self)
+        local target_text = G.localization.descriptions[self.set]['c_mercury'].text
+        SMODS.Consumable.process_loc_text(self)
+        G.localization.descriptions[self.set][self.key] = {}
+        G.localization.descriptions[self.set][self.key].text = target_text
+    end
+}
+SMODS.Consumable {
+    key = 'vw_qinglong',
+    set = 'Planet',
+    atlas = 'vw',
+    discovered = true,
+    config = { hand_type = 'joy_vw_qinglong', softlock = true },
+    pos = { x = 1, y = 3 },
+    generate_ui = 0,
+    process_loc_text = function(self)
+        local target_text = G.localization.descriptions[self.set]['c_mercury'].text
+        SMODS.Consumable.process_loc_text(self)
+        G.localization.descriptions[self.set][self.key] = {}
+        G.localization.descriptions[self.set][self.key].text = target_text
+    end
+}
+SMODS.Consumable {
+    key = 'vw_chuche',
+    set = 'Planet',
+    atlas = 'vw',
+    discovered = true,
+    config = { hand_type = 'joy_vw_chuche', softlock = true },
+    pos = { x = 2, y = 3 },
+    generate_ui = 0,
+    process_loc_text = function(self)
+        local target_text = G.localization.descriptions[self.set]['c_mercury'].text
+        SMODS.Consumable.process_loc_text(self)
+        G.localization.descriptions[self.set][self.key] = {}
+        G.localization.descriptions[self.set][self.key].text = target_text
+    end
+}
+SMODS.Consumable {
+    key = 'vw_kauwloon',
+    set = 'Planet',
+    atlas = 'vw',
+    discovered = true,
+    config = { hand_type = 'joy_vw_kauwloon', softlock = true },
+    pos = { x = 3, y = 3 },
+    generate_ui = 0,
+    process_loc_text = function(self)
+        local target_text = G.localization.descriptions[self.set]['c_mercury'].text
+        SMODS.Consumable.process_loc_text(self)
+        G.localization.descriptions[self.set][self.key] = {}
+        G.localization.descriptions[self.set][self.key].text = target_text
+    end
+}
 --#endregion
