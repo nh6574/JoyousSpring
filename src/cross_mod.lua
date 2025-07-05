@@ -56,16 +56,25 @@ end
 
 if TheFamily then
     JoyousSpring.hide_ui = true
+    JoyousSpring.first_run_family = true
     TheFamily.create_tab_group({
         key = "joyous_spring",
         order = 1,
     })
     TheFamily.create_tab({
-        key = "field_area",
+        key = "joy_field_area",
         group_key = "joyous_spring",
         center = "j_joy_runick_fountain",
         type = "switch",
         keep = true,
+        force_highlight = function(definition, card)
+            if JoyousSpring.first_run_family then
+                JoyousSpring.first_run_family = nil
+                JoyousSpring.field_spell_area.states.visible = true
+                return true
+            end
+            return false
+        end,
         front_label = function(definition, card)
             return {
                 text = "Field Spell Area",
@@ -116,7 +125,7 @@ if TheFamily then
         end,
     })
     TheFamily.create_tab({
-        key = "extra_deck_area",
+        key = "joy_extra_deck_area",
         group_key = "joyous_spring",
         center = "j_joy_garura",
         type = "switch",
@@ -171,7 +180,7 @@ if TheFamily then
         end,
     })
     TheFamily.create_tab({
-        key = "graveyard",
+        key = "joy_graveyard",
         group_key = "joyous_spring",
         center = "j_joy_ba_dante",
         type = "overlay",
@@ -224,7 +233,7 @@ if TheFamily then
         end,
     })
     TheFamily.create_tab({
-        key = "banishment",
+        key = "joy_banishment",
         group_key = "joyous_spring",
         center = "j_joy_fish_deepbeyond",
         type = "overlay",
