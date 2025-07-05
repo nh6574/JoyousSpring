@@ -420,7 +420,7 @@ return {
                 text = {
                     {
                         "{C:mult}+20{}/{C:mult}10{}/{C:mult}5{} Mult when scored with",
-                        "another hand of the same {C:joy_link}Month{}",
+                        "another card of the same {C:joy_link}Month{}",
                         "or in a {C:attention}Koi Koi{} hand",
                         "OR {C:mult}+1{} Mult and scores in {C:attention}Koi Koi{} hands",
                         "if it's {C:joy_link}Chaff",
