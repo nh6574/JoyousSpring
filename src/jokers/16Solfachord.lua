@@ -770,7 +770,6 @@ SMODS.Joker({
                     border_colour = G.C.CHIPS
                 }
             },
-            text_config = { colour = G.C.MULT },
             calc_function = function(card)
                 local text, _, scoring_hand = JokerDisplay.evaluate_hand()
                 local count = 0
@@ -863,7 +862,6 @@ SMODS.Joker({
                     },
                 }
             },
-            text_config = { colour = G.C.MULT },
             calc_function = function(card)
                 local text, _, scoring_hand = JokerDisplay.evaluate_hand()
                 local count = 0
