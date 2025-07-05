@@ -166,7 +166,7 @@ return {
                         "{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}",
                     },
                     {
-                        "{C:attention}Jokers{} in the {C:attention}GY{} count for",
+                        "{C:joy_normal}\"Dragonmaid\"{} in the {C:attention}GY{} count for",
                         "{C:joy_normal}\"Dragonmaid\"{} abilities",
                     },
                     {
@@ -182,7 +182,7 @@ return {
                 name = "{C:joy_fusion}Dragonmaid Sheou",
                 text = {
                     {
-                        "{C:attention}Jokers{} in the {C:attention}GY{} count for",
+                        "{C:joy_normal}\"Dragonmaid\"{} in the {C:attention}GY{} count for",
                         "{C:joy_normal}\"Dragonmaid\"{} abilities",
                     },
                     {

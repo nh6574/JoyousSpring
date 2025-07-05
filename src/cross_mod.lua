@@ -231,6 +231,9 @@ if TheFamily then
             JoyousSpring.create_overlay_graveyard()
             card:highlight(false)
         end,
+        unhighlight = function(definition, card)
+            G.FUNCS.exit_overlay_menu()
+        end
     })
     TheFamily.create_tab({
         key = "joy_banishment",
@@ -282,7 +285,9 @@ if TheFamily then
         end,
         highlight = function(definition, card)
             JoyousSpring.create_overlay_graveyard(true)
-            card:highlight(false)
         end,
+        unhighlight = function(definition, card)
+            G.FUNCS.exit_overlay_menu()
+        end
     })
 end

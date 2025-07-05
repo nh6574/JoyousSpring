@@ -1406,7 +1406,7 @@ SMODS.Joker({
                                 func = "hanafuda_type_played_this_run", func_vars = { type = "light", min = 3 } },
                             { exclude_tuners = true, exclude_summon_types = { "XYZ", "LINK" } },
                         },
-                    }
+                    },
                 }
             },
             xmult = 1.1,

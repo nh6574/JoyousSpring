@@ -563,8 +563,8 @@ JoyousSpring.can_summon = function(card, card_list)
 
     if card.ability.extra.joyous_spring.summon_consumeable_conditions then
         local card_table = card_list or G.consumeables.cards
-        return JoyousSpring.can_summon_consumeables(card, card.ability.extra.joyous_spring.summon_consumeable_conditions,
-                card_table),
+        local conditions = card.ability.extra.joyous_spring.summon_consumeable_conditions
+        return JoyousSpring.can_summon_consumeables(card, conditions, card_table),
             (card.edition and card.edition.negative and true) or
             (#G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit)
     else

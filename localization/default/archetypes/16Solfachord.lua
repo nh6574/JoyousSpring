@@ -134,7 +134,7 @@ return {
                         "{C:inactive}(Currently {X:mult,C:white}X#3#{} {C:inactive}Mult)",
                     },
                     {
-                        "Cards in the {C:attention}GY{} count for {C:joy_normal}\"Solfachord\"{} abilities",
+                        "{C:joy_normal}\"Solfachord\"{} in the {C:attention}GY{} count for {C:joy_normal}\"Solfachord\"{} abilities",
                     },
                 },
             },
@@ -156,7 +156,7 @@ return {
                         "all scored cards count as both for {C:joy_normal}\"Solfachord\"{} abilities",
                     },
                     {
-                        "{C:joy_pendulum}Pendulum{} count for other {C:joy_normal}\"Solfachord\"{} abilities",
+                        "{C:joy_pendulum}Pendulum{} count as {C:joy_normal}\"Solfachord\"{} for other {C:joy_normal}\"Solfachord\"{} abilities",
                     },
                 },
                 joy_summon_conditions = {
