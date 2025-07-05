@@ -68,11 +68,11 @@ return {
                     },
                     {
                         "{C:attention}Chuche{}: Destroys a random card held in hand,",
-                        "except {C:attention}3{}s, {C:attention}6{}s, {C:attention}9{}s or {C:attention}Queens{}",
+                        "except {C:attention}3{}s, {C:attention}6{}s, {C:attention}9{}s or {C:attention}Queens{} after scoring",
                     },
                     {
                         "{C:attention}Kauwloon{}: Once per round, creates {C:attention}#3#{}",
-                        "{C:joy_normal}\"Virtual World\"{} with the same name",
+                        "{C:joy_normal}Main Deck \"Virtual World\"{} with the same name",
                         "as one in your {C:attention}GY{}",
                         "{C:inactive}(Must have room)"
                     }
