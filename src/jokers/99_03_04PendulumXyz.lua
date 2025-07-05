@@ -66,5 +66,5 @@ SMODS.Joker({
     can_use = function(self, card)
         return JoyousSpring.count_materials_owned({ { summon_type = "XYZ" } }) >
             (card.area and card.area == G.jokers and 1 or 0)
-    end,
+    end
 })

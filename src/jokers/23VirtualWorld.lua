@@ -7,9 +7,10 @@ SMODS.Atlas({
 })
 
 local vw_played_hand = function(handname, context)
-    if handname ~= "joy_vw_xuanwu" and handname ~= "joy_vw_qinglong" and handname ~= "joy_vw_chuche" and handname ~= "joy_vw_kauwloon" then
+    if handname ~= "xuanwu" and handname ~= "qinglong" and handname ~= "chuche" and handname ~= "kauwloon" then
         return false
     end
+    handname = "joy_vw_" .. handname
     if next(SMODS.find_card("j_joy_vw_shenshen")) then
         return not not next(context.poker_hands[handname])
     end
@@ -42,11 +43,47 @@ SMODS.Joker({
                 monster_type = "Psychic",
                 monster_archetypes = { ["VirtualWorld"] = true }
             },
-            xmult = 1.2,
+            xmult = 1.5,
             shop_add = 1,
-            creates = 1
+            creates = 1,
+            shop_activated = false,
+            create_activated = false
         },
     },
+    calculate = function(self, card, context)
+        if context.before then
+            if vw_played_hand("qinglong", context) and not card.ability.extra.shop_activated then
+                card.ability.extra.shop_activated = true
+                local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "VirtualWorld" }, is_extra_deck = true } })
+                for _ = 1, card.ability.extra.shop_add do
+                    local key_to_add = pseudorandom_element(choices, 'j_joy_vw_lulu')
+                    JoyousSpring.add_monster_tag(key_to_add)
+                end
+            end
+            if vw_played_hand("kauwloon", context) and not card.ability.extra.create_activated then
+                card.ability.extra.create_activated = true
+                for _ = 1, card.ability.extra.creates do
+                    JoyousSpring.create_pseudorandom(
+                        { { monster_archetypes = { "VirtualWorld" }, is_main_deck = true } },
+                        'j_joy_vw_lulu', true)
+                end
+            end
+        end
+        if context.individual and context.cardarea == G.play and vw_played_hand("xuanwu", context) then
+            return {
+                xmult = card.ability.extra.xmult
+            }
+        end
+        if context.destroy_card and context.cardarea == "unscored" and vw_played_hand("chuche", context) then
+            return {
+                remove = true
+            }
+        end
+        if context.end_of_round and context.game_over == false and context.main_eval then
+            card.ability.extra.create_activated = false
+            card.ability.extra.shop_activated = false
+        end
+    end
 })
 
 -- Virtual World Hime - Nyannyan
@@ -77,9 +114,77 @@ SMODS.Joker({
             chips = 50,
             shop_add = 1,
             creates = 1,
-            returns = 1
+            returns = 1,
+            shop_activated = false,
+            banish_activated = false
         },
     },
+    calculate = function(self, card, context)
+        if context.before then
+            if vw_played_hand("qinglong", context) and not card.ability.extra.shop_activated then
+                card.ability.extra.shop_activated = true
+                local choices = { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon" }
+                for _ = 1, card.ability.extra.shop_add do
+                    local key_to_add = pseudorandom_element(choices, 'j_joy_vw_nyannyan')
+                    JoyousSpring.add_monster_tag(key_to_add)
+                end
+            end
+            if vw_played_hand("kauwloon", context) and not card.ability.extra.create_activated then
+                card.ability.extra.create_activated = true
+                local choices = { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon" }
+                for _ = 1, card.ability.extra.creates do
+                    if #G.consumeables.cards < G.consumeables.config.card_limit then
+                        SMODS.add_card {
+                            key = pseudorandom_element(choices, 'j_joy_vw_nyannyan')
+                        }
+                    end
+                end
+            end
+            if vw_played_hand("chuche", context) and not card.ability.extra.banish_activated then
+                card.ability.extra.banish_activated = true
+                card.ability.extra.joyous_spring.is_tuner = true
+            end
+        end
+        if context.individual and context.cardarea == G.play and vw_played_hand("xuanwu", context) then
+            return {
+                chips = card.ability.extra.chips
+            }
+        end
+        if context.end_of_round and context.game_over == false and context.main_eval then
+            if card.ability.extra.banish_activated then
+                JoyousSpring.banish(card, "blind_selected")
+                local choices = {}
+                for _, joker in ipairs(G.jokers.cards) do
+                    if joker ~= card then
+                        table.insert(choices, joker)
+                    end
+                end
+                local to_banish = pseudorandom_element(choices, 'j_joy_vw_nyannyan')
+                if to_banish then
+                    JoyousSpring.banish(to_banish, "blind_selected")
+                end
+            end
+            card.ability.extra.create_activated = false
+            card.ability.extra.shop_activated = false
+            card.ability.extra.banish_activated = false
+        end
+        if context.joy_banished and context.joy_banished_card == card and card.ability.extra.create_activated then
+            print("yes")
+            local choices = SMODS.merge_lists(JoyousSpring.banish_boss_selected_area.cards,
+                JoyousSpring.banish_end_of_ante_area.cards)
+            print(choices)
+            local new_choices = {}
+            for _, joker in ipairs(choices) do
+                if joker ~= card then
+                    table.insert(new_choices, joker)
+                end
+            end
+            local to_return = pseudorandom_element(new_choices, 'j_joy_vw_nyannyan')
+            if to_return then
+                JoyousSpring.return_from_banish(to_return)
+            end
+        end
+    end
 })
 
 

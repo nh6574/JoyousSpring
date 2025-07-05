@@ -71,6 +71,7 @@ JoyousSpring.send_to_graveyard = function(card)
         elseif type(card) == "table" then
             local not_summoned = not JoyousSpring.is_summon_type(card, "NORMAL") and not JoyousSpring.is_summoned(card)
             local cannot_revive = card.ability.extra.joyous_spring.cannot_revive or not_summoned
+            JoyousSpring.sent_to_gy_context = true
             SMODS.calculate_context({
                 joy_sent_to_gy = true,
                 joy_card = card,
@@ -79,6 +80,7 @@ JoyousSpring.send_to_graveyard = function(card)
                 joy_summoned = not
                     not_summoned
             })
+            JoyousSpring.sent_to_gy_context = nil
             if not JoyousSpring.graveyard[card.config.center_key] then JoyousSpring.graveyard[card.config.center_key] = { count = 0, summonable = 0 } end
             JoyousSpring.graveyard[card.config.center_key].count = JoyousSpring.graveyard[card.config.center_key].count +
                 1
@@ -86,6 +88,16 @@ JoyousSpring.send_to_graveyard = function(card)
                 .summonable + (cannot_revive and 0 or 1)
         end
     end
+end
+
+-- Allow sliced cards to activate in the sent to GY context
+local card_can_calculate_ref = Card.can_calculate
+function Card:can_calculate(ignore_debuff, ignore_sliced)
+    local ret = card_can_calculate_ref(self, ignore_debuff, ignore_sliced)
+    if JoyousSpring.is_monster_card(self) and JoyousSpring.sent_to_gy_context then
+        return (not self.debuff or ignore_debuff)
+    end
+    return ret
 end
 
 -- Prevent GY from doing stuff at the end of the run

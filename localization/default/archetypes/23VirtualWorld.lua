@@ -16,10 +16,10 @@ return {
                         "{C:joy_spell}Extra Deck{} {C:joy_normal}\"Virtual World\"{} to the shop"
                     },
                     {
-                        "{C:attention}Chuche{}: Destroys an unscored card in played hand"
+                        "{C:attention}Chuche{}: Destroys unscored cards in played hand"
                     },
                     {
-                        "{C:attention}Kauwloon{}: Once per round, creates {C:attention}#3#{} {C:joy_normal}\"Virtual World\"{}",
+                        "{C:attention}Kauwloon{}: Once per round, creates {C:attention}#3#{} {C:joy_normal} Main Deck \"Virtual World\"{}",
                         "{C:inactive}(Must have room)"
                     }
                 }
