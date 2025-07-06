@@ -104,7 +104,7 @@ SMODS.Joker({
             if context.end_of_round and context.game_over == false and context.main_eval then
                 local count = 0
                 for _, joker in ipairs(G.jokers.cards) do
-                    if joker ~= card and not joker.ability.eternal and not joker.getting_sliced and not joker.debuff and joker.config.center.key ~= "j_joy_token" then
+                    if joker ~= card and not SMODS.is_eternal(joker, card) and not joker.getting_sliced and not joker.debuff and joker.config.center.key ~= "j_joy_token" then
                         joker.getting_sliced = true
                         joker:start_dissolve()
                         count = count + 1
@@ -251,7 +251,7 @@ SMODS.Joker({
             if context.setting_blind and context.main_eval then
                 local choices = {}
                 for _, field in ipairs(JoyousSpring.field_spell_area.cards) do
-                    if not field.ability.eternal then
+                    if not SMODS.is_eternal(field, card) then
                         table.insert(choices, field)
                     end
                 end

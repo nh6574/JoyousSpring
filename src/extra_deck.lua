@@ -218,7 +218,7 @@ function Card:can_sell_card(context)
     end
     if self.area and
         self.area.config.type == 'extra_deck' and
-        not self.ability.eternal then
+        not SMODS.is_eternal(self, { from_sell = true }) then
         return true
     end
     return card_can_sell_card_ref(self, context)

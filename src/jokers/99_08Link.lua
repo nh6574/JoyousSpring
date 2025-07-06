@@ -563,7 +563,7 @@ SMODS.Joker({
             if context.joy_activate_effect and context.joy_activated_card == card and G.GAME.blind.in_blind then
                 local tributes = {}
                 for _, joker in ipairs(G.jokers.cards) do
-                    if joker ~= card and not joker.ability.eternal then
+                    if joker ~= card and not SMODS.is_eternal(joker, card) then
                         table.insert(tributes, joker)
                     end
                 end
@@ -581,7 +581,7 @@ SMODS.Joker({
             return false
         end
         for _, joker in ipairs(G.jokers.cards) do
-            if joker ~= card and not joker.ability.eternal then
+            if joker ~= card and not SMODS.is_eternal(joker, card) then
                 return true
             end
         end

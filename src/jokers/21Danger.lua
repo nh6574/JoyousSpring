@@ -9,7 +9,7 @@ SMODS.Atlas({
 local danger_destroy = function(card, context)
     local destructable_jokers = {}
     for i = 1, #G.jokers.cards do
-        if not G.jokers.cards[i].ability.eternal and not G.jokers.cards[i].getting_sliced then
+        if not SMODS.is_eternal(G.jokers.cards[i], card) and not G.jokers.cards[i].getting_sliced then
             destructable_jokers[#destructable_jokers + 1] = G.jokers.cards[i]
         end
     end
@@ -536,7 +536,7 @@ SMODS.Joker({
             inc_danger_count()
             local count = 0
             for i = 1, #G.jokers.cards do
-                if G.jokers.cards[i] ~= card and not G.jokers.cards[i].ability.eternal and not G.jokers.cards[i].getting_sliced then
+                if G.jokers.cards[i] ~= card and not SMODS.is_eternal(G.jokers.cards[i], card) and not G.jokers.cards[i].getting_sliced then
                     G.jokers.cards[i]:start_dissolve()
                     SMODS.calculate_context({ joy_danger = G.jokers.cards[i] })
                     G.jokers.cards[i].getting_sliced = true
@@ -694,7 +694,7 @@ SMODS.Joker({
             for _ = 1, card.ability.extra.destroys do
                 local destructable_jokers = {}
                 for i = 1, #G.jokers.cards do
-                    if G.jokers.cards[i] ~= card and not G.jokers.cards[i].ability.eternal and not G.jokers.cards[i].getting_sliced then
+                    if G.jokers.cards[i] ~= card and not SMODS.is_eternal(G.jokers.cards[i], card) and not G.jokers.cards[i].getting_sliced then
                         destructable_jokers[#destructable_jokers + 1] = G.jokers.cards[i]
                     end
                 end
@@ -709,7 +709,7 @@ SMODS.Joker({
             end
             local count = 0
             for i = 1, #G.consumeables.cards do
-                if not G.consumeables.cards[i].ability.eternal and not G.consumeables.cards[i].getting_sliced then
+                if not SMODS.is_eternal(G.consumeables.cards[i], card) and not G.consumeables.cards[i].getting_sliced then
                     G.consumeables.cards[i].getting_sliced = true
                     G.consumeables.cards[i]:start_dissolve()
                     count = count + 1

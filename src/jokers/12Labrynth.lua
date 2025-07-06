@@ -44,7 +44,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and not card.ability.eternal then
+                if context.joy_activate_effect and context.joy_activated_card == card and not SMODS.is_eternal(card, card) then
                     card.ability.extra.any_flipped = false
                     return {
                         message = localize("k_joy_flip_ex"),
@@ -111,7 +111,7 @@ SMODS.Joker({
         end
     end,
     joy_can_activate = function(card)
-        return not card.ability.eternal and G.GAME.blind.in_blind or false
+        return not SMODS.is_eternal(card, card) and G.GAME.blind.in_blind or false
     end,
 })
 
@@ -153,10 +153,10 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and not card.ability.eternal then
+                if context.joy_activate_effect and context.joy_activated_card == card and not SMODS.is_eternal(card, card) then
                     local materials = {}
                     for i, joker in ipairs(G.jokers.cards) do
-                        if joker ~= card and not joker.ability.eternal then
+                        if joker ~= card and not SMODS.is_eternal(joker, card) then
                             materials[#materials + 1] = joker
                         end
                     end
@@ -230,11 +230,11 @@ SMODS.Joker({
         end
     end,
     joy_can_activate = function(card)
-        if card.ability.eternal or not G.GAME.blind.in_blind then
+        if SMODS.is_eternal(card, card) or not G.GAME.blind.in_blind then
             return false
         end
         for i, joker in ipairs(G.jokers.cards) do
-            if joker ~= card and not joker.ability.eternal then
+            if joker ~= card and not SMODS.is_eternal(joker, card) then
                 return true
             end
         end
@@ -281,10 +281,10 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and not card.ability.eternal then
+                if context.joy_activate_effect and context.joy_activated_card == card and not SMODS.is_eternal(card, card) then
                     local materials = {}
                     for i, joker in ipairs(G.jokers.cards) do
-                        if joker ~= card and not joker.ability.eternal then
+                        if joker ~= card and not SMODS.is_eternal(joker, card) then
                             materials[#materials + 1] = joker
                         end
                     end
@@ -363,12 +363,12 @@ SMODS.Joker({
         end
     end,
     joy_can_activate = function(card)
-        if card.ability.eternal or not G.GAME.blind.in_blind then
+        if SMODS.is_eternal(card, card) or not G.GAME.blind.in_blind then
             return false
         end
         local materials = {}
         for i, joker in ipairs(G.jokers.cards) do
-            if joker ~= card and not joker.ability.eternal then
+            if joker ~= card and not SMODS.is_eternal(joker, card) then
                 return true
             end
         end

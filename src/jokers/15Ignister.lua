@@ -170,7 +170,7 @@ SMODS.Joker({
                     local targets = JoyousSpring.get_materials_owned({ { monster_type = "Cyberse" } }, false, true)
                     local materials = {}
                     for i, joker in ipairs(targets) do
-                        if not joker.ability.eternal then
+                        if not SMODS.is_eternal(joker, card) then
                             materials[#materials + 1] = joker
                         end
                     end
@@ -202,7 +202,7 @@ SMODS.Joker({
         end
         local targets = JoyousSpring.get_materials_owned({ { monster_type = "Cyberse" } }, false, true)
         for i, joker in ipairs(targets) do
-            if not joker.ability.eternal then
+            if not SMODS.is_eternal(joker, card) then
                 return true
             end
         end
@@ -739,7 +739,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and not card.ability.eternal then
+                if context.joy_activate_effect and context.joy_activated_card == card and not SMODS.is_eternal(card, card). then
                     JoyousSpring.tribute(card, { card })
                     for i = 1, card.ability.extra.revives do
                         JoyousSpring.revive_pseudorandom({ { monster_type = "Cyberse" } },
@@ -755,7 +755,7 @@ SMODS.Joker({
         end
     end,
     joy_can_activate = function(card)
-        return not card.ability.eternal and JoyousSpring.count_materials_in_graveyard({ { monster_type = "Cyberse" } },
+        return not SMODS.is_eternal(card, card) and JoyousSpring.count_materials_in_graveyard({ { monster_type = "Cyberse" } },
             true) > 0 or false
     end,
 })

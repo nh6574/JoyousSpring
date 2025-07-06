@@ -448,7 +448,7 @@ JoyousSpring.can_use = function(card)
     return not ((G.play and #G.play.cards > 0) or
             (G.CONTROLLER.locked) or
             (G.GAME.STOP_USE and G.GAME.STOP_USE > 0)) and
-        (not card.ability.eternal and not card.debuff and card.facing ~= 'back') and
+        (not SMODS.is_eternal(card, { joy_from_use = true }) and not card.debuff and card.facing ~= 'back') and
         (JoyousSpring.is_summon_type(card, "NORMAL") or JoyousSpring.is_summoned(card)) and
         G.STATE ~= G.STATES.HAND_PLAYED and G.STATE ~= G.STATES.DRAW_TO_HAND and G.STATE ~= G.STATES.PLAY_TAROT and
         card.config.center.can_use and card.config.center:can_use(card) or false
@@ -533,7 +533,7 @@ end
 ---@param summon_type string? Optional to check if the card is a wildcard for that type of summon
 ---@return boolean
 JoyousSpring.is_material = function(card, properties, summon_type)
-    if summon_type and card.ability.eternal then
+    if summon_type and SMODS.is_eternal(card, { joy_from_summon = true }) then
         return false
     end
     if not next(properties) then

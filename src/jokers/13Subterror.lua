@@ -269,7 +269,7 @@ SMODS.Joker({
                     local targets = G.jokers.cards
                     local materials = {}
                     for i, joker in ipairs(targets) do
-                        if joker ~= card and not joker.ability.eternal then
+                        if joker ~= card and not SMODS.is_eternal(joker, card) then
                             materials[#materials + 1] = joker
                         end
                     end
@@ -309,7 +309,7 @@ SMODS.Joker({
         local targets = G.jokers.cards
         local materials = {}
         for i, joker in ipairs(targets) do
-            if joker ~= card and not joker.ability.eternal then
+            if joker ~= card and not SMODS.is_eternal(joker, card) then
                 materials[#materials + 1] = joker
             end
         end

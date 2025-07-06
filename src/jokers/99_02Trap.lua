@@ -394,10 +394,10 @@ SMODS.Joker({
                     xmult = card.ability.extra.xmult
                 }
             end
-            if context.joy_activate_effect and context.joy_activated_card == card and not card.ability.eternal and G.GAME.blind.in_blind and G.STATE == G.STATES.SELECTING_HAND then
+            if context.joy_activate_effect and context.joy_activated_card == card and not SMODS.is_eternal(card, card) and G.GAME.blind.in_blind and G.STATE == G.STATES.SELECTING_HAND then
                 local tributes = {}
                 for _, joker in ipairs(G.jokers.cards) do
-                    if not joker.ability.eternal then
+                    if not SMODS.is_eternal(joker, card) then
                         table.insert(tributes, joker)
                     end
                 end
@@ -414,7 +414,7 @@ SMODS.Joker({
         JoyousSpring.calculate_flip_effect(card, context)
     end,
     joy_can_activate = function(card)
-        return not card.ability.eternal and G.GAME.blind.in_blind and G.STATE == G.STATES.SELECTING_HAND
+        return not SMODS.is_eternal(card, card) and G.GAME.blind.in_blind and G.STATE == G.STATES.SELECTING_HAND
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
