@@ -68,7 +68,7 @@ return {
                     },
                     {
                         "{C:attention}Chuche{}: Destroys a random card held in hand,",
-                        "except {C:attention}3{}s, {C:attention}6{}s, {C:attention}9{}s or {C:attention}Queens{} after scoring",
+                        "except {C:attention}3{}s, {C:attention}6{}s, {C:attention}9{}s or {C:attention}Queens{}",
                     },
                     {
                         "{C:attention}Kauwloon{}: Once per round, creates {C:attention}#3#{}",
@@ -120,8 +120,8 @@ return {
                     },
                     {
                         "{C:attention}Chuche{}: Removes up to {C:attention}#4#{} cards that are not {C:joy_normal}Psychic{} or {C:joy_normal}Wyrm{}",
-                        "from the {C:attention}GY{} and gives {C:mult}+#5#{} Mult for each",
-                        "or {C:mult}+#6#{} Mult if none"
+                        "from the {C:attention}GY{} and gains {C:chips}+#5#{} Chips for each",
+                        "{C:inactive}(Currently {C:chips}+#6#{}{C:inactive} Chips)"
                     },
                     {
                         "{C:attention}Kauwloon{}: Once per round, adds {C:attention}#7#{}",
@@ -148,8 +148,8 @@ return {
                     },
                     {
                         "{C:attention}Chuche{}: Removes up to {C:attention}#4#{} cards that are not {C:joy_wind}WIND{} or {C:joy_earth}EARTH{}",
-                        "from the {C:attention}GY{} and gives {C:mult}+#5#{} Mult for each",
-                        "or {C:mult}+#6#{} Mult if none"
+                        "from the {C:attention}GY{} and gains {C:mult}+#5#{} Mult for each",
+                        "{C:inactive}(Currently {C:mult}+#6#{}{C:inactive} Mult)"
                     },
                     {
                         "{C:attention}Kauwloon{}: Once per round, {C:attention}revives #7#{}",

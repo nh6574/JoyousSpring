@@ -51,33 +51,35 @@ SMODS.Joker({
         },
     },
     calculate = function(self, card, context)
-        if context.before then
-            if vw_played_hand("qinglong", context) and not card.ability.extra.shop_activated then
-                card.ability.extra.shop_activated = true
-                local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "VirtualWorld" }, is_extra_deck = true } })
-                for _ = 1, card.ability.extra.shop_add do
-                    local key_to_add = pseudorandom_element(choices, 'j_joy_vw_lulu')
-                    JoyousSpring.add_monster_tag(key_to_add)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.before then
+                if vw_played_hand("qinglong", context) and not card.ability.extra.shop_activated then
+                    card.ability.extra.shop_activated = true
+                    local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "VirtualWorld" }, is_extra_deck = true } })
+                    for _ = 1, card.ability.extra.shop_add do
+                        local key_to_add = pseudorandom_element(choices, 'j_joy_vw_lulu')
+                        JoyousSpring.add_monster_tag(key_to_add)
+                    end
+                end
+                if vw_played_hand("kauwloon", context) and not card.ability.extra.create_activated then
+                    card.ability.extra.create_activated = true
+                    for _ = 1, card.ability.extra.creates do
+                        JoyousSpring.create_pseudorandom(
+                            { { monster_archetypes = { "VirtualWorld" }, is_main_deck = true } },
+                            'j_joy_vw_lulu', true)
+                    end
                 end
             end
-            if vw_played_hand("kauwloon", context) and not card.ability.extra.create_activated then
-                card.ability.extra.create_activated = true
-                for _ = 1, card.ability.extra.creates do
-                    JoyousSpring.create_pseudorandom(
-                        { { monster_archetypes = { "VirtualWorld" }, is_main_deck = true } },
-                        'j_joy_vw_lulu', true)
-                end
+            if context.individual and context.cardarea == G.play and vw_played_hand("xuanwu", context) then
+                return {
+                    xmult = card.ability.extra.xmult
+                }
             end
-        end
-        if context.individual and context.cardarea == G.play and vw_played_hand("xuanwu", context) then
-            return {
-                xmult = card.ability.extra.xmult
-            }
-        end
-        if context.destroy_card and context.cardarea == "unscored" and vw_played_hand("chuche", context) then
-            return {
-                remove = true
-            }
+            if context.destroy_card and context.cardarea == "unscored" and vw_played_hand("chuche", context) then
+                return {
+                    remove = true
+                }
+            end
         end
         if context.end_of_round and context.game_over == false and context.main_eval then
             card.ability.extra.create_activated = false
@@ -120,38 +122,57 @@ SMODS.Joker({
         },
     },
     calculate = function(self, card, context)
-        if context.before then
-            if vw_played_hand("qinglong", context) and not card.ability.extra.shop_activated then
-                card.ability.extra.shop_activated = true
-                local choices = { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon" }
-                for _ = 1, card.ability.extra.shop_add do
-                    local key_to_add = pseudorandom_element(choices, 'j_joy_vw_nyannyan')
-                    JoyousSpring.add_monster_tag(key_to_add)
-                end
-            end
-            if vw_played_hand("kauwloon", context) and not card.ability.extra.create_activated then
-                card.ability.extra.create_activated = true
-                local choices = { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon" }
-                for _ = 1, card.ability.extra.creates do
-                    if #G.consumeables.cards < G.consumeables.config.card_limit then
-                        SMODS.add_card {
-                            key = pseudorandom_element(choices, 'j_joy_vw_nyannyan')
-                        }
+        if JoyousSpring.can_use_abilities(card) then
+            if context.before then
+                if vw_played_hand("qinglong", context) and not card.ability.extra.shop_activated then
+                    card.ability.extra.shop_activated = true
+                    local choices = { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon" }
+                    for _ = 1, card.ability.extra.shop_add do
+                        local key_to_add = pseudorandom_element(choices, 'j_joy_vw_nyannyan')
+                        JoyousSpring.add_monster_tag(key_to_add)
                     end
                 end
+                if vw_played_hand("kauwloon", context) and not card.ability.extra.create_activated then
+                    card.ability.extra.create_activated = true
+                    local choices = { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon" }
+                    for _ = 1, card.ability.extra.creates do
+                        if #G.consumeables.cards < G.consumeables.config.card_limit then
+                            SMODS.add_card {
+                                key = pseudorandom_element(choices, 'j_joy_vw_nyannyan')
+                            }
+                        end
+                    end
+                end
+                if vw_played_hand("chuche", context) and not card.ability.extra.banish_activated then
+                    card.ability.extra.banish_activated = true
+                    card.ability.extra.joyous_spring.is_tuner = true
+                end
             end
-            if vw_played_hand("chuche", context) and not card.ability.extra.banish_activated then
-                card.ability.extra.banish_activated = true
-                card.ability.extra.joyous_spring.is_tuner = true
+            if context.individual and context.cardarea == G.play and vw_played_hand("xuanwu", context) then
+                return {
+                    chips = card.ability.extra.chips
+                }
             end
-        end
-        if context.individual and context.cardarea == G.play and vw_played_hand("xuanwu", context) then
-            return {
-                chips = card.ability.extra.chips
-            }
+            if context.joy_banished and context.joy_banished_card == card then
+                if card.ability.extra.return_banish then
+                    local choices = SMODS.merge_lists({ JoyousSpring.banish_boss_selected_area.cards,
+                        JoyousSpring.banish_end_of_ante_area.cards })
+                    local new_choices = {}
+                    for _, joker in ipairs(choices) do
+                        if joker ~= card then
+                            table.insert(new_choices, joker)
+                        end
+                    end
+                    local to_return = pseudorandom_element(new_choices, 'j_joy_vw_nyannyan')
+                    if to_return then
+                        JoyousSpring.return_from_banish(to_return)
+                    end
+                end
+                card.ability.extra.return_banish = nil
+            end
         end
         if context.end_of_round and context.game_over == false and context.main_eval then
-            if card.ability.extra.banish_activated then
+            if JoyousSpring.can_use_abilities(card) and card.ability.extra.banish_activated then
                 local returns_from_banish = card.ability.extra.create_activated
                 JoyousSpring.banish(card, "blind_selected",
                     function(card)
@@ -171,23 +192,6 @@ SMODS.Joker({
             card.ability.extra.create_activated = false
             card.ability.extra.shop_activated = false
             card.ability.extra.banish_activated = false
-        end
-        if context.joy_banished and context.joy_banished_card == card then
-            if card.ability.extra.return_banish then
-                local choices = SMODS.merge_lists({ JoyousSpring.banish_boss_selected_area.cards,
-                    JoyousSpring.banish_end_of_ante_area.cards })
-                local new_choices = {}
-                for _, joker in ipairs(choices) do
-                    if joker ~= card then
-                        table.insert(new_choices, joker)
-                    end
-                end
-                local to_return = pseudorandom_element(new_choices, 'j_joy_vw_nyannyan')
-                if to_return then
-                    JoyousSpring.return_from_banish(to_return)
-                end
-            end
-            card.ability.extra.return_banish = nil
         end
     end
 })
@@ -226,53 +230,58 @@ SMODS.Joker({
         },
     },
     calculate = function(self, card, context)
-        if context.before then
-            if vw_played_hand("qinglong", context) and not card.ability.extra.shop_activated then
-                card.ability.extra.shop_activated = true
-                local choices = JoyousSpring.get_materials_in_graveyard({ { monster_archetypes = { "VirtualWorld" } } },
-                    nil,
-                    true)
-                for _ = 1, card.ability.extra.shop_add do
-                    local key_to_add = pseudorandom_element(choices, 'j_joy_vw_jiji')
-                    JoyousSpring.add_monster_tag(key_to_add)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.before then
+                if vw_played_hand("qinglong", context) and not card.ability.extra.shop_activated then
+                    card.ability.extra.shop_activated = true
+                    local choices = JoyousSpring.get_materials_in_graveyard(
+                        { { monster_archetypes = { "VirtualWorld" } } },
+                        nil,
+                        true)
+                    for _ = 1, card.ability.extra.shop_add do
+                        local key_to_add = pseudorandom_element(choices, 'j_joy_vw_jiji')
+                        JoyousSpring.add_monster_tag(key_to_add)
+                    end
                 end
-            end
-            if vw_played_hand("kauwloon", context) and not card.ability.extra.create_activated then
-                card.ability.extra.create_activated = true
-                local choices = JoyousSpring.get_materials_in_graveyard(
-                    { { monster_archetypes = { "VirtualWorld" }, is_main_deck = true } },
-                    nil,
-                    true)
-                for _ = 1, card.ability.extra.creates do
-                    local to_create = pseudorandom_element(choices, 'j_joy_vw_jiji')
-                    if to_create then
-                        JoyousSpring.create_summon({ key = to_create }, true)
+                if vw_played_hand("kauwloon", context) and not card.ability.extra.create_activated then
+                    card.ability.extra.create_activated = true
+                    local choices = JoyousSpring.get_materials_in_graveyard(
+                        { { monster_archetypes = { "VirtualWorld" }, is_main_deck = true } },
+                        nil,
+                        true)
+                    for _ = 1, card.ability.extra.creates do
+                        local to_create = pseudorandom_element(choices, 'j_joy_vw_jiji')
+                        if to_create then
+                            JoyousSpring.create_summon({ key = to_create }, true)
+                        end
+                    end
+                end
+                if vw_played_hand("chuche", context) then
+                    local choices = {}
+                    for _, pcard in ipairs(G.hand.cards) do
+                        if pcard:get_id() ~= 3 and pcard:get_id() ~= 6 and pcard:get_id() ~= 9 and pcard:get_id() ~= 12 then
+                            table.insert(choices, pcard)
+                        end
+                    end
+                    local choice = pseudorandom_element(choices, 'j_joy_vw_jiji')
+                    if choice then
+                        choice.joy_picked_by_jiji = true
                     end
                 end
             end
-            if vw_played_hand("chuche", context) then
-                local choices = {}
-                for _, pcard in ipairs(G.hand.cards) do
-                    if pcard:get_id() ~= 3 and pcard:get_id() ~= 6 and pcard:get_id() ~= 9 and pcard:get_id() ~= 12 then
-                        table.insert(choices, pcard)
-                    end
-                end
-                local choice = pseudorandom_element(choices, 'j_joy_vw_jiji')
-                if choice then
-                    choice.joy_picked_by_jiji = true
-                end
+            if context.individual and context.cardarea == G.play and vw_played_hand("xuanwu", context) then
+                return {
+                    mult = card.ability.extra.mult
+                }
             end
-        end
-        if context.individual and context.cardarea == G.play and vw_played_hand("xuanwu", context) then
-            return {
-                mult = card.ability.extra.mult
-            }
         end
         if context.destroy_card and context.cardarea == G.hand and context.destroy_card.joy_picked_by_jiji then
             choice.joy_picked_by_jiji = nil
-            return {
-                remove = true
-            }
+            if JoyousSpring.can_use_abilities(card) then
+                return {
+                    remove = true
+                }
+            end
         end
         if context.end_of_round and context.game_over == false and context.main_eval then
             card.ability.extra.create_activated = false
@@ -315,40 +324,42 @@ SMODS.Joker({
         },
     },
     calculate = function(self, card, context)
-        if context.before then
-            if vw_played_hand("qinglong", context) and not card.ability.extra.shop_activated then
-                card.ability.extra.shop_activated = true
-                local choices = { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon" }
-                for _ = 1, card.ability.extra.shop_add do
-                    local key_to_add = pseudorandom_element(choices, 'j_joy_vw_nyannyan')
-                    JoyousSpring.add_monster_tag(key_to_add)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.before then
+                if vw_played_hand("qinglong", context) and not card.ability.extra.shop_activated then
+                    card.ability.extra.shop_activated = true
+                    local choices = { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon" }
+                    for _ = 1, card.ability.extra.shop_add do
+                        local key_to_add = pseudorandom_element(choices, 'j_joy_vw_nyannyan')
+                        JoyousSpring.add_monster_tag(key_to_add)
+                    end
+                end
+                if vw_played_hand("kauwloon", context) then
+                    local choices = { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon" }
+                    for _ = 1, card.ability.extra.creates do
+                        SMODS.add_card {
+                            key = pseudorandom_element(choices, 'j_joy_vw_nyannyan'),
+                            edition = "e_negative"
+                        }
+                    end
+                end
+                if vw_played_hand("chuche", context) and not card.ability.extra.banish_activated then
+                    card.ability.extra.banish_activated = true
+                    card.ability.extra.joyous_spring.is_tuner = true
+                    if not card.ability.extra.joyous_spring.is_all_materials then
+                        card.ability.extra.joyous_spring.is_all_materials = {}
+                    end
+                    card.ability.extra.joyous_spring.is_all_materials.SYNCHRO = true
                 end
             end
-            if vw_played_hand("kauwloon", context) then
-                local choices = { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon" }
-                for _ = 1, card.ability.extra.creates do
-                    SMODS.add_card {
-                        key = pseudorandom_element(choices, 'j_joy_vw_nyannyan'),
-                        edition = "e_negative"
-                    }
-                end
+            if context.other_joker and context.other_joker.facing == "front" and (JoyousSpring.is_monster_type(context.other_joker, "Psychic") or JoyousSpring.is_monster_type(context.other_joker, "Wyrm")) and vw_played_hand("xuanwu", context) then
+                return {
+                    mult = card.ability.extra.mult
+                }
             end
-            if vw_played_hand("chuche", context) and not card.ability.extra.banish_activated then
-                card.ability.extra.banish_activated = true
-                card.ability.extra.joyous_spring.is_tuner = true
-                if not card.ability.extra.joyous_spring.is_all_materials then
-                    card.ability.extra.joyous_spring.is_all_materials = {}
-                end
-                card.ability.extra.joyous_spring.is_all_materials.SYNCHRO = true
-            end
-        end
-        if context.other_joker and context.other_joker.facing == "front" and (JoyousSpring.is_monster_type(context.other_joker, "Psychic") or JoyousSpring.is_monster_type(context.other_joker, "Wyrm")) and vw_played_hand("xuanwu", context) then
-            return {
-                mult = card.ability.extra.mult
-            }
         end
         if context.end_of_round and context.game_over == false and context.main_eval then
-            if card.ability.extra.banish_activated then
+            if JoyousSpring.can_use_abilities(card) and card.ability.extra.banish_activated then
                 JoyousSpring.banish(card, "boss_selected")
             end
             card.ability.extra.shop_activated = false
@@ -369,7 +380,12 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.chips, 0, card.ability.extra.mills, card.ability.extra.removes, card.ability.extra.mult, card.ability.extra.removes * card.ability.extra.mult, card.ability.extra.adds } }
+        return {
+            vars = { card.ability.extra.chips, card.ability.extra.chips *
+            JoyousSpring.count_materials_in_graveyard({ { monster_type = "Psychic" }, { monster_type = "Wyrm" } }), card
+                .ability.extra.mills, card.ability.extra.removes, card.ability.extra.gy_chips, card.ability.extra
+                .current_gy_chips, card.ability.extra.adds }
+        }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
@@ -386,10 +402,50 @@ SMODS.Joker({
             chips = 20,
             mills = 3,
             removes = 6,
-            mult = 10,
+            gy_chips = 12,
+            current_gy_chips = 0,
             adds = 1
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.before then
+                if vw_played_hand("qinglong", context) then
+                    local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "VirtualWorld" } } })
+
+                    for i = 1, card.ability.extra.mills do
+                        JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_vw_lili')) -- TODO: Make send to gy pseudorandom
+                    end
+                end
+                if vw_played_hand("chuche", context) then
+                    --TODO: Add GY manip code
+                end
+                if vw_played_hand("kauwloon", context) then
+                    if JoyousSpring.get_graveyard_count() == JoyousSpring.count_materials_in_graveyard({ { monster_type = "Psychic" }, { monster_type = "Wyrm" } }) then
+                        local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "VirtualWorld" }, is_extra_deck = true } })
+
+                        for i = 1, card.ability.extra.adds do
+                            local key_to_add, _ = pseudorandom_element(choices, 'j_joy_vw_lili')
+                            if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
+                                JoyousSpring.add_to_extra_deck(key_to_add)
+                            end
+                        end
+                    end
+                end
+            end
+            if context.joker_main then
+                return {
+                    chips = card.ability.extra.current_gy_chips
+                }
+            end
+            if context.individual and context.cardarea == G.play then
+                return {
+                    chips = card.ability.extra.chips *
+                        JoyousSpring.count_materials_in_graveyard({ { monster_type = "Psychic" }, { monster_type = "Wyrm" } })
+                }
+            end
+        end
+    end
 })
 
 
@@ -404,7 +460,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 0,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.mult_card, 0, card.ability.extra.revives, card.ability.extra.removes, card.ability.extra.mult, card.ability.extra.removes * card.ability.extra.mult, card.ability.extra.revives_negative } }
+        return { vars = { card.ability.extra.mult, 0, card.ability.extra.revives, card.ability.extra.removes, card.ability.extra.gy_mult, card.ability.extra.current_gy_mult, card.ability.extra.revives_negative } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
@@ -419,10 +475,11 @@ SMODS.Joker({
                 monster_type = "Psychic",
                 monster_archetypes = { ["VirtualWorld"] = true }
             },
-            mult_card = 3,
+            mult = 3,
             revives = 1,
             removes = 6,
-            mult = 10,
+            gy_mult = 10,
+            current_gy_mult = 0,
             revives_negative = 1
         },
     },

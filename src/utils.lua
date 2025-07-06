@@ -203,7 +203,9 @@ JoyousSpring.get_not_owned = function(keys, count_debuffed)
 end
 
 ---Empties the graveyard
-JoyousSpring.empty_graveyard = function()
+---@param allow? material_properties[]
+---@param deny? material_properties[]
+JoyousSpring.empty_graveyard = function(allow, deny)
     for _, t in pairs(JoyousSpring.graveyard) do
         t.count = 0
         t.summonable = 0
