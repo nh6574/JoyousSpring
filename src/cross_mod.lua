@@ -232,7 +232,37 @@ if TheFamily then
             card:highlight(false)
         end,
         unhighlight = function(definition, card)
-            G.FUNCS.exit_overlay_menu()
+            if G.OVERLAY_MENU then G.FUNCS.exit_overlay_menu() end
+        end,
+        alert = function(definition, card)
+            return {
+                definition_function = function()
+                    local info = TheFamily.UI.get_ui_values()
+                    return TheFamily.UI.PARTS.create_dark_alert(card, {
+                        {
+                            n = G.UIT.O,
+                            config = {
+                                object = DynaText({
+                                    string = {
+                                        {
+                                            ref_table = JoyousSpring,
+                                            ref_value = "GY_count",
+                                        },
+                                    },
+                                    colours = { G.C.WHITE },
+                                    scale = 0.45 * info.scale,
+                                }),
+                            },
+                        },
+                    })
+                end,
+            }
+        end,
+        update = function(self, card, dt)
+            JoyousSpring.GY_count = JoyousSpring.get_graveyard_count()
+            if not G.OVERLAY_MENU then
+                card:highlight(false)
+            end
         end
     })
     TheFamily.create_tab({
@@ -287,7 +317,12 @@ if TheFamily then
             JoyousSpring.create_overlay_graveyard(true)
         end,
         unhighlight = function(definition, card)
-            G.FUNCS.exit_overlay_menu()
+            if G.OVERLAY_MENU then G.FUNCS.exit_overlay_menu() end
+        end,
+        update = function(self, card, dt)
+            if not G.OVERLAY_MENU then
+                card:highlight(false)
+            end
         end
     })
 end
