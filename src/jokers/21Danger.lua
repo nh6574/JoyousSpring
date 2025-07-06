@@ -613,11 +613,9 @@ SMODS.Joker({
         if context.joy_danger == card and not card.ability.extra.activated then
             card.ability.extra.activated = true
             inc_danger_count()
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Danger" } } })
-
-            for i = 1, card.ability.extra.mills do
-                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_danger_ogo'))
-            end
+            JoyousSpring.send_to_graveyard_pseudorandom(
+                { { monster_archetypes = { "Danger" } } },
+                card.config.center.key, card.ability.extra.mills)
             return { message = localize("k_joy_mill") }
         end
     end,

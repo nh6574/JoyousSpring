@@ -150,6 +150,8 @@ function SMODS.current_mod.reset_game_globals(run_start)
     G.GAME.current_round.joy_tributed_cards = {}
 end
 
+---Count card as being tributed
+---@param card Card|table
 JoyousSpring.count_as_tributed = function(card)
     if not G.GAME.joy_tributed_cards[card.config.center.key] then
         G.GAME.joy_tributed_cards[card.config.center.key] = {
@@ -169,6 +171,9 @@ JoyousSpring.count_as_tributed = function(card)
         [card.config.center.key].count + 1
 end
 
+---Tribute a card
+---@param card Card|table Source of the tributing
+---@param card_list Card[]|table Cards to tribute
 JoyousSpring.tribute = function(card, card_list)
     if not card_list then return end
 
@@ -402,6 +407,9 @@ JoyousSpring.calculate_hand_highlight_limit = function(count_card, remove_card)
     G.hand.config.highlighted_limit = (maxlimit > -1) and maxlimit or G.GAME.joy_original_hand_limit
 end
 
+---Excavates (reveals) cards from the top of the deck
+---@param amount number
+---@param context CalcContext
 JoyousSpring.excavate = function(amount, context)
     local amount = amount or 1
     local copied_cards = {}

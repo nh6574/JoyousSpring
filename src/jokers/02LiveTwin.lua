@@ -324,11 +324,9 @@ SMODS.Joker({
                 }
             end
             if context.setting_blind and context.main_eval then
-                local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Lilla" }, is_main_deck = true } })
-
-                for i = 1, card.ability.extra.mills do
-                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_etwin_kisikil_deal'))
-                end
+                JoyousSpring.send_to_graveyard_pseudorandom(
+                    { { monster_archetypes = { "Lilla" }, is_main_deck = true } },
+                    card.config.center.key, card.ability.extra.mills)
                 return {
                     message = localize("k_joy_mill")
                 }

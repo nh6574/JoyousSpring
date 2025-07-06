@@ -86,11 +86,9 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.setting_blind and context.main_eval then
-                local choices = JoyousSpring.get_materials_in_collection({ { rarity = 2 } })
-
-                for i = 1, card.ability.extra.mill do
-                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_spright_jet'))
-                end
+                JoyousSpring.send_to_graveyard_pseudorandom(
+                    { { rarity = 2 } },
+                    card.config.center.key, card.ability.extra.mills)
             end
         end
     end,

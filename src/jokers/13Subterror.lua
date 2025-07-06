@@ -299,11 +299,9 @@ SMODS.Joker({
                 end
             end
             if JoyousSpring.calculate_flip_effect(card, context) then
-                local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "SubterrorBehemoth" } } })
-
-                for i = 1, card.ability.extra.mills do
-                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_sub_warrior'))
-                end
+                JoyousSpring.send_to_graveyard_pseudorandom(
+                    { { monster_archetypes = { "SubterrorBehemoth" } } },
+                    card.config.center.key, card.ability.extra.mills)
             end
         end
     end,
@@ -683,11 +681,9 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if JoyousSpring.calculate_flip_effect(card, context) then
-                local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Subterror" } } })
-
-                for i = 1, card.ability.extra.mills do
-                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_sub_warrior'))
-                end
+                JoyousSpring.send_to_graveyard_pseudorandom(
+                    { { monster_archetypes = { "Subterror" } } },
+                    card.config.center.key, card.ability.extra.mills)
             end
             if context.joker_main then
                 return {

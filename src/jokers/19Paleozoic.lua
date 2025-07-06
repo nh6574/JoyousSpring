@@ -409,11 +409,9 @@ SMODS.Joker({
                 JoyousSpring.revive_pseudorandom({ { is_trap = true, monster_archetypes = { "Paleozoic" } } },
                     'j_joy_paleo_marrella', not has_cambro, has_cambro and "e_negative" or nil)
             end
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Paleozoic" }, is_main_deck = true } })
-
-            for i = 1, card.ability.extra.mills do
-                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_paleo_marrella'))
-            end
+            JoyousSpring.send_to_graveyard_pseudorandom(
+                { { monster_archetypes = { "Paleozoic" }, is_main_deck = true } },
+                card.config.center.key, card.ability.extra.mills)
         end
     end,
     add_to_deck = function(self, card, from_debuff)

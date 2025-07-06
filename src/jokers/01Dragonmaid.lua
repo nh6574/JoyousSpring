@@ -255,11 +255,10 @@ SMODS.Joker({
                     add_tag(Tag('tag_joy_booster'))
                 end
             end
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Dragonmaid" }, is_main_deck = true } })
+            JoyousSpring.send_to_graveyard_pseudorandom(
+                { { monster_archetypes = { "Dragonmaid" }, is_main_deck = true } },
+                card.config.center.key, card.ability.extra.mills)
 
-            for i = 1, card.ability.extra.mills do
-                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_dmaid_laundry'))
-            end
             SMODS.calculate_effect({ message = localize("k_joy_mill") }, card)
         end
     end,
@@ -544,11 +543,9 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not from_debuff and not card.debuff then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Dragonmaid" }, is_main_deck = true } })
-
-            for i = 1, card.ability.extra.mills do
-                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_dmaid_laundry'))
-            end
+            JoyousSpring.send_to_graveyard_pseudorandom(
+                { { monster_archetypes = { "Dragonmaid" }, is_main_deck = true } },
+                card.config.center.key, card.ability.extra.mills)
             SMODS.calculate_effect({ message = localize("k_joy_mill") }, card)
         end
     end,
@@ -691,11 +688,9 @@ SMODS.Joker({
                     add_tag(Tag('tag_voucher'))
                 end
             end
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Dragonmaid" }, is_main_deck = true } })
-
-            for i = 1, card.ability.extra.mills do
-                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_dmaid_laundry'))
-            end
+            JoyousSpring.send_to_graveyard_pseudorandom(
+                { { monster_archetypes = { "Dragonmaid" }, is_main_deck = true } },
+                card.config.center.key, card.ability.extra.mills)
             SMODS.calculate_effect({ message = localize("k_joy_mill") }, card)
         end
     end,

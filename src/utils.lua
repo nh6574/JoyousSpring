@@ -175,6 +175,10 @@ JoyousSpring.level_up_hand = function(card, hand_key, instant, amount)
     end
 end
 
+---Gets the attributes are in a card list
+---@param card_list Card[]|string[]|table
+---@param ignore_debuffed? boolean
+---@return table<attribute, boolean>
 JoyousSpring.get_material_attributes = function(card_list, ignore_debuffed)
     local attributes = {
         LIGHT = false,
@@ -236,6 +240,10 @@ JoyousSpring.get_material_attributes = function(card_list, ignore_debuffed)
     return attributes
 end
 
+---Counts how many attributes are in *card_list*
+---@param card_list Card[]|string[]|table
+---@param ignore_debuffed? boolean
+---@return integer
 JoyousSpring.get_attribute_count = function(card_list, ignore_debuffed)
     local count = 0
     local attributes = JoyousSpring.get_material_attributes(card_list, ignore_debuffed)
@@ -247,6 +255,10 @@ JoyousSpring.get_attribute_count = function(card_list, ignore_debuffed)
     return count
 end
 
+---Get the cards tributed this round
+---@param set? string Set the cards belong to (e.g. "Joker" or "Tarot")
+---@param this_run? boolean Checks for the entire run instead
+---@return table
 JoyousSpring.get_set_tributed = function(set, this_run)
     local list = {}
     local tribute_table = this_run and G.GAME.joy_tributed_cards or G.GAME.current_round.joy_tributed_cards
@@ -262,10 +274,17 @@ JoyousSpring.get_set_tributed = function(set, this_run)
     return list
 end
 
+---Counts the cards tributed this round
+---@param set? string Set the cards belong to (e.g. "Joker" or "Tarot")
+---@param this_run? boolean Checks for the entire run instead
+---@return integer
 JoyousSpring.count_set_tributed = function(set, this_run)
     return #JoyousSpring.get_set_tributed(set, this_run)
 end
 
+---Get the list of cards of a set in G.consumeables
+---@param set? string Set the cards belong to (e.g. "Planet" or "Tarot")
+---@return Card[]|table
 JoyousSpring.get_consumable_set = function(set)
     local list = {}
 
@@ -280,23 +299,39 @@ JoyousSpring.get_consumable_set = function(set)
     return list
 end
 
+---Counts the cards of a set in G.consumeables
+---@param set? string Set the cards belong to (e.g. "Planet" or "Tarot")
+---@return integer
 JoyousSpring.get_consumable_count = function(set)
     return #JoyousSpring.get_consumable_set(set)
 end
 
+---Get the count of the cards summoned this run
+---@param type? summon_type
+---@param this_round? boolean Checks for the round instead
+---@return integer
 JoyousSpring.get_summoned_count = function(type, this_round)
     local table = not this_round and G.GAME.joy_summoned_count or G.GAME.joy_summoned_count_round
     return table and table[type or "Total"] or 0
 end
 
+---Get the count of the cards flipped this run
+---@param set? string Set the cards belong to (e.g. "Joker" or "Tarot")
+---@return integer
 JoyousSpring.get_flipped_count = function(set)
     return G.GAME.joy_flipped_count and G.GAME.joy_flipped_count[set or "Total"] or 0
 end
 
+---Get the count of the pendulums used this run
+---@return integer
 JoyousSpring.get_pendulum_count = function()
     return G.GAME.joy_pendulum_count or 0
 end
 
+---Gets the colour used by the name of the Joker
+---@param key string
+---@param set? string Set the cards belong to (e.g. "Joker" or "Tarot")
+---@return table
 JoyousSpring.get_name_color = function(key, set)
     if not key then return G.ARGS.LOC_COLOURS["joy_normal"] end
     local name_color
@@ -309,6 +344,10 @@ JoyousSpring.get_name_color = function(key, set)
     return G.ARGS.LOC_COLOURS[name_color or "joy_normal"]
 end
 
+---Checks if card is being used as material in this context
+---@param card Card|table
+---@param context CalcContext|table
+---@return boolean
 JoyousSpring.used_as_material = function(card, context)
     if type(card) ~= "table" then return false end
     if context.joy_summon and context.main_eval and not context.blueprint_card then
@@ -321,6 +360,9 @@ JoyousSpring.used_as_material = function(card, context)
     return false
 end
 
+---Gets the most owned Joker rarities and their count
+---@return string[]
+---@return integer
 JoyousSpring.most_owned_rarity = function()
     if not G.jokers then return {}, 0 end
 
@@ -349,6 +391,10 @@ JoyousSpring.most_owned_rarity = function()
     return ret, max
 end
 
+---Checks if the *card*'s rarity is in *list*
+---@param card Card|table
+---@param list string[]
+---@return boolean
 JoyousSpring.is_card_rarity_from_array = function(card, list)
     for _, rarity in ipairs(list) do
         if card.config.center.rarity == rarity then

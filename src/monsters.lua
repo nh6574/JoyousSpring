@@ -206,118 +206,199 @@ JoyousSpring.init_joy_table = function(params)
         is_free = false,
     }
 end
+
+---Checks if *card* is a Monster Joker
+---@param card Card|table
+---@return boolean
 JoyousSpring.is_monster_card = function(card)
     return card and card.ability and card.ability.extra and type(card.ability.extra) == "table" and
         card.ability.extra.joyous_spring and true or false
 end
 
+---Checks if *card* belongs to *archetype*
+---@param card Card|table
+---@param archetype string
+---@return boolean
 JoyousSpring.is_monster_archetype = function(card, archetype)
     return JoyousSpring.is_monster_card(card) and
         card.ability.extra.joyous_spring.monster_archetypes[archetype] and true or false
 end
 
+---Checks if *card* belongs to *monster_type*
+---@param card Card|table
+---@param monster_type monster_type
+---@return boolean
 JoyousSpring.is_monster_type = function(card, monster_type)
     return JoyousSpring.is_monster_card(card) and
         (card.ability.extra.joyous_spring.is_all_types or
             card.ability.extra.joyous_spring.monster_type == monster_type)
 end
 
+---Checks if *card* is *attribute*
+---@param card Card|table
+---@param attribute attribute
+---@return boolean
 JoyousSpring.is_attribute = function(card, attribute)
     return JoyousSpring.is_monster_card(card) and
         (card.ability.extra.joyous_spring.is_all_attributes or
             card.ability.extra.joyous_spring.attribute == attribute)
 end
 
+---Checks if *card* is an Effect Joker
+---@param card Card|table
+---@return boolean
 JoyousSpring.is_effect_monster = function(card)
     return JoyousSpring.is_monster_card(card) and
         card.ability.extra.joyous_spring.is_effect
 end
 
+---Checks if *card* is a Main Deck Joker
+---@param card Card|table
+---@return boolean
 JoyousSpring.is_main_deck_monster = function(card)
     return JoyousSpring.is_monster_card(card) and
         card.ability.extra.joyous_spring.is_main_deck
 end
 
+---Checks if *card* is an Extra Deck Joker
+---@param card Card|table
+---@return boolean
 JoyousSpring.is_extra_deck_monster = function(card)
     return JoyousSpring.is_monster_card(card) and
         not card.ability.extra.joyous_spring.is_main_deck and not card.ability.extra.joyous_spring.is_field_spell
 end
 
+---Checks if *card* has summon type *summon_type*
+---@param card Card|table
+---@param summon_type summon_type
+---@return boolean
 JoyousSpring.is_summon_type = function(card, summon_type)
     return JoyousSpring.is_monster_card(card) and
         card.ability.extra.joyous_spring.summon_type == summon_type
 end
 
+---Checks if *card* is a Pendulum Joker
+---@param card Card|table
+---@return boolean
 JoyousSpring.is_pendulum_monster = function(card)
     return JoyousSpring.is_monster_card(card) and card.ability.extra.joyous_spring.is_pendulum or false
 end
 
+---Checks if *card* is a Trap Joker
+---@param card Card|table
+---@return boolean
 JoyousSpring.is_trap_monster = function(card)
     return JoyousSpring.is_monster_card(card) and card.ability.extra.joyous_spring.is_trap or false
 end
 
+---Checks if *card* is a Flip Joker
+---@param card Card|table
+---@return boolean
 JoyousSpring.is_flip_monster = function(card)
     return JoyousSpring.is_monster_card(card) and card.ability.extra.joyous_spring.is_flip or false
 end
 
+---Checks if *card* is a Tuner Joker
+---@param card Card|table
+---@return boolean
 JoyousSpring.is_tuner_monster = function(card)
     return JoyousSpring.is_monster_card(card) and card.ability.extra.joyous_spring.is_tuner or false
 end
 
+---Checks if *card* is a Non-Tuner Joker
+---@param card Card|table
+---@return boolean
 JoyousSpring.is_nontuner_monster = function(card)
     return not JoyousSpring.is_tuner_monster(card)
 end
 
+---Checks if *card* is a Field Spell Joker
+---@param card Card|table
+---@return boolean
 JoyousSpring.is_field_spell = function(card)
     return JoyousSpring.is_monster_card(card) and card.ability.extra.joyous_spring.is_field_spell or false
 end
 
+---Checks if *card* is treated as all matrerials for a summon type
+---@param card Card|table
+---@param summon_type summon_type
+---@return boolean
 JoyousSpring.is_all_materials = function(card, summon_type)
     return JoyousSpring.is_monster_card(card) and card.ability.extra.joyous_spring.is_all_materials and
         card.ability.extra.joyous_spring.is_all_materials[summon_type]
 end
 
+---Checks if *card* is treated as all attributes
+---@param card Card|table
+---@return boolean
 JoyousSpring.is_all_attributes = function(card)
     return JoyousSpring.is_monster_card(card) and card.ability.extra.joyous_spring.is_all_attributes or false
 end
 
+---Checks if *card* is treated as all types
+---@param card Card|table
+---@return boolean
 JoyousSpring.is_all_types = function(card)
     return JoyousSpring.is_monster_card(card) and card.ability.extra.joyous_spring.is_all_types or false
 end
 
+---Checks if *card* has been summoned
+---@param card Card|table
+---@return boolean
 JoyousSpring.is_summoned = function(card)
     return JoyousSpring.is_monster_card(card) and card.ability.extra.joyous_spring.summoned or false
 end
 
+---Checks if *card* has been revived
+---@param card Card|table
+---@return boolean
 JoyousSpring.is_revived = function(card)
     return JoyousSpring.is_monster_card(card) and card.ability.extra.joyous_spring.revived or false
 end
 
+---Checks if *card* is perma debuffed (by an ability from JoyousSpring)
+---@param card Card|table
+---@return boolean
 JoyousSpring.is_perma_debuffed = function(card)
     return JoyousSpring.is_monster_card(card) and card.ability.extra.joyous_spring.perma_debuffed or false
 end
 
+---Checks if *card* is free (thanks to an ability from JoyousSpring)
+---@param card Card|table
+---@return boolean
 JoyousSpring.is_free = function(card)
     return JoyousSpring.is_monster_card(card) and card.ability.extra.joyous_spring.is_free or false
 end
 
+---Gets the *card*'s summoning materials (or transferred materials)
+---@param card Card|table
+---@return string[]
 JoyousSpring.get_materials = function(card)
     return JoyousSpring.is_monster_card(card) and card.ability.extra.joyous_spring.summon_materials or {}
 end
 
+---Gets the *card*'s remaining Xyz material count
+---@param card Card|table
+---@return integer
 JoyousSpring.get_xyz_materials = function(card)
     return JoyousSpring.is_monster_card(card) and card.ability.extra.joyous_spring.xyz_materials or 0
 end
 
+---Checks if *card* has an activated ability
+---@param card Card|table
+---@return boolean
 JoyousSpring.has_activated_effect = function(card)
     return JoyousSpring.is_monster_card(card) and card.config.center.joy_can_activate and true or false
 end
 
+---Checks if *card* cannot flip face-down
+---@param card Card|table
+---@return boolean
 JoyousSpring.cannot_flip = function(card)
     if not JoyousSpring.is_monster_card(card) or card.facing == 'back' then
         return false
     end
-    if card.ability.extra.joyous_spring.cannot_flip then
+    if card.ability.extra.joyous_spring.cannot_flip or JoyousSpring.is_summon_type(card, "LINK") then
         return true
     end
 
@@ -346,6 +427,10 @@ JoyousSpring.cannot_flip = function(card)
     return false
 end
 
+---Checks if *card* can activate its ability
+---@param card Card|table
+---@param for_glow? boolean
+---@return boolean
 JoyousSpring.can_activate = function(card, for_glow)
     return (not card.debuff and card.facing ~= 'back') and JoyousSpring.is_monster_card(card) and
         (for_glow or (not ((G.play and #G.play.cards > 0) or
@@ -356,6 +441,9 @@ JoyousSpring.can_activate = function(card, for_glow)
         card.config.center.joy_can_activate(card) or false
 end
 
+---Checks if *card* can be used as a consumable
+---@param card Card|table
+---@return boolean
 JoyousSpring.can_use = function(card)
     return not ((G.play and #G.play.cards > 0) or
             (G.CONTROLLER.locked) or
@@ -366,6 +454,9 @@ JoyousSpring.can_use = function(card)
         card.config.center.can_use and card.config.center:can_use(card) or false
 end
 
+---Checks if *card* can use its abilities (i.e. is not face-down or debuffed)
+---@param card Card|table
+---@return boolean
 JoyousSpring.can_use_abilities = function(card)
     if not card or card.debuff then return false end
     if card.facing == 'front' then return true end
@@ -382,6 +473,9 @@ JoyousSpring.can_use_abilities = function(card)
     return false
 end
 
+---Checks if *card* is a trap that should flip face-up at end of round
+---@param card Card|table
+---@return boolean
 JoyousSpring.should_trap_flip = function(card)
     if not JoyousSpring.is_trap_monster(card) then
         return false
@@ -400,6 +494,9 @@ JoyousSpring.should_trap_flip = function(card)
     return true
 end
 
+---Checks if *card* should have its FLIP ability active
+---@param card Card|table
+---@return boolean
 JoyousSpring.flip_effect_active = function(card)
     for _, joker in ipairs(G.jokers.cards) do
         if not joker.debuff and joker.config.center.joy_flip_effect_active and joker.config.center.joy_flip_effect_active(joker, card) then
@@ -423,6 +520,9 @@ JoyousSpring.flip_effect_active = function(card)
     return false
 end
 
+---Checks if *card* has its FLIP ability active by having been flipped
+---@param card Card|table
+---@return boolean
 JoyousSpring.is_flip_active = function(card)
     return JoyousSpring.is_monster_card(card) and card.ability.extra.joyous_spring.flip_active and true or false
 end

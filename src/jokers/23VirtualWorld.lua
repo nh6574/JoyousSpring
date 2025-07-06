@@ -411,11 +411,9 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if context.before then
                 if vw_played_hand("qinglong", context) then
-                    local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "VirtualWorld" } } })
-
-                    for i = 1, card.ability.extra.mills do
-                        JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_vw_lili')) -- TODO: Make send to gy pseudorandom
-                    end
+                    JoyousSpring.send_to_graveyard_pseudorandom(
+                        { { monster_archetypes = { "VirtualWorld" } } },
+                        card.config.center.key, card.ability.extra.mills)
                 end
                 if vw_played_hand("chuche", context) then
                     --TODO: Add GY manip code

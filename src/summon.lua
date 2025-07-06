@@ -167,6 +167,12 @@ JoyousSpring.perform_summon = function(card, card_list, summon_type)
     end
 end
 
+---Creates a card with correct timings
+---@param add_params Card|table|CreateCard
+---@param must_have_room? boolean
+---@param card_limit_modif? integer
+---@param from_revive_key? string
+---@return Card|table
 JoyousSpring.create_summon = function(add_params, must_have_room, card_limit_modif, from_revive_key)
     local card = add_params.is and add_params:is(Card) and add_params or SMODS.create_card(add_params)
     card.states.visible = false

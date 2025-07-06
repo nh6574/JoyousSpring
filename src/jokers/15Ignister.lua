@@ -271,11 +271,9 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Ignister" } } })
-
-            for i = 1, card.ability.extra.mills do
-                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_ignis_bururu'))
-            end
+            JoyousSpring.send_to_graveyard_pseudorandom(
+                { { monster_archetypes = { "Ignister" } } },
+                card.config.center.key, card.ability.extra.mills)
             SMODS.calculate_effect({ message = localize("k_joy_mill") }, card)
         end
     end

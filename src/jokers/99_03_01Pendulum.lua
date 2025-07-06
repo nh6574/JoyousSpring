@@ -133,11 +133,9 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.setting_blind and context.main_eval then
-                local choices = JoyousSpring.get_materials_in_collection({ { is_pendulum = true } })
-
-                for i = 1, card.ability.extra.mills do
-                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_pendulumoon'))
-                end
+                JoyousSpring.send_to_graveyard_pseudorandom(
+                    { { is_pendulum = true } },
+                    card.config.center.key, card.ability.extra.mills)
                 return { message = localize("k_joy_mill") }
             end
         end
@@ -739,7 +737,7 @@ SMODS.Joker({
             calc_function = function(card)
                 local column = JoyousSpring.get_joker_column(card)
                 card.joker_display_values.xmult = #JokerDisplay.current_hand < column and
-                math.max(1, card.ability.extra.xmult - column) or 1
+                    math.max(1, card.ability.extra.xmult - column) or 1
             end
         }
     end

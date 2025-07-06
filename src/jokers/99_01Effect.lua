@@ -185,11 +185,9 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.used_as_material(card, context) then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_type = "Fiend" } })
-            for _ = 1, card.ability.extra.mills do
-                local key_to_send = pseudorandom_element(choices, 'j_joy_rhino')
-                JoyousSpring.send_to_graveyard(key_to_send or "j_joy_ba_cagna")
-            end
+            JoyousSpring.send_to_graveyard_pseudorandom(
+                { { monster_type = "Fiend" } },
+                card.config.center.key, card.ability.extra.mills)
             JoyousSpring.revive_pseudorandom({ { monster_type = "Fiend" } }, 'j_joy_rhino')
         end
     end,
@@ -1217,11 +1215,9 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.setting_blind and context.main_eval then
-                local choices = JoyousSpring.get_materials_in_collection({ { monster_type = "Fish", is_main_deck = true } })
-                for _ = 1, card.ability.extra.mills do
-                    local key_to_send = pseudorandom_element(choices, 'j_joy_ba_leaffish')
-                    JoyousSpring.send_to_graveyard(key_to_send or "j_joy_beautunaful")
-                end
+                JoyousSpring.send_to_graveyard_pseudorandom(
+                    { { monster_type = "Fish", is_main_deck = true } },
+                    card.config.center.key, card.ability.extra.mills)
             end
             if context.selling_self then
                 for i = 1, card.ability.extra.revives do

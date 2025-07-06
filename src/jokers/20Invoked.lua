@@ -955,11 +955,9 @@ SMODS.Joker({
                 end
             end
             if context.setting_blind and context.main_eval then
-                local choices = JoyousSpring.get_materials_in_collection({ { summon_type = "FUSION", exclude_monster_archetypes = { "Invoked" } } })
-
-                for i = 1, card.ability.extra.mills do
-                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_invoked_augo'))
-                end
+                JoyousSpring.send_to_graveyard_pseudorandom(
+                    { { summon_type = "FUSION", exclude_monster_archetypes = { "Invoked" } } },
+                    card.config.center.key, card.ability.extra.mills)
                 return { message = localize("k_joy_mill") }
             end
             if context.joker_main then
@@ -995,11 +993,9 @@ SMODS.Joker({
                 }
             end
             if context.setting_blind and context.main_eval then
-                local choices = JoyousSpring.get_materials_in_collection({ { summon_type = "FUSION", exclude_monster_archetypes = { "Invoked" } } })
-
-                for i = 1, config.mills do
-                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_invoked_augo'))
-                end
+                JoyousSpring.send_to_graveyard_pseudorandom(
+                    { { summon_type = "FUSION", exclude_monster_archetypes = { "Invoked" } } },
+                    other_card.config.center.key .. "i_nvoked_augo", config.mills)
                 return { message = localize("k_joy_mill") }
             end
         end
@@ -1209,7 +1205,7 @@ SMODS.Joker({
             },
             calc_function = function(card)
                 card.joker_display_values.xmult = 1 +
-                card.ability.extra.xmult * JoyousSpring.get_summoned_count("FUSION")
+                    card.ability.extra.xmult * JoyousSpring.get_summoned_count("FUSION")
             end
         }
     end

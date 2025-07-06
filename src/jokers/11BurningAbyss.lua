@@ -164,11 +164,9 @@ SMODS.Joker({
                     card.getting_sliced = true
                     card:start_dissolve()
                 else
-                    local choices = JoyousSpring.get_materials_in_collection({ { monster_type = "Fiend" } })
-                    for _ = 1, card.ability.extra.mills do
-                        local key_to_send = pseudorandom_element(choices, 'j_joy_ba_cagna')
-                        JoyousSpring.send_to_graveyard(key_to_send or "j_joy_ba_cagna")
-                    end
+                    JoyousSpring.send_to_graveyard_pseudorandom(
+                        { { monster_type = "Fiend" } },
+                        card.config.center.key, card.ability.extra.mills)
                 end
             end
             if context.joker_main then
@@ -735,11 +733,9 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.setting_blind and context.main_eval then
-                local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "BurningAbyss" } } })
-                for _ = 1, card.ability.extra.mills do
-                    local key_to_send = pseudorandom_element(choices, 'j_joy_ba_cherubini')
-                    JoyousSpring.send_to_graveyard(key_to_send or "j_joy_ba_cagna")
-                end
+                JoyousSpring.send_to_graveyard_pseudorandom(
+                    { { monster_archetypes = { "BurningAbyss" } } },
+                    card.config.center.key, card.ability.extra.mills)
             end
         end
     end
@@ -793,11 +789,9 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and context.joy_detach and context.joy_detaching_card == card then
-                local choices = JoyousSpring.get_materials_in_collection({ { is_monster = true, exclude_tokens = true } })
-                for _ = 1, card.ability.extra.mills do
-                    local key_to_send = pseudorandom_element(choices, 'j_joy_ba_dante')
-                    JoyousSpring.send_to_graveyard(key_to_send or "j_joy_ba_cir")
-                end
+                JoyousSpring.send_to_graveyard_pseudorandom(
+                    { { is_monster = true, exclude_tokens = true } },
+                    card.config.center.key, card.ability.extra.mills)
                 JoyousSpring.ease_detach(card)
             end
             if context.joker_main then
