@@ -1044,26 +1044,3 @@ JoyousSpring.filter_material_keys_from_list = function(list, allow, deny)
     end
     return pool
 end
-
--- Hooks
-
-local card_flip_ref = Card.flip
-function Card:flip(source)
-    if not JoyousSpring.is_summon_type(self, "LINK") and self.config.center_key ~= "j_joy_token" and not JoyousSpring.cannot_flip(self) then
-        card_flip_ref(self)
-        local is_play_area = false
-        for _, area in ipairs(SMODS.get_card_areas('jokers')) do
-            if self.area == area then
-                is_play_area = true
-                break
-            end
-        end
-        if is_play_area or (G.hand and self.area == G.hand) then
-            SMODS.calculate_context({
-                joy_card_flipped = self,
-                joy_source = source and type(source) == "table" and
-                    JoyousSpring.is_monster_card(source) and source or nil
-            })
-        end
-    end
-end
