@@ -371,7 +371,8 @@ SMODS.Joker({
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
         end
-        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
+        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds,
+            card.config.center.key)
         return { vars = { numerator, denominator, card.ability.extra.revives } }
     end,
     joy_desc_cards = {
@@ -426,7 +427,8 @@ SMODS.Joker({
             },
             extra_config = { colour = G.C.GREEN, scale = 0.3 },
             calc_function = function(card)
-                local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
+                local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds,
+                    card.config.center.key)
                 card.joker_display_values.odds = localize { type = 'variable', key = "jdis_odds", vars = { numerator, denominator } }
             end
         }
@@ -714,7 +716,8 @@ SMODS.Joker({
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
         end
-        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
+        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds,
+            card.config.center.key)
         return { vars = { numerator, denominator, card.ability.extra.revives } }
     end,
     joy_desc_cards = {
@@ -778,7 +781,8 @@ SMODS.Joker({
             },
             extra_config = { colour = G.C.GREEN, scale = 0.3 },
             calc_function = function(card)
-                local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
+                local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds,
+                    card.config.center.key)
                 card.joker_display_values.odds = localize { type = 'variable', key = "jdis_odds", vars = { numerator, denominator } }
             end
         }
@@ -799,7 +803,8 @@ SMODS.Joker({
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
         end
-        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
+        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds,
+            card.config.center.key)
         return { vars = { numerator, denominator } }
     end,
     joy_desc_cards = {
@@ -859,7 +864,8 @@ SMODS.Joker({
             },
             extra_config = { colour = G.C.GREEN, scale = 0.3 },
             calc_function = function(card)
-                local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
+                local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds,
+                    card.config.center.key)
                 card.joker_display_values.odds = localize { type = 'variable', key = "jdis_odds", vars = { numerator, denominator } }
             end
         }

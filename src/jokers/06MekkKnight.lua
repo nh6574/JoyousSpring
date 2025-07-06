@@ -288,7 +288,7 @@ SMODS.Joker({
     cost = 4,
     loc_vars = function(self, info_queue, card)
         local numerator, _ = SMODS.get_probability_vars(card,
-            JoyousSpring.count_materials_owned({ { monster_archetypes = { "MekkKnight" } } }), 1)
+            JoyousSpring.count_materials_owned({ { monster_archetypes = { "MekkKnight" } } }), 1, card.config.center.key)
         return { vars = { numerator, JoyousSpring.get_joker_column(card) } }
     end,
     joy_desc_cards = {

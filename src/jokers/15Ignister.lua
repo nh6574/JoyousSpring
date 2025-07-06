@@ -997,7 +997,8 @@ SMODS.Joker({
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
         end
         local numerator, denominator = SMODS.get_probability_vars(card, 1,
-            math.max(1, card.ability.extra.odds - JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))))
+            math.max(1, card.ability.extra.odds - JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))),
+            card.config.center.key)
         return { vars = { card.ability.extra.adds, numerator, denominator } }
     end,
     joy_desc_cards = {
@@ -1070,7 +1071,8 @@ SMODS.Joker({
     end,
     joy_transfer_loc_vars = function(self, info_queue, card, config)
         local numerator, denominator = SMODS.get_probability_vars(card, 1,
-            math.max(1, config.odds - JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))))
+            math.max(1, config.odds - JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))),
+            card.config.center.key)
         return { vars = { numerator, denominator } }
     end
 })
@@ -1480,7 +1482,8 @@ SMODS.Joker({
         end
         local current_xmult = card.ability.extra.xmult *
             JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))
-        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
+        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds,
+            card.config.center.key)
         return {
             vars = {
                 card.ability.extra.xmult,
@@ -1685,7 +1688,7 @@ SMODS.Joker({
                     0
                 card.joker_display_values.mult = card.ability.extra.attributes["FIRE"] and card.ability.extra.mult or 0
                 card.joker_display_values.money = card.ability.extra.attributes["LIGHT"] and card.ability.extra.money or
-                0
+                    0
                 card.joker_display_values.localized_text = " (" .. localize("k_round") .. ")"
             end
         }
