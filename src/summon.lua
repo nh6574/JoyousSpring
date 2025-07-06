@@ -192,6 +192,30 @@ JoyousSpring.create_summon = function(add_params, must_have_room, card_limit_mod
     return card
 end
 
+---Create a random card with *property_list* properties
+---@param property_list material_properties[]
+---@param seed string|number?
+---@param must_have_room boolean?
+---@param not_owned boolean?
+---@param edition table|string?
+---@return unknown
+JoyousSpring.create_pseudorandom = function(property_list, seed, must_have_room, not_owned, edition)
+    local choices = JoyousSpring.get_materials_in_collection(property_list)
+
+    if not_owned then
+        choices = JoyousSpring.get_not_owned(choices)
+    end
+    local key_to_add = pseudorandom_element(choices, seed or "JoyousSpring")
+    if key_to_add then
+        return JoyousSpring.create_summon({
+            key = key_to_add,
+            edition = edition
+        }, must_have_room)
+    end
+
+    return nil
+end
+
 ---Summons a Token with specified attributes
 ---@param key string? Token's key in JoyousSpring.token_pool
 ---@param edition any?

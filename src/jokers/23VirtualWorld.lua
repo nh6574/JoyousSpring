@@ -773,7 +773,10 @@ SMODS.Joker({
                 JoyousSpring.banish(pcard, "blind_selected")
             end
         end
-    end
+    end,
+    -- joy_can_be_sent_to_graveyard = function(self, card, choices)
+    --     return JoyousSpring.filter_material_keys_from_list(choices, { {} })
+    -- end
 })
 
 JoyousSpring.collection_pool[#JoyousSpring.collection_pool + 1] = {

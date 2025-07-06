@@ -23,6 +23,7 @@ SMODS.Atlas({
 ---@field joy_flip_effect_active? fun(card:table|Card, other_card:table|Card):boolean? Determines if the FLIP ability of *other_card* should activate at the start of Blind
 ---@field joy_calculate_excavate? fun(card:table|Card, context:CalcContext):integer? Determines how many cards to excavate in a certain context
 ---@field joy_bypass_room_check? fun(self:SMODS.Center|table, card:table|Card, from_booster:bool?):bool? Determines if you can buy the card with no room
+---@field joy_can_be_sent_to_graveyard? fun(self:SMODS.Center|table, card:table|Card, choices:string[]):string[]? Used to filter cards that can be sent to the GY
 ---@field joy_can_transfer_ability? fun(self:SMODS.Center|table, other_card:Card|table, card:Card|table?):boolean? Determines if *self* transfers its ability to *other_card*. When transforming, `other_card.joy_transforming == self.key`
 ---@field joy_transfer_ability_calculate? fun(self:SMODS.Center|table, other_card:Card|table, context:CalcContext, config:table):table? Similar to `calculate` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect
 ---@field joy_transfer_config? fun(self:SMODS.Center|table, other_card:Card|table):table? Similar to `config`, it returns the initial config table for the transferred ability
@@ -877,6 +878,171 @@ JoyousSpring.is_material_center = function(card_key, properties)
         end
     end
     return true
+end
+
+---Get all materials in G.jokers that fulfill **property_list**
+---@param property_list material_properties[]?
+---@param different_names boolean?
+---@param for_tribute boolean?
+---@return Card[]
+JoyousSpring.get_materials_owned = function(property_list, different_names, for_tribute)
+    if not G.jokers then return {} end
+
+    local materials = {}
+    local keys = {}
+    for _, joker in ipairs(G.jokers.cards) do
+        if joker.getting_sliced then
+        elseif not property_list or #property_list == 0 then
+            if not keys[joker.config.center_key] or not different_names then
+                table.insert(materials, joker)
+                keys[joker.config.center_key] = true
+            end
+        else
+            for _, property in ipairs(property_list) do
+                if keys[joker.config.center_key] and different_names then
+                    break
+                end
+                if JoyousSpring.is_material(joker, property, for_tribute and "TRIBUTE" or nil) then
+                    table.insert(materials, joker)
+                    keys[joker.config.center_key] = true
+                    break
+                end
+            end
+        end
+    end
+    return materials
+end
+
+---Count all materials in G.jokers that fulfill **property_list**
+---@param property_list material_properties[]
+---@param different_names boolean?
+---@return integer
+JoyousSpring.count_materials_owned = function(property_list, different_names, for_tribute)
+    return #JoyousSpring.get_materials_owned(property_list, different_names, for_tribute)
+end
+
+---Get all materials in graveyard that fulfill **property_list**
+---@param property_list material_properties[]
+---@param to_revive boolean? Checks if it can be revived
+---@param different_names boolean?
+---@return string[]
+JoyousSpring.get_materials_in_graveyard = function(property_list, to_revive, different_names)
+    if not JoyousSpring.graveyard then return {} end
+
+    local materials = {}
+    for key, t in pairs(JoyousSpring.graveyard) do
+        local count = t.count
+        local summonable = t.summonable
+        if count > 0 then
+            if not (to_revive and (G.P_CENTERS[key].config.extra.joyous_spring.cannot_revive or summonable < 1)) then
+                if not property_list or #property_list == 0 then
+                    for i = 1, (different_names and 1 or count) do
+                        table.insert(materials, key)
+                    end
+                else
+                    for _, property in ipairs(property_list) do
+                        if JoyousSpring.is_material_center(key, property) then
+                            for i = 1, (different_names and 1 or count) do
+                                table.insert(materials, key)
+                            end
+                            break
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return materials
+end
+
+---Count all materials in graveyard that fulfill **property_list**
+---@param property_list material_properties[]
+---@param to_revive boolean? Checks if it can be revived
+---@param different_names boolean?
+---@return integer
+JoyousSpring.count_materials_in_graveyard = function(property_list, to_revive, different_names)
+    return #JoyousSpring.get_materials_in_graveyard(property_list, to_revive, different_names)
+end
+
+---Get the keys to all matrerials in G.jokers and graveyard that fulfill **property_list**
+---@param property_list material_properties[]
+---@param to_revive boolean? Checks if it can be revived
+---@param different_names boolean?
+---@return string[]
+JoyousSpring.get_all_material_keys = function(property_list, to_revive, different_names)
+    local gy = JoyousSpring.get_materials_in_graveyard(property_list, to_revive, different_names)
+    local owned = JoyousSpring.get_materials_owned(property_list, different_names)
+    for _, card in ipairs(owned) do
+        gy[#gy + 1] = card.config.center_key or nil
+    end
+    return gy
+end
+
+---Count all materials in G.jokers and graveyard that fulfill **property_list**
+---@param property_list material_properties[]
+---@param to_revive boolean? Checks if it can be revived
+---@param different_names boolean?
+---@return integer
+JoyousSpring.count_all_materials = function(property_list, to_revive, different_names)
+    return JoyousSpring.count_materials_in_graveyard(property_list, to_revive, different_names) +
+        JoyousSpring.count_materials_owned(property_list, different_names)
+end
+
+---Get cards in the collection that fulfill *property_list*
+---@param property_list material_properties[]
+---@param not_owned boolean?
+---@param not_extra boolean?
+---@return string[]
+JoyousSpring.get_materials_in_collection = function(property_list, not_owned, not_extra)
+    local pool = {}
+    for k, _ in pairs(G.P_CENTERS) do
+        if k:sub(1, 2) == "j_" then
+            if (not not_owned or not G.jokers or not next(SMODS.find_card(k, true))) and
+                (not not_extra or not JoyousSpring.is_in_extra_deck(k)) then
+                if not property_list or #property_list == 0 then
+                    table.insert(pool, k)
+                else
+                    for _, property in ipairs(property_list) do
+                        if JoyousSpring.is_material_center(k, property) then
+                            table.insert(pool, k)
+                            break
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return pool
+end
+
+---Filter materials from a key list
+---@param list string[]
+---@param allow? material_properties[]
+---@param deny? material_properties[]
+---@return string[]
+JoyousSpring.filter_material_keys_from_list = function(list, allow, deny)
+    local pool = {}
+    for _, key in pairs(list) do
+        local added = not (allow and #allow > 0)
+
+        for _, property in ipairs(allow or {}) do
+            if JoyousSpring.is_material_center(key, property) then
+                added = true
+                break
+            end
+        end
+
+        for _, property in ipairs(deny or {}) do
+            if JoyousSpring.is_material_center(key, property) then
+                added = false
+                break
+            end
+        end
+        if added then
+            table.insert(pool, key)
+        end
+    end
+    return pool
 end
 
 -- Hooks
