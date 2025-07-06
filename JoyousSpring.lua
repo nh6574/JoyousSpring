@@ -29,7 +29,7 @@ assert(SMODS.load_file("src/cross_mod.lua"))()
 -- Jokers
 local joker_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/jokers")
 for _, file in ipairs(joker_src) do
-    if JoyousSpring.dev_content or (tonumber(file:sub(1, 2)) <= 22) or (tonumber(file:sub(1, 2)) == 24) or (tonumber(file:sub(1, 2)) == 99) then
+    if JoyousSpring.dev_content or (tonumber(file:sub(1, 2)) <= 24) or (tonumber(file:sub(1, 2)) == 99) then
         sendInfoMessage("Loading " .. file, "JoyousSpring")
         assert(SMODS.load_file("src/jokers/" .. file))()
     end

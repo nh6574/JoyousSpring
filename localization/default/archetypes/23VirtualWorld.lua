@@ -121,10 +121,11 @@ return {
                     {
                         "{C:attention}Chuche{}: Removes up to {C:attention}#4#{} cards that are not {C:joy_normal}Psychic{} or {C:joy_normal}Wyrm{}",
                         "from the {C:attention}GY{} and gains {C:chips}+#5#{} Chips for each",
-                        "{C:inactive}(Currently {C:chips}+#6#{}{C:inactive} Chips)"
+                        "or {C:chips}+#6#{} Chips if none",
+                        "{C:inactive}(Currently {C:chips}+#7#{}{C:inactive} Chips)"
                     },
                     {
-                        "{C:attention}Kauwloon{}: Once per round, adds {C:attention}#7#{}",
+                        "{C:attention}Kauwloon{}: Once per round, adds {C:attention}#8#{}",
                         "{C:joy_normal}\"Virtual World\"{} to the {C:joy_spell}Extra Deck{}",
                         "if {C:attention}GY{} only contains {C:joy_normal}Psychic{} or {C:joy_normal}Wyrm{} {C:attention}Jokers{}",
                         "{C:inactive}(Must have room)"
@@ -149,10 +150,11 @@ return {
                     {
                         "{C:attention}Chuche{}: Removes up to {C:attention}#4#{} cards that are not {C:joy_wind}WIND{} or {C:joy_earth}EARTH{}",
                         "from the {C:attention}GY{} and gains {C:mult}+#5#{} Mult for each",
-                        "{C:inactive}(Currently {C:mult}+#6#{}{C:inactive} Mult)"
+                        "or {C:mult}+#6#{} Mult if none",
+                        "{C:inactive}(Currently {C:mult}+#7#{}{C:inactive} Mult)"
                     },
                     {
-                        "{C:attention}Kauwloon{}: Once per round, {C:attention}revives #7#{}",
+                        "{C:attention}Kauwloon{}: Once per round, {C:attention}revives #8#{}",
                         "{C:joy_normal}\"Virtual World\"{} as {C:dark_edition}Negative{}",
                         "if {C:attention}GY{} only contains {C:joy_wind}WIND{} or {C:joy_earth}EARTH{} {C:attention}Jokers{}",
                     }

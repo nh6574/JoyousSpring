@@ -12,7 +12,7 @@
 ---@param func function?
 ---@param immediate boolean?
 JoyousSpring.banish = function(card, banish_until, func, immediate)
-    if not card or card.getting_sliced then return end
+    if not card or card.getting_sliced or card.destroyed then return end
     card:juice_up()
     if immediate then
         if not card.area then return end

@@ -173,12 +173,16 @@ JoyousSpring.remove_from_graveyard = function(amount, seed, allow, deny, from_ea
                         end
                     end
                     if not removed then
+                        removed = true
                         for _, property in ipairs(allow or {}) do
-                            if not JoyousSpring.is_material_center(key, property) then
-                                t.count = math.max(t.count - (amount or t.count), 0)
-                                t.summonable = math.min(t.summonable, t.count)
+                            if JoyousSpring.is_material_center(key, property) then
+                                removed = false
                                 break
                             end
+                        end
+                        if removed then
+                            t.count = math.max(t.count - (amount or t.count), 0)
+                            t.summonable = math.min(t.summonable, t.count)
                         end
                     end
                 end
@@ -206,12 +210,16 @@ JoyousSpring.remove_from_graveyard = function(amount, seed, allow, deny, from_ea
                         end
                     end
                     if not added then
+                        added = true
                         for _, property in ipairs(allow or {}) do
-                            if not JoyousSpring.is_material_center(key, property) then
-                                for i = 1, (different_names and 1 or t.count) do
-                                    table.insert(materials, key)
-                                end
+                            if JoyousSpring.is_material_center(key, property) then
+                                added = false
                                 break
+                            end
+                        end
+                        if added then
+                            for i = 1, (different_names and 1 or t.count) do
+                                table.insert(materials, key)
                             end
                         end
                     end

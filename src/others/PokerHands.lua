@@ -41,7 +41,14 @@ SMODS.PokerHand({
         { 'C_A', true, enhancement = 'm_gold' },
     },
     evaluate = function(parts, hand)
-        if #hand == 5 and next(SMODS.find_card("j_joy_eld_angel")) then
+        local has_angel = false
+        for _, joker in ipairs(SMODS.find_card("j_joy_eld_angel")) do
+            if JoyousSpring.can_use_abilities(joker) then
+                has_angel = true
+                break
+            end
+        end
+        if #hand == 5 and has_angel then
             local all_gold = true
             for _, card in ipairs(hand) do
                 if not SMODS.has_enhancement(card, 'm_gold') then
@@ -653,17 +660,20 @@ local vw_is_hand_active = function()
         "j_joy_vw_jiji",
         "j_joy_vw_toutou",
         "j_joy_vw_lili",
-        "j_joy_vw_laolao"
+        "j_joy_vw_laolao",
+        "j_joy_vw_fufu"
     }
 
     for _, key in ipairs(enablers) do
-        if next(SMODS.find_card(key)) then
-            return true
+        for _, joker in ipairs(SMODS.find_card(key)) do
+            if JoyousSpring.can_use_abilities(joker) then
+                return true
+            end
         end
     end
 
     for _, joker in ipairs(SMODS.find_card("j_joy_vw_longlong")) do
-        if joker.ability.extra.active then
+        if JoyousSpring.can_use_abilities(joker) and joker.ability.extra.active then
             return true
         end
     end
@@ -671,11 +681,41 @@ local vw_is_hand_active = function()
     return false
 end
 
+local get_type_attribute_allowlist = function(card_list)
+    local allowlist = {}
+
+    for _, joker in ipairs(card_list) do
+        table.insert(allowlist,
+            {
+                monster_type = not JoyousSpring.is_all_types(joker) and
+                    joker.ability.extra.joyous_spring.monster_type or nil,
+                monster_attribute = not JoyousSpring.is_all_attributes(joker) and
+                    joker.ability.extra.joyous_spring.attribute or nil
+            }
+        )
+    end
+
+    return allowlist
+end
+
+local all_cards_in_gy_share_type_attribute = function()
+    return JoyousSpring.get_graveyard_count() ==
+        JoyousSpring.count_materials_in_graveyard(get_type_attribute_allowlist(G.jokers.cards))
+end
+
 -- thank you AI overlords for this one
 local vw_get_X_combinations = function(hand, n, different_ranks)
     if not vw_is_hand_active() then return {} end
     local candidates = { [3] = {}, [6] = {}, [9] = {}, [12] = {} }
-    local has_jiujiu = not not next(SMODS.find_card("j_joy_vw_jiujiu"))
+    local has_jiujiu = false
+    if next(SMODS.find_card("j_joy_vw_jiujiu")) and all_cards_in_gy_share_type_attribute() then
+        for _, joker in ipairs(SMODS.find_card("j_joy_vw_jiujiu")) do
+            if JoyousSpring.can_use_abilities(joker) then
+                has_jiujiu = true
+                break
+            end
+        end
+    end
     for _, card in ipairs(hand) do
         local id = card:get_id()
         if id == 3 or id == 6 or id == 9 or (has_jiujiu and id == 12) then
