@@ -547,7 +547,7 @@ end
 
 local card_add_to_deck_ref = Card.add_to_deck
 function Card:add_to_deck(from_debuff)
-    if not self.added_to_deck and self.ability.set == "Joker" and not JoyousSpring.is_field_spell(self) then
+    if G.jokers and not self.added_to_deck and self.ability.set == "Joker" and not JoyousSpring.is_field_spell(self) then
         for _, joker in ipairs(G.jokers.cards) do
             if not joker.debuff and joker.config.center.joy_apply_to_jokers_added then
                 joker.config.center.joy_apply_to_jokers_added(joker, self)

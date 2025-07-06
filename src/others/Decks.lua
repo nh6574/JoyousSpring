@@ -5,6 +5,7 @@
 SMODS.Back {
     key = "hanafuda",
     atlas = "hanafuda",
+    discovered = true,
     pos = { x = 1, y = 5 },
     apply = function(self, back)
         G.E_MANAGER:add_event(Event({
