@@ -185,7 +185,6 @@ JoyousSpring.create_summon = function(add_params, must_have_room, card_limit_mod
             else
                 card.getting_sliced = true
                 card:remove()
-                card = nil
                 if from_revive_key then
                     JoyousSpring.graveyard[from_revive_key].count = JoyousSpring.graveyard[from_revive_key].count + 1
                     JoyousSpring.graveyard[from_revive_key].summonable = JoyousSpring.graveyard[from_revive_key]

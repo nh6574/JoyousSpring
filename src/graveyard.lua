@@ -52,11 +52,32 @@ JoyousSpring.revive_pseudorandom = function(property_list, seed, must_have_room,
     return nil
 end
 
+local function filter_cards_sent_to_gy(choices)
+    if not next(choices) then return {} end
+    if G.jokers then
+        for _, joker in ipairs(G.jokers.cards) do
+            if not joker.debuff and joker.config.center.joy_can_be_sent_to_graveyard then
+                choices = joker.config.center:joy_can_be_sent_to_graveyard(joker, choices) or choices
+            end
+        end
+        if JoyousSpring.field_spell_area then
+            for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
+                if not joker.debuff and joker.config.center.joy_can_be_sent_to_graveyard then
+                    choices = joker.config.center:joy_can_be_sent_to_graveyard(joker, choices) or choices
+                end
+            end
+        end
+    end
+    return choices, #choices > 0
+end
+
 ---Send card to GY
 ---@param card Card|table|string
 JoyousSpring.send_to_graveyard = function(card)
     if JoyousSpring.graveyard and not JoyousSpring.delete_run and G.jokers then
         if type(card) == "string" then
+            local _, is_allowed = filter_cards_sent_to_gy({ card })
+            if not is_allowed then return end
             local not_summoned = JoyousSpring.is_material_center(card, { exclude_summon_types = { "NORMAL" } })
             local cannot_revive = G.P_CENTERS[card].config.extra.joyous_spring.cannot_revive or not_summoned
             SMODS.calculate_context({
@@ -71,6 +92,8 @@ JoyousSpring.send_to_graveyard = function(card)
             JoyousSpring.graveyard[card].summonable = JoyousSpring.graveyard[card].summonable +
                 (cannot_revive and 0 or 1)
         elseif type(card) == "table" then
+            local _, is_allowed = filter_cards_sent_to_gy({ card.config.center.key })
+            if not is_allowed then return end
             local not_summoned = not JoyousSpring.is_summon_type(card, "NORMAL") and not JoyousSpring.is_summoned(card)
             local cannot_revive = card.ability.extra.joyous_spring.cannot_revive or not_summoned
             JoyousSpring.sent_to_gy_context = true
@@ -100,21 +123,8 @@ end
 ---@return string[]
 JoyousSpring.send_to_graveyard_pseudorandom = function(property_list, seed, amount, different_names)
     local choices = JoyousSpring.get_materials_in_collection(property_list)
-    if not next(choices) then return {} end
-    if G.jokers then
-        for _, joker in ipairs(G.jokers.cards) do
-            if not joker.debuff and joker.config.center.joy_can_be_sent_to_graveyard then
-                choices = joker.config.center.joy_can_be_sent_to_graveyard(joker, card, choices) or choices
-            end
-        end
-        if JoyousSpring.field_spell_area then
-            for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
-                if not joker.debuff and joker.config.center.joy_can_be_sent_to_graveyard then
-                    choices = joker.config.center.joy_can_be_sent_to_graveyard(joker, card, choices) or choices
-                end
-            end
-        end
-    end
+    choices, not_empty_choices = filter_cards_sent_to_gy(choices)
+    if not not_empty_choices then return {} end
     local sent = {}
     for i = 1, amount or 1 do
         if not next(choices) then return sent end

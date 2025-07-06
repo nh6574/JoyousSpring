@@ -40,43 +40,10 @@ SMODS.Joker({
         },
     },
     calculate = function(self, card, context)
-        if context.before and not context.blueprint then
-            local queens = 0
-            local twos = 0
-            for i = 1, #context.scoring_hand do
-                if context.scoring_hand[i]:get_id() == 2 then twos = twos + 1 end
-                if context.scoring_hand[i]:get_id() == 12 then queens = queens + 1 end
-            end
-            print("q:" .. queens .. "t:" .. twos)
-            if twos > 0 and twos < 2 and queens > 0 and queens < 2 then
-                print("got")
-                card.ability.extra.created_tag = true
-            end
-        end
-
-        if context.destroy_card and context.cardarea == G.play and not context.blueprint then
-            print("dest")
-
-            if card.ability.extra.created_tag == true then
-                print("got2")
-
-                if context.destroy_card:get_id() == 2 then
-                    print("got22")
-
-                    return {
-                        func = function()
-                            G.E_MANAGER:add_event(Event({
-                                func = (function()
-                                    add_tag(Tag('tag_ethereal'))
-                                    play_sound('generic1', 0.9 + math.random() * 0.1, 0.8)
-                                    play_sound('holo1', 1.2 + math.random() * 0.1, 0.4)
-                                    return true
-                                end)
-                            }))
-                        end,
-                        remove = true
-                    }
-                end
+        if JoyousSpring.can_use_abilities(card) then
+            if not context.blueprint_card and not context.retrigger_joker and
+                context.setting_blind and context.main_eval then
+                JoyousSpring.transform_card(card, "j_joy_dmaid_tinkhec")
             end
         end
     end,

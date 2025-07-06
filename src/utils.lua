@@ -175,7 +175,7 @@ JoyousSpring.level_up_hand = function(card, hand_key, instant, amount)
     end
 end
 
----Gets the attributes are in a card list
+---Gets the attributes that are in a card list
 ---@param card_list Card[]|string[]|table
 ---@param ignore_debuffed? boolean
 ---@return table<attribute, boolean>
@@ -248,6 +248,126 @@ JoyousSpring.get_attribute_count = function(card_list, ignore_debuffed)
     local count = 0
     local attributes = JoyousSpring.get_material_attributes(card_list, ignore_debuffed)
     for k, v in pairs(attributes) do
+        if v then
+            count = count + 1
+        end
+    end
+    return count
+end
+
+---Gets the type that are in a card list
+---@param card_list Card[]|string[]|table
+---@param ignore_debuffed? boolean
+---@return table<attribute, boolean>
+JoyousSpring.get_material_types = function(card_list, ignore_debuffed)
+    local types = {
+        Aqua = false,
+        Beast = false,
+        BeastWarrior = false,
+        CreatorGod = false,
+        Cyberse = false,
+        Dinosaur = false,
+        DivineBeast = false,
+        Dragon = false,
+        Fairy = false,
+        Fiend = false,
+        Fish = false,
+        Illusion = false,
+        Insect = false,
+        Machine = false,
+        Plant = false,
+        Psychic = false,
+        Pyro = false,
+        Reptile = false,
+        Rock = false,
+        SeaSerpent = false,
+        Spellcaster = false,
+        Thunder = false,
+        Warrior = false,
+        WingedBeast = false,
+        Wyrm = false,
+        Zombie = false,
+    }
+
+    local types_list = {
+        "Aqua",
+        "Beast",
+        "BeastWarrior",
+        "CreatorGod",
+        "Cyberse",
+        "Dinosaur",
+        "DivineBeast",
+        "Dragon",
+        "Fairy",
+        "Fiend",
+        "Fish",
+        "Illusion",
+        "Insect",
+        "Machine",
+        "Plant",
+        "Psychic",
+        "Pyro",
+        "Reptile",
+        "Rock",
+        "SeaSerpent",
+        "Spellcaster",
+        "Thunder",
+        "Warrior",
+        "WingedBeast",
+        "Wyrm",
+        "Zombie",
+    }
+
+    for _, card in ipairs(card_list) do
+        if type(card) == "table" and (not ignore_debuffed or not card.debuff) and JoyousSpring.is_monster_card(card) then
+            if not JoyousSpring.is_all_types(card) then
+                types[card.ability.extra.joyous_spring.monster_type] = true
+            end
+        else
+            local card_center = G.P_CENTERS[card]
+            if card_center and card_center.config and card_center.config.extra and
+                type(card_center.config.extra) == "table" and
+                card_center.config.extra.joyous_spring and not card_center.config.extra.joyous_spring.is_all_types then
+                types[card_center.config.extra.joyous_spring.monster_type] = true
+            end
+        end
+    end
+    for _, card in ipairs(card_list) do
+        if type(card) == "table" and (not ignore_debuffed or not card.debuff) and JoyousSpring.is_monster_card(card) then
+            if JoyousSpring.is_all_types(card) then
+                for _, v in ipairs(types_list) do
+                    if not types[v] then
+                        types[v] = true
+                        break
+                    end
+                end
+            end
+        else
+            local card_center = G.P_CENTERS[card]
+            if card_center and card_center.config and card_center.config.extra and
+                type(card_center.config.extra) == "table" and
+                card_center.config.extra.joyous_spring and card_center.config.extra.joyous_spring.is_all_types then
+                for _, v in ipairs(types_list) do
+                    if not types[v] then
+                        types[v] = true
+                        break
+                    end
+                end
+            end
+        end
+    end
+
+    return types
+end
+
+---Counts how many types are in *card_list*
+---@param card_list Card[]|string[]|table
+---@param ignore_debuffed? boolean
+---@return integer
+JoyousSpring.get_type_count = function(card_list, ignore_debuffed)
+    local count = 0
+    local types = JoyousSpring.get_material_types(card_list, ignore_debuffed)
+    for k, v in pairs(types) do
         if v then
             count = count + 1
         end

@@ -772,9 +772,22 @@ SMODS.Joker({
             end
         end
     end,
-    -- joy_can_be_sent_to_graveyard = function(self, card, choices)
-    --     return JoyousSpring.filter_material_keys_from_list(choices, { {} })
-    -- end
+    joy_can_be_sent_to_graveyard = function(self, card, choices)
+        local vw_owned = JoyousSpring.get_materials_owned({ { monster_archetypes = { "VirtualWorld" } } })
+        local allowlist = {}
+
+        for _, joker in ipairs(vw_owned) do
+            table.insert(allowlist,
+                {
+                    monster_type = not JoyousSpring.is_all_types(joker) and
+                        joker.ability.extra.joyous_spring.monster_type or nil,
+                    monster_attribute = not JoyousSpring.is_all_attributes(joker) and
+                        joker.ability.extra.joyous_spring.attribute or nil
+                }
+            )
+        end
+        return JoyousSpring.filter_material_keys_from_list(choices, allowlist)
+    end
 })
 
 JoyousSpring.collection_pool[#JoyousSpring.collection_pool + 1] = {
