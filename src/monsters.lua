@@ -533,7 +533,7 @@ end
 ---@param summon_type string? Optional to check if the card is a wildcard for that type of summon
 ---@return boolean
 JoyousSpring.is_material = function(card, properties, summon_type)
-    if summon_type and SMODS.is_eternal(card, { joy_from_summon = true }) then
+    if summon_type and card.ability.eternal then
         return false
     end
     if not next(properties) then

@@ -260,7 +260,7 @@ if TheFamily then
         update = function(self, card, dt)
             JoyousSpring.GY_count = JoyousSpring.get_graveyard_count()
             if not G.OVERLAY_MENU then
-                definition:close()
+                card:highlight(false)
             end
         end
     })
@@ -320,7 +320,7 @@ if TheFamily then
         end,
         update = function(self, card, dt)
             if not G.OVERLAY_MENU then
-                definition:close()
+                card:highlight(false)
             end
         end
     })
