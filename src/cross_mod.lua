@@ -229,7 +229,6 @@ if TheFamily then
         end,
         highlight = function(definition, card)
             JoyousSpring.create_overlay_graveyard()
-            card:highlight(false)
         end,
         unhighlight = function(definition, card)
             if G.OVERLAY_MENU then G.FUNCS.exit_overlay_menu() end
@@ -261,7 +260,7 @@ if TheFamily then
         update = function(self, card, dt)
             JoyousSpring.GY_count = JoyousSpring.get_graveyard_count()
             if not G.OVERLAY_MENU then
-                card:highlight(false)
+                definition:close()
             end
         end
     })
@@ -321,7 +320,7 @@ if TheFamily then
         end,
         update = function(self, card, dt)
             if not G.OVERLAY_MENU then
-                card:highlight(false)
+                definition:close()
             end
         end
     })
