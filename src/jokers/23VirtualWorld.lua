@@ -274,7 +274,9 @@ SMODS.Joker({
                         true)
                     for _ = 1, card.ability.extra.shop_add do
                         local key_to_add = pseudorandom_element(choices, 'j_joy_vw_jiji')
-                        JoyousSpring.add_monster_tag(key_to_add)
+                        if key_to_add then
+                            JoyousSpring.add_monster_tag(key_to_add)
+                        end
                     end
                 end
                 if vw_played_hand("kauwloon", context) and not card.ability.extra.create_activated then
