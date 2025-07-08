@@ -173,7 +173,7 @@ SMODS.Joker({
         return {
             text = {
                 { text = "+" },
-                { ref_table = "card.ability.mult", ref_value = "mult", retrigger_type = "mult" }
+                { ref_table = "card.ability.extra", ref_value = "mult", retrigger_type = "mult" }
             },
             text_config = { colour = G.C.MULT },
         }
