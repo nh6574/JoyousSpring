@@ -1093,12 +1093,16 @@ end
 ---@param not_owned boolean?
 ---@param not_extra boolean?
 ---@return string[]
-JoyousSpring.get_materials_in_collection = function(property_list, not_owned, not_extra)
+JoyousSpring.get_materials_in_collection = function(property_list, not_owned, not_extra, is_in_pool)
     local pool = {}
-    for k, _ in pairs(G.P_CENTERS) do
-        if k:sub(1, 2) == "j_" then
-            if (not not_owned or not G.jokers or not next(SMODS.find_card(k, true))) and
-                (not not_extra or not JoyousSpring.is_in_extra_deck(k)) then
+    for _, v in pairs(G.P_CENTER_POOLS.Joker) do
+        local k = v.key
+        if (not not_owned or not G.jokers or not next(SMODS.find_card(k, true))) and
+            (not not_extra or not JoyousSpring.is_in_extra_deck(k)) then
+            if is_in_pool and v.in_pool and type(v.in_pool) == 'function' then
+                in_pool, _ = v:in_pool({ source = "JoyousSpring" })
+            end
+            if not is_in_pool or in_pool then
                 if not property_list or #property_list == 0 then
                     table.insert(pool, k)
                 else

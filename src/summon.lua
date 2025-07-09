@@ -203,13 +203,10 @@ end
 ---@param must_have_room boolean?
 ---@param not_owned boolean?
 ---@param edition table|string?
----@return unknown
-JoyousSpring.create_pseudorandom = function(property_list, seed, must_have_room, not_owned, edition)
-    local choices = JoyousSpring.get_materials_in_collection(property_list)
-
-    if not_owned then
-        choices = JoyousSpring.get_not_owned(choices)
-    end
+---@param is_in_pool boolean?
+---@return Card|table?
+JoyousSpring.create_pseudorandom = function(property_list, seed, must_have_room, not_owned, edition, is_in_pool)
+    local choices = JoyousSpring.get_materials_in_collection(property_list, not_owned, nil, is_in_pool)
     local key_to_add = pseudorandom_element(choices, seed or "JoyousSpring")
     if key_to_add then
         return JoyousSpring.create_summon({
@@ -217,8 +214,6 @@ JoyousSpring.create_pseudorandom = function(property_list, seed, must_have_room,
             edition = edition
         }, must_have_room)
     end
-
-    return nil
 end
 
 ---Summons a Token with specified attributes
