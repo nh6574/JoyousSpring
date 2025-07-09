@@ -336,7 +336,7 @@ SMODS.Joker({
         end
     end,
     in_pool = function(self, args)
-        return G.GAME.joy_zoma_sold
+        return G.GAME.joy_zoma_sold or (args and args.source and args.source == "JoyousSpring" or false)
     end,
     joker_display_def = function(JokerDisplay)
         ---@type JDJokerDefinition
