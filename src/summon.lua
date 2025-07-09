@@ -203,10 +203,10 @@ end
 ---@param must_have_room boolean?
 ---@param not_owned boolean?
 ---@param edition table|string?
----@param is_in_pool boolean?
+---@param ignore_in_pool boolean?
 ---@return Card|table?
-JoyousSpring.create_pseudorandom = function(property_list, seed, must_have_room, not_owned, edition, is_in_pool)
-    local choices = JoyousSpring.get_materials_in_collection(property_list, not_owned, nil, is_in_pool)
+JoyousSpring.create_pseudorandom = function(property_list, seed, must_have_room, not_owned, edition, ignore_in_pool)
+    local choices = JoyousSpring.get_materials_in_collection(property_list, not_owned, nil, not ignore_in_pool)
     local key_to_add = pseudorandom_element(choices, seed or "JoyousSpring")
     if key_to_add then
         return JoyousSpring.create_summon({
