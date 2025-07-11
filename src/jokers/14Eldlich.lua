@@ -208,7 +208,7 @@ SMODS.Joker({
             end,
             retrigger_function = function(card, scoring_hand, held_in_hand, joker_card)
                 if held_in_hand and not (JoyousSpring.count_materials_owned({ { monster_archetypes = { "Eldlich" } } }) > 0) then return 0 end
-                return next(SMODS.get_enhancements(scoring_card)) and 1 or 0
+                return next(SMODS.get_enhancements(card) or {}) and 1 or 0
             end
         }
     end
@@ -306,7 +306,7 @@ SMODS.Joker({
             end,
             retrigger_function = function(card, scoring_hand, held_in_hand, joker_card)
                 if held_in_hand and not (JoyousSpring.count_materials_owned({ { monster_archetypes = { "Eldlich" } } }) > 0) then return 0 end
-                return next(SMODS.get_enhancements(scoring_card)) and 1 or 0
+                return next(SMODS.get_enhancements(card) or {}) and 1 or 0
             end
         }
     end
@@ -397,7 +397,7 @@ SMODS.Joker({
             end,
             retrigger_function = function(card, scoring_hand, held_in_hand, joker_card)
                 if held_in_hand and not (JoyousSpring.count_materials_owned({ { monster_archetypes = { "Eldlich" } } }) > 0) then return 0 end
-                return next(SMODS.get_enhancements(scoring_card)) and 1 or 0
+                return next(SMODS.get_enhancements(card) or {}) and 1 or 0
             end
         }
     end
@@ -488,7 +488,7 @@ SMODS.Joker({
             end,
             retrigger_function = function(card, scoring_hand, held_in_hand, joker_card)
                 if held_in_hand and not (JoyousSpring.count_materials_owned({ { monster_archetypes = { "Eldlich" } } }) > 0) then return 0 end
-                return next(SMODS.get_enhancements(scoring_card)) and 1 or 0
+                return next(SMODS.get_enhancements(card) or {}) and 1 or 0
             end
         }
     end

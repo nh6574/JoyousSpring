@@ -873,7 +873,7 @@ SMODS.Joker({
     end,
     joy_transfer_ability_calculate = function(self, other_card, context, config)
         if JoyousSpring.can_use_abilities(other_card) then
-            if context.selling_card and context.card ~= card then
+            if context.selling_card and context.card ~= other_card then
                 config.sold = config.sold + 1
                 if not config.activated and config.sold >= config.sell then
                     config.activated = true

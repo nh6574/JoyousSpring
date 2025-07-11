@@ -44,7 +44,7 @@ local function summon_from_booster(card)
     end
 
     if not card.from_area then card.from_area = card.area end
-    if card.area and (not nc or card.area == G.pack_cards) then card.area:remove_card(card) end
+    if card.area and card.area == G.pack_cards then card.area:remove_card(card) end
 
     card:add_to_deck()
     G.jokers:emplace(card)
@@ -211,6 +211,7 @@ JoyousSpring.create_pseudorandom = function(property_list, seed, must_have_room,
     if key_to_add then
         return JoyousSpring.create_summon({
             key = key_to_add,
+            ---@diagnostic disable-next-line: assign-type-mismatch
             edition = edition
         }, must_have_room)
     end

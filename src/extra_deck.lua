@@ -247,14 +247,26 @@ end
 
 local card_set_edition_ref = Card.set_edition
 function Card:set_edition(edition, immediate, silent)
-    if edition and edition.negative and JoyousSpring.is_monster_card(card) and card.area then
-        if card.area == JoyousSpring.extra_deck_area then
-            JoyousSpring.extra_deck_area.config.card_limit = JoyousSpring.extra_deck_area.config.card_limit + 1
-        elseif card.area == JoyousSpring.field_spell_area then
-            JoyousSpring.field_spell_area.config.card_limit = JoyousSpring.field_spell_area.config.card_limit + 1
+    if self.edition and self.edition.card_limit and JoyousSpring.is_monster_card(self) and self.area then
+        if self.area == JoyousSpring.extra_deck_area then
+            JoyousSpring.extra_deck_area.config.card_limit = JoyousSpring.extra_deck_area.config.card_limit -
+                self.edition.card_limit
+        elseif self.area == JoyousSpring.field_spell_area then
+            JoyousSpring.field_spell_area.config.card_limit = JoyousSpring.field_spell_area.config.card_limit -
+                self.edition.card_limit
         end
     end
     card_set_edition_ref(self, edition, immediate, silent)
+    if self.edition and self.edition.card_limit and JoyousSpring.is_monster_card(self) and self.area then
+        if self.area == JoyousSpring.extra_deck_area then
+            JoyousSpring.extra_deck_area.config.card_limit = JoyousSpring.extra_deck_area.config.card_limit +
+                self.edition.card_limit
+        elseif self.area == JoyousSpring.field_spell_area then
+            JoyousSpring.field_spell_area.config.card_limit = JoyousSpring.field_spell_area.config.card_limit +
+                self.edition.card_limit
+            G.jokers.config.card_limit = G.jokers.config.card_limit - self.edition.card_limit
+        end
+    end
 end
 
 local cardarea_remove_ref = CardArea.remove

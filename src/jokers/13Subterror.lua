@@ -811,7 +811,7 @@ SMODS.Joker({
                 monster_archetypes = { ["Subterror"] = true, ["SubterrorBehemoth"] = true }
             },
             draws = 5,
-            stay_flipped = fals,
+            stay_flipped = false,
             draw_count = 0
         },
     },

@@ -571,7 +571,7 @@ SMODS.Joker({
             mod_function = function(card, mod_joker)
                 local is_pend = card.facing == "front" and JoyousSpring.is_pendulum_monster(card)
                 local rarities, _ = JoyousSpring.most_owned_rarity()
-                local is_most_owned = is_pend and JoyousSpring.is_card_rarity_from_array(xard, rarities)
+                local is_most_owned = is_pend and JoyousSpring.is_card_rarity_from_array(card, rarities)
                 return {
                     mult = is_most_owned and
                         mod_joker.ability.extra.mult * JokerDisplay.calculate_joker_triggers(mod_joker) or nil

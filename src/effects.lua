@@ -388,7 +388,7 @@ JoyousSpring.calculate_hand_highlight_limit = function(count_card, remove_card)
     G.GAME.joy_original_hand_limit = G.GAME.joy_original_hand_limit or G.hand.config.highlighted_limit or 5
     local maxlimit = -1
     if count_card and not count_card.debuff and count_card.config.center.joy_set_hand_highlight_limit then
-        local new_limit = count_card.config.center.joy_set_hand_highlight_limit(joker) or -1
+        local new_limit = count_card.config.center.joy_set_hand_highlight_limit(count_card) or -1
         maxlimit = (new_limit > maxlimit) and new_limit or maxlimit
     end
     for _, joker in ipairs(G.jokers.cards) do

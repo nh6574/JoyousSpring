@@ -802,7 +802,7 @@ SMODS.Joker({
                 if SMODS.pseudorandom_probability(card, card.config.center.key, 1, card.ability.extra.odds) then
                     local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Dragonmaid" }, rarity = 2, exclude_keys = { "j_joy_dmaid_lady" } } })
                     JoyousSpring.transform_card(card,
-                        pseudorandom_element(choices, 'j_joy_dmaid_lady') or j_joy_dmaid_tinkhec)
+                        pseudorandom_element(choices, 'j_joy_dmaid_lady') or "j_joy_dmaid_tinkhec")
                 end
             end
         end

@@ -37,7 +37,7 @@ if CardSleeves then
                 blockable = false,
                 func = (function()
                     for i, pcard in ipairs(G.playing_cards) do
-                        if not next(SMODS.get_enhancements(pcard)) then
+                        if not next(SMODS.get_enhancements(pcard) or {}) then
                             pcard:set_ability("m_joy_hanafuda")
                         end
                         if SMODS.has_enhancement(pcard, "m_joy_hanafuda") and self.get_current_deck_key() == "b_joy_hanafuda" then
