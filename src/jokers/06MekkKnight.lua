@@ -196,9 +196,6 @@ SMODS.Joker({
                 local column = JoyousSpring.get_joker_column(card)
                 card.joker_display_values.localized_text = localize("k_joy_column")
                 card.joker_display_values.column = column
-            end,
-            scoring_function = function(playing_card, scoring_hand, joker_card)
-                return not not (next(SMODS.find_card("j_joy_mekk_spectrum")) or JoyousSpring.get_joker_column(joker_card) == (JoyousSpring.index_of(JokerDisplay.current_hand, playing_card)))
             end
         }
     end

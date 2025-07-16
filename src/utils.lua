@@ -70,7 +70,7 @@ end
 ---@param card_list table|Card[]
 ---@param facing? 'front'|'back' If card has to be facing a direction for it to be flipped
 ---@param seed? string
----@return table|Card|nil
+---@return table|Card?
 JoyousSpring.flip_random_card = function(source_card, card_list, facing, seed)
     local facing_cards = {}
     for j, card in ipairs(card_list) do
@@ -137,7 +137,7 @@ JoyousSpring.add_random_tag = function()
     if tag.name == "Orbital Tag" then
         local _poker_hands = {}
         for k, v in pairs(G.GAME.hands) do
-            if v.visible then
+            if SMODS.is_poker_hand_visible(k) then
                 _poker_hands[#_poker_hands + 1] = k
             end
         end

@@ -1411,10 +1411,6 @@ SMODS.Joker({
                 if held_in_hand then return 0 end
                 return JoyousSpring.get_joker_column(joker_card) == 3 and
                     JoyousSpring.index_of(JokerDisplay.current_hand, card) == 3 and 2 or 0
-            end,
-            scoring_function = function(playing_card, scoring_hand, joker_card)
-                return JoyousSpring.get_joker_column(joker_card) == 5 and
-                    JoyousSpring.index_of(JokerDisplay.current_hand, playing_card) == 5
             end
         }
     end

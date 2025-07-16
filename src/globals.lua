@@ -125,4 +125,6 @@ function Game:start_run(args)
 
     self.GAME.joy_create_card = JoyousSpring.debug and JoyousSpring.debug_shop_cards or self.GAME.joy_create_card or {}
     JoyousSpring.cards_to_create = self.GAME.joy_create_card
+
+    JoyousSpring.first_run_family = true
 end

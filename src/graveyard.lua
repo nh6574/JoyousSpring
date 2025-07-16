@@ -74,7 +74,7 @@ end
 ---Send card to GY
 ---@param card Card|table|string
 JoyousSpring.send_to_graveyard = function(card)
-    if JoyousSpring.graveyard and not JoyousSpring.delete_run and G.jokers then
+    if JoyousSpring.graveyard and not G.in_delete_run and G.jokers then
         if type(card) == "string" then
             local _, is_allowed = filter_cards_sent_to_gy({ card })
             if not is_allowed then return end
@@ -263,14 +263,6 @@ function Card:can_calculate(ignore_debuff, ignore_sliced)
         return (not self.debuff or ignore_debuff)
     end
     return ret
-end
-
--- Prevent GY from doing stuff at the end of the run
-local game_delete_run_ref = Game.delete_run
-function Game:delete_run()
-    JoyousSpring.delete_run = true
-    game_delete_run_ref(self)
-    JoyousSpring.delete_run = nil
 end
 
 JoyousSpring.create_graveyard_tab = function()
