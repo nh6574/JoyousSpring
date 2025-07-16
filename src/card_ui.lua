@@ -11,8 +11,9 @@ SMODS.Font {
 ---@return table
 JoyousSpring.get_type_ui = function(card)
     local joyous_spring_table = card and card.ability and card.ability.extra.joyous_spring or {}
+    local extra_values = JoyousSpring.get_extra_values(card) or {}
 
-    if joyous_spring_table.is_field_spell then
+    if extra_values.is_field_spell or joyous_spring_table.is_field_spell then
         return {
             {
                 n = G.UIT.O,
@@ -35,13 +36,13 @@ JoyousSpring.get_type_ui = function(card)
         }
     end
 
-    local attribute_text = localize("k_joy_" .. (joyous_spring_table.attribute or "LIGHT"))
-    local type_text = localize("k_joy_" .. (joyous_spring_table.monster_type or "Beast"))
+    local attribute_text = localize("k_joy_" .. (extra_values.attribute or joyous_spring_table.attribute or "LIGHT"))
+    local type_text = localize("k_joy_" .. (extra_values.monster_type or joyous_spring_table.monster_type or "Beast"))
     local summon_type_text = joyous_spring_table.summon_type and joyous_spring_table.summon_type ~= "NORMAL" and
         localize("k_joy_" .. joyous_spring_table.summon_type) or nil
     local pendulum_text = joyous_spring_table.is_pendulum and localize("k_joy_pendulum") or nil
     local flip_text = joyous_spring_table.is_flip and localize("k_joy_flip") or nil
-    local tuner_text = joyous_spring_table.is_tuner and localize("k_joy_tuner") or nil
+    local tuner_text = extra_values.is_tuner or joyous_spring_table.is_tuner and localize("k_joy_tuner") or nil
     local effect_text = joyous_spring_table.is_effect and localize("k_joy_effect") or localize("k_joy_normal")
     local trap_text = joyous_spring_table.is_trap and localize("k_joy_trap") or nil
     local full_text = attribute_text ..
@@ -57,7 +58,7 @@ JoyousSpring.get_type_ui = function(card)
         config = {
             object = DynaText({
                 string = { attribute_text },
-                colours = { G.C.JOY[joyous_spring_table.attribute or "LIGHT"] },
+                colours = { G.C.JOY[extra_values.attribute or joyous_spring_table.attribute or "LIGHT"] },
                 bump = true,
                 silent = true,
                 pop_in = 0,
