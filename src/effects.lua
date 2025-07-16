@@ -4,8 +4,6 @@
 
 local SMODS_calculate_context_ref = SMODS.calculate_context
 function SMODS.calculate_context(context, return_table)
-    -- The area seems to be destryoed too early when the game restarts
-    if JoyousSpring.field_spell_area and not JoyousSpring.field_spell_area.cards then return {} end
     JoyousSpring.calculate_context(context)
     local ret = SMODS_calculate_context_ref(context, return_table)
     JoyousSpring.post_calculate_context(context)
@@ -601,6 +599,53 @@ function Card:flip(source)
     end
 end
 
+---Modifies a card's listed numerator permanently.
+---@param card Card|table
+---@param add integer?
+---@param mult number?
+JoyousSpring.modify_probability_numerator = function(card, add, mult)
+    if type(card) ~= "table" or not card.ability then return end
+    if not JoyousSpring.get_extra_values(card) then card.ability.joy_extra_values = {} end
+    add = add or 0
+    mult = mult or 1
+
+    card.ability.joy_extra_values.numerator_const = ((card.ability.joy_extra_values.numerator_const or 0) + add) * mult
+    card.ability.joy_extra_values.numerator_mult = (card.ability.joy_extra_values.numerator_mult or 1) * mult
+end
+
+---Modifies a card's listed denominator permanently.
+---@param card Card|table
+---@param add integer?
+---@param mult number?
+JoyousSpring.modify_probability_denominator = function(card, add, mult)
+    if type(card) ~= "table" or not card.ability then return end
+    if not JoyousSpring.get_extra_values(card) then card.ability.joy_extra_values = {} end
+    add = add or 0
+    mult = mult or 1
+
+    card.ability.joy_extra_values.denominator_const = ((card.ability.joy_extra_values.denominator_const or 0) + add) *
+        mult
+    card.ability.joy_extra_values.denominator_mult = (card.ability.joy_extra_values.denominator_mult or 1) * mult
+end
+
+local smods_get_probability_vars_ref = SMODS.get_probability_vars
+function SMODS.get_probability_vars(trigger_obj, base_numerator, base_denominator, identifier, from_roll)
+    if not G.jokers then return base_numerator, base_denominator end
+    local new_numerator, new_denominator = base_numerator, base_denominator
+
+    if type(trigger_obj) == "table" and JoyousSpring.get_extra_values(trigger_obj) then
+        local extra_values = JoyousSpring.get_extra_values(trigger_obj) or {}
+
+        new_numerator = new_numerator * (extra_values.numerator_mult or 1) + (extra_values.numerator_const or 0)
+        new_denominator = new_denominator * (extra_values.denominator_mult or 1) + (extra_values.denominator_const or 0)
+    end
+
+    local numerator, denominator = smods_get_probability_vars_ref(trigger_obj, new_numerator, new_denominator,
+        identifier, from_roll)
+
+    return numerator, denominator
+end
+
 --#endregion
 
 --#region Transfer Abilities
@@ -761,6 +806,8 @@ end
 --#endregion
 
 --#region UI
+
+--#region Card selection and activation
 
 JoyousSpring.create_UIBox_effect_selection = function(card, text, select_text)
     local colour = G.C.JOY.EFFECT
@@ -1076,5 +1123,12 @@ G.FUNCS.joy_exit_select_effect = function(e)
     end
     G.FUNCS.exit_overlay_menu()
 end
+--#endregion
+
+--#region Guessing UI
+
+
+
+--#endregion
 
 --#endregion
