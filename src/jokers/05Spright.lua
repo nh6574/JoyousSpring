@@ -398,7 +398,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if not context.blueprint_card and not context.retrigger_joker and context.joy_detach then
+            if not context.blueprint_card and not context.retrigger_joker and context.joy_detached then
                 card.ability.extra.detached = card.ability.extra.detached + 1
                 if card.ability.extra.detached >= card.ability.extra.base_materials then
                     card.ability.extra.detached = 0

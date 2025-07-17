@@ -1312,12 +1312,7 @@ SMODS.Joker({
             if context.after and JoyousSpring.get_joker_column(card) == card.ability.extra.column and
                 #context.full_hand >= card.ability.extra.column and not SMODS.in_scoring(context.full_hand[card.ability.extra.column], context.scoring_hand) and
                 #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
-                local planet
-                for _, center in pairs(G.P_CENTER_POOLS.Planet) do
-                    if center.config.hand_type == context.scoring_name then
-                        planet = center.key
-                    end
-                end
+                local planet = JoyousSpring.get_played_planet(context.scoring_name)
                 if planet then
                     local amount = G.consumeables.config.card_limit - #G.consumeables.cards
                     for i = 1, amount do

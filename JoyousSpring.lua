@@ -36,7 +36,6 @@ for _, file in ipairs(joker_src) do
 end
 
 -- Others
-
 local others_src = NFS.getDirectoryItems(SMODS.current_mod.path .. "src/others")
 for _, file in ipairs(others_src) do
     sendInfoMessage("Loading " .. file, "JoyousSpring")

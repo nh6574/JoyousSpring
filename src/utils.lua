@@ -524,6 +524,28 @@ JoyousSpring.is_card_rarity_from_array = function(card, list)
     return false
 end
 
+---Return the planet card for the handname
+---@param handname string
+---@return string?
+JoyousSpring.get_played_planet = function(handname)
+    local planet
+    for _, center in pairs(G.P_CENTER_POOLS.Planet) do
+        if center.config.hand_type == handname then
+            planet = center.key
+        end
+        if center.config.joy_hand_types then
+            for _, name in ipairs(center.config.joy_hand_types) do
+                if name == handname then
+                    planet = center.key
+                    break
+                end
+            end
+            if planet then break end
+        end
+    end
+    return planet
+end
+
 --- Talisman compat
 to_big = to_big or function(num)
     return num

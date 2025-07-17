@@ -1,5 +1,52 @@
 ---EFFECTS
 
+--#region LSP
+
+---@class CalcContext
+---@field joy_card Card|table? The individual card being checked.
+---@field joy_no_draw boolean? Called for Ash Blossom's effect.
+---@field joy_selecting_hand boolean? When the game enters the SELECTING_HAND state after playing. For instawins on Blinds.
+---@field joy_pre_setting_blind boolean? Before setting the Blind. For Blind negation effects (before cards are flipped by blind effects).
+---@field joy_blind Blind|table? The individual blind being checked.
+---@field joy_banished boolean? When a card is banished.
+---@field joy_banished_card Card|table? The individual card being banished.
+---@field joy_banished_area CardArea|table? Area the card is banished from.
+---@field joy_banish_until string? Timing when the banished card returns.
+---@field joy_returned boolean? When a card returns from banishment.
+---@field joy_returned_card Card|table? The individual card returning.
+---@field joy_returned_area CardArea|table? Area the card is returned to.
+---@field joy_returned_from CardArea|table? Area the card is returned from.
+---@field joy_tributed boolean? When a card is being tributed.
+---@field joy_source Card|table? Source of the effect.
+---@field joy_danger Card|table? Card destroyed by a Danger! effect.
+---@field joy_summon boolean? When a card is being summoned.
+---@field joy_transform_summon boolean? When a card is transformed and counting it as a summon.
+---@field joy_summon_materials Card[]|table? Summon materials for the summon.
+---@field joy_summon_type string? Summon type of the summon.
+---@field joy_sent_to_gy boolean? When a card is sent to the GY
+---@field joy_key string? Key for the card sent to the GY.
+---@field joy_from_field boolean? When a card is sent to the GY from the Joker area
+---@field joy_summoned boolean? When a summoned card is sent to the GY
+---@field joy_revived boolean? When a card is revived
+---@field joy_revived_card Card|table? The individual card being revived.
+---@field joy_detach boolean? When a card tries to detach a material.
+---@field joy_detaching_card Card|table? The individual card detaching.
+---@field joy_detached boolean? When a card detaches a material.
+---@field joy_detach_value integer? Amount of cards detached.
+---@field joy_excavated Card|table? The individual card being excavated.
+---@field joy_number integer? The index of the axcavated card.
+---@field joy_other_context CalcContext? Context where the effect was activated.
+---@field joy_flip_activated Card|table? The individual card activating its FLIP ability.
+---@field joy_card_flipped Card|table? The individual card being flipped.
+---@field joy_modify_probability boolean? When a probability (numerator) is modified permanently.
+---@field joy_increased boolean? When the probability modification increased the numerator.
+---@field joy_activate_effect boolean? When an effect is being activated.
+---@field joy_activated_card Card|table? The individual card being activated.
+---@field joy_exit_effect_selection boolean? When the card selection screen is closed properly.
+---@field joy_selection Card[]|table? Cards selected in the selection screen.
+
+--#endregion
+
 --#region Effect utils
 
 local SMODS_calculate_context_ref = SMODS.calculate_context
@@ -376,7 +423,7 @@ JoyousSpring.ease_detach = function(card, value, silent)
     card.ability.extra.joyous_spring.detached_count = card.ability.extra.joyous_spring.detached_count + value
     card.ability.extra.joyous_spring.detached_count_round = card.ability.extra.joyous_spring.detached_count_round + value
 
-    SMODS.calculate_context({ joy_detached = true, joy_detaching_card = card, joy_deteach_value = value })
+    SMODS.calculate_context({ joy_detached = true, joy_detaching_card = card, joy_detach_value = value })
     if not silent then
         SMODS.calculate_effect({ message = localize("k_joy_activated_ex") }, card)
     end
@@ -611,6 +658,8 @@ JoyousSpring.modify_probability_numerator = function(card, add, mult)
 
     card.ability.joy_extra_values.numerator_const = ((card.ability.joy_extra_values.numerator_const or 0) + add) * mult
     card.ability.joy_extra_values.numerator_mult = (card.ability.joy_extra_values.numerator_mult or 1) * mult
+
+    SMODS.calculate_context { joy_modify_probability = true, joy_increased = not not (add >= 0 and mult >= 1) }
 end
 
 ---Modifies a card's listed denominator permanently.
@@ -626,6 +675,27 @@ JoyousSpring.modify_probability_denominator = function(card, add, mult)
     card.ability.joy_extra_values.denominator_const = ((card.ability.joy_extra_values.denominator_const or 0) + add) *
         mult
     card.ability.joy_extra_values.denominator_mult = (card.ability.joy_extra_values.denominator_mult or 1) * mult
+end
+
+---Modify probability to all Jokers in all Joker areas
+---@param add integer?
+---@param mult number?
+---@param to_denominator boolean?
+---@param exclude_keys { string: boolean? }?
+JoyousSpring.modify_probability_jokers = function(add, mult, to_denominator, exclude_keys)
+    for _, area in ipairs(SMODS.get_card_areas('jokers')) do
+        for _, card in ipairs(area.cards or {}) do
+            if card.ability.set == "Joker" then
+                if not exclude_keys or not exclude_keys[card.config.center.key] then
+                    if to_denominator then
+                        JoyousSpring.modify_probability_denominator(card, add, mult)
+                    else
+                        JoyousSpring.modify_probability_numerator(card, add, mult)
+                    end
+                end
+            end
+        end
+    end
 end
 
 local smods_get_probability_vars_ref = SMODS.get_probability_vars

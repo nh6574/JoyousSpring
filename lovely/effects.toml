@@ -109,7 +109,7 @@ pattern = "G.GAME.blind:set_blind(G.GAME.round_resets.blind)"
 position = 'before'
 match_indent = true
 payload = '''
-SMODS.calculate_context({joy_pre_setting_blind = true, blind = G.GAME.round_resets.blind})
+SMODS.calculate_context({joy_pre_setting_blind = true, joy_blind = G.GAME.round_resets.blind})
 '''
 
 # Add multiple hand_types to planets

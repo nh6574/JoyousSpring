@@ -77,20 +77,30 @@ end
 ---Returns a card from banishment (doesn't need room)
 ---@param card Card
 JoyousSpring.return_from_banish = function(card)
-    local area = card.area
-    area:remove_card(card)
+    local from = card.area
+    local area
+    from:remove_card(card)
     if card.ability.set == 'Joker' then
         G.jokers:emplace(card)
         G.jokers.config.card_limit = G.jokers.config.card_limit + ((card.edition and card.edition.negative) and 1 or 0)
+        area = G.jokers
     elseif JoyousSpring.is_playing_card(card) then
         G.hand:emplace(card)
+        area = G.hand
     else
         G.consumeables:emplace(card)
         G.consumeables.config.card_limit = G.consumeables.config.card_limit +
             ((card.edition and card.edition.negative) and 1 or 0)
+        area = G.consumeables
     end
 
-    SMODS.calculate_context({ joy_returned = true, joy_returned_card = card, joy_returned_area = area })
+    SMODS.calculate_context({
+        joy_returned = true,
+        joy_returned_card = card,
+        joy_returned_area = area,
+        joy_returned_from =
+            from
+    })
 end
 
 JoyousSpring.create_banishment_area_tabs = function(area)
