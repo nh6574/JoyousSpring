@@ -85,7 +85,7 @@ return {
                     },
                     {
                         "Gives {X:mult,C:white}X#4#{} extra Mult for each time",
-                        "this card's {C:green}numerator{} increased permanently since last round",
+                        "this card's {C:green}numerator{} increased permanently",
                         "{C:inactive}(Currently {X:mult,C:white}X#5#{}{C:inactive} Mult)"
                     },
                     {

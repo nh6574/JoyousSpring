@@ -47,7 +47,7 @@ SMODS.Joker({
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 0,
+    cost = 5,
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
             card.ability.extra.odds, card.config.center.key)
@@ -65,10 +65,10 @@ SMODS.Joker({
                 monster_type = "Spellcaster",
                 monster_archetypes = { ["FortuneLady"] = true }
             },
-            numerator = 1,
-            odds = 400,
+            numerator = 8,
+            odds = 80,
             banishes = 1,
-            money = 0.1,
+            money = 0.5,
             current_banished = 0,
             increases = 1
         },
@@ -113,7 +113,7 @@ SMODS.Joker({
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 0,
+    cost = 5,
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
             card.ability.extra.odds, card.config.center.key)
@@ -121,7 +121,7 @@ SMODS.Joker({
         if G.jokers then
             numerator_sum, denominator_sum = get_all_flady_probabilities()
         end
-        return { vars = { numerator, denominator, card.ability.extra.mult, card.ability.extra.mult * math.min(numerator_sum, denominator_sum), denominator_sum, card.ability.extra.increases } }
+        return { vars = { numerator, denominator, card.ability.extra.mult, denominator_sum, card.ability.extra.mult * math.min(numerator_sum, denominator_sum), card.ability.extra.increases } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } }, }, name = "k_joy_archetype" },
@@ -136,7 +136,7 @@ SMODS.Joker({
                 monster_archetypes = { ["FortuneLady"] = true }
             },
             numerator = 10,
-            odds = 500,
+            odds = 100,
             mult = 2,
             increases = 1,
             active = false
@@ -186,7 +186,7 @@ SMODS.Joker({
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 0,
+    cost = 4,
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
             card.ability.extra.odds, card.config.center.key)
@@ -204,8 +204,8 @@ SMODS.Joker({
                 monster_type = "Spellcaster",
                 monster_archetypes = { ["FortuneLady"] = true }
             },
-            numerator = 3,
-            odds = 300,
+            numerator = 8,
+            odds = 200,
             chips = 10,
             increases = 1,
             creates = 1
@@ -251,7 +251,7 @@ SMODS.Joker({
     key = "flady_water",
     atlas = 'flady',
     pos = { x = 3, y = 0 },
-    rarity = 1,
+    rarity = 4,
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
@@ -273,8 +273,8 @@ SMODS.Joker({
                 monster_type = "Spellcaster",
                 monster_archetypes = { ["FortuneLady"] = true }
             },
-            numerator = 4,
-            odds = 400,
+            numerator = 12,
+            odds = 200,
             chips = 10,
             current_h_size = 0,
             h_size = 1,
@@ -332,7 +332,7 @@ SMODS.Joker({
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 0,
+    cost = 5,
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
             card.ability.extra.odds, card.config.center.key)
@@ -375,15 +375,18 @@ SMODS.Joker({
             end
             if context.joker_main then
                 local increased = card.ability.extra.increased
-                card.ability.extra.increased = 0
                 return {
                     xmult = 1 + card.ability.extra.xmult * increased
                 }
             end
-            if context.joy_modify_probability and context.joy_increased then
+            if context.joy_modify_probability and context.joy_increased and context.joy_card == card then
                 card.ability.extra.increased = card.ability.extra.increased + 1
                 JoyousSpring.modify_probability_jokers(card.ability.extra.increases, nil, nil,
                     { j_joy_flady_earth = true })
+                return {
+                    message = localize("k_joy_increased"),
+                    colour = G.C.GREEN
+                }
             end
         end
     end,
@@ -401,7 +404,7 @@ SMODS.Joker({
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 0,
+    cost = 6,
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
             card.ability.extra.odds, card.config.center.key)
@@ -419,8 +422,8 @@ SMODS.Joker({
                 monster_type = "Spellcaster",
                 monster_archetypes = { ["FortuneLady"] = true }
             },
-            numerator = 2,
-            odds = 200,
+            numerator = 5,
+            odds = 100,
             revives = 1,
             mult = 4,
             increases = 1
@@ -485,7 +488,7 @@ SMODS.Joker({
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 0,
+    cost = 6,
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
             card.ability.extra.odds, card.config.center.key)
@@ -504,8 +507,8 @@ SMODS.Joker({
                 monster_type = "Spellcaster",
                 monster_archetypes = { ["FortuneLady"] = true }
             },
-            numerator = 2,
-            odds = 2000,
+            numerator = 6,
+            odds = 150,
             xmult = 0.1,
             increases = 1
         },
@@ -552,7 +555,7 @@ SMODS.Joker({
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 0,
+    cost = 10,
     loc_vars = function(self, info_queue, card)
         local numerators, denominators = {}, {}
         for i = 1, 6 do
@@ -600,7 +603,7 @@ SMODS.Joker({
                 }
             },
             numerator = 1,
-            odds = { 10, 50, 100, 500, 1000, 2000 },
+            odds = { 10, 50, 100, 200, 300, 500 },
             xmult = 5,
             banishes = 1,
             money = 20,
@@ -725,7 +728,7 @@ SMODS.Joker({
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 0,
+    cost = 3,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.money, card.ability.extra.creates, card.ability.extra.succeed, card.ability.extra.successes } }
     end,
@@ -741,7 +744,7 @@ SMODS.Joker({
                 monster_type = "Spellcaster",
                 monster_archetypes = { ["FortuneFairy"] = true }
             },
-            money = 1,
+            money = 3,
             creates = 1,
             successes = 0,
             succeed = 10,
@@ -782,7 +785,7 @@ SMODS.Joker({
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 0,
+    cost = 3,
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, 1,
             card.ability.extra.odds, card.config.center.key)
@@ -800,7 +803,7 @@ SMODS.Joker({
                 monster_type = "Spellcaster",
                 monster_archetypes = { ["FortuneFairy"] = true }
             },
-            mult = 1,
+            mult = 4,
             odds = 40,
         },
     },
@@ -837,9 +840,9 @@ SMODS.Joker({
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 0,
+    cost = 3,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.chips, 0 } }
+        return { vars = { card.ability.extra.chips, card.ability.extra.chips * (G.GAME.joy_probability_success or 0) } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } } }, name = "k_joy_archetype" },
@@ -853,7 +856,7 @@ SMODS.Joker({
                 monster_type = "Spellcaster",
                 monster_archetypes = { ["FortuneFairy"] = true }
             },
-            chips = 10,
+            chips = 20,
             active = false
         },
     },
@@ -867,7 +870,7 @@ SMODS.Joker({
             if context.joy_returned and context.joy_returned_card == card then
                 card.ability.extra.active = true
             end
-            if context.joy_probability_roll then
+            if context.joy_probability_roll and card.ability.extra.active then
                 JoyousSpring.guaranteed_probability = true
                 card.ability.extra.active = false
                 return {
@@ -890,9 +893,9 @@ SMODS.Joker({
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 0,
+    cost = 3,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.chips, 0, card.ability.extra.banishes } }
+        return { vars = { card.ability.extra.chips, card.ability.extra.chips * (G.GAME.joy_probability_success or 0), card.ability.extra.banishes } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } } }, name = "k_joy_archetype" },
@@ -906,7 +909,7 @@ SMODS.Joker({
                 monster_type = "Spellcaster",
                 monster_archetypes = { ["FortuneFairy"] = true }
             },
-            chips = 10,
+            chips = 20,
             banishes = 1,
             active = false
         },
@@ -953,9 +956,9 @@ SMODS.Joker({
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 0,
+    cost = 3,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.mult, 0 } }
+        return { vars = { card.ability.extra.mult, card.ability.extra.mult * (G.GAME.joy_probability_success or 0) } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } } }, name = "k_joy_archetype" },
@@ -969,7 +972,7 @@ SMODS.Joker({
                 monster_type = "Spellcaster",
                 monster_archetypes = { ["FortuneFairy"] = true }
             },
-            mult = 1,
+            mult = 4,
         },
     },
     calculate = function(self, card, context)
@@ -1003,7 +1006,7 @@ SMODS.Joker({
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 0,
+    cost = 3,
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, 1,
             card.ability.extra.odds, card.config.center.key)
@@ -1021,7 +1024,7 @@ SMODS.Joker({
                 monster_type = "Spellcaster",
                 monster_archetypes = { ["FortuneFairy"] = true },
             },
-            money = 1,
+            money = 3,
             mills = 1,
             odds = 20
         },

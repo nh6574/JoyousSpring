@@ -158,6 +158,7 @@ JoyousSpring.calculate_context = function(context)
     end
 
     if context.pseudorandom_result then
+        print("prob " .. tostring(context.result))
         if context.result then
             G.GAME.joy_probability_success = (G.GAME.joy_probability_success or 0) + 1
         else
@@ -669,7 +670,7 @@ JoyousSpring.modify_probability_numerator = function(card, add, mult)
     card.ability.joy_extra_values.numerator_const = ((card.ability.joy_extra_values.numerator_const or 0) + add) * mult
     card.ability.joy_extra_values.numerator_mult = (card.ability.joy_extra_values.numerator_mult or 1) * mult
 
-    SMODS.calculate_context { joy_modify_probability = true, joy_increased = not not (add >= 0 and mult >= 1) }
+    SMODS.calculate_context { joy_modify_probability = true, joy_increased = not not (add >= 0 and mult >= 1), joy_card = card }
 end
 
 ---Modifies a card's listed denominator permanently.
