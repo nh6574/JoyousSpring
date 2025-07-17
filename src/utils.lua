@@ -546,6 +546,13 @@ JoyousSpring.get_played_planet = function(handname)
     return planet
 end
 
+---Checks if object is a card
+---@param obj any
+---@return boolean
+JoyousSpring.is_card = function(obj)
+    return type(obj) == "table" and type(obj.is) == "function" and obj:is(Card)
+end
+
 --- Talisman compat
 to_big = to_big or function(num)
     return num

@@ -40,6 +40,8 @@
 ---@field joy_card_flipped Card|table? The individual card being flipped.
 ---@field joy_modify_probability boolean? When a probability (numerator) is modified permanently.
 ---@field joy_increased boolean? When the probability modification increased the numerator.
+---@field joy_probability_roll boolean? When a probability is being rolled.
+---@field joy_result boolean? Current result of the probability.
 ---@field joy_activate_effect boolean? When an effect is being activated.
 ---@field joy_activated_card Card|table? The individual card being activated.
 ---@field joy_exit_effect_selection boolean? When the card selection screen is closed properly.
@@ -152,6 +154,14 @@ JoyousSpring.calculate_context = function(context)
             if JoyousSpring.is_monster_card(joker) then
                 joker.ability.extra.joyous_spring.detached_count_round = 0
             end
+        end
+    end
+
+    if context.pseudorandom_result then
+        if context.result then
+            G.GAME.joy_probability_success = (G.GAME.joy_probability_success or 0) + 1
+        else
+            G.GAME.joy_probability_failure = (G.GAME.joy_probability_failure or 0) + 1
         end
     end
 
@@ -714,6 +724,27 @@ function SMODS.get_probability_vars(trigger_obj, base_numerator, base_denominato
         identifier, from_roll)
 
     return numerator, denominator
+end
+
+local smods_pseudorandom_probability_ref = SMODS.pseudorandom_probability
+function SMODS.pseudorandom_probability(trigger_obj, seed, base_numerator, base_denominator, identifier)
+    local ret = smods_pseudorandom_probability_ref(trigger_obj, seed, base_numerator, base_denominator, identifier)
+
+    SMODS.calculate_context { joy_probability_roll = true, joy_result = ret }
+
+    if JoyousSpring.guaranteed_probability then
+        JoyousSpring.guaranteed_probability = nil
+        JoyousSpring.fail_probability = nil
+        return true
+    end
+
+    if JoyousSpring.fail_probability then
+        JoyousSpring.guaranteed_probability = nil
+        JoyousSpring.fail_probability = nil
+        return false
+    end
+
+    return ret
 end
 
 --#endregion

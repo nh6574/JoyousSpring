@@ -7,6 +7,7 @@ SMODS.Atlas({
 })
 
 local get_flady_probability_sum = function(card)
+    if not card then return 0, 0 end
     local numerator_sum, denominator_sum = 0, 0
 
     if card.config.center.key == "j_joy_flady_every" then
@@ -425,6 +426,54 @@ SMODS.Joker({
             increases = 1
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.setting_blind then
+                local has_revived
+                if SMODS.pseudorandom_probability(card, card.config.center.key, card.ability.extra.numerator, card.ability.extra.odds) then
+                    for i = 1, card.ability.extra.revives do
+                        local revived_card = JoyousSpring.revive_pseudorandom(
+                            { { monster_archetypes = { "FortuneLady" } } },
+                            card.config.center.key,
+                            true
+                        )
+                        has_revived = (revived_card and true) or has_revived
+                    end
+                    if not has_revived then
+                        for i = 1, card.ability.extra.revives do
+                            local revived_card = JoyousSpring.revive_pseudorandom(
+                                { { monster_type = "Spellcaster" } },
+                                card.config.center.key,
+                                true
+                            )
+                            has_revived = (revived_card and true) or has_revived
+                        end
+                    end
+                end
+                if has_revived then
+                    return {
+                        message = localize("k_joy_revive"),
+                        colour = G.C.GREEN
+                    }
+                end
+            end
+            if context.joker_main then
+                local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
+                    card.ability.extra.odds, card.config.center.key)
+                return {
+                    mult = card.ability.extra.mult * math.min(numerator, denominator),
+                }
+            end
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                JoyousSpring.modify_probability_jokers(card.ability.extra.increases *
+                    JoyousSpring.count_materials_owned({ { monster_type = "Spellcaster" } }))
+                return {
+                    message = localize("k_joy_increased"),
+                    colour = G.C.GREEN
+                }
+            end
+        end
+    end,
 })
 
 -- Fortune Lady Past
@@ -461,6 +510,37 @@ SMODS.Joker({
             increases = 1
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
+                    card.ability.extra.odds, card.config.center.key)
+                return {
+                    xmult = 1 + card.ability.extra.xmult * math.min(numerator, denominator)
+                }
+            end
+            if context.joy_returned then
+                JoyousSpring.modify_probability_jokers(card.ability.extra.increases)
+                return {
+                    message = localize("k_joy_increased"),
+                    colour = G.C.GREEN
+                }
+            end
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                if SMODS.pseudorandom_probability(card, card.config.center.key, card.ability.extra.numerator, card.ability.extra.odds) then
+                    return {
+                        message = localize("k_joy_banished"),
+                        colour = G.C.GREEN,
+                        func = function()
+                            for _, joker in ipairs(G.jokers.cards) do
+                                JoyousSpring.banish(joker, "blind_selected")
+                            end
+                        end
+                    }
+                end
+            end
+        end
+    end,
 })
 
 -- Fortune Lady Every
@@ -529,7 +609,112 @@ SMODS.Joker({
             mult = 4,
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.setting_blind then
+                local activated = false
+                if SMODS.pseudorandom_probability(card, card.config.center.key .. "_5", card.ability.extra.numerator, card.ability.extra.odds[5]) then
+                    for i = 1, card.ability.extra.creates do
+                        JoyousSpring.create_pseudorandom(
+                            { { monster_archetypes = { "FortuneFairy" } } }, card.config.center.key,
+                            true)
+                    end
+                    activated = true
+                end
+                if SMODS.pseudorandom_probability(card, card.config.center.key .. "_6", card.ability.extra.numerator, card.ability.extra.odds[6]) then
+                    local revived_card
+                    for i = 1, card.ability.extra.revives do
+                        revived_card = JoyousSpring.revive_pseudorandom(
+                            { { monster_archetypes = { "FortuneLady" } } },
+                            card.config.center.key,
+                            false, "e_negative"
+                        )
+                    end
+                    if not revived_card then
+                        for i = 1, card.ability.extra.revives do
+                            JoyousSpring.revive_pseudorandom(
+                                { { monster_type = "Spellcaster" } },
+                                card.config.center.key,
+                                false, "e_negative"
+                            )
+                        end
+                    end
+                    activated = true
+                end
+                if activated then
+                    return {
+                        message = localize("k_joy_activated_ex"),
+                        colour = G.C.GREEN
+                    }
+                end
+            end
+            if context.joker_main then
+                local numerators, denominators = {}, {}
+                for i = 1, 6 do
+                    numerators[#numerators + 1], denominators[#denominators + 1] = SMODS.get_probability_vars(card,
+                        card.ability.extra.numerator,
+                        card.ability.extra.odds[i], card.config.center.key .. "_" .. i)
+                end
+                return {
+                    mult = card.ability.extra.mult *
+                        math.min(
+                            math.max(denominators[1], denominators[2], denominators[3], denominators[4],
+                                denominators[5], denominators[6]),
+                            numerators[1] + numerators[2] + numerators[3] +
+                            numerators[4] + numerators[5] + numerators[6]
+                        ),
+                    xmult = SMODS.pseudorandom_probability(card, card.config.center.key .. "_1",
+                        card.ability.extra.numerator,
+                        card.ability.extra.odds[1]) and card.ability.extra.xmult or nil
+                }
+            end
+            if context.individual and context.cardarea == G.play then
+                if SMODS.pseudorandom_probability(card, card.config.center.key .. "_4", card.ability.extra.numerator, card.ability.extra.odds[4]) then
+                    JoyousSpring.modify_probability_numerator(context.other_card, nil, 2)
+                    return {
+                        message = localize("k_joy_increased"),
+                        colour = G.C.GREEN
+                    }
+                end
+            end
+            if context.end_of_round and context.game_over == false and context.main_eval and
+                SMODS.pseudorandom_probability(card, card.config.center.key .. "_2", card.ability.extra.numerator, card.ability.extra.odds[2]) then
+                local choices = JoyousSpring.get_materials_owned({ { monster_archetypes = { "FortuneLady" } } })
+                local to_banish = pseudorandom_element(choices, card.config.center.key .. "_banish")
+                if to_banish then
+                    JoyousSpring.banish(to_banish, "blind_selected")
+                end
+                return {
+                    message = localize("k_joy_banished"),
+                    colour = G.C.GREEN
+                }
+            end
+            if context.joy_returned then
+                JoyousSpring.modify_probability_numerator(context.joy_returned_card, nil, 2)
+                return {
+                    message = localize("k_joy_increased"),
+                    colour = G.C.GREEN
+                }
+            end
+        end
+    end,
+    calc_dollar_bonus = function(self, card)
+        if SMODS.pseudorandom_probability(card, card.config.center.key .. "_3", card.ability.extra.numerator, card.ability.extra.odds[3]) then
+            SMODS.calculate_effect({ message = localize("k_joy_activated_ex"), colour = G.C.GREEN }, card)
+            return card.ability.extra.money
+        end
+    end
 })
+
+local ffairy_bypass_room_check = function(card, from_booster)
+    return JoyousSpring.count_materials_owned({ { monster_archetypes = { "FortuneLady" } } }) > 0
+end
+
+local ffairy_set_cost = function(card)
+    if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FortuneLady" } } }) > 0 then
+        card.cost = 0
+    end
+end
 
 -- Fortune Fairy Hikari
 SMODS.Joker({
@@ -563,6 +748,29 @@ SMODS.Joker({
             activated = false
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.pseudorandom_result and context.result then
+                card.ability.extra.successes = card.ability.extra.successes + 1
+                if not card.ability.extra.activated and card.ability.extra.successes >= card.ability.extra.succeed then
+                    card.ability.extra.activated = true
+                    for i = 1, card.ability.extra.creates do
+                        JoyousSpring.create_pseudorandom({ { monster_type = "Spellcaster", is_main_deck = true } },
+                            card.config.center.key, true)
+                    end
+                end
+                return {
+                    dollars = card.ability.extra.money
+                }
+            end
+            if context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then
+                card.ability.extra.successes = 0
+                card.ability.extra.activated = false
+            end
+        end
+    end,
+    joy_bypass_room_check = ffairy_bypass_room_check,
+    joy_set_cost = ffairy_set_cost
 })
 
 -- Fortune Fairy En
@@ -578,7 +786,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, 1,
             card.ability.extra.odds, card.config.center.key)
-        return { vars = { card.ability.extra.mult, 0, numerator, denominator } }
+        return { vars = { card.ability.extra.mult, card.ability.extra.mult * (G.GAME.joy_probability_success or 0), numerator, denominator } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } } }, name = "k_joy_archetype" },
@@ -596,6 +804,28 @@ SMODS.Joker({
             odds = 40,
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    mult = card.ability.extra.mult * (G.GAME.joy_probability_success or 0)
+                }
+            end
+            if context.individual and context.cardarea == G.play then
+                if SMODS.pseudorandom_probability(card, card.config.center.key, 1, card.ability.extra.odds) then
+                    context.other_card:set_ability('m_lucky', nil, true)
+
+                    return {
+                        message = localize("k_joy_activated_ex"),
+                        colour = G.C.GREEN,
+                        message_card = card
+                    }
+                end
+            end
+        end
+    end,
+    joy_bypass_room_check = ffairy_bypass_room_check,
+    joy_set_cost = ffairy_set_cost
 })
 
 -- Fortune Fairy Hu
@@ -624,8 +854,31 @@ SMODS.Joker({
                 monster_archetypes = { ["FortuneFairy"] = true }
             },
             chips = 10,
+            active = false
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    chips = card.ability.extra.chips * (G.GAME.joy_probability_success or 0)
+                }
+            end
+            if context.joy_returned and context.joy_returned_card == card then
+                card.ability.extra.active = true
+            end
+            if context.joy_probability_roll then
+                JoyousSpring.guaranteed_probability = true
+                card.ability.extra.active = false
+                return {
+                    message = localize("k_joy_activated_ex"),
+                    colour = G.C.GREEN,
+                }
+            end
+        end
+    end,
+    joy_bypass_room_check = ffairy_bypass_room_check,
+    joy_set_cost = ffairy_set_cost
 })
 
 -- Fortune Fairy Swee
@@ -654,9 +907,41 @@ SMODS.Joker({
                 monster_archetypes = { ["FortuneFairy"] = true }
             },
             chips = 10,
-            banishes = 1
+            banishes = 1,
+            active = false
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.setting_blind then
+                card.ability.extra.active = false
+            end
+            if context.joker_main then
+                return {
+                    chips = card.ability.extra.chips * (G.GAME.joy_probability_success or 0)
+                }
+            end
+            if context.pseudorandom_result and context.result then
+                card.ability.extra.active = true
+            end
+            if context.end_of_round and context.game_over == false and context.main_eval and card.ability.extra.active then
+                card.ability.extra.active = false
+                JoyousSpring.banish(card, "blind_selected")
+                local choices = {}
+                for _, joker in ipairs(G.jokers.cards) do
+                    if joker ~= card then
+                        table.insert(choices, joker)
+                    end
+                end
+                local to_banish = pseudorandom_element(choices, card.config.center.key)
+                if to_banish then
+                    JoyousSpring.banish(to_banish, "blind_selected")
+                end
+            end
+        end
+    end,
+    joy_bypass_room_check = ffairy_bypass_room_check,
+    joy_set_cost = ffairy_set_cost
 })
 
 -- Fortune Fairy Chee
@@ -687,6 +972,26 @@ SMODS.Joker({
             mult = 1,
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    mult = card.ability.extra.mult * (G.GAME.joy_probability_success or 0)
+                }
+            end
+            if context.mod_probability and not context.blueprint then
+                local is_nonspellcaster_card = JoyousSpring.is_card(context.trigger_obj) and
+                    not JoyousSpring.is_monster_type(context.trigger_obj, "Spellcaster")
+                if is_nonspellcaster_card then
+                    return {
+                        denominator = context.denominator / 2
+                    }
+                end
+            end
+        end
+    end,
+    joy_bypass_room_check = ffairy_bypass_room_check,
+    joy_set_cost = ffairy_set_cost
 })
 
 -- Fortune Fairy Ann
@@ -721,6 +1026,24 @@ SMODS.Joker({
             odds = 20
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.pseudorandom_result and context.result then
+                JoyousSpring.send_to_graveyard_pseudorandom(
+                    { { monster_type = "Spellcaster" } },
+                    card.config.center.key, card.ability.extra.mills)
+                return {
+                    dollars = card.ability.extra.money
+                }
+            end
+            if context.end_of_round and context.game_over == false and context.main_eval and
+                SMODS.pseudorandom_probability(card, card.config.center.key, 1, card.ability.extra.odds) then
+                JoyousSpring.banish(card, "blind_selected")
+            end
+        end
+    end,
+    joy_bypass_room_check = ffairy_bypass_room_check,
+    joy_set_cost = ffairy_set_cost
 })
 
 

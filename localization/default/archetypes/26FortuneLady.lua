@@ -100,7 +100,7 @@ return {
                 text = {
                     {
                         "{C:green}#1# in #2#{} chance to {C:attention}revive{}",
-                        "{C:attention}#3#{} {C:joy_normal}\"Fortune Lady\"{}",
+                        "{C:attention}#3#{} {C:joy_normal}\"Fortune Lady\"{} when {C:attention}Blind{} is selected",
                         "(or {C:joy_normal}Spellcaster{} if none)",
                     },
                     {
@@ -142,10 +142,11 @@ return {
                         "at end of round until {C:attention}Blind{} is selected",
                         "{C:green}#7# in #8#{} chance to give {C:money}+$#9#{} at end of round",
                         "{C:green}#10# in #11#{} chance to permanently double",
-                        "all listed {C:green}probabilities{} on scored cards",
+                        "all listed {C:green}probabilities{} on each scored card",
                         "{C:green}#12# in #13#{} chance to create {C:attention}#14#{} {C:joy_normal}\"Fortune Fairy\"{}",
+                        "when {C:attention}Blind{} is selected",
                         "{C:green}#15# in #16#{} chance to {C:attention}revive #17#{} {C:joy_normal}\"Fortune Lady\"{}",
-                        "(or {C:joy_normal}Spellcaster{} if none) as {C:dark_edition}Negative{}"
+                        "(or {C:joy_normal}Spellcaster{} if none) as {C:dark_edition}Negative{} when {C:attention}Blind{} is selected",
                     },
                     {
                         "Gives Mult equal to {C:mult}+#18#{} x {C:green}numerators{}",
@@ -170,7 +171,7 @@ return {
                         "{C:money}+$#1#{} when a listed {C:green}probability{} succeeds"
                     },
                     {
-                        "Once per ante, create {C:attention}#2#{} {C:joy_normal}Spellcaster{}",
+                        "Once per ante, create {C:attention}#2#{} {C:joy_normal}Main Deck Spellcaster{}",
                         "after {C:attention}#3#{} listed {C:green}probabilities{} succeed {C:inactive}(#4#/#3#){}",
                         "{C:inactive}(Must have room)"
                     },
