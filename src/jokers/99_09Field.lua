@@ -293,7 +293,7 @@ SMODS.Joker({
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
         end
-        return { vars = { card.ability.extra.banishes } }
+        return { vars = { card.ability.extra.banishes, card.ability.extra.increases } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -302,7 +302,8 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 is_field_spell = true,
             },
-            banishes = 1
+            banishes = 1,
+            increases = 1
         },
     },
     calculate = function(self, card, context)
@@ -311,6 +312,11 @@ SMODS.Joker({
                 local choices = JoyousSpring.get_materials_owned({ { is_main_deck = true } })
                 local joker = pseudorandom_element(choices, 'j_joy_futurevisions')
                 if joker then
+                    if JoyousSpring.is_monster_archetype(joker, "FortuneLady") then
+                        JoyousSpring.modify_probability_numerator(joker, nil, 2)
+                    else
+                        JoyousSpring.modify_probability_numerator(joker, card.ability.extra.increases)
+                    end
                     JoyousSpring.banish(joker, "boss_selected")
                 end
             end
@@ -338,7 +344,7 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 is_field_spell = true,
             },
-            xmult = 1.5
+            xmult = 3
         },
     },
     calculate = function(self, card, context)
