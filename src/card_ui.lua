@@ -10,7 +10,9 @@ SMODS.Font {
 ---@param card Card
 ---@return table
 JoyousSpring.get_type_ui = function(card)
-    local joyous_spring_table = card and card.ability and card.ability.extra.joyous_spring or {}
+    local joyous_spring_table = card and card.ability and
+        type(card.ability.extra) == "table"
+        and card.ability.extra.joyous_spring or {}
     local extra_values = JoyousSpring.get_extra_values(card) or {}
 
     if extra_values.is_field_spell or joyous_spring_table.is_field_spell then
@@ -42,7 +44,7 @@ JoyousSpring.get_type_ui = function(card)
         localize("k_joy_" .. joyous_spring_table.summon_type) or nil
     local pendulum_text = joyous_spring_table.is_pendulum and localize("k_joy_pendulum") or nil
     local flip_text = joyous_spring_table.is_flip and localize("k_joy_flip") or nil
-    local tuner_text = extra_values.is_tuner or joyous_spring_table.is_tuner and localize("k_joy_tuner") or nil
+    local tuner_text = (extra_values.is_tuner or joyous_spring_table.is_tuner) and localize("k_joy_tuner") or nil
     local effect_text = joyous_spring_table.is_effect and localize("k_joy_effect") or localize("k_joy_normal")
     local trap_text = joyous_spring_table.is_trap and localize("k_joy_trap") or nil
     local full_text = attribute_text ..
