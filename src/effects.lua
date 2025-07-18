@@ -158,7 +158,6 @@ JoyousSpring.calculate_context = function(context)
     end
 
     if context.pseudorandom_result then
-        print("prob " .. tostring(context.result))
         if context.result then
             G.GAME.joy_probability_success = (G.GAME.joy_probability_success or 0) + 1
         else
