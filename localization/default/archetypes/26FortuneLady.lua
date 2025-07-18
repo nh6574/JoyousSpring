@@ -91,7 +91,7 @@ return {
                     {
                         "Increase all listed {C:green}probabilities{} on {C:attention}Jokers{}",
                         "permanently by {C:attention}#6#{} when this card's {C:green}numerator{} increases permanently",
-                        "{C:inactive}(Except by the ability of \"Fortune Lady Earth\"){}"
+                        "{C:inactive}(Except to \"Fortune Lady Earth\"){}"
                     }
                 }
             },
