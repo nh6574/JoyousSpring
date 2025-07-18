@@ -33,6 +33,32 @@ return {
                     "{C:attention}Jokers{} were summoned this round"
                 }
             },
+            j_joy_85 = {
+                name = "{C:joy_xyz}Number 85: Crazy Box",
+                text = {
+                    {
+                        "TBD",
+                    },
+                },
+                joy_summon_conditions = {
+                    "{C:attention}2{} {C:blue}Common{} {C:attention}Jokers{}",
+                    "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, {s:0.9,C:joy_link}Links{}",
+                    "{s:0.9,C:inactive}or {s:0.9,C:joy_token}Tokens{s:0.9,C:inactive})"
+                }
+            },
+            j_joy_67 = {
+                name = "{C:joy_xyz}Number 67: Pair-a-Dice Smasher",
+                text = {
+                    {
+                        "TBD",
+                    },
+                },
+                joy_summon_conditions = {
+                    "{C:attention}2+{} {C:attention}Jokers{} with the same rarity",
+                    "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, {s:0.9,C:joy_link}Links{}",
+                    "{s:0.9,C:inactive}or {s:0.9,C:joy_token}Tokens{s:0.9,C:inactive})"
+                }
+            },
         }
     },
 }

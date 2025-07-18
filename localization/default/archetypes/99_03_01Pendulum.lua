@@ -15,6 +15,20 @@ return {
                     },
                 }
             },
+            j_joy_hallo = {
+                name = "{C:joy_pendulum_normal}Hallohallo",
+                joy_consumable = {
+                    "TBD"
+                },
+                text = {
+                    {
+                        "{E:1}Hallo Hallo, brain of tallow,{}",
+                        "{E:1}Guts are gone, noggin's hollow.{}",
+                        "{E:1}Seeking sweets and marshing mallows,{}",
+                        "{E:1}Watch your back, and your candy sack.{}",
+                    },
+                }
+            },
             j_joy_eccentrick = {
                 name = "{C:joy_pendulum_effect}Archfiend Eccentrick",
                 joy_consumable = {

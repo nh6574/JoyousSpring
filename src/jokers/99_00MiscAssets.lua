@@ -27,6 +27,13 @@ SMODS.Atlas({
     py = 95
 })
 
+SMODS.Atlas({
+    key = "Misc05",
+    path = "99Misc05.png",
+    px = 71,
+    py = 95
+})
+
 JoyousSpring.collection_pool[#JoyousSpring.collection_pool + 1] = {
     keys = { "misc" },
     label = "k_joy_archetype_misc"

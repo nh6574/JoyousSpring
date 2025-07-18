@@ -371,6 +371,86 @@ return {
                     },
                 }
             },
+            j_joy_elfobia = {
+                name = "{C:joy_effect}Ghost Fairy Elfobia",
+                text = {
+                    {
+                        "TBD",
+                    },
+                }
+            },
+            j_joy_elfuria = {
+                name = "{C:joy_effect}Mystical Fairy Elfuria",
+                text = {
+                    {
+                        "TBD",
+                    },
+                }
+            },
+            j_joy_lindbloom = {
+                name = "{C:joy_effect}Lindbloom",
+                text = {
+                    {
+                        "TBD",
+                    },
+                }
+            },
+            j_joy_genomix = {
+                name = "{C:joy_effect}Genomix Fighter",
+                text = {
+                    {
+                        "TBD",
+                    },
+                }
+            },
+            j_joy_maxsix = {
+                name = "{C:joy_effect}Maximum Six",
+                text = {
+                    {
+                        "TBD",
+                    },
+                }
+            },
+            j_joy_stpolice = {
+                name = "{C:joy_effect}Space-Time Police",
+                text = {
+                    {
+                        "TBD",
+                    },
+                }
+            },
+            j_joy_wannabee = {
+                name = "{C:joy_effect}Wannabee!",
+                text = {
+                    {
+                        "TBD",
+                    },
+                }
+            },
+            j_joy_merchant = {
+                name = "{C:joy_effect}Magical Merchant",
+                text = {
+                    {
+                        "TBD",
+                    },
+                }
+            },
+            j_joy_catoblepas = {
+                name = "{C:joy_effect}Catoblepas and the Witch of Fate",
+                text = {
+                    {
+                        "TBD",
+                    },
+                }
+            },
+            j_joy_coupleofaces = {
+                name = "{C:joy_effect}Couple of Aces",
+                text = {
+                    {
+                        "TBD",
+                    },
+                }
+            },
         }
     },
 }
