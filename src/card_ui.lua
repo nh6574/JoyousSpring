@@ -45,7 +45,8 @@ JoyousSpring.get_type_ui = function(card)
     local pendulum_text = joyous_spring_table.is_pendulum and localize("k_joy_pendulum") or nil
     local flip_text = joyous_spring_table.is_flip and localize("k_joy_flip") or nil
     local tuner_text = (extra_values.is_tuner or joyous_spring_table.is_tuner) and localize("k_joy_tuner") or nil
-    local effect_text = joyous_spring_table.is_effect and localize("k_joy_effect") or localize("k_joy_normal")
+    local effect_text = (extra_values.is_effect or joyous_spring_table.is_effect) and localize("k_joy_effect") or
+    localize("k_joy_normal")
     local trap_text = joyous_spring_table.is_trap and localize("k_joy_trap") or nil
     local full_text = attribute_text ..
         "/" .. type_text .. "/" .. (summon_type_text or "") .. (summon_type_text and "/" or "") ..

@@ -287,8 +287,9 @@ end
 ---@param card Card|table
 ---@return boolean
 JoyousSpring.is_effect_monster = function(card)
-    return JoyousSpring.is_monster_card(card) and
-        card.ability.extra.joyous_spring.is_effect
+    if not JoyousSpring.is_monster_card(card) then return (JoyousSpring.get_extra_values(card) or {}).is_effect or false end
+
+    return card.ability.extra.joyous_spring.is_effect
 end
 
 ---Checks if *card* is a Main Deck Joker
