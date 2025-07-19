@@ -18,7 +18,8 @@ return {
             j_joy_hallo = {
                 name = "{C:joy_pendulum_normal}Hallohallo",
                 joy_consumable = {
-                    "TBD"
+                    "Increase all listed {C:green}probabilities{} on {C:attention}Jokers{}",
+                    "permanently by a random number from {C:attention}#1#{} to {C:attention}#2#{}"
                 },
                 text = {
                     {

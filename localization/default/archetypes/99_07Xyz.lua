@@ -37,8 +37,19 @@ return {
                 name = "{C:joy_xyz}Number 85: Crazy Box",
                 text = {
                     {
-                        "TBD",
+                        "During a {C:attention}Blind{}, you can {C:joy_xyz}detach{} {C:attention}#1#{}:",
+                        "Applies one of these effects randomly",
+                        "- Double {C:attention}Blind{}'s requirement",
+                        "- Halves {C:attention}Blind{}'s requirement",
+                        "- {C:attention}+#2#{} hand size this round",
+                        "- {C:attention}-#3#{} hand size permanently",
+                        "- Turn scored cards in the next hand into",
+                        "{C:dark_edition}Polychrome{} {C:attention}Red Seal Lucky{} cards",
+                        "- Destroy this card",
                     },
+                    {
+                        "{C:green}#4# in #5#{} chance to attach {C:attention}#6#{} material to this card when {C:attention}Blind{} is selected"
+                    }
                 },
                 joy_summon_conditions = {
                     "{C:attention}2{} {C:blue}Common{} {C:attention}Jokers{}",
@@ -50,8 +61,15 @@ return {
                 name = "{C:joy_xyz}Number 67: Pair-a-Dice Smasher",
                 text = {
                     {
-                        "TBD",
+                        "Double all listed {C:green}probabilities{} while this card has {C:joy_xyz}Xyz materials{}"
                     },
+                    {
+                        "{C:joy_xyz}Detach{} {C:attention}#1#{}: Increase all listed {C:green}probabilities{}",
+                        "on {C:attention}Jokers{} permanently by a random number from {C:attention}#2#{} to {C:attention}#3#{}",
+                    },
+                    {
+                        "{C:green}#4# in #5#{} chance to attach {C:attention}#6#{} material to this card when {C:attention}Blind{} is selected"
+                    }
                 },
                 joy_summon_conditions = {
                     "{C:attention}2+{} {C:attention}Jokers{} with the same rarity",

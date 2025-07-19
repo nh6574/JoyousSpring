@@ -710,7 +710,10 @@ end
 
 local smods_get_probability_vars_ref = SMODS.get_probability_vars
 function SMODS.get_probability_vars(trigger_obj, base_numerator, base_denominator, identifier, from_roll)
-    if not G.jokers then return base_numerator, base_denominator end
+    if not G.jokers then
+        return smods_get_probability_vars_ref(trigger_obj, base_numerator, base_denominator,
+            identifier, from_roll)
+    end
     local new_numerator, new_denominator = base_numerator, base_denominator
 
     if type(trigger_obj) == "table" and JoyousSpring.get_extra_values(trigger_obj) then
