@@ -251,15 +251,15 @@ SMODS.Joker({
     key = "flady_water",
     atlas = 'flady',
     pos = { x = 3, y = 0 },
-    rarity = 4,
+    rarity = 3,
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 0,
+    cost = 4,
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
             card.ability.extra.odds, card.config.center.key)
-        return { vars = { numerator, denominator, card.ability.extra.h_size, card.ability.extra.current_h_size, card.ability.extra.chips, card.ability.extra.chips * math.min(numerator, denominator), card.ability.extra.increases } }
+        return { vars = { numerator, denominator, card.ability.extra.h_size, card.ability.extra.current_h_size, card.ability.extra.chips, card.ability.extra.chips * math.min(numerator, denominator), card.ability.extra.increases, card.ability.extra.max } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } }, }, name = "k_joy_archetype" },
@@ -278,14 +278,18 @@ SMODS.Joker({
             chips = 10,
             current_h_size = 0,
             h_size = 1,
-            increases = 1
+            increases = 1,
+            max = 6
         },
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.setting_blind then
                 if SMODS.pseudorandom_probability(card, card.config.center.key, card.ability.extra.numerator, card.ability.extra.odds) then
-                    card.ability.extra.current_h_size = card.ability.extra.current_h_size + card.ability.extra.h_size
+                    if card.ability.extra.current_h_size < card.ability.extra.max then
+                        card.ability.extra.current_h_size = card.ability.extra.current_h_size +
+                            card.ability.extra.h_size
+                    end
                     G.hand:change_size(card.ability.extra.h_size)
                     return {
                         message = localize("k_joy_activated_ex"),
@@ -328,7 +332,7 @@ SMODS.Joker({
     key = "flady_earth",
     atlas = 'flady',
     pos = { x = 0, y = 1 },
-    rarity = 1,
+    rarity = 2,
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
@@ -400,7 +404,7 @@ SMODS.Joker({
     key = "flady_dark",
     atlas = 'flady',
     pos = { x = 1, y = 1 },
-    rarity = 1,
+    rarity = 2,
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
@@ -484,7 +488,7 @@ SMODS.Joker({
     key = "flady_past",
     atlas = 'flady',
     pos = { x = 2, y = 1 },
-    rarity = 1,
+    rarity = 2,
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
@@ -536,7 +540,9 @@ SMODS.Joker({
                         colour = G.C.GREEN,
                         func = function()
                             for _, joker in ipairs(G.jokers.cards) do
-                                JoyousSpring.banish(joker, "blind_selected")
+                                if JoyousSpring.is_monster_type(joker, "Spellcaster") then
+                                    JoyousSpring.banish(joker, "blind_selected")
+                                end
                             end
                         end
                     }
@@ -551,11 +557,11 @@ SMODS.Joker({
     key = "flady_every",
     atlas = 'flady',
     pos = { x = 1, y = 3 },
-    rarity = 1,
+    rarity = 3,
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 10,
+    cost = 16,
     loc_vars = function(self, info_queue, card)
         local numerators, denominators = {}, {}
         for i = 1, 6 do

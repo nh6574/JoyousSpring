@@ -61,8 +61,8 @@ return {
                     {
                         "{C:green}#1# in #2#{} chance to increase hand size",
                         "by {C:attention}#3#{} when {C:attention}Blind{} is selected",
-                        "{C:inactive}(Hand size resets when chance fails)",
-                        "{C:inactive}(Currently {C:attention}+#4#{}{C:inactive} hand size)"
+                        "{C:inactive}(Hand size resets when chance fails) (Max +#8#)",
+                        "{C:inactive}(Currently {C:attention}+#4#{}{C:inactive} hand size.)"
                     },
                     {
                         "Gives Chips equal to {C:chips}+#5#{} x {C:green}numerator{}",
@@ -119,7 +119,7 @@ return {
                 text = {
                     {
                         "{C:green}#1# in #2#{} chance to {C:attention}banish{}",
-                        "all {C:attention}Jokers{} at end of round",
+                        "all {C:joy_normal}Spellcaster{} {C:attention}Jokers{} at end of round",
                         "until {C:attention}Blind{} is selected",
                     },
                     {
