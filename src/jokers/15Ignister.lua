@@ -386,7 +386,7 @@ SMODS.Joker({
         other_card.ability.extra.joyous_spring.cannot_flip = true
         SMODS.debuff_card(other_card, 'prevent_debuff', 'j_joy_ignis_gatchiri')
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return { vars = {} }
     end,
     joker_display_def = function(JokerDisplay)
@@ -463,7 +463,7 @@ SMODS.Joker({
     joy_transfer_config = function(self, other_card)
         return { mult = 30, current_mult = 0 }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return { vars = { config.mult, config.current_mult } }
     end,
     joker_display_def = function(JokerDisplay)
@@ -525,7 +525,7 @@ SMODS.Joker({
     joy_transfer_config = function(self, other_card)
         return { percent = 0.05 }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return { vars = { config.percent * 100 } }
     end
 })
@@ -894,9 +894,9 @@ SMODS.Joker({
     joy_transfer_config = function(self, other_card)
         return { chips = 100 }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         local current_chips = config.chips *
-            JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))
+            JoyousSpring.get_attribute_count(JoyousSpring.get_materials(other_card))
         return { vars = { config.chips, current_chips } }
     end
 })
@@ -976,8 +976,8 @@ SMODS.Joker({
     joy_transfer_config = function(self, other_card)
         return { slots = 1 }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
-        return { vars = { config.slots, config.slots * JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card)) } }
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
+        return { vars = { config.slots, config.slots * JoyousSpring.get_attribute_count(JoyousSpring.get_materials(other_card)) } }
     end
 })
 
@@ -1068,10 +1068,10 @@ SMODS.Joker({
     joy_transfer_config = function(self, other_card)
         return { odds = 6 }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
-        local numerator, denominator = SMODS.get_probability_vars(card, 1,
-            math.max(1, config.odds - JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))),
-            card.config.center.key)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
+        local numerator, denominator = SMODS.get_probability_vars(other_card, 1,
+            math.max(1, config.odds - JoyousSpring.get_attribute_count(JoyousSpring.get_materials(other_card))),
+            other_card.config.center.key)
         return { vars = { numerator, denominator } }
     end
 })
@@ -1165,8 +1165,8 @@ SMODS.Joker({
     joy_transfer_config = function(self, other_card)
         return { money = 1 }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
-        return { vars = { config.money, config.money * JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card)) } }
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
+        return { vars = { config.money, config.money * JoyousSpring.get_attribute_count(JoyousSpring.get_materials(other_card)) } }
     end
 })
 
@@ -1263,9 +1263,9 @@ SMODS.Joker({
             mult = 2
         }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         local current_mult = config.mult *
-            JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))
+            JoyousSpring.get_attribute_count(JoyousSpring.get_materials(other_card))
         return { vars = { config.mult, current_mult } }
     end
 })

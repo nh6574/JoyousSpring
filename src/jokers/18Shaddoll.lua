@@ -744,7 +744,7 @@ SMODS.Joker({
     joy_transfer_config = function(self, other_card)
         return { mult = 1 }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return {
             vars = { config.mult, config.mult *
             JoyousSpring.count_materials_in_graveyard({ { monster_archetypes = { "Shaddoll" } }, { monster_type = "Spellcaster" } }) }
@@ -813,7 +813,7 @@ SMODS.Joker({
     joy_transfer_config = function(self, other_card)
         return { revives = 1 }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return {
             vars = { config.revives }
         }
@@ -880,7 +880,7 @@ SMODS.Joker({
     joy_transfer_config = function(self, other_card)
         return { mills = 3 }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return {
             vars = { config.mills }
         }
@@ -974,7 +974,7 @@ SMODS.Joker({
     joy_transfer_config = function(self, other_card)
         return { chips = 40 }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return {
             vars = { config.chips, config.chips *
             JoyousSpring.count_materials_in_graveyard({ { monster_archetypes = { "Shaddoll" } } }) }
@@ -1211,7 +1211,7 @@ SMODS.Joker({
     joy_transfer_config = function(self, other_card)
         return { xmult = 2 }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         local empty_spaces = G.jokers and math.max(0, G.jokers.config.card_limit - #G.jokers.cards + G.GAME.joker_buffer) or
             0
         local mult_count = empty_spaces +
@@ -1325,7 +1325,7 @@ SMODS.Joker({
     joy_transfer_config = function(self, other_card)
         return { mills = 10 }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return { vars = { config.mills } }
     end,
     joy_transfer_ability_calculate = function(self, other_card, context, config)
@@ -1417,7 +1417,7 @@ SMODS.Joker({
     joy_transfer_config = function(self, other_card)
         return { xchips = 0.01 }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return {
             vars = { config.xchips, 1 + config.xchips *
             JoyousSpring.count_materials_in_graveyard({ { monster_archetypes = { "Shaddoll" } } }) }

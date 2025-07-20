@@ -38,6 +38,50 @@ SMODS.Joker({
     end,
 })
 
+-- Hallohallo
+SMODS.Joker({
+    key = "hallo",
+    atlas = 'Misc05',
+    pos = { x = 0, y = 3 },
+    rarity = 3,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 8,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.from, card.ability.extra.to } }
+    end,
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Fiend",
+                is_pendulum = true,
+                is_tuner = true,
+                is_effect = false
+            },
+            from = 1,
+            to = 6
+        },
+    },
+    use = function(self, card, area, copier)
+        for _, jokerarea in ipairs(SMODS.get_card_areas('jokers')) do
+            for _, joker in ipairs(jokerarea.cards or {}) do
+                if joker.ability.set == "Joker" and joker ~= card then
+                    local amount = pseudorandom(card.config.center.key, 1, 6)
+                    JoyousSpring.modify_probability_numerator(joker, amount)
+                    SMODS.calculate_effect({ message = "+" .. amount, colour = G.C.GREEN }, joker)
+                end
+            end
+        end
+    end,
+    can_use = function(self, card)
+        return #G.jokers.cards > (card.area ~= G.jokers and 0 or 1)
+    end,
+})
+
 -- Archfiend Eccentrick
 SMODS.Joker({
     key = "eccentrick",
@@ -664,7 +708,7 @@ SMODS.Joker({
             chips = 0,
         }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return { vars = { config.chips, config.mult } }
     end,
     joker_display_def = function(JokerDisplay)

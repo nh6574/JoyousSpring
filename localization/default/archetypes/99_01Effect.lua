@@ -342,7 +342,10 @@ return {
                     {
                         "Adds {C:attention}#3# Enhanced{} {C:diamonds}Diamond{} cards to the Deck",
                         "when used as {C:attention}material{}"
-                    }
+                    },
+                    {
+                        "Cannot be {C:attention}revived{}",
+                    },
                 }
             },
             j_joy_revgolem = {
@@ -427,12 +430,13 @@ return {
                         "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
                     },
                     {
-                        "Attach {C:attention}#3# material{} to each {C:joy_wind}WIND{} {C:joy_xyz}Xyz{}",
+                        "Attach {C:attention}#3# material{} to each {C:joy_xyz}Xyz{}",
                         "when {C:attention}Boss Blind{} is selected"
                     },
                     {
                         "If you own {C:joy_effect}\"Ghost Fairy Elfobia\"{},",
-                        "only {C:joy_wind}WIND{} {C:attention}Jokers{} can appear in the shop"
+                        "only {C:joy_wind}WIND{} {C:attention}Jokers{} can appear in the shop",
+                        "{C:inactive}(Not working in this version :P){}"
                     }
                 }
             },
@@ -455,9 +459,14 @@ return {
                         "A {C:joy_synchro}Synchro{} summoned using this card",
                         "as {C:attention}material{} gains the following ability:",
                         "{s:0.9,C:mult}+#1#{s:0.9} Mult for each {s:0.9,C:attention}Joker{s:0.9} owned",
-                        "{s:0.9} or in the {s:0.9,C:attention}GY{s:0.9} with the same {s:0.9,C:attention}Type{s:0.9} and {s:0.9,C:attention}Attribute{}"
+                        "{s:0.9}or in the {s:0.9,C:attention}GY{s:0.9} with the same {s:0.9,C:attention}Type{s:0.9} and {s:0.9,C:attention}Attribute{}"
                     }
-                }
+                },
+                joy_transfer_ability = {
+                    "{C:mult}+#1#{} Mult for each {C:attention}Joker{} owned",
+                    "or in the {C:attention}GY{} with the same {C:attention}Type{} and {C:attention}Attribute{}",
+                    "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
+                },
             },
             j_joy_maxsix = {
                 name = "{C:joy_effect}Maximum Six",
@@ -501,7 +510,7 @@ return {
                     {
                         "{C:joy_effect}FLIP{}: When {C:attention}Blind{} is selected,",
                         "{C:attention}excavate{} until you hit a card that is your most owned suit",
-                        "draw all cards {C:attention}excavated{} up to that card inclusive",
+                        "draw cards equal to the {C:attention}excavated{} cards up to that card inclusive",
                         "{C:inactive}(Currently {V:1}#3#{}{C:inactive}) (Changes at end of round)"
                     },
                 }

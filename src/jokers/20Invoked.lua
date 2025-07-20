@@ -117,7 +117,7 @@ SMODS.Joker({
     joy_transfer_config = function(self, other_card)
         return { chips = 50 }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return { vars = { config.chips, config.chips * JoyousSpring.get_summoned_count("FUSION") } }
     end
 })
@@ -220,7 +220,7 @@ SMODS.Joker({
     joy_transfer_config = function(self, other_card)
         return { mult = 15 }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return { vars = { config.mult, config.mult * JoyousSpring.get_summoned_count("FUSION") } }
     end
 })
@@ -324,7 +324,7 @@ SMODS.Joker({
             reduces = 2
         }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return { vars = { config.xmult, config.xmult * JoyousSpring.count_set_tributed("Joker", true), config.reduces } }
     end,
     joker_display_def = function(JokerDisplay)
@@ -458,7 +458,7 @@ SMODS.Joker({
             flips = 1
         }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return { vars = { config.xmult, 1 + config.xmult * JoyousSpring.get_flipped_count("Joker"), config.flips } }
     end,
     joker_display_def = function(JokerDisplay)
@@ -579,7 +579,7 @@ SMODS.Joker({
             percent = 0.1
         }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return { vars = { config.percent * 100 } }
     end
 })
@@ -673,7 +673,7 @@ SMODS.Joker({
             xmult = 2,
         }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return { vars = { config.xmult } }
     end,
     joker_display_def = function(JokerDisplay)
@@ -775,7 +775,7 @@ SMODS.Joker({
             mult = 100,
         }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return { vars = { config.mult } }
     end,
     joker_display_def = function(JokerDisplay)
@@ -896,7 +896,7 @@ SMODS.Joker({
             activated = false
         }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return { vars = { config.sell, config.sold } }
     end
 })
@@ -1008,7 +1008,7 @@ SMODS.Joker({
             mills = 1
         }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return {
             vars = { config.xmult, 1 +
             config.xmult *

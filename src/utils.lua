@@ -573,7 +573,11 @@ JoyousSpring.most_owned_suit = function(seed)
         end
     end
 
-    return pseudorandom_element(#suits > 1 and suits or SMODS.Suits, seed or "JoyousSpring") or "Hearts"
+    if #suits > 0 then
+        return pseudorandom_element(suits, seed or "JoyousSpring") or "Hearts"
+    end
+
+    return (pseudorandom_element(SMODS.Suits, seed or "JoyousSpring") or {}).key or "Hearts"
 end
 
 ---Checks if the *card*'s rarity is in *list*

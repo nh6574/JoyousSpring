@@ -333,7 +333,7 @@ SMODS.Joker({
     joy_transfer_config = function(self, other_card)
         return { chips = 3 }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         local diamonds = 0
         for _, pcard in ipairs(G.deck.cards) do
             if pcard:is_suit("Diamonds") then
@@ -398,7 +398,7 @@ SMODS.Joker({
     joy_transfer_config = function(self, other_card)
         return { money = 0.1 }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         local diamonds = 0
         for _, pcard in ipairs(G.deck.cards) do
             if pcard:is_suit("Diamonds") then
@@ -466,7 +466,7 @@ SMODS.Joker({
     joy_transfer_config = function(self, other_card)
         return { mult = 1 }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         local diamonds = 0
         for _, pcard in ipairs(G.deck.cards) do
             if pcard:is_suit("Diamonds") then
