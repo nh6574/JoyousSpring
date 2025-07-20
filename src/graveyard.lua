@@ -172,9 +172,9 @@ JoyousSpring.remove_from_graveyard = function(amount, seed, allow, deny, from_ea
                             break
                         end
                     end
-                    if not removed then
+                    if not removed and allow and next(allow) then
                         removed = true
-                        for _, property in ipairs(allow or {}) do
+                        for _, property in ipairs(allow) do
                             if JoyousSpring.is_material_center(key, property) then
                                 removed = false
                                 break
@@ -209,9 +209,9 @@ JoyousSpring.remove_from_graveyard = function(amount, seed, allow, deny, from_ea
                             break
                         end
                     end
-                    if not added then
+                    if not added and allow and next(allow) then
                         added = true
-                        for _, property in ipairs(allow or {}) do
+                        for _, property in ipairs(allow) do
                             if JoyousSpring.is_material_center(key, property) then
                                 added = false
                                 break

@@ -201,7 +201,7 @@ JoyousSpring.get_material_attributes = function(card_list, ignore_debuffed)
     for _, card in ipairs(card_list) do
         if type(card) == "table" and (not ignore_debuffed or not card.debuff) and JoyousSpring.is_monster_card(card) then
             if not JoyousSpring.is_all_attributes(card) then
-                attributes[card.ability.extra.joyous_spring.attribute] = true
+                attributes[JoyousSpring.get_attribute(card)] = true
             end
         else
             local card_center = G.P_CENTERS[card]
@@ -321,7 +321,7 @@ JoyousSpring.get_material_types = function(card_list, ignore_debuffed)
     for _, card in ipairs(card_list) do
         if type(card) == "table" and (not ignore_debuffed or not card.debuff) and JoyousSpring.is_monster_card(card) then
             if not JoyousSpring.is_all_types(card) then
-                types[card.ability.extra.joyous_spring.monster_type] = true
+                types[JoyousSpring.get_monster_type(card)] = true
             end
         else
             local card_center = G.P_CENTERS[card]
@@ -446,6 +446,43 @@ end
 ---@return integer
 JoyousSpring.get_pendulum_count = function()
     return G.GAME.joy_pendulum_count or 0
+end
+
+---Updates the excavated card count with *card*'s data
+---@param card Card|table
+JoyousSpring.update_excavated_count = function(card)
+    if not G.GAME.joy_cards_excavated then
+        G.GAME.joy_cards_excavated = { suit = {}, rank = {}, total = 0 }
+    end
+    G.GAME.joy_cards_excavated.total = G.GAME.joy_cards_excavated.total + 1
+
+    if SMODS.has_any_suit(card) then
+        G.GAME.joy_cards_excavated.suit.any_suit = (G.GAME.joy_cards_excavated.suit.any_suit or 0) + 1
+    elseif not SMODS.has_no_suit(card) then
+        G.GAME.joy_cards_excavated.suit[card.base.suit] = (G.GAME.joy_cards_excavated.suit[card.base.suit] or 0) + 1
+    end
+
+    if not SMODS.has_no_rank(card) then
+        G.GAME.joy_cards_excavated.rank[card.base.value] = (G.GAME.joy_cards_excavated.rank[card.base.value] or 0) + 1
+    end
+end
+
+---Get excavated count this run
+---@param suit string?
+---@param rank string?
+---@return integer
+JoyousSpring.get_excavated_count = function(suit, rank)
+    if not G.deck then return 0 end
+    if not G.GAME.joy_cards_excavated then
+        G.GAME.joy_cards_excavated = { suit = {}, rank = {}, total = 0 }
+    end
+    if suit then
+        return (G.GAME.joy_cards_excavated.suit[suit] or 0) + (G.GAME.joy_cards_excavated.suit.any_suit or 0)
+    end
+    if rank then
+        return G.GAME.joy_cards_excavated.rank[rank] or 0
+    end
+    return G.GAME.joy_cards_excavated.total
 end
 
 ---Gets the colour used by the name of the Joker

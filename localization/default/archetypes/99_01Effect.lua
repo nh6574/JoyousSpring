@@ -378,7 +378,7 @@ return {
                     },
                     {
                         "Once per ante, you can {C:attention}tribute #3#{} {C:joy_normal}Rock{} {C:attention}Joker{}",
-                        "to create {C:attention}#4#{} {C:joy_normal}Rock{} {C:attention}Jokers{}",
+                        "to create {C:attention}#4#{} {C:joy_normal}Main Deck Rock{} {C:attention}Jokers{}",
                         "{C:inactive}(Must have room)"
                     },
                 }
@@ -397,7 +397,7 @@ return {
                     {
                         "If this card is used as {C:attention}material{} when there are",
                         "{C:attention}#5#{} or more {C:joy_normal}Rock{} {C:attention}Jokers{} in the {C:attention}GY{},",
-                        "creates {C:attention}#6#{} {C:dark_edition}Negative{} {C:blue}Common{} or {C:green}Uncommon{}",
+                        "creates {C:attention}#6#{} {C:dark_edition}Negative{} {C:blue}Common{} or {C:green}Uncommon{} {C:joy_normal}Main Deck{}",
                         "{C:joy_normal}Rock{} {C:attention}Jokers{} but remove all {C:joy_normal}Rock{} {C:attention}Jokers{} from the {C:attention}GY{}"
                     },
                 }
@@ -440,8 +440,8 @@ return {
                 name = "{C:joy_effect}Lindbloom",
                 text = {
                     {
-                        "{C:attention}Jokers{} each give {X:mult,C:white}X#1#{} for each other {C:attention}Joker{}",
-                        "with the same {C:attention}Type{} and {C:attention}Attribute{}"
+                        "{C:attention}Jokers{} each give {X:mult,C:white}X#1#{} if they share",
+                        "{C:attention}Type{} and {C:attention}Attribute{} with another {C:attention}Joker{}"
                     },
                 }
             },
@@ -493,10 +493,15 @@ return {
                 name = "{C:joy_effect}Magical Merchant",
                 text = {
                     {
+                        "{C:attention}Flips{} at end of round after #1# or more cards",
+                        "are {C:attention}excavated{} {C:inactive}(even if face-down)",
+                        "{C:inactive}(#2# remaining){}"
+                    },
+                    {
                         "{C:joy_effect}FLIP{}: When {C:attention}Blind{} is selected,",
                         "{C:attention}excavate{} until you hit a card that is your most owned suit",
                         "draw all cards {C:attention}excavated{} up to that card inclusive",
-                        "{C:inactive}(Currently {V:1}#1#{}{C:inactive})"
+                        "{C:inactive}(Currently {V:1}#3#{}{C:inactive})"
                     },
                 }
             },

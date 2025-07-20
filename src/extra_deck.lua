@@ -44,6 +44,7 @@ JoyousSpring.return_to_extra_deck = function(card)
                         G.jokers:remove_card(card)
                         card:remove_from_deck()
                         card.ability.extra.joyous_spring.summoned = false
+                        card.ability.extra.joyous_spring.xyz_materials = 0
                         card:set_cost()
                         JoyousSpring.extra_deck_area:emplace(card)
                         if JokerDisplay then

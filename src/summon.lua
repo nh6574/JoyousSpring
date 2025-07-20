@@ -363,18 +363,18 @@ JoyousSpring.is_valid_material_combo = function(combo_list, condition)
                 if not JoyousSpring.is_monster_card(card_1) or not JoyousSpring.is_monster_card(card_2) then
                     return false
                 end
-                local card_1_properties = card_1.ability.extra.joyous_spring
-                local card_2_properties = card_2.ability.extra.joyous_spring
-                if restrictions.different_attributes and card_1_properties.attribute == card_2_properties.attribute then
+                local is_same_type = JoyousSpring.is_same_type_attribute(card_1, card_2, nil, true)
+                local is_same_attribute = JoyousSpring.is_same_type_attribute(card_1, card_2, true)
+                if restrictions.different_attributes and is_same_attribute then
                     return false
                 end
-                if restrictions.same_attribute and card_1_properties.attribute ~= card_2_properties.attribute then
+                if restrictions.same_attribute and not is_same_attribute then
                     return false
                 end
-                if restrictions.different_types and card_1_properties.monster_type == card_2_properties.monster_type then
+                if restrictions.different_types and is_same_type then
                     return false
                 end
-                if restrictions.same_type and card_1_properties.monster_type ~= card_2_properties.monster_type then
+                if restrictions.same_type and not is_same_type then
                     return false
                 end
             end

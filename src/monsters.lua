@@ -266,6 +266,19 @@ JoyousSpring.is_monster_type = function(card, monster_type)
     return card.ability.extra.joyous_spring.monster_type == monster_type
 end
 
+---Gets the monster type of the card
+---Returns `nil` if it doesn't have any and true when it's treated as all types
+---@param card Card|table
+---@return monster_type|true?
+JoyousSpring.get_monster_type = function(card)
+    if not JoyousSpring.is_monster_card(card) and (not JoyousSpring.get_extra_values(card) or (not JoyousSpring.get_extra_values(card).is_all_types and not JoyousSpring.get_extra_values(card).monster_type)) then
+        return nil
+    end
+    if card.ability.extra.joyous_spring.is_all_types or (JoyousSpring.get_extra_values(card) or {}).is_all_types then return true end
+
+    return (JoyousSpring.get_extra_values(card) or {}).monster_type or card.ability.extra.joyous_spring.monster_type
+end
+
 ---Checks if *card* is *attribute*
 ---@param card Card|table
 ---@param attribute attribute
@@ -281,6 +294,45 @@ JoyousSpring.is_attribute = function(card, attribute)
     end
 
     return card.ability.extra.joyous_spring.attribute == attribute
+end
+
+---Gets the attribute of the card
+---Returns `nil` if it doesn't have any and true when it's treated as all types
+---@param card Card|table
+---@return attribute|true?
+JoyousSpring.get_attribute = function(card)
+    if not JoyousSpring.is_monster_card(card) and (not JoyousSpring.get_extra_values(card) or (not JoyousSpring.get_extra_values(card).is_all_attributes and not JoyousSpring.get_extra_values(card).attribute)) then
+        return nil
+    end
+    if card.ability.extra.joyous_spring.is_all_attributes or (JoyousSpring.get_extra_values(card) or {}).is_all_attributes then
+        return true
+    end
+
+    return (JoyousSpring.get_extra_values(card) or {}).attribute or card.ability.extra.joyous_spring.attribute
+end
+
+---Check if card_a and card_b are the same type and/or attribute
+---@param card_a Card|table
+---@param card_b Card|table
+---@param no_type_check boolean?
+---@param no_attribute_check boolean?
+---@return boolean
+JoyousSpring.is_same_type_attribute = function(card_a, card_b, no_type_check, no_attribute_check)
+    if not no_type_check then
+        local a_type = JoyousSpring.get_monster_type(card_a)
+        local b_type = JoyousSpring.get_monster_type(card_b)
+        if not a_type or not b_type or not (a_type == true or b_type == true or a_type == b_type) then
+            return false
+        end
+    end
+    if not no_attribute_check then
+        local a_attribute = JoyousSpring.get_attribute(card_a)
+        local b_attribute = JoyousSpring.get_attribute(card_b)
+        if not a_attribute or not b_attribute or not (a_attribute == true or b_attribute == true or a_attribute == b_attribute) then
+            return false
+        end
+    end
+    return true
 end
 
 ---Checks if *card* is an Effect Joker

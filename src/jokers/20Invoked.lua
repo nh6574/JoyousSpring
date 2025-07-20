@@ -7,8 +7,10 @@ SMODS.Atlas({
 })
 
 local aleister_transform = function(card, tribute)
-    local attribute = JoyousSpring.is_monster_card(tribute) and tribute.ability.extra.joyous_spring.attribute or
-        pseudorandom_element({ "LIGHT", "DARK", "WATER", "FIRE", "EARTH", "WIND" }, card.config.center.key)
+    local attribute = JoyousSpring.is_monster_card(tribute) and JoyousSpring.get_attribute(tribute)
+    if not attribute or attribute == true then
+        attribute = pseudorandom_element({ "LIGHT", "DARK", "WATER", "FIRE", "EARTH", "WIND" }, card.config.center.key)
+    end
 
     local key_to_transform = "j_joy_invoked_mage"
 
