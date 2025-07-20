@@ -122,7 +122,7 @@ if TheFamily then
         end,
         unhighlight = function(definition, card)
             JoyousSpring.field_spell_area.states.visible = false
-        end,
+        end
     })
     TheFamily.create_tab({
         key = "joy_extra_deck_area",
@@ -178,6 +178,11 @@ if TheFamily then
         unhighlight = function(definition, card)
             JoyousSpring.open_extra_deck(true, not G.joy_extra_deck.states.visible)
         end,
+        update = function(definition, card, dt)
+            if not JoyousSpring.extra_deck_open then
+                definition:close()
+            end
+        end
     })
     TheFamily.create_tab({
         key = "joy_graveyard",
