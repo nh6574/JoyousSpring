@@ -105,8 +105,7 @@ SMODS.Joker({
                 local count = 0
                 for _, joker in ipairs(G.jokers.cards) do
                     if joker ~= card and not SMODS.is_eternal(joker, card) and not joker.getting_sliced and not joker.debuff and joker.config.center.key ~= "j_joy_token" then
-                        joker.getting_sliced = true
-                        joker:start_dissolve()
+                        SMODS.destroy_cards(joker, nil, true)
                         count = count + 1
                     end
                 end
@@ -260,8 +259,7 @@ SMODS.Joker({
                     for i = 1, card.ability.extra.destroys_and_creates do
                         local chosen, index = pseudorandom_element(choices, 'j_joy_afd')
                         if chosen then
-                            chosen.getting_sliced = true
-                            chosen:start_dissolve()
+                            SMODS.destroy_cards(chosen, nil, true)
                             destroyed = destroyed + 1
                             table.remove(choices, index)
                         end

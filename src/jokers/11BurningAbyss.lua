@@ -48,8 +48,7 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if context.setting_blind and context.main_eval then
                 if ba_die() and not context.blueprint then
-                    card.getting_sliced = true
-                    card:start_dissolve()
+                    SMODS.destroy_cards(card, nil, true)
                 else
                     G.GAME.blind.chips = math.floor(G.GAME.blind.chips - G.GAME.blind.chips * card.ability.extra.percent)
                     G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
@@ -101,8 +100,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.setting_blind and context.main_eval and ba_die() and not context.blueprint then
-                card.getting_sliced = true
-                card:start_dissolve()
+                SMODS.destroy_cards(card, nil, true)
             end
             if context.joker_main then
                 return {
@@ -161,8 +159,7 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if context.setting_blind and context.main_eval then
                 if ba_die() and not context.blueprint then
-                    card.getting_sliced = true
-                    card:start_dissolve()
+                    SMODS.destroy_cards(card, nil, true)
                 else
                     JoyousSpring.send_to_graveyard_pseudorandom(
                         { { monster_type = "Fiend" } },
@@ -218,8 +215,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.setting_blind and context.main_eval and ba_die() and not context.blueprint then
-                card.getting_sliced = true
-                card:start_dissolve()
+                SMODS.destroy_cards(card, nil, true)
             end
         end
     end,
@@ -271,8 +267,7 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if context.setting_blind and context.main_eval then
                 if ba_die() and not context.blueprint then
-                    card.getting_sliced = true
-                    card:start_dissolve()
+                    SMODS.destroy_cards(card, nil, true)
                 else
                     for _ = 1, card.ability.extra.revives do
                         JoyousSpring.revive_pseudorandom({ { monster_archetypes = { "BurningAbyss" } } },
@@ -334,8 +329,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.setting_blind and context.main_eval and ba_die() and not context.blueprint then
-                card.getting_sliced = true
-                card:start_dissolve()
+                SMODS.destroy_cards(card, nil, true)
             end
             if context.other_joker and context.other_joker.facing == "front" and JoyousSpring.is_monster_type(context.other_joker, "Fiend") then
                 return {
@@ -400,8 +394,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.setting_blind and context.main_eval and ba_die() and not context.blueprint then
-                card.getting_sliced = true
-                card:start_dissolve()
+                SMODS.destroy_cards(card, nil, true)
             end
         end
     end,
@@ -451,8 +444,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.setting_blind and context.main_eval and ba_die() and not context.blueprint then
-                card.getting_sliced = true
-                card:start_dissolve()
+                SMODS.destroy_cards(card, nil, true)
             end
             if context.other_joker and context.other_joker.facing == "front" and JoyousSpring.is_monster_type(context.other_joker, "Fiend") then
                 return {
@@ -517,8 +509,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if (context.selling_self or (context.setting_blind and context.main_eval and ba_die())) and not context.blueprint then
-                card.getting_sliced = true
-                card:start_dissolve()
+                SMODS.destroy_cards(card, nil, true)
                 for _ = 1, card.ability.extra.revives do
                     JoyousSpring.revive_pseudorandom({ { monster_type = "Fiend" } },
                         'j_joy_ba_libic', true)
@@ -560,8 +551,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if (context.selling_self or (context.setting_blind and context.main_eval and ba_die())) and not context.blueprint then
-                card.getting_sliced = true
-                card:start_dissolve()
+                SMODS.destroy_cards(card, nil, true)
 
                 local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "BurningAbyss" }, is_extra_deck = true } })
                 for _ = 1, card.ability.extra.adds do
@@ -610,8 +600,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if (context.selling_self or (context.setting_blind and context.main_eval and ba_die())) and not context.blueprint then
-                card.getting_sliced = true
-                card:start_dissolve()
+                SMODS.destroy_cards(card, nil, true)
 
                 for _ = 1, card.ability.extra.creates do
                     JoyousSpring.create_pseudorandom(

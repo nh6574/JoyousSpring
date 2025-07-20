@@ -234,8 +234,7 @@ JoyousSpring.tribute = function(card, card_list)
 
     for _, material in ipairs(card_list) do
         JoyousSpring.count_as_tributed(material)
-        material.getting_sliced = true
-        material:start_dissolve()
+        SMODS.destroy_cards(material, nil, true)
         SMODS.calculate_context({ joy_tributed = true, joy_card = material, joy_source = card })
     end
 end
@@ -495,6 +494,7 @@ JoyousSpring.excavate = function(amount, context)
     end
 
     for i, card in ipairs(copied_cards) do
+        JoyousSpring.update_excavated_count(original_cards[i])
         G.E_MANAGER:add_event(Event({
             trigger = "after",
             delay = 0.5,
