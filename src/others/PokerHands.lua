@@ -685,11 +685,11 @@ local get_type_attribute_allowlist = function(card_list)
     local allowlist = {}
 
     for _, joker in ipairs(card_list) do
-        local type = JoyousSpring.get_monster_type(joker)
+        local monster_type = JoyousSpring.get_monster_type(joker)
         local attribute = JoyousSpring.get_attribute(joker)
         table.insert(allowlist,
             {
-                monster_type = type ~= true and type or nil,
+                monster_type = monster_type ~= true and monster_type or nil,
                 monster_attribute = attribute ~= true and attribute or nil
             }
         )

@@ -11,11 +11,11 @@ local get_type_attribute_allowlist = function(card_list)
 
     for _, joker in ipairs(card_list) do
         if JoyousSpring.is_monster_card(joker) then
-            local type = JoyousSpring.get_monster_type(joker)
+            local monster_type = JoyousSpring.get_monster_type(joker)
             local attribute = JoyousSpring.get_attribute(joker)
             table.insert(allowlist,
                 {
-                    monster_type = type ~= true and type or nil,
+                    monster_type = monster_type ~= true and monster_type or nil,
                     monster_attribute = attribute ~= true and attribute or nil
                 }
             )
@@ -682,6 +682,9 @@ SMODS.Joker({
             card.ability.extra.active = false
         end
     end,
+    joy_can_detach = function(card)
+        return not card.ability.extra.active
+    end
 })
 
 
@@ -735,7 +738,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if context.joy_detach and context.joy_detaching_card == card and not card.ability.extra.active then
+            if context.joy_detach and context.joy_detaching_card == card then
                 JoyousSpring.ease_detach(card)
                 JoyousSpring.remove_from_graveyard(card.ability.extra.removes, card.config.center.key,
                     get_type_attribute_allowlist(G.jokers.cards))
@@ -752,6 +755,10 @@ SMODS.Joker({
             end
         end
     end,
+    joy_can_detach = function(card)
+        return (JoyousSpring.get_graveyard_count() -
+            JoyousSpring.count_materials_in_graveyard(get_type_attribute_allowlist(G.jokers.cards))) > 0
+    end
 })
 
 
@@ -826,6 +833,9 @@ SMODS.Joker({
             end
         end
     end,
+    joy_can_detach = function(card)
+        return JoyousSpring.count_materials_in_graveyard(get_type_attribute_allowlist(G.jokers.cards), true) > 0
+    end
 })
 
 

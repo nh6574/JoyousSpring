@@ -382,18 +382,18 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if context.joker_main then
-                return {
-                    mult = card.ability.extra.mult *
-                        JoyousSpring.count_materials_in_graveyard({ { monster_attribute = "WIND" } })
-                }
-            end
-            if context.setting_blind and context.blind.boss then
+            if context.other_joker and context.other_joker.facing == "front" then
+                local exists = false
                 for _, joker in ipairs(G.jokers.cards) do
-                    if JoyousSpring.is_summon_type(joker, "XYZ") and JoyousSpring.is_attribute(joker, "WIND") then
-                        joker.ability.extra.joyous_spring.xyz_materials = joker.ability.extra.joyous_spring
-                            .xyz_materials + card.ability.extra.attach
+                    if joker ~= context.other_joker and JoyousSpring.is_same_type_attribute(joker, context.other_joker) then
+                        exists = true
                     end
+                end
+                if exists then
+                    return {
+                        xmult = card.ability.extra.xmult,
+                        message_card = context.other_joker
+                    }
                 end
             end
         end
@@ -421,10 +421,40 @@ SMODS.Joker({
                 attribute = "WIND",
                 monster_type = "Psychic",
                 is_tuner = true,
+                is_all_materials = { SYNCHRO = true }
             },
             mult = 5
         },
     },
+    joy_can_transfer_ability = function(self, other_card, card)
+        return JoyousSpring.is_summon_type(other_card, "SYNCHRO")
+    end,
+    joy_transfer_ability_calculate = function(self, other_card, context, config)
+        if JoyousSpring.can_use_abilities(other_card) and context.joker_main then
+            local monster_type = JoyousSpring.get_monster_type(card)
+            local attribute = JoyousSpring.get_attribute(card)
+            return {
+                mult = config.mult * JoyousSpring.count_all_materials({ {
+                    monster_type = monster_type ~= true and monster_type or nil,
+                    monster_attribute = attribute ~= true and attribute or nil
+                } })
+            }
+        end
+    end,
+    joy_transfer_config = function(self, other_card)
+        return { mult = 3 }
+    end,
+    joy_transfer_loc_vars = function(self, info_queue, card, config)
+        local monster_type = JoyousSpring.get_monster_type(card)
+        local attribute = JoyousSpring.get_attribute(card)
+
+        return {
+            vars = { config.mult, config.mult * JoyousSpring.count_all_materials({ {
+                monster_type = monster_type ~= true and monster_type or nil,
+                monster_attribute = attribute ~= true and attribute or nil
+            } }) }
+        }
+    end
 })
 
 -- Maximum Six
@@ -457,6 +487,18 @@ SMODS.Joker({
             xmult = 6
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.setting_blind and not card.edition and SMODS.pseudorandom_probability(card, card.config.center.key .. "_negative", 1, card.ability.extra.odds_negative) then
+                card:set_edition("e_negative")
+            end
+            if context.joker_main and SMODS.pseudorandom_probability(card, card.config.center.key .. "_xmult", 1, card.ability.extra.odds_xmult) then
+                return {
+                    xmult = card.ability.extra.xmult
+                }
+            end
+        end
+    end,
 })
 
 -- Space-Time Police
@@ -483,6 +525,29 @@ SMODS.Joker({
             returns = 1
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                local choices = SMODS.merge_lists({ JoyousSpring.banish_boss_selected_area.cards,
+                    JoyousSpring.banish_end_of_ante_area.cards })
+                local to_return = pseudorandom_element(choices, card.config.center.key)
+                if to_return then
+                    JoyousSpring.return_from_banish(to_return)
+                end
+                JoyousSpring.banish(card, "boss_selected")
+                local banish_choices = {}
+                for _, joker in ipairs(G.jokers.cards) do
+                    if joker ~= card and JoyousSpring.is_monster_type(joker, "Psychic") then
+                        table.insert(banish_choices, joker)
+                    end
+                end
+                local to_banish = pseudorandom_element(banish_choices, card.config.center.key)
+                if to_banish then
+                    JoyousSpring.banish(to_banish, "boss_selected")
+                end
+            end
+        end
+    end,
 })
 
 -- Wannabee!
@@ -510,6 +575,29 @@ SMODS.Joker({
             draws = 1
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joy_excavated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.setting_blind then
+                local hit
+                if context.joy_excavated:get_id() == 2 then
+                    card.joy_draw = (card.joy_draw or 0) + 1
+                    hit = true
+                end
+                return {
+                    message = hit and localize("k_joy_hit") or nil
+                }
+            end
+            if context.first_hand_drawn and card.joy_draw then
+                SMODS.draw_cards(card.joy_draw)
+                card.joy_draw = nil
+            end
+        end
+    end,
+    joy_calculate_excavate = function(card, context)
+        if context.setting_blind then
+            return card.ability.extra.excavates
+        end
+    end
 })
 
 -- Magical Merchant
@@ -534,11 +622,57 @@ SMODS.Joker({
                 monster_type = "Insect",
                 is_flip = true
             },
-            requirement = 5,
-            flipped = 0,
+            requirement = 10,
+            excavated = 0,
             suit = "Diamonds",
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joy_excavated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.setting_blind then
+                local hit
+                if context.joy_excavated:get_id() == 2 then
+                    card.joy_draw = (card.joy_draw or 0) + 1
+                    hit = true
+                end
+                return {
+                    message = hit and localize("k_joy_hit") or nil
+                }
+            end
+            if context.first_hand_drawn and card.joy_draw then
+                SMODS.draw_cards(card.joy_draw)
+                card.joy_draw = nil
+            end
+        end
+        if context.joy_excavated then
+            card.ability.extra.excavated = card.ability.extra.excavated + 1
+        end
+        if context.end_of_round and context.game_over == false and context.main_eval then
+            card.ability.extra.suit = JoyousSpring.most_owned_suit(card.config.center.key)
+            if card.ability.extra.excavated >= card.ability.extra.requirement then
+                card:flip()
+                card.ability.extra.excavated = 0
+            end
+        end
+        JoyousSpring.calculate_flip_effect(card, context)
+    end,
+    set_ability = function(self, card, initial, delay_sprites)
+        if G.deck then
+            card.ability.extra.suit = JoyousSpring.most_owned_suit(card.config.center.key)
+        end
+    end,
+    joy_calculate_excavate = function(card, context)
+        if context.setting_blind and JoyousSpring.is_flip_active(card) then
+            local count = 0
+            for i = #G.deck.cards, 1, -1 do
+                count = count + 1
+                if G.deck.cards[i]:is_suit(card.ability.extra.suit) then
+                    break
+                end
+            end
+            return count
+        end
+    end
 })
 
 -- Catoblepas and the Witch of Fate
@@ -569,6 +703,29 @@ SMODS.Joker({
             banishes = 1
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    mult = card.ability.extra.mult *
+                        JoyousSpring.count_materials_in_graveyard({ { monster_type = "Spellcaster" } })
+                }
+            end
+            if context.end_of_round and context.game_over == false and context.main_eval and
+                SMODS.pseudorandom_probability(card, card.config.center.key, 1, card.ability.extra.odds) then
+                local choices = JoyousSpring.get_materials_owned({ { monster_type = "Spellcaster" } })
+                local to_banish = pseudorandom_element(choices, card.config.center.key .. "_banish")
+                if to_banish then
+                    JoyousSpring.banish(to_banish, "blind_selected")
+                    JoyousSpring.modify_probability_numerator(to_banish, nil, 2)
+                    return {
+                        message = localize("k_joy_banished"),
+                        colour = G.C.GREEN
+                    }
+                end
+            end
+        end
+    end,
 })
 
 -- Couple of Aces
@@ -604,6 +761,56 @@ SMODS.Joker({
             odds_enhance = 200
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.before then
+                return {
+                    level_up = SMODS.pseudorandom_probability(card, card.config.center.key .. "_level", 1,
+                        card.ability.extra.odds_level) or nil
+                }
+            end
+            if context.joker_main and next(context.poker_hands["Pair"]) then
+                return {
+                    xmult = card.ability.extra.xmult
+                }
+            end
+            if context.individual and context.cardarea == G.play and next(context.poker_hands["Pair"]) then
+                if (context.other_card.seal ~= "Gold" or not SMODS.has_enhancement(context.other_card, "m_lucky") or
+                        context.other_card:get_id() ~= 14) and
+                    SMODS.pseudorandom_probability(card, card.config.center.key .. "_enhance", 1,
+                        card.ability.extra.odds_enhance) then
+                    if context.other_card.seal ~= "Gold" then
+                        context.other_card:set_seal("Gold")
+                    end
+                    if not SMODS.has_enhancement(context.other_card, "m_lucky") then
+                        context.other_card:set_ability("m_lucky")
+                    end
+                    if context.other_card:get_id() ~= 14 then
+                        assert(SMODS.change_base(context.other_card, nil, "Ace"))
+                    end
+                end
+                return {
+                    xmult = context.other_card:get_id() == 14 and
+                        SMODS.pseudorandom_probability(card, card.config.center.key .. "_xmult", 1,
+                            card.ability.extra.odds_xmult) and
+                        card.ability.extra.xmult or nil
+                }
+            end
+            if context.end_of_round and context.game_over == false and context.main_eval and
+                SMODS.pseudorandom_probability(card, card.config.center.key, 1, card.ability.extra.odds) then
+                local choices = JoyousSpring.get_materials_owned({ { monster_type = "Spellcaster" } })
+                local to_banish = pseudorandom_element(choices, card.config.center.key .. "_banish")
+                if to_banish then
+                    JoyousSpring.banish(to_banish, "blind_selected")
+                    JoyousSpring.modify_probability_numerator(to_banish, nil, 2)
+                    return {
+                        message = localize("k_joy_banished"),
+                        colour = G.C.GREEN
+                    }
+                end
+            end
+        end
+    end,
 })
 
 -- Hallohallo
@@ -634,6 +841,20 @@ SMODS.Joker({
             to = 6
         },
     },
+    use = function(self, card, area, copier)
+        for _, jokerarea in ipairs(SMODS.get_card_areas('jokers')) do
+            for _, joker in ipairs(jokerarea.cards or {}) do
+                if joker.ability.set == "Joker" and joker ~= card then
+                    local amount = pseudorandom(card.config.center.key, 1, 6)
+                    JoyousSpring.modify_probability_numerator(joker, amount)
+                    SMODS.calculate_effect({ message = "+" .. amount, colour = G.C.GREEN }, joker)
+                end
+            end
+        end
+    end,
+    can_use = function(self, card)
+        return #G.jokers.cards > (card.area ~= G.jokers and 0 or 1)
+    end,
 })
 
 -- Number 67: Pair-a-Dice Smasher
@@ -683,6 +904,35 @@ SMODS.Joker({
             attach = 1
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.setting_blind and SMODS.pseudorandom_probability(card, card.config.center.key, 1, card.ability.extra.odds) then
+                card.ability.extra.joyous_spring.xyz_materials = card.ability.extra.joyous_spring
+                    .xyz_materials + card.ability.extra.attach
+                return {
+                    message = localize("k_joy_attach"),
+                    colour = G.C.GREEN
+                }
+            end
+            if context.joy_detach and context.joy_detaching_card == card then
+                JoyousSpring.ease_detach(card)
+                for _, jokerarea in ipairs(SMODS.get_card_areas('jokers')) do
+                    for _, joker in ipairs(jokerarea.cards or {}) do
+                        if joker.ability.set == "Joker" then
+                            local amount = pseudorandom(card.config.center.key .. "_increase", 1, 6)
+                            JoyousSpring.modify_probability_numerator(joker, amount)
+                            SMODS.calculate_effect({ message = "+" .. amount, colour = G.C.GREEN }, joker)
+                        end
+                    end
+                end
+            end
+            if context.mod_probability and not context.blueprint and JoyousSpring.get_xyz_materials(card) > 0 then
+                return {
+                    numerator = context.numerator * 2
+                }
+            end
+        end
+    end,
 })
 
 -- Number 85: Crazy Box
@@ -732,7 +982,73 @@ SMODS.Joker({
             minus_h_size = 1,
             numerator = 6,
             odds = 36,
-            attach = 1
+            attach = 1,
+            h_size_active = false,
+            enhance_active = false
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.setting_blind and SMODS.pseudorandom_probability(card, card.config.center.key, card.ability.extra.numerator, card.ability.extra.odds) then
+                card.ability.extra.joyous_spring.xyz_materials = card.ability.extra.joyous_spring
+                    .xyz_materials + card.ability.extra.attach
+                return {
+                    message = localize("k_joy_attach"),
+                    colour = G.C.GREEN
+                }
+            end
+            if context.joy_detach and context.joy_detaching_card == card and G.GAME.blind.in_blind then
+                JoyousSpring.ease_detach(card)
+                local effect = pseudorandom(card.config.center.key .. "_effect", 1, 6)
+                if effect == 1 then
+                    G.GAME.blind.chips = math.floor(G.GAME.blind.chips * 2)
+                    G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+                end
+                if effect == 2 then
+                    G.GAME.blind.chips = math.floor(G.GAME.blind.chips / 2)
+                    G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+                end
+                if effect == 3 then
+                    card.ability.extra.h_size_active = true
+                    G.hand:change_size(card.ability.extra.plus_h_size)
+                end
+                if effect == 4 then
+                    G.hand:change_size(-card.ability.extra.minus_h_size)
+                end
+                if effect == 5 then
+                    card.ability.extra.enhance_active = true
+                end
+                if effect == 6 then
+                    SMODS.destroy_cards(card)
+                end
+                return {
+                    message = effect,
+                    colour = G.C.GREEN
+                }
+            end
+            if context.before and card.ability.extra.enhance_active then
+                for _, pcard in ipairs(context.scoring_hand) do
+                    pcard:set_edition("e_polychrome")
+                    pcard:set_seal("Red")
+                    pcard:set_ability("m_lucky")
+                end
+                card.ability.extra.enhance_active = false
+            end
+        end
+        if context.end_of_round and context.game_over == false and context.main_eval then
+            if card.ability.extra.h_size_active then
+                G.hand:change_size(-card.ability.extra.plus_h_size)
+            end
+            card.ability.extra.h_size_active = false
+        end
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        if card.ability.extra.h_size_active then
+            G.hand:change_size(-card.ability.extra.plus_h_size)
+        end
+        card.ability.extra.h_size_active = false
+    end,
+    joy_can_detach = function(card)
+        return G.GAME.blind.in_blind
+    end
 })

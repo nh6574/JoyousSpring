@@ -756,8 +756,8 @@ SMODS.Joker({
     end,
     joy_can_activate = function(card)
         return not SMODS.is_eternal(card, card) and
-        JoyousSpring.count_materials_in_graveyard({ { monster_type = "Cyberse" } },
-            true) > 0 or false
+            JoyousSpring.count_materials_in_graveyard({ { monster_type = "Cyberse" } },
+                true) > 0 or false
     end,
 })
 
@@ -1143,6 +1143,9 @@ SMODS.Joker({
                 end
             end
         end
+    end,
+    joy_can_detach = function(card)
+        return false
     end,
     joy_can_transfer_ability = function(self, other_card, card)
         return JoyousSpring.is_summon_type(other_card, "LINK")

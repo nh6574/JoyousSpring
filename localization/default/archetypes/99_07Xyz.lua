@@ -39,13 +39,13 @@ return {
                     {
                         "During a {C:attention}Blind{}, you can {C:joy_xyz}detach{} {C:attention}#1#{}:",
                         "Applies one of these effects randomly",
-                        "- Double {C:attention}Blind{}'s requirement",
-                        "- Halves {C:attention}Blind{}'s requirement",
-                        "- {C:attention}+#2#{} hand size this round",
-                        "- {C:attention}-#3#{} hand size permanently",
-                        "- Turn scored cards in the next hand into",
+                        "{C:attention}1{}: Double {C:attention}Blind{}'s requirement",
+                        "{C:attention}2{}: Halves {C:attention}Blind{}'s requirement",
+                        "{C:attention}3{}: {C:attention}+#2#{} hand size this round",
+                        "{C:attention}4{}: {C:attention}-#3#{} hand size permanently",
+                        "{C:attention}5{}: Turn scored cards in the next played hand into",
                         "{C:dark_edition}Polychrome{} {C:attention}Red Seal Lucky{} cards",
-                        "- Destroy this card",
+                        "{C:attention}6{}: Destroy this card",
                     },
                     {
                         "{C:green}#4# in #5#{} chance to attach {C:attention}#6#{} material to this card when {C:attention}Blind{} is selected"
@@ -65,7 +65,7 @@ return {
                     },
                     {
                         "{C:joy_xyz}Detach{} {C:attention}#1#{}: Increase all listed {C:green}probabilities{}",
-                        "on {C:attention}Jokers{} permanently by a random number from {C:attention}#2#{} to {C:attention}#3#{}",
+                        "on {C:attention}Jokers{} permanently by a different random number from {C:attention}#2#{} to {C:attention}#3#{}",
                     },
                     {
                         "{C:green}#4# in #5#{} chance to attach {C:attention}#6#{} material to this card when {C:attention}Blind{} is selected"

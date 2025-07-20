@@ -81,11 +81,11 @@ SMODS.Joker({
                 local to_banish = pseudorandom_element(choices, card.config.center.key .. "_banish")
                 if to_banish then
                     JoyousSpring.banish(to_banish, "blind_selected")
+                    return {
+                        message = localize("k_joy_banished"),
+                        colour = G.C.GREEN
+                    }
                 end
-                return {
-                    message = localize("k_joy_banished"),
-                    colour = G.C.GREEN
-                }
             end
             if context.joy_banished then
                 JoyousSpring.modify_probability_jokers(card.ability.extra.increases)
@@ -692,11 +692,11 @@ SMODS.Joker({
                 local to_banish = pseudorandom_element(choices, card.config.center.key .. "_banish")
                 if to_banish then
                     JoyousSpring.banish(to_banish, "blind_selected")
+                    return {
+                        message = localize("k_joy_banished"),
+                        colour = G.C.GREEN
+                    }
                 end
-                return {
-                    message = localize("k_joy_banished"),
-                    colour = G.C.GREEN
-                }
             end
             if context.joy_returned then
                 JoyousSpring.modify_probability_numerator(context.joy_returned_card, nil, 2)

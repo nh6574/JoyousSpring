@@ -891,6 +891,9 @@ SMODS.Joker({
             end
         end
     end,
+    joy_can_detach = function(card)
+        return #G.jokers.cards + G.GAME.joker_buffer > (card.area == G.jokers and 1 or 0)
+    end
 })
 
 -- Generaider Boss Stage

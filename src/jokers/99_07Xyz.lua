@@ -63,6 +63,9 @@ SMODS.Joker({
             end
         end
     end,
+    joy_can_detach = function(card)
+        return G.GAME.blind.in_blind
+    end
 })
 
 -- Super Starslayer TY-PHON - Sky Crisis

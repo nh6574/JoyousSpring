@@ -542,6 +542,9 @@ SMODS.Joker({
             end
         end
     end,
+    joy_can_detach = function(card)
+        return #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit
+    end
 })
 
 JoyousSpring.collection_pool[#JoyousSpring.collection_pool + 1] = {

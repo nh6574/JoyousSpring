@@ -182,7 +182,7 @@ JoyousSpring.create_sell_and_use_buttons = function(card, args)
             nodes = {
                 {
                     n = G.UIT.C,
-                    config = { ref_table = card, align = "cr", maxw = 1.25, padding = 0.1, r = 0.08, minw = 1.25, minh = 0, hover = true, shadow = true, colour = G.C.JOY.XYZ or G.C.UI.BACKGROUND_INACTIVE, button = 'joy_detach_material', handy_insta_action = "use" },
+                    config = { ref_table = card, align = "cr", maxw = 1.25, padding = 0.1, r = 0.08, minw = 1.25, minh = 0, hover = true, shadow = true, colour = G.C.JOY.XYZ or G.C.UI.BACKGROUND_INACTIVE, func = 'joy_can_detach', button = 'joy_detach_material', handy_insta_action = "use" },
                     nodes = {
                         { n = G.UIT.B, config = { w = 0.1, h = 0.6 } },
                         { n = G.UIT.T, config = { text = localize('k_joy_detach'), colour = G.C.UI.TEXT_LIGHT, scale = 0.55, shadow = true } }

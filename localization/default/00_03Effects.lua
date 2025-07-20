@@ -17,6 +17,7 @@ return {
             k_joy_transferred = "Transferred!",
             k_joy_doubled = "Doubled!",
             k_joy_increased = "Increased!",
+            k_joy_attach = "Attach!",
         }
     }
 }

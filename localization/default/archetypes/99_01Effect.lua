@@ -467,6 +467,7 @@ return {
                     },
                     {
                         "{C:green}#4# in #5#{} chance to become {C:dark_edition}Negative{}",
+                        "when {C:attention}Blind{} is selected"
                     },
                 }
             },
@@ -501,7 +502,7 @@ return {
                         "{C:joy_effect}FLIP{}: When {C:attention}Blind{} is selected,",
                         "{C:attention}excavate{} until you hit a card that is your most owned suit",
                         "draw all cards {C:attention}excavated{} up to that card inclusive",
-                        "{C:inactive}(Currently {V:1}#3#{}{C:inactive})"
+                        "{C:inactive}(Currently {V:1}#3#{}{C:inactive}) (Changes at end of round)"
                     },
                 }
             },

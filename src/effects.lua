@@ -411,12 +411,30 @@ end
 
 G.FUNCS.joy_detach_material = function(e)
     local card = e.config.ref_table
-    local detach = card.ability.extra.detach or 1
-    if not card.debuff and not ((G.play and #G.play.cards > 0) or
-            (G.CONTROLLER.locked) or
-            (G.GAME.STOP_USE and G.GAME.STOP_USE > 0)) and JoyousSpring.get_xyz_materials(card) >= detach then
+    if JoyousSpring.can_detach(card) then
         SMODS.calculate_context({ joy_detach = true, joy_detaching_card = card })
     end
+end
+
+G.FUNCS.joy_can_detach = function(e)
+    local card = e.config.ref_table
+
+    if card and JoyousSpring.can_detach(card) then
+        e.config.colour = G.C.JOY.XYZ
+        e.config.button = 'joy_detach_material'
+    else
+        e.config.colour = G.C.UI.BACKGROUND_INACTIVE
+        e.config.button = nil
+    end
+end
+
+JoyousSpring.can_detach = function(card)
+    return not card.debuff and not ((G.play and #G.play.cards > 0) or
+            (G.CONTROLLER.locked) or
+            (G.GAME.STOP_USE and G.GAME.STOP_USE > 0)) and
+        JoyousSpring.get_xyz_materials(card) >= (card.ability.extra.detach or 1) and
+        (type(card.config.center.joy_can_detach) ~= "function" or card.config.center:joy_can_detach(card)) and true or
+        false
 end
 
 ---Detach material from Joker

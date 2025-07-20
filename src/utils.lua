@@ -548,6 +548,34 @@ JoyousSpring.most_owned_rarity = function()
     return ret, max
 end
 
+---Gets the most owned suit in full deck, random if none or tied
+---@param seed string|number
+---@return string
+JoyousSpring.most_owned_suit = function(seed)
+    if not G.deck then return "Hearts" end
+
+    local count = {}
+
+    for _, card in ipairs(G.playing_cards) do
+        if not SMODS.has_no_suit(card) and not SMODS.has_any_suit(card) then
+            count[card.base.suit] = (count[card.base.suit] or 0) + 1
+        end
+    end
+
+    local max = 0
+    local suits = {}
+    for suit_key, suit_count in pairs(count) do
+        if suit_count > max then
+            max = suit_count
+            suits = { suit_key }
+        elseif suit_count == max then
+            table.insert(suits, suit_key)
+        end
+    end
+
+    return pseudorandom_element(#suits > 1 and suits or SMODS.Suits, seed or "JoyousSpring") or "Hearts"
+end
+
 ---Checks if the *card*'s rarity is in *list*
 ---@param card Card|table
 ---@param list string[]

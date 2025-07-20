@@ -988,6 +988,9 @@ SMODS.Joker({
             end
         end
     end,
+    joy_can_detach = function(card)
+        return JoyousSpring.count_materials_in_graveyard({ {} }, true) > 0
+    end,
     joker_display_def = function(JokerDisplay)
         return {
             text = {
