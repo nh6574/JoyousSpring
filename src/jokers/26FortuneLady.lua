@@ -327,78 +327,6 @@ SMODS.Joker({
     end
 })
 
--- Fortune Lady Earth
-SMODS.Joker({
-    key = "flady_earth",
-    atlas = 'flady',
-    pos = { x = 0, y = 1 },
-    rarity = 2,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
-            card.ability.extra.odds, card.config.center.key)
-        return { vars = { numerator, denominator, card.ability.extra.creates, card.ability.extra.xmult, 1 + card.ability.extra.xmult * card.ability.extra.increased, card.ability.extra.increases } }
-    end,
-    joy_desc_cards = {
-        { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } }, }, name = "k_joy_archetype" },
-    },
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                attribute = "EARTH",
-                monster_type = "Spellcaster",
-                monster_archetypes = { ["FortuneLady"] = true }
-            },
-            numerator = 1,
-            odds = 50,
-            creates = 1,
-            xmult = 0.1,
-            increased = 0,
-            increases = 1
-        },
-    },
-    calculate = function(self, card, context)
-        if JoyousSpring.can_use_abilities(card) then
-            if context.setting_blind then
-                if SMODS.pseudorandom_probability(card, card.config.center.key, card.ability.extra.numerator, card.ability.extra.odds) then
-                    for i = 1, card.ability.extra.creates do
-                        JoyousSpring.create_pseudorandom(
-                            { { monster_archetypes = { "FortuneLady" }, is_main_deck = true } }, card.config.center.key,
-                            true)
-                    end
-                    return {
-                        message = localize("k_joy_activated_ex"),
-                        colour = G.C.GREEN
-                    }
-                end
-            end
-            if context.joker_main then
-                local increased = card.ability.extra.increased
-                return {
-                    xmult = 1 + card.ability.extra.xmult * increased
-                }
-            end
-            if context.joy_modify_probability and context.joy_increased and context.joy_card == card then
-                card.ability.extra.increased = card.ability.extra.increased + 1
-                JoyousSpring.modify_probability_jokers(card.ability.extra.increases, nil, nil,
-                    { j_joy_flady_earth = true })
-                return {
-                    message = localize("k_joy_increased"),
-                    colour = G.C.GREEN
-                }
-            end
-        end
-    end,
-    remove_from_deck = function(self, card, from_debuff)
-        card.ability.extra.increased = 0
-    end
-})
-
 -- Fortune Lady Dark
 SMODS.Joker({
     key = "flady_dark",
@@ -481,6 +409,79 @@ SMODS.Joker({
             end
         end
     end,
+})
+
+
+-- Fortune Lady Earth
+SMODS.Joker({
+    key = "flady_earth",
+    atlas = 'flady',
+    pos = { x = 0, y = 1 },
+    rarity = 2,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
+            card.ability.extra.odds, card.config.center.key)
+        return { vars = { numerator, denominator, card.ability.extra.creates, card.ability.extra.xmult, 1 + card.ability.extra.xmult * card.ability.extra.increased, card.ability.extra.increases } }
+    end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } }, }, name = "k_joy_archetype" },
+    },
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "EARTH",
+                monster_type = "Spellcaster",
+                monster_archetypes = { ["FortuneLady"] = true }
+            },
+            numerator = 1,
+            odds = 50,
+            creates = 1,
+            xmult = 0.1,
+            increased = 0,
+            increases = 1
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.setting_blind then
+                if SMODS.pseudorandom_probability(card, card.config.center.key, card.ability.extra.numerator, card.ability.extra.odds) then
+                    for i = 1, card.ability.extra.creates do
+                        JoyousSpring.create_pseudorandom(
+                            { { monster_archetypes = { "FortuneLady" }, is_main_deck = true } }, card.config.center.key,
+                            true)
+                    end
+                    return {
+                        message = localize("k_joy_activated_ex"),
+                        colour = G.C.GREEN
+                    }
+                end
+            end
+            if context.joker_main then
+                local increased = card.ability.extra.increased
+                return {
+                    xmult = 1 + card.ability.extra.xmult * increased
+                }
+            end
+            if context.joy_modify_probability and context.joy_increased and context.joy_card == card then
+                card.ability.extra.increased = card.ability.extra.increased + 1
+                JoyousSpring.modify_probability_jokers(card.ability.extra.increases, nil, nil,
+                    { j_joy_flady_earth = true })
+                return {
+                    message = localize("k_joy_increased"),
+                    colour = G.C.GREEN
+                }
+            end
+        end
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        card.ability.extra.increased = 0
+    end
 })
 
 -- Fortune Lady Past
@@ -953,56 +954,6 @@ SMODS.Joker({
     joy_set_cost = ffairy_set_cost
 })
 
--- Fortune Fairy Chee
-SMODS.Joker({
-    key = "ffairy_chee",
-    atlas = 'flady',
-    pos = { x = 3, y = 2 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 3,
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.mult, card.ability.extra.mult * (G.GAME.joy_probability_success or 0) } }
-    end,
-    joy_desc_cards = {
-        { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } } }, name = "k_joy_archetype" },
-    },
-    generate_ui = JoyousSpring.generate_info_ui,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                attribute = "EARTH",
-                monster_type = "Spellcaster",
-                monster_archetypes = { ["FortuneFairy"] = true }
-            },
-            mult = 4,
-        },
-    },
-    calculate = function(self, card, context)
-        if JoyousSpring.can_use_abilities(card) then
-            if context.joker_main then
-                return {
-                    mult = card.ability.extra.mult * (G.GAME.joy_probability_success or 0)
-                }
-            end
-            if context.mod_probability and not context.blueprint then
-                local is_nonspellcaster_card = JoyousSpring.is_card(context.trigger_obj) and
-                    not JoyousSpring.is_monster_type(context.trigger_obj, "Spellcaster")
-                if is_nonspellcaster_card then
-                    return {
-                        denominator = context.denominator / 2
-                    }
-                end
-            end
-        end
-    end,
-    joy_bypass_room_check = ffairy_bypass_room_check,
-    joy_set_cost = ffairy_set_cost
-})
-
 -- Fortune Fairy Ann
 SMODS.Joker({
     key = "ffairy_ann",
@@ -1055,7 +1006,55 @@ SMODS.Joker({
     joy_set_cost = ffairy_set_cost
 })
 
-
+-- Fortune Fairy Chee
+SMODS.Joker({
+    key = "ffairy_chee",
+    atlas = 'flady',
+    pos = { x = 3, y = 2 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 3,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.mult, card.ability.extra.mult * (G.GAME.joy_probability_success or 0) } }
+    end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } } }, name = "k_joy_archetype" },
+    },
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "EARTH",
+                monster_type = "Spellcaster",
+                monster_archetypes = { ["FortuneFairy"] = true }
+            },
+            mult = 4,
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    mult = card.ability.extra.mult * (G.GAME.joy_probability_success or 0)
+                }
+            end
+            if context.mod_probability and not context.blueprint then
+                local is_nonspellcaster_card = JoyousSpring.is_card(context.trigger_obj) and
+                    not JoyousSpring.is_monster_type(context.trigger_obj, "Spellcaster")
+                if is_nonspellcaster_card then
+                    return {
+                        denominator = context.denominator / 2
+                    }
+                end
+            end
+        end
+    end,
+    joy_bypass_room_check = ffairy_bypass_room_check,
+    joy_set_cost = ffairy_set_cost
+})
 
 JoyousSpring.collection_pool[#JoyousSpring.collection_pool + 1] = {
     keys = { "flady", "ffairy" },

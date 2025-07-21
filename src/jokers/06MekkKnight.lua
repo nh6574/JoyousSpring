@@ -284,9 +284,10 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 4,
     loc_vars = function(self, info_queue, card)
-        local numerator, _ = SMODS.get_probability_vars(card,
-            JoyousSpring.count_materials_owned({ { monster_archetypes = { "MekkKnight" } } }), 1, card.config.center.key)
-        return { vars = { numerator, JoyousSpring.get_joker_column(card) } }
+        local numerator, denominator = SMODS.get_probability_vars(card,
+            JoyousSpring.count_materials_owned({ { monster_archetypes = { "MekkKnight" } } }), card.ability.extra.odds,
+            card.config.center.key)
+        return { vars = { numerator, denominator, JoyousSpring.get_joker_column(card) } }
     end,
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
@@ -300,13 +301,14 @@ SMODS.Joker({
                 monster_type = "Psychic",
                 monster_archetypes = { ["MekkKnight"] = true }
             },
+            odds = 50
         },
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.repetition and context.cardarea == G.play then
                 if next(SMODS.find_card("j_joy_mekk_spectrum")) or JoyousSpring.get_joker_column(card) == (JoyousSpring.index_of(context.full_hand, context.other_card)) then
-                    if SMODS.pseudorandom_probability(card, card.config.center.key, JoyousSpring.count_materials_owned({ { monster_archetypes = { "MekkKnight" } } }), context.other_card.base.nominal >= 1 and context.other_card.base.nominal or 1) then
+                    if SMODS.pseudorandom_probability(card, card.config.center.key, JoyousSpring.count_materials_owned({ { monster_archetypes = { "MekkKnight" } } }), card.ability.extra.odds) then
                         return {
                             repetitions = ((context.other_card.base.nominal >= 1) and context.other_card.base.nominal or nil)
                         }

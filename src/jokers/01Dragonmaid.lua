@@ -337,7 +337,8 @@ SMODS.Joker({
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
         end
-        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds,
+        local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
+            card.ability.extra.odds,
             card.config.center.key)
         return { vars = { numerator, denominator, card.ability.extra.revives } }
     end,
@@ -353,7 +354,8 @@ SMODS.Joker({
                 monster_archetypes = { ["Dragonmaid"] = true },
             },
             revives = 1,
-            odds = 2
+            numerator = 5,
+            odds = 10
         },
     },
     calculate = function(self, card, context)
@@ -367,7 +369,7 @@ SMODS.Joker({
     add_to_deck = function(self, card, from_debuff)
         if not from_debuff and not card.debuff then
             local has_revived = false
-            if SMODS.pseudorandom_probability(card, card.config.center.key, 1, card.ability.extra.odds) then
+            if SMODS.pseudorandom_probability(card, card.config.center.key, card.ability.extra.numerator, card.ability.extra.odds) then
                 for i = 1, card.ability.extra.revives do
                     local revived_card = JoyousSpring.revive_pseudorandom(
                         { { rarity = 1, monster_archetypes = { "Dragonmaid" } } },
@@ -678,7 +680,8 @@ SMODS.Joker({
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
         end
-        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds,
+        local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
+            card.ability.extra.odds,
             card.config.center.key)
         return { vars = { numerator, denominator, card.ability.extra.revives } }
     end,
@@ -696,7 +699,8 @@ SMODS.Joker({
                 monster_archetypes = { ["Dragonmaid"] = true },
             },
             revives = 1,
-            odds = 2
+            numerator = 5,
+            odds = 10
         },
     },
     calculate = function(self, card, context)
@@ -710,7 +714,7 @@ SMODS.Joker({
     add_to_deck = function(self, card, from_debuff)
         if not from_debuff and not card.debuff then
             local has_revived = false
-            if SMODS.pseudorandom_probability(card, card.config.center.key, 1, card.ability.extra.odds) then
+            if SMODS.pseudorandom_probability(card, card.config.center.key, card.ability.extra.numerator, card.ability.extra.odds) then
                 for i = 1, card.ability.extra.revives do
                     local revived_card
                     JoyousSpring.revive_pseudorandom(
@@ -765,7 +769,8 @@ SMODS.Joker({
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
         end
-        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds,
+        local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
+            card.ability.extra.odds,
             card.config.center.key)
         return { vars = { numerator, denominator } }
     end,
@@ -792,14 +797,15 @@ SMODS.Joker({
                     }
                 },
             },
-            odds = 2
+            numerator = 5,
+            odds = 10
         },
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and not context.retrigger_joker and
                 context.setting_blind and context.main_eval then
-                if SMODS.pseudorandom_probability(card, card.config.center.key, 1, card.ability.extra.odds) then
+                if SMODS.pseudorandom_probability(card, card.config.center.key, card.ability.extra.numerator, card.ability.extra.odds) then
                     local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Dragonmaid" }, rarity = 2, exclude_keys = { "j_joy_dmaid_lady" } } })
                     JoyousSpring.transform_card(card,
                         pseudorandom_element(choices, 'j_joy_dmaid_lady') or "j_joy_dmaid_tinkhec")

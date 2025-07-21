@@ -762,7 +762,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        local numerator, denominator = SMODS.get_probability_vars(card, 1,
+        local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
             math.max(1, card.ability.extra.odds - JoyousSpring.count_materials_owned({ { monster_type = "Fiend" } })),
             card.config.center.key)
         return { vars = { numerator, denominator, card.ability.extra.extra_mult, card.ability.extra.mult } }
@@ -779,7 +779,8 @@ SMODS.Joker({
                 monster_type = "Fiend",
                 monster_archetypes = { ["Labrynth"] = true }
             },
-            odds = 8,
+            numerator = 4,
+            odds = 32,
             extra_mult = 3,
             mult = 0
         },
@@ -795,7 +796,7 @@ SMODS.Joker({
                 card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.extra_mult
             end
             if context.stay_flipped and context.to_area == G.hand and
-                SMODS.pseudorandom_probability(card, card.config.center.key, 1, math.max(1, card.ability.extra.odds - JoyousSpring.count_materials_owned({ { monster_type = "Fiend" } }))) then
+                SMODS.pseudorandom_probability(card, card.config.center.key, card.ability.extra.numerator, math.max(1, card.ability.extra.odds - JoyousSpring.count_materials_owned({ { monster_type = "Fiend" } }))) then
                 return {
                     stay_flipped = true
                 }
@@ -887,7 +888,8 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 8,
     loc_vars = function(self, info_queue, card)
-        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds,
+        local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
+            card.ability.extra.odds,
             card.config.center.key)
         return { vars = { card.ability.extra.money, numerator, denominator, card.ability.extra.flips } }
     end,
@@ -903,7 +905,8 @@ SMODS.Joker({
                 monster_archetypes = { ["Labrynth"] = true }
             },
             money = 5,
-            odds = 2,
+            numerator = 5,
+            odds = 10,
             flips = 1
         },
     },
@@ -915,7 +918,7 @@ SMODS.Joker({
                         dollars = card.ability.extra.money
                     }
                 end
-                if JoyousSpring.is_playing_card(context.joy_card_flipped) and SMODS.pseudorandom_probability(card, card.config.center.key, 1, card.ability.extra.odds) then
+                if JoyousSpring.is_playing_card(context.joy_card_flipped) and SMODS.pseudorandom_probability(card, card.config.center.key, card.ability.extra.numerator, card.ability.extra.odds) then
                     return {
                         func = function()
                             G.E_MANAGER:add_event(Event({

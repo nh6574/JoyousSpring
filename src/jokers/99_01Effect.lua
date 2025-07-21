@@ -731,7 +731,8 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds,
+        local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
+            card.ability.extra.odds,
             card.config.center.key)
         return { vars = { card.ability.extra.mult, card.ability.extra.extra_mult, card.ability.extra.mult + card.ability.extra.current_mult, numerator, denominator } }
     end,
@@ -747,12 +748,13 @@ SMODS.Joker({
             mult = 10,
             extra_mult = 10,
             current_mult = 0,
-            odds = 2
+            numerator = 5,
+            odds = 10
         },
     },
     calculate = function(self, card, context)
         if context.setting_blind and context.main_eval then
-            if SMODS.pseudorandom_probability(card, card.config.center.key, 1, card.ability.extra.odds) then
+            if SMODS.pseudorandom_probability(card, card.config.center.key, card.ability.extra.numerator, card.ability.extra.odds) then
                 card:flip(card)
             end
         end
@@ -795,7 +797,8 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 7,
     loc_vars = function(self, info_queue, card)
-        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds,
+        local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
+            card.ability.extra.odds,
             card.config.center.key)
         return { vars = { card.ability.extra.chips, card.ability.extra.extra_chips, card.ability.extra.chips + card.ability.extra.current_chips, numerator, denominator } }
     end,
@@ -811,12 +814,13 @@ SMODS.Joker({
             chips = 50,
             extra_chips = 5,
             current_chips = 0,
-            odds = 2
+            numerator = 5,
+            odds = 10
         },
     },
     calculate = function(self, card, context)
         if context.setting_blind and context.main_eval then
-            if SMODS.pseudorandom_probability(card, card.config.center.key, 1, card.ability.extra.odds) then
+            if SMODS.pseudorandom_probability(card, card.config.center.key, card.ability.extra.numerator, card.ability.extra.odds) then
                 card:flip(card)
             end
         end
