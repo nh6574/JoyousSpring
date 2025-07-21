@@ -39,7 +39,7 @@ SMODS.Joker({
                 monster_archetypes = { ["Adamancipator"] = true }
             },
             excavates = 3,
-            chips = 50,
+            chips = 100,
             excavated = 0,
             creates = 1,
             hands = 3,
@@ -127,7 +127,7 @@ SMODS.Joker({
                 monster_archetypes = { ["Adamancipator"] = true }
             },
             excavates = 3,
-            money = 1,
+            money = 2,
             excavated = 0,
             creates = 1,
             hands = 3,
@@ -215,7 +215,7 @@ SMODS.Joker({
                 monster_archetypes = { ["Adamancipator"] = true }
             },
             excavates = 3,
-            mult = 10,
+            mult = 20,
             excavated = 0,
             creates = 1,
             hands = 3,
@@ -301,7 +301,7 @@ SMODS.Joker({
                 monster_type = "Rock",
                 monster_archetypes = { ["Adamancipator"] = true }
             },
-            chips = 3,
+            chips = 10,
         },
     },
     calculate = function(self, card, context)
@@ -369,7 +369,7 @@ SMODS.Joker({
                 monster_type = "Rock",
                 monster_archetypes = { ["Adamancipator"] = true }
             },
-            money = 0.1
+            money = 0.5
         },
     },
     calculate = function(self, card, context)
@@ -434,7 +434,7 @@ SMODS.Joker({
                 monster_type = "Rock",
                 monster_archetypes = { ["Adamancipator"] = true }
             },
-            mult = 1
+            mult = 3
         },
     },
     calculate = function(self, card, context)
