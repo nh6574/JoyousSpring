@@ -937,7 +937,7 @@ JoyousSpring.is_material_center = function(card_key, properties)
     local monster_card_properties = card_center.config and card_center.config.extra and
         type(card_center.config.extra) == "table" and
         card_center.config.extra.joyous_spring
-    local extra_values = card_center.config and card.config.joy_extra_values or {}
+    local extra_values = card_center.config and card_center.config.joy_extra_values or {}
     local has_extra_values = not not next(extra_values)
 
     if properties.is_joker then
