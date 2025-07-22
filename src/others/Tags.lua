@@ -37,7 +37,7 @@ SMODS.Tag({
         end
         local name = center and localize({ type = 'name_text', set = center.set, key = center.key }) or
             localize("k_joy_monster_tag_default")
-
+        center = center or {}
         return { vars = { name, colours = { (center.set == "Joker" and JoyousSpring.get_name_color(tag.ability.monster)) or (center.set == "Planet" and G.C.SECONDARY_SET.Planet) or G.C.JOY.NORMAL } } }
     end,
     pos = { x = 1, y = 0 },
