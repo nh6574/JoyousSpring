@@ -941,7 +941,9 @@ JoyousSpring.is_material_center = function(card_key, properties)
     local has_extra_values = not not next(extra_values)
 
     if properties.is_joker then
-        return not monster_card_properties
+        if monster_card_properties then
+            return false
+        end
     end
     if properties.is_monster then
         if not monster_card_properties then
@@ -967,6 +969,9 @@ JoyousSpring.is_material_center = function(card_key, properties)
                 return false
             end
         else
+            if not monster_card_properties then
+                return false
+            end
             if monster_card_properties.monster_type ~= properties.monster_type then
                 return false
             end
@@ -979,7 +984,7 @@ JoyousSpring.is_material_center = function(card_key, properties)
                     return false
                 end
             else
-                if monster_card_properties.monster_type == monster_type then
+                if monster_card_propertiesa and monster_card_properties.monster_type == monster_type then
                     return false
                 end
             end
@@ -991,6 +996,9 @@ JoyousSpring.is_material_center = function(card_key, properties)
                 return false
             end
         else
+            if not monster_card_properties then
+                return false
+            end
             if monster_card_properties.attribute ~= properties.monster_attribute then
                 return false
             end
@@ -1003,13 +1011,16 @@ JoyousSpring.is_material_center = function(card_key, properties)
                     return false
                 end
             else
-                if monster_card_properties.attribute == monster_attribute then
+                if monster_card_properties and monster_card_properties.attribute == monster_attribute then
                     return false
                 end
             end
         end
     end
     if properties.monster_archetypes then
+        if not monster_card_properties then
+            return false
+        end
         for _, monster_archetype in ipairs(properties.monster_archetypes) do
             if not monster_card_properties.monster_archetypes[monster_archetype] then
                 return false
@@ -1018,105 +1029,120 @@ JoyousSpring.is_material_center = function(card_key, properties)
     end
     if properties.exclude_monster_archetypes then
         for _, monster_archetype in ipairs(properties.exclude_monster_archetypes) do
-            if monster_card_properties.monster_archetypes[monster_archetype] then
+            if monster_card_properties and monster_card_properties.monster_archetypes[monster_archetype] then
                 return false
             end
         end
     end
     if properties.is_pendulum then
+        if not monster_card_properties then
+            return false
+        end
         if not monster_card_properties.is_pendulum then
             return false
         end
     end
     if properties.exclude_pendulum then
-        if monster_card_properties.is_pendulum then
+        if monster_card_properties and monster_card_properties.is_pendulum then
             return false
         end
     end
     if properties.is_extra_deck then
-        if monster_card_properties.is_main_deck or monster_card_properties.is_field_spell or extra_values.is_field_spell then
+        if (monster_card_properties or {}).is_main_deck or (monster_card_properties or {}).is_field_spell or extra_values.is_field_spell then
             return false
         end
     end
     if properties.exclude_main_deck then
-        if monster_card_properties.is_main_deck then
+        if monster_card_properties and monster_card_properties.is_main_deck then
             return false
         end
     end
     if properties.exclude_extra_deck then
-        if not monster_card_properties.is_main_deck and not monster_card_properties.is_field_spell and not extra_values.is_field_spell then
+        if not (monster_card_properties or {}).is_main_deck and not (monster_card_properties or {}).is_field_spell and not extra_values.is_field_spell then
             return false
         end
     end
     if properties.is_main_deck then
+        if not monster_card_properties then
+            return false
+        end
         if not monster_card_properties.is_main_deck then
             return false
         end
     end
     if properties.is_field_spell then
-        if not monster_card_properties.is_field_spell or not extra_values.is_field_spell then
+        if not (monster_card_properties or {}).is_field_spell or not extra_values.is_field_spell then
             return false
         end
     end
     if properties.exclude_field_spell then
-        if monster_card_properties.is_field_spell or extra_values.is_field_spell then
+        if (monster_card_properties or {}).is_field_spell or extra_values.is_field_spell then
             return false
         end
     end
     if properties.summon_type then
+        if not monster_card_properties then
+            return false
+        end
         if monster_card_properties.summon_type ~= properties.summon_type then
             return false
         end
     end
     if properties.exclude_summon_types then
         for _, summon_type in ipairs(properties.exclude_summon_types) do
-            if monster_card_properties.summon_type == summon_type then
+            if monster_card_properties and monster_card_properties.summon_type == summon_type then
                 return false
             end
         end
     end
     if properties.is_effect then
-        if not monster_card_properties.is_effect and not extra_values.is_effect then
+        if not (monster_card_properties or {}).is_effect and not extra_values.is_effect then
             return false
         end
     end
     if properties.is_non_effect then
-        if monster_card_properties.is_effect or extra_values.is_effect then
+        if monster_card_properties and monster_card_properties.is_effect or extra_values.is_effect then
             return false
         end
     end
     if properties.is_normal then
-        if monster_card_properties.is_effect or not monster_card_properties.is_main_deck or extra_values.is_effect then
+        if monster_card_properties and (monster_card_properties.is_effect or not monster_card_properties.is_main_deck) or extra_values.is_effect then
             return false
         end
     end
     if properties.is_tuner then
-        if not monster_card_properties.is_tuner and not extra_values.is_tuner then
+        if not (monster_card_properties or {}).is_tuner and not extra_values.is_tuner then
             return false
         end
     end
     if properties.exclude_tuners then
-        if monster_card_properties.is_tuner or extra_values.is_tuner then
+        if monster_card_properties and monster_card_properties.is_tuner or extra_values.is_tuner then
             return false
         end
     end
     if properties.is_trap then
+        if not monster_card_properties then
+            return false
+        end
         if not monster_card_properties.is_trap then
             return false
         end
     end
     if properties.exclude_traps then
-        if monster_card_properties.is_trap then
+        if monster_card_properties and monster_card_properties.is_trap then
             return false
         end
     end
     if properties.is_flip then
+        if not monster_card_properties then
+            return false
+        end
         if not monster_card_properties.is_flip then
             return false
         end
     end
     if properties.exclude_flips then
-        if monster_card_properties.is_flip then
+        if monster_card_properties and monster_card_properties.is_flip then
             return false
         end
     end
