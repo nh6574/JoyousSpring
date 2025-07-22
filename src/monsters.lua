@@ -943,17 +943,22 @@ JoyousSpring.is_material_center = function(card_key, properties)
     if properties.is_joker then
         return not monster_card_properties
     end
-    if properties.is_monster or properties.monster_type or properties.monster_attribute or properties.monster_archetypes or properties.is_pendulum or properties.summon_type or properties.is_effect or properties.is_non_effect or properties.is_normal or properties.is_tuner or properties.is_trap or properties.is_flip then
-        if not has_extra_values or not monster_card_properties then
+    if properties.is_monster then
+        if not monster_card_properties then
+            return false
+        end
+    end
+    if properties.monster_type or properties.monster_attribute or properties.monster_archetypes or properties.is_pendulum or properties.summon_type or properties.is_effect or properties.is_non_effect or properties.is_normal or properties.is_tuner or properties.is_trap or properties.is_flip then
+        if not has_extra_values and not monster_card_properties then
             return false
         end
     end
     if properties.exclude_monster_types or properties.exclude_monster_attributes or properties.exclude_monster_archetypes or properties.exclude_pendulum or properties.exclude_summon_types or properties.exclude_tuners or properties.exclude_traps or properties.exclude_flips then
-        if not has_extra_values or not monster_card_properties then
+        if not has_extra_values and not monster_card_properties then
             return true
         end
     end
-    if not has_extra_values or not monster_card_properties then
+    if not has_extra_values and not monster_card_properties then
         return false
     end
     if properties.monster_type then
