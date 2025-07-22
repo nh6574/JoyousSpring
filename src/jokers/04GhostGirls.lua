@@ -145,7 +145,7 @@ SMODS.Joker({
     cost = 12,
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds,
-            card.config.center.key)
+            self.key)
         return { vars = { numerator, denominator, card.ability.extra.base_xmult, card.ability.extra.xmult } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,

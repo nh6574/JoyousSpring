@@ -733,7 +733,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
             card.ability.extra.odds,
-            card.config.center.key)
+            self.key)
         return { vars = { card.ability.extra.mult, card.ability.extra.extra_mult, card.ability.extra.mult + card.ability.extra.current_mult, numerator, denominator } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
@@ -799,7 +799,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
             card.ability.extra.odds,
-            card.config.center.key)
+            self.key)
         return { vars = { card.ability.extra.chips, card.ability.extra.extra_chips, card.ability.extra.chips + card.ability.extra.current_chips, numerator, denominator } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
@@ -1943,9 +1943,9 @@ SMODS.Joker({
     cost = 5,
     loc_vars = function(self, info_queue, card)
         local numerator_xmult, denominator_xmult = SMODS.get_probability_vars(card, 1, card.ability.extra.odds_xmult,
-            card.config.center.key .. "_xmult")
+            self.key .. "_xmult")
         local numerator_negative, denominator_negative = SMODS.get_probability_vars(card, 1,
-            card.ability.extra.odds_negative, card.config.center.key .. "_negative")
+            card.ability.extra.odds_negative, self.key .. "_negative")
         return { vars = { numerator_xmult, denominator_xmult, card.ability.extra.xmult, numerator_negative, denominator_negative } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
@@ -2161,7 +2161,7 @@ SMODS.Joker({
     cost = 6,
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds,
-            card.config.center.key)
+            self.key)
         return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.count_materials_in_graveyard({ { monster_type = "Spellcaster" } }), numerator, denominator, card.ability.extra.banishes } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
@@ -2214,11 +2214,11 @@ SMODS.Joker({
     cost = 8,
     loc_vars = function(self, info_queue, card)
         local numerator_xmult, denominator_xmult = SMODS.get_probability_vars(card, 1, card.ability.extra.odds_xmult,
-            card.config.center.key .. "_xmult")
+            self.key .. "_xmult")
         local numerator_level, denominator_level = SMODS.get_probability_vars(card, 1, card.ability.extra.odds_level,
-            card.config.center.key .. "_level")
+            self.key .. "_level")
         local numerator_enhance, denominator_enhance = SMODS.get_probability_vars(card, 1,
-            card.ability.extra.odds_enhance, card.config.center.key .. "_enhance")
+            card.ability.extra.odds_enhance, self.key .. "_enhance")
         return { vars = { card.ability.extra.xmult, numerator_xmult, denominator_xmult, numerator_level, denominator_level, numerator_enhance, denominator_enhance } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,

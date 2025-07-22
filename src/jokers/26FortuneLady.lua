@@ -50,7 +50,7 @@ SMODS.Joker({
     cost = 5,
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
-            card.ability.extra.odds, card.config.center.key)
+            card.ability.extra.odds, self.key)
         return { vars = { numerator, denominator, card.ability.extra.banishes, card.ability.extra.money, card.ability.extra.money * math.min(numerator, denominator), card.ability.extra.increases } }
     end,
     joy_desc_cards = {
@@ -116,7 +116,7 @@ SMODS.Joker({
     cost = 5,
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
-            card.ability.extra.odds, card.config.center.key)
+            card.ability.extra.odds, self.key)
         local numerator_sum, denominator_sum = numerator, denominator
         if G.jokers then
             numerator_sum, denominator_sum = get_all_flady_probabilities()
@@ -189,7 +189,7 @@ SMODS.Joker({
     cost = 4,
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
-            card.ability.extra.odds, card.config.center.key)
+            card.ability.extra.odds, self.key)
         return { vars = { numerator, denominator, card.ability.extra.chips, card.ability.extra.increases } }
     end,
     joy_desc_cards = {
@@ -258,7 +258,7 @@ SMODS.Joker({
     cost = 4,
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
-            card.ability.extra.odds, card.config.center.key)
+            card.ability.extra.odds, self.key)
         return { vars = { numerator, denominator, card.ability.extra.h_size, card.ability.extra.current_h_size, card.ability.extra.chips, card.ability.extra.chips * math.min(numerator, denominator), card.ability.extra.increases, card.ability.extra.max } }
     end,
     joy_desc_cards = {
@@ -339,7 +339,7 @@ SMODS.Joker({
     cost = 6,
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
-            card.ability.extra.odds, card.config.center.key)
+            card.ability.extra.odds, self.key)
         return { vars = { numerator, denominator, card.ability.extra.revives, card.ability.extra.mult, card.ability.extra.mult * math.min(numerator, denominator), card.ability.extra.increases } }
     end,
     joy_desc_cards = {
@@ -424,7 +424,7 @@ SMODS.Joker({
     cost = 5,
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
-            card.ability.extra.odds, card.config.center.key)
+            card.ability.extra.odds, self.key)
         return { vars = { numerator, denominator, card.ability.extra.creates, card.ability.extra.xmult, 1 + card.ability.extra.xmult * card.ability.extra.increased, card.ability.extra.increases } }
     end,
     joy_desc_cards = {
@@ -496,7 +496,7 @@ SMODS.Joker({
     cost = 6,
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
-            card.ability.extra.odds, card.config.center.key)
+            card.ability.extra.odds, self.key)
         return { vars = { numerator, denominator, card.ability.extra.xmult, 1 + card.ability.extra.xmult * math.min(numerator, denominator), card.ability.extra.increases } }
     end,
     joy_desc_cards = {
@@ -568,7 +568,7 @@ SMODS.Joker({
         for i = 1, 6 do
             numerators[#numerators + 1], denominators[#denominators + 1] = SMODS.get_probability_vars(card,
                 card.ability.extra.numerator,
-                card.ability.extra.odds[i], card.config.center.key .. "_" .. i)
+                card.ability.extra.odds[i], self.key .. "_" .. i)
         end
         return {
             vars = {
@@ -795,7 +795,7 @@ SMODS.Joker({
     cost = 3,
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, 1,
-            card.ability.extra.odds, card.config.center.key)
+            card.ability.extra.odds, self.key)
         return { vars = { card.ability.extra.mult, card.ability.extra.mult * (G.GAME.joy_probability_success or 0), numerator, denominator } }
     end,
     joy_desc_cards = {
@@ -966,7 +966,7 @@ SMODS.Joker({
     cost = 3,
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, 1,
-            card.ability.extra.odds, card.config.center.key)
+            card.ability.extra.odds, self.key)
         return { vars = { card.ability.extra.money, card.ability.extra.mills, numerator, denominator } }
     end,
     joy_desc_cards = {

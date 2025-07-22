@@ -286,7 +286,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card,
             JoyousSpring.count_materials_owned({ { monster_archetypes = { "MekkKnight" } } }), card.ability.extra.odds,
-            card.config.center.key)
+            self.key)
         return { vars = { numerator, denominator, JoyousSpring.get_joker_column(card) } }
     end,
     joy_desc_cards = {

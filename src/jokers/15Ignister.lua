@@ -997,7 +997,7 @@ SMODS.Joker({
         end
         local numerator, denominator = SMODS.get_probability_vars(card, 1,
             math.max(1, card.ability.extra.odds - JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))),
-            card.config.center.key)
+            self.key)
         return { vars = { card.ability.extra.adds, numerator, denominator } }
     end,
     joy_desc_cards = {
@@ -1485,7 +1485,7 @@ SMODS.Joker({
         local current_xmult = card.ability.extra.xmult *
             JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))
         local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds,
-            card.config.center.key)
+            self.key)
         return {
             vars = {
                 card.ability.extra.xmult,

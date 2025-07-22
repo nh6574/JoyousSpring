@@ -764,7 +764,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
             math.max(1, card.ability.extra.odds - JoyousSpring.count_materials_owned({ { monster_type = "Fiend" } })),
-            card.config.center.key)
+            self.key)
         return { vars = { numerator, denominator, card.ability.extra.extra_mult, card.ability.extra.mult } }
     end,
     joy_desc_cards = {
@@ -889,8 +889,7 @@ SMODS.Joker({
     cost = 8,
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
-            card.ability.extra.odds,
-            card.config.center.key)
+            card.ability.extra.odds, self.key)
         return { vars = { card.ability.extra.money, numerator, denominator, card.ability.extra.flips } }
     end,
     joy_desc_cards = {

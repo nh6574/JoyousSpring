@@ -339,7 +339,7 @@ SMODS.Joker({
         end
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
             card.ability.extra.odds,
-            card.config.center.key)
+            self.key)
         return { vars = { numerator, denominator, card.ability.extra.revives } }
     end,
     joy_desc_cards = {
@@ -682,7 +682,7 @@ SMODS.Joker({
         end
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
             card.ability.extra.odds,
-            card.config.center.key)
+            self.key)
         return { vars = { numerator, denominator, card.ability.extra.revives } }
     end,
     joy_desc_cards = {
@@ -771,7 +771,7 @@ SMODS.Joker({
         end
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
             card.ability.extra.odds,
-            card.config.center.key)
+            self.key)
         return { vars = { numerator, denominator } }
     end,
     joy_desc_cards = {
