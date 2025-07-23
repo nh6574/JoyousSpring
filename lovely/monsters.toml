@@ -84,6 +84,21 @@ position = 'at'
 match_indent = true
 payload = '''
 info_boxes = {{n=G.UIT.R, config = {align="cm", padding = 0.05, card_pos = card.T.x, card = card}, nodes = info_cols}}
+
+if card and not card.debuff and type(card.ability) == "table" and type(card.ability.extra) == "table" and (card.ability.extra.joyous_spring or {}).material_effects and next(card.ability.extra.joyous_spring.material_effects) then
+    local modNodes = {}
+
+    modNodes[#modNodes + 1] = {}
+    local loc_vars = { background_colour = G.C.CLEAR, text_colour = G.C.WHITE }
+    localize { type = 'descriptions', key = "joy_tooltip_transferred", set = 'Other', nodes = modNodes[#modNodes], scale = loc_vars.scale, text_colour = loc_vars.text_colour }
+    modNodes[#modNodes] = desc_from_rows(modNodes[#modNodes])
+    modNodes[#modNodes].config.colour = loc_vars.background_colour or modNodes[#modNodes].config.colour
+
+    badges = {
+        {n=G.UIT.C, config={align = "cm", padding = 0.03}, nodes=badges},
+        {n=G.UIT.C, config={align = "cl", padding = 0.03}, nodes=modNodes},
+    }
+end
 '''
 
 # Nicer display for Jokers with long names
