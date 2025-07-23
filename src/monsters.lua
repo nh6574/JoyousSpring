@@ -41,6 +41,7 @@ SMODS.Atlas({
 ---@field joy_modify_cost? table
 
 ---@class joy_extra_value
+---@field is_monster? boolean
 ---@field is_all_types? boolean
 ---@field monster_type? monster_type
 ---@field is_all_attributes? boolean
@@ -232,7 +233,7 @@ end
 ---@return boolean
 JoyousSpring.is_monster_card = function(card)
     return card and card.ability and card.ability.extra and type(card.ability.extra) == "table" and
-        card.ability.extra.joyous_spring and true or false
+        card.ability.extra.joyous_spring and true or (JoyousSpring.get_extra_values(card) or {}).is_monster or false
 end
 
 ---Gets extra joyous_spring table values outside of the joyous_spring table
@@ -720,11 +721,17 @@ JoyousSpring.is_material = function(card, properties, summon_type)
         end
     end
     if properties.is_joker then
-        return not JoyousSpring.is_monster_card(card)
+        if JoyousSpring.is_monster_card(card) then
+            return false
+        end
     end
-    if not JoyousSpring.is_monster_card(card) then
-        return not (properties.is_monster or properties.monster_type or properties.monster_attribute or properties.monster_archetypes or properties.is_pendulum or properties.summon_type or properties.is_effect or properties.is_non_effect or properties.is_normal or properties.is_extra_deck or properties.is_main_deck or properties.is_summoned or properties.is_tuner or properties.is_trap or properties.cannot_flip) or
-            false
+    if properties.is_monster then
+        if not JoyousSpring.is_monster_card(card) then
+            return false
+        end
+    end
+    if not JoyousSpring.is_monster_card(card) and not JoyousSpring.get_extra_values(card) then
+        return not (properties.monster_type or properties.monster_attribute or properties.monster_archetypes or properties.is_pendulum or properties.summon_type or properties.is_effect or properties.is_non_effect or properties.is_normal or properties.is_extra_deck or properties.is_main_deck or properties.is_summoned or properties.is_tuner or properties.is_trap or properties.cannot_flip)
     end
     if properties.monster_type then
         if not JoyousSpring.is_monster_type(card, properties.monster_type) then
@@ -941,12 +948,12 @@ JoyousSpring.is_material_center = function(card_key, properties)
     local has_extra_values = not not next(extra_values)
 
     if properties.is_joker then
-        if monster_card_properties then
+        if monster_card_properties or extra_values.is_monster then
             return false
         end
     end
     if properties.is_monster then
-        if not monster_card_properties then
+        if not monster_card_properties and not extra_values.is_monster then
             return false
         end
     end
