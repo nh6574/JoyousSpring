@@ -45,8 +45,7 @@ return {
                     {
                         "Creates {C:attention}#1#{} {C:joy_spell}\"Runick Fountain\"",
                         "when summoned if there's any in the {C:attention}GY{}",
-                        "and adds {C:attention}#2#{} {C:joy_normal}\"Runick\"{}",
-                        "to the {C:joy_spell}Extra Deck{}",
+                        "and adds {C:attention}#2#{} {C:joy_normal}\"Runick\"{} to the {C:joy_spell}Extra Deck{}",
                         "{C:inactive}(Must have room){}",
                     },
                     {

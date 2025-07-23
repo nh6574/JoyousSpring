@@ -12,7 +12,7 @@
 ---@param func function?
 ---@param immediate boolean?
 JoyousSpring.banish = function(card, banish_until, func, immediate)
-    if not card or card.getting_sliced then return end
+    if not card or card.getting_sliced or card.destroyed then return end
     card:juice_up()
     if immediate then
         if not card.area then return end
@@ -21,6 +21,13 @@ JoyousSpring.banish = function(card, banish_until, func, immediate)
             banish_until == "end_of_ante" and JoyousSpring.banish_end_of_ante_area or
             JoyousSpring.banish_end_of_round_area
         local area = card.area
+        SMODS.calculate_context({
+            joy_banished = true,
+            joy_banished_card = card,
+            joy_banished_area = area,
+            joy_banish_until =
+                banish_until
+        })
         card.area.config.card_limit = card.area.config.card_limit - ((card.edition and card.edition.negative) and 1 or 0)
         card.area:remove_card(card)
         time_to_banish:emplace(card)
@@ -29,35 +36,21 @@ JoyousSpring.banish = function(card, banish_until, func, immediate)
         if func then
             func(card)
         end
-        SMODS.calculate_context({
-            joy_banished = true,
-            joy_banished_card = card,
-            joy_banished_area = area,
-            joy_banish_until =
-                banish_until
-        })
     else
         card.getting_sliced = true
+        card.destroyed = true
         G.E_MANAGER:add_event(Event({
             trigger = "after",
             delay = 0.3,
             func = function()
                 if card and card.area then
+                    card.getting_sliced = nil
+                    card.destroyed = nil
                     local time_to_banish = banish_until == "blind_selected" and JoyousSpring.banish_blind_selected_area or
                         banish_until == "boss_selected" and JoyousSpring.banish_boss_selected_area or
                         banish_until == "end_of_ante" and JoyousSpring.banish_end_of_ante_area or
                         JoyousSpring.banish_end_of_round_area
                     local area = card.area
-                    card.area.config.card_limit = card.area.config.card_limit -
-                        ((card.edition and card.edition.negative) and 1 or 0)
-                    card.area:remove_card(card)
-                    time_to_banish:emplace(card)
-                    G.GAME.joy_cards_banished = G.GAME.joy_cards_banished and
-                        (G.GAME.joy_cards_banished + 1) or 1
-                    card.getting_sliced = nil
-                    if func then
-                        func(card)
-                    end
                     SMODS.calculate_context({
                         joy_banished = true,
                         joy_banished_card = card,
@@ -65,6 +58,15 @@ JoyousSpring.banish = function(card, banish_until, func, immediate)
                         joy_banish_until =
                             banish_until
                     })
+                    card.area.config.card_limit = card.area.config.card_limit -
+                        ((card.edition and card.edition.negative) and 1 or 0)
+                    card.area:remove_card(card)
+                    time_to_banish:emplace(card)
+                    G.GAME.joy_cards_banished = G.GAME.joy_cards_banished and
+                        (G.GAME.joy_cards_banished + 1) or 1
+                    if func then
+                        func(card)
+                    end
                 end
                 return true
             end,
@@ -75,18 +77,30 @@ end
 ---Returns a card from banishment (doesn't need room)
 ---@param card Card
 JoyousSpring.return_from_banish = function(card)
-    local area = card.area
-    area:remove_card(card)
+    local from = card.area
+    local area
+    from:remove_card(card)
     if card.ability.set == 'Joker' then
         G.jokers:emplace(card)
         G.jokers.config.card_limit = G.jokers.config.card_limit + ((card.edition and card.edition.negative) and 1 or 0)
+        area = G.jokers
+    elseif JoyousSpring.is_playing_card(card) then
+        G.hand:emplace(card)
+        area = G.hand
     else
         G.consumeables:emplace(card)
         G.consumeables.config.card_limit = G.consumeables.config.card_limit +
             ((card.edition and card.edition.negative) and 1 or 0)
+        area = G.consumeables
     end
 
-    SMODS.calculate_context({ joy_returned = true, joy_returned_card = card, joy_returned_area = area })
+    SMODS.calculate_context({
+        joy_returned = true,
+        joy_returned_card = card,
+        joy_returned_area = area,
+        joy_returned_from =
+            from
+    })
 end
 
 JoyousSpring.create_banishment_area_tabs = function(area)

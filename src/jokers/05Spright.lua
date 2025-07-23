@@ -1,4 +1,4 @@
---- GHOST GIRLS
+--- SPRIGHT
 SMODS.Atlas({
     key = "Spright",
     path = "05Spright.png",
@@ -86,11 +86,9 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.setting_blind and context.main_eval then
-                local choices = JoyousSpring.get_materials_in_collection({ { rarity = 2 } })
-
-                for i = 1, card.ability.extra.mill do
-                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_spright_jet'))
-                end
+                JoyousSpring.send_to_graveyard_pseudorandom(
+                    { { rarity = 2 } },
+                    card.config.center.key, card.ability.extra.mills)
             end
         end
     end,
@@ -400,7 +398,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if not context.blueprint_card and not context.retrigger_joker and context.joy_detach then
+            if not context.blueprint_card and not context.retrigger_joker and context.joy_detached then
                 card.ability.extra.detached = card.ability.extra.detached + 1
                 if card.ability.extra.detached >= card.ability.extra.base_materials then
                     card.ability.extra.detached = 0
@@ -466,6 +464,18 @@ SMODS.Joker({
                 end
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.ability.extra", ref_value = "detached" },
+                { text = "/" },
+                { ref_table = "card.ability.extra", ref_value = "base_materials" },
+                { text = ")" },
+            },
+        }
     end
 })
 
@@ -522,16 +532,19 @@ SMODS.Joker({
 
                 for i = 1, card.ability.extra.cards_to_create do
                     if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
-                        JoyousSpring.create_summon({
-                            set = "Joker",
-                            rarity = "Uncommon",
-                            key_append = "JoyousSpring"
-                        }, true)
+                        JoyousSpring.create_pseudorandom({ {
+                            rarity = 2,
+                            is_field_spell = #JoyousSpring.field_spell_area.cards <
+                                JoyousSpring.field_spell_area.config.card_limit or nil
+                        } }, card.config.center.key, true)
                     end
                 end
             end
         end
     end,
+    joy_can_detach = function(card)
+        return #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit
+    end
 })
 
 JoyousSpring.collection_pool[#JoyousSpring.collection_pool + 1] = {

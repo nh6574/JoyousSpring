@@ -21,7 +21,7 @@ local get_weighted_pool = function(starting_pool, default_key, _append, allow_du
         v.mod = G.GAME[tostring(v.key):lower() .. "_mod"] or 1
 
         if SMODS.Rarities[v.key] and SMODS.Rarities[v.key].get_weight and type(SMODS.Rarities[v.key].get_weight) == "function" then
-            v.weight = SMODS.Rarities[v.key]:get_weight(v.weight, SMODS.ObjectTypes[_pool_key])
+            v.weight = SMODS.Rarities[v.key]:get_weight(v.weight, SMODS.ObjectTypes[default_key])
         end
         v.weight = v.weight * v.mod
         rarity_weight = rarity_weight + v.weight
@@ -32,7 +32,8 @@ local get_weighted_pool = function(starting_pool, default_key, _append, allow_du
     end
 
     for k, card in ipairs(_starting_pool) do
-        local v = type(card) == "string" and G.P_CENTERS[card] or card
+        -- most of this is so vscode doesnt annoy me
+        local v = (type(card) == "string" and G.P_CENTERS[card]) or (type(card) == "table" and card) or {}
 
         local add = nil
         local in_pool, pool_opts

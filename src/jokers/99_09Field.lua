@@ -63,7 +63,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if context.end_of_round and context.game_over == false and context.main_eval and G.GAME.blind.boss then
+            if context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then
                 local choices = JoyousSpring.get_materials_in_collection({ { summon_type = "FUSION" } })
                 for _ = 1, card.ability.extra.adds do
                     local key_to_add, _ = pseudorandom_element(choices, card.config.center.key)
@@ -122,6 +122,15 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "current_mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+        }
+    end
 })
 
 -- Xyz Override
@@ -216,8 +225,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if context.joy_summon and JoyousSpring.get_summoned_count(nil, true) >= card.ability.extra.to_summon then
             context.joy_card:set_edition("e_negative", true)
-            card.getting_sliced = true
-            card:start_dissolve()
+            SMODS.destroy_cards(card, nil, true)
         end
     end,
 })
@@ -284,7 +292,7 @@ SMODS.Joker({
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
         end
-        return { vars = { card.ability.extra.banishes } }
+        return { vars = { card.ability.extra.banishes, card.ability.extra.increases } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
@@ -293,7 +301,8 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 is_field_spell = true,
             },
-            banishes = 1
+            banishes = 1,
+            increases = 1
         },
     },
     calculate = function(self, card, context)
@@ -302,6 +311,11 @@ SMODS.Joker({
                 local choices = JoyousSpring.get_materials_owned({ { is_main_deck = true } })
                 local joker = pseudorandom_element(choices, 'j_joy_futurevisions')
                 if joker then
+                    if JoyousSpring.is_monster_archetype(joker, "FortuneLady") then
+                        JoyousSpring.modify_probability_numerator(joker, nil, 2)
+                    else
+                        JoyousSpring.modify_probability_numerator(joker, card.ability.extra.increases)
+                    end
                     JoyousSpring.banish(joker, "boss_selected")
                 end
             end
@@ -329,7 +343,7 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 is_field_spell = true,
             },
-            xmult = 1.5
+            xmult = 3
         },
     },
     calculate = function(self, card, context)
@@ -366,5 +380,16 @@ SMODS.Joker({
     end,
     joy_prevent_flip = function(card, other_card)
         return G.GAME.blind.boss and true or false
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            mod_function = function(card, mod_joker)
+                return {
+                    x_mult = G.GAME.blind and G.GAME.blind.boss and
+                        mod_joker.ability.extra.xmult ^ JokerDisplay.calculate_joker_triggers(mod_joker) or nil
+                }
+            end
+        }
     end
 })

@@ -199,7 +199,7 @@ return {
                         "{C:inactive}(Currently{} {X:mult,C:white}X#3#{} {C:inactive}Mult){}",
                     },
                     {
-                        "Sends {C:attention}#4#{} non-{C:joy_normal}\"Invoked\"{} {C:joy_fusion}Fusion{} to the {C:attention}GY{}",
+                        "Sends {C:attention}#4#{} non-{C:joy_normal}\"Invoked\"{} {C:joy_fusion}Fusions{} to the {C:attention}GY{}",
                         "when {C:attention}Blind{} is selected",
                     },
                 },
@@ -211,7 +211,7 @@ return {
                     "Gains {X:mult,C:white}X#1#{} Mult for each {C:joy_fusion}Fusion{} in the {C:attention}GY{}",
                     "{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}",
                     " ",
-                    "Sends {C:attention}#3#{} non-{C:joy_normal}\"Invoked\"{} {C:joy_fusion}Fusion{} to the {C:attention}GY{}",
+                    "Sends {C:attention}#3#{} non-{C:joy_normal}\"Invoked\"{} {C:joy_fusion}Fusions{} to the {C:attention}GY{}",
                     "when {C:attention}Blind{} is selected",
                 }
             },

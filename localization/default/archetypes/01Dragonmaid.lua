@@ -74,6 +74,7 @@ return {
                     {
                         "{C:mult}+#1#{} Mult for each",
                         "{C:joy_normal}\"Dragonmaid\"{} in the {C:attention}GY{}",
+                        "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
                     },
                     {
                         "{C:attention}Transforms{} into {C:joy_effect}\"Nurse Dragonmaid\"",
@@ -100,6 +101,7 @@ return {
                     {
                         "{C:chips}+#1#{} Chips for each",
                         "{C:joy_normal}\"Dragonmaid\"{} in the {C:attention}GY{}",
+                        "{C:inactive}(Currently {C:chips}+#2#{}{C:inactive} Chips)"
                     },
                     {
                         "{C:attention}Transforms{} into {C:joy_effect}\"Laundry Dragonmaid\"",
@@ -148,6 +150,7 @@ return {
                         "{C:green}#1# in #2#{} chance to {C:attention}transform{} into an",
                         "{C:green}Uncommon{} {C:joy_normal}\"Dragonmaid\"{}",
                         "when {C:attention}Blind{} is selected",
+                        "{C:inactive}(Except \"Lady's Dragonmaid\"){}"
                     },
                 },
                 joy_summon_conditions = {
@@ -163,7 +166,7 @@ return {
                         "{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}",
                     },
                     {
-                        "{C:attention}Jokers{} in the {C:attention}GY{} count for",
+                        "{C:joy_normal}\"Dragonmaid\"{} in the {C:attention}GY{} count for",
                         "{C:joy_normal}\"Dragonmaid\"{} abilities",
                     },
                     {
@@ -179,7 +182,7 @@ return {
                 name = "{C:joy_fusion}Dragonmaid Sheou",
                 text = {
                     {
-                        "{C:attention}Jokers{} in the {C:attention}GY{} count for",
+                        "{C:joy_normal}\"Dragonmaid\"{} in the {C:attention}GY{} count for",
                         "{C:joy_normal}\"Dragonmaid\"{} abilities",
                     },
                     {

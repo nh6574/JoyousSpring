@@ -38,6 +38,50 @@ SMODS.Joker({
     end,
 })
 
+-- Hallohallo
+SMODS.Joker({
+    key = "hallo",
+    atlas = 'Misc05',
+    pos = { x = 0, y = 3 },
+    rarity = 3,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 8,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.from, card.ability.extra.to } }
+    end,
+    generate_ui = JoyousSpring.generate_info_ui,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Fiend",
+                is_pendulum = true,
+                is_tuner = true,
+                is_effect = false
+            },
+            from = 1,
+            to = 6
+        },
+    },
+    use = function(self, card, area, copier)
+        for _, jokerarea in ipairs(SMODS.get_card_areas('jokers')) do
+            for _, joker in ipairs(jokerarea.cards or {}) do
+                if joker.ability.set == "Joker" and joker ~= card then
+                    local amount = pseudorandom(card.config.center.key, 1, 6)
+                    JoyousSpring.modify_probability_numerator(joker, amount)
+                    SMODS.calculate_effect({ message = "+" .. amount, colour = G.C.GREEN }, joker)
+                end
+            end
+        end
+    end,
+    can_use = function(self, card)
+        return #G.jokers.cards > (card.area ~= G.jokers and 0 or 1)
+    end,
+})
+
 -- Archfiend Eccentrick
 SMODS.Joker({
     key = "eccentrick",
@@ -133,11 +177,9 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.setting_blind and context.main_eval then
-                local choices = JoyousSpring.get_materials_in_collection({ { is_pendulum = true } })
-
-                for i = 1, card.ability.extra.mills do
-                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_pendulumoon'))
-                end
+                JoyousSpring.send_to_graveyard_pseudorandom(
+                    { { is_pendulum = true } },
+                    card.config.center.key, card.ability.extra.mills)
                 return { message = localize("k_joy_mill") }
             end
         end
@@ -305,6 +347,22 @@ SMODS.Joker({
         return G.jokers.config.card_limit > 0 and #G.jokers.cards > (card.area and card.area == G.jokers and 1 or 0) and
             #G.jokers.cards <= card.ability.extra.joker_amount + (card.area and card.area == G.jokers and 1 or 0)
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xmult = #G.jokers.cards <= card.ability.extra.joker_amount and
+                    card.ability.extra.xmult or 1
+            end
+        }
+    end
 })
 
 -- Pendulumucho
@@ -418,6 +476,15 @@ SMODS.Joker({
     can_use = function(self, card)
         return true
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "current_chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+        }
+    end
 })
 
 -- P.M. Captor
@@ -542,6 +609,20 @@ SMODS.Joker({
         end
         return #G.jokers.cards > (card.area and card.area == G.jokers and 1 or 0)
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            mod_function = function(card, mod_joker)
+                local is_pend = card.facing == "front" and JoyousSpring.is_pendulum_monster(card)
+                local rarities, _ = JoyousSpring.most_owned_rarity()
+                local is_most_owned = is_pend and JoyousSpring.is_card_rarity_from_array(card, rarities)
+                return {
+                    mult = is_most_owned and
+                        mod_joker.ability.extra.mult * JokerDisplay.calculate_joker_triggers(mod_joker) or nil
+                }
+            end
+        }
+    end
 })
 
 -- Rain Bozu
@@ -627,8 +708,18 @@ SMODS.Joker({
             chips = 0,
         }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return { vars = { config.chips, config.mult } }
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+",                       colour = G.C.CHIPS },
+                { ref_table = "card.ability.extra", ref_value = "current_chips", retrigger_type = "mult", colour = G.C.CHIPS },
+                { text = " +",                      colour = G.C.MULT },
+                { ref_table = "card.ability.extra", ref_value = "current_mult",  retrigger_type = "mult", colour = G.C.MULT }
+            },
+        }
     end
 })
 
@@ -677,4 +768,21 @@ SMODS.Joker({
     can_use = function(self, card)
         return card.ability.extra.current_money > 0
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                local column = JoyousSpring.get_joker_column(card)
+                card.joker_display_values.xmult = #JokerDisplay.current_hand < column and
+                    math.max(1, card.ability.extra.xmult - column) or 1
+            end
+        }
+    end
 })

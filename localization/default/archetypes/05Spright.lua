@@ -18,7 +18,7 @@ return {
                 name = "{C:joy_effect}Spright Jet",
                 text = {
                     {
-                        "Adds {C:attention}#1#{} {C:green}Uncommon{} {C:attention}Jokers{}",
+                        "Sends {C:attention}#1#{} {C:green}Uncommon{} {C:attention}Jokers{}",
                         "to the {C:attention}GY{} when {C:attention}Blind{} is selected",
                     },
                     {
@@ -85,9 +85,9 @@ return {
                 name = "{C:joy_link}Spright Sprind",
                 text = {
                     {
-                        "Other {C:green}Uncommon{} {C:attention}Jokers{} become {C:dark_edition}Negative{},",
-                        "the rest are debuffed if summoned",
-                        "using a {C:joy_normal}\"Spright\"{} as {C:attention}material{}",
+                        "If summoned using a {C:joy_normal}\"Spright\"{} as {C:attention}material{},",
+                        "other {C:green}Uncommon{} {C:attention}Jokers{} become {C:dark_edition}Negative{}",
+                        "and the rest are debuffed.",
                     },
                     {
                         "Adds {C:joy_xyz}\"Gigantic Spright\"{} to the",

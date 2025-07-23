@@ -29,7 +29,7 @@ return {
                     },
                     {
                         "Gains {X:chips,C:white}X#2#{} Chips each time",
-                        "this ability triggers",
+                        "this card's ability makes a card count for scoring",
                         "{C:inactive}(Currently {X:chips,C:white}X#3#{}{C:inactive} Chips)",
                     },
                 },
@@ -49,10 +49,10 @@ return {
                 text = {
                     {
                         "Scored card in this {C:attention}column{}",
-                        "has a chance {C:green}#1# in <rank>{} to",
+                        "has a chance {C:green}#1# in #2#{} to",
                         "retrigger that many times,",
                         "chance increases for each {C:joy_normal}\"Mekk-Knight\"{}",
-                        "{C:inactive}(Currently in column{} {C:attention}#2#{}{C:inactive}){}",
+                        "{C:inactive}(Currently in column{} {C:attention}#3#{}{C:inactive}){}",
                     },
                 },
             },
@@ -109,7 +109,7 @@ return {
                 text = {
                     {
                         "{C:joy_normal}\"Mekk-Knight\"{} abilities apply to",
-                        "all played cards",
+                        "all played cards and {C:attention}columns",
                     },
                     {
                         "Once per round, sell {C:attention}#1#{} {C:joy_normal}\"Mekk-Knight\"{}",

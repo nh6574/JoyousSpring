@@ -10,9 +10,12 @@ SMODS.Font {
 ---@param card Card
 ---@return table
 JoyousSpring.get_type_ui = function(card)
-    local joyous_spring_table = card and card.ability and card.ability.extra.joyous_spring or {}
+    local joyous_spring_table = card and card.ability and
+        type(card.ability.extra) == "table"
+        and card.ability.extra.joyous_spring or {}
+    local extra_values = JoyousSpring.get_extra_values(card) or {}
 
-    if joyous_spring_table.is_field_spell then
+    if extra_values.is_field_spell or joyous_spring_table.is_field_spell then
         return {
             {
                 n = G.UIT.O,
@@ -35,14 +38,15 @@ JoyousSpring.get_type_ui = function(card)
         }
     end
 
-    local attribute_text = localize("k_joy_" .. (joyous_spring_table.attribute or "LIGHT"))
-    local type_text = localize("k_joy_" .. (joyous_spring_table.monster_type or "Beast"))
+    local attribute_text = localize("k_joy_" .. (extra_values.attribute or joyous_spring_table.attribute or "LIGHT"))
+    local type_text = localize("k_joy_" .. (extra_values.monster_type or joyous_spring_table.monster_type or "Beast"))
     local summon_type_text = joyous_spring_table.summon_type and joyous_spring_table.summon_type ~= "NORMAL" and
         localize("k_joy_" .. joyous_spring_table.summon_type) or nil
     local pendulum_text = joyous_spring_table.is_pendulum and localize("k_joy_pendulum") or nil
     local flip_text = joyous_spring_table.is_flip and localize("k_joy_flip") or nil
-    local tuner_text = joyous_spring_table.is_tuner and localize("k_joy_tuner") or nil
-    local effect_text = joyous_spring_table.is_effect and localize("k_joy_effect") or localize("k_joy_normal")
+    local tuner_text = (extra_values.is_tuner or joyous_spring_table.is_tuner) and localize("k_joy_tuner") or nil
+    local effect_text = (extra_values.is_effect or joyous_spring_table.is_effect) and localize("k_joy_effect") or
+        localize("k_joy_normal")
     local trap_text = joyous_spring_table.is_trap and localize("k_joy_trap") or nil
     local full_text = attribute_text ..
         "/" .. type_text .. "/" .. (summon_type_text or "") .. (summon_type_text and "/" or "") ..
@@ -57,7 +61,7 @@ JoyousSpring.get_type_ui = function(card)
         config = {
             object = DynaText({
                 string = { attribute_text },
-                colours = { G.C.JOY[joyous_spring_table.attribute or "LIGHT"] },
+                colours = { G.C.JOY[extra_values.attribute or joyous_spring_table.attribute or "LIGHT"] },
                 bump = true,
                 silent = true,
                 pop_in = 0,
@@ -70,7 +74,7 @@ JoyousSpring.get_type_ui = function(card)
             })
         }
     }
-    local type = {
+    local monster_type = {
         n = G.UIT.O,
         config = {
             object = DynaText({
@@ -222,7 +226,7 @@ JoyousSpring.get_type_ui = function(card)
     return {
         attribute,
         separator,
-        type,
+        monster_type,
         separator,
         summon_type,
         summon_type and separator or nil,
@@ -295,28 +299,15 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
             end
         end
 
+        local is_monster = type(card.ability.extra) == "table" and card.ability.extra.joyous_spring
+
         -- Transferred ability
-        if card and not card.debuff and card.joy_transfer_text and card.ability.extra.joyous_spring.material_effects and next(card.ability.extra.joyous_spring.material_effects) then
-            full_UI_table.main = {}
-            full_UI_table.main[#full_UI_table.main + 1] = {
-                {
-                    n = G.UIT.R,
-                    config = { align = "cm" },
-                    nodes = {
-                        {
-                            n = G.UIT.T,
-                            config = {
-                                text = localize("k_joy_transferred_abilities"),
-                                scale = 0.3,
-                                colour = G.C.UI.TEXT_INACTIVE,
-                            },
-                        },
-                    }
-                },
-            }
+        if card and not card.debuff and is_monster and card.joy_transfer_text and card.ability.extra.joyous_spring.material_effects and next(card.ability.extra.joyous_spring.material_effects) then
+            full_UI_table.multi_box = {}
+            local initial = true
             for material_key, config in pairs(card.ability.extra.joyous_spring.material_effects) do
                 local joy_loc_string = localize { type = 'name_text', set = "Joker", key = material_key } or ''
-                full_UI_table.main[#full_UI_table.main + 1] = {
+                local node = { {
                     {
                         n = G.UIT.R,
                         config = { align = "cm" },
@@ -331,12 +322,21 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
                             }
                         }
                     },
-                }
+                } }
+
+
 
                 local material_center = G.P_CENTERS[material_key]
                 if material_center and G.localization.descriptions["Joker"][material_key].joy_transfer_ability then
-                    localize { type = "joy_transfer_ability", set = "Joker", key = material_key, nodes = full_UI_table.main, vars = material_center.joy_transfer_loc_vars and material_center:joy_transfer_loc_vars(info_queue, card, config).vars or {}, scale = 0.9 }
+                    localize { type = "joy_transfer_ability", set = "Joker", key = material_key, nodes = node, vars = material_center.joy_transfer_loc_vars and material_center:joy_transfer_loc_vars(info_queue, card, config).vars or {}, scale = 0.9 }
                 end
+                if initial then
+                    full_UI_table.main = node
+                    full_UI_table.main.main_box_flag = true
+                else
+                    full_UI_table.multi_box[#full_UI_table.multi_box + 1] = node
+                end
+                initial = false
             end
         end
 
@@ -360,14 +360,17 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
                 table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_trap" })
             end
         end
+        -- Add tooltip if it's a field spell
+        if JoyousSpring.is_field_spell(card) then
+            if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+                table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_field_spell_joker" })
+            end
+        end
         -- Add tooltip if it's face-down
         if card.facing == 'back' then
             if not card.fake_card then
                 table.insert(info_queue, 1, { set = "Other", key = "joy_face_down" })
             end
-        end
-        if card and not card.debuff and card.ability.extra.joyous_spring.material_effects and next(card.ability.extra.joyous_spring.material_effects) then
-            table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_transferred" })
         end
         -- Add tooltip if it has a related cards menu
         if self.joy_desc_cards and not card.fake_card then

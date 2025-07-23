@@ -69,11 +69,9 @@ SMODS.Joker({
                 JoyousSpring.revive_pseudorandom({ { monster_archetypes = { "Shaddoll" } } },
                     'j_joy_shaddoll_beast', true)
             end
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Shaddoll" }, is_main_deck = true } })
-
-            for i = 1, card.ability.extra.mills do
-                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_shaddoll_beast'))
-            end
+            JoyousSpring.send_to_graveyard_pseudorandom(
+                { { monster_archetypes = { "Shaddoll" }, is_main_deck = true } },
+                card.config.center.key, card.ability.extra.mills)
         end
         if JoyousSpring.used_as_material(card, context) and JoyousSpring.is_summon_type(context.joy_card, "FUSION") then
             local choices = {}
@@ -155,11 +153,9 @@ SMODS.Joker({
                 JoyousSpring.revive_pseudorandom({ { monster_archetypes = { "Shaddoll" } } },
                     'j_joy_shaddoll_dragon', true)
             end
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Shaddoll" }, is_main_deck = true } })
-
-            for i = 1, card.ability.extra.mills do
-                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_shaddoll_dragon'))
-            end
+            JoyousSpring.send_to_graveyard_pseudorandom(
+                { { monster_archetypes = { "Shaddoll" }, is_main_deck = true } },
+                card.config.center.key, card.ability.extra.mills)
         end
         if JoyousSpring.used_as_material(card, context) and JoyousSpring.is_summon_type(context.joy_card, "FUSION") then
             local choices = {}
@@ -246,11 +242,9 @@ SMODS.Joker({
                 JoyousSpring.revive_pseudorandom({ { monster_archetypes = { "Shaddoll" } } },
                     'j_joy_shaddoll_falco', true)
             end
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Shaddoll" }, is_main_deck = true } })
-
-            for i = 1, card.ability.extra.mills do
-                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_shaddoll_falco'))
-            end
+            JoyousSpring.send_to_graveyard_pseudorandom(
+                { { monster_archetypes = { "Shaddoll" }, is_main_deck = true } },
+                card.config.center.key, card.ability.extra.mills)
         end
         if JoyousSpring.used_as_material(card, context) and JoyousSpring.is_summon_type(context.joy_card, "FUSION") then
             for i = 1, card.ability.extra.creates do
@@ -317,11 +311,9 @@ SMODS.Joker({
                 JoyousSpring.revive_pseudorandom({ { monster_archetypes = { "Shaddoll" } } },
                     'j_joy_shaddoll_hedgehog', true)
             end
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Shaddoll" }, is_main_deck = true } })
-
-            for i = 1, card.ability.extra.mills do
-                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_shaddoll_hedgehog'))
-            end
+            JoyousSpring.send_to_graveyard_pseudorandom(
+                { { monster_archetypes = { "Shaddoll" }, is_main_deck = true } },
+                card.config.center.key, card.ability.extra.mills)
         end
         if JoyousSpring.used_as_material(card, context) and JoyousSpring.is_summon_type(context.joy_card, "FUSION") then
             for i = 1, card.ability.extra.creates_spectral do
@@ -380,11 +372,9 @@ SMODS.Joker({
                 JoyousSpring.revive_pseudorandom({ { monster_archetypes = { "Shaddoll" } } },
                     'j_joy_shaddoll_hound', true)
             end
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Shaddoll" }, is_main_deck = true } })
-
-            for i = 1, card.ability.extra.mills do
-                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_shaddoll_hound'))
-            end
+            JoyousSpring.send_to_graveyard_pseudorandom(
+                { { monster_archetypes = { "Shaddoll" }, is_main_deck = true } },
+                card.config.center.key, card.ability.extra.mills)
             return {
                 dollars = card.ability.extra.money
             }
@@ -446,11 +436,9 @@ SMODS.Joker({
                 JoyousSpring.revive_pseudorandom({ { monster_archetypes = { "Shaddoll" } } },
                     'j_joy_shaddoll_squamata', true)
             end
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Shaddoll" }, is_main_deck = true } })
-
-            for i = 1, card.ability.extra.mills do
-                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_shaddoll_squamata'))
-            end
+            JoyousSpring.send_to_graveyard_pseudorandom(
+                { { monster_archetypes = { "Shaddoll" }, is_main_deck = true } },
+                card.config.center.key, card.ability.extra.mills)
         end
         if JoyousSpring.used_as_material(card, context) and JoyousSpring.is_summon_type(context.joy_card, "FUSION") then
             local choices = {}
@@ -532,11 +520,9 @@ SMODS.Joker({
                 JoyousSpring.revive_pseudorandom({ { monster_archetypes = { "Shaddoll" } } },
                     'j_joy_shaddoll_core', true)
             end
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Shaddoll" }, is_main_deck = true } })
-
-            for i = 1, card.ability.extra.mills do
-                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_shaddoll_core'))
-            end
+            JoyousSpring.send_to_graveyard_pseudorandom(
+                { { monster_archetypes = { "Shaddoll" }, is_main_deck = true } },
+                card.config.center.key, card.ability.extra.mills)
         end
         if JoyousSpring.used_as_material(card, context) and JoyousSpring.is_summon_type(context.joy_card, "FUSION") then
             if #JoyousSpring.field_spell_area.cards < JoyousSpring.field_spell_area.config.card_limit then
@@ -554,6 +540,21 @@ SMODS.Joker({
             card:flip(card)
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xmult = JoyousSpring.is_flip_active(card) and card.ability.extra.xmult or 1
+            end
+        }
+    end
 })
 
 -- Naelshaddoll Ariel
@@ -743,7 +744,7 @@ SMODS.Joker({
     joy_transfer_config = function(self, other_card)
         return { mult = 1 }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return {
             vars = { config.mult, config.mult *
             JoyousSpring.count_materials_in_graveyard({ { monster_archetypes = { "Shaddoll" } }, { monster_type = "Spellcaster" } }) }
@@ -812,7 +813,7 @@ SMODS.Joker({
     joy_transfer_config = function(self, other_card)
         return { revives = 1 }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return {
             vars = { config.revives }
         }
@@ -865,11 +866,9 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.calculate_flip_effect(card, context) then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Shaddoll" }, is_main_deck = true } })
-
-            for i = 1, card.ability.extra.mills do
-                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_shaddoll_hollow'))
-            end
+            JoyousSpring.send_to_graveyard_pseudorandom(
+                { { monster_archetypes = { "Shaddoll" }, is_main_deck = true } },
+                card.config.center.key, card.ability.extra.mills)
         end
         if context.end_of_round and context.game_over == false and context.main_eval then
             if shaddoll_should_flip(card) then card:flip() end
@@ -881,7 +880,7 @@ SMODS.Joker({
     joy_transfer_config = function(self, other_card)
         return { mills = 3 }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return {
             vars = { config.mills }
         }
@@ -889,11 +888,9 @@ SMODS.Joker({
     joy_transfer_ability_calculate = function(self, other_card, context, config)
         if JoyousSpring.can_use_abilities(other_card) then
             if context.setting_blind and context.main_eval then
-                local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Shaddoll" }, is_main_deck = true } })
-
-                for i = 1, config.mills do
-                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_shaddoll_hollow'))
-                end
+                JoyousSpring.send_to_graveyard_pseudorandom(
+                    { { monster_archetypes = { "Shaddoll" }, is_main_deck = true } },
+                    other_card.config.center.key .. "_shaddoll_hollow", config.mills)
             end
         end
     end
@@ -977,7 +974,7 @@ SMODS.Joker({
     joy_transfer_config = function(self, other_card)
         return { chips = 40 }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return {
             vars = { config.chips, config.chips *
             JoyousSpring.count_materials_in_graveyard({ { monster_archetypes = { "Shaddoll" } } }) }
@@ -992,6 +989,19 @@ SMODS.Joker({
                 }
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                card.joker_display_values.chips = card.ability.extra.chips *
+                    JoyousSpring.count_materials_in_graveyard({ { monster_archetypes = { "Shaddoll" } } })
+            end
+        }
     end
 })
 
@@ -1201,7 +1211,7 @@ SMODS.Joker({
     joy_transfer_config = function(self, other_card)
         return { xmult = 2 }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         local empty_spaces = G.jokers and math.max(0, G.jokers.config.card_limit - #G.jokers.cards + G.GAME.joker_buffer) or
             0
         local mult_count = empty_spaces +
@@ -1221,6 +1231,24 @@ SMODS.Joker({
                 end
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                local empty_spaces = math.max(0, G.jokers.config.card_limit - #G.jokers.cards + G.GAME.joker_buffer)
+                local mult_count = empty_spaces +
+                    JoyousSpring.count_materials_owned({ { facedown = true }, { monster_archetypes = { "Shaddoll" } } })
+                card.joker_display_values.xmult = mult_count > 0 and card.ability.extra.xmult * mult_count or 1
+            end
+        }
     end
 })
 
@@ -1285,11 +1313,9 @@ SMODS.Joker({
         end
         if JoyousSpring.can_use_abilities(card) then
             if context.setting_blind and context.main_eval then
-                local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Shaddoll" } } })
-
-                for i = 1, card.ability.extra.mills do
-                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_shaddoll_elconstruct'))
-                end
+                JoyousSpring.send_to_graveyard_pseudorandom(
+                    { { monster_archetypes = { "Shaddoll" } } },
+                    card.config.center.key, card.ability.extra.mills)
             end
         end
     end,
@@ -1299,17 +1325,15 @@ SMODS.Joker({
     joy_transfer_config = function(self, other_card)
         return { mills = 10 }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return { vars = { config.mills } }
     end,
     joy_transfer_ability_calculate = function(self, other_card, context, config)
         if JoyousSpring.can_use_abilities(other_card) then
             if context.setting_blind and context.main_eval then
-                local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Shaddoll" } } })
-
-                for i = 1, config.mills do
-                    JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_shaddoll_elconstruct'))
-                end
+                JoyousSpring.send_to_graveyard_pseudorandom(
+                    { { monster_archetypes = { "Shaddoll" }, is_main_deck = true } },
+                    other_card.config.center.key .. "_shaddoll_elconstruct", config.ability.extra.mills)
             end
         end
     end
@@ -1393,7 +1417,7 @@ SMODS.Joker({
     joy_transfer_config = function(self, other_card)
         return { xchips = 0.01 }
     end,
-    joy_transfer_loc_vars = function(self, info_queue, card, config)
+    joy_transfer_loc_vars = function(self, info_queue, other_card, config)
         return {
             vars = { config.xchips, 1 + config.xchips *
             JoyousSpring.count_materials_in_graveyard({ { monster_archetypes = { "Shaddoll" } } }) }
@@ -1408,6 +1432,24 @@ SMODS.Joker({
                 }
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xchips", retrigger_type = "exp" }
+                    },
+                    border_colour = G.C.CHIPS
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xchips = 1 + card.ability.extra.xchips *
+                    JoyousSpring.count_materials_in_graveyard({ { monster_archetypes = { "Shaddoll" } } })
+            end
+        }
     end
 })
 
@@ -1681,6 +1723,18 @@ SMODS.Joker({
         end
         return JoyousSpring.count_materials_in_graveyard({ { summon_type = "FUSION" } }, true) > 0
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                card.joker_display_values.chips = card.ability.extra.chips * card.ability.extra.counters
+            end
+        }
+    end
 })
 JoyousSpring.collection_pool[#JoyousSpring.collection_pool + 1] = {
     keys = { "shaddoll" },

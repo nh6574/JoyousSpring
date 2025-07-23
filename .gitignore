@@ -48,3 +48,4 @@ luac.out
 *.aseprite
 assets/templates/*
 debug.lua
+.luarc.json

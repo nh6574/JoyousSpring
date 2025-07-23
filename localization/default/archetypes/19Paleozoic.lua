@@ -145,6 +145,7 @@ return {
                 text = {
                     {
                         "{C:joy_xyz}Detach{} {C:attention}#1#{}: Creates {C:attention}#2#{} {C:joy_normal}Main Deck \"Paleozoic\"{}",
+                        "{C:inactive}(Must have room)"
                     },
                     {
                         "{C:joy_trap}Traps{} are {C:attention}flipped{} face-up when {C:attention}Blind{} is selected",

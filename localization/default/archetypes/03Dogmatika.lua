@@ -34,7 +34,7 @@ return {
                 name = "{C:joy_effect}Dogmatika Adin, the Enlightened",
                 text = {
                     {
-                        "Creates {C:attention}#1#{} non-{C:joy_ritual}Ritual{} {C:joy_normal}\"Dogmatika\"{}",
+                        "Creates {C:attention}#1#{} non-{C:joy_ritual}Ritual{} {C:joy_normal}Main Deck \"Dogmatika\"{}",
                         "when {C:attention}Boss Blind{} is defeated",
                         "{C:inactive}(Must have room){}",
                     },

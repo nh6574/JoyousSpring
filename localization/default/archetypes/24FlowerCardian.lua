@@ -352,7 +352,7 @@ return {
                     {
                         "{C:attention}Hanafuda{} cards count as all {C:joy_link}Months{} and {C:joy_link}Types{}",
                         "for other {C:joy_normal}\"Flower Cardian\"{} abilities, also they count",
-                        "as all suits and can't be debuffed at start of {C:attention}Blind"
+                        "as all suits and can't be debuffed by {C:attention}Blinds"
                     },
                     {
                         "If played hand contains {C:attention}Lightflare{}, {C:attention}Moonflowerviewing{}",
@@ -420,7 +420,7 @@ return {
                 text = {
                     {
                         "{C:mult}+20{}/{C:mult}10{}/{C:mult}5{} Mult when scored with",
-                        "another hand of the same {C:joy_link}Month{}",
+                        "another card of the same {C:joy_link}Month{}",
                         "or in a {C:attention}Koi Koi{} hand",
                         "OR {C:mult}+1{} Mult and scores in {C:attention}Koi Koi{} hands",
                         "if it's {C:joy_link}Chaff",
@@ -439,8 +439,32 @@ return {
                 }
             }
         },
-        JoyPokerHand = {
-        }
+        Sleeve = {
+            sleeve_joy_hanafuda = {
+                name = "{C:joy_spell}Recardination",
+                text = {
+                    "Start with",
+                    "all random",
+                    "{C:attention,T:m_joy_hanafuda}Hanafuda{} cards"
+                }
+            },
+            sleeve_joy_hanafuda_alt = {
+                name = "{C:joy_spell}Recardination",
+                text = {
+                    "Start with all {C:attention,T:m_joy_hanafuda}Hanafuda{} cards",
+                    "instead of random plus extra",
+                    "{C:joy_mod}Chrysanthemum with Sake"
+                }
+            },
+        },
+        Other = {
+            joy_tooltip_koikoihand = {
+                name = "Koi-koi Hands",
+                text = {
+                    "Combinations of {C:attention}Hanafuda{} cards",
+                },
+            }
+        },
     },
     misc = {
         poker_hands = {

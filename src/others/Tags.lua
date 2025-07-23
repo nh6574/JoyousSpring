@@ -26,18 +26,19 @@ SMODS.Tag({
     end,
 })
 
--- Card Tag
+-- Monster Tag
 SMODS.Tag({
     key = "monster",
     atlas = "Tags",
     loc_vars = function(self, info_queue, tag)
-        if tag.ability.monster then
-            info_queue[#info_queue + 1] = G.P_CENTERS[tag.ability.monster]
+        local center = G.P_CENTERS[tag.ability.monster]
+        if center then
+            info_queue[#info_queue + 1] = center
         end
-        local name = tag.ability.monster and localize({ type = 'name_text', set = 'Joker', key = tag.ability.monster }) or
+        local name = center and localize({ type = 'name_text', set = center.set, key = center.key }) or
             localize("k_joy_monster_tag_default")
-
-        return { vars = { name, colours = { JoyousSpring.get_name_color(tag.ability.monster) } } }
+        center = center or {}
+        return { vars = { name, colours = { (center.set == "Joker" and JoyousSpring.get_name_color(tag.ability.monster)) or (center.set == "Planet" and G.C.SECONDARY_SET.Planet) or G.C.JOY.NORMAL } } }
     end,
     pos = { x = 1, y = 0 },
     discovered = true,

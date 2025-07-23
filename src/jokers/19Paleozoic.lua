@@ -43,7 +43,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if context.joker_main and JoyousSpring.is_flip_active(card) then
+            if context.joker_main then
                 return {
                     mult = card.ability.extra.current_mult
                 }
@@ -68,6 +68,15 @@ SMODS.Joker({
             SMODS.debuff_card(card, "prevent_debuff", "j_joy_paleo_canadia")
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "current_mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+        }
+    end
 })
 
 -- Paleozoic Dinomischus
@@ -200,6 +209,18 @@ SMODS.Joker({
             SMODS.debuff_card(card, "prevent_debuff", "j_joy_paleo_eldonia")
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                card.joker_display_values.chips = JoyousSpring.is_flip_active(card) and card.ability.extra.chips or 0
+            end
+        }
+    end
 })
 
 -- Paleozoic Hallucigenia
@@ -260,6 +281,18 @@ SMODS.Joker({
             SMODS.debuff_card(card, "prevent_debuff", "j_joy_paleo_hallu")
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                card.joker_display_values.mult = JoyousSpring.is_flip_active(card) and card.ability.extra.mult or 0
+            end
+        }
+    end
 })
 
 -- Paleozoic Leanchoilia
@@ -324,6 +357,15 @@ SMODS.Joker({
             SMODS.debuff_card(card, "prevent_debuff", "j_joy_paleo_lean")
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "current_chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+        }
+    end
 })
 
 -- Paleozoic Marrella
@@ -367,11 +409,9 @@ SMODS.Joker({
                 JoyousSpring.revive_pseudorandom({ { is_trap = true, monster_archetypes = { "Paleozoic" } } },
                     'j_joy_paleo_marrella', not has_cambro, has_cambro and "e_negative" or nil)
             end
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Paleozoic" }, is_main_deck = true } })
-
-            for i = 1, card.ability.extra.mills do
-                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_paleo_marrella'))
-            end
+            JoyousSpring.send_to_graveyard_pseudorandom(
+                { { monster_archetypes = { "Paleozoic" }, is_main_deck = true } },
+                card.config.center.key, card.ability.extra.mills)
         end
     end,
     add_to_deck = function(self, card, from_debuff)
@@ -652,6 +692,18 @@ SMODS.Joker({
         if not card.debuff then
             SMODS.debuff_card(card, "prevent_debuff", "j_joy_paleo_anomalo")
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.ability.extra", ref_value = "current_xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+        }
     end
 })
 
@@ -724,6 +776,9 @@ SMODS.Joker({
         if not card.debuff then
             SMODS.debuff_card(card, "prevent_debuff", "j_joy_paleo_opa")
         end
+    end,
+    joy_can_detach = function(card)
+        return #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit
     end
 })
 

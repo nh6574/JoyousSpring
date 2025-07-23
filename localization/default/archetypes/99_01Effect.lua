@@ -12,7 +12,7 @@ return {
                         "{C:blue}Hands{} equal {C:joy_spell}Extra Deck{} types owned + 1",
                         "No repeat hand types",
                         "{C:joy_normal}Main Deck{} {C:attention}Jokers{} are debuffed",
-                        "{C:inactive}(Except{} {C:joy_effect}\"Inspector Boarder\"{}{C:inactive}){}",
+                        "{C:inactive}(Except \"Inspector Boarder\"){}",
                     },
                 },
             },
@@ -50,7 +50,7 @@ return {
                 text = {
                     {
                         "{X:mult,C:white}X#1#{} Mult,",
-                        "gains {X:mult,C:white}X#2#{} Mult for each {C:joy_trap}Trap",
+                        "gives an extra {X:mult,C:white}X#2#{} Mult for each {C:joy_trap}Trap",
                         "{C:inactive}(Currently {X:mult,C:white}X#3#{} {C:inactive}Mult)",
                     },
                     {
@@ -335,7 +335,16 @@ return {
                 name = "{C:joy_effect}Rock Band Xenoguitar",
                 text = {
                     {
-                        "TBD",
+                        "When this owned card is sent to the {C:attention}GY{}",
+                        "sends {C:attention}#1#{} {C:joy_normal}Rock{} {C:attention}Jokers{} to the {C:attention}GY{}",
+                        "then {C:attention}revives #2#{} {C:joy_normal}Rock{} {C:attention}Joker{}",
+                    },
+                    {
+                        "Adds {C:attention}#3# Enhanced{} {C:diamonds}Diamond{} cards to the Deck",
+                        "when used as {C:attention}material{}"
+                    },
+                    {
+                        "Cannot be {C:attention}revived{}",
                     },
                 }
             },
@@ -343,15 +352,23 @@ return {
                 name = "{C:joy_effect}Revival Golem",
                 text = {
                     {
-                        "TBD",
-                    },
+                        "Adds {C:attention}#1#{} {C:diamonds}Diamond{} cards with a random {C:attention}Seal{} to the Deck",
+                        "and creates {C:attention}#2#{} {C:dark_edition}Negative{} Debuffed {C:joy_effect}\"Revival Golem\"{}",
+                        "when used as {C:attention}material{}"
+                    }
                 }
             },
             j_joy_tackcrusader = {
                 name = "{C:joy_effect}Tackle Crusader",
                 text = {
                     {
-                        "TBD",
+                        "{C:mult}+#1#{} Mult for each {C:diamonds}Diamond{} {C:attention}excavated{} this run",
+                        "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
+                    },
+                    {
+                        "Once per round, you can {C:attention}tribute #3#{} {C:joy_normal}Rock{} {C:attention}Joker{}",
+                        "to add {C:attention}#4# Editioned{} {C:diamonds}Diamond{} cards to the Deck",
+                        "and flip all {C:attention}Jokers{} face-up"
                     },
                 }
             },
@@ -359,7 +376,13 @@ return {
                 name = "{C:joy_effect}Doki Doki",
                 text = {
                     {
-                        "TBD",
+                        "{C:chips}+#1#{} Chips for each {C:diamonds}Diamond{} {C:attention}excavated{} this run",
+                        "{C:inactive}(Currently {C:chips}+#2#{}{C:inactive} Chips)"
+                    },
+                    {
+                        "Once per ante, you can {C:attention}tribute #3#{} {C:joy_normal}Rock{} {C:attention}Joker{}",
+                        "to create {C:attention}#4#{} {C:joy_normal}Main Deck Rock{} {C:attention}Jokers{}",
+                        "{C:inactive}(Must have room)"
                     },
                 }
             },
@@ -367,7 +390,155 @@ return {
                 name = "{C:joy_effect}Block Dragon",
                 text = {
                     {
-                        "TBD",
+                        "{C:mult}+#1#{} Mult for each {C:joy_normal}Rock{} in the {C:attention}GY{}",
+                        "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
+                    },
+                    {
+                        "{X:mult,C:white}X#3#{} extra Mult for each {C:diamonds}Diamond{} {C:attention}excavated{} this run",
+                        "{C:inactive}(Currently {X:mult,C:white}X#4#{}{C:inactive} Mult)"
+                    },
+                    {
+                        "If this card is used as {C:attention}material{} when there are",
+                        "{C:attention}#5#{} or more {C:joy_normal}Rock{} {C:attention}Jokers{} in the {C:attention}GY{},",
+                        "creates {C:attention}#6#{} {C:dark_edition}Negative{} {C:blue}Common{} or {C:green}Uncommon{} {C:joy_normal}Main Deck{}",
+                        "{C:joy_normal}Rock{} {C:attention}Jokers{} but remove all {C:joy_normal}Rock{} {C:attention}Jokers{} from the {C:attention}GY{}"
+                    },
+                }
+            },
+            j_joy_elfobia = {
+                name = "{C:joy_effect}Ghost Fairy Elfobia",
+                text = {
+                    {
+                        "{C:chips}+#1#{} Chips for each {C:joy_wind}WIND{} in the {C:attention}GY{}",
+                        "{C:inactive}(Currently {C:chips}+#2#{}{C:inactive} Chips)"
+                    },
+                    {
+                        "Increase all listed {C:green}probabilities{} on {C:joy_wind}WIND{} {C:attention}Jokers{}",
+                        "permanently by {C:attention}#3#{} when {C:attention}Boss Blind{} is selected"
+                    },
+                    {
+                        "If you own {C:joy_effect}\"Mystical Fairy Elfuria\"{},",
+                        "only {C:joy_wind}WIND{} {C:attention}Jokers{} can be sent to the {C:attention}GY{}"
+                    }
+                }
+            },
+            j_joy_elfuria = {
+                name = "{C:joy_effect}Mystical Fairy Elfuria",
+                text = {
+                    {
+                        "{C:mult}+#1#{} Mult for each {C:joy_wind}WIND{} in the {C:attention}GY{}",
+                        "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
+                    },
+                    {
+                        "Attach {C:attention}#3# material{} to each {C:joy_xyz}Xyz{}",
+                        "when {C:attention}Boss Blind{} is selected"
+                    },
+                    {
+                        "If you own {C:joy_effect}\"Ghost Fairy Elfobia\"{},",
+                        "only {C:joy_wind}WIND{} {C:attention}Jokers{} can appear in the shop",
+                        "{C:inactive}(Not working in this version :P){}"
+                    }
+                }
+            },
+            j_joy_lindbloom = {
+                name = "{C:joy_effect}Lindbloom",
+                text = {
+                    {
+                        "{C:attention}Jokers{} each give {X:mult,C:white}X#1#{} if they share",
+                        "{C:attention}Type{} and {C:attention}Attribute{} with another {C:attention}Joker{}"
+                    },
+                }
+            },
+            j_joy_genomix = {
+                name = "{C:joy_effect}Genomix Fighter",
+                text = {
+                    {
+                        "Treated as any {C:attention}material{} for a {C:joy_synchro}Synchro",
+                    },
+                    {
+                        "A {C:joy_synchro}Synchro{} summoned using this card",
+                        "as {C:attention}material{} gains the following ability:",
+                        "{s:0.9,C:mult}+#1#{s:0.9} Mult for each {s:0.9,C:attention}Joker{s:0.9} owned",
+                        "{s:0.9}or in the {s:0.9,C:attention}GY{s:0.9} with the same {s:0.9,C:attention}Type{s:0.9} and {s:0.9,C:attention}Attribute{}"
+                    }
+                },
+                joy_transfer_ability = {
+                    "{C:mult}+#1#{} Mult for each {C:attention}Joker{} owned",
+                    "or in the {C:attention}GY{} with the same {C:attention}Type{} and {C:attention}Attribute{}",
+                    "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
+                },
+            },
+            j_joy_maxsix = {
+                name = "{C:joy_effect}Maximum Six",
+                text = {
+                    {
+                        "{C:green}#1# in #2#{} to give {X:mult,C:white}X#3#{} Mult",
+                    },
+                    {
+                        "{C:green}#4# in #5#{} chance to become {C:dark_edition}Negative{}",
+                        "when {C:attention}Blind{} is selected"
+                    },
+                }
+            },
+            j_joy_stpolice = {
+                name = "{C:joy_effect}Space-Time Police",
+                text = {
+                    {
+                        "This card and another {C:joy_normal}Psychic{} {C:attention}Joker{} {C:attention}banish{} at end of round",
+                        "until {C:attention}Boss Blind{} is selected and returns {C:attention}#1#{} {C:attention}Joker{}",
+                        "{C:attention}banished{} until {C:attention}Boss Blind{}"
+                    },
+                }
+            },
+            j_joy_wannabee = {
+                name = "{C:joy_effect}Wannabee!",
+                text = {
+                    {
+                        "{C:attention}Excavate{} and check the top {C:attention}#1#{}:",
+                        "Draw {C:attention}#2#{} card for each card with rank {C:attention}2{}",
+                    },
+                }
+            },
+            j_joy_merchant = {
+                name = "{C:joy_effect}Magical Merchant",
+                text = {
+                    {
+                        "{C:attention}Flips{} at end of round after #1# or more cards",
+                        "are {C:attention}excavated{} {C:inactive}(even if face-down)",
+                        "{C:inactive}(#2# remaining){}"
+                    },
+                    {
+                        "{C:joy_effect}FLIP{}: When {C:attention}Blind{} is selected,",
+                        "{C:attention}excavate{} until you hit a card that is your most owned suit",
+                        "draw cards equal to the {C:attention}excavated{} cards up to that card inclusive",
+                        "{C:inactive}(Currently {V:1}#3#{}{C:inactive}) (Changes at end of round)"
+                    },
+                }
+            },
+            j_joy_catoblepas = {
+                name = "{C:joy_effect}Catoblepas and the Witch of Fate",
+                text = {
+                    {
+                        "{C:mult}+#1#{} Mult for each {C:joy_normal}Spellcaster{} in the {C:attention}GY{}",
+                        "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
+                    },
+                    {
+                        "{C:green}#3# in #4#{} chance to {C:attention}banish #5#{} {C:joy_normal}Spellcaster{}",
+                        "at end of round until {C:attention}Boss Blind{} is selected",
+                        "and permanently double its listed {C:green}probabilities{}"
+                    }
+                }
+            },
+            j_joy_coupleofaces = {
+                name = "{C:joy_effect}Couple of Aces",
+                text = {
+                    {
+                        "If played hand contains a {C:attention}Pair{},",
+                        "apply the following effects:",
+                        "{X:mult,C:white}X#1#{} Mult",
+                        "{C:green}#2# in #3#{} chance for scored {C:attention}Aces{} to give {X:mult,C:white}X#1#{} Mult",
+                        "{C:green}#4# in #5#{} chance to level up scored hand",
+                        "{C:green}#6# in #7#{} to turn each scored card into a {C:attention}Gold Seal Lucky Ace{}",
                     },
                 }
             },

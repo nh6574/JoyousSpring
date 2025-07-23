@@ -44,7 +44,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and not card.ability.eternal then
+                if context.joy_activate_effect and context.joy_activated_card == card and not SMODS.is_eternal(card, card) then
                     card.ability.extra.any_flipped = false
                     return {
                         message = localize("k_joy_flip_ex"),
@@ -111,7 +111,7 @@ SMODS.Joker({
         end
     end,
     joy_can_activate = function(card)
-        return not card.ability.eternal and G.GAME.blind.in_blind or false
+        return not SMODS.is_eternal(card, card) and G.GAME.blind.in_blind or false
     end,
 })
 
@@ -153,10 +153,10 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and not card.ability.eternal then
+                if context.joy_activate_effect and context.joy_activated_card == card and not SMODS.is_eternal(card, card) then
                     local materials = {}
                     for i, joker in ipairs(G.jokers.cards) do
-                        if joker ~= card and not joker.ability.eternal then
+                        if joker ~= card and not SMODS.is_eternal(joker, card) then
                             materials[#materials + 1] = joker
                         end
                     end
@@ -230,11 +230,11 @@ SMODS.Joker({
         end
     end,
     joy_can_activate = function(card)
-        if card.ability.eternal or not G.GAME.blind.in_blind then
+        if SMODS.is_eternal(card, card) or not G.GAME.blind.in_blind then
             return false
         end
         for i, joker in ipairs(G.jokers.cards) do
-            if joker ~= card and not joker.ability.eternal then
+            if joker ~= card and not SMODS.is_eternal(joker, card) then
                 return true
             end
         end
@@ -281,10 +281,10 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and not card.ability.eternal then
+                if context.joy_activate_effect and context.joy_activated_card == card and not SMODS.is_eternal(card, card) then
                     local materials = {}
                     for i, joker in ipairs(G.jokers.cards) do
-                        if joker ~= card and not joker.ability.eternal then
+                        if joker ~= card and not SMODS.is_eternal(joker, card) then
                             materials[#materials + 1] = joker
                         end
                     end
@@ -363,12 +363,12 @@ SMODS.Joker({
         end
     end,
     joy_can_activate = function(card)
-        if card.ability.eternal or not G.GAME.blind.in_blind then
+        if SMODS.is_eternal(card, card) or not G.GAME.blind.in_blind then
             return false
         end
         local materials = {}
         for i, joker in ipairs(G.jokers.cards) do
-            if joker ~= card and not joker.ability.eternal then
+            if joker ~= card and not SMODS.is_eternal(joker, card) then
                 return true
             end
         end
@@ -452,6 +452,22 @@ SMODS.Joker({
             G.hand:change_size(-card.ability.extra.hand_size_changed)
             card.ability.extra.hand_size_changed = 0
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.ability.extra", ref_value = "count" },
+                { text = "/" },
+                { ref_table = "card.ability.extra", ref_value = "flipped" },
+                { text = ")" },
+            },
+        }
     end
 })
 
@@ -530,6 +546,22 @@ SMODS.Joker({
             G.hand:change_size(-card.ability.extra.hand_size_changed)
             card.ability.extra.hand_size_changed = 0
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.ability.extra", ref_value = "count" },
+                { text = "/" },
+                { ref_table = "card.ability.extra", ref_value = "flipped" },
+                { text = ")" },
+            },
+        }
     end
 })
 
@@ -597,6 +629,26 @@ SMODS.Joker({
             card.cost = 0
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.ability.extra", ref_value = "count" },
+                { text = "/" },
+                { ref_table = "card.ability.extra", ref_value = "flipped" },
+                { text = ")" },
+            },
+            calc_function = function(card)
+                card.joker_display_values.chips = card.ability.extra.chips * card.ability.extra.total_count
+            end
+        }
+    end
 })
 
 -- Labrynth Archfiend
@@ -683,6 +735,19 @@ SMODS.Joker({
                 }
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                card.joker_display_values.mult = card.ability.extra.mult *
+                    JoyousSpring.count_materials_in_graveyard({ { monster_type = "Fiend" } })
+            end
+        }
     end
 })
 
@@ -697,7 +762,10 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        return { vars = { G.GAME.probabilities.normal or 1, math.max(1, card.ability.extra.odds - JoyousSpring.count_materials_owned({ { monster_type = "Fiend" } })), card.ability.extra.extra_mult, card.ability.extra.mult } }
+        local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
+            math.max(1, card.ability.extra.odds - JoyousSpring.count_materials_owned({ { monster_type = "Fiend" } })),
+            self.key)
+        return { vars = { numerator, denominator, card.ability.extra.extra_mult, card.ability.extra.mult } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Labrynth" } } }, name = "k_joy_archetype" },
@@ -711,7 +779,8 @@ SMODS.Joker({
                 monster_type = "Fiend",
                 monster_archetypes = { ["Labrynth"] = true }
             },
-            odds = 8,
+            numerator = 4,
+            odds = 32,
             extra_mult = 3,
             mult = 0
         },
@@ -727,15 +796,22 @@ SMODS.Joker({
                 card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.extra_mult
             end
             if context.stay_flipped and context.to_area == G.hand and
-                pseudorandom("j_joy_lab_lovely") <
-                G.GAME.probabilities.normal /
-                math.max(1, card.ability.extra.odds - JoyousSpring.count_materials_owned({ { monster_type = "Fiend" } })) then
+                SMODS.pseudorandom_probability(card, card.config.center.key, card.ability.extra.numerator, math.max(1, card.ability.extra.odds - JoyousSpring.count_materials_owned({ { monster_type = "Fiend" } }))) then
                 return {
                     stay_flipped = true
                 }
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+        }
+    end
 })
 
 -- Lady Labrynth of the Silver Castle
@@ -782,6 +858,22 @@ SMODS.Joker({
     joy_allow_ability = function(card, other_card)
         return not JoyousSpring.is_trap_monster(other_card) and JoyousSpring.is_monster_type(other_card, "Fiend") and
             true or false
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xmult = 1 + card.ability.extra.xmult
+            end
+        }
     end
 })
 
@@ -796,7 +888,9 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 8,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.money, G.GAME.probabilities.normal or 1, card.ability.extra.odds, card.ability.extra.flips } }
+        local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
+            card.ability.extra.odds, self.key)
+        return { vars = { card.ability.extra.money, numerator, denominator, card.ability.extra.flips } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Labrynth" } } }, name = "k_joy_archetype" },
@@ -810,7 +904,8 @@ SMODS.Joker({
                 monster_archetypes = { ["Labrynth"] = true }
             },
             money = 5,
-            odds = 2,
+            numerator = 5,
+            odds = 10,
             flips = 1
         },
     },
@@ -822,8 +917,7 @@ SMODS.Joker({
                         dollars = card.ability.extra.money
                     }
                 end
-                if JoyousSpring.is_playing_card(context.joy_card_flipped) and pseudorandom("j_joy_lab_labyrinth") <
-                    G.GAME.probabilities.normal / card.ability.extra.odds then
+                if JoyousSpring.is_playing_card(context.joy_card_flipped) and SMODS.pseudorandom_probability(card, card.config.center.key, card.ability.extra.numerator, card.ability.extra.odds) then
                     return {
                         func = function()
                             G.E_MANAGER:add_event(Event({

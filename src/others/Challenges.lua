@@ -1,7 +1,7 @@
 -- CHALLENGES
 
 JoyousSpring.get_challenge_colour = function(challenge)
-    if challenge and challenge.joy_colour then return challenge.joy_colour end
+    if challenge and challenge.button_colour then return challenge.button_colour end
     return nil
 end
 
@@ -36,7 +36,7 @@ SMODS.Challenge({
     unlocked = function(self)
         return true
     end,
-    joy_colour = G.C.JOY.SPELL
+    button_colour = G.C.JOY.SPELL
 })
 
 -- Mistake
@@ -73,7 +73,7 @@ SMODS.Challenge({
     unlocked = function(self)
         return true
     end,
-    joy_colour = G.C.JOY.TRAP
+    button_colour = G.C.JOY.TRAP
 })
 
 -- Monster Reborn
@@ -95,7 +95,7 @@ SMODS.Challenge({
     unlocked = function(self)
         return true
     end,
-    joy_colour = G.C.JOY.SPELL
+    button_colour = G.C.JOY.SPELL
 })
 
 -- Domain of the True Monarchs
@@ -110,5 +110,5 @@ SMODS.Challenge({
     unlocked = function(self)
         return true
     end,
-    joy_colour = G.C.JOY.SPELL
+    button_colour = G.C.JOY.SPELL
 })

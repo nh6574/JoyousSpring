@@ -123,7 +123,7 @@ SMODS.Joker({
         if not JoyousSpring.is_perma_debuffed(card) then
             G.consumeables.config.card_limit = G.consumeables.config.card_limit + 1
         end
-        if not from_debuff then
+        if not from_debuff and not card.debuff then
             local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Runick" }, is_extra_deck = true } })
             for i = 1, card.ability.extra.adds do
                 local key_to_add, _ = pseudorandom_element(choices, 'j_joy_runick_munin')
@@ -138,6 +138,20 @@ SMODS.Joker({
             G.consumeables.config.card_limit = G.consumeables.config.card_limit - 1
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.ability.extra", ref_value = "xchips", retrigger_type = "exp" }
+                    },
+                    border_colour = G.C.CHIPS
+                }
+            },
+        }
+    end
 })
 
 -- Geri the Runick Fangs
@@ -378,8 +392,7 @@ SMODS.Joker({
                     if i == 1 then
                         SMODS.calculate_effect({ message = localize('k_joy_banished') }, card_to_destroy)
                     end
-                    card_to_destroy.getting_sliced = true
-                    card_to_destroy:start_dissolve()
+                    SMODS.destroy_cards(card_to_destroy, nil, true)
                 end
             end
         end

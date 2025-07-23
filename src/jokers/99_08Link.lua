@@ -134,6 +134,25 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.ability.extra", ref_value = "consumed" },
+                { text = "/" },
+                { ref_table = "card.ability.extra", ref_value = "consume" },
+                { text = ")" },
+            },
+            calc_function = function(card)
+                card.joker_display_values.mult = card.ability.extra.mult * JoyousSpring.get_pendulum_count()
+            end
+        }
+    end
 })
 
 -- Exceed the Pendulum
@@ -183,7 +202,7 @@ SMODS.Joker({
                     xmult = 1 + card.ability.extra.xmult * JoyousSpring.get_pendulum_count()
                 }
             end
-            if context.end_of_round and context.game_over == false and context.main_eval and G.GAME.blind.boss and
+            if context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss and
                 not card.ability.extra.activated then
                 card.ability.extra.activated = true
                 for i = 1, card.ability.extra.creates do
@@ -194,6 +213,21 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xmult = 1 + card.ability.extra.xmult * JoyousSpring.get_pendulum_count()
+            end
+        }
+    end
 })
 
 -- Linkuriboh
@@ -529,7 +563,7 @@ SMODS.Joker({
             if context.joy_activate_effect and context.joy_activated_card == card and G.GAME.blind.in_blind then
                 local tributes = {}
                 for _, joker in ipairs(G.jokers.cards) do
-                    if joker ~= card and not joker.ability.eternal then
+                    if joker ~= card and not SMODS.is_eternal(joker, card) then
                         table.insert(tributes, joker)
                     end
                 end
@@ -547,10 +581,23 @@ SMODS.Joker({
             return false
         end
         for _, joker in ipairs(G.jokers.cards) do
-            if joker ~= card and not joker.ability.eternal then
+            if joker ~= card and not SMODS.is_eternal(joker, card) then
                 return true
             end
         end
         return false
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                card.joker_display_values.mult = card.ability.extra.mult *
+                    JoyousSpring.count_materials_in_graveyard({ { summon_type = "LINK" } })
+            end
+        }
+    end
 })

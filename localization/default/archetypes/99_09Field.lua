@@ -62,7 +62,9 @@ return {
                 text = {
                     {
                         "{C:attention}Banishes #1#{} random {C:joy_normal}Main Deck{} {C:attention}Joker{} at end of round",
-                        "until {C:attention}Boss Blind{} is selected",
+                        "until {C:attention}Boss Blind{} is selected and increases its",
+                        "listed {C:green}probabilities{} by {C:attention}#2#{} permanently,",
+                        "or double if it's a {C:joy_normal}\"Fortune Lady\"{}"
                     },
                 }
             },

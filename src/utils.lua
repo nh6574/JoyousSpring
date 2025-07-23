@@ -1,121 +1,3 @@
-JoyousSpring.get_graveyard_count = function()
-    if not JoyousSpring.graveyard then return 0 end
-
-    local total = 0
-    for _, t in pairs(JoyousSpring.graveyard) do
-        total = total + t.count
-    end
-    return total
-end
-
----Get all materials in G.jokers that fulfill **property_list**
----@param property_list material_properties[]?
----@param different_names boolean?
----@param for_tribute boolean?
----@return Card[]
-JoyousSpring.get_materials_owned = function(property_list, different_names, for_tribute)
-    if not G.jokers then return {} end
-
-    local materials = {}
-    local keys = {}
-    for _, joker in ipairs(G.jokers.cards) do
-        if joker.getting_sliced then
-        elseif not property_list or #property_list == 0 then
-            if not keys[joker.config.center_key] or not different_names then
-                table.insert(materials, joker)
-                keys[joker.config.center_key] = true
-            end
-        else
-            for _, property in ipairs(property_list) do
-                if keys[joker.config.center_key] and different_names then
-                    break
-                end
-                if JoyousSpring.is_material(joker, property, for_tribute and "TRIBUTE" or nil) then
-                    table.insert(materials, joker)
-                    keys[joker.config.center_key] = true
-                    break
-                end
-            end
-        end
-    end
-    return materials
-end
-
----Count all materials in G.jokers that fulfill **property_list**
----@param property_list material_properties[]
----@param different_names boolean?
----@return integer
-JoyousSpring.count_materials_owned = function(property_list, different_names, for_tribute)
-    return #JoyousSpring.get_materials_owned(property_list, different_names, for_tribute)
-end
-
----Get all materials in graveyard that fulfill **property_list**
----@param property_list material_properties[]
----@param to_revive boolean? Checks if it can be revived
----@param different_names boolean?
----@return string[]
-JoyousSpring.get_materials_in_graveyard = function(property_list, to_revive, different_names)
-    if not JoyousSpring.graveyard then return {} end
-
-    local materials = {}
-    for key, t in pairs(JoyousSpring.graveyard) do
-        local count = t.count
-        local summonable = t.summonable
-        if count > 0 then
-            if not (to_revive and (G.P_CENTERS[key].config.extra.joyous_spring.cannot_revive or summonable < 1)) then
-                if not property_list or #property_list == 0 then
-                    for i = 1, (different_names and 1 or count) do
-                        table.insert(materials, key)
-                    end
-                else
-                    for _, property in ipairs(property_list) do
-                        if JoyousSpring.is_material_center(key, property) then
-                            for i = 1, (different_names and 1 or count) do
-                                table.insert(materials, key)
-                            end
-                            break
-                        end
-                    end
-                end
-            end
-        end
-    end
-    return materials
-end
-
----Count all materials in graveyard that fulfill **property_list**
----@param property_list material_properties[]
----@param to_revive boolean? Checks if it can be revived
----@param different_names boolean?
----@return integer
-JoyousSpring.count_materials_in_graveyard = function(property_list, to_revive, different_names)
-    return #JoyousSpring.get_materials_in_graveyard(property_list, to_revive, different_names)
-end
-
----Get the keys to all matrerials in G.jokers and graveyard that fulfill **property_list**
----@param property_list material_properties[]
----@param to_revive boolean? Checks if it can be revived
----@param different_names boolean?
----@return string[]
-JoyousSpring.get_all_material_keys = function(property_list, to_revive, different_names)
-    local gy = JoyousSpring.get_materials_in_graveyard(property_list, to_revive, different_names)
-    local owned = JoyousSpring.get_materials_owned(property_list, different_names)
-    for _, card in ipairs(owned) do
-        gy[#gy + 1] = card.config.center_key or nil
-    end
-    return gy
-end
-
----Count all materials in G.jokers and graveyard that fulfill **property_list**
----@param property_list material_properties[]
----@param to_revive boolean? Checks if it can be revived
----@param different_names boolean?
----@return integer
-JoyousSpring.count_all_materials = function(property_list, to_revive, different_names)
-    return JoyousSpring.count_materials_in_graveyard(property_list, to_revive, different_names) +
-        JoyousSpring.count_materials_owned(property_list, different_names)
-end
-
 ---Checks if card is in the Extra Deck
 ---@param card_key string
 ---@return boolean
@@ -125,33 +7,6 @@ JoyousSpring.is_in_extra_deck = function(card_key)
         if joker.config.center.key == card_key then return true end
     end
     return false
-end
-
----Get cards in the collection that fulfill *property_list*
----@param property_list material_properties[]
----@param not_owned boolean?
----@param not_extra boolean?
----@return string[]
-JoyousSpring.get_materials_in_collection = function(property_list, not_owned, not_extra)
-    local pool = {}
-    for k, _ in pairs(G.P_CENTERS) do
-        if k:sub(1, 2) == "j_" then
-            if (not not_owned or not G.jokers or not next(SMODS.find_card(k, true))) and
-                (not not_extra or not JoyousSpring.is_in_extra_deck(k)) then
-                if not property_list or #property_list == 0 then
-                    table.insert(pool, k)
-                else
-                    for _, property in ipairs(property_list) do
-                        if JoyousSpring.is_material_center(k, property) then
-                            table.insert(pool, k)
-                            break
-                        end
-                    end
-                end
-            end
-        end
-    end
-    return pool
 end
 
 ---Count all Extra Deck types (Fusion, Synchro, Xyz, Link) are owned
@@ -202,14 +57,6 @@ JoyousSpring.get_not_owned = function(keys, count_debuffed)
     return not_owned
 end
 
----Empties the graveyard
-JoyousSpring.empty_graveyard = function()
-    for _, t in pairs(JoyousSpring.graveyard) do
-        t.count = 0
-        t.summonable = 0
-    end
-end
-
 ---Adds a tag that creates a joker with *card_key* to the shop
 ---@param card_key string
 JoyousSpring.add_monster_tag = function(card_key)
@@ -223,7 +70,7 @@ end
 ---@param card_list table|Card[]
 ---@param facing? 'front'|'back' If card has to be facing a direction for it to be flipped
 ---@param seed? string
----@return table|Card|nil
+---@return table|Card?
 JoyousSpring.flip_random_card = function(source_card, card_list, facing, seed)
     local facing_cards = {}
     for j, card in ipairs(card_list) do
@@ -236,81 +83,6 @@ JoyousSpring.flip_random_card = function(source_card, card_list, facing, seed)
         pick:flip(source_card)
     end
     return pick
-end
-
----Add random tag. Stolen from Cryptid
-JoyousSpring.add_random_tag = function()
-    local tag_key = get_next_tag_key("JoyousSpring")
-    local i = 0
-    while tag_key == "tag_boss" and i < 6 do
-        tag_key = get_next_tag_key("JoyousSpring")
-        i = i + 1
-    end
-    tag_key = tag_key ~= "tag_boss" and tag_key or "tag_double"
-    local tag = Tag(tag_key)
-    if tag.name == "Orbital Tag" then
-        local _poker_hands = {}
-        for k, v in pairs(G.GAME.hands) do
-            if v.visible then
-                _poker_hands[#_poker_hands + 1] = k
-            end
-        end
-        tag.ability.orbital_hand = pseudorandom_element(_poker_hands, "joy_orbital")
-    end
-    add_tag(tag)
-end
-
----Checks if a card is a playing card
----@param card table|Card
----@return boolean
-JoyousSpring.is_playing_card = function(card)
-    return card and (card.ability.set == 'Enhanced' or card.ability.set == 'Default') and true or false
-end
-
----Calculate flips effect activation
----@param card Card|table
----@param context CalcContext|table
----@return boolean `true` if it just activated its flip effect
-JoyousSpring.calculate_flip_effect = function(card, context)
-    if not card.ability.extra.joyous_spring.flip_active and ((context.joy_card_flipped and context.joy_card_flipped == card and card.facing == "front") or
-            (context.setting_blind and context.main_eval and JoyousSpring.flip_effect_active(card))) then
-        if card.facing == 'back' then
-            card:flip(card)
-        end
-        card.ability.extra.joyous_spring.flip_active = true
-        SMODS.calculate_effect({ message = localize("k_joy_flip_ex") }, card)
-        SMODS.calculate_context({ joy_flip_activated = card, joy_other_context = context })
-        return true
-    end
-    if not context.blueprint_card and context.end_of_round and context.main_eval and context.game_over == false then
-        card.ability.extra.joyous_spring.flip_active = false
-        if JoyousSpring.should_trap_flip(card) then
-            card:flip(card)
-            if card.facing == 'back' then
-                SMODS.calculate_effect({ message = localize("k_joy_set") }, card)
-            end
-        end
-    end
-    return false
-end
-
----Detach material from Joker
----@param card Card|table
----@param value integer?
----@param silent boolean?
-JoyousSpring.ease_detach = function(card, value, silent)
-    if not JoyousSpring.is_summon_type(card, "XYZ") then
-        return
-    end
-    local value = value or card.ability.extra.detach or 1
-    card.ability.extra.joyous_spring.xyz_materials = math.max(0, card.ability.extra.joyous_spring.xyz_materials - value)
-    card.ability.extra.joyous_spring.detached_count = card.ability.extra.joyous_spring.detached_count + value
-    card.ability.extra.joyous_spring.detached_count_round = card.ability.extra.joyous_spring.detached_count_round + value
-
-    SMODS.calculate_context({ joy_detached = true, joy_detaching_card = card, joy_deteach_value = value })
-    if not silent then
-        SMODS.calculate_effect({ message = localize("k_joy_activated_ex") }, card)
-    end
 end
 
 ---Flip all cards in all areas or in *area*
@@ -352,6 +124,35 @@ JoyousSpring.count_flipped = function(flip_direction, areas)
     return count
 end
 
+---Add random tag. Stolen from Cryptid
+JoyousSpring.add_random_tag = function()
+    local tag_key = get_next_tag_key("JoyousSpring")
+    local i = 0
+    while tag_key == "tag_boss" and i < 6 do
+        tag_key = get_next_tag_key("JoyousSpring")
+        i = i + 1
+    end
+    tag_key = tag_key ~= "tag_boss" and tag_key or "tag_double"
+    local tag = Tag(tag_key)
+    if tag.name == "Orbital Tag" then
+        local _poker_hands = {}
+        for k, v in pairs(G.GAME.hands) do
+            if SMODS.is_poker_hand_visible(k) then
+                _poker_hands[#_poker_hands + 1] = k
+            end
+        end
+        tag.ability.orbital_hand = pseudorandom_element(_poker_hands, "joy_orbital")
+    end
+    add_tag(tag)
+end
+
+---Checks if a card is a playing card
+---@param card table|Card
+---@return boolean
+JoyousSpring.is_playing_card = function(card)
+    return card and (card.ability.set == 'Enhanced' or card.ability.set == 'Default') and true or false
+end
+
 ---Levels up hand (with proper animation)
 ---@param card Card|table
 ---@param hand_key string
@@ -374,30 +175,10 @@ JoyousSpring.level_up_hand = function(card, hand_key, instant, amount)
     end
 end
 
----Create a random card with *property_list* properties
----@param property_list material_properties[]
----@param seed string|number?
----@param must_have_room boolean?
----@param not_owned boolean?
----@param edition table|string?
----@return unknown
-JoyousSpring.create_pseudorandom = function(property_list, seed, must_have_room, not_owned, edition)
-    local choices = JoyousSpring.get_materials_in_collection(property_list)
-
-    if not_owned then
-        choices = JoyousSpring.get_not_owned(choices)
-    end
-    local key_to_add = pseudorandom_element(choices, seed or "JoyousSpring")
-    if key_to_add then
-        return JoyousSpring.create_summon({
-            key = key_to_add,
-            edition = edition
-        }, must_have_room)
-    end
-
-    return nil
-end
-
+---Gets the attributes that are in a card list
+---@param card_list Card[]|string[]|table
+---@param ignore_debuffed? boolean
+---@return table<attribute, boolean>
 JoyousSpring.get_material_attributes = function(card_list, ignore_debuffed)
     local attributes = {
         LIGHT = false,
@@ -420,7 +201,7 @@ JoyousSpring.get_material_attributes = function(card_list, ignore_debuffed)
     for _, card in ipairs(card_list) do
         if type(card) == "table" and (not ignore_debuffed or not card.debuff) and JoyousSpring.is_monster_card(card) then
             if not JoyousSpring.is_all_attributes(card) then
-                attributes[card.ability.extra.joyous_spring.attribute] = true
+                attributes[JoyousSpring.get_attribute(card)] = true
             end
         else
             local card_center = G.P_CENTERS[card]
@@ -459,6 +240,10 @@ JoyousSpring.get_material_attributes = function(card_list, ignore_debuffed)
     return attributes
 end
 
+---Counts how many attributes are in *card_list*
+---@param card_list Card[]|string[]|table
+---@param ignore_debuffed? boolean
+---@return integer
 JoyousSpring.get_attribute_count = function(card_list, ignore_debuffed)
     local count = 0
     local attributes = JoyousSpring.get_material_attributes(card_list, ignore_debuffed)
@@ -470,6 +255,130 @@ JoyousSpring.get_attribute_count = function(card_list, ignore_debuffed)
     return count
 end
 
+---Gets the type that are in a card list
+---@param card_list Card[]|string[]|table
+---@param ignore_debuffed? boolean
+---@return table<attribute, boolean>
+JoyousSpring.get_material_types = function(card_list, ignore_debuffed)
+    local types = {
+        Aqua = false,
+        Beast = false,
+        BeastWarrior = false,
+        CreatorGod = false,
+        Cyberse = false,
+        Dinosaur = false,
+        DivineBeast = false,
+        Dragon = false,
+        Fairy = false,
+        Fiend = false,
+        Fish = false,
+        Illusion = false,
+        Insect = false,
+        Machine = false,
+        Plant = false,
+        Psychic = false,
+        Pyro = false,
+        Reptile = false,
+        Rock = false,
+        SeaSerpent = false,
+        Spellcaster = false,
+        Thunder = false,
+        Warrior = false,
+        WingedBeast = false,
+        Wyrm = false,
+        Zombie = false,
+    }
+
+    local types_list = {
+        "Aqua",
+        "Beast",
+        "BeastWarrior",
+        "CreatorGod",
+        "Cyberse",
+        "Dinosaur",
+        "DivineBeast",
+        "Dragon",
+        "Fairy",
+        "Fiend",
+        "Fish",
+        "Illusion",
+        "Insect",
+        "Machine",
+        "Plant",
+        "Psychic",
+        "Pyro",
+        "Reptile",
+        "Rock",
+        "SeaSerpent",
+        "Spellcaster",
+        "Thunder",
+        "Warrior",
+        "WingedBeast",
+        "Wyrm",
+        "Zombie",
+    }
+
+    for _, card in ipairs(card_list) do
+        if type(card) == "table" and (not ignore_debuffed or not card.debuff) and JoyousSpring.is_monster_card(card) then
+            if not JoyousSpring.is_all_types(card) then
+                types[JoyousSpring.get_monster_type(card)] = true
+            end
+        else
+            local card_center = G.P_CENTERS[card]
+            if card_center and card_center.config and card_center.config.extra and
+                type(card_center.config.extra) == "table" and
+                card_center.config.extra.joyous_spring and not card_center.config.extra.joyous_spring.is_all_types then
+                types[card_center.config.extra.joyous_spring.monster_type] = true
+            end
+        end
+    end
+    for _, card in ipairs(card_list) do
+        if type(card) == "table" and (not ignore_debuffed or not card.debuff) and JoyousSpring.is_monster_card(card) then
+            if JoyousSpring.is_all_types(card) then
+                for _, v in ipairs(types_list) do
+                    if not types[v] then
+                        types[v] = true
+                        break
+                    end
+                end
+            end
+        else
+            local card_center = G.P_CENTERS[card]
+            if card_center and card_center.config and card_center.config.extra and
+                type(card_center.config.extra) == "table" and
+                card_center.config.extra.joyous_spring and card_center.config.extra.joyous_spring.is_all_types then
+                for _, v in ipairs(types_list) do
+                    if not types[v] then
+                        types[v] = true
+                        break
+                    end
+                end
+            end
+        end
+    end
+
+    return types
+end
+
+---Counts how many types are in *card_list*
+---@param card_list Card[]|string[]|table
+---@param ignore_debuffed? boolean
+---@return integer
+JoyousSpring.get_type_count = function(card_list, ignore_debuffed)
+    local count = 0
+    local types = JoyousSpring.get_material_types(card_list, ignore_debuffed)
+    for k, v in pairs(types) do
+        if v then
+            count = count + 1
+        end
+    end
+    return count
+end
+
+---Get the cards tributed this round
+---@param set? string Set the cards belong to (e.g. "Joker" or "Tarot")
+---@param this_run? boolean Checks for the entire run instead
+---@return table
 JoyousSpring.get_set_tributed = function(set, this_run)
     local list = {}
     local tribute_table = this_run and G.GAME.joy_tributed_cards or G.GAME.current_round.joy_tributed_cards
@@ -485,10 +394,17 @@ JoyousSpring.get_set_tributed = function(set, this_run)
     return list
 end
 
+---Counts the cards tributed this round
+---@param set? string Set the cards belong to (e.g. "Joker" or "Tarot")
+---@param this_run? boolean Checks for the entire run instead
+---@return integer
 JoyousSpring.count_set_tributed = function(set, this_run)
     return #JoyousSpring.get_set_tributed(set, this_run)
 end
 
+---Get the list of cards of a set in G.consumeables
+---@param set? string Set the cards belong to (e.g. "Planet" or "Tarot")
+---@return Card[]|table
 JoyousSpring.get_consumable_set = function(set)
     local list = {}
 
@@ -503,23 +419,76 @@ JoyousSpring.get_consumable_set = function(set)
     return list
 end
 
+---Counts the cards of a set in G.consumeables
+---@param set? string Set the cards belong to (e.g. "Planet" or "Tarot")
+---@return integer
 JoyousSpring.get_consumable_count = function(set)
     return #JoyousSpring.get_consumable_set(set)
 end
 
+---Get the count of the cards summoned this run
+---@param type? summon_type
+---@param this_round? boolean Checks for the round instead
+---@return integer
 JoyousSpring.get_summoned_count = function(type, this_round)
     local table = not this_round and G.GAME.joy_summoned_count or G.GAME.joy_summoned_count_round
     return table and table[type or "Total"] or 0
 end
 
+---Get the count of the cards flipped this run
+---@param set? string Set the cards belong to (e.g. "Joker" or "Tarot")
+---@return integer
 JoyousSpring.get_flipped_count = function(set)
     return G.GAME.joy_flipped_count and G.GAME.joy_flipped_count[set or "Total"] or 0
 end
 
+---Get the count of the pendulums used this run
+---@return integer
 JoyousSpring.get_pendulum_count = function()
     return G.GAME.joy_pendulum_count or 0
 end
 
+---Updates the excavated card count with *card*'s data
+---@param card Card|table
+JoyousSpring.update_excavated_count = function(card)
+    if not G.GAME.joy_cards_excavated then
+        G.GAME.joy_cards_excavated = { suit = {}, rank = {}, total = 0 }
+    end
+    G.GAME.joy_cards_excavated.total = G.GAME.joy_cards_excavated.total + 1
+
+    if SMODS.has_any_suit(card) then
+        G.GAME.joy_cards_excavated.suit.any_suit = (G.GAME.joy_cards_excavated.suit.any_suit or 0) + 1
+    elseif not SMODS.has_no_suit(card) then
+        G.GAME.joy_cards_excavated.suit[card.base.suit] = (G.GAME.joy_cards_excavated.suit[card.base.suit] or 0) + 1
+    end
+
+    if not SMODS.has_no_rank(card) then
+        G.GAME.joy_cards_excavated.rank[card.base.value] = (G.GAME.joy_cards_excavated.rank[card.base.value] or 0) + 1
+    end
+end
+
+---Get excavated count this run
+---@param suit string?
+---@param rank string?
+---@return integer
+JoyousSpring.get_excavated_count = function(suit, rank)
+    if not G.deck then return 0 end
+    if not G.GAME.joy_cards_excavated then
+        G.GAME.joy_cards_excavated = { suit = {}, rank = {}, total = 0 }
+    end
+    if suit then
+        return (G.GAME.joy_cards_excavated.suit[suit] or 0) + (G.GAME.joy_cards_excavated.suit.any_suit or 0)
+    end
+    if rank then
+        return G.GAME.joy_cards_excavated.rank[rank] or 0
+    end
+    return G.GAME.joy_cards_excavated.total
+end
+
+---Gets the colour used by the name of the Joker
+---@param key string
+---@param set? string Set the cards belong to (e.g. "Joker" or "Tarot")
+---@return table
 JoyousSpring.get_name_color = function(key, set)
     if not key then return G.ARGS.LOC_COLOURS["joy_normal"] end
     local name_color
@@ -532,6 +501,10 @@ JoyousSpring.get_name_color = function(key, set)
     return G.ARGS.LOC_COLOURS[name_color or "joy_normal"]
 end
 
+---Checks if card is being used as material in this context
+---@param card Card|table
+---@param context CalcContext|table
+---@return boolean
 JoyousSpring.used_as_material = function(card, context)
     if type(card) ~= "table" then return false end
     if context.joy_summon and context.main_eval and not context.blueprint_card then
@@ -544,6 +517,9 @@ JoyousSpring.used_as_material = function(card, context)
     return false
 end
 
+---Gets the most owned Joker rarities and their count
+---@return string[]
+---@return integer
 JoyousSpring.most_owned_rarity = function()
     if not G.jokers then return {}, 0 end
 
@@ -572,6 +548,42 @@ JoyousSpring.most_owned_rarity = function()
     return ret, max
 end
 
+---Gets the most owned suit in full deck, random if none or tied
+---@param seed string|number
+---@return string
+JoyousSpring.most_owned_suit = function(seed)
+    if not G.deck then return "Hearts" end
+
+    local count = {}
+
+    for _, card in ipairs(G.playing_cards) do
+        if not SMODS.has_no_suit(card) and not SMODS.has_any_suit(card) then
+            count[card.base.suit] = (count[card.base.suit] or 0) + 1
+        end
+    end
+
+    local max = 0
+    local suits = {}
+    for suit_key, suit_count in pairs(count) do
+        if suit_count > max then
+            max = suit_count
+            suits = { suit_key }
+        elseif suit_count == max then
+            table.insert(suits, suit_key)
+        end
+    end
+
+    if #suits > 0 then
+        return pseudorandom_element(suits, seed or "JoyousSpring") or "Hearts"
+    end
+
+    return (pseudorandom_element(SMODS.Suits, seed or "JoyousSpring") or {}).key or "Hearts"
+end
+
+---Checks if the *card*'s rarity is in *list*
+---@param card Card|table
+---@param list string[]
+---@return boolean
 JoyousSpring.is_card_rarity_from_array = function(card, list)
     for _, rarity in ipairs(list) do
         if card.config.center.rarity == rarity then
@@ -579,6 +591,35 @@ JoyousSpring.is_card_rarity_from_array = function(card, list)
         end
     end
     return false
+end
+
+---Return the planet card for the handname
+---@param handname string
+---@return string?
+JoyousSpring.get_played_planet = function(handname)
+    local planet
+    for _, center in pairs(G.P_CENTER_POOLS.Planet) do
+        if center.config.hand_type == handname then
+            planet = center.key
+        end
+        if center.config.joy_hand_types then
+            for _, name in ipairs(center.config.joy_hand_types) do
+                if name == handname then
+                    planet = center.key
+                    break
+                end
+            end
+            if planet then break end
+        end
+    end
+    return planet
+end
+
+---Checks if object is a card
+---@param obj any
+---@return boolean
+JoyousSpring.is_card = function(obj)
+    return type(obj) == "table" and type(obj.is) == "function" and obj:is(Card)
 end
 
 --- Talisman compat

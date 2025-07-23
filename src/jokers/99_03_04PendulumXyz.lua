@@ -67,4 +67,7 @@ SMODS.Joker({
         return JoyousSpring.count_materials_owned({ { summon_type = "XYZ" } }) >
             (card.area and card.area == G.jokers and 1 or 0)
     end,
+    joy_can_detach = function(card)
+        return JoyousSpring.count_materials_in_graveyard({ { is_pendulum = true } }, true) > 0
+    end
 })

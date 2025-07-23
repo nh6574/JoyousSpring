@@ -1,4 +1,4 @@
---[[ G.FUNCS.joy_sort_hanafuda_hand_month = function()
+G.FUNCS.joy_sort_hanafuda_hand_month = function()
     local months = {
         january = 1,
         february = 2,
@@ -113,7 +113,7 @@ function Game:update(dt)
         end
     end
 end
-]]
+
 JoyousSpring.create_sell_and_use_buttons = function(card, args)
     local args = args or {}
     local sell = nil
@@ -182,7 +182,7 @@ JoyousSpring.create_sell_and_use_buttons = function(card, args)
             nodes = {
                 {
                     n = G.UIT.C,
-                    config = { ref_table = card, align = "cr", maxw = 1.25, padding = 0.1, r = 0.08, minw = 1.25, minh = 0, hover = true, shadow = true, colour = G.C.JOY.XYZ or G.C.UI.BACKGROUND_INACTIVE, button = 'joy_detach_material', handy_insta_action = "use" },
+                    config = { ref_table = card, align = "cr", maxw = 1.25, padding = 0.1, r = 0.08, minw = 1.25, minh = 0, hover = true, shadow = true, colour = G.C.JOY.XYZ or G.C.UI.BACKGROUND_INACTIVE, func = 'joy_can_detach', button = 'joy_detach_material', handy_insta_action = "use" },
                     nodes = {
                         { n = G.UIT.B, config = { w = 0.1, h = 0.6 } },
                         { n = G.UIT.T, config = { text = localize('k_joy_detach'), colour = G.C.UI.TEXT_LIGHT, scale = 0.55, shadow = true } }
@@ -548,7 +548,7 @@ local cardarea_draw_ref = CardArea.draw
 function CardArea:draw()
     cardarea_draw_ref(self)
 
-    if self.config.type == 'extra_deck' or self.config.type == 'summon_materials' then
+    if self.states.visible and self.config.type == 'extra_deck' or self.config.type == 'summon_materials' then
         for k, v in ipairs(self.ARGS.draw_layers) do
             for i = 1, #self.cards do
                 if self.cards[i] ~= G.CONTROLLER.focused.target then
@@ -697,6 +697,7 @@ function Game:start_run(args)
             bond = 'Weak'
         }
     }
+    if JoyousSpring.hide_ui then self.joy_extra_buttons.states.visible = false end
     self.HUD:recalculate()
 end
 
@@ -756,4 +757,82 @@ function Game:main_menu(change_context)
     end
 
     return ret
+end
+
+-- CONTROLLER UI
+
+G.FUNCS.joy_focus_summon = function(e)
+    local card = e.config.ref_table
+    local summon_type = card.ability.extra.joyous_spring.summon_type
+    e.config.colour = G.C.JOY[summon_type] or G.C.UI.BACKGROUND_INACTIVE
+end
+
+JoyousSpring.card_focus_ui = function(card, base_background)
+    local base_attach = base_background:get_UIE_by_ID('ATTACH_TO_ME')
+    local card_width = card.T.w
+    if not card.area then return base_background end
+    if not JoyousSpring.is_summon_type(card, "RITUAL") and card.area == G.shop_jokers then
+        local buy_and_use = nil
+        if JoyousSpring.is_pendulum_monster(card) then
+            base_attach.children.buy_and_use = G.UIDEF.card_focus_button {
+                card = card, parent = base_attach, type = 'buy_and_use',
+                func = 'joy_can_buy_and_use', button = 'joy_buy_and_use', card_width = card_width
+            }
+            buy_and_use = true
+        end
+        base_attach.children.buy = G.UIDEF.card_focus_button {
+            card = card, parent = base_attach, type = 'buy',
+            func = 'can_buy', button = 'buy_from_shop', card_width = card_width, buy_and_use = buy_and_use
+        }
+    end
+    if JoyousSpring.is_pendulum_monster(card) and card.area == G.jokers and not card.facing ~= 'back' then
+        base_attach.children.use = G.UIDEF.card_focus_button {
+            card = card, parent = base_attach, type = 'use',
+            func = 'joy_can_use', button = 'joy_use_card', card_width = card_width
+        }
+    end
+    if JoyousSpring.is_summon_type(card, "RITUAL") and (card.area == G.pack_cards or card.area == G.shop_jokers) and JoyousSpring.can_summon(card) then
+        base_attach.children.use = G.UIDEF.card_focus_button {
+            card = card, parent = base_attach, type = 'select', func = "joy_focus_summon", button = 'joy_perform_summon', card_width = card_width
+        }
+    end
+    if not JoyousSpring.is_summon_type(card, "RITUAL") and card.area == G.pack_cards then
+        base_attach.children.use = G.UIDEF.card_focus_button {
+            card = card, parent = base_attach, type = 'select',
+            func = 'can_select_card', button = 'use_card', card_width = card_width
+        }
+    end
+    if card.area == JoyousSpring.extra_deck_area and JoyousSpring.can_summon(card) then
+        base_attach.children.use = G.UIDEF.card_focus_button {
+            card = card, parent = base_attach, type = 'select', func = "joy_focus_summon", button = 'joy_perform_summon', card_width = card_width
+        }
+    end
+    if (card.area == G.jokers or card.area == G.consumeables or card.area == JoyousSpring.extra_deck_area or card.area == JoyousSpring.field_spell_area) and G.STATE ~= G.STATES.TUTORIAL then
+        base_attach.children.sell = G.UIDEF.card_focus_button {
+            card = card, parent = base_attach, type = 'sell',
+            func = 'can_sell_card', button = 'sell_card', card_width = card_width
+        }
+        if JoyousSpring.has_activated_effect(card) then
+            base_attach.children.use = G.UIDEF.card_focus_button {
+                card = card, parent = base_attach, type = 'select', func = "joy_can_activate", button = 'joy_activate_effect', card_width = card_width
+            }
+        end
+        if JoyousSpring.is_summon_type(card, "XYZ") and JoyousSpring.get_xyz_materials(card) > 0 then
+            base_attach.children.redeem = G.UIDEF.card_focus_button {
+                card = card, parent = base_attach, type = 'redeem', func = "joy_focus_summon", button = 'joy_detach_material', card_width = card_width
+            }
+        end
+    end
+
+    return base_background
+end
+
+local controller_button_press_update_ref = Controller.button_press_update
+function Controller:button_press_update(button, dt)
+    controller_button_press_update_ref(self, button, dt)
+    if self.focused.target and JoyousSpring.is_monster_card(self.focused.target) and self.focused.target.area and self.focused.target.area == JoyousSpring.summon_effect_area then
+        if button == "a" then
+            self.focused.target:highlight(not self.focused.target.highlighted)
+        end
+    end
 end

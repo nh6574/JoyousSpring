@@ -30,12 +30,21 @@ elseif string.find(config.name, 'joker') and JoyousSpring and JoyousSpring.is_mo
 # Consumable box
 [[patches]]
 [patches.pattern]
-target = "functions/UI_definitions.lua"
-pattern = "desc_from_rows(AUT.main),"
-position = 'before'
+target = 'functions/UI_definitions.lua'
 match_indent = true
+position = 'before'
+pattern = '''
+if multi_boxes[1] then
+'''
 payload = '''
-AUT.joy_consumable and desc_from_rows(AUT.joy_consumable) or nil,
+if AUT.joy_consumable then
+    for i=1, #ret_val.nodes[1].nodes[1].nodes[1].nodes do -- find the main box
+        if ret_val.nodes[1].nodes[1].nodes[1].nodes[i] and ret_val.nodes[1].nodes[1].nodes[1].nodes[i].config and ret_val.nodes[1].nodes[1].nodes[1].nodes[i].config.main_box_flag then
+            table.insert(ret_val.nodes[1].nodes[1].nodes[1].nodes, i, desc_from_rows(AUT.joy_consumable))
+            break
+        end
+    end
+end
 '''
 
 # Better info_queue layout
@@ -73,7 +82,7 @@ payload = '''
 table.insert(info_cols, {n=G.UIT.C, config = {align=JoyousSpring.is_monster_card(card) and card.area and card.area == G.shop_jokers and "tm" or "cm"}, nodes = col})
 '''
 
-# More info for info_queue layout
+# More info for info_queue layout and transferred ability text
 [[patches]]
 [patches.pattern]
 target = "functions/UI_definitions.lua"
@@ -82,6 +91,21 @@ position = 'at'
 match_indent = true
 payload = '''
 info_boxes = {{n=G.UIT.R, config = {align="cm", padding = 0.05, card_pos = card.T.x, card = card}, nodes = info_cols}}
+
+if card and not card.debuff and type(card.ability) == "table" and type(card.ability.extra) == "table" and (card.ability.extra.joyous_spring or {}).material_effects and next(card.ability.extra.joyous_spring.material_effects) then
+    local modNodes = {}
+
+    modNodes[#modNodes + 1] = {}
+    local loc_vars = { background_colour = G.C.CLEAR, text_colour = G.C.WHITE }
+    localize { type = 'descriptions', key = "joy_tooltip_transferred", set = 'Other', nodes = modNodes[#modNodes], scale = loc_vars.scale, text_colour = loc_vars.text_colour }
+    modNodes[#modNodes] = desc_from_rows(modNodes[#modNodes])
+    modNodes[#modNodes].config.colour = loc_vars.background_colour or modNodes[#modNodes].config.colour
+
+    badges = {
+        {n=G.UIT.C, config={align = "cm", padding = 0.03}, nodes=badges},
+        {n=G.UIT.C, config={align = "cl", padding = 0.03}, nodes=modNodes},
+    }
+end
 '''
 
 # Nicer display for Jokers with long names
@@ -93,44 +117,3 @@ position = 'at'
 match_indent = true
 payload = '''
 '''
-
-# Fix name scale when using formatting
-[[patches]]
-[patches.pattern]
-target = "functions/misc_functions.lua"
-pattern = '''
-local final_line = {}
-'''
-position = 'after'
-match_indent = true
-payload = '''
-local final_name_assembled_string = ''
-if args.type == 'name' and loc_target.name_parsed then
-    for _, part in ipairs(lines) do
-        local assembled_string_part = ''
-        for _, subpart in ipairs(part.strings) do
-            assembled_string_part = assembled_string_part..(type(subpart) == 'string' and subpart or format_ui_value(args.vars[tonumber(subpart[1])]) or 'ERROR')
-        end
-        final_name_assembled_string = final_name_assembled_string..assembled_string_part
-    end
-end
-'''
-
-[[patches]]
-[patches.pattern]
-target = "functions/misc_functions.lua"
-pattern = '''
-spacing = math.max(0, 0.32*(17 - #assembled_string)),
-'''
-position = 'at'
-match_indent = true
-payload = '''
-spacing = math.max(0, 0.32*(17 - #(final_name_assembled_string or assembled_string))),
-'''
-
-[[patches]]
-[patches.regex]
-target = 'functions/misc_functions.lua'
-position = 'at'
-pattern = '0\.004\*#assembled_string'
-payload = '0.004*#(final_name_assembled_string or assembled_string)'

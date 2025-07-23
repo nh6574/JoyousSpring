@@ -1,6 +1,6 @@
 ---GRAVEYARD
 
--- Revive
+--#region Utils
 
 ---Revives a card from the GY
 ---@param key string
@@ -52,9 +52,32 @@ JoyousSpring.revive_pseudorandom = function(property_list, seed, must_have_room,
     return nil
 end
 
+local function filter_cards_sent_to_gy(choices)
+    if not next(choices) then return {} end
+    if G.jokers then
+        for _, joker in ipairs(G.jokers.cards) do
+            if not joker.debuff and joker.config.center.joy_can_be_sent_to_graveyard then
+                choices = joker.config.center:joy_can_be_sent_to_graveyard(joker, choices) or choices
+            end
+        end
+        if JoyousSpring.field_spell_area then
+            for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
+                if not joker.debuff and joker.config.center.joy_can_be_sent_to_graveyard then
+                    choices = joker.config.center:joy_can_be_sent_to_graveyard(joker, choices) or choices
+                end
+            end
+        end
+    end
+    return choices, #choices > 0
+end
+
+---Send card to GY
+---@param card Card|table|string
 JoyousSpring.send_to_graveyard = function(card)
-    if JoyousSpring.graveyard and not JoyousSpring.delete_run and G.jokers then
+    if JoyousSpring.graveyard and not G.in_delete_run and G.jokers then
         if type(card) == "string" then
+            local _, is_allowed = filter_cards_sent_to_gy({ card })
+            if not is_allowed then return end
             local not_summoned = JoyousSpring.is_material_center(card, { exclude_summon_types = { "NORMAL" } })
             local cannot_revive = G.P_CENTERS[card].config.extra.joyous_spring.cannot_revive or not_summoned
             SMODS.calculate_context({
@@ -69,6 +92,8 @@ JoyousSpring.send_to_graveyard = function(card)
             JoyousSpring.graveyard[card].summonable = JoyousSpring.graveyard[card].summonable +
                 (cannot_revive and 0 or 1)
         elseif type(card) == "table" then
+            local _, is_allowed = filter_cards_sent_to_gy({ card.config.center.key })
+            if not is_allowed then return end
             local not_summoned = not JoyousSpring.is_summon_type(card, "NORMAL") and not JoyousSpring.is_summoned(card)
             local cannot_revive = card.ability.extra.joyous_spring.cannot_revive or not_summoned
             JoyousSpring.sent_to_gy_context = true
@@ -90,6 +115,146 @@ JoyousSpring.send_to_graveyard = function(card)
     end
 end
 
+---Sends random cards to the graveyard
+---@param property_list material_properties[]
+---@param seed? string
+---@param amount? number
+---@param different_names? boolean?
+---@return string[]
+JoyousSpring.send_to_graveyard_pseudorandom = function(property_list, seed, amount, different_names)
+    local choices = JoyousSpring.get_materials_in_collection(property_list)
+    choices, not_empty_choices = filter_cards_sent_to_gy(choices)
+    if not not_empty_choices then return {} end
+    local sent = {}
+    for i = 1, amount or 1 do
+        if not next(choices) then return sent end
+        local key_to_send, index = pseudorandom_element(choices, seed or "JoyousSpring")
+        if key_to_send then
+            table.insert(sent, key_to_send)
+            JoyousSpring.send_to_graveyard(key_to_send)
+            if different_names then
+                table.remove(choices, index)
+            end
+        end
+    end
+    return sent
+end
+
+---Empties the graveyard
+---@param allow? material_properties[]
+---@param deny? material_properties[]
+JoyousSpring.empty_graveyard = function(allow, deny)
+    JoyousSpring.remove_from_graveyard(nil, nil, allow, deny, true)
+end
+
+---Removes cards from the graveyard
+---@param amount? integer
+---@param seed? string
+---@param allow? material_properties[]
+---@param deny? material_properties[]
+---@param from_each? boolean
+---@param different_names? boolean
+JoyousSpring.remove_from_graveyard = function(amount, seed, allow, deny, from_each, different_names)
+    if from_each then
+        for key, t in pairs(JoyousSpring.graveyard) do
+            local count = t.count
+            if count > 0 then
+                if (not deny or #deny == 0) and (not allow or #allow == 0) then
+                    t.count = math.max(t.count - (amount or t.count), 0)
+                    t.summonable = math.min(t.summonable, t.count)
+                else
+                    local removed = false
+                    for _, property in ipairs(deny or {}) do
+                        if JoyousSpring.is_material_center(key, property) then
+                            t.count = math.max(t.count - (amount or t.count), 0)
+                            t.summonable = math.min(t.summonable, t.count)
+                            removed = true
+                            break
+                        end
+                    end
+                    if not removed and allow and next(allow) then
+                        removed = true
+                        for _, property in ipairs(allow) do
+                            if JoyousSpring.is_material_center(key, property) then
+                                removed = false
+                                break
+                            end
+                        end
+                        if removed then
+                            t.count = math.max(t.count - (amount or t.count), 0)
+                            t.summonable = math.min(t.summonable, t.count)
+                        end
+                    end
+                end
+            end
+        end
+    else
+        local amount_left = amount or 1
+        local materials = {}
+        for key, t in pairs(JoyousSpring.graveyard) do
+            local count = t.count
+            if count > 0 then
+                if (not deny or #deny == 0) and (not allow or #allow == 0) then
+                    for i = 1, (different_names and 1 or t.count) do
+                        table.insert(materials, key)
+                    end
+                else
+                    local added = false
+                    for _, property in ipairs(deny or {}) do
+                        if JoyousSpring.is_material_center(key, property) then
+                            for i = 1, (different_names and 1 or t.count) do
+                                table.insert(materials, key)
+                            end
+                            added = true
+                            break
+                        end
+                    end
+                    if not added and allow and next(allow) then
+                        added = true
+                        for _, property in ipairs(allow) do
+                            if JoyousSpring.is_material_center(key, property) then
+                                added = false
+                                break
+                            end
+                        end
+                        if added then
+                            for i = 1, (different_names and 1 or t.count) do
+                                table.insert(materials, key)
+                            end
+                        end
+                    end
+                end
+            end
+        end
+        for i = 1, amount_left do
+            if not next(materials) then break end
+            local choice, index = pseudorandom_element(materials, seed or "JoyousSpring")
+            if choice then
+                local t = JoyousSpring.graveyard[choice]
+                if t then
+                    t.count = math.max(t.count - 1, 0)
+                    t.summonable = math.min(t.summonable, t.count)
+                end
+                table.remove(materials, index)
+            end
+        end
+    end
+end
+
+---Get GY count
+---@return integer
+JoyousSpring.get_graveyard_count = function()
+    if not JoyousSpring.graveyard then return 0 end
+
+    local total = 0
+    for _, t in pairs(JoyousSpring.graveyard) do
+        total = total + t.count
+    end
+    return total
+end
+
+--#endregion
+
 -- Allow sliced cards to activate in the sent to GY context
 local card_can_calculate_ref = Card.can_calculate
 function Card:can_calculate(ignore_debuff, ignore_sliced)
@@ -98,14 +263,6 @@ function Card:can_calculate(ignore_debuff, ignore_sliced)
         return (not self.debuff or ignore_debuff)
     end
     return ret
-end
-
--- Prevent GY from doing stuff at the end of the run
-local game_delete_run_ref = Game.delete_run
-function Game:delete_run()
-    JoyousSpring.delete_run = true
-    game_delete_run_ref(self)
-    JoyousSpring.delete_run = nil
 end
 
 JoyousSpring.create_graveyard_tab = function()
@@ -359,7 +516,7 @@ JoyousSpring.create_graveyard_tab = function()
     }
 end
 
-JoyousSpring.create_overlay_graveyard = function()
+JoyousSpring.create_overlay_graveyard = function(open_banishment)
     G.FUNCS.overlay_menu({
         definition = create_UIBox_generic_options({
             back_colour = G.C.JOY.TRAP,
@@ -373,12 +530,12 @@ JoyousSpring.create_overlay_graveyard = function()
                             tabs = {
                                 {
                                     label = localize('k_joy_graveyard'),
-                                    chosen = true,
+                                    chosen = not open_banishment,
                                     tab_definition_function = JoyousSpring.create_graveyard_tab
                                 },
                                 {
                                     label = localize('k_joy_banishment'),
-                                    chosen = false,
+                                    chosen = not not open_banishment,
                                     tab_definition_function = JoyousSpring.create_banishment_tab
                                 },
                             }

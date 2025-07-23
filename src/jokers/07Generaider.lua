@@ -37,11 +37,10 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and not context.retrigger_joker and
-                context.end_of_round and context.game_over == false and context.main_eval and G.GAME.blind.boss then
+                context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then
                 if #JoyousSpring.field_spell_area.cards < JoyousSpring.field_spell_area.config.card_limit then
                     JoyousSpring.add_to_extra_deck("j_joy_generaider_boss_stage")
-                    card.getting_sliced = true
-                    card:start_dissolve()
+                    SMODS.destroy_cards(card, nil, true)
                 end
             end
         end
@@ -84,7 +83,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and not context.retrigger_joker and
-                context.end_of_round and context.game_over == false and context.main_eval and G.GAME.blind.boss then
+                context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then
                 if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit +
                     ((card.edition and card.edition.negative) and 0 or 1) then
                     for i = 1, card.ability.extra.revives do
@@ -102,19 +101,16 @@ SMODS.Joker({
                             key = "j_joy_generaider_loptr"
                         })
                     end
-                    card.getting_sliced = true
-                    card:start_dissolve()
+                    SMODS.destroy_cards(card, nil, true)
                 end
             end
         end
     end,
     add_to_deck = function(self, card, from_debuff)
         if not from_debuff and not card.debuff then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Generaider" }, rarity = 3, is_main_deck = true } })
-
-            for i = 1, card.ability.extra.mills do
-                JoyousSpring.send_to_graveyard(pseudorandom_element(choices, 'j_joy_generaider_vala'))
-            end
+            JoyousSpring.send_to_graveyard_pseudorandom(
+                { { monster_archetypes = { "Generaider" }, rarity = 3, is_main_deck = true } },
+                card.config.center.key, card.ability.extra.mills)
             SMODS.calculate_effect({ message = localize("k_joy_mill") }, card)
         end
     end,
@@ -179,6 +175,28 @@ SMODS.Joker({
     in_pool = function(self, args)
         return args and args.source and args.source == "JoyousSpring" or false
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            reminder_text = {
+                { ref_table = "card.joker_display_values", ref_value = "active_text" },
+            },
+            calc_function = function(card)
+                local disableable = G.GAME and G.GAME.blind and G.GAME.blind.get_type and
+                    ((not G.GAME.blind.disabled) and (G.GAME.blind:get_type() == 'Boss'))
+                card.joker_display_values.active = disableable
+                card.joker_display_values.active_text = localize(disableable and 'k_active' or 'ph_no_boss_active')
+            end,
+            style_function = function(card, text, reminder_text, extra)
+                if reminder_text and reminder_text.children[1] then
+                    reminder_text.children[1].config.colour = card.joker_display_values.active and G.C.GREEN or G.C.RED
+                    reminder_text.children[1].config.scale = card.joker_display_values.active and 0.35 or 0.3
+                    return true
+                end
+                return false
+            end
+        }
+    end
 })
 
 -- Nidhogg, Generaider Boss of Ice
@@ -265,6 +283,15 @@ SMODS.Joker({
     in_pool = function(self, args)
         return args and args.source and args.source == "JoyousSpring" or false
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            retrigger_function = function(playing_card, scoring_hand, held_in_hand, joker_card)
+                if held_in_hand then return 0 end
+                return joker_card.ability.extra.active and 1 * JokerDisplay.calculate_joker_triggers(joker_card) or 0
+            end
+        }
+    end
 })
 
 -- Frodi, Generaider Boss of Swords
@@ -572,6 +599,19 @@ SMODS.Joker({
     in_pool = function(self, args)
         return args and args.source and args.source == "JoyousSpring" or false
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            mod_function = function(card, mod_joker)
+                return {
+                    x_mult = mod_joker.ability.extra.active and card.facing == "front" and
+                        ((JoyousSpring.is_monster_archetype(card, "Generaider") or
+                                JoyousSpring.is_monster_type(card, "Machine")) and mod_joker.ability.extra.xmult and
+                            mod_joker.ability.extra.xmult ^ JokerDisplay.calculate_joker_triggers(mod_joker) or nil)
+                }
+            end
+        }
+    end
 })
 
 -- Naglfar, Generaider Boss of Fire
@@ -770,6 +810,20 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                card.joker_display_values.mult = card.ability.extra.mult * card.ability.extra.joyous_spring
+                    .xyz_materials
+            end
+        }
+    end
 })
 
 -- Laevatein, Generaider Boss of Shadows
@@ -837,6 +891,9 @@ SMODS.Joker({
             end
         end
     end,
+    joy_can_detach = function(card)
+        return #G.jokers.cards + G.GAME.joker_buffer > (card.area == G.jokers and 1 or 0)
+    end
 })
 
 -- Generaider Boss Stage
@@ -926,6 +983,16 @@ SMODS.Joker({
             (not card.ability.extra.used and #G.jokers.cards + G.GAME.joker_buffer - card.ability.extra.tributes < G.jokers.config.card_limit and #tokens >= card.ability.extra.tributes) and
             true or false
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "current_mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+        }
+    end
 })
 
 JoyousSpring.token_pool["generaider"] = {

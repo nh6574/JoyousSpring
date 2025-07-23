@@ -30,7 +30,7 @@ return {
                 name = "Transform",
                 text = {
                     "Changes a {C:attention}Joker{} into another",
-                    "Keeps any enhancements",
+                    "Keeps any modifiers",
                 },
             },
             joy_tooltip_revive = {
@@ -39,8 +39,8 @@ return {
                     "Create and remove a random card from the {C:attention}GY{}",
                     "Must have room and might have",
                     "a random edition, unless specified",
-                    "{s:0.9,C:inactive}({s:0.9,C:joy_spell}Extra Deck{} {s:0.9,C:inactive}and {s:0.9,C:joy_ritual}Ritual{} {s:0.9,C:attention}Jokers{} {s:0.9,C:inactive}that were not",
-                    "{s:0.9,C:inactive}properly summoned can't be revived)",
+                    "{s:0.9,C:inactive}({s:0.9,C:joy_spell}Special{} {s:0.9,C:attention}Jokers{} {s:0.9,C:inactive}that were not properly",
+                    "{s:0.9,C:inactive}summoned and {s:0.9,C:joy_spell}Field Spells{{s:0.9,C:inactive} can't be revived)",
                     "{s:0.9,C:inactive}(Revived Jokers have a sell value of 1)"
                 },
             },
@@ -75,6 +75,14 @@ return {
                     "{C:inactive}properly summoned first)"
                 },
             },
+            joy_tooltip_field_spell_joker = {
+                name = "Field Spell Joker",
+                text = {
+                    "Goes to the {C:joy_spell}Field Spell Area{}",
+                    "They don't count as owned {C:attention}Jokers{} for abilities",
+                    "while in that area unless specified"
+                },
+            },
             joy_tooltip_banish = {
                 name = "Banish",
                 text = {
@@ -87,6 +95,14 @@ return {
                 name = "Tribute",
                 text = {
                     "Destroy card to activate an ability",
+                },
+            },
+            joy_tooltip_excavate = {
+                name = "Excavate",
+                text = {
+                    "Reveal the top cards of the deck",
+                    "up to the maximum number listed on a card",
+                    "This occurs when {C:attention}Blind{} is selected unless specified",
                 },
             },
             joy_tooltip_material = {
@@ -116,7 +132,8 @@ return {
                 text = {
                     "Triggers once per round when card is",
                     "{C:attention}flipped{} face-up and lasts until",
-                    "the next end of round {C:inactive}(Unless specified)"
+                    "the next end of round {C:inactive}(Unless specified)",
+                    "{C:inactive}(Cards are flipped by abilities){}"
                 },
             },
             joy_tooltip_trap = {

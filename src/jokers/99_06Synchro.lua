@@ -51,7 +51,7 @@ SMODS.Joker({
         end
     end,
     add_to_deck = function(self, card, from_debuff)
-        if not from_debuff then
+        if not from_debuff and not card.debuff then
             for i = 1, card.ability.extra.revives do
                 JoyousSpring.revive_pseudorandom({ { is_extra_deck = true, monster_type = "Cyberse" } },
                     "j_joy_firewall_saber", false, "e_negative")
@@ -104,9 +104,8 @@ SMODS.Joker({
             if context.end_of_round and context.game_over == false and context.main_eval then
                 local count = 0
                 for _, joker in ipairs(G.jokers.cards) do
-                    if joker ~= card and not joker.ability.eternal and not joker.getting_sliced and not joker.debuff and joker.config.center.key ~= "j_joy_token" then
-                        joker.getting_sliced = true
-                        joker:start_dissolve()
+                    if joker ~= card and not SMODS.is_eternal(joker, card) and not joker.getting_sliced and not joker.debuff and joker.config.center.key ~= "j_joy_token" then
+                        SMODS.destroy_cards(joker, nil, true)
                         count = count + 1
                     end
                 end
@@ -116,6 +115,19 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                card.joker_display_values.mult = card.ability.extra.mult *
+                    JoyousSpring.count_materials_owned({ { exclude_debuffed = true } })
+            end
+        }
+    end
 })
 
 JoyousSpring.token_pool["utchatzimime"] = {
@@ -238,7 +250,7 @@ SMODS.Joker({
             if context.setting_blind and context.main_eval then
                 local choices = {}
                 for _, field in ipairs(JoyousSpring.field_spell_area.cards) do
-                    if not field.ability.eternal then
+                    if not SMODS.is_eternal(field, card) then
                         table.insert(choices, field)
                     end
                 end
@@ -247,8 +259,7 @@ SMODS.Joker({
                     for i = 1, card.ability.extra.destroys_and_creates do
                         local chosen, index = pseudorandom_element(choices, 'j_joy_afd')
                         if chosen then
-                            chosen.getting_sliced = true
-                            chosen:start_dissolve()
+                            SMODS.destroy_cards(chosen, nil, true)
                             destroyed = destroyed + 1
                             table.remove(choices, index)
                         end
@@ -269,7 +280,7 @@ SMODS.Joker({
         end
     end,
     add_to_deck = function(self, card, from_debuff)
-        if not from_debuff then
+        if not from_debuff and not card.debuff then
             for i = 1, card.ability.extra.creates do
                 JoyousSpring.create_pseudorandom({ { is_tuner = true } }, 'j_joy_afd', true)
             end

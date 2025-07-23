@@ -44,7 +44,7 @@ local function summon_from_booster(card)
     end
 
     if not card.from_area then card.from_area = card.area end
-    if card.area and (not nc or card.area == G.pack_cards) then card.area:remove_card(card) end
+    if card.area and card.area == G.pack_cards then card.area:remove_card(card) end
 
     card:add_to_deck()
     G.jokers:emplace(card)
@@ -167,19 +167,25 @@ JoyousSpring.perform_summon = function(card, card_list, summon_type)
     end
 end
 
+---Creates a card with correct timings
+---@param add_params Card|table|CreateCard
+---@param must_have_room? boolean
+---@param card_limit_modif? integer
+---@param from_revive_key? string
+---@return Card|table
 JoyousSpring.create_summon = function(add_params, must_have_room, card_limit_modif, from_revive_key)
     local card = add_params.is and add_params:is(Card) and add_params or SMODS.create_card(add_params)
     card.states.visible = false
     G.E_MANAGER:add_event(Event({
         func = function()
-            if not must_have_room or (#G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit + (card_limit_modif or 0)) then
+            local area = JoyousSpring.is_field_spell(card) and JoyousSpring.field_spell_area or G.jokers
+            if not must_have_room or (#area.cards + (area == G.jokers and G.GAME.joker_buffer or 0) < area.config.card_limit + (card_limit_modif or 0)) then
                 card.states.visible = true
                 card:add_to_deck()
-                G.jokers:emplace(card)
+                area:emplace(card)
             else
                 card.getting_sliced = true
                 card:remove()
-                card = nil
                 if from_revive_key then
                     JoyousSpring.graveyard[from_revive_key].count = JoyousSpring.graveyard[from_revive_key].count + 1
                     JoyousSpring.graveyard[from_revive_key].summonable = JoyousSpring.graveyard[from_revive_key]
@@ -190,6 +196,26 @@ JoyousSpring.create_summon = function(add_params, must_have_room, card_limit_mod
         end
     }))
     return card
+end
+
+---Create a random card with *property_list* properties
+---@param property_list material_properties[]
+---@param seed string|number?
+---@param must_have_room boolean?
+---@param not_owned boolean?
+---@param edition table|string?
+---@param ignore_in_pool boolean?
+---@return Card|table?
+JoyousSpring.create_pseudorandom = function(property_list, seed, must_have_room, not_owned, edition, ignore_in_pool)
+    local choices = JoyousSpring.get_materials_in_collection(property_list, not_owned, nil, not ignore_in_pool)
+    local key_to_add = pseudorandom_element(choices, seed or "JoyousSpring")
+    if key_to_add then
+        return JoyousSpring.create_summon({
+            key = key_to_add,
+            ---@diagnostic disable-next-line: assign-type-mismatch
+            edition = edition
+        }, must_have_room)
+    end
 end
 
 ---Summons a Token with specified attributes
@@ -338,18 +364,18 @@ JoyousSpring.is_valid_material_combo = function(combo_list, condition)
                 if not JoyousSpring.is_monster_card(card_1) or not JoyousSpring.is_monster_card(card_2) then
                     return false
                 end
-                local card_1_properties = card_1.ability.extra.joyous_spring
-                local card_2_properties = card_2.ability.extra.joyous_spring
-                if restrictions.different_attributes and card_1_properties.attribute == card_2_properties.attribute then
+                local is_same_type = JoyousSpring.is_same_type_attribute(card_1, card_2, nil, true)
+                local is_same_attribute = JoyousSpring.is_same_type_attribute(card_1, card_2, true)
+                if restrictions.different_attributes and is_same_attribute then
                     return false
                 end
-                if restrictions.same_attribute and card_1_properties.attribute ~= card_2_properties.attribute then
+                if restrictions.same_attribute and not is_same_attribute then
                     return false
                 end
-                if restrictions.different_types and card_1_properties.monster_type == card_2_properties.monster_type then
+                if restrictions.different_types and is_same_type then
                     return false
                 end
-                if restrictions.same_type and card_1_properties.monster_type ~= card_2_properties.monster_type then
+                if restrictions.same_type and not is_same_type then
                     return false
                 end
             end
@@ -563,8 +589,8 @@ JoyousSpring.can_summon = function(card, card_list)
 
     if card.ability.extra.joyous_spring.summon_consumeable_conditions then
         local card_table = card_list or G.consumeables.cards
-        return JoyousSpring.can_summon_consumeables(card, card.ability.extra.joyous_spring.summon_consumeable_conditions,
-                card_table),
+        local conditions = card.ability.extra.joyous_spring.summon_consumeable_conditions
+        return JoyousSpring.can_summon_consumeables(card, conditions, card_table),
             (card.edition and card.edition.negative and true) or
             (#G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit)
     else
