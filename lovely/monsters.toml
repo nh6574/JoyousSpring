@@ -32,12 +32,19 @@ elseif string.find(config.name, 'joker') and JoyousSpring and JoyousSpring.is_mo
 [patches.pattern]
 target = 'functions/UI_definitions.lua'
 match_indent = true
-position = 'after'
+position = 'before'
 pattern = '''
-if ret_val.nodes[1].nodes[1].nodes[1].nodes[i] and ret_val.nodes[1].nodes[1].nodes[1].nodes[i].config and ret_val.nodes[1].nodes[1].nodes[1].nodes[i].config.main_box_flag then
+if multi_boxes[1] then
 '''
 payload = '''
-if AUT.joy_consumable then table.insert(ret_val.nodes[1].nodes[1].nodes[1].nodes, i, desc_from_rows(AUT.joy_consumable)) end
+if AUT.joy_consumable then
+    for i=1, #ret_val.nodes[1].nodes[1].nodes[1].nodes do -- find the main box
+        if ret_val.nodes[1].nodes[1].nodes[1].nodes[i] and ret_val.nodes[1].nodes[1].nodes[1].nodes[i].config and ret_val.nodes[1].nodes[1].nodes[1].nodes[i].config.main_box_flag then
+            table.insert(ret_val.nodes[1].nodes[1].nodes[1].nodes, i, desc_from_rows(AUT.joy_consumable))
+            break
+        end
+    end
+end
 '''
 
 # Better info_queue layout
@@ -75,7 +82,7 @@ payload = '''
 table.insert(info_cols, {n=G.UIT.C, config = {align=JoyousSpring.is_monster_card(card) and card.area and card.area == G.shop_jokers and "tm" or "cm"}, nodes = col})
 '''
 
-# More info for info_queue layout
+# More info for info_queue layout and transferred ability text
 [[patches]]
 [patches.pattern]
 target = "functions/UI_definitions.lua"
