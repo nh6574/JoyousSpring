@@ -1077,6 +1077,7 @@ JoyousSpring.is_material_center = function(card_key, properties)
             return false
         end
     end
+
     if properties.is_field_spell then
         if not (monster_card_properties or {}).is_field_spell or not extra_values.is_field_spell then
             return false
@@ -1160,12 +1161,14 @@ end
 ---@param property_list material_properties[]?
 ---@param different_names boolean?
 ---@param for_tribute boolean?
+---@param count_field_spell boolean?
 ---@return Card[]
-JoyousSpring.get_materials_owned = function(property_list, different_names, for_tribute)
+JoyousSpring.get_materials_owned = function(property_list, different_names, for_tribute, count_field_spell)
     if not G.jokers then return {} end
 
     local materials = {}
     local keys = {}
+
     for _, joker in ipairs(G.jokers.cards) do
         if joker.getting_sliced then
         elseif not property_list or #property_list == 0 then
@@ -1186,15 +1189,39 @@ JoyousSpring.get_materials_owned = function(property_list, different_names, for_
             end
         end
     end
+    if count_field_spell then
+        for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
+            if joker.getting_sliced then
+            elseif not property_list or #property_list == 0 then
+                if not keys[joker.config.center_key] or not different_names then
+                    table.insert(materials, joker)
+                    keys[joker.config.center_key] = true
+                end
+            else
+                for _, property in ipairs(property_list) do
+                    if keys[joker.config.center_key] and different_names then
+                        break
+                    end
+                    if JoyousSpring.is_material(joker, property, for_tribute and "TRIBUTE" or nil) then
+                        table.insert(materials, joker)
+                        keys[joker.config.center_key] = true
+                        break
+                    end
+                end
+            end
+        end
+    end
     return materials
 end
 
 ---Count all materials in G.jokers that fulfill **property_list**
 ---@param property_list material_properties[]
 ---@param different_names boolean?
+---@param for_tribute boolean?
+---@param count_field_spell boolean?
 ---@return integer
-JoyousSpring.count_materials_owned = function(property_list, different_names, for_tribute)
-    return #JoyousSpring.get_materials_owned(property_list, different_names, for_tribute)
+JoyousSpring.count_materials_owned = function(property_list, different_names, for_tribute, count_field_spell)
+    return #JoyousSpring.get_materials_owned(property_list, different_names, for_tribute, count_field_spell)
 end
 
 ---Get all materials in graveyard that fulfill **property_list**
@@ -1258,10 +1285,11 @@ end
 ---@param property_list material_properties[]
 ---@param to_revive boolean? Checks if it can be revived
 ---@param different_names boolean?
+---@param count_field_spell boolean?
 ---@return integer
-JoyousSpring.count_all_materials = function(property_list, to_revive, different_names)
+JoyousSpring.count_all_materials = function(property_list, to_revive, different_names, count_field_spell)
     return JoyousSpring.count_materials_in_graveyard(property_list, to_revive, different_names) +
-        JoyousSpring.count_materials_owned(property_list, different_names)
+        JoyousSpring.count_materials_owned(property_list, different_names, false, count_field_spell)
 end
 
 ---Get cards in the collection that fulfill *property_list*
@@ -1275,6 +1303,7 @@ JoyousSpring.get_materials_in_collection = function(property_list, not_owned, no
         local k = v.key
         if (not not_owned or not G.jokers or not next(SMODS.find_card(k, true))) and
             (not not_extra or not JoyousSpring.is_in_extra_deck(k)) then
+            local in_pool = true
             if is_in_pool and v.in_pool and type(v.in_pool) == 'function' then
                 in_pool, _ = v:in_pool({ source = "JoyousSpring" })
             end

@@ -532,11 +532,11 @@ SMODS.Joker({
 
                 for i = 1, card.ability.extra.cards_to_create do
                     if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
-                        JoyousSpring.create_summon({
-                            set = "Joker",
-                            rarity = "Uncommon",
-                            key_append = "JoyousSpring"
-                        }, true)
+                        JoyousSpring.create_pseudorandom({ {
+                            rarity = 2,
+                            is_field_spell = #JoyousSpring.field_spell_area.cards <
+                                JoyousSpring.field_spell_area.config.card_limit or nil
+                        } }, card.config.center.key, true)
                     end
                 end
             end

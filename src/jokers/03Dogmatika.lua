@@ -131,7 +131,7 @@ SMODS.Joker({
         return {
             mod_function = function(card, mod_joker)
                 return {
-                    mult = (JoyousSpring.is_monster_archetype(card, "Dogmatika") and mod_joker.ability.extra.mult and
+                    mult = (card.area == G.jokers and JoyousSpring.is_monster_archetype(card, "Dogmatika") and mod_joker.ability.extra.mult and
                         mod_joker.ability.extra.mult * JokerDisplay.calculate_joker_triggers(mod_joker) or nil)
                 }
             end
@@ -571,6 +571,17 @@ SMODS.Joker({
             end
         end
     end,
+    add_to_deck = function(self, card, from_debuff)
+        if G.shop_jokers then
+            for _, other_card in ipairs(G.shop_jokers.cards or {}) do
+                if JoyousSpring.is_extra_deck_monster(other_card) then
+                    other_card.ability.extra.joyous_spring.is_free = true
+                    JoyousSpring.create_perma_debuffed_card(other_card, "Dogmatika")
+                    other_card:set_cost()
+                end
+            end
+        end
+    end,
     joy_create_card_for_shop = function(card, other_card, area)
         if other_card and JoyousSpring.is_extra_deck_monster(other_card) and next(SMODS.find_card("j_joy_dogma_knight")) then
             other_card.ability.extra.joyous_spring.is_free = true
@@ -745,8 +756,8 @@ SMODS.Joker({
                 for i = 1, card.ability.extra.creates do
                     if #G.jokers.cards + G.GAME.joker_buffer - tribute_amount < G.jokers.config.card_limit then
                         JoyousSpring.create_pseudorandom(
-                            { { monster_archetypes = { "Dogmatika" } } },
-                            'j_joy_dogma_nation', true, true)
+                            { { monster_archetypes = { "Dogmatika" }, is_main_deck = true } },
+                            'j_joy_dogma_nation', true)
                     end
                 end
             end

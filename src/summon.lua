@@ -178,10 +178,11 @@ JoyousSpring.create_summon = function(add_params, must_have_room, card_limit_mod
     card.states.visible = false
     G.E_MANAGER:add_event(Event({
         func = function()
-            if not must_have_room or (#G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit + (card_limit_modif or 0)) then
+            local area = JoyousSpring.is_field_spell(card) and JoyousSpring.field_spell_area or G.jokers
+            if not must_have_room or (#area.cards + (area == G.jokers and G.GAME.joker_buffer or 0) < area.config.card_limit + (card_limit_modif or 0)) then
                 card.states.visible = true
                 card:add_to_deck()
-                G.jokers:emplace(card)
+                area:emplace(card)
             else
                 card.getting_sliced = true
                 card:remove()

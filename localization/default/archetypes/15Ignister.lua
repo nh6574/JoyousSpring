@@ -35,7 +35,7 @@ return {
                     },
                     {
                         "Once per round, you can {C:attention}tribute #2#{} {C:joy_normal}Cyberse{}",
-                        "to create {C:attention}#3#{} {C:joy_normal}Main Deck {C:green}Uncommon{} {C:joy_normal}\"@Ignister\"",
+                        "to create {C:attention}#3#{} {C:green}Uncommon{} {C:joy_normal}Main Deck \"@Ignister\"",
                         "{C:inactive}(Must have room){}",
                     },
                     {

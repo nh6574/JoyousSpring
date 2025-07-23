@@ -39,8 +39,8 @@ return {
                     "Create and remove a random card from the {C:attention}GY{}",
                     "Must have room and might have",
                     "a random edition, unless specified",
-                    "{s:0.9,C:inactive}({s:0.9,C:joy_spell}Extra Deck{} {s:0.9,C:inactive}and {s:0.9,C:joy_ritual}Ritual{} {s:0.9,C:attention}Jokers{} {s:0.9,C:inactive}that were not",
-                    "{s:0.9,C:inactive}properly summoned can't be revived)",
+                    "{s:0.9,C:inactive}({s:0.9,C:joy_spell}Special{} {s:0.9,C:attention}Jokers{} {s:0.9,C:inactive}that were not properly",
+                    "{s:0.9,C:inactive}summoned and {s:0.9,C:joy_spell}Field Spells{{s:0.9,C:inactive} can't be revived)",
                     "{s:0.9,C:inactive}(Revived Jokers have a sell value of 1)"
                 },
             },
@@ -78,7 +78,9 @@ return {
             joy_tooltip_field_spell_joker = {
                 name = "Field Spell Joker",
                 text = {
-                    "Goes to the {C:joy_spell}Field Spell Area{}"
+                    "Goes to the {C:joy_spell}Field Spell Area{}",
+                    "They don't count as owned {C:attention}Jokers{} for abilities",
+                    "while in that area unless specified"
                 },
             },
             joy_tooltip_banish = {
