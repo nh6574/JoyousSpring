@@ -621,6 +621,11 @@ end
 
 local card_add_to_deck_ref = Card.add_to_deck
 function Card:add_to_deck(from_debuff)
+    if G.shop_jokers then
+        for _, card in ipairs(G.shop_jokers.cards or {}) do
+            card:set_cost()
+        end
+    end
     if G.jokers and not self.added_to_deck and self.ability.set == "Joker" and not JoyousSpring.is_field_spell(self) then
         for _, joker in ipairs(G.jokers.cards) do
             if not joker.debuff and joker.config.center.joy_apply_to_jokers_added then
@@ -886,6 +891,11 @@ end
 
 local card_remove_from_deck_ref = Card.remove_from_deck
 function Card:remove_from_deck(from_debuff)
+    if G.shop_jokers then
+        for _, card in ipairs(G.shop_jokers.cards or {}) do
+            card:set_cost()
+        end
+    end
     local added = self.added_to_deck
     card_remove_from_deck_ref(self, from_debuff)
 
