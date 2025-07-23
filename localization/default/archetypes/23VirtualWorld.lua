@@ -308,7 +308,7 @@ return {
                     },
                     {
                         "If a {C:attention}Virtual World{} hand is played,",
-                        "banish all scored cards after scoring",
+                        "{C:attention}banish{} all scored cards after scoring",
                         "until {C:attention}Blind{} is selected"
                     }
                 },
@@ -333,8 +333,18 @@ return {
                 name = "{C:joy_spell}Virtual World City - Kauwloon"
             },
         },
-        JoyPokerHand = {
-        }
+        Other = {
+            joy_tooltip_vwhands = {
+                name = "Virtual World Hands",
+                text = {
+                    "Combinations of {C:attention}3{}s, {C:attention}6{}s and {C:attention}9{}s",
+                    "{C:attention}Xuanwu{}: 2 cards of 2 different ranks",
+                    "{C:attention}Qinglong{}: 3 cards of 2 different ranks",
+                    "{C:attention}Chuche{}: 4 cards of 2 different ranks",
+                    "{C:attention}Kauwloon{}: 5 cards of 3 different ranks"
+                },
+            }
+        },
     },
     misc = {
         poker_hands = {

@@ -43,6 +43,11 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 3,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
+        end
         return {
             vars = {
                 card.ability.extra.mult,
@@ -138,6 +143,11 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
+        end
         return { vars = { card.ability.extra.mult, card.ability.extra.excavates, card.ability.extra.draws, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
@@ -223,6 +233,11 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 3,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
+        end
         return {
             vars = { card.ability.extra.mult, card.ability.extra.mult *
             JoyousSpring.count_all_materials({ { monster_archetypes = { "FlowerCardian" } } }), card.ability.extra
@@ -313,6 +328,11 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
+        end
         return { vars = { card.ability.extra.mult, card.ability.extra.excavates, card.ability.extra.draws, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
@@ -398,6 +418,11 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 7,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
+        end
         return { vars = { card.ability.extra.xmult, card.ability.extra.excavates, card.ability.extra.draws, card.ability.extra.adds, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
@@ -488,6 +513,11 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 7,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
+        end
         return { vars = { card.ability.extra.xmult, card.ability.extra.excavates, card.ability.extra.draws, card.ability.extra.adds, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
@@ -577,6 +607,11 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 3,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
+        end
         return {
             vars = { card.ability.extra.money, card.ability.extra.money *
             JoyousSpring.count_all_materials({ { monster_archetypes = { "FlowerCardian" } } }), card.ability.extra
@@ -667,6 +702,11 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
+        end
         return { vars = { card.ability.extra.excavates, card.ability.extra.draws, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
@@ -751,6 +791,11 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 7,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
+        end
         return { vars = { card.ability.extra.xmult, card.ability.extra.excavates, card.ability.extra.draws, card.ability.extra.adds, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
@@ -838,6 +883,11 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 3,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
+        end
         return {
             vars = { card.ability.extra.money, card.ability.extra.money *
             JoyousSpring.count_all_materials({ { monster_archetypes = { "FlowerCardian" } } }), card.ability.extra
@@ -928,6 +978,12 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
+        end
         return { vars = { card.ability.extra.excavates, card.ability.extra.revives, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
@@ -1008,6 +1064,11 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 3,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
+        end
         return {
             vars = { card.ability.extra.mult, card.ability.extra.mult *
             JoyousSpring.count_all_materials({ { monster_archetypes = { "FlowerCardian" } } }), card.ability.extra
@@ -1098,6 +1159,11 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
+        end
         return { vars = { card.ability.extra.mult, card.ability.extra.excavates, card.ability.extra.draws, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
@@ -1183,6 +1249,11 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_koikoihand" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
+        end
         return { vars = { card.ability.extra.banish } }
     end,
     joy_desc_cards = {
@@ -1248,6 +1319,11 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_koikoihand" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
+        end
         return { vars = { card.ability.extra.draws } }
     end,
     joy_desc_cards = {
@@ -1306,6 +1382,10 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_koikoihand" }
+        end
         return { vars = { card.ability.extra.xmult, card.ability.extra.scored_xmult, card.ability.extra.turns } }
     end,
     joy_desc_cards = {
@@ -1375,6 +1455,12 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_koikoihand" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
+        end
         return { vars = { card.ability.extra.mult, card.ability.extra.current_mult, card.ability.extra.revives } }
     end,
     joy_desc_cards = {

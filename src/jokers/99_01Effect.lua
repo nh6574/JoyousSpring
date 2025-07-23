@@ -1481,6 +1481,10 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 6,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
+        end
         return { vars = { card.ability.extra.mills, card.ability.extra.revives, card.ability.extra.adds } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
@@ -1528,6 +1532,9 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 4,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
+        end
         return { vars = { card.ability.extra.adds, card.ability.extra.creates } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
@@ -1565,6 +1572,10 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
+        end
         return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.get_excavated_count("Diamonds"), card.ability.extra.tributes, card.ability.extra.adds } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
@@ -1631,6 +1642,11 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 8,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_main_deck_joker" }
+        end
         return { vars = { card.ability.extra.chips, card.ability.extra.chips * JoyousSpring.get_excavated_count("Diamonds"), card.ability.extra.tributes, card.ability.extra.creates } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
@@ -1697,6 +1713,11 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_main_deck_joker" }
+        end
         return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.count_materials_in_graveyard({ { monster_type = "Rock" } }), card.ability.extra.xmult, 1 + card.ability.extra.xmult * JoyousSpring.get_excavated_count("Diamonds"), card.ability.extra.requirement, card.ability.extra.creates } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
@@ -1797,6 +1818,9 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
+        end
         return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.count_materials_in_graveyard({ { monster_attribute = "WIND" } }), card.ability.extra.attach } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
@@ -1886,6 +1910,9 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 4,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
+        end
         return { vars = { card.ability.extra.mult } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
@@ -1986,6 +2013,9 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 6,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
+        end
         return { vars = { card.ability.extra.returns } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
@@ -2035,6 +2065,9 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 4,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
+        end
         return { vars = { card.ability.extra.excavates, card.ability.extra.draws } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
@@ -2085,6 +2118,9 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 6,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
+        end
         return { vars = { card.ability.extra.requirement, math.max(card.ability.extra.requirement - card.ability.extra.excavated, 0), localize(card.ability.extra.suit, 'suits_plural'), colours = { G.C.SUITS[card.ability.extra.suit] } } }
     end,
     generate_ui = JoyousSpring.generate_info_ui,
@@ -2160,6 +2196,9 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 6,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
+        end
         local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds,
             self.key)
         return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.count_materials_in_graveyard({ { monster_type = "Spellcaster" } }), numerator, denominator, card.ability.extra.banishes } }

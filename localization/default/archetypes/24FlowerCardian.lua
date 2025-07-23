@@ -352,7 +352,7 @@ return {
                     {
                         "{C:attention}Hanafuda{} cards count as all {C:joy_link}Months{} and {C:joy_link}Types{}",
                         "for other {C:joy_normal}\"Flower Cardian\"{} abilities, also they count",
-                        "as all suits and can't be debuffed at start of {C:attention}Blind"
+                        "as all suits and can't be debuffed by {C:attention}Blinds"
                     },
                     {
                         "If played hand contains {C:attention}Lightflare{}, {C:attention}Moonflowerviewing{}",
@@ -457,8 +457,14 @@ return {
                 }
             },
         },
-        JoyPokerHand = {
-        }
+        Other = {
+            joy_tooltip_koikoihand = {
+                name = "Koi-koi Hands",
+                text = {
+                    "Combinations of {C:attention}Hanafuda{} cards",
+                },
+            }
+        },
     },
     misc = {
         poker_hands = {

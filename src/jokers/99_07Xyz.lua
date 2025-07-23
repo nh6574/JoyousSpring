@@ -163,6 +163,9 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
+        end
         local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds,
             self.key)
         return { vars = { card.ability.extra.detach, card.ability.extra.from, card.ability.extra.to, numerator, denominator, card.ability.extra.attach } }
@@ -241,6 +244,9 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 8,
     loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
+        end
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
             card.ability.extra.odds, self.key)
         return { vars = { card.ability.extra.detach, card.ability.extra.plus_h_size, card.ability.extra.minus_h_size, numerator, denominator, card.ability.extra.attach } }

@@ -360,6 +360,12 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
                 table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_trap" })
             end
         end
+        -- Add tooltip if it's a field spell
+        if JoyousSpring.is_field_spell(card) then
+            if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+                table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_field_spell_joker" })
+            end
+        end
         -- Add tooltip if it's face-down
         if card.facing == 'back' then
             if not card.fake_card then
