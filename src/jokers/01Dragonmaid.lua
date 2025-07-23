@@ -395,7 +395,8 @@ SMODS.Joker({
             },
             extra_config = { colour = G.C.GREEN, scale = 0.3 },
             calc_function = function(card)
-                local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds,
+                local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
+                    card.ability.extra.odds,
                     card.config.center.key)
                 card.joker_display_values.odds = localize { type = 'variable', key = "jdis_odds", vars = { numerator, denominator } }
             end
@@ -747,7 +748,8 @@ SMODS.Joker({
             },
             extra_config = { colour = G.C.GREEN, scale = 0.3 },
             calc_function = function(card)
-                local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds,
+                local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
+                    card.ability.extra.odds,
                     card.config.center.key)
                 card.joker_display_values.odds = localize { type = 'variable', key = "jdis_odds", vars = { numerator, denominator } }
             end
@@ -832,7 +834,8 @@ SMODS.Joker({
             },
             extra_config = { colour = G.C.GREEN, scale = 0.3 },
             calc_function = function(card)
-                local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds,
+                local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
+                    card.ability.extra.odds,
                     card.config.center.key)
                 card.joker_display_values.odds = localize { type = 'variable', key = "jdis_odds", vars = { numerator, denominator } }
             end
