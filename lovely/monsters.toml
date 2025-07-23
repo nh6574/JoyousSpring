@@ -30,12 +30,14 @@ elseif string.find(config.name, 'joker') and JoyousSpring and JoyousSpring.is_mo
 # Consumable box
 [[patches]]
 [patches.pattern]
-target = "functions/UI_definitions.lua"
-pattern = "desc_from_rows(AUT.main),"
-position = 'before'
+target = 'functions/UI_definitions.lua'
 match_indent = true
+position = 'after'
+pattern = '''
+if ret_val.nodes[1].nodes[1].nodes[1].nodes[i] and ret_val.nodes[1].nodes[1].nodes[1].nodes[i].config and ret_val.nodes[1].nodes[1].nodes[1].nodes[i].config.main_box_flag then
+'''
 payload = '''
-AUT.joy_consumable and desc_from_rows(AUT.joy_consumable) or nil,
+if AUT.joy_consumable then table.insert(ret_val.nodes[1].nodes[1].nodes[1].nodes, i, desc_from_rows(AUT.joy_consumable)) end
 '''
 
 # Better info_queue layout
