@@ -984,7 +984,7 @@ JoyousSpring.is_material_center = function(card_key, properties)
                     return false
                 end
             else
-                if monster_card_propertiesa and monster_card_properties.monster_type == monster_type then
+                if monster_card_properties and monster_card_properties.monster_type == monster_type then
                     return false
                 end
             end
