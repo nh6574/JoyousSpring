@@ -44,7 +44,6 @@ SMODS.Joker({
     cost = 3,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
         end
@@ -144,7 +143,6 @@ SMODS.Joker({
     cost = 5,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
         end
@@ -234,7 +232,6 @@ SMODS.Joker({
     cost = 3,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
         end
@@ -329,7 +326,6 @@ SMODS.Joker({
     cost = 5,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
         end
@@ -419,7 +415,6 @@ SMODS.Joker({
     cost = 7,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
         end
@@ -514,7 +509,6 @@ SMODS.Joker({
     cost = 7,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
         end
@@ -608,7 +602,6 @@ SMODS.Joker({
     cost = 3,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
         end
@@ -703,7 +696,6 @@ SMODS.Joker({
     cost = 5,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
         end
@@ -792,7 +784,6 @@ SMODS.Joker({
     cost = 7,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
         end
@@ -884,7 +875,6 @@ SMODS.Joker({
     cost = 3,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
         end
@@ -979,7 +969,6 @@ SMODS.Joker({
     cost = 5,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
@@ -1065,7 +1054,6 @@ SMODS.Joker({
     cost = 3,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
         end
@@ -1160,7 +1148,6 @@ SMODS.Joker({
     cost = 5,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
         end
@@ -1250,7 +1237,6 @@ SMODS.Joker({
     cost = 10,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_koikoihand" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
         end
@@ -1320,7 +1306,6 @@ SMODS.Joker({
     cost = 10,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_koikoihand" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
         end
@@ -1383,7 +1368,6 @@ SMODS.Joker({
     cost = 10,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_koikoihand" }
         end
         return { vars = { card.ability.extra.xmult, card.ability.extra.scored_xmult, card.ability.extra.turns } }
@@ -1456,7 +1440,6 @@ SMODS.Joker({
     cost = 10,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = G.P_CENTERS.m_joy_hanafuda
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_koikoihand" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
