@@ -514,7 +514,7 @@ end
 ---@return table?
 ---@return boolean?
 JoyousSpring.get_all_summon_material_combos = function(card, card_list)
-    if not JoyousSpring.is_monster_card(card) or
+    if not JoyousSpring.is_monster_card(card) or not JoyousSpring.has_joyous_table(card) or
         (not card.ability.extra.joyous_spring.summon_conditions and not card.ability.extra.joyous_spring.summon_consumeable_conditions) then
         return nil
     end
@@ -580,7 +580,7 @@ end
 ---@return boolean
 ---@return boolean _ If it has room
 JoyousSpring.can_summon = function(card, card_list)
-    if not JoyousSpring.is_monster_card(card) then
+    if not JoyousSpring.is_monster_card(card) or not JoyousSpring.has_joyous_table(card) then
         return false, false
     end
     if not card.ability.extra.joyous_spring.summon_conditions and not card.ability.extra.joyous_spring.summon_consumeable_conditions then
@@ -613,7 +613,7 @@ end
 ---@param combo Card[]
 ---@return boolean
 JoyousSpring.can_summon_with_combo = function(card, combo)
-    if not JoyousSpring.is_monster_card(card) or not combo or #combo == 0 or
+    if not JoyousSpring.is_monster_card(card) or not JoyousSpring.has_joyous_table(card) or not combo or #combo == 0 or
         (not card.ability.extra.joyous_spring.summon_conditions and not card.ability.extra.joyous_spring.summon_consumeable_conditions) then
         return false
     end
@@ -664,7 +664,7 @@ end
 ---@param combo Card[]
 ---@return boolean
 JoyousSpring.transfer_materials_with_combo = function(card, combo)
-    if not JoyousSpring.is_monster_card(card) or not combo or #combo == 0 or
+    if not JoyousSpring.is_monster_card(card) or not JoyousSpring.has_joyous_table(card) or not combo or #combo == 0 or
         (not card.ability.extra.joyous_spring.summon_conditions and not card.ability.extra.joyous_spring.summon_consumeable_conditions) then
         return false
     end
@@ -1050,7 +1050,7 @@ JoyousSpring.create_overlay_select_summon_materials = function(card, card_list)
 
         for _, joker in ipairs(material_list) do
             local added_joker = copy_card(joker)
-            if JoyousSpring.is_monster_card(joker) then
+            if JoyousSpring.is_monster_card(joker) and JoyousSpring.has_joyous_table(joker) then
                 for k, v in pairs(joker.ability.extra.joyous_spring) do
                     added_joker.ability.extra.joyous_spring[k] = v
                 end

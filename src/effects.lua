@@ -152,7 +152,7 @@ JoyousSpring.calculate_context = function(context)
         G.GAME.joy_summoned_count_round = {}
 
         for _, joker in ipairs(G.jokers.cards) do
-            if JoyousSpring.is_monster_card(joker) then
+            if JoyousSpring.is_monster_card(joker) and JoyousSpring.has_joyous_table(joker) then
                 joker.ability.extra.joyous_spring.detached_count_round = 0
             end
         end
@@ -340,7 +340,7 @@ JoyousSpring.create_perma_debuffed_card = function(card, source, edition)
             edition = edition or {}
         })
         SMODS.debuff_card(added_card, true, source)
-        if JoyousSpring.is_monster_card(added_card) then
+        if JoyousSpring.is_monster_card(added_card) and JoyousSpring.has_joyous_table(added_card) then
             added_card.ability.extra.joyous_spring.perma_debuffed = true
         end
         added_card:set_cost()
@@ -349,7 +349,7 @@ JoyousSpring.create_perma_debuffed_card = function(card, source, edition)
         return added_card
     else
         SMODS.debuff_card(card, true, source)
-        if JoyousSpring.is_monster_card(card) then
+        if JoyousSpring.is_monster_card(card) and JoyousSpring.has_joyous_table(card) then
             card.ability.extra.joyous_spring.perma_debuffed = true
         end
         card:set_cost()
@@ -382,7 +382,7 @@ JoyousSpring.set_cost = function(card)
             if not joker.debuff and joker.config.center.joy_modify_cost then
                 joker.config.center.joy_modify_cost(joker, card)
             end
-            if JoyousSpring.is_monster_card(joker) and not joker.debuff and joker.ability.extra.joyous_spring.material_effects and next(joker.ability.extra.joyous_spring.material_effects) then
+            if JoyousSpring.is_monster_card(joker) and JoyousSpring.has_joyous_table(joker) and not joker.debuff and joker.ability.extra.joyous_spring.material_effects and next(joker.ability.extra.joyous_spring.material_effects) then
                 for material_key, config in pairs(joker.ability.extra.joyous_spring.material_effects) do
                     local material_center = G.P_CENTERS[material_key]
 
@@ -631,7 +631,7 @@ function Card:add_to_deck(from_debuff)
             if not joker.debuff and joker.config.center.joy_apply_to_jokers_added then
                 joker.config.center.joy_apply_to_jokers_added(joker, self)
             end
-            if JoyousSpring.is_monster_card(joker) and not joker.debuff and joker.ability.extra.joyous_spring.material_effects and next(joker.ability.extra.joyous_spring.material_effects) then
+            if JoyousSpring.is_monster_card(joker) and JoyousSpring.has_joyous_table(joker) and not joker.debuff and joker.ability.extra.joyous_spring.material_effects and next(joker.ability.extra.joyous_spring.material_effects) then
                 for material_key, config in pairs(joker.ability.extra.joyous_spring.material_effects) do
                     local material_center = G.P_CENTERS[material_key]
 
@@ -780,7 +780,7 @@ end
 
 JoyousSpring.transfer_abilities = function(card, material_key, other_card, materials)
     local material_center = G.P_CENTERS[material_key]
-    if not card or not material_center or not material_center.joy_can_transfer_ability or (other_card and other_card.debuff) then
+    if not card or not material_center or not material_center.joy_can_transfer_ability or (other_card and other_card.debuff) or not JoyousSpring.has_joyous_table(card) then
         return
     end
     if material_center:joy_can_transfer_ability(card, other_card) then
@@ -1161,7 +1161,7 @@ JoyousSpring.create_overlay_effect_selection = function(card, card_list, min, ma
 
     for _, joker in ipairs(card_list) do
         local added_joker = copy_card(joker)
-        if JoyousSpring.is_monster_card(joker) then
+        if JoyousSpring.is_monster_card(joker) and JoyousSpring.has_joyous_table(joker) then
             for k, v in pairs(joker.ability.extra.joyous_spring) do
                 added_joker.ability.extra.joyous_spring[k] = v
             end

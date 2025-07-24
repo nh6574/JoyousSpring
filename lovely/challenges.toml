@@ -14,12 +14,12 @@ position = 'after'
 match_indent = true
 payload = '''
 if v.joy_summoned then
-    if JoyousSpring.is_monster_card(_joker) then
+    if JoyousSpring.is_monster_card(_joker) and JoyousSpring.has_joyous_table(_joker) then
         _joker.ability.extra.joyous_spring.summoned = true
     end
 end
 if v.joy_revived then
-    if JoyousSpring.is_monster_card(_joker) then
+    if JoyousSpring.is_monster_card(_joker) and JoyousSpring.has_joyous_table(_joker) then
         _joker.ability.extra.joyous_spring.revived = true
     end
 end

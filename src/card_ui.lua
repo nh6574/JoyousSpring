@@ -527,7 +527,7 @@ SMODS.Keybind({
         local selected = G and G.CONTROLLER and
             (G.CONTROLLER.focused.target or G.CONTROLLER.hovering.target)
 
-        if not selected or not JoyousSpring.is_monster_card(selected) or selected.debuff or not selected.ability.extra.joyous_spring.material_effects or not next(selected.ability.extra.joyous_spring.material_effects) then
+        if not selected or not JoyousSpring.is_monster_card(selected) or not JoyousSpring.has_joyous_table(selected) or selected.debuff or not selected.ability.extra.joyous_spring.material_effects or not next(selected.ability.extra.joyous_spring.material_effects) then
             return
         end
 

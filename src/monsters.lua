@@ -353,7 +353,10 @@ end
 ---@param card Card|table
 ---@return boolean
 JoyousSpring.is_effect_monster = function(card)
-    if not JoyousSpring.is_monster_card(card) then return (JoyousSpring.get_extra_values(card) or {}).is_effect or false end
+    if not JoyousSpring.is_monster_card(card or not JoyousSpring.has_joyous_table(card)) then
+        return (JoyousSpring.get_extra_values(card) or {})
+            .is_effect or false
+    end
 
     return (JoyousSpring.get_extra_values(card) or {}).is_effect or card.ability.extra.joyous_spring.is_effect
 end
@@ -411,7 +414,10 @@ end
 ---@param card Card|table
 ---@return boolean
 JoyousSpring.is_tuner_monster = function(card)
-    if not JoyousSpring.is_monster_card(card) then return (JoyousSpring.get_extra_values(card) or {}).is_tuner or false end
+    if not JoyousSpring.is_monster_card(card) or not JoyousSpring.has_joyous_table(card) then
+        return (JoyousSpring.get_extra_values(card) or {})
+            .is_tuner or false
+    end
     if (JoyousSpring.get_extra_values(card) or {}).is_tuner then return true end
 
     return card.ability.extra.joyous_spring.is_tuner or false
@@ -428,7 +434,7 @@ end
 ---@param card Card|table
 ---@return boolean
 JoyousSpring.is_field_spell = function(card)
-    if not JoyousSpring.is_monster_card(card) then
+    if not JoyousSpring.is_monster_card(card) or not JoyousSpring.has_joyous_table(card) then
         return (JoyousSpring.get_extra_values(card) or {}).is_field_spell or
             false
     end
@@ -442,7 +448,7 @@ end
 ---@param summon_type summon_type
 ---@return boolean
 JoyousSpring.is_all_materials = function(card, summon_type)
-    if not JoyousSpring.is_monster_card(card) then
+    if not JoyousSpring.is_monster_card(card) or not JoyousSpring.has_joyous_table(card) then
         return ((JoyousSpring.get_extra_values(card) or {}).is_all_materials or {})[summon_type] or false
     end
     if (JoyousSpring.get_extra_values(card) or {}).is_all_materials then
@@ -458,7 +464,8 @@ end
 ---@return boolean
 JoyousSpring.is_all_attributes = function(card)
     return (JoyousSpring.get_extra_values(card) or {}).is_all_attributes or
-        (JoyousSpring.is_monster_card(card) and card.ability.extra.joyous_spring.is_all_attributes) or false
+        (JoyousSpring.is_monster_card(card) and JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.is_all_attributes) or
+        false
 end
 
 ---Checks if *card* is treated as all types
@@ -466,7 +473,8 @@ end
 ---@return boolean
 JoyousSpring.is_all_types = function(card)
     return (JoyousSpring.get_extra_values(card) or {}).is_all_types or
-        (JoyousSpring.is_monster_card(card) and card.ability.extra.joyous_spring.is_all_types) or false
+        (JoyousSpring.is_monster_card(card) and JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.is_all_types) or
+        false
 end
 
 ---Checks if *card* has been summoned
