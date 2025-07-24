@@ -10,7 +10,9 @@ SMODS.Atlas({
 --#region LSP
 
 ---@class SMODS.Joker
----@field get_weight? fun(self: SMODS.Center|table, args: table):number? Only YGO monsters weighted rarity, if it returns nil then it uses the default rate for the rarity
+---@field get_weight? fun(self: SMODS.Joker|table, args: table):number? Only YGO monsters weighted rarity, if it returns nil then it uses the default rate for the rarity. (Added by JoyousSpring)
+---@field use? fun(self: SMODS.Joker|table, card: Card|table, area: CardArea|table, copier?: table) Defines behaviour when this Joker is used. (Added by JoyousSpring)
+---@field can_use? fun(self: SMODS.Joker|table, card: Card|table): boolean? Return `true` if the Joker is allowed to be used. (Added by JoyousSpring)
 ---@field joy_set_cost? fun(card:table|Card) Sets its own cost and sell cost inside Card:set_cost()
 ---@field joy_modify_cost? fun(card:table|Card, other_card:table|Card) Like joy_set_cost but for another card
 ---@field joy_can_activate? fun(card:table|Card):boolean? Returns `true` if the activated ability can be used
@@ -23,19 +25,19 @@ SMODS.Atlas({
 ---@field joy_prevent_trap_flip? fun(card:table|Card, other_card:table|Card):boolean? Determines if the Trap *other_card* should flip at end of round
 ---@field joy_flip_effect_active? fun(card:table|Card, other_card:table|Card):boolean? Determines if the FLIP ability of *other_card* should activate at the start of Blind
 ---@field joy_calculate_excavate? fun(card:table|Card, context:CalcContext):integer? Determines how many cards to excavate in a certain context
----@field joy_bypass_room_check? fun(self:SMODS.Center|table, card:table|Card, from_booster:boolean?):boolean? Determines if you can buy the card with no room
----@field joy_can_be_sent_to_graveyard? fun(self:SMODS.Center|table, card:table|Card, choices:string[]):string[]? Used to filter cards that can be sent to the GY
----@field joy_can_transfer_ability? fun(self:SMODS.Center|table, other_card:Card|table, card:Card|table?):boolean? Determines if *self* transfers its ability to *other_card*. When transforming, `other_card.joy_transforming == self.key`
----@field joy_transfer_ability_calculate? fun(self:SMODS.Center|table, other_card:Card|table, context:CalcContext, config:table):table? Similar to `calculate` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect
----@field joy_transfer_config? fun(self:SMODS.Center|table, other_card:Card|table):table? Similar to `config`, it returns the initial config table for the transferred ability
----@field joy_transfer_loc_vars? fun(self: SMODS.Center|table, info_queue: table, other_card: Card|table, config: table): table? Similar to `loc_vars` but for the transferred ability text
----@field joy_transfer_add_to_deck? fun(self:SMODS.Center|table, other_card:Card|table, config:table, card:Card|table?, from_debuff:boolean, materials:table[]|Card[]?, was_material:boolean?) Similar to `add_to_deck` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect, `card` is the transfering material which only exists when transferred
----@field joy_transfer_remove_from_deck? fun(self:SMODS.Center|table, other_card:Card|table, config:table, from_debuff:boolean) Similar to `remove_from_deck` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect
----@field joy_transfer_calc_dollar_bonus? fun(self:SMODS.Center|table, other_card:Card|table, config:table):number? Similar to `calc_dollar_bonus` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect
----@field joy_transfer_flip_effect_active? fun(self:SMODS.Center|table, ability_card:Card|table, other_card:Card|table, config:table):boolean? Similar to `joy_flip_effect_active` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
----@field joy_transfer_modify_cost? fun(self:SMODS.Center|table, ability_card:Card|table, other_card:Card|table, config:table):boolean? Similar to `joy_modify_cost` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
----@field joy_transfer_prevent_flip? fun(self:SMODS.Center|table, ability_card:Card|table, other_card:Card|table, config:table):boolean? Similar to `joy_prevent_flip` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
----@field joy_transfer_apply_to_jokers_added? fun(self:SMODS.Center|table, ability_card:Card|table, added_card:Card|table, config:table):boolean? Similar to `joy_apply_to_jokers_added` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
+---@field joy_bypass_room_check? fun(self:SMODS.Joker|table, card:table|Card, from_booster:boolean?):boolean? Determines if you can buy the card with no room
+---@field joy_can_be_sent_to_graveyard? fun(self:SMODS.Joker|table, card:table|Card, choices:string[]):string[]? Used to filter cards that can be sent to the GY
+---@field joy_can_transfer_ability? fun(self:SMODS.Joker|table, other_card:Card|table, card:Card|table?):boolean? Determines if *self* transfers its ability to *other_card*. When transforming, `other_card.joy_transforming == self.key`
+---@field joy_transfer_ability_calculate? fun(self:SMODS.Joker|table, other_card:Card|table, context:CalcContext, config:table):table? Similar to `calculate` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect
+---@field joy_transfer_config? fun(self:SMODS.Joker|table, other_card:Card|table):table? Similar to `config`, it returns the initial config table for the transferred ability
+---@field joy_transfer_loc_vars? fun(self: SMODS.Joker|table, info_queue: table, other_card: Card|table, config: table): table? Similar to `loc_vars` but for the transferred ability text
+---@field joy_transfer_add_to_deck? fun(self:SMODS.Joker|table, other_card:Card|table, config:table, card:Card|table?, from_debuff:boolean, materials:table[]|Card[]?, was_material:boolean?) Similar to `add_to_deck` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect, `card` is the transfering material which only exists when transferred
+---@field joy_transfer_remove_from_deck? fun(self:SMODS.Joker|table, other_card:Card|table, config:table, from_debuff:boolean) Similar to `remove_from_deck` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect
+---@field joy_transfer_calc_dollar_bonus? fun(self:SMODS.Joker|table, other_card:Card|table, config:table):number? Similar to `calc_dollar_bonus` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect
+---@field joy_transfer_flip_effect_active? fun(self:SMODS.Joker|table, ability_card:Card|table, other_card:Card|table, config:table):boolean? Similar to `joy_flip_effect_active` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
+---@field joy_transfer_modify_cost? fun(self:SMODS.Joker|table, ability_card:Card|table, other_card:Card|table, config:table):boolean? Similar to `joy_modify_cost` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
+---@field joy_transfer_prevent_flip? fun(self:SMODS.Joker|table, ability_card:Card|table, other_card:Card|table, config:table):boolean? Similar to `joy_prevent_flip` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
+---@field joy_transfer_apply_to_jokers_added? fun(self:SMODS.Joker|table, ability_card:Card|table, added_card:Card|table, config:table):boolean? Similar to `joy_apply_to_jokers_added` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
 
 ---@class Card
 ---@field joy_modify_cost? table
