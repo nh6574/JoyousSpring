@@ -1,119 +1,3 @@
-G.FUNCS.joy_sort_hanafuda_hand_month = function()
-    local months = {
-        january = 1,
-        february = 2,
-        march = 3,
-        april = 4,
-        may = 5,
-        june = 6,
-        july = 7,
-        august = 8,
-        september = 9,
-        october = 10,
-        november = 11,
-        december = 12
-    }
-
-    local types = {
-        light = 1,
-        animal = 2,
-        ribbon = 3,
-        chaff = 4
-    }
-
-    table.sort(G.hand.cards, function(a, b)
-        local ma = JoyousSpring.get_hanafuda(a) and months[JoyousSpring.get_hanafuda(a).month] or 13
-        local mb = JoyousSpring.get_hanafuda(b) and months[JoyousSpring.get_hanafuda(b).month] or 13
-        if ma ~= mb then return ma < mb end
-
-        local ta = JoyousSpring.get_hanafuda(a) and types[JoyousSpring.get_hanafuda(a).type] or 5
-        local tb = JoyousSpring.get_hanafuda(b) and types[JoyousSpring.get_hanafuda(b).type] or 5
-        if ta ~= tb then return ta < tb end
-
-        return a:get_nominal() > b:get_nominal()
-    end)
-end
-
-G.FUNCS.joy_sort_hanafuda_hand_type = function()
-    local months = {
-        january = 1,
-        february = 2,
-        march = 3,
-        april = 4,
-        may = 5,
-        june = 6,
-        july = 7,
-        august = 8,
-        september = 9,
-        october = 10,
-        november = 11,
-        december = 12
-    }
-
-    local types = {
-        light = 1,
-        animal = 2,
-        ribbon = 3,
-        chaff = 4
-    }
-
-    table.sort(G.hand.cards, function(a, b)
-        local ta = JoyousSpring.get_hanafuda(a) and types[JoyousSpring.get_hanafuda(a).type] or 5
-        local tb = JoyousSpring.get_hanafuda(b) and types[JoyousSpring.get_hanafuda(b).type] or 5
-        if ta ~= tb then return ta < tb end
-
-        local ma = JoyousSpring.get_hanafuda(a) and months[JoyousSpring.get_hanafuda(a).month] or 13
-        local mb = JoyousSpring.get_hanafuda(b) and months[JoyousSpring.get_hanafuda(b).month] or 13
-        if ma ~= mb then return ma < mb end
-
-        return a:get_nominal() > b:get_nominal()
-    end)
-end
-
-JoyousSpring.create_hanafuda_month_sort_UIBox = function()
-    return G.GAME.joy_show_hanafuda_sort and {
-        n = G.UIT.C,
-        config = { align = "cm", minh = 0.7, minw = 0.9, padding = 0.1, r = 0.1, hover = true, colour = G.C.JOY.LINK, button = "joy_sort_hanafuda_hand_month", shadow = true },
-        nodes = {
-            { n = G.UIT.T, config = { text = localize("k_joy_hanafuda_month"), scale = 0.45 * 0.7, colour = G.C.UI.TEXT_LIGHT } }
-        }
-    } or nil
-end
-
-JoyousSpring.create_hanafuda_type_sort_UIBox = function()
-    return G.GAME.joy_show_hanafuda_sort and {
-        n = G.UIT.C,
-        config = { align = "cm", minh = 0.7, minw = 0.9, padding = 0.1, r = 0.1, hover = true, colour = G.C.JOY.LINK, button = "joy_sort_hanafuda_hand_type", shadow = true },
-        nodes = {
-            { n = G.UIT.T, config = { text = localize("k_joy_hanafuda_type"), scale = 0.45 * 0.7, colour = G.C.UI.TEXT_LIGHT } }
-        }
-    } or nil
-end
-
--- I'm so sorry
-local game_update_ref = Game.update
-function Game:update(dt)
-    game_update_ref(self, dt)
-    if G.GAME and G.GAME.blind and G.GAME.blind.in_blind and G.buttons then
-        local prev_value = G.GAME.joy_show_hanafuda_sort
-        G.GAME.joy_show_hanafuda_sort = nil
-        for _, playing_card in ipairs(G.hand.cards or {}) do
-            if SMODS.has_enhancement(playing_card, 'm_joy_hanafuda') then
-                G.GAME.joy_show_hanafuda_sort = true
-                break
-            end
-        end
-
-        if prev_value ~= G.GAME.joy_show_hanafuda_sort then
-            G.buttons:remove()
-            G.buttons = UIBox {
-                definition = create_UIBox_buttons(),
-                config = { align = "bm", offset = { x = 0, y = 0.3 }, major = G.hand, bond = 'Weak' }
-            }
-        end
-    end
-end
-
 JoyousSpring.create_sell_and_use_buttons = function(card, args)
     local args = args or {}
     local sell = nil
@@ -401,24 +285,6 @@ function create_shop_card_ui(card, type, area)
     end
 end
 
-local card_align_h_popup = Card.align_h_popup
-function Card:align_h_popup()
-    local ret = card_align_h_popup(self)
-    local focused_ui = self.children.focused_ui and true or false
-    if self.area and (self.area.config.type == "summon_materials" or
-            (self.area.config.type == "title" and self.area.monster_h_popup and JoyousSpring.is_monster_card(self))) then
-        ret.offset.x = 0
-        ret.offset.y = focused_ui and 0.12 or 0.1
-        ret.type = 'bm'
-    end
-    if (self.T.y < G.CARD_H * 1.2) and self.area and (self.area.config.type == "title" and JoyousSpring.is_monster_card(self)) then
-        ret.offset.x = 0
-        ret.offset.y = focused_ui and 0.12 or 0.1
-        ret.type = 'bm'
-    end
-    return ret
-end
-
 local card_highlight_ref = Card.highlight
 function Card:highlight(is_highlighted)
     if self.area and self.area.config.type == "extra_deck" then
@@ -503,6 +369,140 @@ function Card:highlight(is_highlighted)
         if self.area and (JoyousSpring.is_extra_deck_monster(self)) and
             (self.area == G.shop_jokers and G.shop_jokers or self.area == G.pack_cards and G.pack_cards) then
             JoyousSpring.open_extra_deck(false, is_highlighted)
+        end
+    end
+end
+
+G.FUNCS.joy_sort_hanafuda_hand_month = function()
+    local months = {
+        january = 1,
+        february = 2,
+        march = 3,
+        april = 4,
+        may = 5,
+        june = 6,
+        july = 7,
+        august = 8,
+        september = 9,
+        october = 10,
+        november = 11,
+        december = 12
+    }
+
+    local types = {
+        light = 1,
+        animal = 2,
+        ribbon = 3,
+        chaff = 4
+    }
+
+    table.sort(G.hand.cards, function(a, b)
+        local ma = JoyousSpring.get_hanafuda(a) and months[JoyousSpring.get_hanafuda(a).month] or 13
+        local mb = JoyousSpring.get_hanafuda(b) and months[JoyousSpring.get_hanafuda(b).month] or 13
+        if ma ~= mb then return ma < mb end
+
+        local ta = JoyousSpring.get_hanafuda(a) and types[JoyousSpring.get_hanafuda(a).type] or 5
+        local tb = JoyousSpring.get_hanafuda(b) and types[JoyousSpring.get_hanafuda(b).type] or 5
+        if ta ~= tb then return ta < tb end
+
+        return a:get_nominal() > b:get_nominal()
+    end)
+end
+
+G.FUNCS.joy_sort_hanafuda_hand_type = function()
+    local months = {
+        january = 1,
+        february = 2,
+        march = 3,
+        april = 4,
+        may = 5,
+        june = 6,
+        july = 7,
+        august = 8,
+        september = 9,
+        october = 10,
+        november = 11,
+        december = 12
+    }
+
+    local types = {
+        light = 1,
+        animal = 2,
+        ribbon = 3,
+        chaff = 4
+    }
+
+    table.sort(G.hand.cards, function(a, b)
+        local ta = JoyousSpring.get_hanafuda(a) and types[JoyousSpring.get_hanafuda(a).type] or 5
+        local tb = JoyousSpring.get_hanafuda(b) and types[JoyousSpring.get_hanafuda(b).type] or 5
+        if ta ~= tb then return ta < tb end
+
+        local ma = JoyousSpring.get_hanafuda(a) and months[JoyousSpring.get_hanafuda(a).month] or 13
+        local mb = JoyousSpring.get_hanafuda(b) and months[JoyousSpring.get_hanafuda(b).month] or 13
+        if ma ~= mb then return ma < mb end
+
+        return a:get_nominal() > b:get_nominal()
+    end)
+end
+
+JoyousSpring.create_hanafuda_month_sort_UIBox = function()
+    return G.GAME.joy_show_hanafuda_sort and {
+        n = G.UIT.C,
+        config = { align = "cm", minh = 0.7, minw = 0.9, padding = 0.1, r = 0.1, hover = true, colour = G.C.JOY.LINK, button = "joy_sort_hanafuda_hand_month", shadow = true },
+        nodes = {
+            { n = G.UIT.T, config = { text = localize("k_joy_hanafuda_month"), scale = 0.45 * 0.7, colour = G.C.UI.TEXT_LIGHT } }
+        }
+    } or nil
+end
+
+JoyousSpring.create_hanafuda_type_sort_UIBox = function()
+    return G.GAME.joy_show_hanafuda_sort and {
+        n = G.UIT.C,
+        config = { align = "cm", minh = 0.7, minw = 0.9, padding = 0.1, r = 0.1, hover = true, colour = G.C.JOY.LINK, button = "joy_sort_hanafuda_hand_type", shadow = true },
+        nodes = {
+            { n = G.UIT.T, config = { text = localize("k_joy_hanafuda_type"), scale = 0.45 * 0.7, colour = G.C.UI.TEXT_LIGHT } }
+        }
+    } or nil
+end
+
+local card_align_h_popup = Card.align_h_popup
+function Card:align_h_popup()
+    local ret = card_align_h_popup(self)
+    local focused_ui = self.children.focused_ui and true or false
+    if self.area and (self.area.config.type == "summon_materials" or
+            (self.area.config.type == "title" and self.area.monster_h_popup and JoyousSpring.is_monster_card(self))) then
+        ret.offset.x = 0
+        ret.offset.y = focused_ui and 0.12 or 0.1
+        ret.type = 'bm'
+    end
+    if (self.T.y < G.CARD_H * 1.2) and self.area and (self.area.config.type == "title" and JoyousSpring.is_monster_card(self)) then
+        ret.offset.x = 0
+        ret.offset.y = focused_ui and 0.12 or 0.1
+        ret.type = 'bm'
+    end
+    return ret
+end
+
+-- I'm so sorry
+local game_update_ref = Game.update
+function Game:update(dt)
+    game_update_ref(self, dt)
+    if G.GAME and G.GAME.blind and G.GAME.blind.in_blind and G.buttons then
+        local prev_value = G.GAME.joy_show_hanafuda_sort
+        G.GAME.joy_show_hanafuda_sort = nil
+        for _, playing_card in ipairs(G.hand.cards or {}) do
+            if SMODS.has_enhancement(playing_card, 'm_joy_hanafuda') then
+                G.GAME.joy_show_hanafuda_sort = true
+                break
+            end
+        end
+
+        if prev_value ~= G.GAME.joy_show_hanafuda_sort then
+            G.buttons:remove()
+            G.buttons = UIBox {
+                definition = create_UIBox_buttons(),
+                config = { align = "bm", offset = { x = 0, y = 0.3 }, major = G.hand, bond = 'Weak' }
+            }
         end
     end
 end
