@@ -534,8 +534,8 @@ SMODS.Joker({
                     if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
                         JoyousSpring.create_pseudorandom({ {
                             rarity = 2,
-                            is_field_spell = #JoyousSpring.field_spell_area.cards <
-                                JoyousSpring.field_spell_area.config.card_limit or nil
+                            exclude_field_spell = not (#JoyousSpring.field_spell_area.cards <
+                                JoyousSpring.field_spell_area.config.card_limit) or nil
                         } }, card.config.center.key, true)
                     end
                 end

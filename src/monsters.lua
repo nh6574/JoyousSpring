@@ -1081,7 +1081,7 @@ JoyousSpring.is_material_center = function(card_key, properties)
     end
 
     if properties.is_field_spell then
-        if not (monster_card_properties or {}).is_field_spell or not extra_values.is_field_spell then
+        if not (monster_card_properties or {}).is_field_spell and not extra_values.is_field_spell then
             return false
         end
     end

@@ -1089,8 +1089,8 @@ SMODS.Joker({
                 local mult_count = 0
                 local materials = JoyousSpring.get_materials(card)
                 for _, material in ipairs(materials) do
-                    if JoyousSpring.is_material_center(material, { monster_archetypes = { "Subterror" } }) then
-                        mult_count = mult_count + 1
+                    if JoyousSpring.is(material, { monster_archetypes = { "Subterror" } }) then
+                        mult_count = m_material_centerult_count + 1
                     end
                 end
                 local current_chips = card.ability.extra.chips * #materials
@@ -1110,7 +1110,8 @@ SMODS.Joker({
             return false
         end
         local targets = JoyousSpring.get_materials_owned({ { can_flip = true } })
-        return #targets >= card.ability.extra.flips
+        return #targets >= card.ability.extra.flips and
+            #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit
     end,
     joker_display_def = function(JokerDisplay)
         return {
