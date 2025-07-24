@@ -16,6 +16,7 @@ return {
                     {
                         "Adds {C:attention}#1#{} {C:joy_fusion}Fusion{} to the {C:joy_spell}Extra Deck{}",
                         "when {C:attention}Boss Blind{} is defeated",
+                        "{C:inactive}(Must have room)"
                     },
                 }
             },
