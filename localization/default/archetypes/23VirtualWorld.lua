@@ -248,7 +248,7 @@ return {
                     {
                         "{C:attention}Chuche{} or {C:attention}Kauwloon{}:",
                         "{C:attention}Banish #5#{} random {C:attention}modified{} card in played hand",
-                        "after scoring until {C:attention}Blind{} is selected,",
+                        "after scoring until {C:attention}Blind{} is selected",
                     },
                 },
                 joy_summon_conditions = {
