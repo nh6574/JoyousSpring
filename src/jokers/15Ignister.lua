@@ -1521,54 +1521,7 @@ SMODS.Joker({
                     card.ability.extra.attributes["EARTH"] and G.C.UI.TEXT_DARK or G.C.UI.TEXT_INACTIVE,
                 }
             },
-            main_end = card.ability.extra.attributes["DIVINE"] and {
-                {
-                    n = G.UIT.C,
-                    config = { align = "bm", minh = 0.3 },
-                    nodes = {
-                        {
-                            n = G.UIT.T,
-                            config = {
-                                text = localize("k_joy_DIVINE"),
-                                colour = G.C.JOY.DIVINE,
-                                scale = 0.32,
-                            }
-                        },
-                        {
-                            n = G.UIT.T,
-                            config = {
-                                text = localize("k_joy_arrival_text1"),
-                                colour = G.C.UI.TEXT_DARK,
-                                scale = 0.32,
-                            }
-                        },
-                        {
-                            n = G.UIT.T,
-                            config = {
-                                text = localize("k_joy_arrival_text2"),
-                                colour = G.C.FILTER,
-                                scale = 0.32,
-                            }
-                        },
-                        {
-                            n = G.UIT.T,
-                            config = {
-                                text = localize("k_joy_arrival_text3"),
-                                colour = G.C.UI.TEXT_DARK,
-                                scale = 0.32,
-                            }
-                        },
-                        {
-                            n = G.UIT.T,
-                            config = {
-                                text = localize("k_joy_arrival_text4"),
-                                colour = G.C.RED,
-                                scale = 0.32,
-                            }
-                        },
-                    }
-                }
-            } or nil
+            key = card.ability.extra.attributes["DIVINE"] and "j_joy_ignis_arrival_divine" or nil
         }
     end,
     joy_desc_cards = {

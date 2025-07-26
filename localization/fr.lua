@@ -2095,6 +2095,25 @@ return {
 					"{C:attention}5+ {C:joy_normal}Cyberse{}"
 				}
 			},
+			j_joy_ignis_arrival_divine = {
+				name = "{C:joy_link}L'Arrivée Cyberse @Ignister",
+				text = {
+					"{X:mult,C:white}X#1#{} Mult pour chaque {C:attention}Attribut{} utilisé pour son invocation",
+					"{C:inactive}(Actuellement:{} {X:mult,C:white}X#2#{} {C:inactive}Mult)",
+					" ",
+					"Gagne ces effets en fonction des {C:attention}matériels{} utilisé pour son invocation",
+					"{V:1}LUMIÈRE{V:3}: {V:2}+#3#${V:3} en fin de manche",
+					"{V:4}TÉNÈBRES{V:7}: Crée {V:5}#4#{} {V:6}Spectral{V:7} en fin de manche {s:0.9,C:inactive}(Nécessite de la place)",
+					"{V:8}EAU{V:10}: {V:9}+#5#{V:10} Jetons",
+					"{V:11}FEU{V:13}: {V:12}+#6#{V:13} Mult",
+					"{V:14}VENT{V:17}: {V:15}#7# chance sur #8#{V:17} de créer une copie {V:16}Négative{V:17} d'un {V:18}Spectral{V:17} utilisé",
+					"{V:19}TERRE{V:21}: {V:20}+#9#{V:21} cartes en main",
+					"{C:joy_divine}DIVIN{}: Baisse les objectifs de la {C:attention}Mise{} de {C:red}50%{}"
+				},
+				joy_summon_conditions = {
+					"{C:attention}5+ {C:joy_normal}Cyberse{}"
+				}
+			},
 			j_joy_ignis_ailand = {
 				name = "{C:joy_spell}Ignister A.I.Land",
 				text = {
@@ -4641,12 +4660,6 @@ return {
 			k_joy_archetype_adaman = "Inflexcipateur",
 			k_joy_archetype_misc = "Agents Libres",
 			k_joy_archetype_token = "Jetons",
-			--#endregion
-			--#region Specific
-			k_joy_arrival_text1 = ": Baisse ",
-			k_joy_arrival_text2 = "les objectifs",
-			k_joy_arrival_text3 = "de la Mise de ",
-			k_joy_arrival_text4 = "50%",
 			--#endregion
 		}
 	},
