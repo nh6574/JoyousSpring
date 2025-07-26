@@ -3546,26 +3546,6 @@ return {
 					"{C:inactive}(Actuellement: en {C:attention}colonne #3#{}{C:inactive})",
 				}
 			},
-			j_joy_zenoguitar = {
-				name = "{C:joy_effect}Rock Band Xenoguitar",
-				text = { "TBD" }
-			},
-			j_joy_revgolem = {
-				name = "{C:joy_effect}Revival Golem",
-				text = { "TBD" }
-			},
-			j_joy_tackcrusader = {
-				name = "{C:joy_effect}Tackle Crusader",
-				text = { "TBD" }
-			},
-			j_joy_doki = {
-				name = "{C:joy_effect}Doki Doki",
-				text = { "TBD" }
-			},
-			j_joy_blockdragon = {
-				name = "{C:joy_effect}Block Dragon",
-				text = { "TBD" }
-			},
 			--#endregion
 			--#region Piège
 			j_joy_quantumcat = {
