@@ -149,6 +149,13 @@ return {
                     "{C:attention}Jokers{} from {C:joy_mod}JoyousSpring",
                 },
             },
+            joy_tooltip_no_shop = {
+                name = "No Purchasable",
+                text = {
+                    "Can't be obtained from the shop",
+                    "or non-{C:attention}Monster{} abilities",
+                },
+            },
             --#endregion
             --#region Glossary
             joy_glossary_monster = {

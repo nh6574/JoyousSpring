@@ -128,6 +128,7 @@ SMODS.Joker({
     cost = 10,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
         end
         return { vars = { card.ability.extra.tributes } }
@@ -211,6 +212,7 @@ SMODS.Joker({
     cost = 10,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
         end
         return { vars = { card.ability.extra.tributes } }
@@ -306,6 +308,7 @@ SMODS.Joker({
     cost = 10,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
         end
         return {}
@@ -387,6 +390,7 @@ SMODS.Joker({
     cost = 10,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
         end
@@ -453,6 +457,7 @@ SMODS.Joker({
     cost = 10,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
         end
         return { vars = { card.ability.extra.tributes, card.ability.extra.cards_to_create } }
@@ -524,6 +529,7 @@ SMODS.Joker({
     cost = 10,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
         end
         return { vars = { card.ability.extra.tributes, card.ability.extra.xmult } }
@@ -626,6 +632,7 @@ SMODS.Joker({
     cost = 10,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
         end
         return { vars = { card.ability.extra.tributes, card.ability.extra.hands, card.ability.extra.discards } }
@@ -692,6 +699,7 @@ SMODS.Joker({
     cost = 10,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
         end

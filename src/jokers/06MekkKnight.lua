@@ -26,6 +26,11 @@ SMODS.Joker({
     },
     generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
+    loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
+        end
+    end,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
