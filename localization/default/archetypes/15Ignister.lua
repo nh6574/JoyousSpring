@@ -362,6 +362,28 @@ return {
                     "{C:attention}5+ {C:joy_normal}Cyberse{}"
                 }
             },
+            j_joy_ignis_arrival_divine = {
+                name = "{C:joy_link}The Arrival Cyberse @Ignister",
+                text = {
+                    {
+                        "{X:mult,C:white}X#1#{} Mult for each {C:attention}Attribute{} used for its summon",
+                        "{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult)",
+                    },
+                    {
+                        "Gains abilities based on the {C:attention}materials{} used for its summon",
+                        "{V:1}LIGHT{V:3}: {V:2}+$#3#{V:3} at end of round",
+                        "{V:4}DARK{V:7}: Creates {V:5}#4#{} {V:6}Spectral{V:7} at end of round {s:0.9,C:inactive}(Must have room)",
+                        "{V:8}WATER{V:10}: {V:9}+#5#{V:10} Chips",
+                        "{V:11}FIRE{V:13}: {V:12}+#6#{V:13} Mult",
+                        "{V:14}WIND{V:17}: {V:15}#7# in #8#{V:17} chance to create a {V:16}Negative{V:17} copy of a used {V:18}Spectral",
+                        "{V:19}EARTH{V:21}: {V:20}+#9#{V:21} hand size",
+                        "{C:joy_divine}DIVINE{}: Lowers {C:attention}Blind{}'s requirement by {C:red}50%{}"
+                    },
+                },
+                joy_summon_conditions = {
+                    "{C:attention}5+ {C:joy_normal}Cyberse{}"
+                }
+            },
             j_joy_ignis_ailand = {
                 name = "{C:joy_spell}Ignister A.I.Land",
                 text = {
@@ -381,10 +403,6 @@ return {
     misc = {
         dictionary = {
             k_joy_archetype_ignis = "@Ignister",
-            k_joy_arrival_text1 = ": Lowers ",
-            k_joy_arrival_text2 = "Blind",
-            k_joy_arrival_text3 = "'s requirement by ",
-            k_joy_arrival_text4 = "50%",
         }
     },
 }
