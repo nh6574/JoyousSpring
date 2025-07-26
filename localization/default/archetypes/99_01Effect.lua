@@ -444,7 +444,7 @@ return {
                 name = "{C:joy_effect}Lindbloom",
                 text = {
                     {
-                        "{C:attention}Jokers{} each give {X:mult,C:white}X#1#{} if they share",
+                        "{C:attention}Jokers{} each give {X:mult,C:white}X#1#{} Mult if they share",
                         "{C:attention}Type{} and {C:attention}Attribute{} with another {C:attention}Joker{}"
                     },
                 }
