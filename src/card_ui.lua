@@ -255,16 +255,7 @@ end
 JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
     SMODS.Center.generate_ui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
 
-    if desc_nodes ~= full_UI_table.main then
-        -- Remove color codes from info_queue tooltip names
-        if string.len(desc_nodes.name) > 2 and string.sub(desc_nodes.name, string.len(desc_nodes.name) - 1, string.len(desc_nodes.name)) == "{}" then
-            desc_nodes.name = string.sub(desc_nodes.name, 1, string.len(desc_nodes.name) - 2)
-        end
-        if string.sub(desc_nodes.name, 1, 3) == "{C:" then
-            local _, _, _, real_name = string.find(desc_nodes.name, "{C:(.*)}(.*)")
-            desc_nodes.name = real_name
-        end
-    else
+    if desc_nodes == full_UI_table.main then
         -- Add type information under names
         full_UI_table.name = {
             {
