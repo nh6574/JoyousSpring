@@ -1144,7 +1144,7 @@ SMODS.Joker({
             end
         end
     end,
-    joy_can_detach = function(card)
+    joy_can_detach = function(self, card)
         return false
     end,
     joy_can_transfer_ability = function(self, other_card, card)

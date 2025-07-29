@@ -835,7 +835,7 @@ end
 
 local card_calculate_joker_ref = Card.calculate_joker
 function Card:calculate_joker(context)
-    if JoyousSpring.is_monster_card(self) then
+    if JoyousSpring.is_monster_card(self) and JoyousSpring.has_joyous_table(self) then
         if self.debuff then return nil end
         local obj = self.config.center
         local o, t
@@ -870,7 +870,7 @@ function Card:add_to_deck(from_debuff)
     local not_added = not self.added_to_deck
     card_add_to_deck_ref(self, from_debuff)
 
-    if JoyousSpring.is_monster_card(self) and not_added then
+    if JoyousSpring.is_monster_card(self) and JoyousSpring.has_joyous_table(self) and not_added then
         JoyousSpring.transfer_add_to_deck(self, from_debuff)
     end
 end
@@ -899,7 +899,7 @@ function Card:remove_from_deck(from_debuff)
     local added = self.added_to_deck
     card_remove_from_deck_ref(self, from_debuff)
 
-    if JoyousSpring.is_monster_card(self) and added then
+    if JoyousSpring.is_monster_card(self) and JoyousSpring.has_joyous_table(self) and added then
         JoyousSpring.transfer_remove_from_deck(self, from_debuff)
     end
 end
@@ -926,7 +926,7 @@ local card_calculate_dollar_bonus_ref = Card.calculate_dollar_bonus
 function Card:calculate_dollar_bonus()
     local ret = card_calculate_dollar_bonus_ref(self)
 
-    if JoyousSpring.is_monster_card(self) then
+    if JoyousSpring.is_monster_card(self) and JoyousSpring.has_joyous_table(self) then
         local add = JoyousSpring.transfer_calc_dollar_bonus(self)
         if add > 0 then
             ret = (ret or 0) + JoyousSpring.transfer_calc_dollar_bonus(self)

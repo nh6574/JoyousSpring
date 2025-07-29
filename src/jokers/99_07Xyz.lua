@@ -63,7 +63,7 @@ SMODS.Joker({
             end
         end
     end,
-    joy_can_detach = function(card)
+    joy_can_detach = function(self, card)
         return G.GAME.blind.in_blind
     end
 })
@@ -349,7 +349,7 @@ SMODS.Joker({
         end
         card.ability.extra.h_size_active = false
     end,
-    joy_can_detach = function(card)
+    joy_can_detach = function(self, card)
         return G.GAME.blind.in_blind
     end
 })

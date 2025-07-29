@@ -79,7 +79,8 @@ JoyousSpring.send_to_graveyard = function(card)
             local _, is_allowed = filter_cards_sent_to_gy({ card })
             if not is_allowed then return end
             local not_summoned = JoyousSpring.is_material_center(card, { exclude_summon_types = { "NORMAL" } })
-            local cannot_revive = G.P_CENTERS[card].config.extra.joyous_spring.cannot_revive or not_summoned
+            local cannot_revive = type(G.P_CENTERS[card].config.extra) == "table" and
+                (G.P_CENTERS[card].config.extra.joyous_spring or {}).cannot_revive or not_summoned
             SMODS.calculate_context({
                 joy_sent_to_gy = true,
                 joy_key = card,
@@ -95,7 +96,8 @@ JoyousSpring.send_to_graveyard = function(card)
             local _, is_allowed = filter_cards_sent_to_gy({ card.config.center.key })
             if not is_allowed then return end
             local not_summoned = not JoyousSpring.is_summon_type(card, "NORMAL") and not JoyousSpring.is_summoned(card)
-            local cannot_revive = card.ability.extra.joyous_spring.cannot_revive or not_summoned
+            local cannot_revive = JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.cannot_revive or
+                not_summoned
             JoyousSpring.sent_to_gy_context = true
             SMODS.calculate_context({
                 joy_sent_to_gy = true,

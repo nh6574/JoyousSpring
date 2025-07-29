@@ -777,7 +777,7 @@ SMODS.Joker({
             SMODS.debuff_card(card, "prevent_debuff", "j_joy_paleo_opa")
         end
     end,
-    joy_can_detach = function(card)
+    joy_can_detach = function(self, card)
         return #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit
     end
 })

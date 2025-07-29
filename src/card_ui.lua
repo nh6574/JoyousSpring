@@ -315,8 +315,6 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
                     },
                 } }
 
-
-
                 local material_center = G.P_CENTERS[material_key]
                 if material_center and G.localization.descriptions["Joker"][material_key].joy_transfer_ability then
                     localize { type = "joy_transfer_ability", set = "Joker", key = material_key, nodes = node, vars = material_center.joy_transfer_loc_vars and material_center:joy_transfer_loc_vars(info_queue, card, config).vars or {}, scale = 0.9 }

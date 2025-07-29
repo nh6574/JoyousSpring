@@ -16,7 +16,7 @@ SMODS.Atlas({
 ---@field joy_set_cost? fun(card:table|Card) Sets its own cost and sell cost inside Card:set_cost()
 ---@field joy_modify_cost? fun(card:table|Card, other_card:table|Card) Like joy_set_cost but for another card
 ---@field joy_can_activate? fun(card:table|Card):boolean? Returns `true` if the activated ability can be used
----@field joy_can_detach? fun(card:table|Card):boolean? Returns `true` if a card can be detached for the ability (no need to check for detach count)
+---@field joy_can_detach? fun(self: SMODS.Joker|table, card:table|Card):boolean? Returns `true` if a card can be detached for the ability (no need to check for detach count)
 ---@field joy_allow_ability? fun(card:table|Card,other_card:table|Card):boolean? Returns `true` if *other_card* is allowed to use abilities while facedown by *card*
 ---@field joy_create_card_for_shop? fun(card:table|Card, other_card:table|Card, area:CardArea) Used to modify *other_Card* when it's created for the shop
 ---@field joy_apply_to_jokers_added? fun(card:table|Card,added_card:table|Card) Used to modify *added_card* when obtained
@@ -268,16 +268,16 @@ end
 ---@param monster_type monster_type
 ---@return boolean
 JoyousSpring.is_monster_type = function(card, monster_type)
-    if not JoyousSpring.is_monster_card(card) and (not JoyousSpring.get_extra_values(card) or (not JoyousSpring.get_extra_values(card).is_all_types
+    if not JoyousSpring.is_monster_card(card) and (not JoyousSpring.get_extra_values(card) and (not JoyousSpring.get_extra_values(card).is_all_types
             and not JoyousSpring.get_extra_values(card).monster_type)) then
         return false
     end
-    if card.ability.extra.joyous_spring.is_all_types or (JoyousSpring.get_extra_values(card) or {}).is_all_types then return true end
+    if (JoyousSpring.get_extra_values(card) or {}).is_all_types or (JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.is_all_types) then return true end
     if (JoyousSpring.get_extra_values(card) or {}).monster_type then
         return JoyousSpring.get_extra_values(card).monster_type == monster_type
     end
 
-    return card.ability.extra.joyous_spring.monster_type == monster_type
+    return JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.monster_type == monster_type
 end
 
 ---Gets the monster type of the card
@@ -285,10 +285,10 @@ end
 ---@param card Card|table
 ---@return monster_type|true?
 JoyousSpring.get_monster_type = function(card)
-    if not JoyousSpring.is_monster_card(card) and (not JoyousSpring.get_extra_values(card) or (not JoyousSpring.get_extra_values(card).is_all_types and not JoyousSpring.get_extra_values(card).monster_type)) then
+    if not JoyousSpring.is_monster_card(card) and not JoyousSpring.get_extra_values(card) and not JoyousSpring.get_extra_values(card).is_all_types and not JoyousSpring.get_extra_values(card).monster_type then
         return nil
     end
-    if card.ability.extra.joyous_spring.is_all_types or (JoyousSpring.get_extra_values(card) or {}).is_all_types then return true end
+    if (JoyousSpring.get_extra_values(card) or {}).is_all_types or (JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.is_all_types) then return true end
 
     return (JoyousSpring.get_extra_values(card) or {}).monster_type or card.ability.extra.joyous_spring.monster_type
 end
@@ -298,16 +298,16 @@ end
 ---@param attribute attribute
 ---@return boolean
 JoyousSpring.is_attribute = function(card, attribute)
-    if not JoyousSpring.is_monster_card(card) and (not JoyousSpring.get_extra_values(card) or (not JoyousSpring.get_extra_values(card).is_all_attributes and not JoyousSpring.get_extra_values(card).attribute)) then
+    if not JoyousSpring.is_monster_card(card) and not JoyousSpring.get_extra_values(card) and not JoyousSpring.get_extra_values(card).is_all_attributes and not JoyousSpring.get_extra_values(card).attribute then
         return false
     end
-    if card.ability.extra.joyous_spring.is_all_attributes or (JoyousSpring.get_extra_values(card) or {}).is_all_attributes then return true end
+    if (JoyousSpring.get_extra_values(card) or {}).is_all_attributes or (JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.is_all_attributes) then return true end
     if (JoyousSpring.get_extra_values(card) or {}).attribute then
         return JoyousSpring.get_extra_values(card).attribute ==
             attribute
     end
 
-    return card.ability.extra.joyous_spring.attribute == attribute
+    return JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.attribute == attribute
 end
 
 ---Gets the attribute of the card
@@ -315,10 +315,10 @@ end
 ---@param card Card|table
 ---@return attribute|true?
 JoyousSpring.get_attribute = function(card)
-    if not JoyousSpring.is_monster_card(card) and (not JoyousSpring.get_extra_values(card) or (not JoyousSpring.get_extra_values(card).is_all_attributes and not JoyousSpring.get_extra_values(card).attribute)) then
+    if not JoyousSpring.is_monster_card(card) and not JoyousSpring.get_extra_values(card) and not JoyousSpring.get_extra_values(card).is_all_attributes and not JoyousSpring.get_extra_values(card).attribute then
         return nil
     end
-    if card.ability.extra.joyous_spring.is_all_attributes or (JoyousSpring.get_extra_values(card) or {}).is_all_attributes then
+    if (JoyousSpring.get_extra_values(card) or {}).is_all_attributes or (JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.is_all_attributes) then
         return true
     end
 
@@ -358,7 +358,8 @@ JoyousSpring.is_effect_monster = function(card)
             .is_effect or false
     end
 
-    return (JoyousSpring.get_extra_values(card) or {}).is_effect or card.ability.extra.joyous_spring.is_effect
+    return (JoyousSpring.get_extra_values(card) or {}).is_effect or
+        (JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.is_effect)
 end
 
 ---Checks if *card* is a Main Deck Joker
@@ -420,7 +421,7 @@ JoyousSpring.is_tuner_monster = function(card)
     end
     if (JoyousSpring.get_extra_values(card) or {}).is_tuner then return true end
 
-    return card.ability.extra.joyous_spring.is_tuner or false
+    return JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.is_tuner or false
 end
 
 ---Checks if *card* is a Non-Tuner Joker
@@ -440,7 +441,7 @@ JoyousSpring.is_field_spell = function(card)
     end
     if (JoyousSpring.get_extra_values(card) or {}).is_field_spell then return true end
 
-    return card.ability.extra.joyous_spring.is_field_spell or false
+    return JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.is_field_spell or false
 end
 
 ---Checks if *card* is treated as all matrerials for a summon type
@@ -455,7 +456,7 @@ JoyousSpring.is_all_materials = function(card, summon_type)
         return JoyousSpring.get_extra_values(card).is_all_materials[summon_type]
     end
 
-    return card.ability.extra.joyous_spring.is_all_materials and
+    return JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.is_all_materials and
         card.ability.extra.joyous_spring.is_all_materials[summon_type]
 end
 
@@ -1001,8 +1002,8 @@ JoyousSpring.is_material_center = function(card_key, properties)
         return false
     end
     if properties.monster_type then
-        if has_extra_values and has_extra_values.monster_type then
-            if has_extra_values.monster_type ~= properties.monster_type then
+        if has_extra_values and extra_values.monster_type then
+            if extra_values.monster_type ~= properties.monster_type then
                 return false
             end
         else
@@ -1016,8 +1017,8 @@ JoyousSpring.is_material_center = function(card_key, properties)
     end
     if properties.exclude_monster_types then
         for _, monster_type in ipairs(properties.exclude_monster_types) do
-            if has_extra_values and has_extra_values.monster_type then
-                if has_extra_values.monster_type == monster_type then
+            if has_extra_values and extra_values.monster_type then
+                if extra_values.monster_type == monster_type then
                     return false
                 end
             else
@@ -1028,8 +1029,8 @@ JoyousSpring.is_material_center = function(card_key, properties)
         end
     end
     if properties.monster_attribute then
-        if has_extra_values and has_extra_values.monster_attribute then
-            if has_extra_values.attribute ~= properties.monster_attribute then
+        if has_extra_values and extra_values.monster_attribute then
+            if extra_values.attribute ~= properties.monster_attribute then
                 return false
             end
         else
@@ -1043,8 +1044,8 @@ JoyousSpring.is_material_center = function(card_key, properties)
     end
     if properties.exclude_monster_attributes then
         for _, monster_attribute in ipairs(properties.exclude_monster_attributes) do
-            if has_extra_values and has_extra_values.monster_attribute then
-                if has_extra_values.attribute == monster_attribute then
+            if has_extra_values and extra_values.monster_attribute then
+                if extra_values.attribute == monster_attribute then
                     return false
                 end
             else
@@ -1326,6 +1327,7 @@ end
 ---@param property_list material_properties[]
 ---@param not_owned boolean?
 ---@param not_extra boolean?
+---@param is_in_pool string|true?
 ---@return string[]
 JoyousSpring.get_materials_in_collection = function(property_list, not_owned, not_extra, is_in_pool)
     local pool = {}
@@ -1335,7 +1337,7 @@ JoyousSpring.get_materials_in_collection = function(property_list, not_owned, no
             (not not_extra or not JoyousSpring.is_in_extra_deck(k)) then
             local in_pool = true
             if is_in_pool and v.in_pool and type(v.in_pool) == 'function' then
-                in_pool, _ = v:in_pool({ source = "JoyousSpring" })
+                in_pool, _ = v:in_pool({ source = type(is_in_pool) == "string" and is_in_pool or "JoyousSpring" })
             end
             if not is_in_pool or in_pool then
                 if not property_list or #property_list == 0 then

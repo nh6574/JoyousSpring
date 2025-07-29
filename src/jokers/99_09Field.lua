@@ -64,7 +64,8 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then
-                local choices = JoyousSpring.get_materials_in_collection({ { summon_type = "FUSION" } })
+                local choices = JoyousSpring.get_materials_in_collection({ { summon_type = "FUSION" } }, nil, nil,
+                    card.config.center.key)
                 for _ = 1, card.ability.extra.adds do
                     local key_to_add, _ = pseudorandom_element(choices, card.config.center.key)
                     if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then

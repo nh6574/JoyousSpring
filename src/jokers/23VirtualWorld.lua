@@ -709,7 +709,7 @@ SMODS.Joker({
             card.ability.extra.active = false
         end
     end,
-    joy_can_detach = function(card)
+    joy_can_detach = function(self, card)
         return not card.ability.extra.active
     end
 })
@@ -786,7 +786,7 @@ SMODS.Joker({
             end
         end
     end,
-    joy_can_detach = function(card)
+    joy_can_detach = function(self, card)
         return (JoyousSpring.get_graveyard_count() -
             JoyousSpring.count_materials_in_graveyard(get_type_attribute_allowlist(G.jokers.cards))) > 0
     end
@@ -867,7 +867,7 @@ SMODS.Joker({
             end
         end
     end,
-    joy_can_detach = function(card)
+    joy_can_detach = function(self, card)
         return JoyousSpring.count_materials_in_graveyard(get_type_attribute_allowlist(G.jokers.cards), true) > 0
     end
 })

@@ -183,7 +183,8 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.used_as_material(card, context) then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_type = "Fish", is_extra_deck = true } })
+            local choices = JoyousSpring.get_materials_in_collection({ { monster_type = "Fish", is_extra_deck = true } },
+                nil, nil, card.config.center.key)
             for _ = 1, card.ability.extra.adds do
                 local key_to_add, _ = pseudorandom_element(choices, 'j_joy_fishlamp')
                 if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
@@ -264,7 +265,8 @@ SMODS.Joker({
                             table.remove(choices, index)
                         end
                         if #JoyousSpring.field_spell_area.cards < JoyousSpring.field_spell_area.config.card_limit then
-                            local choices_field = JoyousSpring.get_materials_in_collection({ { is_field_spell = true } })
+                            local choices_field = JoyousSpring.get_materials_in_collection({ { is_field_spell = true } },
+                                nil, nil, card.config.center.key)
 
                             local spell = pseudorandom_element(choices_field, pseudorandom("j_joy_afd"))
                             if spell and #JoyousSpring.field_spell_area.cards < JoyousSpring.field_spell_area.config.card_limit then

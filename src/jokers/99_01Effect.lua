@@ -322,7 +322,8 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.used_as_material(card, context) then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_type = "Cyberse", is_extra_deck = true } })
+            local choices = JoyousSpring.get_materials_in_collection(
+                { { monster_type = "Cyberse", is_extra_deck = true } }, nil, nil, card.config.center.key)
             for _ = 1, card.ability.extra.adds do
                 local key_to_add, _ = pseudorandom_element(choices, card.config.center.key)
                 if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
@@ -1007,7 +1008,8 @@ SMODS.Joker({
                 JoyousSpring.revive_pseudorandom({ { exclude_tuners = true } }, 'j_joy_angraecum', false,
                     "e_negative", nil, nil, "j_joy_angraecum")
             end
-            local choices = JoyousSpring.get_materials_in_collection({ { summon_type = "SYNCHRO" } })
+            local choices = JoyousSpring.get_materials_in_collection({ { summon_type = "SYNCHRO" } }, nil, nil,
+                card.config.center.key)
             for i = 1, card.ability.extra.adds do
                 local key_to_add = pseudorandom_element(choices, 'j_joy_angraecum')
                 JoyousSpring.add_monster_tag(key_to_add or "j_joy_psy_zeta")
