@@ -49,7 +49,6 @@ return {
     misc = {
         dictionary = {
             k_joy_booster_group = "Monster Pack",
-            k_joy_monster_tag_default = "a Monster Joker",
         }
     }
 }

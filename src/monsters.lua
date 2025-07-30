@@ -268,8 +268,7 @@ end
 ---@param monster_type monster_type
 ---@return boolean
 JoyousSpring.is_monster_type = function(card, monster_type)
-    if not JoyousSpring.is_monster_card(card) and (not JoyousSpring.get_extra_values(card) and (not JoyousSpring.get_extra_values(card).is_all_types
-            and not JoyousSpring.get_extra_values(card).monster_type)) then
+    if not JoyousSpring.is_monster_card(card) and (not JoyousSpring.get_extra_values(card) or (not JoyousSpring.get_extra_values(card).is_all_types and not JoyousSpring.get_extra_values(card).monster_type)) then
         return false
     end
     if (JoyousSpring.get_extra_values(card) or {}).is_all_types or (JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.is_all_types) then return true end
@@ -285,7 +284,7 @@ end
 ---@param card Card|table
 ---@return monster_type|true?
 JoyousSpring.get_monster_type = function(card)
-    if not JoyousSpring.is_monster_card(card) and not JoyousSpring.get_extra_values(card) and not JoyousSpring.get_extra_values(card).is_all_types and not JoyousSpring.get_extra_values(card).monster_type then
+    if not JoyousSpring.is_monster_card(card) and (not JoyousSpring.get_extra_values(card) or (not JoyousSpring.get_extra_values(card).is_all_types and not JoyousSpring.get_extra_values(card).monster_type)) then
         return nil
     end
     if (JoyousSpring.get_extra_values(card) or {}).is_all_types or (JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.is_all_types) then return true end
@@ -298,7 +297,7 @@ end
 ---@param attribute attribute
 ---@return boolean
 JoyousSpring.is_attribute = function(card, attribute)
-    if not JoyousSpring.is_monster_card(card) and not JoyousSpring.get_extra_values(card) and not JoyousSpring.get_extra_values(card).is_all_attributes and not JoyousSpring.get_extra_values(card).attribute then
+    if not JoyousSpring.is_monster_card(card) and (not JoyousSpring.get_extra_values(card) or (not JoyousSpring.get_extra_values(card).is_all_attributes and not JoyousSpring.get_extra_values(card).attribute)) then
         return false
     end
     if (JoyousSpring.get_extra_values(card) or {}).is_all_attributes or (JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.is_all_attributes) then return true end
@@ -315,7 +314,7 @@ end
 ---@param card Card|table
 ---@return attribute|true?
 JoyousSpring.get_attribute = function(card)
-    if not JoyousSpring.is_monster_card(card) and not JoyousSpring.get_extra_values(card) and not JoyousSpring.get_extra_values(card).is_all_attributes and not JoyousSpring.get_extra_values(card).attribute then
+    if not JoyousSpring.is_monster_card(card) and (not JoyousSpring.get_extra_values(card) or not (JoyousSpring.get_extra_values(card).is_all_attributes and not JoyousSpring.get_extra_values(card).attribute)) then
         return nil
     end
     if (JoyousSpring.get_extra_values(card) or {}).is_all_attributes or (JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.is_all_attributes) then
