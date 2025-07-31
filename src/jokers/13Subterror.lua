@@ -1089,7 +1089,7 @@ SMODS.Joker({
                 local mult_count = 0
                 local materials = JoyousSpring.get_materials(card)
                 for _, material in ipairs(materials) do
-                    if JoyousSpring.is(material, { monster_archetypes = { "Subterror" } }) then
+                    if JoyousSpring.is_material_center(material, { monster_archetypes = { "Subterror" } }) then
                         mult_count = m_material_centerult_count + 1
                     end
                 end
