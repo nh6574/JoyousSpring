@@ -1090,7 +1090,7 @@ SMODS.Joker({
                 local materials = JoyousSpring.get_materials(card)
                 for _, material in ipairs(materials) do
                     if JoyousSpring.is_material_center(material, { monster_archetypes = { "Subterror" } }) then
-                        mult_count = m_material_centerult_count + 1
+                        mult_count = mult_count + 1
                     end
                 end
                 local current_chips = card.ability.extra.chips * #materials
