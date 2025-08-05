@@ -5,7 +5,7 @@ return {
                 name = "{C:joy_effect}Fortune Lady Light",
                 text = {
                     {
-                        "{C:green}#1# in #2#{} chance to {C:attention}banish #3#{} a",
+                        "{C:green}#1# in #2#{} chance to {C:attention}banish #3#{}",
                         "{C:joy_normal}\"Fortune Lady\"{} at end of round",
                         "until {C:attention}Blind{} is selected"
                     },
