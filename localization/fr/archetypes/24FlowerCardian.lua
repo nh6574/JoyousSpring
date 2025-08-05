@@ -5,7 +5,7 @@ return {
                 name = "{C:joy_effect}Fleur Cardian Pin",
                 text = {
                     {
-                        "Les cartes {C:attention}Hanafuda{} {C:joy_link}Janvier{} et {C:joy_link}Février marquant des points",
+                        "Les cartes {C:attention}Hanafuda{} {C:joy_link}Janvier{} et {C:joy_link}Février{} marquant des points",
                         "gagnent {C:mult}+#1#{} Mult pour chaque {C:joy_normal}\"Fleur Cardian\"{} possédée ou au {C:attention}Cimetière",
                         "{C:inactive}(Actuellement: {C:mult}+#2#{}{C:inactive} Mult)"
                     },
@@ -48,7 +48,7 @@ return {
                 name = "{C:joy_effect}Fleur Cardian Fleur de Cerisier",
                 text = {
                     {
-                        "Les cartes {C:attention}Hanafuda{} {C:joy_link}Mars{} et {C:joy_link}Avril marquant des points",
+                        "Les cartes {C:attention}Hanafuda{} {C:joy_link}Mars{} et {C:joy_link}Avril{} marquant des points",
                         "gagnent {C:mult}+#1#{} Mult pour chaque {C:joy_normal}\"Fleur Cardian\"{} possédée ou au {C:attention}Cimetière",
                         "{C:inactive}(Actuellement: {C:mult}+#2#{}{C:inactive} Mult)"
                     },
@@ -232,7 +232,7 @@ return {
                 name = "{C:joy_effect}Fleur Cardian Paulownia",
                 text = {
                     {
-                        "Les cartes {C:attention}Hanafuda{} {C:joy_link}Mai{} and {C:joy_link}Décembre marquant",
+                        "Les cartes {C:attention}Hanafuda{} {C:joy_link}Mai{} and {C:joy_link}Décembre{} marquant",
                         "des points gagnent {C:mult}+#1#{} Mult pour chaque {C:joy_normal}\"Fleur Cardian\"{} possédée ou au {C:attention}Cimetière",
                         "{C:inactive}(Actuellement: {C:mult}+#2#{}{C:inactive} Mult)"
                     },
@@ -572,31 +572,31 @@ return {
             --#endregion
             --#region Names
             ["k_joy_hanafuda_Pine with Crane"] = "Pin avec Grue",
-            ["k_joy_hanafuda_Pine with Ruban"] = "Pin avec Ruban",
+            ["k_joy_hanafuda_Pine with Ribbon"] = "Pin avec Ruban",
             ["k_joy_hanafuda_Pine"] = "Pin",
 
             ["k_joy_hanafuda_Plum Blossom with White-eye"] = "Fleur de Prunier avec Oeil-blanc",
-            ["k_joy_hanafuda_Plum Blossom with Ruban"] = "Fleur de Prunier avec Ruban",
+            ["k_joy_hanafuda_Plum Blossom with Ribbon"] = "Fleur de Prunier avec Ruban",
             ["k_joy_hanafuda_Plum Blossom"] = "Fleur de Prunier",
 
             ["k_joy_hanafuda_Cherry Blossom with Curtain"] = "Fleur de Cerisier avec Rideau",
-            ["k_joy_hanafuda_Cherry Blossom with Ruban"] = "Fleur de Cerisier avec Ruban",
+            ["k_joy_hanafuda_Cherry Blossom with Ribbon"] = "Fleur de Cerisier avec Ruban",
             ["k_joy_hanafuda_Cherry Blossom"] = "Fleur de Cerisier",
 
             ["k_joy_hanafuda_Wisteria with Cuckoo"] = "Glycine avec Coucou",
-            ["k_joy_hanafuda_Wisteria with Ruban"] = "Glycine avec Ruban",
+            ["k_joy_hanafuda_Wisteria with Ribbon"] = "Glycine avec Ruban",
             ["k_joy_hanafuda_Wisteria"] = "Glycine",
 
             ["k_joy_hanafuda_Water Iris with Bridge"] = "Iris d'Eau avec Pont",
-            ["k_joy_hanafuda_Water iris with Ruban"] = "Iris d'Eau avec Ruban",
+            ["k_joy_hanafuda_Water iris with Ribbon"] = "Iris d'Eau avec Ruban",
             ["k_joy_hanafuda_Water iris"] = "Iris d'Eau",
 
             ["k_joy_hanafuda_Peony with Butterfly"] = "Pivoine à Papillon",
-            ["k_joy_hanafuda_Peony with Ruban"] = "Pivoine avec Ruban",
+            ["k_joy_hanafuda_Peony with Ribbon"] = "Pivoine avec Ruban",
             ["k_joy_hanafuda_Peony"] = "Pivoine",
 
             ["k_joy_hanafuda_Clover with Boar"] = "Trèfle avec Sanglier",
-            ["k_joy_hanafuda_Clover with Ruban"] = "Trèfle avec Ruban",
+            ["k_joy_hanafuda_Clover with Ribbon"] = "Trèfle avec Ruban",
             ["k_joy_hanafuda_Clover"] = "Trèfle",
 
             ["k_joy_hanafuda_Zebra Grass with Moon"] = "Herbe de Zèbre avec Lune",
@@ -604,16 +604,16 @@ return {
             ["k_joy_hanafuda_Zebra Grass"] = "Herbe de Zèbre",
 
             ["k_joy_hanafuda_Chrysanthemum with Sake"] = "Chrysanthème avec Saké",
-            ["k_joy_hanafuda_Chrysanthemum with Ruban"] = "Chrysanthème avec Ruban",
+            ["k_joy_hanafuda_Chrysanthemum with Ribbon"] = "Chrysanthème avec Ruban",
             ["k_joy_hanafuda_Chrysanthemum"] = "Chrysanthème",
 
             ["k_joy_hanafuda_Maple with Deer"] = "Érable avec Cerf",
-            ["k_joy_hanafuda_Maple with Ruban"] = "Érable avec Ruban",
+            ["k_joy_hanafuda_Maple with Ribbon"] = "Érable avec Ruban",
             ["k_joy_hanafuda_Maple"] = "Érable",
 
             ["k_joy_hanafuda_Willow with Calligrapher"] = "Saule avec Calligraphe",
             ["k_joy_hanafuda_Willow with Swallow"] = "Saule avec Hirondelle",
-            ["k_joy_hanafuda_Willow with Ruban"] = "Saule avec Ruban",
+            ["k_joy_hanafuda_Willow with Ribbon"] = "Saule avec Ruban",
             ["k_joy_hanafuda_Willow"] = "Saule",
 
             ["k_joy_hanafuda_Paulownia with Phoenix"] = "Paulownia avec Phénix",
