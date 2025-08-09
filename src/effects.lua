@@ -477,7 +477,8 @@ JoyousSpring.calculate_hand_highlight_limit = function(count_card, remove_card)
         end
     end
 
-    G.hand.config.highlighted_limit = (maxlimit > -1) and maxlimit or G.GAME.joy_original_hand_limit
+    G.hand.config.highlighted_limit = math.max(G.GAME.starting_params.discard_limit, G.GAME.starting_params.play_limit, 5,
+        (maxlimit > -1) and maxlimit or G.GAME.joy_original_hand_limit)
 end
 
 ---Excavates (reveals) cards from the top of the deck
