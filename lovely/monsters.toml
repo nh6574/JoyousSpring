@@ -37,11 +37,16 @@ pattern = '''
 if multi_boxes[1] then
 '''
 payload = '''
-if AUT.joy_consumable then
-    for i=1, #ret_val.nodes[1].nodes[1].nodes[1].nodes do -- find the main box
-        if ret_val.nodes[1].nodes[1].nodes[1].nodes[i] and ret_val.nodes[1].nodes[1].nodes[1].nodes[i].config and ret_val.nodes[1].nodes[1].nodes[1].nodes[i].config.main_box_flag then
-            table.insert(ret_val.nodes[1].nodes[1].nodes[1].nodes, i, desc_from_rows(AUT.joy_consumable))
-            break
+if not card.debuff and card.joy_transfer_text and type(card.ability.extra) == "table" and (card.ability.extra.joyous_spring or {}).material_effects and next(card.ability.extra.joyous_spring.material_effects) then
+    --ret_val.nodes[1].nodes[1].nodes[1].config.padding = 0.01
+else
+    local joy_desc_rows = ret_val.nodes[1].nodes[1].nodes[1]
+    if AUT.joy_consumable then
+        for i=1, #joy_desc_rows.nodes do -- find the main box
+            if joy_desc_rows.nodes[i] and joy_desc_rows.nodes[i].config and joy_desc_rows.nodes[i].config.main_box_flag then
+                table.insert(joy_desc_rows.nodes, i, desc_from_rows(AUT.joy_consumable))
+                break
+            end
         end
     end
 end

@@ -1333,7 +1333,7 @@ SMODS.Joker({
             if context.setting_blind and context.main_eval then
                 JoyousSpring.send_to_graveyard_pseudorandom(
                     { { monster_archetypes = { "Shaddoll" }, is_main_deck = true } },
-                    other_card.config.center.key .. "_shaddoll_elconstruct", config.ability.extra.mills)
+                    other_card.config.center.key .. "_shaddoll_elconstruct", config.mills)
             end
         end
     end

@@ -297,34 +297,25 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
             full_UI_table.multi_box = {}
             local initial = true
             for material_key, config in pairs(card.ability.extra.joyous_spring.material_effects) do
-                local joy_loc_string = localize { type = 'name_text', set = "Joker", key = material_key } or ''
-                local node = { {
-                    {
-                        n = G.UIT.R,
-                        config = { align = "cm" },
-                        nodes = {
-                            {
-                                n = G.UIT.T,
-                                config = {
-                                    text = joy_loc_string,
-                                    scale = 0.27,
-                                    colour = JoyousSpring.get_name_color(material_key) or G.C.JOY.EFFECT,
-                                },
-                            }
-                        }
-                    },
-                } }
+                local name_node = {}
+                local node = {}
 
                 local material_center = G.P_CENTERS[material_key]
                 if material_center and G.localization.descriptions["Joker"][material_key].joy_transfer_ability then
+                    localize { type = 'name', set = "Joker", key = material_key, nodes = name_node, vars = material_center.joy_transfer_loc_vars and material_center:joy_transfer_loc_vars(info_queue, card, config).vars or {}, scale = 0.7 }
                     localize { type = "joy_transfer_ability", set = "Joker", key = material_key, nodes = node, vars = material_center.joy_transfer_loc_vars and material_center:joy_transfer_loc_vars(info_queue, card, config).vars or {}, scale = 0.9 }
                 end
                 if initial then
-                    full_UI_table.main = node
+                    full_UI_table.main = name_node
                     full_UI_table.main.main_box_flag = true
+                    full_UI_table.main.joy_box_minh = 0
+                    full_UI_table.box_colours[1] = G.C.CLEAR
                 else
-                    full_UI_table.multi_box[#full_UI_table.multi_box + 1] = node
+                    full_UI_table.multi_box[#full_UI_table.multi_box + 1] = name_node
+                    full_UI_table.multi_box[#full_UI_table.multi_box].joy_box_minh = 0
+                    full_UI_table.box_colours[#full_UI_table.multi_box + 1] = G.C.CLEAR
                 end
+                full_UI_table.multi_box[#full_UI_table.multi_box + 1] = node
                 initial = false
             end
         end
@@ -366,6 +357,28 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
             table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_related" })
         end
     end
+end
+
+local desc_from_rows_ref = desc_from_rows
+function desc_from_rows(desc_nodes, empty, maxw)
+    local ret = desc_from_rows_ref(desc_nodes, empty, maxw)
+
+    if desc_nodes.joy_box_minh then
+        ret = {}
+        local t = {}
+        for _, v in ipairs(desc_nodes) do
+            t[#t + 1] = { n = G.UIT.R, config = { align = "cm", maxw = maxw }, nodes = v }
+        end
+        ret = {
+            n = G.UIT.R,
+            config = { align = "cm", colour = desc_nodes.background_colour or empty and G.C.CLEAR or G.C.UI.BACKGROUND_WHITE, r = 0.1, padding = -0.03, minw = 2, minh = desc_nodes.joy_box_minh, emboss = not empty and 0.05 or nil, filler = true, main_box_flag = desc_nodes.main_box_flag and true or nil },
+            nodes = {
+                { n = G.UIT.R, config = { align = "cm", padding = -0.03 }, nodes = t }
+            }
+        }
+    end
+
+    return ret
 end
 
 local localize_ref = localize
