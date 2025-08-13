@@ -2,7 +2,7 @@ return {
     descriptions = {
         Joker = {
             j_joy_cardian_pine = {
-                name = "{C:joy_effect}Flower Cardian Pine",
+                name = "{C:joy_effect}Flor Cardian Pino",
                 text = {
                     {
                         "Scored {C:joy_link}January{} and {C:joy_link}February {C:attention}Hanafuda{} cards",
@@ -24,7 +24,7 @@ return {
                 }
             },
             j_joy_cardian_crane = {
-                name = "{C:joy_effect}Flower Cardian Pine with Crane",
+                name = "{C:joy_effect}Flor Cardian Pino con Grulla",
                 text = {
                     {
                         "{C:joy_link}January{} and {C:joy_link}February {C:attention}Hanafuda{} cards",
@@ -45,7 +45,7 @@ return {
                 }
             },
             j_joy_cardian_cherry = {
-                name = "{C:joy_effect}Flower Cardian Cherry Blossom",
+                name = "{C:joy_effect}Flor Cardian de Cerezo",
                 text = {
                     {
                         "Scored {C:joy_link}March{} and {C:joy_link}April {C:attention}Hanafuda{} cards",
@@ -67,7 +67,7 @@ return {
                 }
             },
             j_joy_cardian_curtain = {
-                name = "{C:joy_effect}Flower Cardian Cherry Blossom with Curtain",
+                name = "{C:joy_effect}Flor Cardian de Cerezo con la Cortina",
                 text = {
                     {
                         "{C:joy_link}March{} and {C:joy_link}April {C:attention}Hanafuda{} cards",
@@ -88,7 +88,7 @@ return {
                 }
             },
             j_joy_cardian_butterfly = {
-                name = "{C:joy_effect}Flower Cardian Peony with Butterfly",
+                name = "{C:joy_effect}Flor Cardian Peonía con Mariposa",
                 text = {
                     {
                         "Scored {C:joy_link}June {C:attention}Hanafuda{} cards give {X:mult,C:white}X#1#{} Mult",
@@ -109,7 +109,7 @@ return {
                 }
             },
             j_joy_cardian_boar = {
-                name = "{C:joy_effect}Flower Cardian Clover with Boar",
+                name = "{C:joy_effect}Flor Cardian Trébol con Jabalí",
                 text = {
                     {
                         "Scored {C:joy_link}July {C:attention}Hanafuda{} cards give {X:mult,C:white}X#1#{} Mult",
@@ -130,7 +130,7 @@ return {
                 }
             },
             j_joy_cardian_zebra = {
-                name = "{C:joy_effect}Flower Cardian Zebra Grass",
+                name = "{C:joy_effect}Flor Cardian Césped de Cebra",
                 text = {
                     {
                         "Scored {C:joy_link}August{} and {C:joy_link}September {C:attention}Hanafuda{} cards",
@@ -152,7 +152,7 @@ return {
                 }
             },
             j_joy_cardian_moon = {
-                name = "{C:joy_effect}Flower Cardian Zebra Grass with Moon",
+                name = "{C:joy_effect}Flor Cardian Césped de Cebra con la Luna",
                 text = {
                     {
                         "{C:attention}Excavate{} and check the top {C:attention}#1#{}:",
@@ -170,7 +170,7 @@ return {
                 }
             },
             j_joy_cardian_deer = {
-                name = "{C:joy_effect}Flower Cardian Maple with Deer",
+                name = "{C:joy_effect}Flor Cardian Arce con Ciervo",
                 text = {
                     {
                         "Scored {C:joy_link}October {C:attention}Hanafuda{} cards give {X:mult,C:white}X#1#{} Mult",
@@ -190,7 +190,7 @@ return {
                 }
             },
             j_joy_cardian_willow = {
-                name = "{C:joy_effect}Flower Cardian Willow",
+                name = "{C:joy_effect}Flor Cardian Sauce",
                 text = {
                     {
                         "Scored {C:joy_link}November {C:attention}Hanafuda{} cards",
@@ -212,7 +212,7 @@ return {
                 }
             },
             j_joy_cardian_calligrapher = {
-                name = "{C:joy_effect}Flower Cardian Willow with Calligrapher",
+                name = "{C:joy_effect}Flor Cardian Sauce con Calígrafo",
                 text = {
                     {
                         "{C:attention}Excavate{} and check the top {C:attention}#1#{}:",
@@ -229,7 +229,7 @@ return {
                 }
             },
             j_joy_cardian_paulownia = {
-                name = "{C:joy_effect}Flower Cardian Paulownia",
+                name = "{C:joy_effect}Flor Cardian Paulownia",
                 text = {
                     {
                         "Scored {C:joy_link}May{} and {C:joy_link}December {C:attention}Hanafuda{} cards",
@@ -251,7 +251,7 @@ return {
                 }
             },
             j_joy_cardian_phoenix = {
-                name = "{C:joy_effect}Flower Cardian Paulownia with Phoenix",
+                name = "{C:joy_effect}Flor Cardian Paulownia con Fénix",
                 text = {
                     {
                         "{C:joy_link}May{} and {C:joy_link}December {C:attention}Hanafuda{} cards",
@@ -272,7 +272,7 @@ return {
                 }
             },
             j_joy_cardian_boardefly = {
-                name = "{C:joy_synchro}Flower Cardian Boardefly",
+                name = "{C:joy_synchro}Flor Cardian Javoposa",
                 text = {
                     {
                         "If a {C:attention}Koi-koi{} hand is played,",
@@ -294,7 +294,7 @@ return {
                 }
             },
             j_joy_cardian_moonflower = {
-                name = "{C:joy_synchro}Flower Cardian Moonflowerviewing",
+                name = "{C:joy_synchro}Flor Cardian Visión de la Flor de Luna",
                 text = {
                     {
                         "When first hand is drawn, draw {C:attention}#1#{} card",
@@ -318,7 +318,7 @@ return {
                 }
             },
             j_joy_cardian_lightshower = {
-                name = "{C:joy_synchro}Flower Cardian Lightshower",
+                name = "{C:joy_synchro}Flor Cardian Leve Lluvia",
                 text = {
                     {
                         "{C:joy_normal}\"Flower Cardian\"{} each give {X:mult,C:white}X#1#{} Mult",
@@ -343,7 +343,7 @@ return {
                 }
             },
             j_joy_cardian_lightflare = {
-                name = "{C:joy_synchro}Flower Cardian Lightflare",
+                name = "{C:joy_synchro}Flor Cardian Destello de Luz",
                 text = {
                     {
                         "Gains {C:mult}+#1#{} Mult for each excavated {C:attention}Hanafuda{} card",
@@ -371,19 +371,19 @@ return {
         },
         Planet = {
             c_joy_cardian_koikoi = {
-                name = "{C:joy_spell}Super Koi Koi",
+                name = "{C:joy_spell}Súper Koi Koi",
                 text = {
-                    "Level up all",
-                    "{C:attention}Koi Koi{} hands once",
+                    "Aumenta de nivel todas las manos",
+                    "{C:attention}Koi Koi{} una vez",
                 },
             },
         },
         Tarot = {
             c_joy_cardian_gathering = {
-                name = "{C:joy_spell}Flower Gathering",
+                name = "{C:joy_spell}Recogiendo Flores",
                 text = {
-                    "Enhances {C:attention}#1#{} selected",
-                    "card into {C:attention}Hanafuda{} cards",
+                    "Mejora {C:attention}#1#{} cartas",
+                    "seleccionadas a cartas {C:attention}Hanafuda{}",
                 },
             },
         },
@@ -392,9 +392,9 @@ return {
                 name = "Hanafuda",
                 text = {
                     {
-                        "{C:mult}+#4#{} Mult when scored with",
-                        "another {C:attention}Hanafuda{} card of the same {C:joy_link}Month{}",
-                        "or in a {C:attention}Koi Koi{} hand"
+                        "{C:mult}+#4#{} multi cuando anota",
+                        "con otra carta {C:attention}Hanafuda{} del mismo {C:joy_link}mes{}",
+                        "o en una mano {C:attention}Koi Koi{}"
                     },
                     {
                         "{C:joy_mod}#1#",
@@ -406,8 +406,8 @@ return {
                 name = "Hanafuda",
                 text = {
                     {
-                        "{C:mult}+#4#{} Mult",
-                        "Always scores in {C:attention}Koi Koi{} hands"
+                        "{C:mult}+#4#{} multi",
+                        "Siempre anota en manos {C:attention}Koi Koi{}"
                     },
                     {
                         "{C:joy_mod}#1#",
@@ -419,23 +419,23 @@ return {
                 name = "Hanafuda",
                 text = {
                     {
-                        "{C:mult}+20{}/{C:mult}10{}/{C:mult}5{} Mult when scored with",
-                        "another card of the same {C:joy_link}Month{}",
-                        "or in a {C:attention}Koi Koi{} hand",
-                        "OR {C:mult}+1{} Mult and scores in {C:attention}Koi Koi{} hands",
-                        "if it's {C:joy_link}Chaff",
-                        "{C:inactive}(Month/Type is random)"
+                        "{C:mult}+20{}/{C:mult}10{}/{C:mult}5{} multi cuando anotan",
+                        "con otra carta {C:attention}Hanafuda{} del mismo {C:joy_link}mes{}",
+                        "o en una mano {C:attention}Koi Koi{}",
+                        "O {C:mult}+1{} Mult multi y siempre anota en manos {C:attention}Koi Koi{}",
+                        "si es {C:joy_link}básica",
+                        "{C:inactive}(El Mes/Tipo es al azar)"
                     }
                 }
             }
         },
         Back = {
             b_joy_hanafuda = {
-                name = "{C:joy_spell}Flower Stacking",
+                name = "{C:joy_spell}Apilando Flores",
                 text = {
-                    "Start with",
-                    "all random",
-                    "{C:attention,T:m_joy_hanafuda}Hanafuda{} cards"
+                    "Empieza con",
+                    "todas cartas {C:attention,T:m_joy_hanafuda}Hanafuda{}",
+                    "al azar"
                 }
             }
         },
@@ -443,180 +443,180 @@ return {
             sleeve_joy_hanafuda = {
                 name = "{C:joy_spell}Recardination",
                 text = {
-                    "Start with",
-                    "all random",
-                    "{C:attention,T:m_joy_hanafuda}Hanafuda{} cards"
+                    "Empieza con",
+                    "todas cartas {C:attention,T:m_joy_hanafuda}Hanafuda{}",
+                    "al azar"
                 }
             },
             sleeve_joy_hanafuda_alt = {
                 name = "{C:joy_spell}Recardination",
                 text = {
-                    "Start with all {C:attention,T:m_joy_hanafuda}Hanafuda{} cards",
-                    "instead of random plus extra",
-                    "{C:joy_mod}Chrysanthemum with Sake"
+                    "Empieza con todas",
+                    "las cartas {C:attention,T:m_joy_hanafuda}Hanafuda{} (no al azar)",
+                    "y extra {C:joy_mod}Crisantemo con Sake"
                 }
             },
         },
         Other = {
             joy_tooltip_koikoihand = {
-                name = "Koi-koi Hands",
+                name = "Manos Koi-koi",
                 text = {
-                    "Combinations of {C:attention}Hanafuda{} cards",
+                    "Combinaciones de cartas {C:attention}Hanafuda{}",
                 },
             }
         },
     },
     misc = {
         poker_hands = {
-            joy_cardian_chaff = "Chaff",
-            joy_cardian_ribbons = "Ribbons",
-            joy_cardian_blueribbon = "Blue Ribbon",
-            joy_cardian_redpoem = "Red Poem",
-            joy_cardian_redpoemblueribbon = "Red Poem and Blue Ribbon",
-            joy_cardian_animals = "Animals",
-            joy_cardian_boardefly = "Boardefly",
-            joy_cardian_flowerviewing = "Flowerviewing",
-            joy_cardian_moonviewing = "Moonviewing",
-            joy_cardian_moonflowerviewing = "Moonflowerviewing",
-            joy_cardian_lightwave = "Lightwave",
-            joy_cardian_lightshower = "Lightshower",
-            joy_cardian_lightshow = "Lightshow",
-            joy_cardian_lightflare = "Lightflare",
+            joy_cardian_chaff = "Básicas",
+            joy_cardian_ribbons = "Cintas",
+            joy_cardian_blueribbon = "Cinta Azul",
+            joy_cardian_redpoem = "Poema Rojo",
+            joy_cardian_redpoemblueribbon = "Poema Rojo y Cinta Azul",
+            joy_cardian_animals = "Tierra",
+            joy_cardian_boardefly = "Javoposa",
+            joy_cardian_flowerviewing = "Visión de la Flor",
+            joy_cardian_moonviewing = "Visión de la Luna",
+            joy_cardian_moonflowerviewing = "Visión de la Flor de Luna",
+            joy_cardian_lightwave = "Onda de Luz",
+            joy_cardian_lightshower = "Leve Lluvia",
+            joy_cardian_lightshow = "Lluvia de Luz",
+            joy_cardian_lightflare = "Destello de Luz",
         },
         poker_hand_descriptions = {
             joy_cardian_chaff = {
-                "5 {C:joy_link}Chaff{} {C:attention}Hanafuda{} cards",
-                "(or {C:joy_mod}Chrysanthemum with Sake{})"
+                "5 cartas {C:attention}Hanafuda{} {C:joy_link}básicas{}",
+                "(o {C:joy_mod}Crisantemo con Sake{})"
             },
             joy_cardian_ribbons = {
-                "5 {C:joy_link}Ribbon {C:attention}Hanafuda{} cards",
+                "5 cartas {C:attention}Hanafuda{} con {C:joy_link}cinta",
             },
             joy_cardian_blueribbon = {
-                "{C:joy_mod}Peony with Ribbon{}, {C:joy_mod}Chrysanthemum with Ribbon",
-                "and {C:joy_mod}Maple with Ribbon {C:attention}Hanafuda{} cards",
-                "with up to 2 unscored cards"
+                "{C:joy_mod}Peonía con Cinta{}, {C:joy_mod}Crisantemo con Cinta",
+                "y {C:joy_mod}Arce con Cinta",
+                "con hasta 2 cartas que no cuentan"
             },
             joy_cardian_redpoem = {
-                "{C:joy_mod}Pine with Ribbon{}, {C:joy_mod}Plum Blossom with Ribbon",
-                "and {C:joy_mod}Cherry Blossom with Ribbon {C:attention}Hanafuda{} cards",
-                "with up to 2 unscored cards"
+                "{C:joy_mod}Pino con Cinta{}, {C:joy_mod}Ciruelo con Cinta",
+                "y {C:joy_mod}Cerezo con Cinta",
+                "con hasta 2 cartas que no cuentan"
             },
             joy_cardian_redpoemblueribbon = {
-                "Any 5 of {C:joy_mod}Peony with Ribbon{}, {C:joy_mod}Chrysanthemum with Ribbon,",
-                "{C:joy_mod}Maple with Ribbon{}, {C:joy_mod}Pine with Ribbon",
-                "{C:joy_mod}Plum Blossom with Ribbon{} or {C:joy_mod}Cherry Blossom with Ribbon {C:attention}Hanafuda{} cards",
+                "5 cartas cualquiera de {C:joy_mod}Peonía con Cinta{}, {C:joy_mod}Crisantemo con Cinta{},",
+                "{C:joy_mod}Arce con Cinta{}, {C:joy_mod}Pino con Cinta",
+                "{C:joy_mod}Ciruelo con Cinta{} o {C:joy_mod}Cerezo con Cinta",
             },
             joy_cardian_animals = {
-                "5 {C:joy_link}Animal{} {C:attention}Hanafuda{} cards",
+                "5 cartas {C:attention}Hanafuda{} de {C:joy_link}tierra{}",
             },
             joy_cardian_boardefly = {
-                "{C:joy_mod}Clover with Boar{}, {C:joy_mod}Maple with Deer",
-                "and {C:joy_mod}Peony with Butterfly {C:attention}Hanafuda{} cards",
-                "with up to 2 {C:joy_link}Animal{} {C:attention}Hanafuda{} cards",
-                "and/or up to 2 unscored cards"
+                "{C:joy_mod}Trébol con Jabalí{}, {C:joy_mod}Arce con Ciervo",
+                "y {C:joy_mod}Peonía con Mariposa",
+                "con hasta 2 cartas {C:attention}Hanafuda{} de {C:joy_link}tierra{}",
+                "y/o 2 cartas que no cuentan"
             },
             joy_cardian_flowerviewing = {
-                "Up to 5 {C:joy_mod}Chrysanthemum with Sake{} and",
-                "{C:joy_mod}Cherry Blossom with Curtain {C:attention}Hanafuda{} cards",
-                "with up to 3 unscored cards"
+                "Hasta 5 cartas de {C:joy_mod}Crisantemo con Sake{} y",
+                "{C:joy_mod}Cerezo con la Cortina",
+                "con hasta 3 cartas que no cuentan"
             },
             joy_cardian_moonviewing = {
-                "Up to 5 {C:joy_mod}Chrysanthemum with Sake{} and",
-                "{C:joy_mod}Zebra Grass with Moon{} {C:attention}Hanafuda{} cards",
-                "with up to 3 unscored cards"
+                "Hasta 5 cartas de {C:joy_mod}Crisantemo con Sake{} y",
+                "{C:joy_mod}Césped de Cebra con la Luna",
+                "con hasta 3 cartas que no cuentan"
             },
             joy_cardian_moonflowerviewing = {
-                "Hand contains {C:attention}Moonviewing{} and {C:attention}Flowerviewing{}",
-                "with up to 2 unscored cards"
+                "La mano contiene {C:attention}Visión de la Luna{} y {C:attention}Visión de la Flor{}",
+                "con hasta 2 cartas que no cuentan"
             },
             joy_cardian_lightwave = {
-                "3 {C:joy_link}Light{} {C:attention}Hanafuda{} cards of different Month",
-                "{C:inactive}(except Willow with Calligrapher)"
+                "3 cartas {C:attention}Hanafuda{} de {C:joy_link}luz{} con meses distintos",
+                "{C:inactive}(excepto Sauce con Calígrafo)"
             },
             joy_cardian_lightshower = {
-                "4 {C:joy_link}Light{} {C:attention}Hanafuda{} cards of different Month,",
-                "including {C:joy_mod}Willow with Calligrapher"
+                "4 cartas {C:attention}Hanafuda{} de {C:joy_link}luz{} con meses distintos",
+                "incluyendo {C:joy_mod}Sauce con Calígrafo"
             },
             joy_cardian_lightshow = {
-                "4 {C:joy_link}Light{} {C:attention}Hanafuda{} cards of different Month",
-                "{C:inactive}(except Willow with Calligrapher)"
+                "4 cartas {C:attention}Hanafuda{} de {C:joy_link}luz{} con meses distintos",
+                "{C:inactive}(except Sauce con Calígrafo)"
             },
             joy_cardian_lightflare = {
-                "5 {C:joy_link}Light{} {C:attention}Hanafuda{} cards of different {C:joy_link}Month{}",
+                "5 cartas {C:attention}Hanafuda{} de {C:joy_link}luz{} con meses distintos",
             },
         },
         dictionary = {
-            k_joy_archetype_cardian = "Flower Cardian",
-            k_joy_all_koikoi_hands = "All Koi Koi hands",
-            k_joy_hanafuda_month = "Month",
-            k_joy_hanafuda_type = "Type",
+            k_joy_archetype_cardian = "Flor Cardian",
+            k_joy_all_koikoi_hands = "Manos Koi Koi",
+            k_joy_hanafuda_month = "Mes",
+            k_joy_hanafuda_type = "Tipo",
             --#region Months
-            k_joy_hanafuda_january = "January",
-            k_joy_hanafuda_february = "February",
-            k_joy_hanafuda_march = "March",
-            k_joy_hanafuda_april = "April",
-            k_joy_hanafuda_may = "May",
-            k_joy_hanafuda_june = "June",
-            k_joy_hanafuda_july = "July",
-            k_joy_hanafuda_august = "August",
-            k_joy_hanafuda_september = "September",
-            k_joy_hanafuda_october = "October",
-            k_joy_hanafuda_november = "November",
-            k_joy_hanafuda_december = "December",
+            k_joy_hanafuda_january = "Enero",
+            k_joy_hanafuda_february = "Febrero",
+            k_joy_hanafuda_march = "Marzo",
+            k_joy_hanafuda_april = "Abril",
+            k_joy_hanafuda_may = "Mayo",
+            k_joy_hanafuda_june = "Junio",
+            k_joy_hanafuda_july = "Julio",
+            k_joy_hanafuda_august = "Agosto",
+            k_joy_hanafuda_september = "Septiembre",
+            k_joy_hanafuda_october = "Octubre",
+            k_joy_hanafuda_november = "Noviembre",
+            k_joy_hanafuda_december = "Diciembre",
             --#endregion
             --#region Types
-            k_joy_hanafuda_light = "Light",
-            k_joy_hanafuda_animal = "Animal",
-            k_joy_hanafuda_ribbon = "Ribbon",
-            k_joy_hanafuda_chaff = "Chaff",
+            k_joy_hanafuda_light = "Luz",
+            k_joy_hanafuda_animal = "Tierra",
+            k_joy_hanafuda_ribbon = "Cinta",
+            k_joy_hanafuda_chaff = "Básica",
             --#endregion
             --#region Names
-            ["k_joy_hanafuda_Pine with Crane"] = "Pine with Crane",
-            ["k_joy_hanafuda_Pine with Ribbon"] = "Pine with Ribbon",
-            ["k_joy_hanafuda_Pine"] = "Pine",
+            ["k_joy_hanafuda_Pine with Crane"] = "Pino con Grulla",
+            ["k_joy_hanafuda_Pine with Ribbon"] = "Pino con Cinta",
+            ["k_joy_hanafuda_Pine"] = "Pino",
 
-            ["k_joy_hanafuda_Plum Blossom with White-eye"] = "Plum Blossom with White-eye",
-            ["k_joy_hanafuda_Plum Blossom with Ribbon"] = "Plum Blossom with Ribbon",
-            ["k_joy_hanafuda_Plum Blossom"] = "Plum Blossom",
+            ["k_joy_hanafuda_Plum Blossom with White-eye"] = "Ciruelo con Ruiseñor",
+            ["k_joy_hanafuda_Plum Blossom with Ribbon"] = "Ciruelo con Cinta",
+            ["k_joy_hanafuda_Plum Blossom"] = "Ciruelo",
 
-            ["k_joy_hanafuda_Cherry Blossom with Curtain"] = "Cherry Blossom with Curtain",
-            ["k_joy_hanafuda_Cherry Blossom with Ribbon"] = "Cherry Blossom with Ribbon",
-            ["k_joy_hanafuda_Cherry Blossom"] = "Cherry Blossom",
+            ["k_joy_hanafuda_Cherry Blossom with Curtain"] = "Cerezo con la Cortina",
+            ["k_joy_hanafuda_Cherry Blossom with Ribbon"] = "Cerezo con Cinta",
+            ["k_joy_hanafuda_Cherry Blossom"] = "Cerezo",
 
-            ["k_joy_hanafuda_Wisteria with Cuckoo"] = "Wisteria with Cuckoo",
-            ["k_joy_hanafuda_Wisteria with Ribbon"] = "Wisteria with Ribbon",
-            ["k_joy_hanafuda_Wisteria"] = "Wisteria",
+            ["k_joy_hanafuda_Wisteria with Cuckoo"] = "Glicina con Cuculí",
+            ["k_joy_hanafuda_Wisteria with Ribbon"] = "Glicina con Cinta",
+            ["k_joy_hanafuda_Wisteria"] = "Glicina",
 
-            ["k_joy_hanafuda_Water Iris with Bridge"] = "Water Iris with Bridge",
-            ["k_joy_hanafuda_Water iris with Ribbon"] = "Water Iris with Ribbon",
-            ["k_joy_hanafuda_Water iris"] = "Water Iris",
+            ["k_joy_hanafuda_Water Iris with Bridge"] = "Lirio con el Puente",
+            ["k_joy_hanafuda_Water iris with Ribbon"] = "Lirio con Cinta",
+            ["k_joy_hanafuda_Water iris"] = "Lirio",
 
-            ["k_joy_hanafuda_Peony with Butterfly"] = "Peony with Butterfly",
-            ["k_joy_hanafuda_Peony with Ribbon"] = "Peony with Ribbon",
-            ["k_joy_hanafuda_Peony"] = "Peony",
+            ["k_joy_hanafuda_Peony with Butterfly"] = "Peonía con Mariposa",
+            ["k_joy_hanafuda_Peony with Ribbon"] = "Peonía con Cinta",
+            ["k_joy_hanafuda_Peony"] = "Peonía",
 
-            ["k_joy_hanafuda_Clover with Boar"] = "Clover with Boar",
-            ["k_joy_hanafuda_Clover with Ribbon"] = "Clover with Ribbon",
-            ["k_joy_hanafuda_Clover"] = "Clover",
+            ["k_joy_hanafuda_Clover with Boar"] = "Trébol con Jabalí",
+            ["k_joy_hanafuda_Clover with Ribbon"] = "Trébol con Cinta",
+            ["k_joy_hanafuda_Clover"] = "Trébol",
 
-            ["k_joy_hanafuda_Zebra Grass with Moon"] = "Zebra Grass with Moon",
-            ["k_joy_hanafuda_Zebra Grass with Geese"] = "Zebra Grass with Geese",
-            ["k_joy_hanafuda_Zebra Grass"] = "Zebra Grass",
+            ["k_joy_hanafuda_Zebra Grass with Moon"] = "Césped de Cebra con la Luna",
+            ["k_joy_hanafuda_Zebra Grass with Geese"] = "Césped de Cebra con Gansos",
+            ["k_joy_hanafuda_Zebra Grass"] = "Césped de Cebra",
 
-            ["k_joy_hanafuda_Chrysanthemum with Sake"] = "Chrysanthemum with Sake",
-            ["k_joy_hanafuda_Chrysanthemum with Ribbon"] = "Chrysanthemum with Ribbon",
-            ["k_joy_hanafuda_Chrysanthemum"] = "Chrysanthemum",
+            ["k_joy_hanafuda_Chrysanthemum with Sake"] = "Crisantemo con Sake",
+            ["k_joy_hanafuda_Chrysanthemum with Ribbon"] = "Crisantemo con Cinta",
+            ["k_joy_hanafuda_Chrysanthemum"] = "Crisantemo",
 
-            ["k_joy_hanafuda_Maple with Deer"] = "Maple with Deer",
-            ["k_joy_hanafuda_Maple with Ribbon"] = "Maple with Ribbon",
-            ["k_joy_hanafuda_Maple"] = "Maple",
+            ["k_joy_hanafuda_Maple with Deer"] = "Arce con Ciervo",
+            ["k_joy_hanafuda_Maple with Ribbon"] = "Arce con Cinta",
+            ["k_joy_hanafuda_Maple"] = "Arce",
 
-            ["k_joy_hanafuda_Willow with Calligrapher"] = "Willow with Calligrapher",
-            ["k_joy_hanafuda_Willow with Swallow"] = "Willow with Swallow",
-            ["k_joy_hanafuda_Willow with Ribbon"] = "Willow with Ribbon",
-            ["k_joy_hanafuda_Willow"] = "Willow",
+            ["k_joy_hanafuda_Willow with Calligrapher"] = "Sauce con Calígrafo",
+            ["k_joy_hanafuda_Willow with Swallow"] = "Sauce con Golondrina",
+            ["k_joy_hanafuda_Willow with Ribbon"] = "Sauce con Cinta",
+            ["k_joy_hanafuda_Willow"] = "Sauce",
 
-            ["k_joy_hanafuda_Paulownia with Phoenix"] = "Paulownia with Phoenix",
+            ["k_joy_hanafuda_Paulownia with Phoenix"] = "Paulownia con Fénix",
             ["k_joy_hanafuda_Paulownia"] = "Paulownia",
             --#endregion
         }
