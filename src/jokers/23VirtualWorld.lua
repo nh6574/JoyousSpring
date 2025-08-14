@@ -124,6 +124,30 @@ SMODS.Joker({
             card.ability.extra.create_activated = false
             card.ability.extra.shop_activated = false
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                local xmult = 1
+                local text, poker_hands, scoring_hand = JokerDisplay.evaluate_hand()
+                if text ~= 'Unknown' and vw_played_hand("xuanwu", { scoring_name = text, poker_hands = poker_hands }) then
+                    for _, scoring_card in pairs(scoring_hand) do
+                        xmult = xmult *
+                            card.ability.extra.xmult ^
+                            JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
+                    end
+                end
+                card.joker_display_values.xmult = xmult
+            end
+        }
     end
 })
 
@@ -236,6 +260,27 @@ SMODS.Joker({
             card.ability.extra.shop_activated = false
             card.ability.extra.banish_activated = false
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                local chips = 1
+                local text, poker_hands, scoring_hand = JokerDisplay.evaluate_hand()
+                if text ~= 'Unknown' and vw_played_hand("xuanwu", { scoring_name = text, poker_hands = poker_hands }) then
+                    for _, scoring_card in pairs(scoring_hand) do
+                        chips = chips +
+                            card.ability.extra.chips *
+                            JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
+                    end
+                end
+                card.joker_display_values.chips = chips
+            end
+        }
     end
 })
 
@@ -336,6 +381,27 @@ SMODS.Joker({
             card.ability.extra.create_activated = false
             card.ability.extra.shop_activated = false
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                local mult = 1
+                local text, poker_hands, scoring_hand = JokerDisplay.evaluate_hand()
+                if text ~= 'Unknown' and vw_played_hand("xuanwu", { scoring_name = text, poker_hands = poker_hands }) then
+                    for _, scoring_card in pairs(scoring_hand) do
+                        mult = mult +
+                            card.ability.extra.mult *
+                            JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
+                    end
+                end
+                card.joker_display_values.mult = mult
+            end
+        }
     end
 })
 
@@ -419,6 +485,28 @@ SMODS.Joker({
             card.ability.extra.shop_activated = false
             card.ability.extra.banish_activated = false
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            calc_function = function(card)
+                local mult = 1
+                local text, poker_hands, scoring_hand = JokerDisplay.evaluate_hand()
+                if text ~= 'Unknown' and vw_played_hand("xuanwu", { scoring_name = text, poker_hands = poker_hands }) then
+                    mult = card.ability.extra.mult
+                end
+                card.joker_display_values.mult = mult
+            end,
+            mod_function = function(card, mod_joker)
+                local text, poker_hands, scoring_hand = JokerDisplay.evaluate_hand()
+                return {
+                    mult = text ~= 'Unknown' and
+                        vw_played_hand("xuanwu", { scoring_name = text, poker_hands = poker_hands }) and
+                        (JoyousSpring.is_monster_type(card, "Psychic") or JoyousSpring.is_monster_type(card, "Wyrm")) and
+                        mod_joker.ability.extra.mult and
+                        mod_joker.ability.extra.mult * JokerDisplay.calculate_joker_triggers(mod_joker) or nil
+                }
+            end
+        }
     end
 })
 
@@ -511,6 +599,28 @@ SMODS.Joker({
         if context.end_of_round and context.game_over == false and context.main_eval then
             card.ability.extra.add_active = false
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                local chips = 1
+                local text, poker_hands, scoring_hand = JokerDisplay.evaluate_hand()
+                if text ~= 'Unknown' and vw_played_hand("xuanwu", { scoring_name = text, poker_hands = poker_hands }) then
+                    for _, scoring_card in pairs(scoring_hand) do
+                        chips = chips +
+                            card.ability.extra.chips *
+                            JoyousSpring.count_materials_in_graveyard({ { monster_type = "Psychic" }, { monster_type = "Wyrm" } }) *
+                            JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
+                    end
+                end
+                card.joker_display_values.chips = chips
+            end
+        }
     end
 })
 
@@ -604,6 +714,28 @@ SMODS.Joker({
             card.ability.extra.create_active = false
             card.ability.extra.revive_active = false
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                local mult = 1
+                local text, poker_hands, scoring_hand = JokerDisplay.evaluate_hand()
+                if text ~= 'Unknown' and vw_played_hand("xuanwu", { scoring_name = text, poker_hands = poker_hands }) then
+                    for _, scoring_card in pairs(scoring_hand) do
+                        mult = mult +
+                            card.ability.extra.mult *
+                            JoyousSpring.count_materials_in_graveyard({ { monster_attribute = "WIND" }, { monster_attribute = "EARTH" } }) *
+                            JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
+                    end
+                end
+                card.joker_display_values.mult = mult
+            end
+        }
     end
 })
 
@@ -711,6 +843,28 @@ SMODS.Joker({
     end,
     joy_can_detach = function(self, card)
         return not card.ability.extra.active
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                local attributes = JoyousSpring.get_material_attributes(G.jokers.cards)
+                local count = 0
+                for key, value in pairs(JoyousSpring.graveyard) do
+                    local center = G.P_CENTERS[key]
+                    if center.config.extra.joyous_spring.attribute and attributes[center.config.extra.joyous_spring.attribute] then
+                        count = count + value.count
+                    end
+                end
+                local sub = JoyousSpring.get_graveyard_count() - count
+                card.joker_display_values.mult = math.max(0,
+                    (card.ability.extra.mult_add * count) - (card.ability.extra.mult_sub * sub))
+            end
+        }
     end
 })
 
@@ -789,6 +943,26 @@ SMODS.Joker({
     joy_can_detach = function(self, card)
         return (JoyousSpring.get_graveyard_count() -
             JoyousSpring.count_materials_in_graveyard(get_type_attribute_allowlist(G.jokers.cards))) > 0
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                local xmult = 1
+                local text, poker_hands, scoring_hand = JokerDisplay.evaluate_hand()
+                if text ~= 'Unknown' and all_cards_in_gy_share_type_attribute() and vw_any_played({ scoring_name = text, poker_hands = poker_hands }) then
+                    xmult = 4
+                end
+                card.joker_display_values.xmult = 1 + xmult
+            end
+        }
     end
 })
 
@@ -869,7 +1043,7 @@ SMODS.Joker({
     end,
     joy_can_detach = function(self, card)
         return JoyousSpring.count_materials_in_graveyard(get_type_attribute_allowlist(G.jokers.cards), true) > 0
-    end
+    end,
 })
 
 
@@ -959,6 +1133,18 @@ SMODS.Joker({
             card.ability.extra.current_xmult = 1
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.ability.extra", ref_value = "current_xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+        }
+    end
 })
 
 
@@ -1027,6 +1213,30 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                card.joker_display_values.chips = all_cards_in_gy_share_type_attribute() and
+                    card.ability.extra.chips * JoyousSpring.get_graveyard_count() or 0
+            end,
+            retrigger_function = function(playing_card, scoring_hand, held_in_hand, joker_card)
+                if held_in_hand then return 0 end
+                local text, poker_hands, scoring_hand = JokerDisplay.evaluate_hand()
+                local repetitions = 0
+                for _, pcard in ipairs(scoring_hand) do
+                    if not pcard:is_face() then repetitions = repetitions + 1 end
+                end
+                return playing_card:is_face() and text ~= 'Unknown' and all_cards_in_gy_share_type_attribute() and
+                    vw_any_played({ scoring_name = text, poker_hands = poker_hands }) and
+                    repetitions * JokerDisplay.calculate_joker_triggers(joker_card) or 0
+            end
+        }
+    end
 })
 
 
@@ -1094,6 +1304,23 @@ SMODS.Joker({
     joy_can_be_sent_to_graveyard = function(self, card, choices)
         local vw_owned = JoyousSpring.get_materials_owned({ { monster_archetypes = { "VirtualWorld" } } })
         return JoyousSpring.filter_material_keys_from_list(choices, get_type_attribute_allowlist(vw_owned))
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xchips", retrigger_type = "exp" }
+                    },
+                    border_colour = G.C.CHIPS
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xchips = all_cards_in_gy_share_type_attribute() and card.ability.extra.xchips or
+                    1
+            end
+        }
     end
 })
 
