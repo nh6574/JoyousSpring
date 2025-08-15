@@ -263,15 +263,22 @@ SMODS.Joker({
                             SMODS.destroy_cards(chosen, nil, true)
                             destroyed = destroyed + 1
                             table.remove(choices, index)
-                        end
-                        if #JoyousSpring.field_spell_area.cards < JoyousSpring.field_spell_area.config.card_limit then
-                            local choices_field = JoyousSpring.get_materials_in_collection({ { is_field_spell = true } },
-                                nil, nil, card.config.center.key)
 
-                            local spell = pseudorandom_element(choices_field, pseudorandom("j_joy_afd"))
-                            if spell and #JoyousSpring.field_spell_area.cards < JoyousSpring.field_spell_area.config.card_limit then
-                                JoyousSpring.add_to_extra_deck(spell)
-                            end
+                            G.E_MANAGER:add_event(Event({
+                                func = (function()
+                                    if #JoyousSpring.field_spell_area.cards < JoyousSpring.field_spell_area.config.card_limit then
+                                        local choices_field = JoyousSpring.get_materials_in_collection(
+                                            { { is_field_spell = true } },
+                                            nil, nil, card.config.center.key)
+
+                                        local spell = pseudorandom_element(choices_field, pseudorandom("j_joy_afd"))
+                                        if spell then
+                                            JoyousSpring.add_to_extra_deck(spell)
+                                        end
+                                    end
+                                    return true
+                                end)
+                            }))
                         end
                     end
                     return {

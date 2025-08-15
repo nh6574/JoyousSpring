@@ -588,8 +588,8 @@ return {
             ["k_joy_hanafuda_Wisteria"] = "Wisteria",
 
             ["k_joy_hanafuda_Water Iris with Bridge"] = "Water Iris with Bridge",
-            ["k_joy_hanafuda_Water iris with Ribbon"] = "Water iris with Ribbon",
-            ["k_joy_hanafuda_Water iris"] = "Water iris",
+            ["k_joy_hanafuda_Water iris with Ribbon"] = "Water Iris with Ribbon",
+            ["k_joy_hanafuda_Water iris"] = "Water Iris",
 
             ["k_joy_hanafuda_Peony with Butterfly"] = "Peony with Butterfly",
             ["k_joy_hanafuda_Peony with Ribbon"] = "Peony with Ribbon",

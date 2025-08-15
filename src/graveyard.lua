@@ -124,7 +124,7 @@ end
 ---@param different_names? boolean?
 ---@return string[]
 JoyousSpring.send_to_graveyard_pseudorandom = function(property_list, seed, amount, different_names)
-    local choices = JoyousSpring.get_materials_in_collection(property_list)
+    local choices = JoyousSpring.get_materials_in_collection(property_list or { { is_monster = true } })
     choices, not_empty_choices = filter_cards_sent_to_gy(choices)
     if not not_empty_choices then return {} end
     local sent = {}

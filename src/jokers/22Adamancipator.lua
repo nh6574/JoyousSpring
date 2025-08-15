@@ -102,6 +102,28 @@ SMODS.Joker({
         end
     end,
     joy_calculate_excavate = adaman_excavate,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.joker_display_values", ref_value = "count" },
+                { text = "/" },
+                { ref_table = "card.ability.extra",        ref_value = "hands" },
+                { text = ")" },
+            },
+            calc_function = function(card)
+                card.joker_display_values.chips = card.ability.extra.chips * card.ability.extra.excavated
+                card.joker_display_values.count = localize('Flush', 'poker_hands') ..
+                    ': ' .. card.ability.extra.hands_played
+            end
+        }
+    end
 })
 
 -- Adamancipator Researcher
@@ -194,6 +216,28 @@ SMODS.Joker({
         end
     end,
     joy_calculate_excavate = adaman_excavate,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+$" },
+                { ref_table = "card.joker_display_values", ref_value = "money", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MONEY },
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.joker_display_values", ref_value = "count" },
+                { text = "/" },
+                { ref_table = "card.ability.extra",        ref_value = "hands" },
+                { text = ")" },
+            },
+            calc_function = function(card)
+                card.joker_display_values.money = card.ability.extra.money * card.ability.extra.excavated
+                card.joker_display_values.count = localize('Flush', 'poker_hands') ..
+                    ': ' .. card.ability.extra.hands_played
+            end
+        }
+    end
 })
 
 -- Adamancipator Seeker
@@ -286,6 +330,28 @@ SMODS.Joker({
         end
     end,
     joy_calculate_excavate = adaman_excavate,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.joker_display_values", ref_value = "count" },
+                { text = "/" },
+                { ref_table = "card.ability.extra",        ref_value = "hands" },
+                { text = ")" },
+            },
+            calc_function = function(card)
+                card.joker_display_values.mult = card.ability.extra.mult * card.ability.extra.excavated
+                card.joker_display_values.count = localize('Flush', 'poker_hands') ..
+                    ': ' .. card.ability.extra.hands_played
+            end
+        }
+    end
 })
 
 -- Adamancipator Crystal - Dragite
@@ -356,6 +422,19 @@ SMODS.Joker({
             end
         end
         return { vars = { config.chips, config.chips * diamonds } }
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                card.joker_display_values.chips = card.ability.extra.chips *
+                    JoyousSpring.count_materials_owned({ { monster_type = "Rock" } }) * #G.hand.cards
+            end
+        }
     end
 })
 
@@ -424,6 +503,19 @@ SMODS.Joker({
             end
         end
         return { vars = { config.money, config.money * diamonds } }
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+$" },
+                { ref_table = "card.joker_display_values", ref_value = "money", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MONEY },
+            calc_function = function(card)
+                card.joker_display_values.money = card.ability.extra.money *
+                    JoyousSpring.count_materials_owned({ { monster_type = "Rock" } }) * #G.hand.cards
+            end
+        }
     end
 })
 
@@ -495,6 +587,19 @@ SMODS.Joker({
             end
         end
         return { vars = { config.mult, config.mult * diamonds } }
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                card.joker_display_values.mult = card.ability.extra.mult *
+                    JoyousSpring.count_materials_owned({ { monster_type = "Rock" } }) * #G.hand.cards
+            end
+        }
     end
 })
 
@@ -583,6 +688,23 @@ SMODS.Joker({
         card.ability.extra.activated = false
     end,
     joy_calculate_excavate = adaman_excavate,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xchips", retrigger_type = "exp" }
+                    },
+                    border_colour = G.C.CHIPS
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xchips = 1 + card.ability.extra.xchips * card.ability.extra.excavated
+            end
+        }
+    end
 })
 
 -- Adamancipator Risen - Raptite
@@ -755,6 +877,22 @@ SMODS.Joker({
         card.ability.extra.activated = false
     end,
     joy_calculate_excavate = adaman_excavate,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    },
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xmult = 1 + card.ability.extra.xmult * card.ability.extra.excavated
+            end
+        }
+    end
 })
 
 -- Adamancipator Laputite
@@ -808,6 +946,16 @@ SMODS.Joker({
                 message = localize("k_joy_activated_ex")
             }
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            mod_function = function(card, mod_joker)
+                return {
+                    mult = (JoyousSpring.is_monster_type(card, "Rock") and mod_joker.ability.extra.mult and
+                        mod_joker.ability.extra.mult * JokerDisplay.calculate_joker_triggers(mod_joker) or nil)
+                }
+            end
+        }
     end
 })
 

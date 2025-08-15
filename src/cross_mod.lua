@@ -330,3 +330,17 @@ if TheFamily then
         end
     })
 end
+
+if TMJ then
+    TMJ.SEARCH_FIELD_FUNCS[#TMJ.SEARCH_FIELD_FUNCS + 1] = function(center)
+        if center.config and center.config.extra and type(center.config.extra) == "table" and center.config.extra.joyous_spring then
+            local joyous_spring = center.config.extra.joyous_spring
+            return {
+                joyous_spring.attribute,
+                joyous_spring.monster_type,
+                joyous_spring.summon_type
+            }
+        end
+        --nil returns are fine
+    end
+end

@@ -30,7 +30,7 @@ return {
                 name = "{C:joy_effect}Spright Carrot",
                 text = {
                     {
-                        "Gains {X:mult,C:white}X#1#{} Mult for each",
+                        "{X:mult,C:white}X#1#{} extra Mult for each",
                         "{C:green}Uncommon{} {C:attention}Joker{}",
                         "{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}",
                     },

@@ -129,7 +129,7 @@ SMODS.Enhancement {
         end
         if context.modify_scoring_hand and context.other_card == card and
             JoyousSpring.get_hanafuda(card).type == "chaff" then
-            local scoring_name = G.FUNCS.get_poker_hand_info(context.full_hand)
+            local scoring_name, _ = G.FUNCS.get_poker_hand_info(context.full_hand)
             return {
                 add_to_hand = SMODS.PokerHands[scoring_name].joy_koi_koi and true or nil
             }

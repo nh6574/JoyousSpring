@@ -16,6 +16,7 @@ return {
                     " ",
                     "{C:joy_mod}Localization:{}",
                     "{C:attention}French:{} Keraloon",
+                    "{C:attention}Simplified Chinese:{} Alophrine",
                     " ",
                     "{C:joy_mod}Archetype Ideas:{}",
                     "{C:joy_link}@Ignister{}: gyro/rina",
