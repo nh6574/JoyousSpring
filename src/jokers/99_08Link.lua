@@ -18,7 +18,6 @@ SMODS.Joker({
             card.ability.extra.mult_loss * card.ability.extra.turns)
         return { vars = { card.ability.extra.mult_gain, card.ability.extra.mult_loss, mult } }
     end,
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -94,7 +93,6 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.get_pendulum_count(), card.ability.extra.creates, card.ability.extra.consume, card.ability.extra.consumed } }
     end,
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -171,7 +169,6 @@ SMODS.Joker({
         end
         return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * JoyousSpring.get_pendulum_count(), card.ability.extra.creates } }
     end,
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -243,7 +240,6 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -290,7 +286,6 @@ SMODS.Joker({
         end
         return { vars = { card.ability.extra.h_size } }
     end,
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -347,7 +342,6 @@ SMODS.Joker({
         end
         return { vars = {} }
     end,
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -405,7 +399,6 @@ SMODS.Joker({
         end
         return { vars = { card.ability.extra.banishes } }
     end,
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -470,7 +463,6 @@ SMODS.Joker({
         end
         return { vars = { card.ability.extra.banishes } }
     end,
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -528,7 +520,6 @@ SMODS.Joker({
         end
         return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.count_materials_in_graveyard({ { summon_type = "LINK" } }), card.ability.extra.percent * 100 } }
     end,
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {

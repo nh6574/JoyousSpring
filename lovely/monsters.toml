@@ -3,6 +3,22 @@ version = "0.1.0"
 dump_lua = true
 priority = 0
 
+# Add JoyousSpring generate_ui
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''
+--Fill all remaining info if this is the main desc
+'''
+position = 'before'
+match_indent = true
+payload = '''
+if card and card.ability and (type(card.ability.extra) == "table" and
+    card.ability.extra.joyous_spring or card.ability.joy_extra_values and next(card.ability.joy_extra_values)) then
+    JoyousSpring.generate_info_ui(_c, info_queue, card, desc_nodes, specific_vars, full_UI_table)
+end
+'''
+
 # Customize sell cost
 [[patches]]
 [patches.pattern]

@@ -13,7 +13,6 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.creates, card.ability.extra.adds } }
     end,
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {

@@ -25,7 +25,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Spright" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -71,7 +70,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Spright" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -121,7 +119,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Spright" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -190,7 +187,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Spright" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -256,7 +252,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Spright" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -319,7 +314,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Spright" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -373,7 +367,6 @@ SMODS.Joker({
         { "j_joy_spright_gigantic",                                name = "k_joy_adds" },
         { properties = { { monster_archetypes = { "Spright" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -496,7 +489,6 @@ SMODS.Joker({
         end
         return { vars = { card.ability.extra.cards_to_create } }
     end,
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     update = JoyousSpring.update_counter,
     joy_desc_cards = {

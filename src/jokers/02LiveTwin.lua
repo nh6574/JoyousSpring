@@ -30,7 +30,6 @@ SMODS.Joker({
         { "j_joy_ltwin_kisikil",                                                                             name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -91,7 +90,6 @@ SMODS.Joker({
         { "j_joy_ltwin_lilla",                                                                               name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -147,7 +145,6 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.discards } }
     end,
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -197,7 +194,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -244,7 +240,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -292,7 +287,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -382,7 +376,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -476,7 +469,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -574,7 +566,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -646,7 +637,6 @@ SMODS.Joker({
         { "j_joy_etwin_kisikil",                                                                             "j_joy_etwin_lilla",     name = "Revives" },
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -747,7 +737,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {

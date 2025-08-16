@@ -22,7 +22,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -51,7 +50,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -80,7 +78,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -109,7 +106,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -138,7 +134,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -167,7 +162,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -196,7 +190,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -225,7 +218,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -254,7 +246,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -282,7 +273,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -310,7 +300,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -339,7 +328,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {

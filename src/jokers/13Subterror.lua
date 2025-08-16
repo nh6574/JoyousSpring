@@ -25,7 +25,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -108,7 +107,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -164,7 +162,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -247,7 +244,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -334,7 +330,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -463,7 +458,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -555,7 +549,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -608,7 +601,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -664,7 +656,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -735,7 +726,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -800,7 +790,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -864,7 +853,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -943,7 +931,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -1024,7 +1011,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -1156,7 +1142,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {

@@ -33,7 +33,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -85,7 +84,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -142,7 +140,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -201,7 +198,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -253,7 +249,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -301,7 +296,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -372,7 +366,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -426,7 +419,6 @@ SMODS.Joker({
         { "j_joy_fish_depths", name = "k_joy_adds" },
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -505,7 +497,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -584,7 +575,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -659,7 +649,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -748,7 +737,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -804,7 +792,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {

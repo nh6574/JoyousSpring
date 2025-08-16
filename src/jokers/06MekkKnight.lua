@@ -24,7 +24,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
@@ -62,7 +61,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -134,7 +132,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -222,7 +219,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -297,7 +293,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -356,7 +351,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -448,7 +442,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -562,7 +555,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -609,7 +601,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -705,7 +696,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -763,7 +753,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -846,7 +835,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
