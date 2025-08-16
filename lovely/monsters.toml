@@ -142,8 +142,7 @@ pattern = "if args.type == 'name' then"
 position = 'after'
 match_indent = true
 payload = '''
-local center = args.key and G.P_CENTERS[args.key] or ((args.node or {}).config or {}).center
-if center and (center.original_mod or {}).id == "JoyousSpring" then
-    args.maxw = 99999999
+if JoyousSpring.main_card_ui then
+    args.maxw = 9999999999
 end
 '''
