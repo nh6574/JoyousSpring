@@ -14,7 +14,6 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult, 1 + (card.ability.extra.xmult * (G.GAME.joy_sauravis_uses or 0)) } }
     end,
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -97,7 +96,6 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.count_all_materials({ { is_normal = true } }) } }
     end,
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -142,7 +140,7 @@ SMODS.Joker({
             text_config = { colour = G.C.MULT },
             calc_function = function(card)
                 card.joker_display_values.mult = card.ability.extra.mult *
-                JoyousSpring.count_all_materials({ { is_normal = true } })
+                    JoyousSpring.count_all_materials({ { is_normal = true } })
             end
         }
     end

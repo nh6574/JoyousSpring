@@ -17,7 +17,6 @@ SMODS.Joker({
     blueprint_compat = false,
     eternal_compat = true,
     cost = 1,
-    generate_ui = JoyousSpring.generate_info_ui,
     loc_vars = function(self, info_queue, card)
         return { key = card.ability.extra.joyous_spring.token_name }
     end,

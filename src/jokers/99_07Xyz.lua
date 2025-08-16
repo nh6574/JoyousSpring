@@ -14,7 +14,6 @@ SMODS.Joker({
         return { vars = { card.ability.extra.detach, card.ability.extra.percent * 100 } }
     end,
     update = JoyousSpring.update_counter,
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -82,7 +81,6 @@ SMODS.Joker({
         return { vars = { card.ability.extra.detach, card.ability.extra.percent * 100 } }
     end,
     update = JoyousSpring.update_counter,
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -171,7 +169,6 @@ SMODS.Joker({
         return { vars = { card.ability.extra.detach, card.ability.extra.from, card.ability.extra.to, numerator, denominator, card.ability.extra.attach } }
     end,
     update = JoyousSpring.update_counter,
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -252,7 +249,6 @@ SMODS.Joker({
         return { vars = { card.ability.extra.detach, card.ability.extra.plus_h_size, card.ability.extra.minus_h_size, numerator, denominator, card.ability.extra.attach } }
     end,
     update = JoyousSpring.update_counter,
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {

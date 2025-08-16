@@ -26,7 +26,6 @@ SMODS.Joker({
         { "j_joy_witch_potterie",                                       name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Witchcrafter" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -103,7 +102,6 @@ SMODS.Joker({
         { "j_joy_witch_pittore",                                        name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Witchcrafter" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -198,7 +196,6 @@ SMODS.Joker({
         { "j_joy_witch_schmietta",                                      name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Witchcrafter" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -317,7 +314,6 @@ SMODS.Joker({
         { "j_joy_witch_edel",                                           name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Witchcrafter" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -425,7 +421,6 @@ SMODS.Joker({
         { "j_joy_witch_genni",                                          "j_joy_witch_haine",     name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Witchcrafter" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -520,7 +515,6 @@ SMODS.Joker({
         { "j_joy_witch_verre",                                          name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Witchcrafter" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -598,7 +592,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Witchcrafter" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -686,7 +679,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Witchcrafter" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -762,7 +754,6 @@ SMODS.Joker({
         { "j_joy_witch_genni",                                          name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Witchcrafter" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {

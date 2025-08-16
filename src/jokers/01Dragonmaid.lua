@@ -26,7 +26,6 @@ SMODS.Joker({
         { "j_joy_dmaid_tinkhec",                                      name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -86,7 +85,6 @@ SMODS.Joker({
         { "j_joy_dmaid_kitchen",                                      name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -178,7 +176,6 @@ SMODS.Joker({
         { "j_joy_dmaid_lorpar",                                       name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -253,7 +250,6 @@ SMODS.Joker({
         { "j_joy_dmaid_parlor",                                       name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -332,7 +328,6 @@ SMODS.Joker({
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
@@ -427,7 +422,6 @@ SMODS.Joker({
         { "j_joy_dmaid_nurse",                                        name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -494,7 +488,6 @@ SMODS.Joker({
         { "j_joy_dmaid_nudyarl",                                      name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -545,7 +538,6 @@ SMODS.Joker({
         { "j_joy_dmaid_laundry",                                      name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -617,7 +609,6 @@ SMODS.Joker({
         { "j_joy_dmaid_cehrmba",                                      name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -695,7 +686,6 @@ SMODS.Joker({
         { "j_joy_dmaid_chamber",                                      name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -785,7 +775,6 @@ SMODS.Joker({
         { "j_joy_dmaid_house",                                        name = "k_joy_adds" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -876,7 +865,6 @@ SMODS.Joker({
         { "j_joy_dmaid_sheou",                                        name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -964,7 +952,6 @@ SMODS.Joker({
         { "j_joy_dmaid_house",                                        name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {

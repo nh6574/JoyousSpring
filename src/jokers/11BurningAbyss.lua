@@ -32,7 +32,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -84,7 +83,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -142,7 +140,6 @@ SMODS.Joker({
         { properties = { { monster_type = "Fiend" } }, name = "k_joy_mills" },
         { "j_joy_ba_beatrice",                         properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -200,7 +197,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -250,7 +246,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -313,7 +308,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -379,7 +373,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -428,7 +421,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -494,7 +486,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -535,7 +526,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -585,7 +575,6 @@ SMODS.Joker({
         { properties = { { is_main_deck = true, monster_type = "Fiend" } }, name = "k_joy_creates" },
         { "j_joy_ba_beatrice",                                              properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -631,7 +620,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -697,7 +685,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -750,7 +737,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     update = JoyousSpring.update_counter,
     config = {
@@ -820,7 +806,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -881,7 +866,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -930,7 +914,6 @@ SMODS.Joker({
         { "j_joy_ba_dante",    "j_joy_ba_pilgrim",                                           name = "k_joy_adds" },
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     update = JoyousSpring.update_counter,
     config = {

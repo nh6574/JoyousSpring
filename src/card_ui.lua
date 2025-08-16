@@ -253,7 +253,7 @@ end
 ---@param specific_vars table
 ---@param full_UI_table table
 JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
-    SMODS.Center.generate_ui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
+    --SMODS.Center.generate_ui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
 
     if desc_nodes == full_UI_table.main then
         -- Add type information under names
@@ -347,7 +347,7 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
             end
         end
         -- Add tooltip if it's face-down
-        if card.facing == 'back' then
+        if card.facing == 'back' and JoyousSpring.is_from_joyousspring(card) then
             if not card.fake_card then
                 table.insert(info_queue, 1, { set = "Other", key = "joy_face_down" })
             end

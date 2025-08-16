@@ -42,7 +42,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -126,7 +125,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -212,7 +210,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -282,7 +279,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -351,7 +347,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -409,7 +404,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -496,7 +490,6 @@ SMODS.Joker({
         { "j_joy_shaddoll_prison", name = "k_joy_creates" },
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -577,7 +570,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -636,7 +628,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -710,7 +701,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -782,7 +772,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -850,7 +839,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -919,7 +907,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -1024,7 +1011,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -1152,7 +1138,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -1271,7 +1256,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -1362,7 +1346,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -1472,7 +1455,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -1544,7 +1526,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -1614,7 +1595,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -1689,7 +1669,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    generate_ui = JoyousSpring.generate_info_ui,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
