@@ -67,24 +67,29 @@ if JoyousSpring.is_monster_card(card) then cols = card.area and card.area == G.s
 [patches.pattern]
 target = "functions/UI_definitions.lua"
 pattern = '''
-{n=G.UIT.R, config={align = "cm"}, nodes={
-{n=G.UIT.R, config={align = "cm", colour = lighten(G.C.JOKER_GREY, 0.5), r = 0.1, padding = 0.05, emboss = 0.05}, nodes={
+info_tip_from_rows(v, v.name),
+    }}
+}}
 '''
-position = 'at'
+position = 'after'
 match_indent = true
 payload = '''
-{n=G.UIT.R, config={align = JoyousSpring.is_monster_card(card) and (card.area and card.area == G.shop_jokers and "tm" or ((card.T.x > G.ROOM.T.w * 0.4) and "cr" or "cl")) or "cm" }, nodes={
-{n=G.UIT.R, config={align = JoyousSpring.is_monster_card(card) and (card.area and card.area == G.shop_jokers and "tm" or ((card.T.x > G.ROOM.T.w * 0.4) and "cr" or "cl")) or "cm", colour = lighten(G.C.JOKER_GREY, 0.5), r = 0.1, padding = 0.05, emboss = 0.05}, nodes={
+if JoyousSpring.is_from_joyousspring(card) then
+    info_boxes[#info_boxes].config.align = JoyousSpring.is_monster_card(card) and (card.area and card.area == G.shop_jokers and "tm" or ((card.T.x > G.ROOM.T.w * 0.4) and "cr" or "cl")) or "cm"
+    info_boxes[#info_boxes].nodes[1].config.align = JoyousSpring.is_monster_card(card) and (card.area and card.area == G.shop_jokers and "tm" or ((card.T.x > G.ROOM.T.w * 0.4) and "cr" or "cl")) or "cm"
+end
 '''
 
 [[patches]]
 [patches.pattern]
 target = "functions/UI_definitions.lua"
 pattern = '''table.insert(info_cols, {n=G.UIT.C, config = {align="cm"}, nodes = col})'''
-position = 'at'
+position = 'after'
 match_indent = true
 payload = '''
-table.insert(info_cols, {n=G.UIT.C, config = {align=JoyousSpring.is_monster_card(card) and card.area and card.area == G.shop_jokers and "tm" or "cm"}, nodes = col})
+if JoyousSpring.is_from_joyousspring(card) then
+    info_cols[#info_cols].config.align = card.area and card.area == G.shop_jokers and "tm" or "cm"
+end
 '''
 
 # More info for info_queue layout and transferred ability text
@@ -92,10 +97,10 @@ table.insert(info_cols, {n=G.UIT.C, config = {align=JoyousSpring.is_monster_card
 [patches.pattern]
 target = "functions/UI_definitions.lua"
 pattern = "info_boxes = {{n=G.UIT.R, config = {align=\"cm\", padding = 0.05, card_pos = card.T.x }, nodes = info_cols}}"
-position = 'at'
+position = 'after'
 match_indent = true
 payload = '''
-info_boxes = {{n=G.UIT.R, config = {align="cm", padding = 0.05, card_pos = card.T.x, card = card}, nodes = info_cols}}
+info_boxes[1].config.card = card
 
 if card and not card.debuff and type(card.ability) == "table" and type(card.ability.extra) == "table" and (card.ability.extra.joyous_spring or {}).material_effects and next(card.ability.extra.joyous_spring.material_effects) then
     local modNodes = {}
@@ -117,8 +122,12 @@ end
 [[patches]]
 [patches.pattern]
 target = "functions/misc_functions.lua"
-pattern = "maxw = 5,"
-position = 'at'
+pattern = "if args.type == 'name' then"
+position = 'after'
 match_indent = true
 payload = '''
+local center = args.key and G.P_CENTERS[args.key] or ((args.node or {}).config or {}).center
+if center and (center.original_mod or {}).id == "JoyousSpring" then
+    args.maxw = 99999999
+end
 '''
