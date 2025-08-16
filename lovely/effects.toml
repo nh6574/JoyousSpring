@@ -35,30 +35,6 @@ payload = '''
 SMODS.calculate_context({joy_selecting_hand = true})
 '''
 
-# Add to next shop
-[[patches]]
-[patches.pattern]
-target = "functions/UI_definitions.lua"
-pattern = "G.GAME.spectral_rate = G.GAME.spectral_rate or 0"
-position = 'before'
-match_indent = true
-payload = '''
-if G.GAME.joy_create_card and #G.GAME.joy_create_card > 0 then
-    local joy_forced_card_key = table.remove(G.GAME.joy_create_card,1)
-    local joy_forced_card = SMODS.create_card({
-                        key = joy_forced_card_key.key,
-                        area = area
-                    })
-    create_shop_card_ui(joy_forced_card, 'Joker', area)
-    joy_forced_card.states.visible = false
-    joy_forced_card:start_materialize()
-    for k, v in ipairs(G.GAME.tags) do
-        if v:apply_to_run({ type = 'store_joker_modify', card = joy_forced_card }) then break end
-    end
-    return joy_forced_card
-end
-'''
-
 # Game Over text (stolen from LobCorp <3)
 [[patches]]
 [patches.pattern]
@@ -98,7 +74,9 @@ pattern = "if v.facing == 'back' then v:flip() end"
 position = 'at'
 match_indent = true
 payload = '''
-if self.name == 'Amber Acorn' and v.facing == 'back' then v:flip() end
+if self.name == 'Amber Acorn' then
+    if v.facing == 'back' then v:flip() end
+end
 '''
 
 # Pre-setting_blind context to disable flip blind effects

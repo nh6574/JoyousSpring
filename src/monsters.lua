@@ -230,6 +230,13 @@ JoyousSpring.init_joy_table = function(params)
     }
 end
 
+---Checks if *card* is from JoyousSpring originally
+---@param card Card|table
+---@return boolean
+JoyousSpring.is_from_joyousspring = function(card)
+    return type(card) == "table" and (((card.config or {}).center or {}).original_mod or {}).id == "JoyousSpring"
+end
+
 ---Checks if *card* is a Monster Joker
 ---@param card Card|table
 ---@return boolean
