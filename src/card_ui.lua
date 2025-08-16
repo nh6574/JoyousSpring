@@ -359,6 +359,16 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
     end
 end
 
+local center_generate_ui = SMODS.Center.generate_ui
+SMODS.Center.generate_ui = function(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
+    if desc_nodes == full_UI_table.main and JoyousSpring.is_from_joyousspring(card) then
+        JoyousSpring.main_card_ui = true
+    end
+    local ret = center_generate_ui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
+    JoyousSpring.main_card_ui = nil
+    return ret
+end
+
 local desc_from_rows_ref = desc_from_rows
 function desc_from_rows(desc_nodes, empty, maxw)
     local ret = desc_from_rows_ref(desc_nodes, empty, maxw)

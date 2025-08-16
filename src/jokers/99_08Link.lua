@@ -568,7 +568,7 @@ SMODS.Joker({
         end
     end,
     joy_can_activate = function(card)
-        if not G.GAME.blind.in_blind or G.GAME.blind.chips <= 0 then
+        if not G.GAME.blind.in_blind or G.GAME.blind.chips <= to_big(0) then
             return false
         end
         for _, joker in ipairs(G.jokers.cards) do
