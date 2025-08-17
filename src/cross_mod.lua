@@ -329,6 +329,13 @@ if TheFamily then
             end
         end
     })
+
+    local game_start_run_ref = Game.start_run
+    function Game:start_run(args)
+        game_start_run_ref(self, args)
+
+        JoyousSpring.first_run_family = true
+    end
 end
 
 -- TooManyJokers

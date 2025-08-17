@@ -118,13 +118,3 @@ function get_current_pool(_type, _rarity, _legendary, _append, ...)
     end
     return _pool, _pool_key
 end
-
-local game_start_run_ref = Game.start_run
-function Game:start_run(args)
-    game_start_run_ref(self, args)
-
-    self.GAME.joy_create_card = JoyousSpring.debug and JoyousSpring.debug_shop_cards or self.GAME.joy_create_card or {}
-    JoyousSpring.cards_to_create = self.GAME.joy_create_card
-
-    JoyousSpring.first_run_family = true
-end
