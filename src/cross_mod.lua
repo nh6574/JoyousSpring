@@ -331,15 +331,30 @@ if TheFamily then
     })
 end
 
+-- TooManyJokers
+
 if TMJ then
     TMJ.SEARCH_FIELD_FUNCS[#TMJ.SEARCH_FIELD_FUNCS + 1] = function(center)
-        if center.config and center.config.extra and type(center.config.extra) == "table" and center.config.extra.joyous_spring then
-            local joyous_spring = center.config.extra.joyous_spring
-            return {
-                joyous_spring.attribute,
-                joyous_spring.monster_type,
-                joyous_spring.summon_type
-            }
+        if center.config then
+            if center.config.extra and type(center.config.extra) == "table" and center.config.extra.joyous_spring then
+                local joyous_spring = center.config.extra.joyous_spring
+                return {
+                    joyous_spring.attribute,
+                    joyous_spring.monster_type,
+                    joyous_spring.summon_type
+                }
+            end
+            if center.config.joy_extra_values then
+                local extra = center.config.joy_extra_values
+                local ret = {}
+                if extra.attribute then
+                    ret[#ret + 1] = extra.attribute
+                end
+                if extra.monster_type then
+                    ret[#ret + 1] = extra.monster_type
+                end
+                return ret
+            end
         end
         --nil returns are fine
     end
