@@ -45,10 +45,17 @@ function JoyousSpring.create_side_deck()
     G.joy_side_deck = CardArea(
         G.hand.T.x + 0,
         G.hand.T.y + G.ROOM.T.y + 9,
-        math.min(5 * 1.02 * G.CARD_W, 4.08 * G.CARD_W),
+        math.min(2 * 1.02 * G.CARD_W, 4.08 * G.CARD_W),
         1.05 * G.CARD_H,
         { card_limit = 5, type = 'joker', highlight_limit = 0 })
     G.joy_side_deck.states.collide.can = true
+    G.joy_temp_side_deck = CardArea(
+        G.hand.T.x + 0,
+        G.hand.T.y + G.ROOM.T.y + 9,
+        math.min(8 * 1.02 * G.CARD_W, 4.08 * G.CARD_W),
+        1.05 * G.CARD_H,
+        { card_limit = 2, type = 'joker', highlight_limit = 0 })
+    G.joy_temp_side_deck.states.collide.can = true
     G.jokers.states.collide.can = true
 
     local side_deck_sign = DynaText({
@@ -131,18 +138,32 @@ function JoyousSpring.create_side_deck()
                                         },
                                     }
                                 },
+                                {
+                                    n = G.UIT.C,
+                                    config = { align = "cm", padding = 0.2, r = 0.2, colour = G.C.L_BLACK, emboss = 0.05, minw = 8.2 },
+                                    nodes = {
+                                        { n = G.UIT.O, config = { object = G.joy_temp_side_deck } },
+                                    }
+                                },
                             }
                         },
+                        { n = G.UIT.R, config = { align = "cm", minh = 0.2 }, nodes = {} },
+                        {
+                            n = G.UIT.R,
+                            config = { align = "cm", padding = 0.1 },
+                            nodes = {
+                                {
+                                    n = G.UIT.C,
+                                    config = { align = "cm", padding = 0.2, r = 0.2, colour = G.C.L_BLACK, emboss = 0.05, minw = 12 },
+                                    nodes = {
+                                        { n = G.UIT.O, config = { object = G.joy_side_deck } },
+                                    }
+                                },
+                            }
+                        }
+                    }
+                },
 
-                    }
-                },
-                {
-                    n = G.UIT.C,
-                    config = { align = "cm", padding = 0.2, r = 0.2, colour = G.C.L_BLACK, emboss = 0.05, minw = 8.2 },
-                    nodes = {
-                        { n = G.UIT.O, config = { object = G.joy_side_deck } },
-                    }
-                },
             }, false)
         }
     }
@@ -189,12 +210,13 @@ function Game:start_run(args)
     game_start_run_ref(self, args)
 end
 
-local cardReleaseRecalcHook = Card.stop_drag
+-- Inspired by Aikoyori's Shenanigans
+local card_stop_drag_ref = Card.stop_drag
 function Card:stop_drag()
-    if G.STATE == G.STATES.JOY_SIDE_DECK and self.ability.set == "Joker" and self.area and (self.area == G.jokers or self.area == G.joy_side_deck) then
+    if G.STATE == G.STATES.JOY_SIDE_DECK and self.ability.set == "Joker" and self.area and (self.area == G.jokers or self.area == G.joy_side_deck or self.area == G.joy_temp_side_deck) then
         local area = self.area
         for i, k in ipairs(G.CONTROLLER.collision_list) do
-            if k == G.joy_side_deck or k == G.jokers then
+            if k == G.joy_side_deck or k == G.jokers or k == G.joy_temp_side_deck then
                 area = k
                 break
             end
@@ -207,6 +229,5 @@ function Card:stop_drag()
             end
         end
     end
-    local c = cardReleaseRecalcHook(self)
-    return c
+    return card_stop_drag_ref(self)
 end
