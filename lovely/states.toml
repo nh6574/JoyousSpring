@@ -1,0 +1,52 @@
+[manifest]
+version = "0.1.0"
+dump_lua = true
+priority = 0
+
+# Change from shop to side deck
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = '''G.STATE = G.STATES.BLIND_SELECT'''
+position = "at"
+payload = '''
+G.STATE = G.STATES.JOY_SIDE_DECK
+'''
+match_indent = true
+
+# Game:set_globals
+[[patches]]
+[patches.regex]
+target = "globals.lua"
+pattern = '''(?<indent>[\t ]*)self\.STATES = \{'''
+position = "after"
+payload = '''
+JOY_SIDE_DECK = 74001,
+'''
+line_prepend = '$indent'
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''
+if self.STATE == self.STATES.MENU then
+    self:update_menu(dt)
+end
+'''
+position = "after"
+payload = '''
+if self.STATE == self.STATES.JOY_SIDE_DECK then
+    JoyousSpring.update_side_deck(self, dt)
+end
+'''
+match_indent = true
+
+# CardArea:draw()
+[[patches]]
+[patches.pattern]
+target = "cardarea.lua"
+pattern = "(self.config.type == 'deck' and self ~= G.deck) or"
+position = "before"
+payload = '''
+(self.config.type == 'hand' and state == G.STATES.JOY_SIDE_DECK) or'''
+match_indent = true
