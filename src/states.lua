@@ -7,6 +7,25 @@ function JoyousSpring.update_side_deck(game, dt)
             definition = JoyousSpring.create_side_deck(),
             config = { align = 'tmi', offset = { x = 0, y = G.ROOM.T.y + 11 }, major = G.hand, bond = 'Weak' }
         }
+        local column = JoyousSpring.side_deck:get_UIE_by_ID('joy_side_column')
+        JoyousSpring.side_deck_area = JoyousSpring.side_deck_area or UIBox {
+            definition =
+            { n = G.UIT.ROOT, config = { colour = G.C.DYN_UI.MAIN, emboss = 0.05, align = 'cm', r = 0.1, padding = 0.1 }, nodes = {
+                { n = G.UIT.R, config = { align = "cm", padding = 0.1, minw = 4.72, minh = 3.1, colour = G.C.DYN_UI.DARK, r = 0.1 }, nodes = {
+                    { n = G.UIT.R, config = { align = "cm" }, nodes = {
+                        { n = G.UIT.O, config = { object = G.joy_side_deck } }
+                    } },
+                } },
+            } },
+            config = {
+                align = "cm",
+                offset = { x = 0, y = 0 },
+                major = column,
+                bond = 'Weak'
+            }
+        }
+        JoyousSpring.side_deck_area.config.major = column
+        JoyousSpring.side_deck_area:recalculate()
         G.E_MANAGER:add_event(Event({
             func = function()
                 JoyousSpring.side_deck.alignment.offset.y = -5.3
@@ -42,17 +61,12 @@ function JoyousSpring.update_side_deck(game, dt)
 end
 
 function JoyousSpring.create_side_deck()
-    G.joy_side_deck = CardArea(
-        G.hand.T.x + 0,
-        G.hand.T.y + G.ROOM.T.y + 9,
-        math.min(2 * 1.02 * G.CARD_W, 4.08 * G.CARD_W),
-        1.05 * G.CARD_H,
-        { card_limit = 5, type = 'joker', highlight_limit = 0 })
     G.joy_side_deck.states.collide.can = true
+    G.joy_side_deck.states.visible = true
     G.joy_temp_side_deck = CardArea(
         G.hand.T.x + 0,
         G.hand.T.y + G.ROOM.T.y + 9,
-        math.min(8 * 1.02 * G.CARD_W, 4.08 * G.CARD_W),
+        math.min(2 * 1.02 * G.CARD_W, 4.08 * G.CARD_W),
         1.05 * G.CARD_H,
         { card_limit = 2, type = 'joker', highlight_limit = 0 })
     G.joy_temp_side_deck.states.collide.can = true
@@ -90,6 +104,7 @@ function JoyousSpring.create_side_deck()
         trigger = 'immediate',
         func = (function()
             JoyousSpring.side_deck_sign.alignment.offset.y = 0
+            G.joy_side_deck.alignment.offset.y = 0
             return true
         end)
     }))
@@ -154,9 +169,9 @@ function JoyousSpring.create_side_deck()
                             nodes = {
                                 {
                                     n = G.UIT.C,
-                                    config = { align = "cm", padding = 0.2, r = 0.2, colour = G.C.L_BLACK, emboss = 0.05, minw = 12 },
+                                    config = { id = 'joy_side_column', align = "cm", padding = 0.2, r = 0.2, colour = G.C.L_BLACK, emboss = 0.05, minw = 12, minh = 1.3 * G.CARD_H },
                                     nodes = {
-                                        { n = G.UIT.O, config = { object = G.joy_side_deck } },
+                                        -- { n = G.UIT.O, config = { object = G.joy_side_deck } },
                                     }
                                 },
                             }
@@ -178,6 +193,7 @@ G.FUNCS.joy_toggle_side_deck = function(e)
             trigger = 'immediate',
             func = function()
                 JoyousSpring.side_deck.alignment.offset.y = G.ROOM.T.y + 29
+                G.joy_side_deck.alignment.offset.y = G.ROOM.T.y + 29
                 JoyousSpring.side_deck_sign.alignment.offset.y = -15
                 return true
             end
@@ -186,11 +202,15 @@ G.FUNCS.joy_toggle_side_deck = function(e)
             trigger = 'after',
             delay = 0.5,
             func = function()
+                JoyousSpring.side_deck_area.config.major = nil
+                JoyousSpring.side_deck_area:recalculate()
                 JoyousSpring.side_deck:remove()
                 JoyousSpring.side_deck = nil
                 JoyousSpring.side_deck_sign:remove()
                 JoyousSpring.side_deck_sign = nil
                 G.jokers.states.collide.can = false
+                G.joy_side_deck.states.visible = false
+                G.joy_side_deck.states.collide.can = false
                 G.STATE_COMPLETE = false
                 G.STATE = G.STATES.BLIND_SELECT
                 G.CONTROLLER.locks.joy_toggle_side_deck = nil
@@ -207,7 +227,17 @@ function Game:start_run(args)
         JoyousSpring.side_deck = nil
     end
 
+    G.joy_side_deck = CardArea(
+        0,
+        0,
+        5 * 1.02 * G.CARD_W,
+        1.05 * G.CARD_H,
+        { card_limit = 5, type = 'joker', highlight_limit = 0 })
+    G.joy_side_deck.states.visible = false
+
     game_start_run_ref(self, args)
+    G.joy_side_deck.T.x = G.hand.T.x + 1
+    G.joy_side_deck.T.y = G.hand.T.y - 0.8
 end
 
 -- Inspired by Aikoyori's Shenanigans
