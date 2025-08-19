@@ -42,21 +42,6 @@ SMODS.Atlas({
 ---@class Card
 ---@field joy_modify_cost? table
 
----@class joy_extra_value
----@field is_monster? boolean
----@field is_all_types? boolean
----@field monster_type? monster_type
----@field is_all_attributes? boolean
----@field attribute? attribute
----@field is_tuner? boolean
----@field is_field_spell? boolean
----@field is_effect? boolean
----@field is_all_materials? { RITUAL:boolean?, FUSION:boolean?, SYNCHRO:boolean?, XYZ:boolean?, LINK:boolean? }
----@field numerator_const? integer
----@field numerator_mult? number
----@field denominator_const? integer
----@field denominator_mult? number
-
 ---@alias summon_type
 ---|'"NORMAL"'
 ---|'"RITUAL"'
@@ -186,6 +171,21 @@ SMODS.Atlas({
 ---@field summon_consumeable_conditions table?
 ---@field cannot_revive boolean?
 ---@field token_name string?
+
+---@class joy_extra_value
+---@field is_monster? boolean
+---@field is_all_types? boolean
+---@field monster_type? monster_type
+---@field is_all_attributes? boolean
+---@field attribute? attribute
+---@field is_tuner? boolean
+---@field is_field_spell? boolean
+---@field is_effect? boolean
+---@field is_all_materials? { RITUAL:boolean?, FUSION:boolean?, SYNCHRO:boolean?, XYZ:boolean?, LINK:boolean? }
+---@field numerator_const? integer
+---@field numerator_mult? number
+---@field denominator_const? integer
+---@field denominator_mult? number
 
 --#endregion
 

@@ -2,11 +2,12 @@ return {
     descriptions = {
         Joker = {
             j_joy_dogma_ecclesia = {
-                name = "{C:joy_effect}教导的大神官 艾克蕾西娅",
+                name = "{C:joy_effect}教导的圣女 艾克莉西娅",
                 text = {
                     {
-                        "每售出1张{C:joy_spell}额外牌组{}的{C:attention}小丑牌{}，获得{X:mult,C:white}X#1#{}倍率",
-                        "{C:inactive}(当前{} {X:mult,C:white}X#2#{} {C:inactive}倍率){}",
+                        "每售出1张{C:joy_spell}额外卡组{}的{C:attention}小丑牌{}",
+                        "获得{X:mult,C:white}X#1#{}倍率",
+                        "{C:inactive}(当前{X:mult,C:white}X#2#{}{C:inactive}倍率){}",
                     },
                 },
             },
@@ -14,129 +15,145 @@ return {
                 name = "{C:joy_effect}教导的骑士 弗勒德莉丝",
                 text = {
                     {
-                        "每张{C:joy_normal}\"教导\"{}小丑牌提供{C:mult}+#1#{}倍率",
+                        "每张{C:joy_normal}「教导」{}提供{C:mult}+#1#{}倍率",
                     },
                     {
-                        "若你拥有1张被弱化的{C:joy_spell}额外牌组{}的{C:attention}小丑牌{}，则免费",
+                        "若拥有被弱化的{C:joy_spell}额外卡组{}小丑牌则免费",
                     },
                 },
             },
             j_joy_dogma_maximus = {
-                name = "{C:joy_effect}教导之大神 艾克姆兹",
+                name = "{C:joy_effect}教导之大神祇官",
                 text = {
                     {
-                        "选择{C:attention}盲注{}时，生成{C:attention}#1#{}张被弱化的{C:dark_edition}负片{}版{C:joy_spell}额外牌组{}的{C:attention}小丑牌{}",
+                        "选择{C:attention}盲注{}时",
+                        "生成{C:attention}#1#{}张{C:dark_edition}负片{}版",
+                        "被弱化的{C:joy_spell}额外卡组{}小丑牌",
                     },
                 },
             },
             j_joy_dogma_adin = {
-                name = "{C:joy_effect}教导的天使 艾典",
+                name = "{C:joy_effect}教导的天启 阿东",
                 text = {
                     {
-                        "击败{C:attention}首领盲注{}时，生成{C:attention}#1#{}张非{C:joy_ritual}仪式{}的{C:joy_normal}主牌组\"教导\"{}小丑牌",
-                        "{C:inactive}(必须有空位){}",
+                        "击败{C:attention}首领盲注{}时",
+                        "生成{C:attention}#1#{}张非{C:joy_ritual}仪式{}的",
+                        "{C:joy_normal}主卡组「教导」{}",
+                        "{C:inactive}(需有空位){}",
                     },
                     {
-                        "若你拥有1张被弱化的{C:joy_spell}额外牌组{}的{C:attention}小丑牌{}，则免费",
+                        "若拥有被弱化的{C:joy_spell}额外卡组{}小丑牌则免费",
                     },
                 },
             },
             j_joy_dogma_theo = {
-                name = "{C:joy_effect}教导的铁腕 提欧",
+                name = "{C:joy_effect}教导的铁锤 特奥",
                 text = {
                     {
-                        "{C:chips}+#1#{}筹码，",
-                        "每张被弱化的{C:joy_spell}额外牌组{}的{C:attention}小丑牌{}额外提供{C:chips}+#2#{}筹码",
-                        "{C:inactive}(当前{} {C:chips}+#3# {C:inactive}筹码){}",
+                        "{C:chips}+#1#{}基础筹码",
+                        "每张被弱化的{C:joy_spell}额外卡组{}小丑牌",
+                        "额外提供{C:chips}+#2#{}筹码",
+                        "{C:inactive}(当前{C:chips}+#3#{C:inactive}筹码){}",
                     },
                     {
-                        "若你拥有1张被弱化的{C:joy_spell}额外牌组{}的{C:attention}小丑牌{}，则免费",
+                        "若拥有被弱化的{C:joy_spell}额外卡组{}小丑牌则免费",
                     },
                 },
             },
             j_joy_dogma_ashiyan = {
-                name = "{C:joy_effect}教导的圣女 艾希娅",
+                name = "{C:joy_effect}教导的神徒",
                 text = {
                     {
-                        "{C:attention}复活#1#{}张{C:joy_normal}\"教导\"{}小丑牌{}",
+                        "获得时{C:attention}复活{}",
+                        "{C:attention}#1#{}张{C:joy_normal}「教导」{}",
                     },
                     {
-                        "击败{C:attention}首领盲注{}时，将{C:attention}#2#{}张{C:joy_ritual}仪式{}版{C:joy_normal}\"教导\"{}小丑牌加入商店",
+                        "击败{C:attention}首领盲注{}时",
+                        "商店添加{C:attention}#2#{}张{C:joy_ritual}仪式{}",
+                        "{C:joy_normal}「教导」{}",
                     },
                     {
-                        "若你拥有1张被弱化的{C:joy_spell}额外牌组{}的{C:attention}小丑牌{}，则免费",
+                        "若拥有被弱化的{C:joy_spell}额外卡组{}小丑牌则免费",
                     },
                 },
             },
             j_joy_dogma_nexus = {
-                name = "{C:joy_effect}教导的枢机 纽克斯",
+                name = "{C:joy_effect}教导枢机 神龙四教导",
                 text = {
                     {
-                        "回合结束时，{C:attention}复制#1#{}张随机的{C:joy_spell}额外牌组{}的{C:attention}小丑牌{}",
-                        "{C:inactive}(复制出的牌将被弱化和变为{C:dark_edition}负片{}{C:inactive}){}",
+                        "回合结束时{C:attention}复制{}",
+                        "{C:attention}#1#{}张随机{C:joy_spell}额外卡组{}小丑牌{}",
+                        "{C:inactive}(复制品将被弱化且{C:dark_edition}负片{}{C:inactive}){}",
                     },
                 },
             },
             j_joy_dogma_relic = {
-                name = "{C:joy_ritual}教导的白圣骸",
+                name = "{C:joy_ritual}凶导的白圣骸",
                 text = {
                     {
-                        "每{C:attention}#2#{}张被弱化的{C:joy_spell}额外牌组{}的{C:attention}小丑牌{}，{C:attention}+#1#{}手牌上限",
-                        "{C:inactive}(当前{} {C:attention}+#3# {C:inactive}手牌上限){}",
+                        "每{C:attention}#2#{}张被弱化的",
+                        "{C:joy_spell}额外卡组{}小丑牌提供{C:attention}+#1#{}手牌上限",
+                        "{C:inactive}(当前{C:attention}+#3#{C:inactive}手牌上限){}",
                     },
                     {
-                        "位于{C:attention}墓地{}的{C:joy_spell}额外牌组{}的{C:attention}小丑牌{}",
-                        "视为被弱化，可用于{C:joy_normal}\"教导\"{}小丑牌的能力{C:inactive}(视为被弱化){}",
+                        "墓地中的{C:joy_spell}额外卡组{}小丑牌",
+                        "可触发{C:joy_normal}「教导」{}效果{C:inactive}(视为被弱化){}",
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2张小丑牌{},",
-                    "包括1张{C:joy_normal}\"教导\"{}小丑牌"
+                    "{C:attention}2{}张小丑牌{}",
+                    "包含{C:joy_normal}「教导」{}"
                 }
             },
             j_joy_dogma_knight = {
-                name = "{C:joy_ritual}教导的白骑士",
+                name = "{C:joy_ritual}凶导的白骑士",
                 text = {
                     {
-                        "每张被弱化的{C:joy_spell}额外牌组{}的{C:attention}小丑牌{}，提供{C:mult}+#1#{}倍率",
-                        "{C:inactive}(当前{} {C:mult}+#2# {C:inactive}倍率){}",
+                        "每张被弱化的{C:joy_spell}额外卡组{}小丑牌",
+                        "提供{C:mult}+#1#{}倍率",
+                        "{C:inactive}(当前{C:mult}+#2#{C:inactive}倍率){}",
                     },
                     {
-                        "商店中所有{C:joy_spell}额外牌组{}的{C:attention}小丑牌{}",
-                        "均被弱化且免费",
+                        "商店中所有{C:joy_spell}额外卡组{}小丑牌",
+                        "被弱化且免费",
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2张小丑牌{},",
-                    "包括1张{C:joy_normal}\"教导\"{}小丑牌"
+                    "{C:attention}2{}张小丑牌{}",
+                    "包含{C:joy_normal}「教导」{}"
                 }
             },
             j_joy_dogma_albazoa = {
-                name = "{C:joy_ritual}教导的阿尔巴奏者",
+                name = "{C:joy_ritual}凶导的白天底",
                 text = {
                     {
-                        "选择{C:attention}盲注{}时，将你{C:joy_spell}额外牌组{}中的每张{C:attention}小丑牌{}各{C:attention}#1#{}张送入{C:attention}墓地{}",
+                        "选择{C:attention}盲注{}时",
+                        "将{C:attention}#1#{}张{C:attention}小丑牌{}的副本",
+                        "从{C:joy_spell}额外卡组{}送入{C:attention}墓地{}",
                     },
                     {
-                        "每张被弱化的{C:joy_spell}额外牌组{}的{C:attention}小丑牌{}，会使每张{C:joy_normal}主牌组{}的{C:attention}小丑牌{}额外提供{X:mult,C:white}X#2#{}倍率",
-                        "{C:inactive}(当前{} {X:mult,C:white}X#3#{} {C:inactive}倍率){}",
+                        "每张{C:joy_normal}主卡组{}小丑牌",
+                        "根据被弱化的{C:joy_spell}额外卡组{}小丑牌数量",
+                        "提供额外{X:mult,C:white}X#2#{}倍率",
+                        "{C:inactive}(当前{X:mult,C:white}X#3#{}{C:inactive}倍率){}",
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2张{} {C:joy_normal}\"教导\"{}小丑牌"
+                    "{C:attention}2{}张{C:joy_normal}「教导」{}"
                 }
             },
             j_joy_dogma_nation = {
-                name = "{C:joy_spell}教导国家",
+                name = "{C:joy_spell}教导国家 教导龙国",
                 text = {
                     {
-                        "回合结束时，每张被弱化的{C:joy_spell}额外牌组{}的{C:attention}小丑牌{}提供{C:money}+$#1#{}金钱",
-                        "{C:inactive}(当前{} {C:money}+$#2#{C:inactive}){}",
+                        "每张被弱化的{C:joy_spell}额外卡组{}小丑牌",
+                        "回合结束时提供{C:money}+$#1#{}金钱",
+                        "{C:inactive}(当前{C:money}+$#2#{C:inactive}){}",
                     },
                     {
-                        "你可以{C:attention}献祭#3#{}张{C:joy_spell}额外牌组{}的{C:attention}小丑牌{}",
-                        "以生成{C:attention}#4#{}张{C:joy_normal}\"教导\"{}小丑牌",
-                        "{C:inactive}(必须有空位){}",
+                        "可解放{C:attention}#3#{}张{C:joy_spell}额外卡组{}小丑牌{}",
+                        "生成{C:attention}#4#{}张{C:joy_normal}「教导」{}",
+                        "{C:inactive}(需有空位){}",
                     },
                 }
             },

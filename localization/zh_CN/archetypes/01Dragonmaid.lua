@@ -2,175 +2,196 @@ return {
     descriptions = {
         Joker = {
             j_joy_dmaid_kitchen = {
-                name = "{C:joy_effect}厨房龙女仆",
+                name = "{C:joy_effect}半龙女仆·蒸馏室龙女",
                 text = {
                     {
-                        "获得时，每有1只{C:joy_normal}“龙女仆”{}，获得{C:attention}#1#{}次免费{C:green}重roll{}",
+                        "获得时，每拥有{C:attention}#1#{}张{C:joy_normal}「半龙女仆」",
+                        "提供{C:green}免费重掷{}机会",
                     },
                     {
-                        "当选择{C:attention}盲注{}时，{C:attention}变形{}为{C:joy_effect}“龙女仆 汀赫”",
+                        "选择{C:attention}盲注{}时",
+                        "{C:attention}转变{}为{C:joy_effect}「半龙女仆·赤焰龙女」",
                     }
                 },
             },
             j_joy_dmaid_tinkhec = {
-                name = "{C:joy_effect}龙女仆 汀赫",
+                name = "{C:joy_effect}半龙女仆·赤焰龙女",
                 text = {
                     {
-                        "每只{C:joy_normal}“龙女仆”{}提供{C:mult}+#1#{}倍率",
+                        "每张{C:joy_normal}「半龙女仆」",
+                        "提供{C:mult}+#1#{}倍率",
                     },
                     {
-                        "回合结束时，{C:attention}变形{}为{C:joy_effect}“厨房龙女仆”",
+                        "回合结束时{C:attention}转变{}为",
+                        "{C:joy_effect}「半龙女仆·蒸馏室龙女」",
                     }
                 },
             },
             j_joy_dmaid_parlor = {
-                name = "{C:joy_effect}客厅龙女仆",
+                name = "{C:joy_effect}半龙女仆·客厅龙女",
                 text = {
                     {
-                        "获得时，若你持有{C:attention}#2#{}只{C:joy_normal}“龙女仆”{}，则获得{C:attention}#1#个补充包标签{}",
-                        "每多持有{C:attention}#3#{}只，额外获得1个",
-                        "并将{C:attention}#4#{}只{C:joy_normal}“龙女仆”{}送入{C:attention}墓地{}",
+                        "若拥有{C:attention}#2#{}张{C:joy_normal}「半龙女仆」",
+                        "获得时提供{C:attention}#1#个补充包标签{}",
+                        "每多{C:attention}#3#{}张额外增加1个",
+                        "并将{C:attention}#4#{}张{C:joy_normal}「半龙女仆」送入{C:attention}墓地{}",
                     },
                     {
-                        "当选择{C:attention}盲注{}时，{C:attention}变形{}为{C:joy_effect}“龙女仆 洛琶”",
+                        "选择{C:attention}盲注{}时",
+                        "{C:attention}转变{}为{C:joy_effect}「半龙女仆·天风龙女」",
                     },
                 },
             },
             j_joy_dmaid_lorpar = {
-                name = "{C:joy_effect}龙女仆 洛琶",
+                name = "{C:joy_effect}半龙女仆·天风龙女",
                 text = {
                     {
-                        "每只{C:joy_normal}“龙女仆”{}提供{X:mult,C:white}X#1#{}倍率",
+                        "每张{C:joy_normal}「半龙女仆」",
+                        "提供{X:mult,C:white}X#1#{}倍率",
                     },
                     {
-                        "回合结束时，{C:attention}变形{}为{C:joy_effect}“客厅龙女仆”",
+                        "回合结束时{C:attention}转变{}为",
+                        "{C:joy_effect}「半龙女仆·客厅龙女」",
                     },
                 },
             },
             j_joy_dmaid_nurse = {
-                name = "{C:joy_effect}护士龙女仆",
+                name = "{C:joy_effect}半龙女仆·育婴龙女",
                 text = {
                     {
-                        "获得时，有{C:green}#1#/#2#{}几率{C:attention}复活#3#{}",
-                        "{C:blue}普通{} {C:joy_normal}“龙女仆”{}",
+                        "{C:green}#1#/#2#{}几率复活{C:attention}#3#{}张",
+                        "{C:blue}普通{}{C:joy_normal}「半龙女仆」",
                     },
                     {
-                        "当选择{C:attention}盲注{}时，{C:attention}变形{}为{C:joy_effect}“龙女仆 埃尔努斯”",
+                        "选择{C:attention}盲注{}时",
+                        "{C:attention}转变{}为{C:joy_effect}「半龙女仆·地慈龙女」",
                     },
                 },
             },
             j_joy_dmaid_ernus = {
-                name = "{C:joy_effect}龙女仆 埃尔努斯",
+                name = "{C:joy_effect}半龙女仆·地慈龙女",
                 text = {
                     {
-                        "每有1只{C:joy_normal}“龙女仆”{}在{C:attention}墓地{}，{C:mult}+#1#{}倍率",
-                        "{C:inactive}（当前{C:mult}+#2#{}{C:inactive}倍率）"
+                        "墓地中每张{C:joy_normal}「半龙女仆」",
+                        "提供{C:mult}+#1#{}倍率",
+                        "{C:inactive}(当前{C:mult}+#2#{}{C:inactive}倍率)"
                     },
                     {
-                        "回合结束时，{C:attention}变形{}为{C:joy_effect}“护士龙女仆”",
+                        "回合结束时{C:attention}转变{}为",
+                        "{C:joy_effect}「半龙女仆·育婴龙女」",
                     },
                 },
             },
             j_joy_dmaid_laundry = {
-                name = "{C:joy_effect}洗衣龙女仆",
+                name = "{C:joy_effect}半龙女仆·洗衣龙女",
                 text = {
                     {
-                        "获得时，将{C:attention}#1#{}只{C:joy_normal}主牌组{} {C:joy_normal}“龙女仆”{}",
-                        "送入{C:attention}墓地{}",
+                        "获得时将{C:attention}#1#{}张{C:joy_normal}主卡组{}",
+                        "{C:joy_normal}「半龙女仆」送入{C:attention}墓地{}",
                     },
                     {
-                        "当选择{C:attention}盲注{}时，{C:attention}变形{}为{C:joy_effect}“龙女仆 努迪亚尔”",
+                        "选择{C:attention}盲注{}时",
+                        "{C:attention}转变{}为{C:joy_effect}「半龙女仆·苍河龙女」",
                     },
                 },
             },
             j_joy_dmaid_nudyarl = {
-                name = "{C:joy_effect}龙女仆 努迪亚尔",
+                name = "{C:joy_effect}半龙女仆·苍河龙女",
                 text = {
                     {
-                        "每有1只{C:joy_normal}“龙女仆”{}在{C:attention}墓地{}，{C:chips}+#1#{}筹码",
-                        "{C:inactive}（当前{C:chips}+#2#{}{C:inactive}筹码）"
+                        "墓地中每张{C:joy_normal}「半龙女仆」",
+                        "提供{C:chips}+#1#{}筹码",
+                        "{C:inactive}(当前{C:chips}+#2#{}{C:inactive}筹码)"
                     },
                     {
-                        "回合结束时，{C:attention}变形{}为{C:joy_effect}“洗衣龙女仆”",
+                        "回合结束时{C:attention}转变{}为",
+                        "{C:joy_effect}「半龙女仆·洗衣龙女」",
                     },
                 },
             },
             j_joy_dmaid_chamber = {
-                name = "{C:joy_effect}卧室龙女仆",
+                name = "{C:joy_effect}半龙女仆·寝室龙女",
                 text = {
                     {
-                        "获得时，若你持有{C:attention}#2#{}只{C:joy_normal}“龙女仆”{}，则获得{C:attention}#1#个优惠券标签{}",
-                        "每多持有{C:attention}#3#{}只，额外获得1个",
-                        "并将{C:attention}#4#{}只{C:joy_normal}“龙女仆”{}送入{C:attention}墓地{}",
+                        "若拥有{C:attention}#2#{}张{C:joy_normal}「半龙女仆」",
+                        "获得时提供{C:attention}#1#个优惠券标签{}",
+                        "每多{C:attention}#3#{}张额外增加1个",
+                        "并将{C:attention}#4#{}张{C:joy_normal}「半龙女仆」送入{C:attention}墓地{}",
                     },
                     {
-                        "当选择{C:attention}盲注{}时，{C:attention}变形{}为{C:joy_effect}“龙女仆 切尔姆巴”",
+                        "选择{C:attention}盲注{}时",
+                        "{C:attention}转变{}为{C:joy_effect}「半龙女仆·星夜龙女」",
                     },
                 },
             },
             j_joy_dmaid_cehrmba = {
-                name = "{C:joy_effect}龙女仆 切尔姆巴",
+                name = "{C:joy_effect}半龙女仆·星夜龙女",
                 text = {
                     {
-                        "获得时，有{C:green}#1#/#2#{}几率{C:attention}复活#3#{}",
-                        "{C:green}稀有{}或{C:red}史诗{} {C:joy_normal}“龙女仆”{}",
+                        "{C:green}#1#/#2#{}几率复活{C:attention}#3#{}张",
+                        "{C:green}罕见{}或{C:red}稀有{}",
+                        "{C:joy_normal}「半龙女仆」",
                     },
                     {
-                        "回合结束时，{C:attention}变形{}为{C:joy_effect}“卧室龙女仆”",
+                        "回合结束时{C:attention}转变{}为",
+                        "{C:joy_effect}「半龙女仆·寝室龙女」",
                     },
                 },
             },
             j_joy_dmaid_lady = {
-                name = "{C:joy_fusion}侍女龙女仆",
+                name = "{C:joy_fusion}半龙女仆·贴身龙女",
                 text = {
                     {
-                        "召唤时，向{C:joy_spell}额外牌组{}添加{C:joy_fusion}“家主龙女仆”{}",
-                        "{C:inactive}（需有栏位）{}",
+                        "召唤时将{C:joy_fusion}「半龙女仆·龙女管家」{}",
+                        "加入{C:joy_spell}额外卡组{}",
+                        "{C:inactive}(需有空位){}",
                     },
                     {
-                        "当选择{C:attention}盲注{}时，有{C:green}#1#/#2#{}几率{C:attention}变形{}为1只",
-                        "{C:green}稀有{} {C:joy_normal}“龙女仆”{}",
-                        "{C:inactive}（“侍女龙女仆”除外）{}"
+                        "选择{C:attention}盲注{}时，有{C:green}#1#/#2#{}几率",
+                        "{C:attention}转变{}为{C:green}罕见{}",
+                        "{C:joy_normal}「半龙女仆」",
+                        "{C:inactive}(「半龙女仆·贴身龙女」除外){}"
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2{} {C:attention}小丑牌{}，",
-                    "包含1只{C:joy_normal}“龙女仆”{}"
+                    "{C:attention}2{}张{C:attention}小丑牌{}",
+                    "包含{C:joy_normal}「半龙女仆」{}"
                 }
             },
             j_joy_dmaid_house = {
-                name = "{C:joy_fusion}家主龙女仆",
+                name = "{C:joy_fusion}半龙女仆·龙女管家",
                 text = {
                     {
-                        "每有1只{C:joy_normal}“龙女仆”{}，获得{X:mult,C:white}X#1#{}倍率",
-                        "{C:inactive}（当前{X:mult,C:white}X#2#{} {C:inactive}倍率）{}",
+                        "每张{C:joy_normal}「半龙女仆」提供",
+                        "{X:mult,C:white}X#1#{}倍率",
+                        "{C:inactive}(当前{X:mult,C:white}X#2#{}{C:inactive}倍率){}",
                     },
                     {
-                        "在{C:attention}墓地{}的{C:joy_normal}“龙女仆”{}计入",
-                        "{C:joy_normal}“龙女仆”{}的效果计数",
+                        "墓地中的{C:joy_normal}「半龙女仆」",
+                        "可触发「半龙女仆」效果",
                     },
                     {
-                        "{C:attention}#3#{}回合后，{C:attention}变形{}为{C:joy_fusion}“龙女仆 希欧”",
-                        "{C:inactive}（#4#/#3#）{}",
+                        "经过{C:attention}#3#{}回合后{C:inactive}(#4#/#3#){}",
+                        "{C:attention}转变{}为{C:joy_fusion}「烛光龙女」",
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2{} {C:joy_normal}“龙女仆”{}"
+                    "{C:attention}2{}张{C:joy_normal}「半龙女仆」{}"
                 }
             },
             j_joy_dmaid_sheou = {
-                name = "{C:joy_fusion}龙女仆 希欧",
+                name = "{C:joy_fusion}烛光龙女",
                 text = {
                     {
-                        "在{C:attention}墓地{}的{C:joy_normal}“龙女仆”{}计入",
-                        "{C:joy_normal}“龙女仆”{}的效果计数",
+                        "墓地中的{C:joy_normal}「半龙女仆」",
+                        "可触发「半龙女仆」效果",
                     },
                     {
-                        "当选择{C:attention}首领盲注{}时，",
-                        "无效其效果，然后{C:attention}变形{}为",
-                        "{C:joy_fusion}“家主龙女仆”{}并生成{C:attention}#1#{}",
-                        "{C:blue}普通{} {C:joy_normal}“龙女仆”{}",
-                        "{C:inactive}（需有栏位）{}",
+                        "选择{C:attention}首领盲注{}时",
+                        "无效其效果并{C:attention}转变{}为",
+                        "{C:joy_fusion}「半龙女仆·龙女管家」{}，同时生成{C:attention}#1#{}张",
+                        "{C:blue}普通{}{C:joy_normal}「半龙女仆」",
+                        "{C:inactive}(需有空位){}",
                     },
                 },
             },
@@ -178,7 +199,7 @@ return {
     },
     misc = {
         dictionary = {
-            k_joy_archetype_dmaid = "龙女仆",
+            k_joy_archetype_dmaid = "半龙女仆",
         }
     }
 }

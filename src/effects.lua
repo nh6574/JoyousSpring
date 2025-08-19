@@ -572,7 +572,9 @@ JoyousSpring.calculate_flip_effect = function(card, context)
     if not card.ability.extra.joyous_spring.flip_active and ((context.joy_card_flipped and context.joy_card_flipped == card and card.facing == "front") or
             (context.setting_blind and context.main_eval and JoyousSpring.flip_effect_active(card))) then
         if card.facing == 'back' then
-            card:flip(card)
+            JoyousSpring.joy_flip_source = card
+            card:flip()
+            JoyousSpring.joy_flip_source = nil
         end
         card.ability.extra.joyous_spring.flip_active = true
         SMODS.calculate_effect({ message = localize("k_joy_flip_ex") }, card)
@@ -582,7 +584,9 @@ JoyousSpring.calculate_flip_effect = function(card, context)
     if not context.blueprint_card and context.end_of_round and context.main_eval and context.game_over == false then
         card.ability.extra.joyous_spring.flip_active = false
         if JoyousSpring.should_trap_flip(card) then
-            card:flip(card)
+            JoyousSpring.joy_flip_source = card
+            card:flip()
+            JoyousSpring.joy_flip_source = nil
             if card.facing == 'back' then
                 SMODS.calculate_effect({ message = localize("k_joy_set") }, card)
             end
@@ -622,11 +626,6 @@ end
 
 local card_add_to_deck_ref = Card.add_to_deck
 function Card:add_to_deck(from_debuff)
-    if G.shop_jokers then
-        for _, card in ipairs(G.shop_jokers.cards or {}) do
-            card:set_cost()
-        end
-    end
     if G.jokers and not self.added_to_deck and self.ability.set == "Joker" and not JoyousSpring.is_field_spell(self) then
         for _, joker in ipairs(G.jokers.cards) do
             if not joker.debuff and joker.config.center.joy_apply_to_jokers_added then
@@ -649,6 +648,16 @@ function Card:add_to_deck(from_debuff)
         end
     end
     card_add_to_deck_ref(self, from_debuff)
+    G.E_MANAGER:add_event(Event({
+        func = (function()
+            if G.shop_jokers then
+                for _, card in ipairs(G.shop_jokers.cards or {}) do
+                    card:set_cost()
+                end
+            end
+            return true
+        end)
+    }))
 end
 
 local stay_flipped_ref = Blind.stay_flipped
@@ -661,7 +670,7 @@ function Blind:stay_flipped(to_area, card, from_area)
 end
 
 local card_flip_ref = Card.flip
-function Card:flip(source)
+function Card:flip()
     if not JoyousSpring.is_summon_type(self, "LINK") and self.config.center_key ~= "j_joy_token" and not JoyousSpring.cannot_flip(self) then
         card_flip_ref(self)
         local is_play_area = false
@@ -672,6 +681,7 @@ function Card:flip(source)
             end
         end
         if is_play_area or (G.hand and self.area == G.hand) then
+            local source = JoyousSpring.joy_flip_source
             SMODS.calculate_context({
                 joy_card_flipped = self,
                 joy_source = source and type(source) == "table" and
@@ -892,17 +902,22 @@ end
 
 local card_remove_from_deck_ref = Card.remove_from_deck
 function Card:remove_from_deck(from_debuff)
-    if G.shop_jokers then
-        for _, card in ipairs(G.shop_jokers.cards or {}) do
-            card:set_cost()
-        end
-    end
     local added = self.added_to_deck
     card_remove_from_deck_ref(self, from_debuff)
 
     if JoyousSpring.is_monster_card(self) and JoyousSpring.has_joyous_table(self) and added then
         JoyousSpring.transfer_remove_from_deck(self, from_debuff)
     end
+    G.E_MANAGER:add_event(Event({
+        func = (function()
+            if G.shop_jokers then
+                for _, card in ipairs(G.shop_jokers.cards or {}) do
+                    card:set_cost()
+                end
+            end
+            return true
+        end)
+    }))
 end
 
 JoyousSpring.transfer_calc_dollar_bonus = function(card)

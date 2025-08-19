@@ -1,7 +1,7 @@
 return {
     misc = {
         dictionary = {
-            --#region General UI
+            --#region 通用界面
             k_joy_extra_deck = "额外卡组",
             k_joy_summon_conditions = "召唤条件",
             k_joy_graveyard = "墓地",
@@ -15,14 +15,14 @@ return {
             k_joy_select_materials = "选择素材",
             k_joy_summon_warning =
             "由于限制，此列表可能不包含有效的素材组合",
-            k_joy_select_tributes = "选择祭品",
+            k_joy_select_tributes = "选择解放一张卡",
             k_joy_transferred_abilities = "转移的效果：",
             k_joy_select = "选择",
             k_joy_summon = "召唤",
-            k_joy_detach = "取除",
+            k_joy_detach = "去除",
             k_joy_activate = "发动",
             --#endregion
-            --#region Related cards
+            --#region 相关卡牌
             k_joy_related = "相关",
             k_joy_related_individual = "单卡",
             k_joy_archetype = "系列",
