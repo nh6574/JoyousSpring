@@ -2,169 +2,172 @@ return {
     descriptions = {
         Joker = {
             j_joy_token_generaider = {
-                name = "{C:joy_token}星遗物衍生物",
+                name = "{C:joy_token}王战团队衍生物",
                 text = {
                     {
-                        "本卡可作为任意{C:joy_token}衍生物{}使用",
+                        "此牌可视为任意{C:joy_token}衍生物{}",
                     },
                 },
             },
             j_joy_generaider_loptr = {
-                name = "{C:joy_effect}星遗物之影 洛普特",
+                name = "{C:joy_effect}王战之影 洛普特",
                 text = {
                     {
-                        "击败首领盲注时自毁，生成{C:joy_spell}“星遗物的宝札”{}",
-                        "{C:inactive}（需有栏位）{}",
+                        "击败{C:attention}首领盲注{}时销毁自身",
+                        "生成{C:joy_spell}「王战的舞台」{}",
+                        "{C:inactive}(需有空位){}",
                     },
                 },
             },
             j_joy_generaider_vala = {
-                name = "{C:joy_effect}星遗物之巫女 瓦拉",
+                name = "{C:joy_effect}王战之咒 伐拉",
                 text = {
                     {
-                        "获得时，将{C:attention}#1#张{C:red}史诗{} {C:joy_normal}主牌组“星遗物”{}",
-                        "送入{C:attention}墓地{}",
+                        "获得时将{C:attention}#1#{}张{C:red}稀有{}",
+                        "主卡组「王战」送入{C:attention}墓地{}",
                     },
                     {
-                        "击败首领盲注时自毁，",
-                        "{C:attention}复活#2#张{C:red}史诗{} {C:joy_normal}“星遗物”{}",
-                        "并生成{C:attention}#3#张{C:joy_effect}“星遗物之影 洛普特”{}",
-                        "{C:inactive}（需有栏位）",
+                        "击败{C:attention}首领盲注{}时销毁自身",
+                        "{C:attention}复活 #2#{}张{C:red}稀有{}「王战」{}",
+                        "并生成{C:attention}#3#{}张{C:joy_effect}「王战之影 洛普特」{}",
+                        "{C:inactive}(需有空位)",
                     },
                 },
             },
             j_joy_generaider_harr = {
-                name = "{C:joy_effect}星遗物之岚 哈尔",
+                name = "{C:joy_effect}轰界王战 哈尔王",
                 text = {
                     {
-                        "你可以{C:attention}解放#1#张{C:joy_normal}“星遗物”{}",
-                        "和/或{C:joy_normal}魔法师族{} {C:attention}小丑牌{}",
-                        "以无效当前首领盲注的效果",
+                        "可解放{C:attention}#1#{}张{C:joy_normal}「王战」{}",
+                        "和/或{C:joy_normal}魔法师族{}小丑牌",
+                        "无效当前{C:attention}首领盲注{}",
                     },
                 },
             },
             j_joy_generaider_nidhogg = {
-                name = "{C:joy_effect}星遗物之冰 尼德霍格",
+                name = "{C:joy_effect}冰界王战 尼德霍格王",
                 text = {
                     {
-                        "你可以{C:attention}解放#1#张其他{C:joy_normal}“星遗物”{}",
-                        "和/或{C:joy_normal}幻龙族{} {C:attention}小丑牌{}",
-                        "以本回合再次触发每张计分牌的效果",
+                        "可解放{C:attention}#1#{}张其他{C:joy_normal}「王战」{}",
+                        "和/或{C:joy_normal}幻龙族{}小丑牌",
+                        "使所有计分牌再次触发",
                     },
                 },
             },
             j_joy_generaider_frodi = {
-                name = "{C:joy_effect}星遗物之剑 弗洛迪",
+                name = "{C:joy_effect}剑界王战 弗罗德王",
                 text = {
                     {
-                        "你可以{C:attention}解放{}任意数量的其他{C:joy_normal}“星遗物”{}",
-                        "和/或{C:joy_normal}战士族{} {C:attention}小丑牌{}",
-                        "以本回合获得等量的手牌上限",
+                        "可解放{}任意数量其他{C:joy_normal}「王战」{}",
+                        "和/或{C:joy_normal}战士族{}小丑牌",
+                        "获得等量手牌上限",
                     },
                 },
             },
             j_joy_generaider_utgarda = {
-                name = "{C:joy_effect}星遗物之幻 乌特加德",
+                name = "{C:joy_effect}虚界王战 乌特加德王",
                 text = {
                     {
-                        "你可以{C:attention}解放#1#张{C:joy_normal}“星遗物”{}",
-                        "和/或{C:joy_normal}岩石族{} {C:attention}小丑牌{}",
-                        "以将消耗区的1张卡除外",
-                        "直至选择盲注",
+                        "可解放{C:attention}#1#{}张{C:joy_normal}「王战」{}",
+                        "和/或{C:joy_normal}岩石族{}小丑牌",
+                        "将消耗牌区的1张牌{C:attention}除外{}",
+                        "直到选择{C:attention}盲注{}",
                     },
                 },
             },
             j_joy_generaider_mardel = {
-                name = "{C:joy_effect}星遗物之光 玛德尔",
+                name = "{C:joy_effect}光界王战 玛多尔女王",
                 text = {
                     {
-                        "每回合1次，你可{C:attention}解放#1#张{C:joy_normal}“星遗物”{}",
-                        "和/或{C:joy_normal}植物族{} {C:attention}小丑牌{}，生成{C:attention}#2#张",
-                        "{C:blue}普通{}或{C:green}稀有{} {C:joy_normal}“星遗物”{}",
-                        "{C:inactive}（需有栏位）{}",
+                        "每回合可解放{C:attention}#1#{}张{C:joy_normal}「王战」{}",
+                        "和/或{C:joy_normal}植物族{}小丑牌生成{C:attention}#2#{}张",
+                        "{C:blue}普通{}或{C:green}罕见{}「王战」{}",
+                        "{C:inactive}(需有空位){}",
                     },
                 },
             },
             j_joy_generaider_dovelgus = {
-                name = "{C:joy_effect}星遗物之铁 多弗格斯",
+                name = "{C:joy_effect}铁界王战 矮人联合王",
                 text = {
                     {
-                        "每回合1次，你可{C:attention}解放#1#张其他{C:joy_normal}“星遗物”{}",
-                        "和/或{C:joy_normal}机械族{} {C:attention}小丑牌{}",
-                        "以使每张{C:joy_normal}“星遗物”{}和{C:joy_normal}机械族{}怪兽",
-                        "本回合提供{X:mult,C:white}X#2#{}倍率",
+                        "每回合可解放{C:attention}#1#{}张其他{C:joy_normal}「王战」{}",
+                        "和/或{C:joy_normal}机械族{}小丑牌",
+                        "使所有{C:joy_normal}「王战」{}和{C:joy_normal}机械族{}",
+                        "提供{X:mult,C:white}X#2#{}倍率",
                     },
                 },
             },
             j_joy_generaider_naglfar = {
-                name = "{C:joy_effect}星遗物之火 纳吉尔法",
+                name = "{C:joy_effect}炎界王战 纳吉尔法王",
                 text = {
                     {
-                        "你可以{C:attention}解放#1#张{C:joy_normal}“星遗物”{}",
-                        "和/或{C:joy_normal}兽战士族{} {C:attention}小丑牌{}",
-                        "以在本次盲注中获得{C:blue}+#2#{}手牌数和{C:red}+#3#{}弃牌次数",
+                        "可解放{C:attention}#1#{}张{C:joy_normal}「王战」{}",
+                        "和/或{C:joy_normal}兽战士族{}小丑牌",
+                        "获得{C:blue}+#2#{}出牌次数和{C:red}+#3#{}弃牌次数",
                     },
                 },
             },
             j_joy_generaider_hela = {
-                name = "{C:joy_effect}星遗物之冥 海拉",
+                name = "{C:joy_effect}死界王战 赫尔女王",
                 text = {
                     {
-                        "你可以{C:attention}解放#1#张{C:joy_normal}“星遗物”{}",
-                        "和/或{C:joy_normal}不死族{} {C:attention}小丑牌{}，以{C:attention}复活#2#张",
-                        "{C:red}史诗{} {C:joy_normal}“星遗物”{} {C:attention}小丑牌{}作为{C:dark_edition}负片{}",
+                        "可解放{C:attention}#1#{}张{C:joy_normal}「王战」{}",
+                        "和/或{C:joy_normal}不死族{}小丑牌{C:attention}复活 #2#{}张",
+                        "{C:red}稀有{}「王战」{}为{C:dark_edition}负片{}版",
                     },
                 },
             },
             j_joy_generaider_jormungandr = {
-                name = "{C:joy_xyz}星遗物之永恒 尤蒙刚德",
+                name = "{C:joy_xyz}永界王战 欧姆刚德王",
                 text = {
                     {
-                        "每有1个{C:joy_xyz}超量素材{}，{C:mult}+#1#{}倍率",
-                        "{C:inactive}（当前{C:mult}+#2#{} {C:inactive}倍率）{}",
+                        "每个{C:joy_xyz}超量素材{}提供{C:mult}+#1#{}倍率",
+                        "{C:inactive}(当前{C:mult}+#2#{}{C:inactive}倍率){}",
                     },
                     {
-                        "{C:joy_xyz}取除{} {C:attention}#3#{}个素材：永久",
-                        "获得{C:attention}+#4#{}手牌上限",
+                        "{C:joy_xyz}去除{} {C:attention}#3#{}个素材：永久",
+                        "增加{C:attention}+#4#{}手牌上限",
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2+{} {C:red}史诗{} {C:attention}小丑牌{}",
-                    "{s:0.9,C:inactive}（超量、连接怪兽{}",
-                    "{s:0.9,C:inactive}或衍生物除外）{}"
+                    "{C:attention}2+{}张{C:red}稀有{}小丑牌",
+                    "{s:0.9,C:inactive}(除{s:0.9,C:joy_xyz}超量{s:0.9,C:inactive}、{s:0.9,C:joy_link}连接{}",
+                    "{s:0.9,C:inactive}或{s:0.9,C:joy_token}衍生物{s:0.9,C:inactive})"
                 }
             },
             j_joy_generaider_laevatein = {
-                name = "{C:joy_xyz}星遗物之影 莱瓦汀",
+                name = "{C:joy_xyz}影界王战 雷瓦汀王",
                 text = {
                     {
-                        "{C:joy_xyz}取除{} {C:attention}#1#{}个素材：销毁所有其他{C:attention}小丑牌{}，并",
-                        "生成1张{C:joy_xyz}“星遗物之永恒 尤蒙刚德”{}，",
-                        "将墓地中所有卡作为{C:joy_xyz}超量素材{}装备给它",
+                        "{C:joy_xyz}去除{} {C:attention}#1#{}个素材：销毁所有其他小丑牌",
+                        "并生成{C:joy_xyz}「永界王战 欧姆刚德王」{}",
+                        "将墓地所有牌作为其{C:joy_xyz}超量素材{}",
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}5{} {C:red}史诗{} {C:attention}小丑牌{}",
-                    "{s:0.9,C:inactive}（超量、连接怪兽{}",
-                    "{s:0.9,C:inactive}或衍生物除外）{}"
+                    "{C:attention}5{}张{C:red}稀有{}小丑牌",
+                    "{s:0.9,C:inactive}(除{s:0.9,C:joy_xyz}超量{s:0.9,C:inactive}、{s:0.9,C:joy_link}连接{}",
+                    "{s:0.9,C:inactive}或{s:0.9,C:joy_token}衍生物{s:0.9,C:inactive})"
                 }
             },
             j_joy_generaider_boss_stage = {
-                name = "{C:joy_spell}星遗物的宝札",
+                name = "{C:joy_spell}王战的舞台",
                 text = {
                     {
-                        "持有本卡期间，每解放1张卡，{C:joy_normal}“星遗物”{}各提供{C:mult}+#1#{}倍率",
-                        "{C:inactive}（当前{C:mult}+#2#{}{C:inactive}倍率）",
+                        "每张{C:joy_normal}「王战」{}根据持有期间",
+                        "解放的牌数提供{C:mult}+#1#{}倍率",
+                        "{C:inactive}(当前{C:mult}+#2#{}{C:inactive}倍率)",
                     },
                     {
-                        "选择盲注时，尽可能生成{C:joy_token}“星遗物衍生物”{}",
-                        "{C:inactive}（“星遗物”视为负片）{}",
+                        "选择{C:attention}盲注{}时",
+                        "尽可能生成{C:joy_token}「王战团队衍生物」{}",
+                        "{C:inactive}(「王战」视为负片版){}",
                     },
                     {
-                        "每回合1次，你可{C:attention}解放#3#张",
-                        "{C:joy_token}“星遗物衍生物”{}，生成{C:attention}#4#张",
-                        "未持有的{C:red}史诗{} {C:joy_normal}主牌组“星遗物”{}",
-                        "{C:inactive}（需有栏位）{}",
+                        "每回合可解放{C:attention}#3#{}张",
+                        "{C:joy_token}「王战团队衍生物」{}生成{C:attention}#4#{}张",
+                        "未拥有的{C:red}稀有{}主卡组「王战」{}",
+                        "{C:inactive}(需有空位){}",
                     },
                 },
             },
@@ -172,7 +175,7 @@ return {
     },
     misc = {
         dictionary = {
-            k_joy_archetype_generaider = "星遗物",
+            k_joy_archetype_generaider = "王战",
         }
     }
 }

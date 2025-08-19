@@ -1,8 +1,8 @@
 return {
     misc = {
         challenge_names = {
-            c_joy_mystic_wok = "神秘锅",
-            c_joy_mistake = "失误",
+            c_joy_mystic_wok = "神秘的中华锅",
+            c_joy_mistake = "岔子",
             c_joy_monster_reborn = "死者苏生",
             c_joy_domain = "真帝王领域",
         },

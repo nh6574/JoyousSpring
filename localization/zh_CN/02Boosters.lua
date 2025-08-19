@@ -1,7 +1,7 @@
 return {
     descriptions = {
         Other = {
-            --#region Boosters
+            --#region 补充包
             p_joy_monster_pack = {
                 name = "冠军补充包",
                 text = {
@@ -9,7 +9,7 @@ return {
                 },
             },
             p_joy_jumbo_monster_pack = {
-                name = " turbo补充包",
+                name = "Turbo补充包",
                 text = {
                     "从最多{C:attention}#2#{}张{C:joy_normal}怪兽{} {C:joker}小丑牌{}中选择{C:attention}#1#{}张",
                 },

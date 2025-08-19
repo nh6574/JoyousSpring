@@ -1,265 +1,272 @@
--- 文件 2：26FortuneLady.lua（已汉化）
 return {
     descriptions = {
         Joker = {
             j_joy_flady_light = {
-                name = "{C:joy_effect}命运女郎·光",
+                name = "{C:joy_effect}命运女郎·莱蒂",
                 text = {
                     {
-                        "回合结束时有{C:green}#1#/#2#几率",
-                        "放逐{C:attention}#3#{C:joy_normal}命运女郎",
-                        "直到选择{C:attention}盲注"
+                        "{C:green}#1#/#2#{} 几率在回合结束时{C:attention}除外 #3#{}",
+                        "{C:joy_normal}「命运女郎」{} 直到选择{C:attention}盲注{}",
                     },
                     {
-                        "回合结束时获得{C:money}$#4#{C:attention}×分子{C:attention}金钱",
-                        "{C:inactive}(上限$C:attention}$#4#{C:attention}×#2#){}",
-                        "{C:inactive}(当前{C:money}+$#5#{C:inactive})"
+                        "回合结束时给予 {C:money}$#4#{}X{C:green}分子{}",
+                        "{C:inactive}(上限 $#4#X#2#){}",
+                        "{C:inactive}(当前 {C:money}+$#5#{}{C:inactive})"
                     },
                     {
-                        "每当有牌被{C:attention}放逐{C:attention}时，",
-                        "永久提高所有{C:attention}小丑牌{C:attention}的{C:green}几率{C:attention}值{C:attention}#6#"
+                        "当卡牌被{C:attention}除外{}时",
+                        "永久提升所有{C:attention}小丑牌{}的{C:green}几率{} {C:attention}#6#{}"
                     }
                 }
             },
             j_joy_flady_fire = {
-                name = "{C:joy_effect}命运女郎·火",
+                name = "{C:joy_effect}命运女郎·菲莉",
                 text = {
                     {
-                        "有{C:green}#1#/#2#几率",
-                        "本回合内使所有其他{C:green}几率{C:attention}翻倍"
+                        "{C:green}#1#/#2#{} 几率使本回合",
+                        "所有其他{C:green}几率{}翻倍",
                     },
                     {
-                        "获得{C:mult}+#3#{C:attention}×命运女郎分子{C:attention}倍率",
-                        "{C:inactive}(上限{C:mult}+#3#{C:attention}×#4#){}",
-                        "{C:inactive}(当前{C:mult}+#5#{C:inactive}倍率)"
+                        "给予等同 {C:mult}+#3#{}X所有{C:joy_normal}「命运女郎」{} {C:green}分子{}的倍率",
+                        "{C:inactive}(上限 +#3#X#4#){}",
+                        "{C:inactive}(当前 {C:mult}+#5#{}{C:inactive}倍率)"
                     },
                     {
-                        "回合结束时永久提高所有{C:attention}小丑牌{C:attention}的{C:green}几率{C:attention}值{C:attention}#6#"
+                        "回合结束时永久提升",
+                        "所有{C:attention}小丑牌{}的{C:green}几率{} {C:attention}#6#{}"
                     }
                 }
             },
             j_joy_flady_wind = {
-                name = "{C:joy_effect}命运女郎·风",
+                name = "{C:joy_effect}命运女郎·温蒂",
                 text = {
                     {
-                        "有{C:green}#1#/#2#几率",
-                        "为打出的牌生成一张{C:planet}星球牌"
+                        "{C:green}#1#/#2#{} 几率生成",
+                        "打出牌型的{C:planet}星球牌{}",
                     },
                     {
-                        "每个{C:joy_normal}命运女郎{C:attention}给予{C:chips}+#3#{C:attention}×分子{C:attention}筹码",
-                        "{C:inactive}(上限{C:chips}+#3#{C:attention}×分母){}"
+                        "每张{C:joy_normal}「命运女郎」{}给予等同 {C:chips}+#3#{}X其{C:green}分子{}的筹码",
+                        "{C:inactive}(上限 +#3#X分母){}",
                     },
                     {
-                        "回合结束时永久提高所有{C:attention}小丑牌{C:attention}的{C:green}几率{C:attention}值{C:attention}#4#",
-                        "每有1个{C:joy_normal}命运女郎{C:attention}提高一次"
+                        "回合结束时每张{C:joy_normal}「命运女郎」{}",
+                        "永久提升所有{C:attention}小丑牌{}的{C:green}几率{} {C:attention}#4#{}"
                     }
                 }
             },
             j_joy_flady_water = {
-                name = "{C:joy_effect}命运女郎·水",
+                name = "{C:joy_effect}命运女郎·沃特莉",
                 text = {
                     {
-                        "选择{C:attention}盲注{C:attention}时有{C:green}#1#/#2#几率",
-                        "增加{C:attention}#3#{C:attention}手牌上限",
-                        "{C:inactive}(失败时重置手牌上限)(最多+#8#)",
-                        "{C:inactive}(当前+C:attention}#4#{C:inactive}手牌上限)"
+                        "{C:green}#1#/#2#{} 几率在选中{C:attention}盲注{}时",
+                        "增加{C:attention}#3#{}点手牌上限",
+                        "{C:inactive}(失败时重置)(最大+#8#)",
+                        "{C:inactive}(当前 {C:attention}+#4#{}{C:inactive}点)"
                     },
                     {
-                        "给予{C:chips}+#5#{C:attention}×分子{C:attention}筹码",
-                        "{C:inactive}(上限{C:chips}+#5#{C:attention}×#2#){}",
-                        "{C:inactive}(当前{C:chips}+#6#{C:inactive}筹码)"
+                        "给予等同 {C:chips}+#5#{}X{C:green}分子{}的筹码",
+                        "{C:inactive}(上限 +#5#X#2#){}",
+                        "{C:inactive}(当前 {C:chips}+#6#{}{C:inactive}筹码)"
                     },
                     {
-                        "回合结束时永久提高所有{C:attention}小丑牌{C:attention}的{C:green}几率{C:attention}值{C:attention}#7#"
+                        "回合结束时永久提升",
+                        "所有{C:attention}小丑牌{}的{C:green}几率{} {C:attention}#7#{}"
                     }
                 }
             },
             j_joy_flady_earth = {
-                name = "{C:joy_effect}命运女郎·地",
+                name = "{C:joy_effect}命运女郎·厄系",
                 text = {
                     {
-                        "选择{C:attention}盲注{C:attention}时有{C:green}#1#/#2#几率",
-                        "生成{C:attention}#3#{C:attention}张",
-                        "{C:joy_normal}主卡组“命运女郎”{C:attention}(需有空位)"
+                        "{C:green}#1#/#2#{} 几率在选中{C:attention}盲注{}时",
+                        "生成{C:attention}#3#{}张{C:joy_normal}主卡组「命运女郎」{}",
+                        "{C:inactive}(需有空位)",
                     },
                     {
-                        "本卡分子每永久+1，额外获得{X:mult,C:white}X#4#{C:attention}倍率",
-                        "{C:inactive}(当前{X:mult,C:white}X#5#{C:inactive}倍率)"
+                        "每永久提升",
+                        "此卡的{C:green}分子{}时获得{X:mult,C:white}X#4#{}倍率",
+                        "{C:inactive}(当前 {X:mult,C:white}X#5#{}{C:inactive}倍率)"
                     },
                     {
-                        "本卡分子每永久+1，永久提高所有{C:attention}小丑牌{C:attention}的{C:green}几率{C:attention}值{C:attention}#6#",
-                        "{C:inactive}(“命运女郎·地”自身除外){}"
+                        "当此卡{C:green}分子{}永久提升时",
+                        "永久提升所有{C:attention}小丑牌{}的{C:green}几率{} {C:attention}#6#{}",
+                        "{C:inactive}(「命运女郎·厄系」除外){}"
                     }
                 }
             },
             j_joy_flady_dark = {
-                name = "{C:joy_effect}命运女郎·暗",
+                name = "{C:joy_effect}命运女郎·达琪",
                 text = {
                     {
-                        "选择{C:attention}盲注{C:attention}时有{C:green}#1#/#2#几率",
-                        "复活{C:attention}#3#{C:joy_normal}命运女郎{C:attention}",
-                        "(无则复活{C:joy_normal}魔法师{C:attention})"
+                        "{C:green}#1#/#2#{} 几率在选中{C:attention}盲注{}时{C:attention}复活{}",
+                        "{C:attention}#3#{}张{C:joy_normal}「命运女郎」{}",
+                        "(或{C:joy_normal}魔法师{}若无可用)",
                     },
                     {
-                        "给予{C:mult}+#4#{C:attention}×分子{C:attention}倍率",
-                        "{C:inactive}(上限{C:mult}+#4#{C:attention}×#2#){}",
-                        "{C:inactive}(当前{C:mult}+#5#{C:inactive}倍率)"
+                        "给予等同 {C:mult}+#4#{}X{C:green}分子{}的倍率",
+                        "{C:inactive}(上限 +#4#X#2#){}",
+                        "{C:inactive}(当前 {C:mult}+#5#{}{C:inactive}倍率)"
                     },
                     {
-                        "回合结束时永久提高所有{C:attention}小丑牌{C:attention}的{C:green}几率{C:attention}值{C:attention}#6#",
-                        "每有1个{C:joy_normal}魔法师{C:attention}提高一次"
+                        "回合结束时每张{C:joy_normal}魔法师{}",
+                        "永久提升所有{C:attention}小丑牌{}的{C:green}几率{} {C:attention}#6#{}"
                     }
                 }
             },
             j_joy_flady_past = {
-                name = "{C:joy_effect}命运女郎·过去",
+                name = "{C:joy_effect}命运女郎·帕丝蒂",
                 text = {
                     {
-                        "回合结束时有{C:green}#1#/#2#几率",
-                        "放逐所有{C:joy_normal}魔法师{C:attention}小丑牌",
-                        "直到选择{C:attention}盲注"
+                        "{C:green}#1#/#2#{} 几率在回合结束时{C:attention}除外{}",
+                        "所有{C:joy_normal}魔法师{} {C:attention}小丑牌{}",
+                        "直到选择{C:attention}盲注{}",
                     },
                     {
-                        "获得{X:mult,C:white}X#3#{C:attention}×分子{C:attention}倍率",
-                        "{C:inactive}(上限{X:mult,C:white}X#3#{C:attention}×#2#){}",
-                        "{C:inactive}(当前{X:mult,C:white}X#4#{C:inactive}倍率)"
+                        "给予 {X:mult,C:white}X#3#{}X{C:green}分子{}倍率",
+                        "{C:inactive}(上限 X#3#X#2#){}",
+                        "{C:inactive}(当前 {X:mult,C:white}X#4#{}{C:inactive}倍率)"
                     },
                     {
-                        "每当有牌从放逐区返回时，",
-                        "永久提高所有{C:attention}小丑牌{C:attention}的{C:green}几率{C:attention}值{C:attention}#5#"
+                        "当卡牌从{C:attention}除外区{}返回时",
+                        "永久提升所有{C:attention}小丑牌{}的{C:green}几率{} {C:attention}#5#{}"
                     }
                 }
             },
             j_joy_flady_every = {
-                name = "{C:joy_synchro}命运女郎·一切",
+                name = "{C:joy_synchro}命运女郎·艾芙莉",
                 text = {
                     {
-                        "本回合有{C:green}#1#/#2#几率获得{X:mult,C:white}X#3#{C:mult}倍率",
-                        "回合结束时有{C:green}#4#/#5#几率放逐{C:attention}#6#{C:joy_normal}命运女郎{C:attention}",
-                        "直到选择{C:attention}盲注",
-                        "回合结束时有{C:green}#7#/#8#几率获得{C:money}+$#9#{C:attention}",
-                        "每计分1张牌有{C:green}#10#/#11#几率永久翻倍",
-                        "所有{C:green}几率{C:attention}",
-                        "选择{C:attention}盲注{C:attention}时有{C:green}#12#/#13#几率生成{C:attention}#14#{C:joy_normal}命运妖精{C:attention}",
-                        "选择{C:attention}盲注{C:attention}时有{C:green}#15#/#16#几率复活{C:attention}#17#{C:joy_normal}命运女郎{C:attention}",
-                        "(无则复活{C:joy_normal}魔法师){C:attention}并赋予{C:dark_edition}负片"
+                        "{C:green}#1#/#2#{} 几率本回合给予 {X:mult,C:white}X#3#{}倍率",
+                        "{C:green}#4#/#5#{} 几率在回合结束时{C:attention}除外 #6#{}张{C:joy_normal}「命运女郎」{}",
+                        "直到选择{C:attention}盲注{}",
+                        "{C:green}#7#/#8#{} 几率回合结束时给予 {C:money}+$#9#{}",
+                        "{C:green}#10#/#11#{} 几率永久翻倍",
+                        "所有计分牌的{C:green}几率{}",
+                        "{C:green}#12#/#13#{} 几率在选中{C:attention}盲注{}时",
+                        "生成{C:attention}#14#{}张{C:joy_normal}「占卜魔女」{}",
+                        "{C:green}#15#/#16#{} 几率在选中{C:attention}盲注{}时{C:attention}复活 #17#{}张",
+                        "{C:joy_normal}「命运女郎」{}（或{C:joy_normal}魔法师{}）为{C:dark_edition}负片{}"
                     },
                     {
-                        "给予{C:mult}+#18#{C:attention}×分子总和{C:attention}倍率",
-                        "{C:inactive}(上限{C:mult}+#18#{C:attention}×#19#{})",
-                        "{C:inactive}(当前{C:mult}+#20#{C:inactive}倍率)"
+                        "给予等同 {C:mult}+#18#{}X{C:green}分子{}的倍率",
+                        "{C:inactive}(上限 +#18#X#19#){}",
+                        "{C:inactive}(当前 {C:mult}+#20#{}{C:inactive}倍率)"
                     },
                     {
-                        "每当有牌从放逐区返回时，",
-                        "永久翻倍其{C:green}几率{C:attention}值"
+                        "当卡牌从{C:attention}除外区{}返回时",
+                        "永久翻倍其{C:green}几率{}"
                     }
                 },
                 joy_summon_conditions = {
-                    "{C:attention}1{C:joy_synchro}协调{C:attention} +",
-                    "{C:attention}1{C:joy_normal}魔法师{C:attention}非{C:joy_synchro}协调{C:attention}",
-                    "{s:0.9,C:inactive}(不包含{s:0.9,C:joy_xyz}超量{s:0.9,C:inactive}或{s:0.9,C:joy_link}连接{s:0.9,C:inactive})"
+                    "{C:attention}1{}张{C:joy_synchro}调整{} +",
+                    "{C:attention}1{}张非{C:joy_synchro}调整{}的{C:joy_normal}魔法师{}",
+                    "{s:0.9,C:inactive}({s:0.9,C:joy_xyz}超量{s:0.9,C:inactive}和{s:0.9,C:joy_link}连接{s:0.9,C:inactive}除外)",
                 }
             },
             j_joy_ffairy_hikari = {
-                name = "{C:joy_effect}命运妖精·灯",
+                name = "{C:joy_effect}占卜魔女·小光",
                 text = {
                     {
-                        "每当列表中的{C:green}几率{C:attention}成功时，获得{C:money}+$#1#"
+                        "{C:money}+$#1#{}当{C:green}几率{}触发时"
                     },
                     {
-                        "每底注限1次，{C:attention}#3#{C:attention}次列表{C:green}几率{C:attention}成功后",
-                        "生成{C:attention}#2#{C:joy_normal}主卡组魔法师{C:attention}",
+                        "每局游戏一次：在{C:attention}#3#{}次{C:green}几率{}触发后",
+                        "生成{C:attention}#2#{}张{C:joy_normal}主卡组魔法师{}",
                         "{C:inactive}(#4#/#3#){C:inactive}(需有空位)"
                     },
                     {
-                        "若你已拥有{C:joy_normal}“命运女郎”{C:attention}，",
-                        "从商店获得时免费且无需空位"
+                        "若拥有{C:joy_normal}「命运女郎」{}时从商店获取",
+                        "免费且不占空位"
                     }
                 }
             },
             j_joy_ffairy_en = {
-                name = "{C:joy_effect}命运妖精·炎",
+                name = "{C:joy_effect}占卜魔女·小炎",
                 text = {
                     {
-                        "本局游戏中每成功1次列表{C:green}几率{C:attention}，获得{C:mult}+#1#{C:attention}倍率",
-                        "{C:inactive}(当前{C:mult}+#2#{C:inactive}倍率)"
+                        "每触发一次",
+                        "本局游戏的{C:green}几率{}使此卡{C:mult}+#1#{}倍率",
+                        "{C:inactive}(当前 {C:mult}+#2#{}{C:inactive}倍率)"
                     },
                     {
-                        "有{C:green}#3#/#4#几率",
-                        "将每张计分牌变成{C:attention}幸运{C:attention}牌"
+                        "{C:green}#3#/#4#{} 几率将每张计分牌",
+                        "变为{C:attention}幸运{}牌"
                     },
                     {
-                        "若你已拥有{C:joy_normal}“命运女郎”{C:attention}，",
-                        "从商店获得时免费且无需空位"
+                        "若拥有{C:joy_normal}「命运女郎」{}时从商店获取",
+                        "免费且不占空位"
                     }
                 }
             },
             j_joy_ffairy_hu = {
-                name = "{C:joy_effect}命运妖精·风",
+                name = "{C:joy_effect}占卜魔女·小风",
                 text = {
                     {
-                        "本局游戏中每成功1次列表{C:green}几率{C:attention}，获得{C:chips}+#1#{C:attention}筹码",
-                        "{C:inactive}(当前{C:chips}+#2#{C:inactive}筹码)"
+                        "每触发一次",
+                        "本局游戏的{C:green}几率{}使此卡{C:chips}+#1#{}筹码",
+                        "{C:inactive}(当前 {C:chips}+#2#{}{C:inactive}筹码)"
                     },
                     {
-                        "本卡从放逐区返回后，",
-                        "下一次列表{C:green}几率{C:attention}必定成功"
+                        "此卡从{C:attention}除外区{}返回后",
+                        "下一次{C:green}几率{}必定触发"
                     },
                     {
-                        "若你已拥有{C:joy_normal}“命运女郎”{C:attention}，",
-                        "从商店获得时免费且无需空位"
+                        "若拥有{C:joy_normal}「命运女郎」{}时从商店获取",
+                        "免费且不占空位"
                     }
                 }
             },
             j_joy_ffairy_swee = {
-                name = "{C:joy_effect}命运妖精·水",
+                name = "{C:joy_effect}占卜魔女·小水",
                 text = {
                     {
-                        "本局游戏中每成功1次列表{C:green}几率{C:attention}，获得{C:chips}+#1#{C:attention}筹码",
-                        "{C:inactive}(当前{C:chips}+#2#{C:inactive}筹码)"
+                        "每触发一次",
+                        "本局游戏的{C:green}几率{}使此卡{C:chips}+#1#{}筹码",
+                        "{C:inactive}(当前 {C:chips}+#2#{}{C:inactive}筹码)"
                     },
                     {
-                        "若本回合有列表{C:green}几率{C:attention}成功，",
-                        "回合结束时放逐本卡与{C:attention}#3#{C:attention}张小丑牌",
-                        "直至选择{C:attention}盲注"
+                        "若本回合有{C:green}几率{}触发",
+                        "回合结束时{C:attention}除外{}此卡和{C:attention}#3#{}张其他{C:attention}小丑牌{}",
+                        "直到选择{C:attention}盲注{}"
                     },
                     {
-                        "若你已拥有{C:joy_normal}“命运女郎”{C:attention}，",
-                        "从商店获得时免费且无需空位"
+                        "若拥有{C:joy_normal}「命运女郎」{}时从商店获取",
+                        "免费且不占空位"
                     }
                 }
             },
             j_joy_ffairy_chee = {
-                name = "{C:joy_effect}命运妖精·地",
+                name = "{C:joy_effect}占卜魔女·小暗",
                 text = {
                     {
-                        "本局游戏中每成功1次列表{C:green}几率{C:attention}，获得{C:mult}+#1#{C:attention}倍率",
-                        "{C:inactive}(当前{C:mult}+#2#{C:inactive}倍率)"
+                        "每触发一次",
+                        "本局游戏的{C:green}几率{}使此卡{C:mult}+#1#{}倍率",
+                        "{C:inactive}(当前 {C:mult}+#2#{}{C:inactive}倍率)"
                     },
                     {
-                        "将所有非{C:joy_normal}魔法师{C:attention}卡牌的列表{C:green}几率{C:attention}分母减半"
+                        "使所有非{C:joy_normal}魔法师{}卡牌的",
+                        "{C:green}分母{}减半"
                     },
                     {
-                        "若你已拥有{C:joy_normal}“命运女郎”{C:attention}，",
-                        "从商店获得时免费且无需空位"
+                        "若拥有{C:joy_normal}「命运女郎」{}时从商店获取",
+                        "免费且不占空位"
                     }
                 }
             },
             j_joy_ffairy_ann = {
-                name = "{C:joy_effect}命运妖精·暗",
+                name = "{C:joy_effect}占卜魔女·小地",
                 text = {
                     {
-                        "每当列表{C:green}几率{C:attention}成功时，获得{C:money}+$#1#",
-                        "并送{C:attention}#2#{C:joy_normal}魔法师{C:attention}至墓地"
+                        "{C:money}+$#1#{}并将{C:attention}#2#{}张{C:joy_normal}魔法师{}",
+                        "送入{C:attention}墓地{}当{C:green}几率{}触发时"
                     },
                     {
-                        "有{C:green}#3#/#4#几率",
-                        "回合结束时放逐自身",
-                        "直至选择{C:attention}盲注"
+                        "{C:green}#3#/#4#{} 几率在回合结束时{C:attention}除外{}",
+                        "直到选择{C:attention}盲注{}"
                     },
                     {
-                        "若你已拥有{C:joy_normal}“命运女郎”{C:attention}，",
-                        "从商店获得时免费且无需空位"
+                        "若拥有{C:joy_normal}「命运女郎」{}时从商店获取",
+                        "免费且不占空位"
                     }
                 }
             },
