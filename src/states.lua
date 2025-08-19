@@ -7,7 +7,6 @@ function JoyousSpring.update_side_deck(game, dt)
             definition = JoyousSpring.create_side_deck(),
             config = { align = 'tmi', offset = { x = 0, y = G.ROOM.T.y + 11 }, major = G.hand, bond = 'Weak' }
         }
-        local column = JoyousSpring.side_deck:get_UIE_by_ID('joy_side_column')
         JoyousSpring.side_deck_area = JoyousSpring.side_deck_area or UIBox {
             definition =
             { n = G.UIT.ROOT, config = { colour = G.C.DYN_UI.MAIN, emboss = 0.05, align = 'cm', r = 0.1, padding = 0.1 }, nodes = {
@@ -20,12 +19,8 @@ function JoyousSpring.update_side_deck(game, dt)
             config = {
                 align = "cm",
                 offset = { x = 0, y = 0 },
-                major = column,
-                bond = 'Weak'
             }
         }
-        JoyousSpring.side_deck_area.config.major = column
-        JoyousSpring.side_deck_area:recalculate()
         G.E_MANAGER:add_event(Event({
             func = function()
                 JoyousSpring.side_deck.alignment.offset.y = -5.3
@@ -35,6 +30,8 @@ function JoyousSpring.update_side_deck(game, dt)
                     delay = 0.2,
                     blockable = false,
                     func = function()
+                        local column = JoyousSpring.side_deck:get_UIE_by_ID('joy_side_column')
+                        JoyousSpring.side_deck_area.T.y = column.T.y
                         if math.abs(JoyousSpring.side_deck.T.y - JoyousSpring.side_deck.VT.y) < 3 then
                             G.ROOM.jiggle = G.ROOM.jiggle + 3
                             play_sound('cardFan2')
