@@ -383,7 +383,7 @@ return {
                 name = "{C:joy_spell}Flower Gathering",
                 text = {
                     "Enhances {C:attention}#1#{} selected",
-                    "card into {C:attention}Hanafuda{} cards",
+                    "cards into {C:attention}Hanafuda{} cards",
                 },
             },
         },
