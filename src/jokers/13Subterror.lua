@@ -57,9 +57,9 @@ SMODS.Joker({
                 if not card.ability.extra.activated and context.joy_exit_effect_selection and context.joy_card == card and
                     #context.joy_selection == card.ability.extra.flips then
                     for _, selected_card in ipairs(context.joy_selection) do
-                        selected_card:flip(card)
+                        JoyousSpring.flip(selected_card, card)
                     end
-                    card:flip(card)
+                    JoyousSpring.flip(card, card)
                     for i = 1, card.ability.extra.revives do
                         JoyousSpring.revive_pseudorandom(
                             { { monster_archetypes = { "Subterror" } } },
@@ -194,9 +194,9 @@ SMODS.Joker({
                 if not card.ability.extra.activated and context.joy_exit_effect_selection and context.joy_card == card and
                     #context.joy_selection == card.ability.extra.flips then
                     for _, selected_card in ipairs(context.joy_selection) do
-                        selected_card:flip(card)
+                        JoyousSpring.flip(selected_card, card)
                     end
-                    card:flip(card)
+                    JoyousSpring.flip(card, card)
                     JoyousSpring.create_pseudorandom(
                         { { monster_archetypes = { "Subterror" }, exclude_keys = { "j_joy_sub_archer" }, rarity = 1 }, { monster_archetypes = { "Subterror" }, exclude_keys = { "j_joy_sub_archer" }, rarity = 2 } },
                         "j_joy_sub_archer", false, false, "e_negative")
@@ -350,7 +350,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if context.setting_blind and context.main_eval and card.facing == 'back' then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
         if context.joker_main then
             if card.ability.extra.current_xmult > 0 then
@@ -378,10 +378,10 @@ SMODS.Joker({
                     #context.joy_selection == card.ability.extra.flips then
                     local flips = { front = 0, back = 0 }
                     for _, selected_card in ipairs(context.joy_selection) do
-                        selected_card:flip(card)
+                        JoyousSpring.flip(selected_card, card)
                         flips[selected_card.facing] = flips[selected_card.facing] + 1
                     end
-                    card:flip(card)
+                    JoyousSpring.flip(card, card)
                     flips[card.facing] = flips[card.facing] + 1
 
                     card.ability.extra.current_xmult = card.ability.extra.xmult * flips.back
@@ -486,12 +486,12 @@ SMODS.Joker({
             end
         end
         if context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     joker_display_def = function(JokerDisplay)
@@ -572,12 +572,12 @@ SMODS.Joker({
             end
         end
         if context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end
 })
@@ -630,12 +630,12 @@ SMODS.Joker({
             JoyousSpring.calculate_flip_effect(card, context)
         end
         if context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end
 })
@@ -684,12 +684,12 @@ SMODS.Joker({
             end
         end
         if context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     joker_display_def = function(JokerDisplay)
@@ -740,7 +740,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if context.first_hand_drawn and G.GAME.blind.boss then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
         if JoyousSpring.can_use_abilities(card) then
             if JoyousSpring.calculate_flip_effect(card, context) then
@@ -756,7 +756,7 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     joker_display_def = function(JokerDisplay)
@@ -806,7 +806,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if context.setting_blind and context.main_eval and G.GAME.blind.boss then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
         if JoyousSpring.can_use_abilities(card) then
             if JoyousSpring.calculate_flip_effect(card, context) and G.GAME.blind.in_blind then
@@ -822,7 +822,7 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     joy_stay_flipped = function(card, playing_card)
@@ -871,7 +871,7 @@ SMODS.Joker({
             if JoyousSpring.calculate_flip_effect(card, context) then
                 for _, joker in ipairs(G.jokers.cards) do
                     if card ~= joker and joker.facing == 'back' then
-                        joker:flip(card)
+                        JoyousSpring.flip(joker, card)
                     end
                 end
             end
@@ -887,12 +887,12 @@ SMODS.Joker({
             card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.extra_xmult
         end
         if context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     joker_display_def = function(JokerDisplay)
@@ -948,7 +948,7 @@ SMODS.Joker({
             if JoyousSpring.calculate_flip_effect(card, context) then
                 for _, joker in ipairs(G.jokers.cards) do
                     if card ~= joker and joker.facing == 'front' then
-                        joker:flip(card)
+                        JoyousSpring.flip(joker, card)
                     end
                 end
             end
@@ -960,12 +960,12 @@ SMODS.Joker({
             end
         end
         if context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     joker_display_def = function(JokerDisplay)
@@ -1060,7 +1060,7 @@ SMODS.Joker({
                 if not card.ability.extra.activated and context.joy_exit_effect_selection and context.joy_card == card and
                     #context.joy_selection == card.ability.extra.flips then
                     for _, selected_card in ipairs(context.joy_selection) do
-                        selected_card:flip(card)
+                        JoyousSpring.flip(selected_card, card)
                     end
 
                     for _ = 1, card.ability.extra.creates do
@@ -1166,7 +1166,7 @@ SMODS.Joker({
                 if not card.ability.extra.activated and context.joy_exit_effect_selection and context.joy_card == card and
                     #context.joy_selection == card.ability.extra.flips then
                     for _, selected_card in ipairs(context.joy_selection) do
-                        selected_card:flip(card)
+                        JoyousSpring.flip(selected_card, card)
                     end
                     card.ability.extra.activated = true
                 end

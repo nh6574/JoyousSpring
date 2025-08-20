@@ -62,7 +62,7 @@ SMODS.Joker({
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not JoyousSpring.is_perma_debuffed(card) then
             if not from_debuff and JoyousSpring.should_trap_flip(card) then
-                card:flip(card)
+                JoyousSpring.flip(card, card)
             end
             SMODS.debuff_card(card, "prevent_debuff", "j_joy_paleo_canadia")
         end
@@ -142,7 +142,7 @@ SMODS.Joker({
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not JoyousSpring.is_perma_debuffed(card) then
             if not from_debuff and JoyousSpring.should_trap_flip(card) then
-                card:flip(card)
+                JoyousSpring.flip(card, card)
             end
             SMODS.debuff_card(card, "prevent_debuff", "j_joy_paleo_dino")
         end
@@ -201,7 +201,7 @@ SMODS.Joker({
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not JoyousSpring.is_perma_debuffed(card) then
             if not from_debuff and JoyousSpring.should_trap_flip(card) then
-                card:flip(card)
+                JoyousSpring.flip(card, card)
             end
             SMODS.debuff_card(card, "prevent_debuff", "j_joy_paleo_eldonia")
         end
@@ -272,7 +272,7 @@ SMODS.Joker({
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not JoyousSpring.is_perma_debuffed(card) then
             if not from_debuff and JoyousSpring.should_trap_flip(card) then
-                card:flip(card)
+                JoyousSpring.flip(card, card)
             end
             SMODS.debuff_card(card, "prevent_debuff", "j_joy_paleo_hallu")
         end
@@ -347,7 +347,7 @@ SMODS.Joker({
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not JoyousSpring.is_perma_debuffed(card) then
             if not from_debuff and JoyousSpring.should_trap_flip(card) then
-                card:flip(card)
+                JoyousSpring.flip(card, card)
             end
             SMODS.debuff_card(card, "prevent_debuff", "j_joy_paleo_lean")
         end
@@ -411,7 +411,7 @@ SMODS.Joker({
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not JoyousSpring.is_perma_debuffed(card) then
             if not from_debuff and JoyousSpring.should_trap_flip(card) then
-                card:flip(card)
+                JoyousSpring.flip(card, card)
             end
             SMODS.debuff_card(card, "prevent_debuff", "j_joy_paleo_marrella")
         end
@@ -474,7 +474,7 @@ SMODS.Joker({
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not JoyousSpring.is_perma_debuffed(card) then
             if not from_debuff and JoyousSpring.should_trap_flip(card) then
-                card:flip(card)
+                JoyousSpring.flip(card, card)
             end
             SMODS.debuff_card(card, "prevent_debuff", "j_joy_paleo_oleno")
         end
@@ -542,7 +542,7 @@ SMODS.Joker({
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not JoyousSpring.is_perma_debuffed(card) then
             if not from_debuff and JoyousSpring.should_trap_flip(card) then
-                card:flip(card)
+                JoyousSpring.flip(card, card)
             end
             SMODS.debuff_card(card, "prevent_debuff", "j_joy_paleo_pikaia")
         end
@@ -755,7 +755,7 @@ SMODS.Joker({
             if context.setting_blind and context.main_eval then
                 for _, joker in ipairs(G.jokers.cards) do
                     if JoyousSpring.is_trap_monster(joker) and joker.facing == "back" then
-                        joker:flip()
+                        JoyousSpring.flip(joker, card)
                     end
                 end
             end

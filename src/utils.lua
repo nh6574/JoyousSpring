@@ -622,6 +622,12 @@ JoyousSpring.is_card = function(obj)
     return type(obj) == "table" and type(obj.is) == "function" and obj:is(Card)
 end
 
+JoyousSpring.flip = function(card, source)
+    JoyousSpring.joy_flip_source = source
+    card:flip()
+    JoyousSpring.joy_flip_source = nil
+end
+
 --- Talisman compat
 to_big = to_big or function(num)
     return num

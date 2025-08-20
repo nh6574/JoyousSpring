@@ -38,7 +38,7 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     joker_display_def = function(JokerDisplay)
@@ -86,7 +86,7 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
         if not card.debuff then
             for _, joker in ipairs(G.jokers.cards) do
@@ -144,7 +144,7 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     joker_display_def = function(JokerDisplay)
@@ -198,7 +198,7 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     joker_display_def = function(JokerDisplay)
@@ -258,7 +258,7 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     joker_display_def = function(JokerDisplay)
@@ -326,7 +326,7 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     in_pool = function(self, args)
@@ -411,7 +411,7 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     joker_display_def = function(JokerDisplay)
@@ -467,7 +467,7 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     joker_display_def = function(JokerDisplay)
@@ -517,7 +517,7 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     joker_display_def = function(JokerDisplay)
@@ -574,7 +574,7 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     joker_display_def = function(JokerDisplay)
