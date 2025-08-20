@@ -318,6 +318,23 @@ function Card:highlight(is_highlighted)
         end
     elseif self.area and self.area.config.type == "summon_materials" then
         self.highlighted = is_highlighted
+    elseif self.area and self.area == G.joy_side_deck then
+        self.highlighted = is_highlighted
+        if self.highlighted then
+            self.children.use_button = UIBox {
+                definition = JoyousSpring.create_sell_and_use_buttons(self, {
+                    sell = true
+                }),
+                config = {
+                    align = "cr",
+                    offset = { x = -0.4, y = 0 },
+                    parent = self
+                }
+            }
+        elseif self.children.use_button then
+            self.children.use_button:remove()
+            self.children.use_button = nil
+        end
     elseif JoyousSpring.is_monster_card(self) and self.area and self.area == G.jokers then
         self.highlighted = is_highlighted
         if self.highlighted then

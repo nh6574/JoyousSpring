@@ -73,6 +73,8 @@ function JoyousSpring.create_side_deck()
     G.joy_side_deck.states.collide.can = true
     G.joy_side_deck.states.visible = true
     G.jokers.states.collide.can = true
+    JoyousSpring.extra_deck_area.states.collide.can = true
+    JoyousSpring.field_spell_area.states.collide.can = true
 
     local side_deck_sign = DynaText({
         string = { localize("k_joy_side_deck") },
@@ -200,6 +202,8 @@ G.FUNCS.joy_toggle_side_deck = function(e)
                 JoyousSpring.side_deck_sign:remove()
                 JoyousSpring.side_deck_sign = nil
                 G.jokers.states.collide.can = false
+                JoyousSpring.extra_deck_area.states.collide.can = false
+                JoyousSpring.field_spell_area.states.collide.can = false
                 G.joy_side_deck.states.collide.can = false
                 G.STATE_COMPLETE = false
                 G.STATE = G.STATES.BLIND_SELECT
@@ -222,7 +226,7 @@ function Game:start_run(args)
         0,
         5 * 1.02 * G.CARD_W,
         1.05 * G.CARD_H,
-        { card_limit = 5, type = 'joker', highlight_limit = 0 })
+        { card_limit = 5, type = 'joker', highlight_limit = 1 })
     G.joy_side_deck.states.visible = false
 
     game_start_run_ref(self, args)
@@ -240,19 +244,30 @@ end
 -- Inspired by Aikoyori's Shenanigans
 local card_stop_drag_ref = Card.stop_drag
 function Card:stop_drag()
-    if G.STATE == G.STATES.JOY_SIDE_DECK and self.ability.set == "Joker" and self.area and (self.area == G.jokers or self.area == G.joy_side_deck) then
+    if G.STATE == G.STATES.JOY_SIDE_DECK and self.ability.set == "Joker" and self.area and
+        (self.area == G.jokers or self.area == G.joy_side_deck or self.area == JoyousSpring.extra_deck_area or
+            self.area == JoyousSpring.field_spell_area) then
         local area = self.area
         for i, k in ipairs(G.CONTROLLER.collision_list) do
-            if k == G.joy_side_deck or k == G.jokers then
+            if k == G.joy_side_deck or k == G.jokers or k == JoyousSpring.extra_deck_area or
+                k == JoyousSpring.field_spell_area then
                 area = k
                 break
             end
         end
         if area and area ~= self.area then
-            if area == G.joy_side_deck or area.config.card_limit > #area.cards then
-                self.area:remove_card(self)
-                draw_card(self.area, area, 1, 'up', nil, self, 0)
-                area:align_cards()
+            if JoyousSpring.is_field_spell(self) then
+                if area == G.joy_side_deck or (area == JoyousSpring.field_spell_area and area.config.card_limit > #area.cards) then
+                    self.area:remove_card(self)
+                    draw_card(self.area, area, 1, 'up', nil, self, 0)
+                    area:align_cards()
+                end
+            elseif area ~= JoyousSpring.field_spell_area then
+                if (area == G.joy_side_deck or area.config.card_limit > #area.cards) then
+                    self.area:remove_card(self)
+                    draw_card(self.area, area, 1, 'up', nil, self, 0)
+                    area:align_cards()
+                end
             end
         end
     end
@@ -267,14 +282,6 @@ G.FUNCS.joy_next_round_enable = function(e)
         e.config.colour = G.C.UI.BACKGROUND_INACTIVE
         e.config.button = nil
     end
-end
-
-local cardarea_can_highlight_ref = CardArea.can_highlight
-function CardArea:can_highlight(card)
-    if self == G.joy_side_deck then
-        return false
-    end
-    return cardarea_can_highlight_ref(self, card)
 end
 
 local card_can_use_consumeable_ref = Card.can_use_consumeable
