@@ -2,320 +2,339 @@ return {
     descriptions = {
         Joker = {
             j_joy_vw_lulu = {
-                name = "{C:joy_effect}电子界幻姬·露露",
+                name = "{C:joy_effect}电脑堺媛-瑞瑞",
                 text = {
                     {
-                        "启用{C:attention}电子界{}牌型，",
-                        "并根据打出的牌型触发效果："
+                        "解锁{C:attention}电脑堺{}牌型",
+                        "并根据打出牌型触发效果："
                     },
                     {
                         "{C:attention}玄武{}：每张计分牌提供{X:mult,C:white}X#1#{}倍率"
                     },
                     {
-                        "{C:attention}青龙{}：每回合1次，向商店添加{C:attention}#2#张",
-                        "{C:joy_spell}额外牌组{C:joy_normal}“电子界”{}"
+                        "{C:attention}青龙{}：每轮限1次，在商店添加{C:attention}#2#张",
+                        "{C:joy_spell}额外卡组{}的{C:joy_normal}「电脑堺」{}"
                     },
                     {
-                        "{C:attention}朱雀{}：销毁打出的牌中未计分的牌"
+                        "{C:attention}朱雀{}：销毁打出牌型中未计分的牌"
                     },
                     {
-                        "{C:attention}九龙{}：每回合1次，生成{C:attention}#3#张{C:joy_normal}主牌组“电子界”{}（需有栏位）"
+                        "{C:attention}九龙{}：每轮限1次，生成{C:attention}#3#张{C:joy_normal}主卡组「电脑堺」{}",
+                        "{C:inactive}(需有空位)"
                     }
                 }
             },
             j_joy_vw_nyannyan = {
-                name = "{C:joy_effect}电子界幻姬·喵喵",
+                name = "{C:joy_effect}电脑堺姬-娘娘",
                 text = {
                     {
-                        "启用{C:attention}电子界{}牌型，",
-                        "并根据打出的牌型触发效果："
+                        "解锁{C:attention}电脑堺{}牌型",
+                        "并根据打出牌型触发效果："
                     },
                     {
                         "{C:attention}玄武{}：每张计分牌提供{C:chips}+#1#{}筹码"
                     },
                     {
-                        "{C:attention}青龙{}：每回合1次，向商店添加{C:attention}#2#张",
-                        "{C:joy_normal}“电子界”{C:planet}星球牌{}"
+                        "{C:attention}青龙{}：每轮限1次，在商店添加{C:attention}#2#张",
+                        "{C:joy_normal}「电脑堺」{} {C:planet}星球牌{}"
                     },
                     {
-                        "{C:attention}朱雀{}：回合结束时{C:attention}除外本卡与另1张小丑牌{}，",
-                        "直至选择盲注，同时本卡变为{C:joy_synchro}同调{}"
+                        "{C:attention}朱雀{}：回合结束时{C:attention}除外{}此卡和另1张{C:attention}小丑牌{}",
+                        "直到选择{C:attention}盲注{}，同时此卡变为{C:joy_synchro}调整{}"
                     },
                     {
-                        "{C:attention}九龙{}：生成{C:attention}#3#张{C:joy_normal}“电子界”{C:planet}星球牌{}（需有栏位），",
-                        "若本卡在本回合被{C:attention}除外{}，则返回{C:attention}#4#张随机被除外的{C:attention}小丑牌{}（直至首领盲注）"
+                        "{C:attention}九龙{}：生成{C:attention}#3#张{C:joy_normal}「电脑堺」{} {C:planet}星球牌{}",
+                        "{C:inactive}(需有空位)",
+                        "若本回合此卡被{C:attention}除外{}，则取回",
+                        "{C:attention}#4#张随机被{C:attention}除外{}的小丑牌"
                     }
                 }
             },
             j_joy_vw_jiji = {
-                name = "{C:joy_effect}电子界狴犴·吉吉",
+                name = "{C:joy_effect}电脑堺豸-豸豸",
                 text = {
                     {
-                        "启用{C:attention}电子界{}牌型，",
-                        "并根据打出的牌型触发效果："
+                        "解锁{C:attention}电脑堺{}牌型",
+                        "并根据打出牌型触发效果："
                     },
                     {
                         "{C:attention}玄武{}：每张计分牌提供{C:mult}+#1#{}倍率"
                     },
                     {
-                        "{C:attention}青龙{}：每回合1次，向商店添加{C:attention}#2#张",
-                        "与{C:attention}墓地{}同名的{C:joy_normal}“电子界”{}"
+                        "{C:attention}青龙{}：每轮限1次，在商店添加{C:attention}#2#张",
+                        "{C:joy_normal}「电脑堺」{}（名称与{C:attention}墓地{}中相同）"
                     },
                     {
-                        "{C:attention}朱雀{}：随机销毁手牌中1张牌",
-                        "（3、6、9、Q除外）"
+                        "{C:attention}朱雀{}：销毁1张随机手牌（除{C:attention}3{}、{C:attention}6{}、",
+                        "{C:attention}9{}或{C:attention}Q{}外）"
                     },
                     {
-                        "{C:attention}九龙{}：每回合1次，生成{C:attention}#3#张",
-                        "与{C:attention}墓地{}同名的{C:joy_normal}主牌组“电子界”{}（需有栏位）"
+                        "{C:attention}九龙{}：每轮限1次，生成{C:attention}#3#张",
+                        "{C:joy_normal}主卡组「电脑堺」{}（名称与{C:attention}墓地{}中相同）",
+                        "{C:inactive}(需有空位)"
                     }
                 }
             },
             j_joy_vw_toutou = {
-                name = "{C:joy_effect}电子界乙姬·婷婷",
+                name = "{C:joy_effect}电脑堺嫦-兔兔",
                 text = {
                     {
-                        "启用{C:attention}电子界{}牌型，",
-                        "并根据打出的牌型触发效果："
+                        "解锁{C:attention}电脑堺{}牌型",
+                        "并根据打出牌型触发效果："
                     },
                     {
-                        "{C:attention}玄武{}：每有1张{C:joy_normal}念动力族{}或{C:joy_normal}幻龙族{}{C:mult}+#1#{}倍率"
+                        "{C:attention}玄武{}：每张{C:joy_normal}念动力族{}或{C:joy_normal}幻龙族{}提供{C:mult}+#1#{}倍率"
                     },
                     {
-                        "{C:attention}青龙{}：每回合1次，向商店添加{C:attention}#2#张",
-                        "{C:joy_normal}“电子界”{C:planet}星球牌{}"
+                        "{C:attention}青龙{}：每轮限1次，在商店添加{C:attention}#2#张",
+                        "{C:joy_normal}「电脑堺」{} {C:planet}星球牌{}"
                     },
                     {
-                        "{C:attention}朱雀{}：回合结束时{C:attention}除外本卡{}，",
-                        "直至选择首领盲注，同时本卡变为可充当任意{C:attention}素材的{C:joy_synchro}同调{}"
+                        "{C:attention}朱雀{}：回合结束时{C:attention}除外{}此卡",
+                        "直到选择{C:attention}BOSS盲注{}，同时此卡变为{C:joy_synchro}调整{}",
+                        "并可作为任何{C:attention}素材{}用于{C:joy_synchro}同调召唤{}"
                     },
                     {
-                        "{C:attention}九龙{}：生成{C:attention}#3#张{C:dark_edition}负片{C:joy_normal}“电子界”{C:planet}星球牌{}"
+                        "{C:attention}九龙{}：生成{C:attention}#3#张{C:dark_edition}负片{}的{C:joy_normal}「电脑堺」{} {C:planet}星球牌{}"
                     }
                 }
             },
             j_joy_vw_lili = {
-                name = "{C:joy_effect}电子界麒麟·丽丽",
+                name = "{C:joy_effect}电脑堺麟-麟麟",
                 text = {
                     {
-                        "启用{C:attention}电子界{}牌型，",
-                        "并根据打出的牌型触发效果："
+                        "解锁{C:attention}电脑堺{}牌型",
+                        "并根据打出牌型触发效果："
                     },
                     {
-                        "{C:attention}玄武{}：每张计分牌提供{C:chips}+#1#{}筹码×",
-                        "{C:attention}墓地{}中{C:joy_normal}念动力/幻龙族{}数量",
-                        "{C:inactive}（当前{C:chips}+#2#{} {C:inactive}筹码）"
+                        "{C:attention}玄武{}：每张计分牌提供{C:chips}+#1#{}筹码",
+                        "（{C:attention}墓地{}中每张{C:joy_normal}念动力族{}或{C:joy_normal}幻龙族{}）",
+                        "{C:inactive}(当前 {C:chips}+#2#{}{C:inactive}筹码)"
                     },
                     {
-                        "{C:attention}青龙{}：将{C:attention}#3#张{C:joy_normal}“电子界”{}送入{C:attention}墓地{}"
+                        "{C:attention}青龙{}：将{C:attention}#3#张{C:joy_normal}「电脑堺」{}送入{C:attention}墓地{}"
                     },
                     {
-                        "{C:attention}朱雀{}：从{C:attention}墓地{}中移除最多{C:attention}#4#张",
-                        "非{C:joy_normal}念动力/幻龙族{}的卡，",
-                        "每移除1张{C:chips}+#5#{}筹码，否则{C:chips}+#6#{}筹码",
-                        "{C:inactive}（当前{C:chips}+#7#{} {C:inactive}筹码）"
+                        "{C:attention}朱雀{}：从{C:attention}墓地{}移除最多{C:attention}#4#张",
+                        "非{C:joy_normal}念动力族{}或{C:joy_normal}幻龙族{}卡牌",
+                        "每移除1张获得{C:chips}+#5#{}筹码，若未移除则获得{C:chips}+#6#{}",
+                        "{C:inactive}(当前 {C:chips}+#7#{}{C:inactive}筹码)"
                     },
                     {
-                        "{C:attention}九龙{}：每回合1次，若{C:attention}墓地{}仅含{C:joy_normal}念动力/幻龙族{}{C:attention}小丑牌{}，",
-                        "则向{C:joy_spell}额外牌组}添加{C:attention}#8#张{C:joy_normal}“电子界”{}（需有栏位）"
+                        "{C:attention}九龙{}：每轮限1次，若{C:attention}墓地{}仅含{C:joy_normal}念动力族{}",
+                        "或{C:joy_normal}幻龙族{}，向{C:joy_spell}额外卡组{}添加{C:attention}#8#张",
+                        "{C:joy_normal}「电脑堺」{}",
+                        "{C:inactive}(需有空位)"
                     }
                 }
             },
             j_joy_vw_laolao = {
-                name = "{C:joy_effect}电子界老仙·老老",
+                name = "{C:joy_effect}电脑堺悟-老老",
                 text = {
                     {
-                        "启用{C:attention}电子界{}牌型，",
-                        "并根据打出的牌型触发效果："
+                        "解锁{C:attention}电脑堺{}牌型",
+                        "并根据打出牌型触发效果："
                     },
                     {
-                        "{C:attention}玄武{}：每张计分牌提供{C:mult}+#1#{}倍率×",
-                        "{C:attention}墓地{}中{C:joy_wind}风/地{}卡数量",
-                        "{C:inactive}（当前{C:mult}+#2#{} {C:inactive}倍率）"
+                        "{C:attention}玄武{}：每张计分牌提供{C:mult}+#1#{}倍率",
+                        "（{C:attention}墓地{}中每张{C:joy_wind}风属性{}或{C:joy_earth}地属性{}）",
+                        "{C:inactive}(当前 {C:mult}+#2#{}{C:inactive}倍率)"
                     },
                     {
-                        "{C:attention}青龙{}：每回合1次，{C:attention}复活#3#张{C:joy_normal}“电子界”{}"
+                        "{C:attention}青龙{}：每轮限1次，{C:attention}复活 #3#张{C:joy_normal}「电脑堺」{}"
                     },
                     {
-                        "{C:attention}朱雀{}：从{C:attention}墓地{}中移除最多{C:attention}#4#张",
-                        "非{C:joy_wind}风/地{}的卡，",
-                        "每移除1张{C:mult}+#5#{}倍率，否则{C:mult}+#6#{}倍率",
-                        "{C:inactive}（当前{C:mult}+#7#{} {C:inactive}倍率）"
+                        "{C:attention}朱雀{}：从{C:attention}墓地{}移除最多{C:attention}#4#张",
+                        "非{C:joy_wind}风属性{}或{C:joy_earth}地属性{}卡牌",
+                        "每移除1张获得{C:mult}+#5#{}倍率，若未移除则获得{C:mult}+#6#{}",
+                        "{C:inactive}(当前 {C:mult}+#7#{}{C:inactive}倍率)"
                     },
                     {
-                        "{C:attention}九龙{}：每回合1次，若{C:attention}墓地{}仅含{C:joy_wind}风/地{}{C:attention}小丑牌{}，",
-                        "则{C:attention}复活#8#张{C:joy_normal}“电子界”{}并使其为{C:dark_edition}负片"
+                        "{C:attention}九龙{}：每轮限1次，若{C:attention}墓地{}仅含{C:joy_wind}风属性{}",
+                        "或{C:joy_earth}地属性{}，{C:attention}复活 #8#张",
+                        "{C:dark_edition}负片{}的{C:joy_normal}「电脑堺」{}"
                     }
                 }
             },
             j_joy_vw_longlong = {
-                name = "{C:joy_xyz}电子界龙·龙龙",
+                name = "{C:joy_xyz}电脑堺龙-龙龙",
                 text = {
                     {
-                        "{C:mult}+#1#{}倍率×与已持有{C:attention}小丑牌{}同{C:attention}属性{}的{C:attention}墓地{}卡数",
-                        "每有1张不同{C:attention}属性{}的{C:attention}墓地{}卡{C:mult}-#2#{}倍率（至少{C:mult}+0{}倍率）",
-                        "{C:inactive}（当前{C:mult}+#3#{} {C:inactive}倍率）",
+                        "{C:mult}+#1#{}倍率（{C:attention}墓地{}中每张与持有{C:attention}小丑牌{}",
+                        "共享{C:attention}属性{}的卡牌）",
+                        "{C:mult}-#2#{}倍率（每张不共享的卡牌）{C:inactive}(最低{C:mult}+0{}{C:inactive})",
+                        "{C:inactive}(当前 {C:mult}+#3#{}{C:inactive}倍率)",
                         " ",
-                        "打出{C:attention}电子界{}牌型时，上述数值分别{C:mult}+#4#{}/{C:mult}-#4#{}"
+                        "打出{C:attention}电脑堺{}牌型时",
+                        "数值分别变化{C:mult}+#4#{}/{C:mult}-#4#{}"
                     },
                     {
-                        "{C:joy_xyz}分离{C:attention}#5#{}：启用{C:attention}电子界{}牌型，",
-                        "并将本回合已打出的牌型等级提升1级"
+                        "{C:joy_xyz}去除{} {C:attention}#5#{}：解锁{C:attention}电脑堺{}牌型",
+                        "并升级本回合打出的牌型"
                     }
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2或更多张{C:attention}小丑牌",
-                    "具有相同{C:attention}类型{}和{C:attention}属性{}",
-                    "{s:0.9,C:inactive}（超量、连接怪兽或衍生物除外）"
+                    "{C:attention}2+张{}相同{C:attention}类型{}",
+                    "和{C:attention}属性{}的{C:attention}小丑牌{}",
+                    "{s:0.9,C:inactive}(除{s:0.9,C:joy_xyz}超量{s:0.9}、{s:0.9,C:joy_link}连接{s:0.9}或{s:0.9,C:joy_token}衍生物{s:0.9}外)"
                 }
             },
             j_joy_vw_jaja = {
-                name = "{C:joy_xyz}电子界壳·加加",
+                name = "{C:joy_xyz}电脑堺甲-甲甲",
                 text = {
                     {
-                        "{C:joy_xyz}分离{C:attention}#1#{}：从{C:attention}墓地{}中移除最多{C:attention}#2#张",
-                        "与已持有{C:attention}小丑牌{}不同{C:attention}类型{}或{C:attention}属性{}的卡"
+                        "{C:joy_xyz}去除{} {C:attention}#1#{}：从{C:attention}墓地{}移除最多{C:attention}#2#张",
+                        "与持有{C:attention}小丑牌{}不共享{C:attention}类型{}和{C:attention}属性{}的卡牌"
                     },
                     {
-                        "若{C:attention}墓地{}所有卡均与已持有{C:attention}小丑牌{}同{C:attention}类型{}和{C:attention}属性{}，则："
+                        "若{C:attention}墓地{}所有卡牌均与持有{C:attention}小丑牌{}",
+                        "共享{C:attention}类型{}和{C:attention}属性{}，则触发以下效果："
                     },
                     {
-                        "打出{C:attention}电子界{}牌型时获得{X:mult,C:white}X#3#{}倍率"
+                        "打出{C:attention}电脑堺{}牌型时{X:mult,C:white}X#3#{}倍率"
                     },
                     {
-                        "回合结束时{C:attention}除外所有{C:attention}小丑牌{}",
-                        "直至选择盲注"
+                        "回合结束时{C:attention}除外{}所有{C:attention}小丑牌{}",
+                        "直到选择{C:attention}盲注{}"
                     }
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2或更多张{C:attention}小丑牌",
-                    "具有相同{C:attention}类型{}和{C:attention}属性{}",
-                    "{s:0.9,C:inactive}（超量、连接怪兽或衍生物除外）"
+                    "{C:attention}2+张{}相同{C:attention}类型{}",
+                    "和{C:attention}属性{}的{C:attention}小丑牌{}",
+                    "{s:0.9,C:inactive}(除{s:0.9,C:joy_xyz}超量{s:0.9}、{s:0.9,C:joy_link}连接{s:0.9}或{s:0.9,C:joy_token}衍生物{s:0.9}外)"
                 }
             },
             j_joy_vw_fanfan = {
-                name = "{C:joy_xyz}电子界凤·凡凡",
+                name = "{C:joy_xyz}电脑堺凰-凰凰",
                 text = {
                     {
-                        "若本卡从{C:attention}除外{}返回且{C:attention}墓地{}所有卡均与已持有{C:attention}小丑牌{}同{C:attention}类型{}和{C:attention}属性{}，",
-                        "则为随机1张{C:attention}小丑牌{}附加{C:dark_edition}负片"
+                        "若此卡从{C:attention}除外{}状态返回且{C:attention}墓地{}所有卡牌",
+                        "均与持有{C:attention}小丑牌{}共享{C:attention}类型{}和{C:attention}属性{}",
+                        "则为随机{C:attention}小丑牌{}添加{C:dark_edition}负片{}"
                     },
                     {
-                        "{C:joy_xyz}分离{C:attention}#1#{}：{C:attention}复活#2#张",
-                        "与已持有{C:attention}小丑牌{}同{C:attention}类型{}和{C:attention}属性{}的卡"
+                        "{C:joy_xyz}去除{} {C:attention}#1#{}：{C:attention}复活 #2#张",
+                        "与持有{C:attention}小丑牌{}共享{C:attention}类型{}和{C:attention}属性{}的卡牌"
                     }
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2或更多张{C:attention}小丑牌",
-                    "具有相同{C:attention}类型{}和{C:attention}属性{}",
-                    "{s:0.9,C:inactive}（超量、连接怪兽或衍生物除外）"
+                    "{C:attention}2+张{}相同{C:attention}类型{}",
+                    "和{C:attention}属性{}的{C:attention}小丑牌{}",
+                    "{s:0.9,C:inactive}(除{s:0.9,C:joy_xyz}超量{s:0.9}、{s:0.9,C:joy_link}连接{s:0.9}或{s:0.9,C:joy_token}衍生物{s:0.9}外)"
                 }
             },
             j_joy_vw_fufu = {
-                name = "{C:joy_xyz}电子界虎·夫夫",
+                name = "{C:joy_xyz}电脑堺虎-虎虎",
                 text = {
                     {
-                        "{C:joy_xyz}分离{C:attention}#1#{}：本回合额外{X:mult,C:white}X#2#{}倍率",
-                        "{C:inactive}（当前{X:mult,C:white}X#3#{} {C:inactive}倍率）"
+                        "{C:joy_xyz}去除{} {C:attention}#1#{}：本回合{X:mult,C:white}X#2#{}额外倍率",
+                        "{C:inactive}(当前 {X:mult,C:white}X#3#{}{C:inactive}倍率)"
                     },
                     {
-                        "启用{C:attention}电子界{}牌型，",
-                        "并根据打出的牌型触发效果："
+                        "解锁{C:attention}电脑堺{}牌型",
+                        "并根据打出牌型触发效果："
                     },
                     {
                         "{C:attention}玄武{}或{C:attention}青龙{}：",
-                        "每计分1张牌，向本卡{C:attention}附着#4#素材"
+                        "每张计分牌为此卡附加{C:attention}#4#素材{}"
                     },
                     {
                         "{C:attention}朱雀{}或{C:attention}九龙{}：",
-                        "计分后{C:attention}除外#5#张随机{C:attention}已强化}的打出的牌，",
-                        "直至选择盲注"
-                    }
+                        "计分后{C:attention}除外 #5#张{}打出牌型中",
+                        "被{C:attention}修改{}的牌直到选择{C:attention}盲注{}"
+                    },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2或更多张{C:attention}小丑牌",
-                    "具有相同{C:attention}类型{}和{C:attention}属性{}",
-                    "{s:0.9,C:inactive}（超量、连接怪兽或衍生物除外）"
+                    "{C:attention}2+张{}相同{C:attention}类型{}",
+                    "和{C:attention}属性{}的{C:attention}小丑牌{}",
+                    "{s:0.9,C:inactive}(除{s:0.9,C:joy_xyz}超量{s:0.9}、{s:0.9,C:joy_link}连接{s:0.9}或{s:0.9,C:joy_token}衍生物{s:0.9}外)"
                 }
             },
             j_joy_vw_jiujiu = {
-                name = "{C:joy_synchro}电子界兽·九九",
+                name = "{C:joy_synchro}电脑堺兽-鹫鹫",
                 text = {
                     {
-                        "选择盲注时将{C:attention}#1#张{C:joy_wind}风/念动力族{}或{C:joy_earth}地/幻龙族{}{C:attention}小丑牌{}送入{C:attention}墓地{}"
+                        "选择{C:attention}盲注{}时将{C:attention}#1#张{C:joy_wind}风属性{}/",
+                        "{C:joy_normal}念动力族{}或{C:joy_earth}地属性{}/{C:joy_normal}幻龙族{}送入{C:attention}墓地{}"
                     },
                     {
-                        "若{C:attention}墓地{}所有卡均与已持有{C:attention}小丑牌{}同{C:attention}类型{}和{C:attention}属性{}，则："
+                        "若{C:attention}墓地{}所有卡牌均与持有{C:attention}小丑牌{}",
+                        "共享{C:attention}类型{}和{C:attention}属性{}，则触发以下效果："
                     },
                     {
-                        "{C:chips}+#2#{}筹码×{C:attention}墓地{}卡数",
-                        "{C:inactive}（当前{C:chips}+#3#{} {C:inactive}筹码）"
+                        "{C:chips}+#2#{}筹码（{C:attention}墓地{}中每张卡牌）",
+                        "{C:inactive}(当前 {C:chips}+#3#{}{C:inactive}筹码)"
                     },
                     {
-                        "打出的{C:attention}Q（皇后）{}计入{C:attention}电子界{}牌型"
+                        "打出的{C:attention}Q{}可用于{C:attention}电脑堺{}牌型"
                     },
                     {
-                        "打出{C:attention}电子界{}牌型时，",
-                        "计分的{C:attention}人头牌{}每计分1张非{C:attention}人头牌{}，额外再次触发1次"
+                        "打出{C:attention}电脑堺{}牌型时",
+                        "每张非{C:attention}人头牌{}计分牌会使",
+                        "打出的{C:attention}人头牌{}再次触发"
                     }
                 },
                 joy_summon_conditions = {
-                    "{C:attention}1{}张{C:joy_synchro}同调{} +",
-                    "{C:attention}1{}张非{C:joy_synchro}同调{}",
-                    "{s:0.9,C:inactive}（超量或连接怪兽除外）"
+                    "{C:attention}1张{C:joy_synchro}调整{} +",
+                    "{C:attention}1张非{C:joy_synchro}调整{}",
+                    "{s:0.9,C:inactive}(除{s:0.9,C:joy_xyz}超量{s:0.9}或{s:0.9,C:joy_link}连接{s:0.9}外)"
                 }
             },
             j_joy_vw_shenshen = {
-                name = "{C:joy_synchro}电子界九尾·神神",
+                name = "{C:joy_synchro}电脑堺狐-仙仙",
                 text = {
                     {
-                        "仅当{C:attention}小丑牌{}与已持有{C:joy_normal}“电子界”{}{C:attention}小丑牌{}同{C:attention}类型{}和{C:attention}属性{}时，",
-                        "才可被送入{C:attention}墓地{}"
+                        "仅当{C:attention}小丑牌{}与你的{C:joy_normal}「电脑堺」{}",
+                        "{C:attention}小丑牌{}共享{C:attention}类型{}和{C:attention}属性{}时",
+                        "才能送入{C:attention}墓地{}"
                     },
                     {
-                        "若{C:attention}墓地{}所有卡均与已持有{C:attention}小丑牌{}同{C:attention}类型{}和{C:attention}属性{}，则："
+                        "若{C:attention}墓地{}所有卡牌均与持有{C:attention}小丑牌{}",
+                        "共享{C:attention}类型{}和{C:attention}属性{}，则触发以下效果："
                     },
                     {
                         "{X:chips,C:white}X#1#{}筹码"
                     },
                     {
-                        "若打出的牌包含所需牌型，则{C:joy_normal}“电子界”{}能力生效"
+                        "若打出牌型包含所需扑克牌型",
+                        "则触发{C:joy_normal}「电脑堺」{}能力"
                     },
                     {
-                        "打出{C:attention}电子界{}牌型时，",
-                        "计分后将所有计分牌{C:attention}除外{}，直至选择盲注"
+                        "打出{C:attention}电脑堺{}牌型时",
+                        "计分后{C:attention}除外{}所有计分牌",
+                        "直到选择{C:attention}盲注{}"
                     }
                 },
                 joy_summon_conditions = {
-                    "{C:attention}1{}张{C:joy_synchro}同调{} +",
-                    "{C:attention}1{}张非{C:joy_synchro}同调{}",
-                    "{s:0.9,C:inactive}（超量或连接怪兽除外）"
+                    "{C:attention}1张{C:joy_synchro}调整{} +",
+                    "{C:attention}1张非{C:joy_synchro}调整{}",
+                    "{s:0.9,C:inactive}(除{s:0.9,C:joy_xyz}超量{s:0.9}或{s:0.9,C:joy_link}连接{s:0.9}外)"
                 }
             },
         },
         Planet = {
             c_joy_vw_xuanwu = {
-                name = "{C:joy_trap}电子界门·玄武"
+                name = "{C:joy_trap}电脑堺门-玄武"
             },
             c_joy_vw_qinglong = {
-                name = "{C:joy_spell}电子界门·青龙"
+                name = "{C:joy_spell}电脑堺门-青龙"
             },
             c_joy_vw_chuche = {
-                name = "{C:joy_trap}电子界门·朱雀"
+                name = "{C:joy_trap}电脑堺门-朱雀"
             },
             c_joy_vw_kauwloon = {
-                name = "{C:joy_spell}电子界城·九龙"
+                name = "{C:joy_spell}电脑堺都-九龙"
             },
         },
         Other = {
             joy_tooltip_vwhands = {
-                name = "电子界牌型",
+                name = "电脑堺牌型",
                 text = {
-                    "由{C:attention}3、6、9{}组成的组合",
-                    "{C:attention}玄武{}：2张不同点数",
-                    "{C:attention}青龙{}：3张含2种不同点数",
-                    "{C:attention}朱雀{}：4张含2种不同点数",
-                    "{C:attention}九龙{}：5张含3种不同点数"
+                    "{C:attention}3{}、{C:attention}6{}和{C:attention}9{}的组合",
+                    "{C:attention}玄武{}：2张不同点数的牌",
+                    "{C:attention}青龙{}：3张含2种点数的牌",
+                    "{C:attention}朱雀{}：4张含2种点数的牌",
+                    "{C:attention}九龙{}：5张含3种点数的牌"
                 },
             }
         },
@@ -329,27 +348,27 @@ return {
         },
         poker_hand_descriptions = {
             joy_vw_xuanwu = {
-                "2张不同点数的{C:attention}3、6、9}",
-                "可与最多3张未计分牌一起打出",
-                "{C:inactive}（需能力启用）"
+                "2张点数为{C:attention}3{}、{C:attention}6{}或{C:attention}9{}的不同点数牌",
+                "可与最多3张未计分牌一同打出",
+                "{C:inactive}(需由能力解锁)"
             },
             joy_vw_qinglong = {
-                "3张含至少2种不同点数的{C:attention}3、6、9}",
-                "可与最多2张未计分牌一起打出",
-                "{C:inactive}（需能力启用）"
+                "3张含至少2种点数的牌（点数需为{C:attention}3{}、{C:attention}6{}或{C:attention}9{}）",
+                "可与最多2张未计分牌一同打出",
+                "{C:inactive}(需由能力解锁)"
             },
             joy_vw_chuche = {
-                "4张含至少2种不同点数的{C:attention}3、6、9}",
-                "可与1张未计分牌一起打出",
-                "{C:inactive}（需能力启用）"
+                "4张含至少2种点数的牌（点数需为{C:attention}3{}、{C:attention}6{}或{C:attention}9{}）",
+                "可与1张未计分牌一同打出",
+                "{C:inactive}(需由能力解锁)"
             },
             joy_vw_kauwloon = {
-                "5张含至少3种不同点数的{C:attention}3、6、9}",
-                "{C:inactive}（需能力启用）"
+                "5张含至少3种点数的牌（点数需为{C:attention}3{}、{C:attention}6{}或{C:attention}9{}）",
+                "{C:inactive}(需由能力解锁)"
             },
         },
         dictionary = {
-            k_joy_archetype_vw = "电子界",
+            k_joy_archetype_vw = "电脑堺",
         }
     }
 }

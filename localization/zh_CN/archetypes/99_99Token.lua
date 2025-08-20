@@ -1,12 +1,11 @@
--- 文件 8：99_99Token.lua（已汉化）
 return {
     descriptions = {
         Joker = {
             j_joy_token = {
-                name = "{C:joy_token}衍生物",
+                name = "{C:joy_token}羊衍生物",
                 text = {
                     {
-                        "此卡可视为任意{C:joy_token}衍生物{C:attention}"
+                        "此卡可视为任意{C:joy_token}衍生物{}",
                     },
                 },
             },
@@ -16,5 +15,5 @@ return {
         dictionary = {
             k_joy_archetype_token = "衍生物",
         }
-    },
+    }
 }

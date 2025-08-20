@@ -28,7 +28,6 @@ JoyousSpring.banish = function(card, banish_until, func, immediate)
             joy_banish_until =
                 banish_until
         })
-        card.area.config.card_limit = card.area.config.card_limit - ((card.edition and card.edition.negative) and 1 or 0)
         card.area:remove_card(card)
         time_to_banish:emplace(card)
         G.GAME.joy_cards_banished = G.GAME.joy_cards_banished and
@@ -58,8 +57,6 @@ JoyousSpring.banish = function(card, banish_until, func, immediate)
                         joy_banish_until =
                             banish_until
                     })
-                    card.area.config.card_limit = card.area.config.card_limit -
-                        ((card.edition and card.edition.negative) and 1 or 0)
                     card.area:remove_card(card)
                     time_to_banish:emplace(card)
                     G.GAME.joy_cards_banished = G.GAME.joy_cards_banished and
@@ -82,15 +79,12 @@ JoyousSpring.return_from_banish = function(card)
     from:remove_card(card)
     if card.ability.set == 'Joker' then
         G.jokers:emplace(card)
-        G.jokers.config.card_limit = G.jokers.config.card_limit + ((card.edition and card.edition.negative) and 1 or 0)
         area = G.jokers
     elseif JoyousSpring.is_playing_card(card) then
         G.hand:emplace(card)
         area = G.hand
     else
         G.consumeables:emplace(card)
-        G.consumeables.config.card_limit = G.consumeables.config.card_limit +
-            ((card.edition and card.edition.negative) and 1 or 0)
         area = G.consumeables
     end
 

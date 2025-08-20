@@ -82,11 +82,9 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and not context.retrigger_joker and
                 context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then
-                if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit +
-                    ((card.edition and card.edition.negative) and 0 or 1) then
+                if #G.jokers.cards + G.GAME.joker_buffer + JoyousSpring.get_card_limit(card) <= G.jokers.config.card_limit then
                     for i = 1, card.ability.extra.revives do
-                        if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit +
-                            ((card.edition and card.edition.negative) and 0 or 1) then
+                        if #G.jokers.cards + G.GAME.joker_buffer + JoyousSpring.get_card_limit(card) <= G.jokers.config.card_limit then
                             JoyousSpring.revive_pseudorandom(
                                 { { rarity = 3, monster_archetypes = { "Generaider" } } },
                                 'j_joy_generaider_vala',
@@ -940,7 +938,7 @@ SMODS.Joker({
             local generaiders = JoyousSpring.get_materials_owned({ { monster_archetypes = { "Generaider" }, exclude_tokens = true } })
             local count = 0
             for _, joker in ipairs(generaiders) do
-                if not joker.edition or not joker.edition.negative then
+                if JoyousSpring.get_card_limit(card) == 0 then
                     count = count + 1
                 end
             end

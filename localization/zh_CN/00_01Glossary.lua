@@ -3,7 +3,7 @@ return {
         Other = {
             --#region Tooltips
             joy_face_down = {
-                name = "背面表示的怪兽",
+                name = "里侧表示",
                 text = {
                     "无法使用或发动效果",
                     "且在效果中视为空白小丑牌",
@@ -19,17 +19,17 @@ return {
                 },
             },
             joy_tooltip_transferred = {
-                name = "转移的效果",
+                name = "转移",
                 text = {
-                    "按{C:attention}t{}切换",
+                    "按{C:attention}T{}键切换",
                     "主效果与",
                     "转移的效果之间的显示",
                 },
             },
             joy_tooltip_transform = {
-                name = "变形",
+                name = "转变",
                 text = {
-                    "将一张{C:attention}小丑牌{}变为另一张",
+                    "将一张{C:attention}小丑牌{}转变为另一张",
                     "保留所有强化效果",
                 },
             },
@@ -54,21 +54,21 @@ return {
                 },
             },
             joy_tooltip_main_deck_joker = {
-                name = "主卡组小丑牌",
+                name = "主卡组卡牌",
                 text = {
                     "{C:joy_normal}通常{}、{C:joy_effect}效果{}、",
                     "和{C:joy_ritual}仪式{} {C:attention}小丑牌{}",
                 },
             },
             joy_tooltip_special = {
-                name = "特殊小丑牌",
+                name = "特殊怪兽",
                 text = {
                     "{C:joy_ritual}仪式{}、{C:joy_fusion}融合{}、{C:joy_synchro}同调{}、",
                     "{C:joy_xyz}超量{}和{C:joy_link}连接{} {C:attention}小丑牌{}",
                 },
             },
             joy_tooltip_pendulum_joker = {
-                name = "灵摆小丑牌",
+                name = "灵摆",
                 text = {
                     "可作为消耗牌使用",
                     "{C:inactive}（{C:joy_spell}特殊{} {C:inactive}小丑牌必须先",
@@ -76,7 +76,7 @@ return {
                 },
             },
             joy_tooltip_field_spell_joker = {
-                name = "场地魔法小丑牌",
+                name = "场地魔法卡",
                 text = {
                     "进入{C:joy_spell}场地魔法区域{}",
                     "在该区域时，除非另有规定，",
@@ -92,7 +92,7 @@ return {
                 },
             },
             joy_tooltip_tribute = {
-                name = "祭品",
+                name = "解放",
                 text = {
                     "销毁卡牌以发动效果",
                 },
@@ -114,7 +114,7 @@ return {
                 },
             },
             joy_tooltip_detach = {
-                name = "取除",
+                name = "去除",
                 text = {
                     "移除一个超量素材计数器",
                     "以发动效果",
@@ -128,7 +128,7 @@ return {
                 },
             },
             joy_tooltip_flip = {
-                name = "反转效果",
+                name = "反转",
                 text = {
                     "每回合中，当卡牌被",
                     "{C:attention}反转{}为表侧表示时触发一次，效果持续至",
@@ -137,7 +137,7 @@ return {
                 },
             },
             joy_tooltip_trap = {
-                name = "陷阱小丑牌",
+                name = "陷阱卡",
                 text = {
                     "获得时{C:attention}反转{}",
                     "且在每轮结束时反转",
@@ -195,10 +195,10 @@ return {
             joy_glossary_facedown = {
                 name = "",
                 text = {
-                    "{C:attention,s:1.3}背面表示{}：背面表示的{C:joy_normal}怪兽{} {C:attention}小丑牌{}无法使用其效果（另有规定除外）。{C:joy_link}连接{}牌不能背面表示",
+                    "{C:attention,s:1.3}里侧表示{}：里侧表示的{C:joy_normal}怪兽{} {C:attention}小丑牌{}无法使用其效果（另有规定除外）。{C:joy_link}连接{}牌不能里侧表示",
                 },
             },
-            joy_glossary_maindeck = {
+          joy_glossary_maindeck = {
                 name = "",
                 text = {
                     "{C:joy_normal,s:1.3}主卡组{} {C:attention,s:1.3}小丑牌{}：不属于{C:joy_spell}额外卡组{} {C:attention}小丑牌{}的任何{C:joy_normal}怪兽{} {C:attention}小丑牌{}（参见召唤术语表）",
@@ -220,7 +220,7 @@ return {
                 name = "",
                 text = {
                     "{C:joy_spell,s:1.3}额外卡组{} {C:attention,s:1.3}小丑牌{}：从商店获得时放入{C:joy_spell}额外卡组{}。",
-                    "使用时，需献祭卡牌上召唤条件中列出的{C:attention}小丑牌{}。",
+                    "使用时，需解放卡牌上召唤条件中列出的{C:attention}小丑牌{}。",
                     "包括{C:joy_fusion}融合{}、{C:joy_synchro}同调{}、{C:joy_xyz}超量{}和{C:joy_link}连接{} {C:attention}小丑牌{}",
                     "除非另有规定，{C:joy_xyz}超量{}和{C:joy_link}连接{} {C:attention}小丑牌{}不能用于{C:joy_synchro}同调{}和{C:joy_xyz}超量{}召唤",
                     "除非另有规定，{C:joy_token}衍生物{}不能用于{C:joy_xyz}超量{}召唤",
@@ -236,8 +236,8 @@ return {
             joy_glossary_detach = {
                 name = "",
                 text = {
-                    "{C:joy_xyz,s:1.3}取除{}：{C:joy_xyz}超量{} {C:attention}小丑牌{}初始拥有的计数器数量等于召唤时使用的素材数量。",
-                    "部分效果可能会{C:joy_xyz}取除{}这些计数器，或允许你通过取除来发动某些效果",
+                    "{C:joy_xyz,s:1.3}去除{}：{C:joy_xyz}超量{} {C:attention}小丑牌{}初始拥有的计数器数量等于召唤时使用的素材数量。",
+                    "部分效果可能会{C:joy_xyz}去除{}这些计数器，或允许你通过去除来发动某些效果",
                 },
             },
             joy_glossary_ritual = {

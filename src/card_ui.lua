@@ -255,7 +255,7 @@ end
 JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
     --SMODS.Center.generate_ui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
 
-    if desc_nodes == full_UI_table.main then
+    if desc_nodes == full_UI_table.main and self.set == "Joker" then
         -- Add type information under names
         full_UI_table.name = {
             {
@@ -359,7 +359,7 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
     end
 end
 
-local center_generate_ui = SMODS.Center.generate_ui or function() end  -- so vscode doesnt complain
+local center_generate_ui = SMODS.Center.generate_ui or function() end -- so vscode doesnt complain
 SMODS.Center.generate_ui = function(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
     if desc_nodes == full_UI_table.main and JoyousSpring.is_from_joyousspring(card) then
         JoyousSpring.main_card_ui = true

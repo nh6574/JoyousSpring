@@ -685,13 +685,13 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not from_debuff and not card.debuff then
-            if (#G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit - ((card.edition and card.edition.negative) and 0 or 1)) then
+            if #G.jokers.cards + G.GAME.joker_buffer + JoyousSpring.get_card_limit(card) <= G.jokers.config.card_limit then
                 local revive_fish = JoyousSpring.revive_pseudorandom(
                     { { monster_type = "Fish" } },
                     'j_joy_fish_guoglim',
                     true
                 )
-                while revive_fish and (#G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit - ((card.edition and card.edition.negative) and 0 or 1)) do
+                while revive_fish and #G.jokers.cards + G.GAME.joker_buffer + JoyousSpring.get_card_limit(card) <= G.jokers.config.card_limit do
                     revive_fish = JoyousSpring.revive_pseudorandom(
                         { { monster_type = "Fish" } },
                         'j_joy_fish_guoglim',

@@ -665,7 +665,7 @@ SMODS.Joker({
             if not context.blueprint_card and not context.retrigger_joker and
                 context.end_of_round and context.game_over == false and context.main_eval then
                 if #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit +
-                    ((card.edition and card.edition.negative) and 1 or 0) then
+                    JoyousSpring.get_card_limit(card) then
                     local is_lilla_owned = JoyousSpring.count_materials_owned({ { monster_archetypes = { "Lilla" } } }) >
                         0
                     local kisikil_summoned = {}

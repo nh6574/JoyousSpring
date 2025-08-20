@@ -188,8 +188,7 @@ SMODS.Joker({
         end
     end,
     can_use = function(self, card)
-        if card.area and card.area == G.jokers and not (#G.jokers.cards + G.GAME.joker_buffer <
-                G.jokers.config.card_limit + (card.edition and card.edition.negative and 0 or 1)) then
+        if card.area and card.area == G.jokers and not (#G.jokers.cards + G.GAME.joker_buffer + JoyousSpring.get_card_limit(card) <= G.jokers.config.card_limit) then
             return false
         end
         return JoyousSpring.count_materials_in_graveyard({ { is_pendulum = true } }, true) > 0
@@ -411,8 +410,8 @@ SMODS.Joker({
         end
     end,
     can_use = function(self, card)
-        if not card.area or card.area ~= G.jokers or not (#G.jokers.cards + G.GAME.joker_buffer <
-                G.jokers.config.card_limit + (card.edition and card.edition.negative and 0 or 1)) then
+        if not card.area or card.area ~= G.jokers or not (#G.jokers.cards + G.GAME.joker_buffer + JoyousSpring.get_card_limit(card) <=
+                G.jokers.config.card_limit) then
             return false
         end
         return JoyousSpring.count_materials_in_graveyard({ { is_pendulum = true } }, true) > 0
@@ -535,8 +534,8 @@ SMODS.Joker({
         end
     end,
     can_use = function(self, card)
-        if card.area and card.area == G.jokers and not (#G.jokers.cards + G.GAME.joker_buffer <
-                G.jokers.config.card_limit + (card.edition and card.edition.negative and 0 or 1)) then
+        if card.area and card.area == G.jokers and not (#G.jokers.cards + G.GAME.joker_buffer + JoyousSpring.get_card_limit(card) <=
+                G.jokers.config.card_limit) then
             return false
         end
         return JoyousSpring.count_materials_in_graveyard({ { is_pendulum = true, exclude_keys = { "j_joy_pmcaptor" } } },
@@ -593,8 +592,8 @@ SMODS.Joker({
         end
     end,
     can_use = function(self, card)
-        if card.area and card.area == G.jokers and not (#G.jokers.cards + G.GAME.joker_buffer <
-                G.jokers.config.card_limit + (card.edition and card.edition.negative and 0 or 1)) then
+        if card.area and card.area == G.jokers and not (#G.jokers.cards + G.GAME.joker_buffer + JoyousSpring.get_card_limit(card) <=
+                G.jokers.config.card_limit) then
             return false
         end
         return #G.jokers.cards > (card.area and card.area == G.jokers and 1 or 0)

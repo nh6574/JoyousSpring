@@ -80,8 +80,7 @@ SMODS.Joker({
                                             G.hand:shuffle("j_joy_lab_clock")
                                         end
                                         for i = 1, card.ability.extra.revives do
-                                            if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit +
-                                                ((card.edition and card.edition.negative) and 0 or 1) then
+                                            if #G.jokers.cards + G.GAME.joker_buffer + JoyousSpring.get_card_limit(card) <= G.jokers.config.card_limit then
                                                 JoyousSpring.revive_pseudorandom(
                                                     { { rarity = 1, monster_archetypes = { "Labrynth" }, exclude_keys = { "j_joy_lab_clock" } } },
                                                     'j_joy_lab_clock',

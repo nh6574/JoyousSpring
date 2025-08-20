@@ -46,6 +46,6 @@ SMODS.Joker({
     end,
     can_use = function(self, card)
         return JoyousSpring.is_summoned(card) and
-            (#G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit + (card.edition and card.edition.negative and 0 or 1))
+            (#G.jokers.cards + G.GAME.joker_buffer + JoyousSpring.get_card_limit(card) <= G.jokers.config.card_limit)
     end,
 })

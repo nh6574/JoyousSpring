@@ -1208,7 +1208,7 @@ SMODS.Joker({
             if context.selling_self then
                 for i = 1, card.ability.extra.revives do
                     JoyousSpring.revive_pseudorandom({ { monster_type = "Fish", exclude_keys = { "j_joy_leaffish" } } },
-                        'j_joy_leaffish', true, nil, (card.edition and card.edition.negative and 0 or 1))
+                        'j_joy_leaffish', true, nil, JoyousSpring.get_card_limit(card) > 0 and 0 or 1)
                 end
             end
         end

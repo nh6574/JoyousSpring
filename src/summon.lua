@@ -591,7 +591,7 @@ JoyousSpring.can_summon = function(card, card_list)
         local card_table = card_list or G.consumeables.cards
         local conditions = card.ability.extra.joyous_spring.summon_consumeable_conditions
         return JoyousSpring.can_summon_consumeables(card, conditions, card_table),
-            (card.edition and card.edition.negative and true) or
+            JoyousSpring.get_card_limit(card) > 0 or
             (#G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit)
     else
         local card_table = card_list or G.jokers.cards
@@ -599,7 +599,7 @@ JoyousSpring.can_summon = function(card, card_list)
 
         for _, condition in ipairs(conditions) do
             if JoyousSpring.can_summon_by_condition(condition, card_table) then
-                return true, (card.edition and card.edition.negative and true) or
+                return true, JoyousSpring.get_card_limit(card) > 0 or
                     (#G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit + JoyousSpring.get_min_summon_materials(card))
             end
         end
@@ -628,11 +628,11 @@ JoyousSpring.can_summon_with_combo = function(card, combo)
             if JoyousSpring.fulfills_conditions(combo, condition) then
                 local materials = 0
                 for _, material in ipairs(combo) do
-                    if material.ability.set == "Joker" and not (material.edition and material.edition.negative) then
+                    if material.ability.set == "Joker" and not (JoyousSpring.get_card_limit(material) > 0) then
                         materials = materials + 1
                     end
                 end
-                return (card.edition and card.edition.negative) or
+                return JoyousSpring.get_card_limit(card) > 0 or
                     (#G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit + materials)
             end
         end
@@ -762,7 +762,7 @@ JoyousSpring.can_summon_consumeables = function(card, condition, combo)
     if counts.any < any_min or counts.tarot < tarot_min or counts.planet < planet_min or counts.spectral < spectral_min then
         return false
     end
-    return (card.edition and card.edition.negative and true) or
+    return JoyousSpring.get_card_limit(card) > 0 or
         (#G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit)
 end
 
