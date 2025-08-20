@@ -1,3 +1,7 @@
+-- STATES
+
+--#region Side Deck
+
 function JoyousSpring.update_side_deck(game, dt)
     if not G.STATE_COMPLETE then
         stop_use()
@@ -272,3 +276,13 @@ function CardArea:can_highlight(card)
     end
     return cardarea_can_highlight_ref(self, card)
 end
+
+local card_can_use_consumeable_ref = Card.can_use_consumeable
+function Card:can_use_consumeable(any_state, skip_check)
+    if G.STATE == G.STATES.JOY_SIDE_DECK then
+        return false
+    end
+    return card_can_use_consumeable_ref(self, any_state, skip_check)
+end
+
+--#endregion
