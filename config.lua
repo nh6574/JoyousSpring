@@ -5,5 +5,6 @@ return {
 	disable_tooltips = false,
 	instant_poker_hand = false,
 	disable_main_menu = false,
-	disable_glow = false
+	disable_glow = false,
+	disable_side_deck = false
 }

@@ -10,7 +10,7 @@ target = "functions/button_callbacks.lua"
 pattern = '''G.STATE = G.STATES.BLIND_SELECT'''
 position = "at"
 payload = '''
-G.STATE = G.STATES.JOY_SIDE_DECK
+G.STATE = not JoyousSpring.config.disable_side_deck and G.STATES.JOY_SIDE_DECK or G.STATES.BLIND_SELECT
 '''
 match_indent = true
 

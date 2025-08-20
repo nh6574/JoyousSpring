@@ -8,6 +8,7 @@ return {
             k_joy_extra_ygo_booster = "Extra Monster Card booster each shop",
             k_joy_instant_poker_hand = "Disable poker hand level up animation (for this mod)",
             k_joy_disable_glow = "Disable glow effect on cards that can be activated",
+            k_joy_disable_side_deck = "Disable Side Deck"
         }
     }
 }
