@@ -257,13 +257,14 @@ function Card:stop_drag()
         end
         if area and area ~= self.area then
             if JoyousSpring.is_field_spell(self) then
-                if area == G.joy_side_deck or (area == JoyousSpring.field_spell_area and area.config.card_limit > #area.cards) then
+                if area == G.joy_side_deck or (area == JoyousSpring.field_spell_area
+                        and area.config.card_limit + JoyousSpring.get_card_limit(self) > #area.cards) then
                     self.area:remove_card(self)
                     draw_card(self.area, area, 1, 'up', nil, self, 0)
                     area:align_cards()
                 end
             elseif area ~= JoyousSpring.field_spell_area then
-                if (area == G.joy_side_deck or area.config.card_limit > #area.cards) then
+                if (area == G.joy_side_deck or area.config.card_limit + JoyousSpring.get_card_limit(self) > #area.cards) then
                     self.area:remove_card(self)
                     draw_card(self.area, area, 1, 'up', nil, self, 0)
                     area:align_cards()
