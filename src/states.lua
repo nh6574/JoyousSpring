@@ -68,17 +68,10 @@ end
 function JoyousSpring.create_side_deck()
     G.joy_side_deck.states.collide.can = true
     G.joy_side_deck.states.visible = true
-    G.joy_temp_side_deck = CardArea(
-        0,
-        0,
-        math.min(2 * 1.02 * G.CARD_W, 4.08 * G.CARD_W),
-        1.05 * G.CARD_H,
-        { card_limit = 2, type = 'joker', highlight_limit = 0 })
-    G.joy_temp_side_deck.states.collide.can = true
     G.jokers.states.collide.can = true
 
     local side_deck_sign = DynaText({
-        string = { "Side Deck" },
+        string = { localize("k_joy_side_deck") },
         colours = { G.C.JOY.NORMAL },
         bump = true,
         silent = true,
@@ -86,8 +79,8 @@ function JoyousSpring.create_side_deck()
         pop_in_rate = 4,
         shadow = true,
         y_offset = 0,
-        spacing = math.max(0, 0.8 * (17 - #"Side Deck")),
-        scale = (1 - 0.004 * #"Side Deck")
+        spacing = math.max(0, 0.8 * (17 - #localize("k_joy_side_deck"))),
+        scale = (1 - 0.004 * #localize("k_joy_side_deck"))
     })
     JoyousSpring.side_deck_sign = UIBox {
         definition =
@@ -131,7 +124,7 @@ function JoyousSpring.create_side_deck()
                                     nodes = {
                                         {
                                             n = G.UIT.R,
-                                            config = { id = 'next_round_button', align = "cm", minw = 2.8, minh = 1.5, r = 0.15, colour = G.C.RED, one_press = true, button = 'joy_toggle_side_deck', hover = true, shadow = true },
+                                            config = { id = 'next_round_button', align = "cm", minw = 2.8, minh = 1.5, r = 0.15, colour = G.C.RED, one_press = true, button = 'joy_toggle_side_deck', hover = true, shadow = true, func = "joy_next_round_enable" },
                                             nodes = {
                                                 {
                                                     n = G.UIT.R,
@@ -155,13 +148,6 @@ function JoyousSpring.create_side_deck()
                                                 },
                                             }
                                         },
-                                    }
-                                },
-                                {
-                                    n = G.UIT.C,
-                                    config = { align = "cm", padding = 0.2, r = 0.2, colour = G.C.L_BLACK, emboss = 0.05, minw = 8.2 },
-                                    nodes = {
-                                        { n = G.UIT.O, config = { object = G.joy_temp_side_deck } },
                                     }
                                 },
                             }
@@ -250,16 +236,16 @@ end
 -- Inspired by Aikoyori's Shenanigans
 local card_stop_drag_ref = Card.stop_drag
 function Card:stop_drag()
-    if G.STATE == G.STATES.JOY_SIDE_DECK and self.ability.set == "Joker" and self.area and (self.area == G.jokers or self.area == G.joy_side_deck or self.area == G.joy_temp_side_deck) then
+    if G.STATE == G.STATES.JOY_SIDE_DECK and self.ability.set == "Joker" and self.area and (self.area == G.jokers or self.area == G.joy_side_deck) then
         local area = self.area
         for i, k in ipairs(G.CONTROLLER.collision_list) do
-            if k == G.joy_side_deck or k == G.jokers or k == G.joy_temp_side_deck then
+            if k == G.joy_side_deck or k == G.jokers then
                 area = k
                 break
             end
         end
         if area and area ~= self.area then
-            if area.config.card_limit > #area.cards then
+            if area == G.joy_side_deck or area.config.card_limit > #area.cards then
                 self.area:remove_card(self)
                 draw_card(self.area, area, 1, 'up', nil, self, 0)
                 area:align_cards()
@@ -267,4 +253,22 @@ function Card:stop_drag()
         end
     end
     return card_stop_drag_ref(self)
+end
+
+G.FUNCS.joy_next_round_enable = function(e)
+    if G.joy_side_deck.config.card_limit >= #G.joy_side_deck.cards then
+        e.config.colour = G.C.RED
+        e.config.button = 'joy_toggle_side_deck'
+    else
+        e.config.colour = G.C.UI.BACKGROUND_INACTIVE
+        e.config.button = nil
+    end
+end
+
+local cardarea_can_highlight_ref = CardArea.can_highlight
+function CardArea:can_highlight(card)
+    if self == G.joy_side_deck then
+        return false
+    end
+    return cardarea_can_highlight_ref(self, card)
 end

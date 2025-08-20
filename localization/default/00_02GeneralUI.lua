@@ -21,6 +21,7 @@ return {
             k_joy_summon = "Summon",
             k_joy_detach = "Detach",
             k_joy_activate = "Activate",
+            k_joy_side_deck = "Side Deck",
             --#endregion
             --#region Related cards
             k_joy_related = "Related",
