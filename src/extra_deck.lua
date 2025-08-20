@@ -70,7 +70,7 @@ end
 ---Open the extra deck
 ---@param forced? boolean
 ---@param open? boolean
----@param delay_close? boolean
+---@param delay_close? number
 JoyousSpring.open_extra_deck = function(forced, open, delay_close)
     if open and not JoyousSpring.extra_deck_open then
         JoyousSpring.extra_deck_open = true

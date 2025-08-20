@@ -42,6 +42,8 @@ G.FUNCS.joy_buy_and_use = function(e)
                 card.children.price = nil
                 if card.children.buy_button then card.children.buy_button:remove() end
                 card.children.buy_button = nil
+                if card.children.joy_side_button then card.children.joy_side_button:remove() end
+                card.children.joy_side_button = nil
                 remove_nils(card.children)
 
                 G.GAME.round_scores.cards_purchased.amt = G.GAME.round_scores.cards_purchased.amt + 1

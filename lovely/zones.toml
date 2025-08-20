@@ -16,6 +16,8 @@ payload = '''
 if JoyousSpring and not (JoyousSpring.is_extra_deck_monster(c1) or JoyousSpring.is_field_spell(c1)) then
     c1:add_to_deck()
 end
+if c1.children.joy_side_button then c1.children.joy_side_button:remove() end
+c1.children.joy_side_button = nil
 '''
 
 # Add joker to Extra Deck when buying from the shop

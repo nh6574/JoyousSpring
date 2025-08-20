@@ -283,6 +283,46 @@ function create_shop_card_ui(card, type, area)
     else
         create_shop_card_ui_ref(card, type, area)
     end
+
+    if not JoyousSpring.config.disable_side_deck and card.ability.set == "Joker" then
+        local side = {
+            n = G.UIT.ROOT,
+            config = { id = 'joy_side_button', ref_table = card, minh = 1.1, padding = 0.1, align = 'cl', colour = G.C.RED, shadow = true, r = 0.08, minw = 1.1, func = 'joy_can_side', one_press = true, button = 'joy_to_side', hover = true, focus_args = { type = 'none' } },
+            nodes = {
+                {
+                    n = G.UIT.C,
+                    config = { align = 'cm' },
+                    nodes = {
+                        {
+                            n = G.UIT.R,
+                            config = { align = 'cm', maxw = 1 },
+                            nodes = {
+                                { n = G.UIT.T, config = { text = "Side", colour = G.C.WHITE, scale = 0.5 } }
+                            }
+                        },
+                        {
+                            n = G.UIT.R,
+                            config = { align = 'cm', maxw = 1 },
+                            nodes = {
+                                { n = G.UIT.T, config = { text = "Deck", colour = G.C.WHITE, scale = 0.3 } }
+                            }
+                        },
+                    }
+                },
+                { n = G.UIT.B, config = { w = 0.1, h = 0.6 } },
+            }
+        }
+        card.children.joy_side_button = UIBox {
+            definition = side,
+            config = {
+                align = "cl",
+                offset = { x = 0.3, y = 0 },
+                major = card,
+                bond = 'Weak',
+                parent = card
+            }
+        }
+    end
 end
 
 local card_highlight_ref = Card.highlight
@@ -318,12 +358,15 @@ function Card:highlight(is_highlighted)
         end
     elseif self.area and self.area.config.type == "summon_materials" then
         self.highlighted = is_highlighted
-    elseif self.area and self.area == G.joy_side_deck then
+    elseif self.area and self.area == JoyousSpring.side_deck_area then
         self.highlighted = is_highlighted
         if self.highlighted then
             self.children.use_button = UIBox {
                 definition = JoyousSpring.create_sell_and_use_buttons(self, {
-                    sell = true
+                    sell = true,
+                    summon = not (self.ability.joy_extra_values or {}).sidedeck_from_field and JoyousSpring.is_summon_type(self, "RITUAL"),
+                    can_summon = not (self.ability.joy_extra_values or {}).sidedeck_from_field and JoyousSpring.can_summon(self),
+                    summon_type = not (self.ability.joy_extra_values or {}).sidedeck_from_field and JoyousSpring.is_summon_type(self, "RITUAL") and "RITUAL" or nil
                 }),
                 config = {
                     align = "cr",
