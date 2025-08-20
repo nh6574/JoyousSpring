@@ -24,6 +24,8 @@ return {
             k_joy_side_deck = "Side Deck",
             b_joy_to_side_1 = "To Side",
             b_joy_to_side_2 = "Deck",
+            b_joy_buy_to_side_1 = "Buy to",
+            b_joy_buy_to_side_2 = "Side Deck",
             --#endregion
             --#region Related cards
             k_joy_related = "Related",

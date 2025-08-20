@@ -297,14 +297,14 @@ function create_shop_card_ui(card, type, area)
                             n = G.UIT.R,
                             config = { align = 'cm', maxw = 1 },
                             nodes = {
-                                { n = G.UIT.T, config = { text = "Side", colour = G.C.WHITE, scale = 0.5 } }
+                                { n = G.UIT.T, config = { text = localize('b_joy_buy_to_side_1'), colour = G.C.WHITE, scale = 0.5 } }
                             }
                         },
                         {
                             n = G.UIT.R,
                             config = { align = 'cm', maxw = 1 },
                             nodes = {
-                                { n = G.UIT.T, config = { text = "Deck", colour = G.C.WHITE, scale = 0.3 } }
+                                { n = G.UIT.T, config = { text = localize('b_joy_buy_to_side_2'), colour = G.C.WHITE, scale = 0.3 } }
                             }
                         },
                     }
