@@ -570,8 +570,7 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and not context.retrigger_joker and
                 context.setting_blind and context.main_eval then
-                if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit +
-                    ((card.edition and card.edition.negative) and 0 or 1) then
+                if #G.jokers.cards + G.GAME.joker_buffer + JoyousSpring.get_card_limit(card) <= G.jokers.config.card_limit then
                     JoyousSpring.banish(card, "end_of_ante")
 
                     for i = 1, card.ability.extra.cards_to_create do

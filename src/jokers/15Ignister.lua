@@ -574,7 +574,7 @@ SMODS.Joker({
             for i = 1, card.ability.extra.revives do
                 JoyousSpring.revive_pseudorandom(
                     { { monster_archetypes = { "Ignister" }, is_main_deck = true } },
-                    'j_joy_ignis_bururu', true, nil, (card.edition and card.edition.negative) and 0 or -1)
+                    'j_joy_ignis_bururu', true, nil, JoyousSpring.get_card_limit(card) > 0 and 0 or -1)
             end
         end
     end
@@ -732,7 +732,7 @@ SMODS.Joker({
                     for i = 1, card.ability.extra.revives do
                         JoyousSpring.revive_pseudorandom({ { monster_type = "Cyberse" } },
                             'j_joy_ignis_wizard', true, nil,
-                            (card.edition and card.edition.negative) and 0 or 1, true)
+                            JoyousSpring.get_card_limit(card), true)
                     end
                     if JoyousSpring.count_materials_owned({ { monster_type = "Cyberse", is_summoned = true, is_extra_deck = true } }) > 0 then
                         JoyousSpring.revive_pseudorandom({ { monster_archetypes = { "Ignister" } } },
@@ -1309,7 +1309,7 @@ SMODS.Joker({
             for i = 1, card.ability.extra.revives do
                 JoyousSpring.revive_pseudorandom(
                     { { summon_type = "LINK" } },
-                    'j_joy_ignis_accode', true, nil, (card.edition and card.edition.negative) and 0 or -1)
+                    'j_joy_ignis_accode', true, nil, JoyousSpring.get_card_limit(card) > 0 and 0 or 1)
             end
         end
     end,

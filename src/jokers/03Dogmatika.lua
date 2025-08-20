@@ -736,7 +736,7 @@ SMODS.Joker({
             #context.joy_selection == card.ability.extra.tributes then
             local tribute_amount = card.ability.extra.tributes
             for _, joker in ipairs(context.joy_selection) do
-                tribute_amount = tribute_amount - ((joker.edition and joker.edition.negative) and 1 or 0)
+                tribute_amount = tribute_amount - JoyousSpring.get_card_limit(card)
             end
 
             if #G.jokers.cards + G.GAME.joker_buffer - tribute_amount < G.jokers.config.card_limit then

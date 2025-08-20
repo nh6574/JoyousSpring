@@ -622,6 +622,10 @@ JoyousSpring.is_card = function(obj)
     return type(obj) == "table" and type(obj.is) == "function" and obj:is(Card)
 end
 
+JoyousSpring.get_card_limit = function(card)
+    return card and card.ability and card.ability.card_limit or 0
+end
+
 --- Talisman compat
 to_big = to_big or function(num)
     return num

@@ -59,7 +59,7 @@ pattern = "{n=G.UIT.R, config={minw = self.T.w,minh = self.T.h,align = \"cm\", p
 position = 'at'
 match_indent = true
 payload = '''
-{n=G.UIT.R, config={minw = self.T.w,minh = self.T.h,align = "cm", padding = 0.1, mid = true, r = 0.1, colour = self.config.type == 'extra_deck' and {G.C.JOY.SPELL[1],G.C.JOY.SPELL[2],G.C.JOY.SPELL[3],0.5} or self ~= G.shop_vouchers and {0,0,0,0.1} or nil, ref_table = self}, nodes={
+{n=G.UIT.R, config={minw = self.T.w,minh = self.T.h,align = "cm", padding = 0.1, mid = true, r = 0.1, colour = (self == JoyousSpring.field_spell_area or self == JoyousSpring.extra_deck_area) and {G.C.JOY.SPELL[1],G.C.JOY.SPELL[2],G.C.JOY.SPELL[3],0.5} or self ~= G.shop_vouchers and {0,0,0,0.1} or nil, ref_table = self}, nodes={
 '''
 
 ## Summon Materials
@@ -78,17 +78,6 @@ end
 '''
 
 # Field Spells
-
-# Fix Field Spells giving extra joker slots
-[[patches]]
-[patches.pattern]
-target = "card.lua"
-pattern = "if self.edition and self.edition.card_limit then"
-position = 'at'
-match_indent = true
-payload = '''
-if self.edition and self.edition.card_limit and (not JoyousSpring or not JoyousSpring.is_field_spell(self)) then
-'''
 
 # Change other_joker key
 [[patches]]

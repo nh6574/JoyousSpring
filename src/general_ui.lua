@@ -287,7 +287,7 @@ end
 
 local card_highlight_ref = Card.highlight
 function Card:highlight(is_highlighted)
-    if self.area and self.area.config.type == "extra_deck" then
+    if self.area and (self.area == JoyousSpring.field_spell_area or self.area == JoyousSpring.extra_deck_area) then
         self.highlighted = is_highlighted
         if self.highlighted then
             if JoyousSpring.is_field_spell(self) then
@@ -509,14 +509,15 @@ end
 
 local cardarea_can_highlight_ref = CardArea.can_highlight
 function CardArea:can_highlight(card)
-    return self.config.type == 'extra_deck' or self.config.type == 'summon_materials' or
+    return (self == JoyousSpring.field_spell_area or self == JoyousSpring.extra_deck_area) or
+        self.config.type == 'summon_materials' or
         cardarea_can_highlight_ref(self, card)
 end
 
 local cardarea_add_to_highlighted_ref = CardArea.add_to_highlighted
 function CardArea:add_to_highlighted(card, silent)
     --if self.config.highlighted_limit <= #self.highlighted then return end
-    if self.config.type == 'extra_deck' or self.config.type == 'summon_materials' then
+    if (self == JoyousSpring.field_spell_area or self == JoyousSpring.extra_deck_area) or self.config.type == 'summon_materials' then
         if #self.highlighted >= self.config.highlighted_limit then
             self:remove_from_highlighted(self.highlighted[1])
         end
@@ -548,7 +549,7 @@ local cardarea_draw_ref = CardArea.draw
 function CardArea:draw()
     cardarea_draw_ref(self)
 
-    if self.states.visible and self.config.type == 'extra_deck' or self.config.type == 'summon_materials' then
+    if self.states.visible and (self == JoyousSpring.field_spell_area or self == JoyousSpring.extra_deck_area) or self.config.type == 'summon_materials' then
         for k, v in ipairs(self.ARGS.draw_layers) do
             for i = 1, #self.cards do
                 if self.cards[i] ~= G.CONTROLLER.focused.target then
@@ -570,7 +571,7 @@ end
 
 local cardarea_align_cards_ref = CardArea.align_cards
 function CardArea:align_cards()
-    if self.config.type == 'extra_deck' or self.config.type == 'summon_materials' then
+    if (self == JoyousSpring.field_spell_area or self == JoyousSpring.extra_deck_area) or self.config.type == 'summon_materials' then
         for k, card in ipairs(self.cards) do
             if not card.states.drag.is then
                 card.T.r = 0.1 * (- #self.cards / 2 - 0.5 + k) / (#self.cards) +

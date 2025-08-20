@@ -15,17 +15,9 @@ JoyousSpring.add_to_extra_deck = function(card, args)
         })
     end
     if JoyousSpring.is_field_spell(card) then
-        if card.edition and card.edition.card_limit then
-            JoyousSpring.field_spell_area.config.card_limit = JoyousSpring.field_spell_area.config.card_limit +
-                card.edition.card_limit
-        end
         JoyousSpring.field_spell_area:emplace(card)
         card:add_to_deck()
     else
-        if card.edition and card.edition.card_limit then
-            JoyousSpring.extra_deck_area.config.card_limit = JoyousSpring.extra_deck_area.config.card_limit +
-                card.edition.card_limit
-        end
         JoyousSpring.extra_deck_area:emplace(card)
     end
 end
@@ -154,7 +146,7 @@ G.FUNCS.check_for_buy_space = function(card)
     if card.ability.set ~= 'Joker' then return check_for_buy_space_ref(card) end
     if JoyousSpring.is_field_spell(card) then
         if #JoyousSpring.field_spell_area.cards < JoyousSpring.field_spell_area.config.card_limit +
-            ((card.edition and card.edition.negative) and 1 or 0) then
+            JoyousSpring.get_card_limit(card) then
             return true
         else
             alert_no_space(card, JoyousSpring.field_spell_area)
@@ -163,7 +155,7 @@ G.FUNCS.check_for_buy_space = function(card)
     end
     if JoyousSpring.is_extra_deck_monster(card) then
         if #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit +
-            ((card.edition and card.edition.negative) and 1 or 0) then
+            JoyousSpring.get_card_limit(card) then
             return true
         else
             alert_no_space(card, JoyousSpring.extra_deck_area)
@@ -183,7 +175,7 @@ G.FUNCS.can_select_card = function(e)
     if card.ability.set ~= 'Joker' then
         can_select_card_ref(e)
     elseif JoyousSpring.is_field_spell(card) then
-        if (card.edition and card.edition.negative) or
+        if JoyousSpring.get_card_limit(card) > 0 or
             #JoyousSpring.field_spell_area.cards < JoyousSpring.field_spell_area.config.card_limit then
             e.config.colour = G.C.GREEN
             e.config.button = 'use_card'
@@ -192,7 +184,7 @@ G.FUNCS.can_select_card = function(e)
             e.config.button = nil
         end
     elseif JoyousSpring.is_extra_deck_monster(card) then
-        if (card.edition and card.edition.negative) or
+        if JoyousSpring.get_card_limit(card) > 0 or
             #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
             e.config.colour = G.C.GREEN
             e.config.button = 'use_card'
@@ -218,56 +210,11 @@ function Card:can_sell_card(context)
         return false
     end
     if self.area and
-        self.area.config.type == 'extra_deck' and
+        (self.area == JoyousSpring.field_spell_area or self.area == JoyousSpring.extra_deck_area) and
         not SMODS.is_eternal(self, { from_sell = true }) then
         return true
     end
     return card_can_sell_card_ref(self, context)
-end
-
-local card_remove_from_area_ref = Card.remove_from_area
-function Card:remove_from_area()
-    if self.area == JoyousSpring.field_spell_area and
-        self.edition and self.edition.card_limit then
-        JoyousSpring.field_spell_area.config.card_limit =
-            JoyousSpring.field_spell_area.config.card_limit - self.edition.card_limit
-        if JoyousSpring.field_spell_area.config.card_limit < 1 then
-            JoyousSpring.field_spell_area.config.card_limit = 1
-        end
-    end
-    if self.area == JoyousSpring.extra_deck_area and
-        self.edition and self.edition.card_limit then
-        JoyousSpring.extra_deck_area.config.card_limit =
-            JoyousSpring.extra_deck_area.config.card_limit - self.edition.card_limit
-        if JoyousSpring.extra_deck_area.config.card_limit < 5 then
-            JoyousSpring.extra_deck_area.config.card_limit = 5
-        end
-    end
-    card_remove_from_area_ref(self)
-end
-
-local card_set_edition_ref = Card.set_edition
-function Card:set_edition(edition, immediate, silent)
-    if self.edition and self.edition.card_limit and JoyousSpring.is_monster_card(self) and self.area then
-        if self.area == JoyousSpring.extra_deck_area then
-            JoyousSpring.extra_deck_area.config.card_limit = JoyousSpring.extra_deck_area.config.card_limit -
-                self.edition.card_limit
-        elseif self.area == JoyousSpring.field_spell_area then
-            JoyousSpring.field_spell_area.config.card_limit = JoyousSpring.field_spell_area.config.card_limit -
-                self.edition.card_limit
-        end
-    end
-    card_set_edition_ref(self, edition, immediate, silent)
-    if self.edition and self.edition.card_limit and JoyousSpring.is_monster_card(self) and self.area then
-        if self.area == JoyousSpring.extra_deck_area then
-            JoyousSpring.extra_deck_area.config.card_limit = JoyousSpring.extra_deck_area.config.card_limit +
-                self.edition.card_limit
-        elseif self.area == JoyousSpring.field_spell_area then
-            JoyousSpring.field_spell_area.config.card_limit = JoyousSpring.field_spell_area.config.card_limit +
-                self.edition.card_limit
-            G.jokers.config.card_limit = G.jokers.config.card_limit - self.edition.card_limit
-        end
-    end
 end
 
 local cardarea_remove_ref = CardArea.remove
@@ -287,7 +234,7 @@ function Game:start_run(args)
         self.CARD_H * 0.95,
         {
             card_limit = 1,
-            type = 'extra_deck',
+            type = 'joker',
             highlight_limit = 1,
         }
     )
@@ -300,7 +247,7 @@ function Game:start_run(args)
         self.CARD_H * 0.95,
         {
             card_limit = 5,
-            type = 'extra_deck',
+            type = 'joker',
             highlight_limit = 1,
         }
     )

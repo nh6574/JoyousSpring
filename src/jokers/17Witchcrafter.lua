@@ -62,7 +62,7 @@ SMODS.Joker({
         end
     end,
     joy_can_activate = function(card)
-        if not (#G.jokers.cards + G.GAME.joker_buffer - ((card.edition and card.edition.negative) and 0 or 1) < G.jokers.config.card_limit) then
+        if not (#G.jokers.cards + G.GAME.joker_buffer + JoyousSpring.get_card_limit(card) <= G.jokers.config.card_limit) then
             return false
         end
         local materials = JoyousSpring.get_consumable_count("Tarot")
@@ -157,7 +157,7 @@ SMODS.Joker({
         end
     end,
     joy_can_activate = function(card)
-        if not (#G.jokers.cards + G.GAME.joker_buffer - ((card.edition and card.edition.negative) and 0 or 1) < G.jokers.config.card_limit) then
+        if not (#G.jokers.cards + G.GAME.joker_buffer + JoyousSpring.get_card_limit(card) <= G.jokers.config.card_limit) then
             return false
         end
         local materials = JoyousSpring.get_consumable_count("Tarot")
@@ -274,7 +274,7 @@ SMODS.Joker({
         end
     end,
     joy_can_activate = function(card)
-        if not (#G.jokers.cards + G.GAME.joker_buffer - ((card.edition and card.edition.negative) and 0 or 1) < G.jokers.config.card_limit) then
+        if not (#G.jokers.cards + G.GAME.joker_buffer + JoyousSpring.get_card_limit(card) <= G.jokers.config.card_limit) then
             return false
         end
         local materials = JoyousSpring.get_consumable_count("Tarot")
@@ -381,7 +381,7 @@ SMODS.Joker({
         end
     end,
     joy_can_activate = function(card)
-        if not (#G.jokers.cards + G.GAME.joker_buffer - ((card.edition and card.edition.negative) and 0 or 1) < G.jokers.config.card_limit) then
+        if not (#G.jokers.cards + G.GAME.joker_buffer + JoyousSpring.get_card_limit(card) <= G.jokers.config.card_limit) then
             return false
         end
         local materials = JoyousSpring.get_consumable_count("Tarot")
@@ -475,7 +475,7 @@ SMODS.Joker({
         end
     end,
     joy_can_activate = function(card)
-        if not (#G.jokers.cards + G.GAME.joker_buffer - ((card.edition and card.edition.negative) and 0 or 1) < G.jokers.config.card_limit) then
+        if not (#G.jokers.cards + G.GAME.joker_buffer + JoyousSpring.get_card_limit(card) <= G.jokers.config.card_limit) then
             return false
         end
         local materials = JoyousSpring.get_consumable_count("Tarot")
@@ -560,7 +560,7 @@ SMODS.Joker({
         end
     end,
     joy_can_activate = function(card)
-        if not (#G.jokers.cards + G.GAME.joker_buffer - ((card.edition and card.edition.negative) and 0 or 1) < G.jokers.config.card_limit) then
+        if not (#G.jokers.cards + G.GAME.joker_buffer + JoyousSpring.get_card_limit(card) <= G.jokers.config.card_limit) then
             return false
         end
         local materials = JoyousSpring.get_consumable_count("Tarot")
