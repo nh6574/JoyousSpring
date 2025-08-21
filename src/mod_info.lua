@@ -225,11 +225,11 @@ SMODS.current_mod.config_tab = function()
                 nodes = {
                     {
                         n = G.UIT.C,
-                        config = { align = "cm" },
+                        config = { align = "cr" },
                         nodes = {
                             {
                                 n = G.UIT.R,
-                                config = { align = "cm", padding = 0.01 },
+                                config = { align = "cr", padding = 0.01 },
                                 nodes = {
                                     create_toggle({
                                         label = localize('k_joy_only_ygo_cards'),
@@ -240,7 +240,7 @@ SMODS.current_mod.config_tab = function()
                             },
                             {
                                 n = G.UIT.R,
-                                config = { align = "cm", padding = 0.01 },
+                                config = { align = "cr", padding = 0.01 },
                                 nodes = {
                                     create_toggle({
                                         label = localize('k_joy_extra_ygo_booster'),
@@ -251,7 +251,7 @@ SMODS.current_mod.config_tab = function()
                             },
                             {
                                 n = G.UIT.R,
-                                config = { align = "cm", padding = 0.01 },
+                                config = { align = "cr", padding = 0.01 },
                                 nodes = {
                                     create_toggle({
                                         label = localize('k_joy_disable_tooltips'),
@@ -262,7 +262,7 @@ SMODS.current_mod.config_tab = function()
                             },
                             {
                                 n = G.UIT.R,
-                                config = { align = "cm", padding = 0.01 },
+                                config = { align = "cr", padding = 0.01 },
                                 nodes = {
                                     create_toggle({
                                         label = localize('k_joy_disable_booster_tag'),
@@ -273,7 +273,7 @@ SMODS.current_mod.config_tab = function()
                             },
                             {
                                 n = G.UIT.R,
-                                config = { align = "cm", padding = 0.01 },
+                                config = { align = "cr", padding = 0.01 },
                                 nodes = {
                                     create_toggle({
                                         label = localize('k_joy_instant_poker_hand'),
@@ -284,7 +284,7 @@ SMODS.current_mod.config_tab = function()
                             },
                             {
                                 n = G.UIT.R,
-                                config = { align = "cm", padding = 0.01 },
+                                config = { align = "cr", padding = 0.01 },
                                 nodes = {
                                     create_toggle({
                                         label = localize('k_joy_disable_main_menu'),
@@ -295,7 +295,7 @@ SMODS.current_mod.config_tab = function()
                             },
                             {
                                 n = G.UIT.R,
-                                config = { align = "cm", padding = 0.01 },
+                                config = { align = "cr", padding = 0.01 },
                                 nodes = {
                                     create_toggle({
                                         label = localize('k_joy_disable_glow'),
@@ -306,7 +306,7 @@ SMODS.current_mod.config_tab = function()
                             },
                             {
                                 n = G.UIT.R,
-                                config = { align = "cm", padding = 0.01 },
+                                config = { align = "cr", padding = 0.01 },
                                 nodes = {
                                     create_toggle({
                                         label = localize('k_joy_disable_side_deck'),
