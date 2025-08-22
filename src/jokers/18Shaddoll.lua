@@ -530,7 +530,7 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     joker_display_def = function(JokerDisplay)
@@ -655,7 +655,7 @@ SMODS.Joker({
                 if not card.ability.extra.activated and context.joy_exit_effect_selection and context.joy_card == card and
                     #context.joy_selection == card.ability.extra.flips then
                     for _, selected_card in ipairs(context.joy_selection) do
-                        selected_card:flip(card)
+                        JoyousSpring.flip(selected_card, card)
                     end
                     card.ability.extra.activated = true
                 end

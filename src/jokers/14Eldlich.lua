@@ -173,7 +173,7 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     remove_from_deck = function(self, card, from_debuff)
@@ -270,7 +270,7 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     remove_from_deck = function(self, card, from_debuff)
@@ -367,7 +367,7 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     joker_display_def = function(JokerDisplay)
@@ -457,7 +457,7 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff and JoyousSpring.should_trap_flip(card) then
-            card:flip(card)
+            JoyousSpring.flip(card, card)
         end
     end,
     joker_display_def = function(JokerDisplay)

@@ -453,7 +453,7 @@ SMODS.Joker({
             if context.setting_blind and context.main_eval then
                 for _, joker in ipairs(G.jokers.cards) do
                     if joker.config.center.key ~= "j_joy_procession" and joker.facing == "front" then
-                        joker:flip(card)
+                        JoyousSpring.flip(joker, card)
                     end
                 end
             end
@@ -683,7 +683,7 @@ SMODS.Joker({
                 local choices = JoyousSpring.get_materials_owned({ { facedown = true } })
                 local joker = pseudorandom_element(choices, 'j_joy_desertapir')
                 if joker then
-                    joker:flip(card)
+                    JoyousSpring.flip(joker, card)
                 end
             end
         end
@@ -744,7 +744,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if context.setting_blind and context.main_eval then
             if SMODS.pseudorandom_probability(card, card.config.center.key, card.ability.extra.numerator, card.ability.extra.odds) then
-                card:flip(card)
+                JoyousSpring.flip(card, card)
             end
         end
         if JoyousSpring.can_use_abilities(card) then
@@ -809,7 +809,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if context.setting_blind and context.main_eval then
             if SMODS.pseudorandom_probability(card, card.config.center.key, card.ability.extra.numerator, card.ability.extra.odds) then
-                card:flip(card)
+                JoyousSpring.flip(card, card)
             end
         end
         if JoyousSpring.can_use_abilities(card) then
@@ -2116,7 +2116,7 @@ SMODS.Joker({
         if context.end_of_round and context.game_over == false and context.main_eval then
             card.ability.extra.suit = JoyousSpring.most_owned_suit(card.config.center.key)
             if card.ability.extra.excavated >= card.ability.extra.requirement then
-                card:flip()
+                JoyousSpring.flip(card, card)
                 card.ability.extra.excavated = 0
             end
         end
