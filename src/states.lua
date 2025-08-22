@@ -303,6 +303,13 @@ function Card:stop_drag()
             end
             if move then
                 self.area:remove_card(self)
+                if area == JoyousSpring.side_deck_area then
+                    self:remove_from_deck(true)
+                else
+                    self.ability.joy_extra_values = card.ability.joy_extra_values or {}
+                    self:add_to_deck(not self.ability.joy_extra_values.added_to_side)
+                    self.ability.joy_extra_values.added_to_side = nil
+                end
                 draw_card(self.area, area, 1, 'up', nil, self, 0)
                 area:align_cards()
             end
@@ -363,6 +370,8 @@ G.FUNCS.joy_to_side = function(e)
                 card.children.joy_side_button = nil
                 remove_nils(card.children)
 
+                card.ability.joy_extra_values = card.ability.joy_extra_values or {}
+                card.ability.joy_extra_values.added_to_side = true
                 JoyousSpring.side_deck_area:emplace(card)
                 JoyousSpring.open_extra_deck(false, false, 1.85)
                 G.E_MANAGER:add_event(Event({
