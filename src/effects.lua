@@ -648,16 +648,18 @@ function Card:add_to_deck(from_debuff)
         end
     end
     card_add_to_deck_ref(self, from_debuff)
-    G.E_MANAGER:add_event(Event({
-        func = (function()
-            if G.shop_jokers then
-                for _, card in ipairs(G.shop_jokers.cards or {}) do
-                    card:set_cost()
+    if G.shop_jokers then
+        G.E_MANAGER:add_event(Event({
+            func = (function()
+                if G.shop_jokers then
+                    for _, card in ipairs(G.shop_jokers.cards or {}) do
+                        card:set_cost()
+                    end
                 end
-            end
-            return true
-        end)
-    }))
+                return true
+            end)
+        }))
+    end
 end
 
 local stay_flipped_ref = Blind.stay_flipped
@@ -908,16 +910,18 @@ function Card:remove_from_deck(from_debuff)
     if JoyousSpring.is_monster_card(self) and JoyousSpring.has_joyous_table(self) and added then
         JoyousSpring.transfer_remove_from_deck(self, from_debuff)
     end
-    G.E_MANAGER:add_event(Event({
-        func = (function()
-            if G.shop_jokers then
-                for _, card in ipairs(G.shop_jokers.cards or {}) do
-                    card:set_cost()
+    if G.shop_jokers then
+        G.E_MANAGER:add_event(Event({
+            func = (function()
+                if G.shop_jokers then
+                    for _, card in ipairs(G.shop_jokers.cards or {}) do
+                        card:set_cost()
+                    end
                 end
-            end
-            return true
-        end)
-    }))
+                return true
+            end)
+        }))
+    end
 end
 
 JoyousSpring.transfer_calc_dollar_bonus = function(card)
