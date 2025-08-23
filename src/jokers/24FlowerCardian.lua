@@ -1404,7 +1404,7 @@ SMODS.Joker({
                 local _, key = JoyousSpring.get_hanafuda(context.other_card)
                 if key == "Willow with Calligrapher" or key == "Chrysanthemum with Sake" then
                     return {
-                        xmult = card.ability.extra.scoring_xmult
+                        xmult = card.ability.extra.scored_xmult
                     }
                 end
             end
