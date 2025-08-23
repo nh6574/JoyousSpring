@@ -304,17 +304,17 @@ SMODS.current_mod.config_tab = function()
                                     })
                                 }
                             },
-                            {
-                                n = G.UIT.R,
-                                config = { align = "cr", padding = 0.01 },
-                                nodes = {
-                                    create_toggle({
-                                        label = localize('k_joy_disable_side_deck'),
-                                        ref_table = JoyousSpring.config,
-                                        ref_value = 'disable_side_deck'
-                                    })
-                                }
-                            },
+                            -- {
+                            --     n = G.UIT.R,
+                            --     config = { align = "cr", padding = 0.01 },
+                            --     nodes = {
+                            --         create_toggle({
+                            --             label = localize('k_joy_disable_side_deck'),
+                            --             ref_table = JoyousSpring.config,
+                            --             ref_value = 'disable_side_deck'
+                            --         })
+                            --     }
+                            -- },
                         }
                     },
                 }
