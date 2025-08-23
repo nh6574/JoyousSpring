@@ -609,7 +609,7 @@ local cardarea_draw_ref = CardArea.draw
 function CardArea:draw()
     cardarea_draw_ref(self)
 
-    if self.states.visible and (self == JoyousSpring.field_spell_area or self == JoyousSpring.extra_deck_area) or self.config.type == 'summon_materials' then
+    if self.states.visible and self.config.type == 'summon_materials' then
         for k, v in ipairs(self.ARGS.draw_layers) do
             for i = 1, #self.cards do
                 if self.cards[i] ~= G.CONTROLLER.focused.target then
@@ -631,7 +631,7 @@ end
 
 local cardarea_align_cards_ref = CardArea.align_cards
 function CardArea:align_cards()
-    if (self == JoyousSpring.field_spell_area or self == JoyousSpring.extra_deck_area) or self.config.type == 'summon_materials' then
+    if self.config.type == 'summon_materials' then
         for k, card in ipairs(self.cards) do
             if not card.states.drag.is then
                 card.T.r = 0.1 * (- #self.cards / 2 - 0.5 + k) / (#self.cards) +
