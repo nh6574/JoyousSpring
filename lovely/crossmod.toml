@@ -1,0 +1,23 @@
+[manifest]
+version = "0.1.0"
+dump_lua = true
+priority = 0
+
+# Banner
+
+# Add banner box to custom collection
+[[patches]]
+[patches.pattern]
+target = '=[SMODS banner "src/ui.lua"]'
+pattern = '''
+SMODS.card_collection_UIBox = hook_your_collection(SMODS.card_collection_UIBox, function(t, f)
+'''
+position = 'before'
+match_indent = true
+payload = '''
+JoyousSpring.card_collection_UIBox = hook_your_collection(JoyousSpring.card_collection_UIBox, function(t, f)
+	if t.nodes[1] then
+		t.nodes[1] = f(t.nodes[1])
+	end
+end)
+'''
