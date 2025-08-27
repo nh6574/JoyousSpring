@@ -647,10 +647,10 @@ function Card:add_to_deck(from_debuff)
         end
     end
     card_add_to_deck_ref(self, from_debuff)
-    if G.shop_jokers then
+    if G.shop_jokers and not G.OVERLAY_MENU then
         G.E_MANAGER:add_event(Event({
             func = (function()
-                if G.shop_jokers then
+                if G.shop_jokers and not G.OVERLAY_MENU then
                     for _, card in ipairs(G.shop_jokers.cards or {}) do
                         card:set_cost()
                     end
@@ -910,10 +910,10 @@ function Card:remove_from_deck(from_debuff)
     if JoyousSpring.is_monster_card(self) and JoyousSpring.has_joyous_table(self) and added then
         JoyousSpring.transfer_remove_from_deck(self, from_debuff)
     end
-    if G.shop_jokers then
+    if G.shop_jokers and not G.OVERLAY_MENU then
         G.E_MANAGER:add_event(Event({
             func = (function()
-                if G.shop_jokers then
+                if G.shop_jokers and not G.OVERLAY_MENU then
                     for _, card in ipairs(G.shop_jokers.cards or {}) do
                         card:set_cost()
                     end
