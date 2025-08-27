@@ -236,6 +236,7 @@ function Game:start_run(args)
             card_limit = 1,
             type = 'joker',
             highlight_limit = 1,
+            negative_info = "field_spell"
         }
     )
     JoyousSpring.field_spell_area = G.joy_field_spell_area
@@ -249,6 +250,7 @@ function Game:start_run(args)
             card_limit = 5,
             type = 'joker',
             highlight_limit = 1,
+            negative_info = "extra_deck"
         }
     )
     JoyousSpring.extra_deck_area = G.joy_extra_deck_area
@@ -270,4 +272,13 @@ function Game:start_run(args)
 
     JoyousSpring.field_spell_area.T.x = G.consumeables.T.x + 2.3
     JoyousSpring.field_spell_area.T.y = G.consumeables.T.y + 3
+end
+
+local smods_edition_get_card_limit_key_ref = SMODS.Edition.get_card_limit_key
+function SMODS.Edition.get_card_limit_key(card)
+    local area = (card.area or {}).config or {}
+    if area.negative_info == "field_spell" or area.negative_info == "extra_deck" then
+        return "negative_" .. area.negative_info .. "_SMODS_INTERNAL"
+    end
+    return smods_edition_get_card_limit_key_ref(card)
 end
