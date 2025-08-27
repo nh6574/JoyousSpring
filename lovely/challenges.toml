@@ -24,3 +24,18 @@ if v.joy_revived then
     end
 end
 '''
+
+# Temp fix for SMODS.add_to_pool because I'm stupid
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''
+if v.in_pool and type(v.in_pool) == 'function' then
+    add = in_pool and (add or pool_opts.override_base_checks)
+end
+'''
+position = 'at'
+match_indent = true
+payload = '''
+add = in_pool and (add or pool_opts.override_base_checks)
+'''

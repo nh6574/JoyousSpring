@@ -381,7 +381,7 @@ SMODS.Joker({
         end
     end,
     joy_apply_to_jokers_added = function(card, added_card)
-        if not card.debuff and added_card.config.center.rarity == 1 or added_card.config.center.rarity == 2 then
+        if not card.debuff and (added_card:is_rarity(1) or added_card:is_rarity(2)) then
             SMODS.debuff_card(added_card, true, "j_joy_yokai_mourner")
         end
     end,

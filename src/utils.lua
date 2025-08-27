@@ -586,7 +586,7 @@ end
 ---@return boolean
 JoyousSpring.is_card_rarity_from_array = function(card, list)
     for _, rarity in ipairs(list) do
-        if card.config.center.rarity == rarity then
+        if card:is_rarity(rarity) then
             return true
         end
     end

@@ -451,7 +451,6 @@ return {
                     {
                         "若拥有{C:joy_effect}「异怪之妖精 艾尔佛彼娅」{}",
                         "商店仅出现{C:joy_wind}风属性{} {C:attention}小丑牌{}",
-                        "{C:inactive}(当前版本无效:P)"
                     }
                 }
             },

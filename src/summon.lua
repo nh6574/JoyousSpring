@@ -356,10 +356,12 @@ JoyousSpring.is_valid_material_combo = function(combo_list, condition)
             if restrictions.same_name and card_1.config.center.key ~= card_2.config.center.key then
                 return false
             end
-            if restrictions.different_rarities and card_1.config.center.rarity == card_2.config.center.rarity then
+            if restrictions.different_rarities and (card_1:is_rarity(card_2.config.center.rarity) or
+                    card_2:is_rarity(card_1.config.center.rarity)) then
                 return false
             end
-            if restrictions.same_rarity and card_1.config.center.rarity ~= card_2.config.center.rarity then
+            if restrictions.same_rarity and not (card_1:is_rarity(card_2.config.center.rarity) or
+                    card_2:is_rarity(card_1.config.center.rarity)) then
                 return false
             end
             if restrictions.different_attributes or restrictions.same_attribute or restrictions.different_types or restrictions.same_type then

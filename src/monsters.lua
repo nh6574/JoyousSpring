@@ -736,13 +736,13 @@ JoyousSpring.is_material = function(card, properties, summon_type)
         return false
     end
     if properties.rarity then
-        if card.config.center.rarity ~= properties.rarity then
+        if not card:is_rarity(properties.rarity) then
             return false
         end
     end
     if properties.exclude_rarities then
         for _, rarity in ipairs(properties.exclude_rarities) do
-            if card.config.center.rarity == rarity then
+            if card:is_rarity(rarity) then
                 return false
             end
         end

@@ -436,7 +436,6 @@ return {
                     {
                         "If you own {C:joy_effect}\"Ghost Fairy Elfobia\"{},",
                         "only {C:joy_wind}WIND{} {C:attention}Jokers{} can appear in the shop",
-                        "{C:inactive}(Not working in this version :P){}"
                     }
                 }
             },

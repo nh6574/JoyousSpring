@@ -1826,6 +1826,15 @@ SMODS.Joker({
     end,
 })
 
+local smods_add_to_pool_ref = SMODS.add_to_pool
+function SMODS.add_to_pool(prototype_obj, args)
+    if prototype_obj.set == "Joker" and not JoyousSpring.is_material_center(prototype_obj.key, { monster_attribute = "WIND" })
+        and next(SMODS.find_card("j_joy_elfuria")) and next(SMODS.find_card("j_joy_elfobia", true)) then
+        return false
+    end
+    return smods_add_to_pool_ref(prototype_obj, args)
+end
+
 -- Lindbloom
 SMODS.Joker({
     key = "lindbloom",

@@ -436,7 +436,6 @@ return {
                     {
                         "Si vous possédez {C:joy_effect}\"Fée Fantôme Elfobia\"{},",
                         "seuls les {C:attention}Jokers{} {C:joy_wind}VENT{} peuvent apparaitre au magasin",
-                        "{C:inactive}(Ne marche pas sur cette version :P){}"
                     }
                 }
             },

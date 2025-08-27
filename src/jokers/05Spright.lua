@@ -422,7 +422,7 @@ SMODS.Joker({
             end
             if spright_material then
                 for _, joker in ipairs(G.jokers.cards) do
-                    if joker.config.center.rarity == 2 then
+                    if added_card:is_rarity(2) then
                         if not joker.edition then
                             joker:set_edition({ negative = true })
                         end
@@ -448,7 +448,7 @@ SMODS.Joker({
                 end
             end
             if spright_material then
-                if added_card.config.center.rarity == 2 then
+                if added_card:is_rarity(2) then
                     if not added_card.edition then
                         added_card:set_edition({ negative = true })
                     end

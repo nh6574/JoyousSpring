@@ -42,6 +42,8 @@
 ---@field joy_increased boolean? When the probability modification increased the numerator.
 ---@field joy_probability_roll boolean? When a probability is being rolled.
 ---@field joy_result boolean? Current result of the probability.
+---@field joy_trigger_obj table? trigger_obj of the probability.
+---@field joy_identifier string? Identifier of the probability.
 ---@field joy_activate_effect boolean? When an effect is being activated.
 ---@field joy_activated_card Card|table? The individual card being activated.
 ---@field joy_exit_effect_selection boolean? When the card selection screen is closed properly.
@@ -54,9 +56,7 @@
 local SMODS_calculate_context_ref = SMODS.calculate_context
 function SMODS.calculate_context(context, return_table)
     JoyousSpring.calculate_context(context)
-    local ret = SMODS_calculate_context_ref(context, return_table)
-    JoyousSpring.post_calculate_context(context)
-    return ret
+    return SMODS_calculate_context_ref(context, return_table)
 end
 
 ---Does global effects when a context is being calculated
@@ -70,23 +70,32 @@ JoyousSpring.calculate_context = function(context)
         end
     end
 
-    -- Check for hands contained in hands played
-    if context.before then
-        G.GAME.joy_played = G.GAME.joy_played or {}
-        for key, hands in pairs(context.poker_hands) do
-            G.GAME.joy_played[key] = next(hands) and true or nil
-        end
-        G.GAME.joy_hanafuda_type_played = G.GAME.joy_hanafuda_type_played or {}
-        G.GAME.joy_hanafuda_played = G.GAME.joy_hanafuda_played or {}
-        for _, pcard in ipairs(context.scoring_hand) do
-            local hanafuda, key = JoyousSpring.get_hanafuda(pcard)
-            if hanafuda then
-                G.GAME.joy_hanafuda_type_played[hanafuda.type] = (G.GAME.joy_hanafuda_type_played[hanafuda.type] or 0) +
-                    1
-                G.GAME.joy_hanafuda_played[key] = (G.GAME.joy_hanafuda_played[key] or 0) + 1
+    -- Return from Banishment
+    if context.setting_blind then
+        if G.GAME.blind and G.GAME.blind.boss then
+            while #JoyousSpring.banish_boss_selected_area.cards > 0 do
+                JoyousSpring.return_from_banish(JoyousSpring.banish_boss_selected_area.cards[1])
             end
         end
+        while #JoyousSpring.banish_blind_selected_area.cards > 0 do
+            JoyousSpring.return_from_banish(JoyousSpring.banish_blind_selected_area.cards[1])
+        end
     end
+    if context.end_of_round and context.game_over == false then
+        if G.GAME.blind and G.GAME.blind.boss then
+            while #JoyousSpring.banish_end_of_ante_area.cards > 0 do
+                JoyousSpring.return_from_banish(JoyousSpring.banish_end_of_ante_area.cards[1])
+            end
+        end
+        while #JoyousSpring.banish_end_of_round_area.cards > 0 do
+            JoyousSpring.return_from_banish(JoyousSpring.banish_end_of_round_area.cards[1])
+        end
+    end
+end
+
+SMODS.current_mod.calculate = function(self, context)
+    -- Excavate
+    JoyousSpring.calculate_excavate(context)
 
     -- Global counter for destroyed cards
     if context.remove_playing_cards then
@@ -125,25 +134,32 @@ JoyousSpring.calculate_context = function(context)
         G.GAME.joy_pendulum_count = (G.GAME.joy_pendulum_count or 0) + 1
     end
 
-    -- Return from Banishment
+    -- Reset check if card is flipped by blind
     if context.setting_blind then
-        if G.GAME.blind and G.GAME.blind.boss then
-            while #JoyousSpring.banish_boss_selected_area.cards > 0 do
-                JoyousSpring.return_from_banish(JoyousSpring.banish_boss_selected_area.cards[1])
-            end
-        end
-        while #JoyousSpring.banish_blind_selected_area.cards > 0 do
-            JoyousSpring.return_from_banish(JoyousSpring.banish_blind_selected_area.cards[1])
+        for _, joker in ipairs(G.jokers.cards) do
+            joker.joy_faceup_before_blind = nil
         end
     end
-    if context.end_of_round and context.game_over == false then
-        if G.GAME.blind and G.GAME.blind.boss then
-            while #JoyousSpring.banish_end_of_ante_area.cards > 0 do
-                JoyousSpring.return_from_banish(JoyousSpring.banish_end_of_ante_area.cards[1])
-            end
-        end
-        while #JoyousSpring.banish_end_of_round_area.cards > 0 do
-            JoyousSpring.return_from_banish(JoyousSpring.banish_end_of_round_area.cards[1])
+
+    -- Add extra pack for Extra YGO Booster config
+    if context.starting_shop and JoyousSpring.config.extra_ygo_booster then
+        local choices = {
+            "p_joy_monster_pack",
+            "p_joy_jumbo_monster_pack",
+            "p_joy_mega_monster_pack",
+            "p_joy_extra_pack",
+            "p_joy_jumbo_extra_pack",
+            "p_joy_mega_extra_pack",
+        }
+        SMODS.add_booster_to_shop(pseudorandom_element(choices, "JoyousSpring") or "p_joy_monster_pack")
+    end
+
+    -- Global probability hit counter
+    if context.pseudorandom_result then
+        if context.result then
+            G.GAME.joy_probability_success = (G.GAME.joy_probability_success or 0) + 1
+        else
+            G.GAME.joy_probability_failure = (G.GAME.joy_probability_failure or 0) + 1
         end
     end
 
@@ -158,38 +174,21 @@ JoyousSpring.calculate_context = function(context)
         end
     end
 
-    if context.pseudorandom_result then
-        if context.result then
-            G.GAME.joy_probability_success = (G.GAME.joy_probability_success or 0) + 1
-        else
-            G.GAME.joy_probability_failure = (G.GAME.joy_probability_failure or 0) + 1
+    -- Check for hands contained in hands played
+    if context.before then
+        G.GAME.joy_played = G.GAME.joy_played or {}
+        for key, hands in pairs(context.poker_hands) do
+            G.GAME.joy_played[key] = next(hands) and true or nil
         end
-    end
-
-    -- Excavate
-    JoyousSpring.calculate_excavate(context)
-
-    -- Add extra pack for Extra YGO Booster config
-    if context.starting_shop and JoyousSpring.config.extra_ygo_booster then
-        local choices = {
-            "p_joy_monster_pack",
-            "p_joy_jumbo_monster_pack",
-            "p_joy_mega_monster_pack",
-            "p_joy_extra_pack",
-            "p_joy_jumbo_extra_pack",
-            "p_joy_mega_extra_pack",
-        }
-        SMODS.add_booster_to_shop(pseudorandom_element(choices, "JoyousSpring") or "p_joy_monster_pack")
-    end
-end
-
----Does global effects after a context is being calculated
----@param context table
-JoyousSpring.post_calculate_context = function(context)
-    -- Reset check if card is flipped by blind
-    if context.setting_blind then
-        for _, joker in ipairs(G.jokers.cards) do
-            joker.joy_faceup_before_blind = nil
+        G.GAME.joy_hanafuda_type_played = G.GAME.joy_hanafuda_type_played or {}
+        G.GAME.joy_hanafuda_played = G.GAME.joy_hanafuda_played or {}
+        for _, pcard in ipairs(context.scoring_hand) do
+            local hanafuda, key = JoyousSpring.get_hanafuda(pcard)
+            if hanafuda then
+                G.GAME.joy_hanafuda_type_played[hanafuda.type] = (G.GAME.joy_hanafuda_type_played[hanafuda.type] or 0) +
+                    1
+                G.GAME.joy_hanafuda_played[key] = (G.GAME.joy_hanafuda_played[key] or 0) + 1
+            end
         end
     end
 end
@@ -746,14 +745,14 @@ JoyousSpring.modify_probability_jokers = function(add, mult, to_denominator, exc
 end
 
 local smods_get_probability_vars_ref = SMODS.get_probability_vars
-function SMODS.get_probability_vars(trigger_obj, base_numerator, base_denominator, identifier, from_roll)
+function SMODS.get_probability_vars(trigger_obj, base_numerator, base_denominator, identifier, from_roll, no_mod)
     if not G.jokers then
         return smods_get_probability_vars_ref(trigger_obj, base_numerator, base_denominator,
-            identifier, from_roll)
+            identifier, from_roll, no_mod)
     end
     local new_numerator, new_denominator = base_numerator, base_denominator
 
-    if type(trigger_obj) == "table" and JoyousSpring.get_extra_values(trigger_obj) then
+    if not no_mod and type(trigger_obj) == "table" and JoyousSpring.get_extra_values(trigger_obj) then
         local extra_values = JoyousSpring.get_extra_values(trigger_obj) or {}
 
         new_numerator = new_numerator * (extra_values.numerator_mult or 1) + (extra_values.numerator_const or 0)
@@ -761,16 +760,17 @@ function SMODS.get_probability_vars(trigger_obj, base_numerator, base_denominato
     end
 
     local numerator, denominator = smods_get_probability_vars_ref(trigger_obj, new_numerator, new_denominator,
-        identifier, from_roll)
+        identifier, from_roll, no_mod)
 
     return numerator, denominator
 end
 
 local smods_pseudorandom_probability_ref = SMODS.pseudorandom_probability
-function SMODS.pseudorandom_probability(trigger_obj, seed, base_numerator, base_denominator, identifier)
-    local ret = smods_pseudorandom_probability_ref(trigger_obj, seed, base_numerator, base_denominator, identifier)
+function SMODS.pseudorandom_probability(trigger_obj, seed, base_numerator, base_denominator, identifier, no_mod)
+    local ret = smods_pseudorandom_probability_ref(trigger_obj, seed, base_numerator, base_denominator, identifier,
+        no_mod)
 
-    SMODS.calculate_context { joy_probability_roll = true, joy_result = ret }
+    SMODS.calculate_context { joy_probability_roll = true, joy_result = ret, joy_trigger_obj = trigger_obj, joy_identifier = identifier }
 
     if JoyousSpring.guaranteed_probability then
         JoyousSpring.guaranteed_probability = nil
