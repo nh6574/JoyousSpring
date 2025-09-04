@@ -54,9 +54,9 @@
 --#region Effect utils
 
 local SMODS_calculate_context_ref = SMODS.calculate_context
-function SMODS.calculate_context(context, return_table)
+function SMODS.calculate_context(context, return_table, no_resolve)
     JoyousSpring.calculate_context(context)
-    return SMODS_calculate_context_ref(context, return_table)
+    return SMODS_calculate_context_ref(context, return_table, no_resolve)
 end
 
 ---Does global effects when a context is being calculated
