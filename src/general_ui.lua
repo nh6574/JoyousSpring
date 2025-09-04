@@ -551,7 +551,7 @@ function Game:update(dt)
         local prev_value = G.GAME.joy_show_hanafuda_sort
         G.GAME.joy_show_hanafuda_sort = nil
         for _, playing_card in ipairs(G.hand.cards or {}) do
-            if SMODS.has_enhancement(playing_card, 'm_joy_hanafuda') then
+            if playing_card.config.center.key == 'm_joy_hanafuda' then
                 G.GAME.joy_show_hanafuda_sort = true
                 break
             end

@@ -54,9 +54,9 @@
 --#region Effect utils
 
 local SMODS_calculate_context_ref = SMODS.calculate_context
-function SMODS.calculate_context(context, return_table)
+function SMODS.calculate_context(context, return_table, no_resolve)
     JoyousSpring.calculate_context(context)
-    return SMODS_calculate_context_ref(context, return_table)
+    return SMODS_calculate_context_ref(context, return_table, no_resolve)
 end
 
 ---Does global effects when a context is being calculated
@@ -91,12 +91,12 @@ JoyousSpring.calculate_context = function(context)
             JoyousSpring.return_from_banish(JoyousSpring.banish_end_of_round_area.cards[1])
         end
     end
+
+    -- Excavate
+    JoyousSpring.calculate_excavate(context)
 end
 
 SMODS.current_mod.calculate = function(self, context)
-    -- Excavate
-    JoyousSpring.calculate_excavate(context)
-
     -- Global counter for destroyed cards
     if context.remove_playing_cards then
         G.GAME.joy_cards_destroyed = G.GAME.joy_cards_destroyed and

@@ -140,7 +140,7 @@ local cardian_is_visible = function(self)
         return true
     end
     for _, playing_card in ipairs(G.playing_cards or {}) do
-        if SMODS.has_enhancement(playing_card, 'm_joy_hanafuda') then
+        if playing_card.config.center.key == 'm_joy_hanafuda' then
             return true
         end
     end
