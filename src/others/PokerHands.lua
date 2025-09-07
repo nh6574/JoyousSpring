@@ -2,7 +2,6 @@
 
 JoyousSpring.PokerHandDummies = {}
 
-
 JoyousSpring.PokerHandDummy = SMODS.Center:extend {
     set = 'JoyPokerHand',
     obj_buffer = {},
