@@ -11,6 +11,7 @@ SMODS.Joker({
     key = "eld_eldlich",
     atlas = 'eld',
     pos = { x = 0, y = 0 },
+    joy_alt_pos = { { x = 1, y = 2 } },
     rarity = 3,
     discovered = true,
     blueprint_compat = true,

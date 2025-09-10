@@ -18,6 +18,14 @@ return {
                     "related cards",
                 },
             },
+            joy_tooltip_alt_art = {
+                name = "Alternative Artwork",
+                text = {
+                    "Press {C:attention}a{} to switch",
+                    "between artworks",
+                    "{C:inactive,s:0.8}(For only this card)"
+                },
+            },
             joy_tooltip_transferred = {
                 name = "Transferred Abilities",
                 text = {

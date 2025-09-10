@@ -352,6 +352,10 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
                 table.insert(info_queue, 1, { set = "Other", key = "joy_face_down" })
             end
         end
+        -- Add tooltip if it has alt arts
+        if self.joy_alt_pos and not card.fake_card then
+            table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_alt_art" })
+        end
         -- Add tooltip if it has a related cards menu
         if self.joy_desc_cards and not card.fake_card then
             table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_related" })
@@ -441,6 +445,22 @@ end
 ---@param card Card
 ---@param front table?
 JoyousSpring.set_back_sprite = function(self, card, front)
+    if not self or card then return end
+    local self = self or card.config.center
+    if self.joy_alt_pos then
+        if not card.ability or card.ability.extra.joyous_spring.alt_art == nil then
+            if JoyousSpring.config.alt_art[self.key] then
+                card.children.center:set_sprite_pos(self.joy_alt_pos[1])
+            else
+                card.children.center:set_sprite_pos(self.pos)
+            end
+        elseif card.ability.extra.joyous_spring.alt_art == false then
+            card.children.center:set_sprite_pos(self.pos)
+        else
+            card.children.center:set_sprite_pos(self.joy_alt_pos[1])
+        end
+    end
+
     if card.children.back then card.children.back:remove() end
     card.children.back = Sprite(card.T.x, card.T.y, card.T.w, card.T.h, G.ASSET_ATLAS["joy_Back"], { x = 0, y = 0 })
     card.children.back.states.hover = card.states.hover
@@ -545,6 +565,25 @@ SMODS.Keybind({
         selected.joy_transfer_text = not selected.joy_transfer_text
         selected:stop_hover()
         selected:hover()
+    end
+})
+
+SMODS.Keybind({
+    key_pressed = "a",
+    action = function(self)
+        local selected = G and G.CONTROLLER and
+            (G.CONTROLLER.focused.target or G.CONTROLLER.hovering.target)
+
+        if not selected or not JoyousSpring.is_monster_card(selected) or not JoyousSpring.has_joyous_table(selected) or not selected.config.center.joy_alt_pos then
+            return
+        end
+
+        if selected.ability.extra.joyous_spring.alt_art ~= nil then
+            selected.ability.extra.joyous_spring.alt_art = not selected.ability.extra.joyous_spring.alt_art
+        else
+            selected.ability.extra.joyous_spring.alt_art = not JoyousSpring.config.alt_art[selected.config.center.key]
+        end
+        selected:set_sprites(selected.config.center)
     end
 })
 
