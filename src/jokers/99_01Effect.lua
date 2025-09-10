@@ -2284,3 +2284,58 @@ SMODS.Joker({
         end
     end,
 })
+
+-- Linkslayer
+SMODS.Joker({
+    key = "linkslayer",
+    atlas = 'Misc03',
+    pos = { x = 4, y = 4 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.chips, card.ability.extra.chips * (G.GAME.current_round.discards_used or 0) } }
+    end,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "EARTH",
+                monster_type = "Cyberse",
+            },
+            chips = 50
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.other_joker and context.other_joker.facing == "front" and JoyousSpring.is_monster_type(context.other_joker, "Cyberse") then
+                return {
+                    chips = card.ability.extra.chips * (G.GAME.current_round.discards_used or 0),
+                    message_card = context.other_joker
+                }
+            end
+        end
+    end,
+    joy_bypass_room_check = function(card, from_booster)
+        return JoyousSpring.count_materials_owned({ { monster_type = "Cyberse" } }) > 0
+    end,
+    joy_set_cost = function(card)
+        if JoyousSpring.count_materials_owned({ { monster_type = "Cyberse" } }) > 0 then
+            card.cost = 0
+        end
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            mod_function = function(card, mod_joker)
+                return {
+                    chips = G.GAME.blind.in_blind and
+                        (JoyousSpring.is_monster_type(card, "Cyberse") and mod_joker.ability.extra.chips and (G.GAME.current_round.discards_used or 0) > 0 and
+                            mod_joker.ability.extra.chips * G.GAME.current_round.discards_used * JokerDisplay.calculate_joker_triggers(mod_joker) or nil)
+                }
+            end
+        }
+    end
+})
