@@ -349,3 +349,81 @@ SMODS.Joker({
         return G.GAME.blind.in_blind
     end
 })
+
+
+-- Code Igniter
+SMODS.Joker({
+    key = "igniter",
+    atlas = 'Misc03',
+    pos = { x = 3, y = 4 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 7,
+    loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
+        end
+        return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * JoyousSpring.get_summoned_count("RITUAL"), card.ability.extra.detach, card.ability.extra.adds } }
+    end,
+    set_sprites = JoyousSpring.set_back_sprite,
+    update = JoyousSpring.update_counter,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Cyberse",
+                summon_type = "XYZ",
+                summon_conditions = {
+                    {
+                        type = "XYZ",
+                        materials = {
+                            { monster_type = "Cyberse", exclude_tokens = true, exclude_summon_types = { "XYZ", "LINK" } },
+                            { monster_type = "Cyberse", exclude_tokens = true, exclude_summon_types = { "XYZ", "LINK" } },
+                        },
+                    }
+                }
+            },
+            xmult = 0.5,
+            detach = 1,
+            adds = 1
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joy_detach and context.joy_detaching_card == card then
+                JoyousSpring.ease_detach(card)
+                local choices = JoyousSpring.get_materials_in_collection({ { summon_type = "RITUAL" } })
+                for i = 1, card.ability.extra.adds do
+                    key_to_add = pseudorandom_element(choices, card.config.center.key)
+                    JoyousSpring.add_monster_tag(key_to_add or "j_joy_sauravis")
+                end
+            end
+            if context.joker_main then
+                return {
+                    xmult = 1 + card.ability.extra.xmult * JoyousSpring.get_summoned_count("RITUAL")
+                }
+            end
+        end
+    end,
+    joy_can_detach = function(self, card)
+        return true
+    end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            calc_function = function(card)
+                card.joker_display_values.xmult = 1 +
+                    card.ability.extra.xmult * JoyousSpring.get_summoned_count("RITUAL")
+            end
+        }
+    end
+})

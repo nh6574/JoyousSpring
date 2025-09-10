@@ -792,6 +792,45 @@ SMODS.Joker({
     end,
 })
 
+-- Linkslayer @Ignister
+SMODS.Joker({
+    key = "ignis_linkslayer",
+    atlas = 'ignis',
+    pos = { x = 3, y = 4 },
+    rarity = 3,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 8,
+    loc_vars = function(self, info_queue, card)
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
+        end
+        return { vars = { card.ability.extra.discards } }
+    end,
+    joy_desc_cards = {
+        { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
+    },
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                is_all_materials = { LINK = true },
+                monster_type = "Cyberse",
+                monster_archetypes = { ["Ignister"] = true }
+            },
+            discards = 1
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.used_as_material(card, context) and JoyousSpring.is_monster_type(context.joy_card, "Cyberse") then
+            G.GAME.round_resets.discards = G.GAME.round_resets.discards + card.ability.extra.discards
+            ease_discard(card.ability.extra.discards)
+        end
+    end,
+})
+
 -- Water Leviathan @Ignister
 SMODS.Joker({
     key = "ignis_leviathan",

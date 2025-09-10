@@ -541,6 +541,21 @@ return {
                     },
                 }
             },
+            j_joy_linkslayer = {
+                name = "{C:joy_effect}Linkslayer",
+                text = {
+                    {
+                        "Each {C:joy_normal}Cyberse{} gives {C:chips}+#1#{} Chips",
+                        "for each discard used",
+                        "{C:inactive}(Currently {C:chips}+#2#{}{C:inactive} Chips)"
+                    },
+                    {
+                        "Free and doesn't need room",
+                        "when obtained from the shop",
+                        "if you own a {C:joy_normal}Cyberse{}"
+                    }
+                }
+            },
         }
     },
 }

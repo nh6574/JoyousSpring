@@ -77,6 +77,23 @@ return {
                     "{s:0.9,C:inactive}or {s:0.9,C:joy_token}Tokens{s:0.9,C:inactive})"
                 }
             },
+            j_joy_igniter = {
+                name = "{C:joy_xyz}Code Igniter",
+                text = {
+                    {
+                        "Gains {X:mult,C:white}X#1#{} Mult for each {C:joy_ritual}Ritual{} summoned this run",
+                        "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)"
+                    },
+                    {
+                        "{C:joy_xyz}Detach{} {C:attention}#3#{}: Adds {C:attention}#4#{} {C:joy_ritual}Ritual{} to the shop",
+                    },
+                },
+                joy_summon_conditions = {
+                    "{C:attention}2{} {C:joy_normal}Cyberse{}",
+                    "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, {s:0.9,C:joy_link}Links{}",
+                    "{s:0.9,C:inactive}or {s:0.9,C:joy_token}Tokens{s:0.9,C:inactive})"
+                }
+            },
         }
     },
 }

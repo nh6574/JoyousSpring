@@ -214,7 +214,18 @@ SMODS.current_mod.ui_config = {
     collection_option_cycle_colour = darken(G.C.JOY.MOD, 0.2),
 }
 
-SMODS.current_mod.config_tab = function()
+local main_tab = function()
+    G.E_MANAGER:add_event(Event({
+        blocking = false,
+        blockable = false,
+        func = function()
+            if G.OVERLAY_MENU then
+                G.OVERLAY_MENU:recalculate()
+            end
+            return true
+        end
+    }))
+
     return {
         n = G.UIT.ROOT,
         config = { r = 0.1, minw = 8, align = "tm", padding = 0.2, colour = G.C.BLACK },
@@ -319,6 +330,114 @@ SMODS.current_mod.config_tab = function()
                     },
                 }
             },
+        }
+    }
+end
+
+JoyousSpring.alt_arts = {
+    "j_joy_etwin_kisikil",
+    "j_joy_etwin_lilla",
+    "j_joy_yokai_ash",
+    "j_joy_yokai_belle",
+    "j_joy_eld_eldlich",
+    "j_joy_shaddoll_winda",
+    "j_joy_shaddoll_elconstruct",
+    "j_joy_invoked_aleister",
+    "j_joy_invoked_mechaba",
+    "j_joy_apollousa",
+    "j_joy_ipmasq"
+}
+
+local art_callback = function()
+    for _, card in pairs(G.I.CARD) do
+        if card.config and card.config.center and card.config.center.joy_alt_pos then
+            card:set_sprites(card.config.center)
+        end
+    end
+end
+
+local art_tab = function()
+    G.E_MANAGER:add_event(Event({
+        blocking = false,
+        blockable = false,
+        func = function()
+            if G.OVERLAY_MENU then
+                G.OVERLAY_MENU:recalculate()
+            end
+            return true
+        end
+    }))
+
+    local columns = {}
+
+    for i, key in ipairs(JoyousSpring.alt_arts) do
+        if i % 6 == 1 then
+            columns[#columns + 1] = {
+                n = G.UIT.C,
+                config = { align = "cr" },
+                nodes = {
+                }
+            }
+        end
+        columns[#columns].nodes[#columns[#columns].nodes + 1] = {
+            n = G.UIT.R,
+            config = { align = "cr", padding = 0.01 },
+            nodes = {
+                create_toggle({
+                    label = localize { type = "name_text", set = "Joker", key = key },
+                    ref_table = JoyousSpring.config.alt_art,
+                    ref_value = key,
+                    callback = art_callback
+                })
+            }
+        }
+    end
+
+    return {
+        n = G.UIT.ROOT,
+        config = { r = 0.1, minw = 8, align = "tm", padding = 0.2, colour = G.C.BLACK },
+        nodes = {
+            {
+                n = G.UIT.R,
+                config = { padding = 0.2, align = "cm" },
+                nodes = {
+                    {
+                        n = G.UIT.T,
+                        config = { text = localize("k_joy_enable_alts"), colour = G.C.UI.TEXT_LIGHT, scale = 0.55, shadow = true },
+                    },
+                },
+            },
+            {
+                n = G.UIT.R,
+                config = { padding = 0.2 },
+                nodes = columns
+            },
+        }
+    }
+end
+
+SMODS.current_mod.config_tab = function()
+    return {
+        n = G.UIT.ROOT,
+        config = { r = 0.1, minw = 8, align = "tm", padding = 0.2, colour = G.C.BLACK },
+        nodes = {
+            create_tabs({
+                snap_to_nav = true,
+                colour = darken(G.C.JOY.MOD, 0.2),
+                scale = 0.8,
+                tabs = {
+                    {
+                        label = localize("k_joy_main_config"),
+                        chosen = true,
+                        tab_definition_function = main_tab
+                    },
+                    {
+                        label = localize("k_joy_art_config"),
+                        chosen = false,
+                        tab_definition_function = art_tab
+                    },
+                }
+            }),
         }
     }
 end

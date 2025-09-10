@@ -180,6 +180,18 @@ return {
                     },
                 }
             },
+            j_joy_ignis_linkslayer = {
+                name = "{C:joy_effect}Linkslayer @Ignister",
+                text = {
+                    {
+                        "Can be used as any {C:attention}material{} for a {C:joy_link}Link",
+                    },
+                    {
+                        "Permanently gain {C:red}+#1#{} discard",
+                        "when used as {C:attention}material{} for a {C:joy_normal}Cyberse{}",
+                    }
+                }
+            },
             j_joy_ignis_leviathan = {
                 name = "{C:joy_ritual}Water Leviathan @Ignister",
                 text = {
