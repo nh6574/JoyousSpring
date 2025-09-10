@@ -445,10 +445,9 @@ end
 ---@param card Card
 ---@param front table?
 JoyousSpring.set_back_sprite = function(self, card, front)
-    if not self or card then return end
     local self = self or card.config.center
     if self.joy_alt_pos then
-        if not card.ability or card.ability.extra.joyous_spring.alt_art == nil then
+        if not card.ability or not card.ability.extra or card.ability.extra.joyous_spring.alt_art == nil then
             if JoyousSpring.config.alt_art[self.key] then
                 card.children.center:set_sprite_pos(self.joy_alt_pos[1])
             else
@@ -460,6 +459,7 @@ JoyousSpring.set_back_sprite = function(self, card, front)
             card.children.center:set_sprite_pos(self.joy_alt_pos[1])
         end
     end
+
 
     if card.children.back then card.children.back:remove() end
     card.children.back = Sprite(card.T.x, card.T.y, card.T.w, card.T.h, G.ASSET_ATLAS["joy_Back"], { x = 0, y = 0 })

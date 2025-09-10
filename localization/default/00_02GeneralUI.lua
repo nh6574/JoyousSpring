@@ -19,6 +19,7 @@ return {
             k_joy_transferred_abilities = "Transferred Abilities:",
             k_joy_select = "Select",
             k_joy_summon = "Summon",
+            k_joy_summon_no_space = " (No space available)",
             k_joy_detach = "Detach",
             k_joy_activate = "Activate",
             k_joy_side_deck = "Side Deck",
