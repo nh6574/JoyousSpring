@@ -583,12 +583,21 @@ SMODS.Joker({
         },
     },
     calculate = function(self, card, context)
-        if context.end_of_round and context.game_over == false and context.main_eval then
+        if context.joy_post_round_eval then
             if JoyousSpring.can_use_abilities(card) and JoyousSpring.is_flip_active(card) then
-                local choices = JoyousSpring.get_materials_owned({ { exclude_keys = { "j_joy_shaddoll_ariel" } } })
+                local choices = {}
+                for _, joker in ipairs(G.jokers.cards) do
+                    if joker ~= card and not joker.getting_sliced then
+                        table.insert(choices, joker)
+                    end
+                end
+
                 local to_banish = pseudorandom_element(choices, 'j_joy_shaddoll_ariel')
                 if to_banish then
                     JoyousSpring.banish(to_banish, "blind_selected")
+                    return {
+                        message = localize("k_joy_banished")
+                    }
                 end
             end
         end
@@ -602,7 +611,7 @@ SMODS.Joker({
     end,
     joy_transfer_ability_calculate = function(self, other_card, context, config)
         if JoyousSpring.can_use_abilities(other_card) then
-            if context.end_of_round and context.game_over == false and context.main_eval then
+            if context.joy_post_round_eval then
                 JoyousSpring.banish(other_card, "blind_selected")
             end
         end

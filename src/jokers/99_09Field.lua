@@ -301,7 +301,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if context.end_of_round and context.game_over == false and context.main_eval then
+            if context.joy_post_round_eval then
                 local choices = JoyousSpring.get_materials_owned({ { is_main_deck = true } })
                 local joker = pseudorandom_element(choices, 'j_joy_futurevisions')
                 if joker then

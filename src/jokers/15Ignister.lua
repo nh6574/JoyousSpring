@@ -1712,7 +1712,7 @@ SMODS.Joker({
                     end
                 end
             end
-            if context.end_of_round and context.main_eval and context.game_over == false then
+            if context.joy_post_round_eval then
                 local count = JoyousSpring.get_attribute_count(G.jokers.cards)
                 if count >= card.ability.extra.attributes then
                     for i, joker in ipairs(G.jokers.cards) do

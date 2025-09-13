@@ -236,7 +236,7 @@ SMODS.Joker({
                 card.ability.extra.return_banish = nil
             end
         end
-        if context.end_of_round and context.game_over == false and context.main_eval then
+        if context.joy_post_round_eval then
             if JoyousSpring.can_use_abilities(card) and card.ability.extra.banish_activated then
                 local returns_from_banish = card.ability.extra.create_activated
                 JoyousSpring.banish(card, "blind_selected",
@@ -474,7 +474,7 @@ SMODS.Joker({
                 }
             end
         end
-        if context.end_of_round and context.game_over == false and context.main_eval then
+        if context.joy_post_round_eval then
             if JoyousSpring.can_use_abilities(card) and card.ability.extra.banish_activated then
                 JoyousSpring.banish(card, "boss_selected")
             end
@@ -925,7 +925,7 @@ SMODS.Joker({
                     xmult = card.ability.extra.xmult
                 }
             end
-            if context.end_of_round and context.game_over == false and context.main_eval and all_cards_in_gy_share_type_attribute() then
+            if context.joy_post_round_eval and all_cards_in_gy_share_type_attribute() then
                 for _, joker in ipairs(G.jokers.cards) do
                     JoyousSpring.banish(joker, "blind_selected")
                 end

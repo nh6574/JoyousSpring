@@ -1039,7 +1039,7 @@ SMODS.Joker({
             if context.joy_banished and JoyousSpring.is_extra_deck_monster(context.joy_banished_card) then
                 card.ability.extra.current_xmult = card.ability.extra.current_xmult + card.ability.extra.xmult
             end
-            if context.end_of_round and context.game_over == false and context.main_eval then
+            if context.joy_post_round_eval then
                 local choices = JoyousSpring.get_materials_owned({ { exclude_debuffed = true, is_extra_deck = true } })
                 local joker = pseudorandom_element(choices, 'j_joy_eater')
                 if joker then
@@ -2007,7 +2007,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if context.end_of_round and context.game_over == false and context.main_eval then
+            if context.joy_post_round_eval then
                 local choices = SMODS.merge_lists({ JoyousSpring.banish_boss_selected_area.cards,
                     JoyousSpring.banish_end_of_ante_area.cards })
                 local to_return = pseudorandom_element(choices, card.config.center.key)
@@ -2197,7 +2197,7 @@ SMODS.Joker({
                         JoyousSpring.count_materials_in_graveyard({ { monster_type = "Spellcaster" } })
                 }
             end
-            if context.end_of_round and context.game_over == false and context.main_eval and
+            if context.joy_post_round_eval and
                 SMODS.pseudorandom_probability(card, card.config.center.key, 1, card.ability.extra.odds) then
                 local choices = JoyousSpring.get_materials_owned({ { monster_type = "Spellcaster" } })
                 local to_banish = pseudorandom_element(choices, card.config.center.key .. "_banish")

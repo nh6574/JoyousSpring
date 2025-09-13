@@ -324,7 +324,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and not context.retrigger_joker and
-                context.end_of_round and context.game_over == false and context.main_eval then
+                context.joy_post_round_eval then
                 JoyousSpring.banish(card, "blind_selected")
             end
             if not context.blueprint_card and not context.retrigger_joker and

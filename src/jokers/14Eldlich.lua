@@ -356,7 +356,7 @@ SMODS.Joker({
                     repetitions = 1
                 }
             end
-            if JoyousSpring.is_flip_active(card) and not context.blueprint_card and context.end_of_round and context.game_over == false and context.main_eval then
+            if JoyousSpring.is_flip_active(card) and not context.blueprint_card and context.joy_post_round_eval then
                 local choices = JoyousSpring.get_materials_owned({ { monster_type = "Zombie", exclude_keys = { "j_joy_eld_huaq" } } })
                 local to_banish = pseudorandom_element(choices, 'j_joy_sub_uma')
                 if to_banish then

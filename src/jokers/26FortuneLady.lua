@@ -77,7 +77,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if context.end_of_round and context.game_over == false and context.main_eval and
+            if context.joy_post_round_eval and
                 SMODS.pseudorandom_probability(card, card.config.center.key, card.ability.extra.numerator, card.ability.extra.odds) then
                 local choices = JoyousSpring.get_materials_owned({ { monster_archetypes = { "FortuneLady" } } })
                 local to_banish = pseudorandom_element(choices, card.config.center.key .. "_banish")
@@ -539,7 +539,7 @@ SMODS.Joker({
                     colour = G.C.GREEN
                 }
             end
-            if context.end_of_round and context.game_over == false and context.main_eval then
+            if context.joy_post_round_eval then
                 if SMODS.pseudorandom_probability(card, card.config.center.key, card.ability.extra.numerator, card.ability.extra.odds) then
                     return {
                         message = localize("k_joy_banished"),
@@ -698,7 +698,7 @@ SMODS.Joker({
                     }
                 end
             end
-            if context.end_of_round and context.game_over == false and context.main_eval and
+            if context.joy_post_round_eval and
                 SMODS.pseudorandom_probability(card, card.config.center.key .. "_2", card.ability.extra.numerator, card.ability.extra.odds[2]) then
                 local choices = JoyousSpring.get_materials_owned({ { monster_archetypes = { "FortuneLady" } } })
                 local to_banish = pseudorandom_element(choices, card.config.center.key .. "_banish")
@@ -950,7 +950,7 @@ SMODS.Joker({
             if context.pseudorandom_result and context.result then
                 card.ability.extra.active = true
             end
-            if context.end_of_round and context.game_over == false and context.main_eval and card.ability.extra.active then
+            if context.joy_post_round_eval and card.ability.extra.active then
                 card.ability.extra.active = false
                 JoyousSpring.banish(card, "blind_selected")
                 local choices = {}
@@ -1014,7 +1014,7 @@ SMODS.Joker({
                     dollars = card.ability.extra.money
                 }
             end
-            if context.end_of_round and context.game_over == false and context.main_eval and
+            if context.joy_post_round_eval and
                 SMODS.pseudorandom_probability(card, card.config.center.key, 1, card.ability.extra.odds) then
                 JoyousSpring.banish(card, "blind_selected")
             end

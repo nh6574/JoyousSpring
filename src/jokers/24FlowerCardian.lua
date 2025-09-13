@@ -1268,7 +1268,7 @@ SMODS.Joker({
                     pcard:set_seal(SMODS.poll_seal({ guaranteed = true }))
                 end
             end
-            if context.end_of_round and context.game_over == false and context.main_eval then
+            if context.joy_post_round_eval then
                 local choices = JoyousSpring.get_materials_owned()
                 for i = 1, card.ability.extra.animals_scored do
                     local to_banish, index = pseudorandom_element(choices, 'j_joy_cardian_boardefly')

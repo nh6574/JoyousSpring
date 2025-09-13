@@ -136,7 +136,7 @@ SMODS.Joker({
                     }, true)
                 end
             end
-            if not context.blueprint_card and context.end_of_round and context.game_over == false and context.main_eval then
+            if not context.blueprint_card and context.joy_post_round_eval then
                 JoyousSpring.banish(card, "blind_selected")
                 local choices = {}
                 for _, consumable in ipairs(G.consumeables.cards) do

@@ -47,7 +47,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and not context.retrigger_joker and
-                context.end_of_round and context.game_over == false and context.main_eval then
+                context.joy_post_round_eval then
                 local func = function(c)
                     for i = 1, c.ability.extra.revives do
                         JoyousSpring.revive_pseudorandom(
@@ -99,7 +99,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and not context.retrigger_joker and
-                context.end_of_round and context.game_over == false and context.main_eval then
+                context.joy_post_round_eval then
                 JoyousSpring.banish(card, "blind_selected")
             end
             if context.joker_main then
@@ -155,7 +155,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and not context.retrigger_joker and
-                context.end_of_round and context.game_over == false and context.main_eval then
+                context.joy_post_round_eval then
                 JoyousSpring.banish(card, "blind_selected")
             end
             if context.joker_main then
@@ -213,7 +213,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and not context.retrigger_joker and
-                context.end_of_round and context.game_over == false and context.main_eval then
+                context.joy_post_round_eval then
                 local func = function(c)
                     for i = 1, c.ability.extra.revives do
                         JoyousSpring.revive_pseudorandom(
@@ -263,7 +263,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and not context.retrigger_joker and
-                context.end_of_round and context.game_over == false and context.main_eval then
+                context.joy_post_round_eval then
                 local func = function(c)
                     for i = 1, c.ability.extra.cards_to_create do
                         JoyousSpring.create_pseudorandom(
@@ -312,7 +312,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and not context.retrigger_joker and
-                context.end_of_round and context.game_over == false and context.main_eval then
+                context.joy_post_round_eval then
                 JoyousSpring.banish(card, "blind_selected")
             end
             if not context.blueprint_card and not context.retrigger_joker and
@@ -380,7 +380,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and not context.retrigger_joker and
-                context.end_of_round and context.game_over == false and context.main_eval then
+                context.joy_post_round_eval then
                 local func = function(c)
                     for i = 1, c.ability.extra.revives do
                         JoyousSpring.revive_pseudorandom(
@@ -435,7 +435,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and not context.retrigger_joker and
-                context.end_of_round and context.game_over == false and context.main_eval then
+                context.joy_post_round_eval then
                 JoyousSpring.banish(card, "blind_selected")
                 local choices = {}
                 for _, consumable in ipairs(G.consumeables.cards) do
@@ -522,7 +522,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and not context.retrigger_joker and
-                context.end_of_round and context.game_over == false and context.main_eval then
+                context.joy_post_round_eval then
                 local func = function(c)
                     local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Ghoti" }, is_extra_deck = true } })
 
@@ -599,7 +599,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and not context.retrigger_joker and
-                context.end_of_round and context.game_over == false and context.main_eval then
+                context.joy_post_round_eval then
                 JoyousSpring.banish(card, "blind_selected")
 
                 local choices = JoyousSpring.get_materials_owned({ { exclude_monster_archetypes = { "Ghoti" } } })
@@ -673,7 +673,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and not context.retrigger_joker and
-                context.end_of_round and context.game_over == false and context.main_eval then
+                context.joy_post_round_eval then
                 JoyousSpring.banish(card, "blind_selected")
             end
             if context.joker_main then
@@ -761,7 +761,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and not context.retrigger_joker and
-                context.end_of_round and context.game_over == false and context.main_eval then
+                context.joy_post_round_eval then
                 JoyousSpring.banish(card, "blind_selected")
                 local choices = JoyousSpring.get_materials_owned({ { exclude_monster_archetypes = { "Ghoti" } } })
                 for _, joker in ipairs(choices) do

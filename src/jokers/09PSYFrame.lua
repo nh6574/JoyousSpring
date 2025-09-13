@@ -81,7 +81,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if not context.blueprint_card and context.setting_blind and context.main_eval then
+            if not context.blueprint_card and context.joy_pre_setting_blind then
                 local _, driver = next(SMODS.find_card("j_joy_psy_driver", true))
                 if not driver then
                     _, driver = next(SMODS.find_card("j_joy_psy_multithreader", true))
@@ -176,7 +176,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if not context.blueprint_card and context.setting_blind and context.main_eval then
+            if not context.blueprint_card and context.joy_pre_setting_blind then
                 local _, driver = next(SMODS.find_card("j_joy_psy_driver", true))
                 if not driver then
                     _, driver = next(SMODS.find_card("j_joy_psy_multithreader", true))
@@ -269,7 +269,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if not context.blueprint_card and context.setting_blind and context.main_eval then
+            if not context.blueprint_card and context.joy_pre_setting_blind then
                 local _, driver = next(SMODS.find_card("j_joy_psy_driver", true))
                 if not driver then
                     _, driver = next(SMODS.find_card("j_joy_psy_multithreader", true))
@@ -348,7 +348,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if not context.blueprint_card and context.setting_blind and context.main_eval then
+            if not context.blueprint_card and context.joy_pre_setting_blind then
                 local _, driver = next(SMODS.find_card("j_joy_psy_driver", true))
                 if not driver then
                     _, driver = next(SMODS.find_card("j_joy_psy_multithreader", true))
@@ -440,7 +440,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if not context.blueprint_card and context.setting_blind and context.main_eval then
+            if not context.blueprint_card and context.joy_pre_setting_blind then
                 local _, driver = next(SMODS.find_card("j_joy_psy_driver", true))
                 if not driver then
                     _, driver = next(SMODS.find_card("j_joy_psy_multithreader", true))
@@ -583,7 +583,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if not context.blueprint_card and context.end_of_round and context.game_over == false and context.main_eval then
+            if not context.blueprint_card and context.joy_post_round_eval then
                 JoyousSpring.banish(card, "blind_selected")
                 local choices = {}
                 for _, consumable in ipairs(G.consumeables.cards) do
@@ -644,7 +644,7 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if not context.blueprint_card and context.end_of_round and context.game_over == false and context.main_eval then
+            if not context.blueprint_card and context.joy_post_round_eval then
                 JoyousSpring.banish(card, "blind_selected")
                 local choices = {}
                 for _, joker in ipairs(G.jokers.cards) do

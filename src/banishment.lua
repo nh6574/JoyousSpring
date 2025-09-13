@@ -13,9 +13,9 @@
 ---@param immediate boolean?
 JoyousSpring.banish = function(card, banish_until, func, immediate)
     if not card or card.getting_sliced or card.destroyed then return end
-    card:juice_up()
     if immediate then
         if not card.area then return end
+        card:juice_up()
         local time_to_banish = banish_until == "blind_selected" and JoyousSpring.banish_blind_selected_area or
             banish_until == "boss_selected" and JoyousSpring.banish_boss_selected_area or
             banish_until == "end_of_ante" and JoyousSpring.banish_end_of_ante_area or
@@ -38,6 +38,14 @@ JoyousSpring.banish = function(card, banish_until, func, immediate)
     else
         card.getting_sliced = true
         card.destroyed = true
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                if card and card.area then
+                    card:juice_up()
+                end
+                return true
+            end,
+        }))
         G.E_MANAGER:add_event(Event({
             trigger = "after",
             delay = 0.3,

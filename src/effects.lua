@@ -48,6 +48,7 @@
 ---@field joy_activated_card Card|table? The individual card being activated.
 ---@field joy_exit_effect_selection boolean? When the card selection screen is closed properly.
 ---@field joy_selection Card[]|table? Cards selected in the selection screen.
+---@field joy_post_round_eval boolean? After round evaluation
 
 --#endregion
 
@@ -597,6 +598,12 @@ end
 --#endregion
 
 --#region Hooks
+
+local g_funcs_evaluate_round_ref = G.FUNCS.evaluate_round
+G.FUNCS.evaluate_round = function()
+    g_funcs_evaluate_round_ref()
+    SMODS.calculate_context({ joy_post_round_eval = true })
+end
 
 local create_card_for_shop_ref = create_card_for_shop
 function create_card_for_shop(area)
