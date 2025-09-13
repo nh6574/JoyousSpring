@@ -113,6 +113,29 @@ if v.config.joy_hand_types then
 end
 '''
 
+# Add multiple hand_types to telescope
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/game_object.lua"]'
+pattern = '''
+if v.config.hand_type == _hand then
+    _planet = v.key
+end
+'''
+position = 'after'
+match_indent = true
+payload = '''
+if v.config.joy_hand_types then
+    for _, name in ipairs(v.config.joy_hand_types) do
+        if name == _hand then
+            _planet = v.key
+            break
+        end
+    end
+    if planet then break end
+end
+'''
+
 # Don't shuffle after excavating
 [[patches]]
 [patches.pattern]

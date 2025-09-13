@@ -291,6 +291,7 @@ return {
                     "after playing {C:attention}5 {C:joy_link}Animal",
                     "{C:attention}Hanafuda{} cards this run",
                     "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
+                    "Doesn't need room",
                 }
             },
             j_joy_cardian_moonflower = {
@@ -310,11 +311,11 @@ return {
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}1{} {C:joy_synchro}Tuner{} +",
-                    "{C:attention}1{} non-{C:joy_synchro}Tuner{}",
+                    "{C:attention}1{} {C:joy_synchro}Tuner{} + {C:attention}1{} non-{C:joy_synchro}Tuner{}",
                     "after playing {C:attention}3 {C:joy_mod}Chrysanthemum with Sake{}",
                     "this run",
                     "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
+                    "Doesn't need room",
                 }
             },
             j_joy_cardian_lightshower = {
@@ -340,6 +341,7 @@ return {
                     "after playing {C:attention}3 {C:joy_link}Light",
                     "{C:attention}Hanafuda{} cards this run",
                     "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
+                    "Doesn't need room",
                 }
             },
             j_joy_cardian_lightflare = {
@@ -366,6 +368,7 @@ return {
                     "after playing {C:attention}5 {C:joy_link}Light",
                     "{C:attention}Hanafuda{} cards this run",
                     "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
+                    "Doesn't need room",
                 }
             },
         },

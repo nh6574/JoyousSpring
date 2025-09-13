@@ -614,6 +614,9 @@ SMODS.Joker({
                             { is_tuner = true,              exclude_summon_types = { "XYZ", "LINK" } },
                             { monster_type = "Spellcaster", exclude_tuners = true,                   exclude_summon_types = { "XYZ", "LINK" } },
                         },
+                        restrictions = {
+                            no_room = true
+                        }
                     }
                 }
             },

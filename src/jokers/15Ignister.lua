@@ -562,7 +562,7 @@ SMODS.Joker({
             if #choices > 0 then
                 for i = 1, card.ability.extra.adds do
                     local key_to_add, _ = pseudorandom_element(choices, 'j_joy_ignis_doyon')
-                    if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
+                    if key_to_add and #JoyousSpring.extra_deck_area.cards - (JoyousSpring.get_card_limit(context.joy_card) > 0 and 0 or 1) < JoyousSpring.extra_deck_area.config.card_limit then
                         JoyousSpring.add_to_extra_deck(key_to_add)
                     end
                 end

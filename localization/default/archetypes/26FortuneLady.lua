@@ -162,6 +162,7 @@ return {
                     "{C:attention}1{} {C:joy_synchro}Tuner{} +",
                     "{C:attention}1{} {C:joy_normal}Spellcaster{} non-{C:joy_synchro}Tuner{}",
                     "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
+                    "Doesn't need room",
                 }
             },
             j_joy_ffairy_hikari = {

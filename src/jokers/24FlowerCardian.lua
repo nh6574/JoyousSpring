@@ -1248,6 +1248,9 @@ SMODS.Joker({
                                 func = "hanafuda_type_played_this_run", func_vars = { type = "animal", min = 5 } },
                             { exclude_tuners = true, exclude_summon_types = { "XYZ", "LINK" } },
                         },
+                        restrictions = {
+                            no_room = true
+                        }
                     }
                 }
             },
@@ -1318,6 +1321,9 @@ SMODS.Joker({
                                 func = "hanafuda_played_this_run", func_vars = { key = "Chrysanthemum with Sake", min = 3 } },
                             { exclude_tuners = true, exclude_summon_types = { "XYZ", "LINK" } },
                         },
+                        restrictions = {
+                            no_room = true
+                        }
                     }
                 }
             },
@@ -1376,6 +1382,9 @@ SMODS.Joker({
                                 func = "hanafuda_type_played_this_run", func_vars = { type = "light", min = 3 } },
                             { exclude_tuners = true, exclude_summon_types = { "XYZ", "LINK" } },
                         },
+                        restrictions = {
+                            no_room = true
+                        }
                     },
                 }
             },
@@ -1449,6 +1458,9 @@ SMODS.Joker({
                                 func = "hanafuda_type_played_this_run", func_vars = { type = "light", min = 5 } },
                             { exclude_tuners = true, exclude_summon_types = { "XYZ", "LINK" } },
                         },
+                        restrictions = {
+                            no_room = true
+                        }
                     }
                 }
             },
