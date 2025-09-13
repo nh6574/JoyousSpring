@@ -43,6 +43,23 @@ Check out the [Discord](https://discord.gg/Ac5FKpQCRV) for troubleshooting and c
 
 <img src="screenshots/additions.png" alt="Additions">
 
+## Recommended mods:
+### Mods with native support:
+* [JokerDisplay](https://github.com/nh6574/JokerDisplay) - Adds information under Jokers so you don't have to hover them. This mod adds native support.
+* [TheFamily](https://github.com/SleepyG11/TheFamilyBalatro) - Adds extra tabs to the side to save space on the screen. This mod adds native support (might add exclusive features in the future so it's recommended)
+* [CardSleeves](https://github.com/larswijn/CardSleeves) - Adds sleeves to decks for extra effects. This mod adds some.
+* [Handy](https://github.com/SleepyG11/HandyBalatro) - Adds QoL controls to the game. This mods supports some features natively.
+* [Unjankify](https://github.com/blazingulag/Unjankify) - Fixes some issues when playing with multiple mods like cardarea overlap. Includes JoyousSpring support.
+
+### Other mods:
+* [Galdur](https://github.com/Eremel/Galdur) - Nicer deck selection (Highly Recommended)
+* [Glue](https://github.com/icyethics/Glue-For-Modpacks) - Utility to change shop slots, joker and consumable slots and rates
+* [Cartomancer](https://github.com/stupxd/Cartomancer) - Includes functionalities to help in runs with lots of cards either in the Joker area or Deck, alongside other QoL features
+* [Overflow](https://github.com/lord-ruby/Overflow) - Stacks consumables
+* [Banner](https://github.com/SylviBlossom/Banner) - Ban objects from appearing in a run
+* [Better Tags](https://github.com/WaffleDevs/BetterTags) - Stacks Tags
+* [DebugPlus](https://github.com/WilsontheWolf/DebugPlus) - Debug/Cheating tools. Useful even if you're not a developer to bypass crashes or give yourself some items to test
+
 ## Contributing
 
 I might drop this at any moment (if I haven't already), so please feel free to fork or do PRs if you feel like you can improve on this or fix any of the problems above!
