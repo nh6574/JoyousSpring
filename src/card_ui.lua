@@ -328,24 +328,29 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
             localize { type = "joy_summon_conditions", set = self.set, key = self.key, nodes = summon_desc_nodes }
         end
 
-        -- Add tooltip if it's a flip
-        if JoyousSpring.is_flip_monster(card) then
-            if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            -- Add tooltip if it's a flip
+            if JoyousSpring.is_flip_monster(card) then
                 table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_flip" })
             end
-        end
-        -- Add tooltip if it's a trap
-        if JoyousSpring.is_trap_monster(card) then
-            if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+            -- Add tooltip if it's a trap
+            if JoyousSpring.is_trap_monster(card) then
                 table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_trap" })
             end
-        end
-        -- Add tooltip if it's a field spell
-        if JoyousSpring.is_field_spell(card) then
-            if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-                table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_field_spell_joker" })
+            -- Add tooltip if it's a field spell
+            if JoyousSpring.is_field_spell(card) then
+                table.insert(info_queue, 1,
+                    { set = "Other", key = "joy_tooltip_field_spell_joker", vars = { scale = 0.5 } })
+            end
+            -- Add Special Joker tooltips
+            for _, type in ipairs({ "RITUAL", "FUSION", "SYNCHRO", "XYZ", "LINK" }) do
+                if JoyousSpring.is_summon_type(card, type) then
+                    table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_" .. type:lower() .. "_joker" })
+                    break
+                end
             end
         end
+
         -- Add tooltip if it's face-down
         if card.facing == 'back' and JoyousSpring.is_from_joyousspring(card) then
             if not card.fake_card then

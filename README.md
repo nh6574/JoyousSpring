@@ -10,8 +10,6 @@ Adds modern Yu-Gi-Oh! cards and mechanics.
 
 Make sure to check the Glossary and the Config in Main Menu > Mods > JoyousSpring
 
-Has compatibility with [JokerDisplay](https://github.com/nh6574/JokerDisplay) version >1.8.2
-
 Check out the [Discord](https://discord.gg/Ac5FKpQCRV) for troubleshooting and chatting about the mod <3
 
 ## Known Issues and future ideas
@@ -42,6 +40,28 @@ Check out the [Discord](https://discord.gg/Ac5FKpQCRV) for troubleshooting and c
 |<img src="https://static.wikitide.net/balatromodswiki/f/fe/Fortune_Lady_Every_%28JoyousSpring%29.png"><br>[Fortune Lady](https://balatromods.miraheze.org/wiki/JoyousSpring/Jokers/Fortune_Lady)|||||<img src="https://static.wikitide.net/balatromodswiki/thumb/8/8e/Tour_Guide_From_the_Underworld_%28JoyousSpring%29.png/100px-Tour_Guide_From_the_Underworld_%28JoyousSpring%29.png"><br>[Free Agents](https://balatromods.miraheze.org/wiki/JoyousSpring/Jokers/Free_Agents)|
 
 <img src="screenshots/additions.png" alt="Additions">
+
+## Recommended mods:
+### Mods with native support:
+* [JokerDisplay](https://github.com/nh6574/JokerDisplay) - Adds information under Jokers so you don't have to hover them. This mod adds native support. (Made by me too!)
+* [TheFamily](https://github.com/SleepyG11/TheFamilyBalatro) - Adds extra tabs to the side to save space on the screen. This mod adds native support (might add exclusive features in the future so it's recommended)
+* [CardSleeves](https://github.com/larswijn/CardSleeves) - Adds sleeves to decks for extra effects. This mod adds some.
+* [Handy](https://github.com/SleepyG11/HandyBalatro) - Adds QoL controls to the game. This mods supports some features natively.
+* [Unjankify](https://github.com/blazingulag/Unjankify) - Fixes some issues when playing with multiple mods like cardarea overlap. Includes JoyousSpring support.
+
+### Other mods:
+* [Galdur](https://github.com/Eremel/Galdur) - Nicer deck selection (Highly Recommended)
+* [Glue](https://github.com/icyethics/Glue-For-Modpacks) - Utility to change shop slots, joker and consumable slots and rates
+* [Cartomancer](https://github.com/stupxd/Cartomancer) - Includes functionalities to help in runs with lots of cards either in the Joker area or Deck, alongside other QoL features
+* [Overflow](https://github.com/lord-ruby/Overflow) - Stacks consumables
+* [Banner](https://github.com/SylviBlossom/Banner) - Ban objects from appearing in a run
+* [Better Tags](https://github.com/WaffleDevs/BetterTags) - Stacks Tags
+* [DebugPlus](https://github.com/WilsontheWolf/DebugPlus) - Debug/Cheating tools. Useful even if you're not a developer to bypass crashes or give yourself some items to test
+
+### Content mods with crossmod support:
+* [Paya's Terrible Additions](https://github.com/hayaunderscore/PayasTerribleAdditions) - "Joyous Spring" Legendary Joker that acts like Ash Blossom when JoyousSpring is installed
+* [AutumnMoodMechanics](https://github.com/AutumnMood924/AutumnMoodMechanics) - Adds Yu-Gi-Oh! typings to vanilla cards and many mods.
+* [TheAutumnCircus](https://github.com/AutumnMood924/TheAutumnCircus) - Adds JoyousSpring types natively plus other crossmod content between different mods using JoyousSpring mechanics
 
 ## Contributing
 
