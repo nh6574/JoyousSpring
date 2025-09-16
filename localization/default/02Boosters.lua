@@ -27,21 +27,21 @@ return {
                 name = "Astral Pack",
                 text = {
                     "Choose {C:attention}#1#{} of up to",
-                    "{C:attention}#2#{} {C:joy_spell}Special Summon{} {C:joker}Joker{} cards",
+                    "{C:attention}#2#{} {C:joy_spell}Special{} {C:joker}Joker{} cards",
                 },
             },
             p_joy_jumbo_extra_pack = {
                 name = "Star Pack",
                 text = {
                     "Choose {C:attention}#1#{} of up to",
-                    "{C:attention}#2#{} {C:joy_spell}Special Summon{} {C:joker}Joker{} cards",
+                    "{C:attention}#2#{} {C:joy_spell}Special{} {C:joker}Joker{} cards",
                 },
             },
             p_joy_mega_extra_pack = {
                 name = "Premium Pack",
                 text = {
                     "Choose {C:attention}#1#{} of up to",
-                    "{C:attention}#2#{} {C:joy_spell}Special Summon{} {C:joker}Joker{} cards",
+                    "{C:attention}#2#{} {C:joy_spell}Special{} {C:joker}Joker{} cards",
                 },
             },
         }

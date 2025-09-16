@@ -7,7 +7,7 @@ return {
                 text = {
                     "Can't use or activate abilities",
                     "and counts as a blank Joker for abilities",
-                    "{C:inactive}(Unless specified)",
+                    "unless specified",
                     "{C:inactive}(Editions still apply)",
                 },
             },
@@ -38,18 +38,18 @@ return {
                 name = "Transform",
                 text = {
                     "Changes a {C:attention}Joker{} into another",
-                    "Keeps any modifiers",
+                    "{s:0.15} ",
+                    "{s:0.9}Keeps any modifiers",
                 },
             },
             joy_tooltip_revive = {
                 name = "Revive",
                 text = {
                     "Create and remove a random card from the {C:attention}GY{}",
-                    "Must have room and might have",
-                    "a random edition, unless specified",
-                    "{s:0.9,C:inactive}({s:0.9,C:joy_spell}Special{} {s:0.9,C:attention}Jokers{} {s:0.9,C:inactive}that were not properly",
-                    "{s:0.9,C:inactive}summoned and {s:0.9,C:joy_spell}Field Spells{{s:0.9,C:inactive} can't be revived)",
-                    "{s:0.9,C:inactive}(Revived Jokers have a sell value of 1)"
+                    "{s:0.15} ",
+                    "{s:0.9}Must have room and might have",
+                    "{s:0.9}a random edition, unless specified",
+                    "{s:0.9}Revived Jokers have a sell value of 1"
                 },
             },
             joy_tooltip_extra_deck_joker = {
@@ -57,8 +57,62 @@ return {
                 text = {
                     "{C:joy_fusion}Fusion{}, {C:joy_synchro}Synchro{},",
                     "{C:joy_xyz}Xyz{} and {C:joy_link}Link{} {C:attention}Jokers{}",
+                    "{s:0.15} ",
                     "{s:0.9,C:inactive}(Cards in the Extra Deck don't count",
-                    "{s:0.9,C:inactive}as owned for abilities)"
+                    "{s:0.9,C:inactive}as owned for abilities unless specified)",
+                },
+            },
+            joy_tooltip_fusion_joker = {
+                name = "Fusion Joker",
+                text = {
+                    "Goes to the {C:joy_spell}Extra Deck{} first when bought",
+                    "{s:0.15} ",
+                    "{s:0.9}Must be summoned from there by selecting",
+                    "{s:0.9}the required {s:0.9,C:attention}materials{s:0.9} to destroy",
+                    "{s:0.9}Must have been summoned this way to be revived"
+                },
+            },
+            joy_tooltip_synchro_joker = {
+                name = "Synchro Joker",
+                text = {
+                    "Goes to the {C:joy_spell}Extra Deck{} first when bought",
+                    "{s:0.15} ",
+                    "{s:0.9}Must be summoned from there by selecting",
+                    "{s:0.9}the required {s:0.9,C:attention}materials{s:0.9} to destroy",
+                    "{s:0.9}Must have been summoned this way to be revived"
+                },
+            },
+            joy_tooltip_xyz_joker = {
+                name = "Xyz Joker",
+                text = {
+                    "Goes to the {C:joy_spell}Extra Deck{} first when bought",
+                    "{s:0.15} ",
+                    "{s:0.9}Must be summoned from there by selecting",
+                    "{s:0.9}the required {s:0.9,C:attention}materials{s:0.9} to destroy",
+                    "{s:0.9}Must have been summoned this way to be revived",
+                    "{s:0.15} ",
+                    "{s:0.9}Starts with a number of {s:0.9,C:joy_xyz}Xyz materials{}",
+                    "{s:0.9}equal to the number used for its summon"
+                },
+            },
+            joy_tooltip_link_joker = {
+                name = "Link Joker",
+                text = {
+                    "Goes to the {C:joy_spell}Extra Deck{} first when bought",
+                    "{s:0.15} ",
+                    "{s:0.9}Must be summoned from there by selecting",
+                    "{s:0.9}the required {s:0.9,C:attention}materials{s:0.9} to destroy",
+                    "{s:0.9}Must have been summoned this way to be revived",
+                },
+            },
+            joy_tooltip_ritual_joker = {
+                name = "Ritual Joker",
+                text = {
+                    "Can't be bought",
+                    "{s:0.15} ",
+                    "{s:0.9}Must be summoned from the shop by selecting",
+                    "{s:0.9}the required {s:0.9,C:attention}materials{s:0.9} to destroy",
+                    "{s:0.9}Must have been summoned this way to be revived"
                 },
             },
             joy_tooltip_main_deck_joker = {
@@ -71,38 +125,41 @@ return {
             joy_tooltip_special = {
                 name = "Special Joker",
                 text = {
-                    "{C:joy_ritual}Ritual{}, {C:joy_fusion}Fusion{}, {C:joy_synchro}Synchro{},",
-                    "{C:joy_xyz}Xyz{} and {C:joy_link}Link{} {C:attention}Jokers{}"
+                    "{C:joy_ritual}Ritual{} and {C:joy_spell}Extra Deck{} Jokers",
                 },
             },
             joy_tooltip_pendulum_joker = {
                 name = "Pendulum Joker",
                 text = {
                     "Can be used as consumable",
-                    "{C:inactive}({C:joy_spell}Special{} {C:inactive}Jokers have to be",
-                    "{C:inactive}properly summoned first)"
+                    "{s:0.15} ",
+                    "{s:0.9,C:inactive}({s:0.9,C:joy_spell}Special{s:0.9} {s:0.9,C:inactive}Jokers have to be",
+                    "{s:0.9,C:inactive}properly summoned first)"
                 },
             },
             joy_tooltip_field_spell_joker = {
                 name = "Field Spell Joker",
                 text = {
                     "Goes to the {C:joy_spell}Field Spell Area{}",
-                    "They don't count as owned {C:attention}Jokers{} for abilities",
-                    "while in that area unless specified"
+                    "{s:0.15} ",
+                    "{s:0.9}Doesn't count a an owned Joker for abilities",
+                    "{s:0.9}while in that area unless specified",
+                    "{s:0.9}Can't be revived"
                 },
             },
             joy_tooltip_banish = {
                 name = "Banish",
                 text = {
-                    "Card temporarily disappears until specified time,",
-                    "keeping only some effects active.",
-                    "They can return even if you don't have room"
+                    "Card temporarily disappears until specified time and",
+                    "return even if you don't have room",
+                    "{s:0.15} ",
+                    "{s:0.9,C:inactive}(Might keep some effects active)"
                 },
             },
             joy_tooltip_tribute = {
                 name = "Tribute",
                 text = {
-                    "Destroy card to activate an ability",
+                    "Destroy card(s) to activate an ability",
                 },
             },
             joy_tooltip_excavate = {
@@ -110,21 +167,20 @@ return {
                 text = {
                     "Reveal the top cards of the deck",
                     "up to the maximum number listed on a card",
-                    "This occurs when {C:attention}Blind{} is selected unless specified",
+                    "{s:0.15} ",
+                    "{s:0.9}This occurs when {C:attention}Blind{} is selected unless specified",
                 },
             },
             joy_tooltip_material = {
                 name = "Material",
                 text = {
                     "Cards used for a summon",
-                    "{C:inactive}({}{C:joy_xyz}Xyz Jokers{} {C:inactive}start with a counter equal{}",
-                    "{C:inactive}to the number used){}",
                 },
             },
             joy_tooltip_detach = {
                 name = "Detach",
                 text = {
-                    "Remove an Xyz material counter",
+                    "Remove an Xyz material",
                     "to activate an ability",
                 },
             },
@@ -132,7 +188,8 @@ return {
                 name = "Token",
                 text = {
                     "{C:joy_normal}Monster{} card crated by abilities",
-                    "It has no with no abilities of its own",
+                    "{s:0.15} ",
+                    "{s:0.9}It has no with no abilities of its own",
                 },
             },
             joy_tooltip_flip = {
