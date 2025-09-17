@@ -1604,6 +1604,19 @@ SMODS.Joker({
             { { monster_type = "Rock" } }, false, true)
         return #materials >= card.ability.extra.tributes
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                card.joker_display_values.mult = card.ability.extra.mult * JoyousSpring.get_excavated_count("Diamonds")
+            end
+        }
+    end
 })
 
 -- Doki Doki
@@ -1674,6 +1687,19 @@ SMODS.Joker({
             { { monster_type = "Rock" } }, false, true)
         return #materials >= card.ability.extra.tributes
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                card.joker_display_values.chips = card.ability.extra.chips * JoyousSpring.get_excavated_count("Diamonds")
+            end
+        }
+    end
 })
 
 -- Block Dragon
@@ -1726,6 +1752,28 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+",                              colour = G.C.MULT },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult", colour = G.C.MULT },
+                { text = " " },
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                },
+            },
+            calc_function = function(card)
+                card.joker_display_values.mult = card.ability.extra.mult *
+                    JoyousSpring.count_materials_in_graveyard({ { monster_type = "Rock" } })
+                card.joker_display_values.xmult = 1 +
+                    card.ability.extra.xmult * JoyousSpring.get_excavated_count("Diamonds")
+            end
+        }
+    end
 })
 
 -- Ghost Fairy Elfobia
@@ -1776,6 +1824,20 @@ SMODS.Joker({
         if next(SMODS.find_card("j_joy_elfuria")) then
             return JoyousSpring.filter_material_keys_from_list(choices, { { monster_attribute = "WIND" } })
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                card.joker_display_values.chips = card.ability.extra.chips *
+                    JoyousSpring.count_materials_in_graveyard({ { monster_attribute = "WIND" } })
+            end
+        }
     end
 })
 
@@ -1824,6 +1886,20 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                card.joker_display_values.mult = card.ability.extra.mult *
+                    JoyousSpring.count_materials_in_graveyard({ { monster_attribute = "WIND" } })
+            end
+        }
+    end
 })
 
 local smods_add_to_pool_ref = SMODS.add_to_pool
@@ -1865,6 +1941,7 @@ SMODS.Joker({
                 for _, joker in ipairs(G.jokers.cards) do
                     if joker ~= context.other_joker and JoyousSpring.is_same_type_attribute(joker, context.other_joker) then
                         exists = true
+                        break
                     end
                 end
                 if exists then
@@ -1876,6 +1953,26 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        return {
+            mod_function = function(card, mod_joker)
+                if card.facing == "front" then
+                    local exists = false
+                    for _, joker in ipairs(G.jokers.cards) do
+                        if joker ~= card and JoyousSpring.is_same_type_attribute(joker, card) then
+                            exists = true
+                            break
+                        end
+                    end
+                    return {
+                        x_mult = (exists and mod_joker.ability.extra.xmult and
+                            mod_joker.ability.extra.xmult ^ JokerDisplay.calculate_joker_triggers(mod_joker) or nil)
+                    }
+                end
+                return {}
+            end
+        }
+    end
 })
 
 -- Genomix Fighter
@@ -1977,6 +2074,41 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.ability.extra", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            extra = {
+                {
+                    { text = "(" },
+                    { ref_table = "card.joker_display_values", ref_value = "odds_xmult" },
+                    { text = ")" },
+                },
+                {
+                    { text = "(" },
+                    { ref_table = "card.joker_display_values", ref_value = "odds_negative" },
+                    { text = ")" },
+                }
+            },
+            extra_config = { colour = G.C.GREEN, scale = 0.3 },
+            calc_function = function(card)
+                local numerator_xmult, denominator_xmult = SMODS.get_probability_vars(card, 1,
+                    card.ability.extra.odds_xmult,
+                    card.config.center.key .. "_xmult")
+                local numerator_negative, denominator_negative = SMODS.get_probability_vars(card, 1,
+                    card.ability.extra.odds_negative, card.config.center.key .. "_negative")
+                card.joker_display_values.odds_xmult = localize { type = 'variable', key = "jdis_odds", vars = { numerator_xmult, denominator_xmult } }
+                card.joker_display_values.odds_negative = localize { type = 'variable', key = "jdis_odds", vars = { numerator_negative, denominator_negative } }
+            end
+        }
+    end
 })
 
 -- Space-Time Police
@@ -2156,6 +2288,19 @@ SMODS.Joker({
             card.joy_count = count
             return count
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.joker_display_values", ref_value = "active" },
+                { text = ")" },
+            },
+            calc_function = function(card)
+                card.joker_display_values.active = card.ability.extra.excavated .. "/" .. card.ability.extra.requirement
+            end
+        }
     end
 })
 
@@ -2212,6 +2357,31 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            extra = {
+                {
+                    { text = "(" },
+                    { ref_table = "card.joker_display_values", ref_value = "odds" },
+                    { text = ")" },
+                }
+            },
+            extra_config = { colour = G.C.GREEN, scale = 0.3 },
+            calc_function = function(card)
+                local numerator, denominator = SMODS.get_probability_vars(card, 1,
+                    card.ability.extra.odds, card.config.center.key)
+                card.joker_display_values.odds = localize { type = 'variable', key = "jdis_odds", vars = { numerator, denominator } }
+                card.joker_display_values.mult = card.ability.extra.mult *
+                    JoyousSpring.count_materials_in_graveyard({ { monster_type = "Spellcaster" } })
+            end
+        }
+    end
 })
 
 -- Couple of Aces
@@ -2283,6 +2453,81 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "x_mult", retrigger_type = "exp" }
+                    }
+                },
+                { text = " " },
+                { ref_table = "card.joker_display_values", ref_value = "aces", retrigger_type = "mult" },
+                { text = "x",                              scale = 0.35 },
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.ability.extra", ref_value = "xmult" }
+                    }
+                }
+            },
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.joker_display_values", ref_value = "localized_text", colour = G.C.ORANGE },
+                { text = ")" },
+            },
+            extra = {
+                {
+                    { text = "(" },
+                    { ref_table = "card.joker_display_values", ref_value = "odds_xmult" },
+                    { text = ")" },
+                },
+                {
+                    { text = "(" },
+                    { ref_table = "card.joker_display_values", ref_value = "odds_level" },
+                    { text = ")" },
+                },
+                {
+                    { text = "(" },
+                    { ref_table = "card.joker_display_values", ref_value = "odds_enhance" },
+                    { text = ")" },
+                },
+            },
+            extra_config = { colour = G.C.GREEN, scale = 0.3 },
+            calc_function = function(card)
+                local x_mult = 1
+                local aces = 0
+                local text, poker_hands, scoring_hand = JokerDisplay.evaluate_hand()
+                if poker_hands["Pair"] and next(poker_hands["Pair"]) then
+                    x_mult = card.ability.extra.xmult
+                end
+                if text ~= 'Unknown' then
+                    for _, scoring_card in pairs(scoring_hand) do
+                        if scoring_card:get_id() == 14 then
+                            aces = aces +
+                                JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
+                        end
+                    end
+                end
+                card.joker_display_values.x_mult = x_mult
+                card.joker_display_values.aces = aces
+                card.joker_display_values.localized_text = localize("Pair", 'poker_hands')
+                local numerator_xmult, denominator_xmult = SMODS.get_probability_vars(card, 1,
+                    card.ability.extra.odds_xmult,
+                    card.config.center.key .. "_xmult")
+                local numerator_level, denominator_level = SMODS.get_probability_vars(card, 1,
+                    card.ability.extra.odds_level,
+                    card.config.center.key .. "_level")
+                local numerator_enhance, denominator_enhance = SMODS.get_probability_vars(card, 1,
+                    card.ability.extra.odds_enhance, card.config.center.key .. "_enhance")
+                card.joker_display_values.odds_xmult = localize { type = 'variable', key = "jdis_odds", vars = { numerator_xmult, denominator_xmult } }
+                card.joker_display_values.odds_level = localize { type = 'variable', key = "jdis_odds", vars = { numerator_level, denominator_level } }
+                card.joker_display_values.odds_enhance = localize { type = 'variable', key = "jdis_odds", vars = { numerator_enhance, denominator_enhance } }
+            end
+        }
+    end
 })
 
 -- Linkslayer
