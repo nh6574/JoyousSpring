@@ -103,6 +103,34 @@ SMODS.Joker({
             card.ability.extra.odds, card.config.center.key)
         local amount = card.ability.extra.money * math.min(numerator, denominator)
         return amount > 0 and amount or nil
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+$" },
+                { ref_table = "card.joker_display_values", ref_value = "money" },
+            },
+            text_config = { colour = G.C.GOLD },
+            extra = {
+                {
+                    { text = "(" },
+                    { ref_table = "card.joker_display_values", ref_value = "odds" },
+                    { text = ")" },
+                }
+            },
+            extra_config = { colour = G.C.GREEN, scale = 0.3 },
+            reminder_text = {
+                { ref_table = "card.joker_display_values", ref_value = "localized_text" },
+            },
+            calc_function = function(card)
+                local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
+                    card.ability.extra.odds, card.config.center.key)
+                card.joker_display_values.odds = localize { type = 'variable', key = "jdis_odds", vars = { numerator, denominator } }
+                card.joker_display_values.money = math.max(0, card.ability.extra.money * math.min(numerator, denominator))
+                card.joker_display_values.localized_text = "(" .. localize("k_round") .. ")"
+            end
+        }
     end
 })
 
@@ -176,6 +204,31 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            extra = {
+                {
+                    { text = "(" },
+                    { ref_table = "card.joker_display_values", ref_value = "odds" },
+                    { text = ")" },
+                }
+            },
+            extra_config = { colour = G.C.GREEN, scale = 0.3 },
+            calc_function = function(card)
+                local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
+                    card.ability.extra.odds, card.config.center.key)
+                card.joker_display_values.odds = localize { type = 'variable', key = "jdis_odds", vars = { numerator, denominator } }
+                local numerator_sum, denominator_sum = get_all_flady_probabilities()
+                card.joker_display_values.mult = card.ability.extra.mult * math.min(numerator_sum, denominator_sum)
+            end
+        }
+    end
 })
 
 -- Fortune Lady Wind
@@ -244,6 +297,35 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            extra = {
+                {
+                    { text = "(" },
+                    { ref_table = "card.joker_display_values", ref_value = "odds" },
+                    { text = ")" },
+                }
+            },
+            extra_config = { colour = G.C.GREEN, scale = 0.3 },
+            calc_function = function(card)
+                local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
+                    card.ability.extra.odds, card.config.center.key)
+                card.joker_display_values.odds = localize { type = 'variable', key = "jdis_odds", vars = { numerator, denominator } }
+            end,
+            mod_function = function(card, mod_joker)
+                if card.facing == "front" and JoyousSpring.is_monster_archetype(card, "FortuneLady") then
+                    local numerator, denominator = get_flady_probability_sum(card)
+
+                    return {
+                        chips = (mod_joker.ability.extra.chips and
+                            mod_joker.ability.extra.chips * math.min(numerator, denominator) * JokerDisplay.calculate_joker_triggers(mod_joker) or nil)
+                    }
+                end
+                return {}
+            end
+        }
+    end
 })
 
 -- Fortune Lady Water
@@ -323,6 +405,30 @@ SMODS.Joker({
         if not from_debuff then
             G.hand:change_size(-card.ability.extra.current_h_size)
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            extra = {
+                {
+                    { text = "(" },
+                    { ref_table = "card.joker_display_values", ref_value = "odds" },
+                    { text = ")" },
+                }
+            },
+            extra_config = { colour = G.C.GREEN, scale = 0.3 },
+            calc_function = function(card)
+                local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
+                    card.ability.extra.odds, card.config.center.key)
+                card.joker_display_values.odds = localize { type = 'variable', key = "jdis_odds", vars = { numerator, denominator } }
+                card.joker_display_values.chips = card.ability.extra.chips * math.min(numerator, denominator)
+            end
+        }
     end
 })
 
@@ -410,6 +516,30 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            extra = {
+                {
+                    { text = "(" },
+                    { ref_table = "card.joker_display_values", ref_value = "odds" },
+                    { text = ")" },
+                }
+            },
+            extra_config = { colour = G.C.GREEN, scale = 0.3 },
+            calc_function = function(card)
+                local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
+                    card.ability.extra.odds, card.config.center.key)
+                card.joker_display_values.odds = localize { type = 'variable', key = "jdis_odds", vars = { numerator, denominator } }
+                card.joker_display_values.mult = card.ability.extra.mult * math.min(numerator, denominator)
+            end
+        }
+    end
 })
 
 
@@ -466,9 +596,8 @@ SMODS.Joker({
                 end
             end
             if context.joker_main then
-                local increased = card.ability.extra.increased
                 return {
-                    xmult = 1 + card.ability.extra.xmult * increased
+                    xmult = 1 + card.ability.extra.xmult * card.ability.extra.increased
                 }
             end
             if context.joy_modify_probability and context.joy_increased and context.joy_card == card then
@@ -484,6 +613,33 @@ SMODS.Joker({
     end,
     remove_from_deck = function(self, card, from_debuff)
         card.ability.extra.increased = 0
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            extra = {
+                {
+                    { text = "(" },
+                    { ref_table = "card.joker_display_values", ref_value = "odds" },
+                    { text = ")" },
+                }
+            },
+            extra_config = { colour = G.C.GREEN, scale = 0.3 },
+            calc_function = function(card)
+                local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
+                    card.ability.extra.odds, card.config.center.key)
+                card.joker_display_values.odds = localize { type = 'variable', key = "jdis_odds", vars = { numerator, denominator } }
+                card.joker_display_values.xmult = 1 + card.ability.extra.xmult * card.ability.extra.increased
+            end
+        }
     end
 })
 
@@ -556,6 +712,33 @@ SMODS.Joker({
             end
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                }
+            },
+            extra = {
+                {
+                    { text = "(" },
+                    { ref_table = "card.joker_display_values", ref_value = "odds" },
+                    { text = ")" },
+                }
+            },
+            extra_config = { colour = G.C.GREEN, scale = 0.3 },
+            calc_function = function(card)
+                local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
+                    card.ability.extra.odds, card.config.center.key)
+                card.joker_display_values.odds = localize { type = 'variable', key = "jdis_odds", vars = { numerator, denominator } }
+                card.joker_display_values.xmult = 1 + card.ability.extra.xmult * math.min(numerator, denominator)
+            end
+        }
+    end
 })
 
 -- Fortune Lady Every
@@ -724,6 +907,71 @@ SMODS.Joker({
             SMODS.calculate_effect({ message = localize("k_joy_activated_ex"), colour = G.C.GREEN }, card)
             return card.ability.extra.money
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+",                              colour = G.C.MULT },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult", colour = G.C.MULT },
+                { text = " " },
+                {
+                    border_nodes = {
+                        { text = "X" },
+                        { ref_table = "card.ability.extra", ref_value = "xmult", retrigger_type = "exp" }
+                    }
+                },
+                { text = "?" },
+            },
+            extra = {
+                {
+                    { text = "(" },
+                    { ref_table = "card.joker_display_values", ref_value = "odds_1" },
+                    { text = ")" },
+                },
+                {
+                    { text = "(" },
+                    { ref_table = "card.joker_display_values", ref_value = "odds_2" },
+                    { text = ")" },
+                },
+                {
+                    { text = "(" },
+                    { ref_table = "card.joker_display_values", ref_value = "odds_3" },
+                    { text = ")" },
+                },
+                {
+                    { text = "(" },
+                    { ref_table = "card.joker_display_values", ref_value = "odds_4" },
+                    { text = ")" },
+                },
+                {
+                    { text = "(" },
+                    { ref_table = "card.joker_display_values", ref_value = "odds_5" },
+                    { text = ")" },
+                },
+                {
+                    { text = "(" },
+                    { ref_table = "card.joker_display_values", ref_value = "odds_6" },
+                    { text = ")" },
+                },
+            },
+            extra_config = { colour = G.C.GREEN, scale = 0.3 },
+            calc_function = function(card)
+                local numerators, denominators = {}, {}
+                for i = 1, 6 do
+                    numerators[#numerators + 1], denominators[#denominators + 1] = SMODS.get_probability_vars(card,
+                        card.ability.extra.numerator,
+                        card.ability.extra.odds[i], card.config.center.key .. "_" .. i)
+                    card.joker_display_values["odds_" .. i] = localize { type = 'variable', key = "jdis_odds", vars = { numerators[i], denominators[i] } }
+                end
+                card.joker_display_values.mult = card.ability.extra.mult * math.min(
+                    math.max(denominators[1], denominators[2], denominators[3], denominators[4],
+                        denominators[5], denominators[6]),
+                    numerators[1] + numerators[2] + numerators[3] +
+                    numerators[4] + numerators[5] + numerators[6]
+                )
+            end
+        }
     end
 })
 
@@ -793,7 +1041,20 @@ SMODS.Joker({
         end
     end,
     joy_bypass_room_check = ffairy_bypass_room_check,
-    joy_set_cost = ffairy_set_cost
+    joy_set_cost = ffairy_set_cost,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.joker_display_values", ref_value = "active" },
+                { text = ")" },
+            },
+            calc_function = function(card)
+                card.joker_display_values.active = card.ability.extra.successes .. "/" .. card.ability.extra.succeed
+            end
+        }
+    end
 })
 
 -- Fortune Fairy En
@@ -847,7 +1108,31 @@ SMODS.Joker({
         end
     end,
     joy_bypass_room_check = ffairy_bypass_room_check,
-    joy_set_cost = ffairy_set_cost
+    joy_set_cost = ffairy_set_cost,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            extra = {
+                {
+                    { text = "(" },
+                    { ref_table = "card.joker_display_values", ref_value = "odds" },
+                    { text = ")" },
+                }
+            },
+            extra_config = { colour = G.C.GREEN, scale = 0.3 },
+            calc_function = function(card)
+                local numerator, denominator = SMODS.get_probability_vars(card, 1,
+                    card.ability.extra.odds, card.config.center.key)
+                card.joker_display_values.odds = localize { type = 'variable', key = "jdis_odds", vars = { numerator, denominator } }
+                card.joker_display_values.mult = card.ability.extra.mult * (G.GAME.joy_probability_success or 0)
+            end
+        }
+    end
 })
 
 -- Fortune Fairy Hu
@@ -902,7 +1187,26 @@ SMODS.Joker({
         end
     end,
     joy_bypass_room_check = ffairy_bypass_room_check,
-    joy_set_cost = ffairy_set_cost
+    joy_set_cost = ffairy_set_cost,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            reminder_text = {
+                { text = "(" },
+                { ref_table = "card.joker_display_values", ref_value = "active" },
+                { text = ")" },
+            },
+            calc_function = function(card)
+                card.joker_display_values.chips = card.ability.extra.chips * (G.GAME.joy_probability_success or 0)
+                card.joker_display_values.active = (card.ability.extra.active and localize("jdis_active") or localize("jdis_inactive"))
+            end
+        }
+    end
 })
 
 -- Fortune Fairy Swee
@@ -967,7 +1271,20 @@ SMODS.Joker({
         end
     end,
     joy_bypass_room_check = ffairy_bypass_room_check,
-    joy_set_cost = ffairy_set_cost
+    joy_set_cost = ffairy_set_cost,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                card.joker_display_values.chips = card.ability.extra.chips * (G.GAME.joy_probability_success or 0)
+            end
+        }
+    end
 })
 
 -- Fortune Fairy Ann
@@ -1021,7 +1338,25 @@ SMODS.Joker({
         end
     end,
     joy_bypass_room_check = ffairy_bypass_room_check,
-    joy_set_cost = ffairy_set_cost
+    joy_set_cost = ffairy_set_cost,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            extra = {
+                {
+                    { text = "(" },
+                    { ref_table = "card.joker_display_values", ref_value = "odds" },
+                    { text = ")" },
+                }
+            },
+            extra_config = { colour = G.C.GREEN, scale = 0.3 },
+            calc_function = function(card)
+                local numerator, denominator = SMODS.get_probability_vars(card, 1,
+                    card.ability.extra.odds, card.config.center.key)
+                card.joker_display_values.odds = localize { type = 'variable', key = "jdis_odds", vars = { numerator, denominator } }
+            end
+        }
+    end
 })
 
 -- Fortune Fairy Chee
@@ -1070,7 +1405,20 @@ SMODS.Joker({
         end
     end,
     joy_bypass_room_check = ffairy_bypass_room_check,
-    joy_set_cost = ffairy_set_cost
+    joy_set_cost = ffairy_set_cost,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+            },
+            text_config = { colour = G.C.MULT },
+            calc_function = function(card)
+                card.joker_display_values.mult = card.ability.extra.mult * (G.GAME.joy_probability_success or 0)
+            end
+        }
+    end
 })
 
 JoyousSpring.collection_pool[#JoyousSpring.collection_pool + 1] = {
