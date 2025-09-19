@@ -21,3 +21,152 @@ JoyousSpring.card_collection_UIBox = hook_your_collection(JoyousSpring.card_coll
 	end
 end)
 '''
+
+# Joker Loadouts
+[[patches]]
+[patches.pattern]
+target = '=[SMODS jokerloadouts "modules/ui.lua"]'
+pattern = '''
+self.jkrldts_extra_buttons = UIBox {
+        definition = {
+            n = G.UIT.ROOT,
+            config = {
+                align = "cm",
+                minw = 1,
+                minh = 0.3,
+                padding = 0.05,
+                r = 0.1,
+                colour = G.C.CLEAR
+            },
+            nodes = {
+'''
+position = 'at'
+match_indent = true
+payload = '''
+self.jkrldts_extra_buttons = UIBox {
+        definition = {
+            n = G.UIT.ROOT,
+            config = {
+                align = "cm",
+                minw = 1,
+                minh = 0.3,
+                padding = 0.15,
+                r = 0.1,
+                colour = G.C.CLEAR
+            },
+            nodes = {
+                {
+                    n = G.UIT.C,
+                    config = {
+                        align = "tm",
+                        minw = 1,
+                        padding = 0.1,
+                        r = 0.1,
+                        hover = true,
+                        colour = G.C.RED,
+                        shadow = true,
+                        button = "jkrldts_save",
+                    },
+                    nodes = {
+                        {
+                            n = G.UIT.R,
+                            config = { align = "bcm", padding = 0 },
+                            nodes = {
+                                {
+                                    n = G.UIT.T,
+                                    config = {
+                                        text = "Save",
+                                        scale = 0.35,
+                                        colour = G.C.UI.TEXT_LIGHT
+                                    }
+                                }
+                            }
+                        },
+                    }
+                },
+'''
+
+[[patches]]
+[patches.pattern]
+target = '=[SMODS jokerloadouts "modules/ui.lua"]'
+pattern = '''
+if old then
+	JKRLDTS.save_loadout(old)
+	e.parent.children[old].config.colour = G.C.RED
+end
+'''
+position = 'at'
+match_indent = true
+payload = '''
+e.parent.children[(old or 1)+1].config.colour = G.C.RED
+'''
+
+[[patches]]
+[patches.pattern]
+target = '=[SMODS jokerloadouts "modules/id.lua"]'
+pattern = '''
+return ret
+'''
+position = 'before'
+match_indent = true
+payload = '''
+local banish_areas = JoyousSpring.get_banished_areas()
+
+for _, area in ipairs(banish_areas) do
+	for _, jkr in ipairs(area.cards) do
+		if jkr.ability and jkr.ability.JKRLDTS_id then
+			G.loadouts_map[jkr.ability.JKRLDTS_id] = jkr
+		end
+	end
+end
+'''
+
+[[patches]]
+[patches.pattern]
+target = '=[SMODS jokerloadouts "modules/loadouts.lua"]'
+pattern = '''
+for pos = #loadout, 1, -1 do
+	local id = loadout[pos]
+	if (not G.loadouts_map[id]) or (not G.loadouts_map[id].area) or (G.loadouts_map[id].area ~= G.jokers) then
+		table.remove(loadout, pos)
+	end
+end
+'''
+position = 'at'
+match_indent = true
+payload = '''
+local validated = {}
+for pos = #loadout, 1, -1 do
+	local id = loadout[pos]
+	if G.loadouts_map[id] and G.loadouts_map[id].area and G.loadouts_map[id].area == G.jokers then
+		table.insert(validated, 1, id)
+	end
+end
+return validated
+'''
+
+[[patches]]
+[patches.pattern]
+target = '=[SMODS jokerloadouts "modules/loadouts.lua"]'
+pattern = '''
+JKRLDTS.validate_loadout(loadout)
+for pos, id in ipairs(loadout) do
+'''
+position = 'at'
+match_indent = true
+payload = '''
+local validated = JKRLDTS.validate_loadout(loadout)
+for pos, id in ipairs(validated) do
+'''
+
+[[patches]]
+[patches.pattern]
+target = '=[SMODS jokerloadouts "modules/loadouts.lua"]'
+pattern = '''
+if old.facing == "front" and target_jkr.facing == "front" then
+'''
+position = 'at'
+match_indent = true
+payload = '''
+if target_jkr.facing == "front" or JoyousSpring.is_from_joyousspring(target_jkr) then
+'''

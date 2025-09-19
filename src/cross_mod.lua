@@ -366,3 +366,13 @@ if TMJ then
         --nil returns are fine
     end
 end
+
+-- Joker Loadouts
+
+if next(SMODS.find_mod("jokerloadouts")) then
+    function G.FUNCS.jkrldts_save()
+        if G.GAME.current_loadout then
+            JKRLDTS.save_loadout(G.GAME.current_loadout or 0)
+        end
+    end
+end

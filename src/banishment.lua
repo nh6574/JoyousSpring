@@ -105,6 +105,23 @@ JoyousSpring.return_from_banish = function(card)
     })
 end
 
+JoyousSpring.is_banished = function(card)
+    return type(card) == "table" and card.area and
+        card.area == JoyousSpring.banish_blind_selected_area or
+        card.area == JoyousSpring.banish_boss_selected_area or
+        card.area == JoyousSpring.banish_end_of_ante_area or
+        card.area == JoyousSpring.banish_end_of_round_area
+end
+
+JoyousSpring.get_banished_areas = function()
+    local areas = {}
+    if JoyousSpring.banish_blind_selected_area then areas[#areas + 1] = JoyousSpring.banish_blind_selected_area end
+    if JoyousSpring.banish_boss_selected_area then areas[#areas + 1] = JoyousSpring.banish_boss_selected_area end
+    if JoyousSpring.banish_end_of_ante_area then areas[#areas + 1] = JoyousSpring.banish_end_of_ante_area end
+    if JoyousSpring.banish_end_of_round_area then areas[#areas + 1] = JoyousSpring.banish_end_of_round_area end
+    return areas
+end
+
 JoyousSpring.create_banishment_area_tabs = function(area)
     if not JoyousSpring.banish_displays then
         JoyousSpring.banish_displays = {}
