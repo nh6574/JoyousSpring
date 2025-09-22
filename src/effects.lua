@@ -62,7 +62,7 @@ end
 ---Does global effects when a context is being calculated
 ---@param context table
 JoyousSpring.calculate_context = function(context)
-    if not G.deck then return end
+    if not JoyousSpring.field_spell_area then return end
     -- Check if card is flipped by blind
     if context.joy_pre_setting_blind then
         for _, joker in ipairs(G.jokers.cards) do
