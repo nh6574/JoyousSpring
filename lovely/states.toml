@@ -3,82 +3,72 @@ version = "0.1.0"
 dump_lua = true
 priority = 0
 
-# Dummy
+# Change from shop to side deck
 [[patches]]
 [patches.pattern]
-target = "game.lua"
-pattern = ""
-position = "after"
+target = "functions/button_callbacks.lua"
+pattern = '''G.STATE = G.STATES.BLIND_SELECT'''
+position = "at"
 payload = '''
+G.STATE = not JoyousSpring.config.disable_side_deck and G.STATES.JOY_SIDE_DECK or G.STATES.BLIND_SELECT
 '''
 match_indent = true
 
-# Change from shop to side deck
-# [[patches]]
-# [patches.pattern]
-# target = "functions/button_callbacks.lua"
-# pattern = '''G.STATE = G.STATES.BLIND_SELECT'''
-# position = "at"
-# payload = '''
-# G.STATE = not JoyousSpring.config.disable_side_deck and G.STATES.JOY_SIDE_DECK or G.STATES.BLIND_SELECT
-# '''
-# match_indent = true
+# Game:set_globals
+[[patches]]
+[patches.regex]
+target = "globals.lua"
+pattern = '''(?<indent>[\t ]*)self\.STATES = \{'''
+position = "after"
+payload = '''
+JOY_SIDE_DECK = 74001,
+'''
+line_prepend = '$indent'
 
-# # Game:set_globals
-# [[patches]]
-# [patches.regex]
-# target = "globals.lua"
-# pattern = '''(?<indent>[\t ]*)self\.STATES = \{'''
-# position = "after"
-# payload = '''
-# JOY_SIDE_DECK = 74001,
-# '''
-# line_prepend = '$indent'
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''
+if self.STATE == self.STATES.MENU then
+    self:update_menu(dt)
+end
+'''
+position = "after"
+payload = '''
+if self.STATE == self.STATES.JOY_SIDE_DECK then
+    JoyousSpring.update_side_deck(self, dt)
+end
+'''
+match_indent = true
 
-# [[patches]]
-# [patches.pattern]
-# target = "game.lua"
-# pattern = '''
-# if self.STATE == self.STATES.MENU then
-#     self:update_menu(dt)
-# end
-# '''
-# position = "after"
-# payload = '''
-# if self.STATE == self.STATES.JOY_SIDE_DECK then
-#     JoyousSpring.update_side_deck(self, dt)
-# end
-# '''
-# match_indent = true
+# CardArea:draw()
+[[patches]]
+[patches.pattern]
+target = "cardarea.lua"
+pattern = "(self.config.type == 'deck' and self ~= G.deck) or"
+position = "before"
+payload = '''
+(self.config.type == 'hand' and state == G.STATES.JOY_SIDE_DECK) or'''
+match_indent = true
 
-# # CardArea:draw()
-# [[patches]]
-# [patches.pattern]
-# target = "cardarea.lua"
-# pattern = "(self.config.type == 'deck' and self ~= G.deck) or"
-# position = "before"
-# payload = '''
-# (self.config.type == 'hand' and state == G.STATES.JOY_SIDE_DECK) or'''
-# match_indent = true
-
-# [[patches]]
-# [patches.pattern]
-# target = "functions/UI_definitions.lua"
-# pattern = '''
-# {n=G.UIT.R, config={align = "cm", maxw = 1.3}, nodes={
-#     {n=G.UIT.T, config={text = localize('b_next_round_1'), scale = 0.4, colour = G.C.WHITE, shadow = true}}
-# }},
-# {n=G.UIT.R, config={align = "cm", maxw = 1.3}, nodes={
-#     {n=G.UIT.T, config={text = localize('b_next_round_2'), scale = 0.4, colour = G.C.WHITE, shadow = true}}
-# }}
-# '''
-# position = "at"
-# payload = '''
-# {n=G.UIT.R, config={align = "cm", maxw = 1.3}, nodes={
-#     {n=G.UIT.T, config={text = not JoyousSpring.config.disable_side_deck and localize('b_joy_to_side_1') or localize('b_next_round_1'), scale = 0.4, colour = G.C.WHITE, shadow = true}}
-# }},
-# {n=G.UIT.R, config={align = "cm", maxw = 1.3}, nodes={
-#     {n=G.UIT.T, config={text = not JoyousSpring.config.disable_side_deck and localize('b_joy_to_side_2') or localize('b_next_round_2'), scale = 0.4, colour = G.C.WHITE, shadow = true}}
-# }}
-# '''
-# match_indent = true
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''
+{n=G.UIT.R, config={align = "cm", maxw = 1.3}, nodes={
+    {n=G.UIT.T, config={text = localize('b_next_round_1'), scale = 0.4, colour = G.C.WHITE, shadow = true}}
+}},
+{n=G.UIT.R, config={align = "cm", maxw = 1.3}, nodes={
+    {n=G.UIT.T, config={text = localize('b_next_round_2'), scale = 0.4, colour = G.C.WHITE, shadow = true}}
+}}
+'''
+position = "at"
+payload = '''
+{n=G.UIT.R, config={align = "cm", maxw = 1.3}, nodes={
+    {n=G.UIT.T, config={text = not JoyousSpring.config.disable_side_deck and localize('b_joy_to_side_1') or localize('b_next_round_1'), scale = 0.4, colour = G.C.WHITE, shadow = true}}
+}},
+{n=G.UIT.R, config={align = "cm", maxw = 1.3}, nodes={
+    {n=G.UIT.T, config={text = not JoyousSpring.config.disable_side_deck and localize('b_joy_to_side_2') or localize('b_next_round_2'), scale = 0.4, colour = G.C.WHITE, shadow = true}}
+}}
+'''
+match_indent = true
