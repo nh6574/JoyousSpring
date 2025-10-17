@@ -588,8 +588,8 @@ return {
             ["k_joy_hanafuda_Wisteria"] = "Glicina",
 
             ["k_joy_hanafuda_Water Iris with Bridge"] = "Lirio con el Puente",
-            ["k_joy_hanafuda_Water iris with Ribbon"] = "Lirio con Cinta",
-            ["k_joy_hanafuda_Water iris"] = "Lirio",
+            ["k_joy_hanafuda_Water Iris with Ribbon"] = "Lirio con Cinta",
+            ["k_joy_hanafuda_Water Iris"] = "Lirio",
 
             ["k_joy_hanafuda_Peony with Butterfly"] = "Peonía con Mariposa",
             ["k_joy_hanafuda_Peony with Ribbon"] = "Peonía con Cinta",

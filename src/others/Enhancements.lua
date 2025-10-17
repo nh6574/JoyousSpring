@@ -31,9 +31,9 @@ JoyousSpring.hanafuda_cards = {
     ["Wisteria_2"] = { month = "april", type = "chaff", pos = { x = 5, y = 1 } },
 
     ["Water Iris with Bridge"] = { month = "may", type = "animal", pos = { x = 6, y = 1 } },
-    ["Water iris with Ribbon"] = { month = "may", type = "ribbon", pos = { x = 7, y = 1 } },
-    ["Water iris"] = { month = "may", type = "chaff", pos = { x = 8, y = 1 } },
-    ["Water iris_2"] = { month = "may", type = "chaff", pos = { x = 9, y = 1 } },
+    ["Water Iris with Ribbon"] = { month = "may", type = "ribbon", pos = { x = 7, y = 1 } },
+    ["Water Iris"] = { month = "may", type = "chaff", pos = { x = 8, y = 1 } },
+    ["Water Iris_2"] = { month = "may", type = "chaff", pos = { x = 9, y = 1 } },
 
     ["Peony with Butterfly"] = { month = "june", type = "animal", pos = { x = 0, y = 2 } },
     ["Peony with Ribbon"] = { month = "june", type = "ribbon", pos = { x = 1, y = 2 } },

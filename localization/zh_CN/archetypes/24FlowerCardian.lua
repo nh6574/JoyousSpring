@@ -585,8 +585,8 @@ return {
             ["k_joy_hanafuda_Wisteria"] = "藤",
 
             ["k_joy_hanafuda_Water Iris with Bridge"] = "菖蒲上桥",
-            ["k_joy_hanafuda_Water iris with Ribbon"] = "菖蒲上绶",
-            ["k_joy_hanafuda_Water iris"] = "菖蒲",
+            ["k_joy_hanafuda_Water Iris with Ribbon"] = "菖蒲上绶",
+            ["k_joy_hanafuda_Water Iris"] = "菖蒲",
 
             ["k_joy_hanafuda_Peony with Butterfly"] = "牡丹上蝴蝶",
             ["k_joy_hanafuda_Peony with Ribbon"] = "牡丹上绶",
