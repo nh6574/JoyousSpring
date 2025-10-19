@@ -69,12 +69,28 @@ return {
                         "{C:attention}小丑牌{}的{C:green}几率{} {C:attention}#2#{}到{C:attention}#3#{}点随机值",
                     },
                     {
-                        "{C:green}#4#/#5#{} 几率选中{C:attention}盲注{}时附加{C:attention}#6#{}个素材"
+                        "{C:green}#4#/#5#{}几率选中{C:attention}盲注{}时附加{C:attention}#6#{}个素材"
                     }
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2+{}张同名稀有度",
-                    "{C:attention}小丑牌{}",
+                    "{C:attention}2+{}张同名稀有度的{C:attention}小丑牌{}",                 
+                    "{s:0.9,C:inactive}({s:0.9,C:joy_xyz}超量{s:0.9,C:inactive}、{s:0.9,C:joy_link}连接{}",
+                    "{s:0.9,C:inactive}或{s:0.9,C:joy_token}衍生物{s:0.9,C:inactive}除外)"
+                }
+            },
+            j_joy_igniter = {
+                name = "{C:joy_xyz}代码点火员",
+                text = {
+                    {
+                        "本局每次{C:joy_ritual}仪式{}召唤给与{X:mult,C:white}X#1#{}倍率",
+                        "{C:inactive}(当前 {X:mult,C:white}X#2#{} {C:inactive}倍率)"
+                    },
+                    {
+                        "{C:joy_xyz}去除{} {C:attention}#3#{}: 将{C:attention}#4#{}张{C:joy_ritual}仪式{}加入商店",
+                    },
+                },
+                joy_summon_conditions = {
+                    "{C:attention}2{}张{C:joy_normal}电子界{}",	   
                     "{s:0.9,C:inactive}({s:0.9,C:joy_xyz}超量{s:0.9,C:inactive}、{s:0.9,C:joy_link}连接{}",
                     "{s:0.9,C:inactive}或{s:0.9,C:joy_token}衍生物{s:0.9,C:inactive}除外)"
                 }
