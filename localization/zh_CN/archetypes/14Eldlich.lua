@@ -62,7 +62,7 @@ return {
                         "若拥有{C:joy_normal}「黄金卿」{}，手牌中的牌也生效",
                     },
                     {
-                        "{C:joy_effect}反转{}：回合结束时{C:attention}放逐 #2#{}张{C:joy_normal}不死族{}",
+                        "{C:joy_effect}反转{}：回合结束时{C:attention}除外 #2#{}张{C:joy_normal}不死族{}",
                         "直到选择{C:attention}盲注{}",
                     },
                 }

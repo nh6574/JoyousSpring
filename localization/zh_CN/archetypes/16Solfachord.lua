@@ -115,7 +115,7 @@ return {
                         "{C:inactive}(当前 {X:chips,C:white}X#3#{}{C:inactive}筹码)",
                     },
                     {
-                        "回合结束时{C:attention}放逐 #4#{}张{C:joy_pendulum}灵摆{}",
+                        "回合结束时{C:attention}除外 #4#{}张{C:joy_pendulum}灵摆{}",
                         "直到选择{C:attention}盲注{}",
                     },
                 },
