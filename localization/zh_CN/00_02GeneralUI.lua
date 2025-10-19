@@ -19,8 +19,14 @@ return {
             k_joy_transferred_abilities = "转移的效果：",
             k_joy_select = "选择",
             k_joy_summon = "召唤",
+            k_joy_summon_no_space = " (没有栏位)",				
             k_joy_detach = "去除",
             k_joy_activate = "发动",
+            k_joy_side_deck = "副卡组",
+            b_joy_to_side_1 = "前往",
+            b_joy_to_side_2 = "副卡组",
+            b_joy_buy_to_side_1 = "购买至",
+            b_joy_buy_to_side_2 = "副卡组",			  
             --#endregion
             --#region 相关卡牌
             k_joy_related = "相关",
