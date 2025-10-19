@@ -18,6 +18,14 @@ return {
                     "相关卡牌",
                 },
             },
+            joy_tooltip_alt_art = {
+                name = "异画",
+                text = {
+                    "按{C:attention}A{}键切换",
+                    "卡牌图案",
+                    "{C:inactive,s:0.8}(为当前卡牌)"
+                },
+            },
             joy_tooltip_transferred = {
                 name = "转移",
                 text = {
@@ -53,6 +61,59 @@ return {
                     "{s:0.9,C:inactive}已拥有，不触发相关效果）",
                 },
             },
+            joy_tooltip_fusion_joker = {
+                name = "融合小丑牌",
+                text = {
+                    "购买后会先进入{C:joy_spell}额外卡组{}",
+                    "{s:0.15} ",
+                    "{s:0.9}必须从额外卡组手动选择进行召唤",
+                    "{s:0.9}所选择的{s:0.9,C:attention}素材{s:0.9}将会被销毁",
+					"{s:0.9}必须正规登场才可以被复活"
+                },
+            },
+            joy_tooltip_synchro_joker = {
+                name = "同调小丑牌",
+                text = {
+                    "购买后会先进入{C:joy_spell}额外卡组{}",
+                    "{s:0.15} ",
+                    "{s:0.9}必须从额外卡组手动选择进行召唤",
+                    "{s:0.9}所选择的{s:0.9,C:attention}素材{s:0.9}将会被销毁",
+                    "{s:0.9}必须正规登场才可以被复活"
+                },
+            },
+            joy_tooltip_xyz_joker = {
+                name = "超量小丑牌",
+                text = {
+                    "购买后会先进入{C:joy_spell}额外卡组{}",
+                    "{s:0.15} ",
+                    "{s:0.9}必须从额外卡组手动选择进行召唤",
+                    "{s:0.9}所选择的{s:0.9,C:attention}素材{s:0.9}将会被销毁",
+                    "{s:0.9}必须正规登场才可以被复活",
+                    "{s:0.15} ",
+                    "{s:0.9}{s:0.9,C:joy_xyz}超量小丑牌{}初始拥有的计数器数量",
+                    "{s:0.9}等于使用的素材数量"
+                },
+            },
+            joy_tooltip_link_joker = {
+                name = "连接小丑牌",
+                text = {
+                    "购买后会先进入{C:joy_spell}额外卡组{}",
+                    "{s:0.15} ",
+                    "{s:0.9}必须从额外卡组手动选择进行召唤",
+                    "{s:0.9}所选择的{s:0.9,C:attention}素材{s:0.9}将会被销毁",
+                    "{s:0.9}必须正规登场才可以被复活",
+                },
+            },
+            joy_tooltip_ritual_joker = {
+                name = "仪式小丑牌",
+                text = {
+                    "无法被购买",
+                    "{s:0.15} ",
+                    "{s:0.9}必须从商店手动选择进行召唤",
+                    "{s:0.9}所选择的{s:0.9,C:attention}素材{s:0.9}将会被销毁",
+                    "{s:0.9}必须正规登场才可以被复活"
+                },
+            },
             joy_tooltip_main_deck_joker = {
                 name = "主卡组卡牌",
                 text = {
@@ -63,8 +124,7 @@ return {
             joy_tooltip_special = {
                 name = "特殊怪兽",
                 text = {
-                    "{C:joy_ritual}仪式{}、{C:joy_fusion}融合{}、{C:joy_synchro}同调{}、",
-                    "{C:joy_xyz}超量{}和{C:joy_link}连接{} {C:attention}小丑牌{}",
+                    "{C:joy_ritual}仪式{} and {C:joy_spell}额外卡组{} 小丑牌",
                 },
             },
             joy_tooltip_pendulum_joker = {
@@ -109,8 +169,6 @@ return {
                 name = "素材",
                 text = {
                     "用于召唤的卡牌",
-                    "{C:inactive}（{}{C:joy_xyz}超量小丑牌{} {C:inactive}初始拥有的计数器数量",
-                    "{C:inactive}等于使用的素材数量）{}",
                 },
             },
             joy_tooltip_detach = {
