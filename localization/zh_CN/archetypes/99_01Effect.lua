@@ -546,7 +546,7 @@ return {
                 }
             },
             j_joy_coupleofaces = {
-                name = "{C:joy_effect}圣杯情侣双A",
+                name = "{C:joy_effect}圣杯情侣双A",												  
                 text = {
                     {
                         "若打出牌型包含{C:attention}对子{}",
@@ -556,6 +556,24 @@ return {
                         "{C:green}#4#/#5#{} 几率升级打出牌型",
                         "{C:green}#6#/#7#{} 几率使每张计分牌变为{C:attention}黄金蜡封幸运A{}",
                     },
+                }
+            },
+            j_joy_linkslayer = {
+                name = "{C:joy_effect}连接山猫屠杀者",
+                text = {
+                    {
+                        "每使用一次弃牌时",
+						"每张{C:joy_normal}电子界{}给与{C:chips}+#1#{}筹码",
+                        "{C:inactive}(当前 {C:chips}+#2#{}{C:inactive} 筹码)"
+																												
+																	  
+																											  
+                    },
+                    {
+                        "若拥有{C:joy_normal}电子界{}",
+                        "从商店购买时",
+                        "免费且无需空位"
+                    }
                 }
             },
         }

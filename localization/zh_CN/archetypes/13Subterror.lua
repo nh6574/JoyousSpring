@@ -96,7 +96,7 @@ return {
                 name = "{C:joy_effect}地中族邪界兽·利古钻土蜥",
                 text = {
                     {
-                        "{C:joy_effect}反转{}：回合结束时{C:attention}放逐 #1#{}张其他{C:attention}小丑牌{}",
+                        "{C:joy_effect}反转{}：回合结束时{C:attention}除外 #1#{}张其他{C:attention}小丑牌{}",
                         "直到选择{C:attention}盲注{}",
                     },
                     {

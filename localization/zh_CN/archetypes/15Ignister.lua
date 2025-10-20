@@ -139,7 +139,7 @@ return {
                         "每购买1张{C:joy_normal}“@火灵天星”{}获得{C:money}+$#1#{}",
                     },
                     {
-                        "出售此牌以{C:attention}放逐 #2#{}张{C:joy_normal}“@火灵天星”{}",
+                        "出售此牌以{C:attention}除外 #2#{}张{C:joy_normal}“@火灵天星”{}",
                         "直到选择{C:attention}盲注{}",
                     },
                 }
@@ -174,6 +174,18 @@ return {
                         "若拥有额外卡组召唤的{C:joy_normal}电子界{}，出售此牌",
                         "可禁用当前{C:attention}首领盲注{}并将其加入下家商店",
                     },
+                }
+            },
+            j_joy_ignis_linkslayer = {
+                name = "{C:joy_effect}连接山猫屠杀者＠伊格尼斯者",
+                text = {
+                    {
+                        "可作任意{C:attention}素材{}用于{C:joy_link}连接{}召唤",
+                    },
+                    {
+                        "作为{C:joy_normal}电子界{}召唤{C:attention}素材{}时，",
+                        "永久获得{C:red}+#1#{}弃牌次数",
+                    }
                 }
             },
             j_joy_ignis_leviathan = {
@@ -389,7 +401,7 @@ return {
                     },
                     {
                         "若回合结束时拥有{C:attention}#2#{}种不同{C:attention}属性{}的小丑牌，",
-                        "{C:attention}放逐{}所有{C:joy_normal}电子界{}直到选择{C:attention}盲注{}",
+                        "{C:attention}除外{}所有{C:joy_normal}电子界{}直到选择{C:attention}盲注{}",
                         "但削弱所有非{C:joy_normal}电子界{}牌",
                     },
                 }
