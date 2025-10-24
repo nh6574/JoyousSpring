@@ -99,7 +99,7 @@ return {
                         "{s:0.9}- {s:0.9,C:attention}Hanafuda{s:0.9} {s:0.9,C:joy_link}Lumière{s:0.9}: Ajoute {s:0.9,C:attention}#4#{s:0.9} {s:0.9,C:joy_normal}\"Fleur Cardian\"{s:0.9}",
                         "{s:0.9}à l'{s:0.9,C:joy_spell}Extra Deck {s:0.9,C:inactive}(Nécessite de la place)",
                         "{s:0.9}Sinon, se détruit et {s:0.9}crée {s:0.9,C:attention}#5#{s:0.9}",
-                        "{s:0.9,C:joy_normal}\"Fleur Cardian\" {s:0.9}jusqu'en fin de manche",
+                        "{s:0.9,C:joy_normal}\"Fleur Cardian\" {s:0.9}bannie jusqu'en fin de manche",
                     },
                     {
                         "Si vous possédez une autre {C:joy_normal}\"Fleur Cardian\"{},",
@@ -120,7 +120,7 @@ return {
                         "{s:0.9}- {s:0.9,C:attention}Hanafuda{s:0.9} {s:0.9,C:joy_link}Lumière{s:0.9}: Ajoute {s:0.9,C:attention}#4#{s:0.9} {s:0.9,C:joy_normal}\"Fleur Cardian\"{s:0.9}",
                         "{s:0.9}à l'{s:0.9,C:joy_spell}Extra Deck {s:0.9,C:inactive}(Nécessite de la place)",
                         "{s:0.9}Sinon, se détruit et {s:0.9}crée {s:0.9,C:attention}#5#{s:0.9}",
-                        "{s:0.9,C:joy_normal}\"Fleur Cardian\" {s:0.9}jusqu'en fin de manche",
+                        "{s:0.9,C:joy_normal}\"Fleur Cardian\" {s:0.9}bannie jusqu'en fin de manche",
                     },
                     {
                         "Si vous possédez une autre {C:joy_normal}\"Fleur Cardian\"{},",
