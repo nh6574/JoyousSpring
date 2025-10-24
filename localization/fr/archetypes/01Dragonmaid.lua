@@ -137,7 +137,7 @@ return {
                 },
             },
             j_joy_dmaid_lady = {
-                name = "{C:joy_fusion}Dame de Dragonirène",
+                name = "{C:joy_fusion}Camériste Dragonirène",
                 text = {
                     {
                         "Ajoute {C:joy_fusion}\"Maison Dragonirène\"{} à",
