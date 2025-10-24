@@ -39,7 +39,7 @@ return {
                 text = {
                     {
                         "Les cartes marquants des points dans la {C:attention}colonne{}",
-                        "donnent {C:money}+#1#${} fois son rang",
+                        "donnent {C:money}+#1#${} fois leur rang",
                         "{C:inactive}(Actuellement en colonne{} {C:attention}#2#{}{C:inactive}){}",
                     },
                 },
@@ -49,7 +49,7 @@ return {
                 text = {
                     {
                         "Les cartes marquants des points dans la {C:attention}colonne{}",
-                        "ont {C:green}#1# chance sur <rank>{} de",
+                        "ont {C:green}#1# chance sur <rang>{} de",
                         "se redéclencher ce même nombre de fois.",
                         "Les chances augmentent pour chaque {C:joy_normal}\"Mekk-Chevalier\"{}",
                         "{C:inactive}(Actuellement en colonne{} {C:attention}#2#{}{C:inactive}){}",
