@@ -144,15 +144,7 @@ SMODS.current_mod.calculate = function(self, context)
 
     -- Add extra pack for Extra YGO Booster config
     if context.starting_shop and JoyousSpring.config.extra_ygo_booster then
-        local choices = {
-            "p_joy_monster_pack",
-            "p_joy_jumbo_monster_pack",
-            "p_joy_mega_monster_pack",
-            "p_joy_extra_pack",
-            "p_joy_jumbo_extra_pack",
-            "p_joy_mega_extra_pack",
-        }
-        SMODS.add_booster_to_shop(pseudorandom_element(choices, "JoyousSpring") or "p_joy_monster_pack")
+        SMODS.add_booster_to_shop("p_joy_selection_pack")
     end
 
     -- Global probability hit counter

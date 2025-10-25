@@ -3,6 +3,8 @@ version = "0.1.0"
 dump_lua = true
 priority = 0
 
+## Side deck
+
 # Change from shop to side deck
 [[patches]]
 [patches.pattern]
@@ -21,6 +23,7 @@ target = "globals.lua"
 pattern = '''(?<indent>[\t ]*)self\.STATES = \{'''
 position = "after"
 payload = '''
+
 JOY_SIDE_DECK = 74001,
 '''
 line_prepend = '$indent'
@@ -70,5 +73,34 @@ payload = '''
 {n=G.UIT.R, config={align = "cm", maxw = 1.3}, nodes={
     {n=G.UIT.T, config={text = not JoyousSpring.config.disable_side_deck and localize('b_joy_to_side_2') or localize('b_next_round_2'), scale = 0.4, colour = G.C.WHITE, shadow = true}}
 }}
+'''
+match_indent = true
+
+
+## Boosters
+
+# Prevent booster in booster softlock
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = '''if card.ability.set == 'Booster' then G.GAME.PACK_INTERRUPT = G.STATE end '''
+position = "at"
+payload = '''
+if G.STATE ~= G.STATES.SMODS_BOOSTER_OPENED then
+    if card.ability.set == 'Booster' then G.GAME.PACK_INTERRUPT = G.STATE end
+end
+'''
+match_indent = true
+
+# Open booster in a round (not used yet but it's nice so I'm keeping it just in case)
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = '''G.FUNCS.draw_from_hand_to_deck()'''
+position = "at"
+payload = '''
+if G.GAME.PACK_INTERRUPT ~= G.STATES.SELECTING_HAND then
+    G.FUNCS.draw_from_hand_to_deck()
+end
 '''
 match_indent = true

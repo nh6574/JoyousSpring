@@ -361,6 +361,9 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
         if self.joy_alt_pos and not card.fake_card then
             table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_alt_art" })
         end
+    end
+
+    if desc_nodes == full_UI_table.main then
         -- Add tooltip if it has a related cards menu
         if self.joy_desc_cards and not card.fake_card then
             table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_related" })
@@ -549,7 +552,7 @@ SMODS.Keybind({
         local selected = G and G.CONTROLLER and
             (G.CONTROLLER.focused.target or G.CONTROLLER.hovering.target)
 
-        if not selected or not JoyousSpring.is_monster_card(selected) then
+        if not selected or type(selected) ~= "table" or not ((selected.config or {}).center or {}).joy_desc_cards then
             return
         end
 
