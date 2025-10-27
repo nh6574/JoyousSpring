@@ -267,7 +267,7 @@ SMODS.Joker({
             },
             text_config = { colour = G.C.CHIPS },
             calc_function = function(card)
-                local chips = 1
+                local chips = 0
                 local text, poker_hands, scoring_hand = JokerDisplay.evaluate_hand()
                 if text ~= 'Unknown' and vw_played_hand("xuanwu", { scoring_name = text, poker_hands = poker_hands }) then
                     for _, scoring_card in pairs(scoring_hand) do
@@ -387,7 +387,7 @@ SMODS.Joker({
             },
             text_config = { colour = G.C.MULT },
             calc_function = function(card)
-                local mult = 1
+                local mult = 0
                 local text, poker_hands, scoring_hand = JokerDisplay.evaluate_hand()
                 if text ~= 'Unknown' and vw_played_hand("xuanwu", { scoring_name = text, poker_hands = poker_hands }) then
                     for _, scoring_card in pairs(scoring_hand) do
@@ -485,7 +485,7 @@ SMODS.Joker({
     joker_display_def = function(JokerDisplay)
         return {
             calc_function = function(card)
-                local mult = 1
+                local mult = 0
                 local text, poker_hands, scoring_hand = JokerDisplay.evaluate_hand()
                 if text ~= 'Unknown' and vw_played_hand("xuanwu", { scoring_name = text, poker_hands = poker_hands }) then
                     mult = card.ability.extra.mult
@@ -603,7 +603,7 @@ SMODS.Joker({
             },
             text_config = { colour = G.C.CHIPS },
             calc_function = function(card)
-                local chips = 1
+                local chips = 0
                 local text, poker_hands, scoring_hand = JokerDisplay.evaluate_hand()
                 if text ~= 'Unknown' and vw_played_hand("xuanwu", { scoring_name = text, poker_hands = poker_hands }) then
                     for _, scoring_card in pairs(scoring_hand) do
@@ -717,7 +717,7 @@ SMODS.Joker({
             },
             text_config = { colour = G.C.MULT },
             calc_function = function(card)
-                local mult = 1
+                local mult = 0
                 local text, poker_hands, scoring_hand = JokerDisplay.evaluate_hand()
                 if text ~= 'Unknown' and vw_played_hand("xuanwu", { scoring_name = text, poker_hands = poker_hands }) then
                     for _, scoring_card in pairs(scoring_hand) do
