@@ -29,7 +29,7 @@ return {
                         "each give {X:mult,C:white}X#1#{} Mult",
                     },
                     {
-                        "{C:joy_normal}\"Dogmatika\"{} owned or in the {C:attention}GY{} also count as",
+                        "{C:joy_normal}\"Dogmatika\"{} owned also count as",
                         "debuffed {C:joy_spell}Extra Deck{} {C:attention}Jokers{} and vice versa",
                         "for {C:joy_normal}\"Dogmatika\"{} abilities"
                     },
