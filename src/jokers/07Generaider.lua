@@ -938,7 +938,7 @@ SMODS.Joker({
             local generaiders = JoyousSpring.get_materials_owned({ { monster_archetypes = { "Generaider" }, exclude_tokens = true } })
             local count = 0
             for _, joker in ipairs(generaiders) do
-                if JoyousSpring.get_card_limit(card) == 0 then
+                if JoyousSpring.get_card_limit(joker) == 0 then
                     count = count + 1
                 end
             end

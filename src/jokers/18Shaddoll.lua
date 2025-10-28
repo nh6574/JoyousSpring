@@ -820,7 +820,7 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(other_card) then
             if context.setting_blind and context.main_eval and G.GAME.blind.boss then
                 for i = 1, config.revives do
-                    JoyousSpring.revive_pseudorandom({ { is_flip = true } }, 'j_joy_shaddoll_wendi', true,
+                    JoyousSpring.revive_pseudorandom({ { is_flip = true } }, 'j_joy_shaddoll_wendi', false,
                         "e_negative")
                 end
             end

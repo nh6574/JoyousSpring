@@ -370,7 +370,8 @@ return {
                 name = "{C:joy_fusion}El Shaddoll Wendigo",
                 text = {
                     {
-                        "{C:joy_normal}\"Shaddoll\"{} {C:joy_effect}Flip{} {C:attention}Jokers{} don't {C:attention}flip{} face-down on their own",
+                        "Non-{C:joy_trap}trap{} {C:joy_normal}\"Shaddoll\"{} {C:joy_effect}Flip{} {C:attention}Jokers{}",
+                        "don't {C:attention}flip{} face-down on their own",
                         "and their {C:joy_effect}FLIP{} abilities activate when {C:attention}Blind{} is selected",
                         "A {C:joy_fusion}Fusion{} summoned using this card",
                         "as {C:attention}material{} gains this ability",

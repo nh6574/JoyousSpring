@@ -5,12 +5,6 @@ SMODS.Atlas({
     px = 71,
     py = 95
 })
-SMODS.Atlas({
-    key = "PSYFrame02",
-    path = "09PSYFrame02.png",
-    px = 71,
-    py = 95
-})
 
 -- PSY-Frame Driver
 SMODS.Joker({
@@ -721,8 +715,8 @@ SMODS.Joker({
 -- PSY-Frame Circuit
 SMODS.Joker({
     key = "psy_circuit",
-    atlas = 'PSYFrame02',
-    pos = { x = 0, y = 0 },
+    atlas = 'PSYFrame',
+    pos = { x = 2, y = 2 },
     rarity = 1,
     discovered = true,
     blueprint_compat = false,

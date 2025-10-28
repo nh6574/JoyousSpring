@@ -6,13 +6,6 @@ SMODS.Atlas({
     py = 95
 })
 
-SMODS.Atlas({
-    key = "LiveTwin02",
-    path = "02LiveTwin02.png",
-    px = 71,
-    py = 95
-})
-
 -- Live☆Twin Lil-la
 SMODS.Joker({
     key = "ltwin_lilla",
@@ -722,8 +715,8 @@ SMODS.Joker({
 -- Live☆Twin Channel
 SMODS.Joker({
     key = "ltwin_channel",
-    atlas = 'LiveTwin02',
-    pos = { x = 0, y = 0 },
+    atlas = 'LiveTwin',
+    pos = { x = 0, y = 3 },
     rarity = 3,
     discovered = true,
     blueprint_compat = false,

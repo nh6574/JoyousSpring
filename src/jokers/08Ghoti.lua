@@ -6,13 +6,6 @@ SMODS.Atlas({
     py = 95
 })
 
-SMODS.Atlas({
-    key = "Ghoti02",
-    path = "08Ghoti02.png",
-    px = 71,
-    py = 95
-})
-
 -- Keaf, Murk of the Ghoti
 SMODS.Joker({
     key = "fish_keaf",
@@ -775,8 +768,8 @@ SMODS.Joker({
 -- The Most Distant, Deepest Depths
 SMODS.Joker({
     key = "fish_depths",
-    atlas = 'Ghoti02',
-    pos = { x = 0, y = 0 },
+    atlas = 'Ghoti',
+    pos = { x = 0, y = 3 },
     rarity = 3,
     discovered = true,
     blueprint_compat = false,

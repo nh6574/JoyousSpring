@@ -8,8 +8,10 @@ return {
 	disable_glow = false,
 	disable_side_deck = true,
 	alt_art = {
+		j_joy_dmaid_house = false,
 		j_joy_etwin_kisikil = false,
 		j_joy_etwin_lilla = false,
+		j_joy_dogma_ecclesia = false,
 		j_joy_yokai_ash = false,
 		j_joy_yokai_belle = false,
 		j_joy_eld_eldlich = false,

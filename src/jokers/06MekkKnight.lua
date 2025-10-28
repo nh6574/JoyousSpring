@@ -5,12 +5,7 @@ SMODS.Atlas({
     px = 71,
     py = 95
 })
-SMODS.Atlas({
-    key = "MekkKnight02",
-    path = "06MekkKnight02.png",
-    px = 71,
-    py = 95
-})
+
 -- Mekk-Knight Avram
 SMODS.Joker({
     key = "mekk_avram",
@@ -817,8 +812,8 @@ SMODS.Joker({
 -- World Legacy Scars
 SMODS.Joker({
     key = "mekkleg_scars",
-    atlas = 'MekkKnight02',
-    pos = { x = 0, y = 0 },
+    atlas = 'MekkKnight',
+    pos = { x = 3, y = 2 },
     rarity = 1,
     discovered = true,
     blueprint_compat = false,
