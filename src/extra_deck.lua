@@ -257,8 +257,9 @@ function Game:start_run(args)
 
     game_start_run_ref(self, args)
 
-    JoyousSpring.extra_deck_area.config.card_limit = self.GAME.modifiers["joy_extra_deck_slots"] or
-        JoyousSpring.extra_deck_area.config.card_limit or 5
+    if self.GAME.modifiers["joy_extra_deck_slots"] then
+        JoyousSpring.extra_deck_area:change_size(-5 + self.GAME.modifiers["joy_extra_deck_slots"])
+    end
 
     self.joy_extra_deck = UIBox {
         definition = JoyousSpring.create_UIBox_extra_deck(),
