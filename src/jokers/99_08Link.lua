@@ -333,11 +333,11 @@ SMODS.Joker({
     atlas = 'Misc04',
     pos = { x = 7, y = 5 },
     joy_alt_pos = { { x = 3, y = 6 } },
-    rarity = 3,
+    rarity = 1,
     discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 10,
+    cost = 5,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
