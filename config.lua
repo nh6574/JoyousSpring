@@ -14,6 +14,7 @@ return {
 		j_joy_dogma_ecclesia = false,
 		j_joy_yokai_ash = false,
 		j_joy_yokai_belle = false,
+		j_joy_lab_lady = false,
 		j_joy_eld_eldlich = false,
 		j_joy_shaddoll_winda = false,
 		j_joy_shaddoll_elconstruct = false,

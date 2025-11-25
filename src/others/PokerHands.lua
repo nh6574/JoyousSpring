@@ -107,20 +107,13 @@ JoyousSpring.PokerHandDummy {
     end,
 }
 
-SMODS.Atlas({
-    key = "p_eldland",
-    path = "14p_eldland.png",
-    px = 71,
-    py = 95
-})
-
 SMODS.Consumable {
     key = 'cursed_eldland',
     set = 'Planet',
-    atlas = 'p_eldland',
+    atlas = 'eld',
     discovered = true,
     config = { hand_type = 'joy_eldlixir', softlock = true },
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 2 },
     generate_ui = 0,
     process_loc_text = function(self)
         local target_text = G.localization.descriptions[self.set]['c_mercury'].text

@@ -341,6 +341,7 @@ JoyousSpring.alt_arts = {
     "j_joy_dogma_ecclesia",
     "j_joy_yokai_ash",
     "j_joy_yokai_belle",
+    "j_joy_lab_lady",
     "j_joy_eld_eldlich",
     "j_joy_shaddoll_winda",
     "j_joy_shaddoll_elconstruct",

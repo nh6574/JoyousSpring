@@ -810,6 +810,7 @@ SMODS.Joker({
     key = "lab_lady",
     atlas = 'lab',
     pos = { x = 0, y = 2 },
+    joy_alt_pos = { { x = 2, y = 2 } },
     rarity = 3,
     discovered = true,
     blueprint_compat = false,
