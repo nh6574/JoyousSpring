@@ -1059,6 +1059,7 @@ JoyousSpring.create_overlay_select_summon_materials = function(card, card_list)
             {
                 type = 'summon_materials',
                 highlight_limit = highlight_limit,
+                no_card_count = true
             }
         )
         JoyousSpring.summon_material_area.material_combos = material_combos

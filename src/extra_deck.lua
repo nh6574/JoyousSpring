@@ -236,7 +236,8 @@ function Game:start_run(args)
             card_limit = 1,
             type = 'joker',
             highlight_limit = 1,
-            negative_info = "field_spell"
+            negative_info = "field_spell",
+            bg_colour = { G.C.JOY.SPELL[1], G.C.JOY.SPELL[2], G.C.JOY.SPELL[3], 0.5 }
         }
     )
     JoyousSpring.field_spell_area = G.joy_field_spell_area
@@ -250,7 +251,8 @@ function Game:start_run(args)
             card_limit = 5,
             type = 'joker',
             highlight_limit = 1,
-            negative_info = "extra_deck"
+            negative_info = "extra_deck",
+            bg_colour = { G.C.JOY.SPELL[1], G.C.JOY.SPELL[2], G.C.JOY.SPELL[3], 0.5 }
         }
     )
     JoyousSpring.extra_deck_area = G.joy_extra_deck_area

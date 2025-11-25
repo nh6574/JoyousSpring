@@ -53,32 +53,6 @@ elseif card.ability.set == 'Joker' and JoyousSpring and (JoyousSpring.is_extra_d
     delay_fac = 0.2
 '''
 
-# Change background color
-[[patches]]
-[patches.pattern]
-target = "cardarea.lua"
-pattern = "{n=G.UIT.R, config={minw = self.T.w,minh = self.T.h,align = \"cm\", padding = 0.1, mid = true, r = 0.1, colour = self ~= G.shop_vouchers and {0,0,0,0.1} or nil, ref_table = self}, nodes={"
-position = 'at'
-match_indent = true
-payload = '''
-{n=G.UIT.R, config={minw = self.T.w,minh = self.T.h,align = "cm", padding = 0.1, mid = true, r = 0.1, colour = (self == JoyousSpring.field_spell_area or self == JoyousSpring.extra_deck_area) and {G.C.JOY.SPELL[1],G.C.JOY.SPELL[2],G.C.JOY.SPELL[3],0.5} or self ~= G.shop_vouchers and {0,0,0,0.1} or nil, ref_table = self}, nodes={
-'''
-
-## Summon Materials
-
-# Remove card count when selecting summoning materials
-[[patches]]
-[patches.pattern]
-target = "cardarea.lua"
-pattern = "self.children.area_uibox = UIBox{"
-position = 'before'
-match_indent = true
-payload = '''
-if self.config.type == 'summon_materials' then
-    card_count = nil
-end
-'''
-
 # Field Spells
 
 # Change other_joker key
