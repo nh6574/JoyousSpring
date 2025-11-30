@@ -161,7 +161,7 @@ SMODS.Joker({
         end
     end,
     joy_can_activate = function(card)
-        if not G.GAME.blind or (not G.GAME.blind.disabled and G.GAME.blind.boss) then
+        if not G.GAME.blind or G.GAME.blind.disabled or not G.GAME.blind.boss then
             return false
         end
         local materials = JoyousSpring.get_materials_owned(
