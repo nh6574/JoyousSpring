@@ -40,6 +40,7 @@ SMODS.Atlas({
 ---@field joy_transfer_apply_to_jokers_added? fun(self:SMODS.Joker|table, ability_card:Card|table, added_card:Card|table, config:table):boolean? Similar to `joy_apply_to_jokers_added` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
 ---@field joy_alt_pos? {x:number, y:number}[] Atlas position for alternative art
 ---@field joy_desc_cards? {[number]:string?, properties:material_properties[]?, name:string?}[] Definition of tabs for the related cards popup
+---@field joy_no_shop? true True if it can't be found in the shop or boosters naturally
 
 ---@class Card
 ---@field joy_modify_cost? table
@@ -137,6 +138,7 @@ SMODS.Atlas({
 ---@field exclude_edition boolean?
 ---@field can_flip boolean?
 ---@field cannot_flip boolean?
+---@field from_shop boolean?
 
 ---@class material_restrictions
 ---@field different_names boolean?
@@ -940,6 +942,11 @@ JoyousSpring.is_material_center = function(card_key, properties)
 
     if properties.func then
         if not properties.func(card_center, properties.func_vars) then
+            return false
+        end
+    end
+    if properties.from_shop then
+        if card_center.joy_no_shop then
             return false
         end
     end

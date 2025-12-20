@@ -234,6 +234,7 @@ SMODS.Joker({
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
+    joy_no_shop = true,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
@@ -354,6 +355,7 @@ SMODS.Joker({
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
+    joy_no_shop = true,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
@@ -488,6 +490,7 @@ SMODS.Joker({
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
+    joy_no_shop = true,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
@@ -593,6 +596,7 @@ SMODS.Joker({
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
+    joy_no_shop = true,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
@@ -697,6 +701,7 @@ SMODS.Joker({
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
+    joy_no_shop = true,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
@@ -799,6 +804,7 @@ SMODS.Joker({
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
+    joy_no_shop = true,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
@@ -911,6 +917,7 @@ SMODS.Joker({
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
+    joy_no_shop = true,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
@@ -1044,6 +1051,7 @@ SMODS.Joker({
     blueprint_compat = false,
     eternal_compat = true,
     cost = 12,
+    joy_no_shop = true,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }

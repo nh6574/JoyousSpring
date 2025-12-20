@@ -20,6 +20,7 @@ SMODS.Joker({
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
     set_sprites = JoyousSpring.set_back_sprite,
+    joy_no_shop = true,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
