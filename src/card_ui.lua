@@ -608,6 +608,12 @@ JoyousSpring.create_overlay_see_related = function(card)
 
     if not card_center or not card_center.joy_desc_cards or not type(card_center.joy_desc_cards) == "table" then return end
 
+    if JoyousSpring.related_area then
+        for _, area in ipairs(JoyousSpring.related_area) do
+            area:remove()
+        end
+    end
+
     JoyousSpring.related_area = {}
     local tabs = {}
 
@@ -640,7 +646,22 @@ JoyousSpring.create_overlay_see_related = function(card)
                     end
                 end
                 table.sort(keys, function(a, b) return JoyousSpring.card_order[a] < JoyousSpring.card_order[b] end)
+                local count = 0
                 for j, key in ipairs(keys) do
+                    if count > 20 then
+                        t.area_table[#t.area_table + 1] = CardArea(
+                            0,
+                            0,
+                            G.CARD_W * 8.95,
+                            G.CARD_H,
+                            {
+                                card_limit = 10,
+                                type = 'title',
+                                highlight_limit = 0,
+                            }
+                        )
+                        count = 0
+                    end
                     local old_used_jokers = G.GAME.used_jokers[key]
                     local added_card = SMODS.create_card({
                         key = key,
@@ -649,6 +670,22 @@ JoyousSpring.create_overlay_see_related = function(card)
                     })
                     G.GAME.used_jokers[key] = old_used_jokers
                     t.area_table[#t.area_table]:emplace(added_card)
+                    count = count + 1
+                end
+
+                local nodes = {}
+
+                for _, area in ipairs(t.area_table) do
+                    nodes[#nodes + 1] =
+                    {
+                        n = G.UIT.R,
+                        nodes = { {
+                            n = G.UIT.O,
+                            config = {
+                                object = area
+                            }
+                        } }
+                    }
                 end
 
                 return {
@@ -660,23 +697,16 @@ JoyousSpring.create_overlay_see_related = function(card)
                     },
                     nodes = {
                         {
-                            n = G.UIT.R,
+                            n = G.UIT.C,
                             config = {
                                 align = "cm",
                                 r = 0.1,
-                                padding = 1,
+                                padding = 0.1,
                                 minh = 5,
                                 minw = 7,
                                 colour = G.C.BLACK
                             },
-                            nodes = {
-                                {
-                                    n = G.UIT.O,
-                                    config = {
-                                        object = t.area_table[#t.area_table]
-                                    }
-                                },
-                            }
+                            nodes = nodes
                         }
                     }
                 }
