@@ -42,6 +42,9 @@ local function summon_from_booster(card)
     if card.children.price then
         card.children.price:remove(); card.children.price = nil
     end
+    if card.children.joy_side_button then
+        card.children.joy_side_button:remove(); card.children.joy_side_button = nil
+    end
 
     if not card.from_area then card.from_area = card.area end
     if card.area and card.area == G.pack_cards then card.area:remove_card(card) end

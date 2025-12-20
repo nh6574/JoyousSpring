@@ -39,7 +39,7 @@ end
 position = "after"
 payload = '''
 if self.STATE == self.STATES.JOY_SIDE_DECK then
-    JoyousSpring.update_side_deck(self, dt)
+    JoyousSpring.State.SideDeck.update_side_deck(self, dt)
 end
 '''
 match_indent = true

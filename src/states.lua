@@ -2,13 +2,16 @@
 
 --#region Side Deck
 
-function JoyousSpring.update_side_deck(game, dt)
+JoyousSpring.State = {}
+JoyousSpring.State.SideDeck = {}
+
+function JoyousSpring.State.SideDeck.update_side_deck(game, dt)
     if not G.STATE_COMPLETE then
         stop_use()
         ease_colour(G.C.DYN_UI.MAIN, G.C.JOY.EFFECT)
         local side_deck_exists = not not JoyousSpring.side_deck
         JoyousSpring.side_deck = JoyousSpring.side_deck or UIBox {
-            definition = JoyousSpring.create_side_deck(),
+            definition = JoyousSpring.State.SideDeck.create_side_deck(true),
             config = { align = 'tmi', offset = { x = 0, y = G.ROOM.T.y + 11 }, major = G.hand, bond = 'Weak' }
         }
         JoyousSpring.side_deck_area_ui = JoyousSpring.side_deck_area_ui or UIBox {
@@ -60,57 +63,122 @@ function JoyousSpring.update_side_deck(game, dt)
     end
     if JoyousSpring.side_deck and JoyousSpring.side_deck_area_ui then
         local column = JoyousSpring.side_deck:get_UIE_by_ID('joy_side_column')
-        JoyousSpring.side_deck_area_ui.VT.y = column.VT.y + 0.2
-        JoyousSpring.side_deck_area_ui.VT.x = column.VT.x + column.VT.w / 2 -
-            JoyousSpring.side_deck_area_ui.VT.w / 2
-        JoyousSpring.side_deck_area_ui.T.y = column.T.y + 0.2
-        JoyousSpring.side_deck_area_ui.T.x = column.T.x + column.T.w / 2 -
-            JoyousSpring.side_deck_area_ui.T.w / 2
+        if column then
+            JoyousSpring.side_deck_area_ui.VT.y = column.VT.y + 0.2
+            JoyousSpring.side_deck_area_ui.VT.x = column.VT.x + column.VT.w / 2 -
+                JoyousSpring.side_deck_area_ui.VT.w / 2
+            JoyousSpring.side_deck_area_ui.T.y = column.T.y + 0.2
+            JoyousSpring.side_deck_area_ui.T.x = column.T.x + column.T.w / 2 -
+                JoyousSpring.side_deck_area_ui.T.w / 2
+        end
     end
 end
 
-function JoyousSpring.create_side_deck()
-    JoyousSpring.side_deck_area.states.collide.can = true
+function JoyousSpring.State.SideDeck.create_side_deck(during_siding)
     JoyousSpring.side_deck_area.states.visible = true
-    G.jokers.states.collide.can = true
-    JoyousSpring.extra_deck_area.states.collide.can = true
-    JoyousSpring.field_spell_area.states.collide.can = true
+    if during_siding then
+        JoyousSpring.side_deck_area.states.collide.can = true
+        G.jokers.states.collide.can = true
+        JoyousSpring.extra_deck_area.states.collide.can = true
+        JoyousSpring.field_spell_area.states.collide.can = true
 
-    local side_deck_sign = DynaText({
-        string = { localize("k_joy_side_deck") },
-        colours = { G.C.JOY.NORMAL },
-        bump = true,
-        silent = true,
-        pop_in = 0,
-        pop_in_rate = 4,
-        shadow = true,
-        y_offset = 0,
-        spacing = math.max(0, 0.8 * (17 - #localize("k_joy_side_deck"))),
-        scale = (1 - 0.004 * #localize("k_joy_side_deck"))
-    })
-    JoyousSpring.side_deck_sign = UIBox {
-        definition =
-        { n = G.UIT.ROOT, config = { colour = G.C.DYN_UI.MAIN, emboss = 0.05, align = 'cm', r = 0.1, padding = 0.1 }, nodes = {
-            { n = G.UIT.R, config = { align = "cm", padding = 0.1, minw = 4.72, minh = 3.1, colour = G.C.DYN_UI.DARK, r = 0.1 }, nodes = {
-                { n = G.UIT.R, config = { align = "cm" }, nodes = {
-                    { n = G.UIT.O, config = { object = side_deck_sign } }
+        local side_deck_sign = DynaText({
+            string = { localize("k_joy_side_deck") },
+            colours = { G.C.JOY.NORMAL },
+            bump = true,
+            silent = true,
+            pop_in = 0,
+            pop_in_rate = 4,
+            shadow = true,
+            y_offset = 0,
+            spacing = math.max(0, 0.8 * (17 - #localize("k_joy_side_deck"))),
+            scale = (1 - 0.004 * #localize("k_joy_side_deck"))
+        })
+        JoyousSpring.side_deck_sign = UIBox {
+            definition =
+            { n = G.UIT.ROOT, config = { colour = G.C.DYN_UI.MAIN, emboss = 0.05, align = 'cm', r = 0.1, padding = 0.1 }, nodes = {
+                { n = G.UIT.R, config = { align = "cm", padding = 0.1, minw = 4.72, minh = 3.1, colour = G.C.DYN_UI.DARK, r = 0.1 }, nodes = {
+                    { n = G.UIT.R, config = { align = "cm" }, nodes = {
+                        { n = G.UIT.O, config = { object = side_deck_sign } }
+                    } },
                 } },
             } },
-        } },
-        config = {
-            align = "cm",
-            offset = { x = 0, y = -15 },
-            major = G.HUD:get_UIE_by_ID('row_blind'),
-            bond = 'Weak'
+            config = {
+                align = "cm",
+                offset = { x = 0, y = -15 },
+                major = G.HUD:get_UIE_by_ID('row_blind'),
+                bond = 'Weak'
+            }
+        }
+        G.E_MANAGER:add_event(Event({
+            trigger = 'immediate',
+            func = (function()
+                JoyousSpring.side_deck_sign.alignment.offset.y = 0
+                return true
+            end)
+        }))
+    end
+
+    local nodes = {}
+
+    local button = {
+        n = G.UIT.R,
+        config = { align = "cm", padding = 0.05 },
+        nodes = {
+            {
+                n = G.UIT.C,
+                config = { align = "cm", padding = 0.1 },
+                nodes = {
+                    {
+                        n = G.UIT.R,
+                        config = { id = 'next_round_button', align = "cm", minw = 2.8, minh = 1.5, r = 0.15, colour = G.C.RED, one_press = true, button = 'joy_toggle_side_deck', hover = true, shadow = true, func = "joy_next_round_enable" },
+                        nodes = {
+                            {
+                                n = G.UIT.R,
+                                config = { align = "cm", padding = 0.07, focus_args = { button = 'y', orientation = 'cr' }, func = 'set_button_pip' },
+                                nodes = {
+                                    {
+                                        n = G.UIT.R,
+                                        config = { align = "cm", maxw = 1.3 },
+                                        nodes = {
+                                            { n = G.UIT.T, config = { text = localize('b_next_round_1'), scale = 0.4, colour = G.C.WHITE, shadow = true } }
+                                        }
+                                    },
+                                    {
+                                        n = G.UIT.R,
+                                        config = { align = "cm", maxw = 1.3 },
+                                        nodes = {
+                                            { n = G.UIT.T, config = { text = localize('b_next_round_2'), scale = 0.4, colour = G.C.WHITE, shadow = true } }
+                                        }
+                                    }
+                                }
+                            },
+                        }
+                    },
+                }
+            },
         }
     }
-    G.E_MANAGER:add_event(Event({
-        trigger = 'immediate',
-        func = (function()
-            JoyousSpring.side_deck_sign.alignment.offset.y = 0
-            return true
-        end)
-    }))
+    local space = { n = G.UIT.R, config = { align = "cm", minh = 0.2 }, nodes = {} }
+    local side_area = {
+        n = G.UIT.R,
+        config = { align = "cm", padding = 0.1 },
+        nodes = {
+            {
+                n = G.UIT.C,
+                config = { id = 'joy_side_column', align = "cm", padding = 0.2, r = 0.2, colour = G.C.L_BLACK, emboss = 0.05, minw = 12, minh = 4.1 },
+                nodes = {
+                }
+            },
+        }
+    }
+
+    if during_siding then
+        table.insert(nodes, button)
+        table.insert(nodes, space)
+    end
+    table.insert(nodes, side_area)
+
     local t = {
         n = G.UIT.ROOT,
         config = { align = 'cl', colour = G.C.CLEAR },
@@ -119,65 +187,16 @@ function JoyousSpring.create_side_deck()
                 {
                     n = G.UIT.C,
                     config = { align = "cm", padding = 0.1, emboss = 0.05, r = 0.1, colour = G.C.DYN_UI.BOSS_MAIN },
-                    nodes = {
-                        {
-                            n = G.UIT.R,
-                            config = { align = "cm", padding = 0.05 },
-                            nodes = {
-                                {
-                                    n = G.UIT.C,
-                                    config = { align = "cm", padding = 0.1 },
-                                    nodes = {
-                                        {
-                                            n = G.UIT.R,
-                                            config = { id = 'next_round_button', align = "cm", minw = 2.8, minh = 1.5, r = 0.15, colour = G.C.RED, one_press = true, button = 'joy_toggle_side_deck', hover = true, shadow = true, func = "joy_next_round_enable" },
-                                            nodes = {
-                                                {
-                                                    n = G.UIT.R,
-                                                    config = { align = "cm", padding = 0.07, focus_args = { button = 'y', orientation = 'cr' }, func = 'set_button_pip' },
-                                                    nodes = {
-                                                        {
-                                                            n = G.UIT.R,
-                                                            config = { align = "cm", maxw = 1.3 },
-                                                            nodes = {
-                                                                { n = G.UIT.T, config = { text = localize('b_next_round_1'), scale = 0.4, colour = G.C.WHITE, shadow = true } }
-                                                            }
-                                                        },
-                                                        {
-                                                            n = G.UIT.R,
-                                                            config = { align = "cm", maxw = 1.3 },
-                                                            nodes = {
-                                                                { n = G.UIT.T, config = { text = localize('b_next_round_2'), scale = 0.4, colour = G.C.WHITE, shadow = true } }
-                                                            }
-                                                        }
-                                                    }
-                                                },
-                                            }
-                                        },
-                                    }
-                                },
-                            }
-                        },
-                        { n = G.UIT.R, config = { align = "cm", minh = 0.2 }, nodes = {} },
-                        {
-                            n = G.UIT.R,
-                            config = { align = "cm", padding = 0.1 },
-                            nodes = {
-                                {
-                                    n = G.UIT.C,
-                                    config = { id = 'joy_side_column', align = "cm", padding = 0.2, r = 0.2, colour = G.C.L_BLACK, emboss = 0.05, minw = 12, minh = 4.1 },
-                                    nodes = {
-                                    }
-                                },
-                            }
-                        }
-                    }
+                    nodes = nodes
                 },
-
             }, false)
         }
     }
     return t
+end
+
+function JoyousSpring.open_side_deck()
+
 end
 
 G.FUNCS.joy_toggle_side_deck = function(e)
@@ -210,6 +229,8 @@ G.FUNCS.joy_toggle_side_deck = function(e)
                 return true
             end
         }))
+    else
+        G.CONTROLLER.locks.joy_toggle_side_deck = nil
     end
 end
 
@@ -376,7 +397,7 @@ G.FUNCS.joy_to_side = function(e)
                 JoyousSpring.open_extra_deck(false, false, 1.85)
                 G.E_MANAGER:add_event(Event({
                     func = function()
-                        local eval, post = eval_card(card, { buying_card = true, buying_self = true, card = card }) -- buying_card left for back compat, buying_self recommended to use
+                        local eval, post = eval_card(card, { buying_card = true, buying_self = true, card = card })
                         SMODS.trigger_effects({ eval, post }, card)
                         return true
                     end
@@ -406,6 +427,49 @@ G.FUNCS.joy_to_side = function(e)
                 end
                 G.CONTROLLER:save_cardarea_focus('jokers')
                 G.CONTROLLER:recall_cardarea_focus('jokers')
+                return true
+            end
+        }))
+    end
+end
+
+G.FUNCS.joy_to_side_from_booster = function(e)
+    local card = e.config.ref_table
+    if card and card:is(Card) then
+        if not (#JoyousSpring.side_deck_area.cards < JoyousSpring.side_deck_area.config.card_limit + card.ability.card_limit - card.ability.extra_slots_used) then
+            alert_no_space(card, G.jokers)
+            e.disable_button = nil
+            return false
+        end
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.1,
+            func = function()
+                card.from_area = card.area
+                card.area:remove_card(card)
+                if card.children.price then card.children.price:remove() end
+                card.children.price = nil
+                if card.children.buy_button then card.children.buy_button:remove() end
+                card.children.buy_button = nil
+                if card.children.joy_side_button then card.children.joy_side_button:remove() end
+                card.children.joy_side_button = nil
+                remove_nils(card.children)
+
+                card.ability.joy_extra_values = card.ability.joy_extra_values or {}
+                card.ability.joy_extra_values.added_to_side = true
+                JoyousSpring.side_deck_area:emplace(card)
+                JoyousSpring.open_extra_deck(false, false, 1.85)
+
+                if G.GAME.pack_choices and G.GAME.pack_choices > 1 then
+                    if G.booster_pack.alignment.offset.py then
+                        G.booster_pack.alignment.offset.y = G.booster_pack.alignment.offset.py
+                        G.booster_pack.alignment.offset.py = nil
+                    end
+                    G.GAME.pack_choices = G.GAME.pack_choices - 1
+                else
+                    G.CONTROLLER.interrupt.focus = true
+                    G.FUNCS.end_consumeable(nil, delay_fac)
+                end
                 return true
             end
         }))

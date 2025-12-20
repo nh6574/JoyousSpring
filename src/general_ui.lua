@@ -431,6 +431,46 @@ function Card:highlight(is_highlighted)
             JoyousSpring.open_extra_deck(false, is_highlighted)
         end
     end
+
+    if not JoyousSpring.config.disable_side_deck and self.ability.set == "Joker" and self.area and self.area == G.pack_cards then
+        local side = {
+            n = G.UIT.ROOT,
+            config = { id = 'joy_side_button', ref_table = self, minh = 1.1, padding = 0.1, align = 'cl', colour = G.C.RED, shadow = true, r = 0.08, minw = 1.1, one_press = true, button = 'joy_to_side_from_booster', hover = true, focus_args = { type = 'none' } },
+            nodes = {
+                {
+                    n = G.UIT.C,
+                    config = { align = 'cm' },
+                    nodes = {
+                        {
+                            n = G.UIT.R,
+                            config = { align = 'cm', maxw = 1 },
+                            nodes = {
+                                { n = G.UIT.T, config = { text = localize('b_joy_buy_to_side_1'), colour = G.C.WHITE, scale = 0.5 } }
+                            }
+                        },
+                        {
+                            n = G.UIT.R,
+                            config = { align = 'cm', maxw = 1 },
+                            nodes = {
+                                { n = G.UIT.T, config = { text = localize('b_joy_buy_to_side_2'), colour = G.C.WHITE, scale = 0.3 } }
+                            }
+                        },
+                    }
+                },
+                { n = G.UIT.B, config = { w = 0.1, h = 0.6 } },
+            }
+        }
+        self.children.joy_side_button = UIBox {
+            definition = side,
+            config = {
+                align = "cl",
+                offset = { x = 0.3, y = 0 },
+                major = self,
+                bond = 'Weak',
+                parent = self
+            }
+        }
+    end
 end
 
 G.FUNCS.joy_sort_hanafuda_hand_month = function()
