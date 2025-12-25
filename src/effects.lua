@@ -1175,6 +1175,7 @@ JoyousSpring.create_overlay_effect_selection = function(card, card_list, min, ma
         {
             type = 'summon_materials',
             highlight_limit = highlight_limit,
+            no_card_count = true
         }
     )
 
