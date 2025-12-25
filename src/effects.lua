@@ -130,7 +130,7 @@ SMODS.current_mod.calculate = function(self, context)
             1
     end
 
-    --Global count for pendulum usage
+    -- Global count for pendulum usage
     if context.using_consumeable and JoyousSpring.is_pendulum_monster(context.consumeable) then
         G.GAME.joy_pendulum_count = (G.GAME.joy_pendulum_count or 0) + 1
     end
