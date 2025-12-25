@@ -78,7 +78,7 @@ SMODS.Joker({
                 monster_type = "Thunder",
                 monster_archetypes = { ["Spright"] = true }
             },
-            mill = 2,
+            mills = 2,
         },
     },
     calculate = function(self, card, context)
