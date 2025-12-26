@@ -1,7 +1,7 @@
 return {
-    misc = {
-        dictionary = {
-            k_joy_archetype_misc = "용병",
-        },
-    },
+	misc = {
+		dictionary = {
+			k_joy_archetype_misc = "용병",
+		},
+	},
 }
