@@ -677,7 +677,7 @@ SMODS.Joker({
                     local has_revived = false
                     if JoyousSpring.graveyard["j_joy_etwin_kisikil"] and JoyousSpring.graveyard["j_joy_etwin_kisikil"].summonable > 0 then
                         for i = 1, card.ability.extra.revives do
-                            local revived_card = JoyousSpring.revive("j_joy_etwin_kisikil", true)
+                            local revived_card = JoyousSpring.revive("j_joy_etwin_kisikil", false)
                             if revived_card then
                                 table.insert(kisikil_summoned, revived_card)
                                 has_revived = true
@@ -686,7 +686,7 @@ SMODS.Joker({
                     end
                     if JoyousSpring.graveyard["j_joy_etwin_lilla"] and JoyousSpring.graveyard["j_joy_etwin_lilla"].summonable > 0 then
                         for i = 1, card.ability.extra.revives do
-                            local revived_card = JoyousSpring.revive("j_joy_etwin_lilla", true)
+                            local revived_card = JoyousSpring.revive("j_joy_etwin_lilla", false)
                             if revived_card then
                                 has_revived = true
                             end
