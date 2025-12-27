@@ -622,6 +622,13 @@ JoyousSpring.create_overlay_see_related = function(card)
             label = localize(area_cards.name) ~= "ERROR" and localize(area_cards.name) or localize("k_joy_related"),
             chosen = i == 1,
             tab_definition_function = function(t)
+                if t.area_table then
+                    for _, area in ipairs(t.area_table) do
+                        area:remove()
+                    end
+                end
+
+                t.area_table = {}
                 t.area_table[#t.area_table + 1] = CardArea(
                     0,
                     0,
