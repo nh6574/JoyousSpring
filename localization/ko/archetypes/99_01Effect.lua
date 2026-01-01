@@ -505,7 +505,7 @@ return {
 				name = "{C:joy_effect}제노믹스 파이터",
 				text = {
 					{
-						"{C:joy_synchro}싱크로{} 소환의 아무런",
+						"{C:joy_synchro}싱크로{} 소환에 필요한 임의의",
 						"{C:attention}소재{}를 대체할수 있습니다",
 					},
 					{

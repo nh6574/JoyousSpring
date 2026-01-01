@@ -109,7 +109,7 @@ return {
 						"{C:attention}쭈치에{}: 라운드 종료 시 이 카드와",
 						"다른 무작위 {C:attention}조커{}를",
 						"{C:attention}보스 블라인드{}를 선택할 때 까지 {C:attention}제외{}합니다",
-						"이 카드는 {C:joy_synchro}싱크로{} 소환의 아무런 {C:attention}소재{}를",
+						"이 카드는 {C:joy_synchro}싱크로{} 소환의 임의의 {C:attention}소재{}를",
 						"대체 할수 있는 {C:joy_synchro}튜너{}가 됩니다",
 					},
 					{
