@@ -478,8 +478,8 @@ return {
 				text = {
 					{
 						"{C:attention}묘지{}의 {C:joy_wind}바람{} 속성 {C:attention}카드",
-						"한 장 마다 칩 {C:chips}+#1#{}개",
-						"{C:inactive}(현재 칩 {C:chips}+#2#{}{C:inactive}개)",
+						"한 장 마다 {C:mult}+#1#{} 배수",
+						"{C:inactive}(현재 {C:mult}+#2#{}{C:inactive} 배수)",
 					},
 					{
 						"{C:attention}보스 블라인드{} 선택 시 모든 {C:joy_xyz}엑시즈{} 카드에",

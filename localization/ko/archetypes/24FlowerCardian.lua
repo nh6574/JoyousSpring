@@ -534,7 +534,7 @@ return {
 			},
 			joy_cardian_boardefly = {
 				"{C:joy_mod}싸리에 멧돼지{}, {C:joy_mod}단풍에 사슴{}과",
-				"{C:joy_mod}모란에 나무{}을 포함하는 {C:joy_link}열끗{} 최대 5장",
+				"{C:joy_mod}모란에 나비{}을 포함하는 {C:joy_link}열끗{} 최대 5장",
 			},
 			joy_cardian_flowerviewing = {
 				"{C:joy_mod}국화에 술잔{}과",
