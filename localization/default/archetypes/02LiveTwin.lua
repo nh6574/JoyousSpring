@@ -143,8 +143,8 @@ return {
                     },
                     {
                         "{C:attention}Returns{} to the {C:joy_spell}Extra Deck{} and {C:attention}revives{}",
-                        "{C:attention}#3#{} {C:joy_link}\"Evil{C:joy_link,f:joy_font}★{}{C:joy_link}Twin Ki-sikil\"{} and {C:attention}#3#{} {C:joy_link}\"Evil{C:joy_link,f:joy_font}★{}{C:joy_link}Twin Lil-la\"{}",
-                        "at end of round",
+                        "{C:attention}#3#{} {C:joy_link}\"Evil{C:joy_link,f:joy_font}★{}{C:joy_link}Twin Ki-sikil\"{} and/or {C:attention}#3#{} {C:joy_link}\"Evil{C:joy_link,f:joy_font}★{}{C:joy_link}Twin Lil-la\"{}",
+                        "at end of round {C:inactive}(Doesn't need room){}",
                     },
                 },
                 joy_summon_conditions = {
