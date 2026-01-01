@@ -7,7 +7,7 @@ return {
 					"선택한 카드 최대",
 					"{C:attention}#1#{}장을 {C:attention}8{}으로 바꾸며",
 					"{C:attention}풀 하우스{}, {C:attention}스트레이트{}, 그리고",
-					"{C:attention}투페어{}의 레벨업 합니다",
+					"{C:attention}투페어{}를 레벨업 시킵니다",
 				},
 				text = {
 					{
@@ -30,7 +30,7 @@ return {
 					"선택한 카드 최대",
 					"{C:attention}#1#{}장을 {C:attention}7{}으로 바꾸며",
 					"{C:attention}풀 하우스{}, {C:attention}스트레이트{}, 그리고",
-					"{C:attention}투페어{}의 레벨업 합니다",
+					"{C:attention}투페어{}를 레벨업 시킵니다",
 				},
 				text = {
 					{
@@ -50,7 +50,7 @@ return {
 					"선택한 카드 최대",
 					"{C:attention}#1#{}장을 {C:attention}6{}으로 바꾸며",
 					"{C:attention}풀 하우스{}, {C:attention}스트레이트{}, 그리고",
-					"{C:attention}투페어{}의 레벨업 합니다",
+					"{C:attention}투페어{}를 레벨업 시킵니다",
 				},
 				text = {
 					{
@@ -73,7 +73,7 @@ return {
 					"선택한 카드 최대",
 					"{C:attention}#1#{}장을 {C:attention}5{}로 바꾸며",
 					"{C:attention}풀 하우스{}, {C:attention}스트레이트{}, 그리고",
-					"{C:attention}투페어{}의 레벨업 합니다",
+					"{C:attention}투페어{}를 레벨업 시킵니다",
 				},
 				text = {
 					{
@@ -96,7 +96,7 @@ return {
 					"선택한 카드 최대",
 					"{C:attention}#1#{}장을 {C:attention}4{}로 바꾸며",
 					"{C:attention}풀 하우스{}, {C:attention}스트레이트{}, 그리고",
-					"{C:attention}투페어{}의 레벨업 합니다",
+					"{C:attention}투페어{}를 레벨업 시킵니다",
 				},
 				text = {
 					{
@@ -117,7 +117,7 @@ return {
 					"선택한 카드 최대",
 					"{C:attention}#1#{}장을 {C:attention}3{}으로 바꾸며",
 					"{C:attention}풀 하우스{}, {C:attention}스트레이트{}, 그리고",
-					"{C:attention}투페어{}의 레벨업 합니다",
+					"{C:attention}투페어{}를 레벨업 시킵니다",
 				},
 				text = {
 					{
@@ -138,7 +138,7 @@ return {
 					"선택한 카드 최대",
 					"{C:attention}#1#{}장을 {C:attention}2{}으로 바꾸며",
 					"{C:attention}풀 하우스{}, {C:attention}스트레이트{}, 그리고",
-					"{C:attention}투페어{}의 레벨업 합니다",
+					"{C:attention}투페어{}를 레벨업 시킵니다",
 				},
 				text = {
 					{
@@ -159,7 +159,7 @@ return {
 					"선택한 카드 최대",
 					"{C:attention}#1#{}장을 {C:attention}에이스{}로 바꾸며",
 					"{C:attention}풀 하우스{}, {C:attention}스트레이트{}, 그리고",
-					"{C:attention}투페어{}의 레벨업 합니다",
+					"{C:attention}투페어{}를 레벨업 시킵니다",
 				},
 				text = {
 					{
