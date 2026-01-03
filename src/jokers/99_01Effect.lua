@@ -1583,7 +1583,7 @@ SMODS.Joker({
                 card.ability.extra.activated = true
                 JoyousSpring.tribute(card, context.joy_selection)
                 for _ = 1, card.ability.extra.adds do
-                    SMODS.add_card { set = "Base", suit = "Diamonds", edition = SMODS.poll_edition { key = card.config.center.key, guaranteed = true, no_neg = true }, area = G.deck }
+                    SMODS.add_card { set = "Base", suit = "Diamonds", edition = SMODS.poll_edition { key = card.config.center.key, guaranteed = true, no_negative = true }, area = G.deck }
                 end
                 JoyousSpring.flip_all_cards(card, 'front', { G.jokers })
             end
