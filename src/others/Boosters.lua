@@ -419,7 +419,7 @@ local joy_groups = {
         name = "Digital and Psychic",
         properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } }, { monster_archetypes = { "Spright" } }, { monster_archetypes = { "MekkKnight" } } },
         extra_keys = { "j_joy_mekkleg_scars", },
-        center = "j_joy_spknight"
+        center = "j_joy_mekk_green"
     },
     {
         name = "Drawback and destruction",
