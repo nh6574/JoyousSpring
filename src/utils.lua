@@ -30,7 +30,6 @@ JoyousSpring.index_of = function(array, value)
             return i
         end
     end
-    return nil
 end
 
 ---Gets column (index) of joker in G.jokers
@@ -150,7 +149,7 @@ end
 ---@param card table|Card
 ---@return boolean
 JoyousSpring.is_playing_card = function(card)
-    return card and (card.ability.set == 'Enhanced' or card.ability.set == 'Default') and true or false
+    return card and (card.ability.set == 'Enhanced' or card.ability.set == 'Default')
 end
 
 ---Levels up hand (with proper animation)
