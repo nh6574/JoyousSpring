@@ -1,0 +1,7 @@
+{
+  "name": "JoyousSpring",
+  "version_number": "0.8.5",
+  "website_url": "https://github.nh6574.com/JoyousSpring",
+  "description": "Adds modern Yu-Gi-Oh! cards and mechanics.",
+  "dependencies": ["Thunderstore-lovely-0.8.0"]
+}
