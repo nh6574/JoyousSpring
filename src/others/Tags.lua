@@ -57,6 +57,12 @@ SMODS.Tag({
                 joy_forced_card.ability.extra.joyous_spring.summon_type and
                 G.C.JOY[joy_forced_card.ability.extra.joyous_spring.summon_type] or G.C.JOY.EFFECT, function()
                     joy_forced_card:start_materialize()
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            save_run()
+                            return true
+                        end
+                    }))
                     return true
                 end)
             tag.triggered = true
