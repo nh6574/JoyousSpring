@@ -544,6 +544,7 @@ JoyousSpring.excavate = function(amount, context)
 end
 
 JoyousSpring.calculate_excavate = function(context)
+    if not G.jokers or not G.jokers.cards then return end
     local maxlimit = 0
     for _, joker in ipairs(G.jokers.cards) do
         if not joker.debuff and joker.config.center.joy_calculate_excavate then
