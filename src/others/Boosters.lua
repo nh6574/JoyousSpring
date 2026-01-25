@@ -390,7 +390,7 @@ local joy_groups = {
     {
         name = "Flip Support",
         properties = { { monster_archetypes = { "Labyrinth" } }, { monster_archetypes = { "Subterror" } }, { monster_archetypes = { "Shaddoll" } } },
-        extra_keys = { "j_joy_sub_city", "j_joy_procession", "j_joy_tackcrusader", "j_joy_foucault" },
+        extra_keys = { "j_joy_sub_city", "j_joy_procession", "j_joy_tackcrusader", },
         center = "j_joy_sub_city"
     },
     {
