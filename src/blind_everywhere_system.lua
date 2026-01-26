@@ -62,6 +62,7 @@ JoyousSpring.update_blind_effects_area = function()
             G.joy_blind_effects_area:emplace(created_card)
         end
     end
+    G.joy_blind_effects_area.states.visible = #G.joy_blind_effects_area.cards > 0
 end
 
 JoyousSpring.find_blind_effect_card = function(key)
@@ -75,14 +76,14 @@ end
 
 SMODS.current_mod.custom_card_areas = function(game)
     game.joy_blind_effects_area = CardArea(
-        -0.575, -0.5, 5, 0.7,
+        0, 0, game.CARD_W * 1.1, 0.7,
         {
             card_limit = 99,
             type = 'joker',
             highlight_limit = 0,
             negative_info = 'joker',
             no_card_count = true,
-            bg_colour = G.C.CLEAR
+            --bg_colour = G.C.CLEAR
         })
     game.joy_opponent_area = CardArea(
         0, 0, game.CARD_W * 1.9, 0.7,
@@ -93,13 +94,14 @@ SMODS.current_mod.custom_card_areas = function(game)
             negative_info = 'joker',
             bg_colour = { G.C.JOY.TRAP[1], G.C.JOY.TRAP[2], G.C.JOY.TRAP[3], 0.5 }
         })
+    game.joy_blind_effects_area.states.visible = false
     game.joy_opponent_area.states.visible = false
 end
 
-local card_should_draw_shadow_ref = Card.should_draw_shadow
-function Card:should_draw_shadow()
-    if self.area and self.area == G.joy_blind_effects_area then
-        return false
-    end
-    return card_should_draw_shadow_ref(self)
-end
+-- local card_should_draw_shadow_ref = Card.should_draw_shadow
+-- function Card:should_draw_shadow()
+--     if self.area and self.area == G.joy_blind_effects_area then
+--         return false
+--     end
+--     return card_should_draw_shadow_ref(self)
+-- end
