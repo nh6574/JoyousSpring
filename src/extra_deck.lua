@@ -275,6 +275,10 @@ function Game:start_run(args)
 
     JoyousSpring.field_spell_area.T.x = G.consumeables.T.x + 2.3
     JoyousSpring.field_spell_area.T.y = G.consumeables.T.y + 3
+
+    JoyousSpring.opponent_area = G.joy_opponent_area
+    JoyousSpring.opponent_area.T.y = JoyousSpring.field_spell_area.T.y + JoyousSpring.field_spell_area.T.h + 0.5
+    JoyousSpring.opponent_area.T.x = JoyousSpring.field_spell_area.T.x
 end
 
 local smods_edition_get_card_limit_key_ref = SMODS.Edition.get_card_limit_key

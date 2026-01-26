@@ -1,0 +1,21 @@
+[manifest]
+version = "0.1.0"
+dump_lua = true
+priority = 0
+
+# Blinds
+
+# Make blind_choices into a metatable so I can check if the blind is changed
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/card_draw.lua"]'
+pattern = "G.shared_shadow:draw_shader('dissolve', self.shadow_height)"
+position = 'before'
+match_indent = true
+payload = '''
+if JoyousSpring then
+    if self.area and self.area == JoyousSpring.opponent_area then
+        self.shadow_height = 0.04
+    end
+end
+'''
