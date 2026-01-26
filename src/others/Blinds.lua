@@ -1,3 +1,5 @@
+-- Blinds and Opponent's Blind cards
+
 SMODS.Atlas {
     key = "blinds",
     path = "blind_macro.png",
@@ -43,20 +45,10 @@ SMODS.Blind {
     end
 }
 
-SMODS.Joker {
+JoyousSpring.OpponentCard {
     key = "macrocosmos",
     atlas = "blinds",
-    pos = { x = 0, y = 0 },
-    discovered = true,
-    display_size = { w = 34, h = 34 },
     joy_blind_key = "bl_joy_macrocosmos",
-    set_card_type_badge = function(self, card, badges)
-        if not card.area or card.area ~= G.joy_blind_effects_area then
-            badges[#badges + 1] = create_badge(localize("k_joy_opponent"), G.C.JOY.TRAP, G.C.UI.TEXT_LIGHT, 1.2)
-        else
-            badges[#badges + 1] = create_badge(localize("b_blinds"), G.C.JOY.TRAP, G.C.UI.TEXT_LIGHT, 1.2)
-        end
-    end,
     loc_vars = function(self, info_queue, card)
         return { key = card.area and card.area == G.joy_blind_effects_area and self.key .. "_blind" or nil }
     end

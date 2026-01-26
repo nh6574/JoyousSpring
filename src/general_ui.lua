@@ -624,6 +624,7 @@ function CardArea:add_to_highlighted(card, silent)
         self.highlighted[#self.highlighted + 1] = card
         card:highlight(true)
         if not silent then play_sound('cardSlide1') end
+    elseif (self == G.joy_blind_effects_area or self == JoyousSpring.opponent_area) then
     else
         cardarea_add_to_highlighted_ref(self, card, silent)
     end

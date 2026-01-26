@@ -1,14 +1,14 @@
 return {
     descriptions = {
-        Joker = {
-            j_joy_macrocosmos = {
+        joy_Opponent = {
+            opp_joy_macrocosmos = {
                 name = "{C:joy_trap}Macro Cosmos",
                 text = {
                     "No cards are sent to",
                     "the {C:attention}GY"
                 }
             },
-            j_joy_macrocosmos_blind = {
+            opp_joy_macrocosmos_blind = {
                 name = "{C:joy_trap}Macro Cosmos",
                 text = {
                     "No cards are sent to",

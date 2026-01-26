@@ -97,11 +97,3 @@ SMODS.current_mod.custom_card_areas = function(game)
     game.joy_blind_effects_area.states.visible = false
     game.joy_opponent_area.states.visible = false
 end
-
--- local card_should_draw_shadow_ref = Card.should_draw_shadow
--- function Card:should_draw_shadow()
---     if self.area and self.area == G.joy_blind_effects_area then
---         return false
---     end
---     return card_should_draw_shadow_ref(self)
--- end
