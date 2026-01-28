@@ -16,30 +16,8 @@ SMODS.Blind {
     discovered = true,
     boss_colour = G.C.JOY.TRAP,
     boss = { min = 1, max = 10 },
-    config = { discards = 1 },
-    joy_joker_key = "j_joy_macrocosmos",
-    joy_on_enter = function(self, blind_type)
-        G.GAME.round_resets.discards = G.GAME.round_resets.discards + self.config.discards
-        ease_discard(self.config.discards)
-    end,
-    joy_on_exit = function(self, blind_type)
-        G.GAME.round_resets.discards = G.GAME.round_resets.discards - self.config.discards
-        ease_discard(-self.config.discards)
-    end,
-    defeat = function(self)
-        G.GAME.round_resets.discards = G.GAME.round_resets.discards - self.config.discards
-        ease_discard(-self.config.discards)
-    end,
-    joy_calculate_ante = function(self, context)
-        if context.initial_scoring_step then
-            return {
-                dollars = 10
-            }
-        end
-    end,
-    joy_on_game_over = function(self, blind)
-
-    end,
+    config = {},
+    joy_joker_key = "opp_joy_macrocosmos",
     in_pool = function(self)
         return false
     end
@@ -51,5 +29,23 @@ JoyousSpring.OpponentCard {
     joy_blind_key = "bl_joy_macrocosmos",
     loc_vars = function(self, info_queue, card)
         return { key = card.area and card.area == G.joy_blind_effects_area and self.key .. "_blind" or nil }
-    end
+    end,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_trap = true,
+            },
+        }
+    },
+    calculate = function(self, card, context)
+        JoyousSpring.calculate_flip_effect(card, context)
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        if not card.debuff and not JoyousSpring.is_perma_debuffed(card) then
+            if not from_debuff and JoyousSpring.should_trap_flip(card) then
+                JoyousSpring.flip(card, card)
+            end
+        end
+    end,
 }

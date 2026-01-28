@@ -47,6 +47,7 @@ return {
             k_joy_spell = "Spell",
             k_joy_trap = "Trap",
             k_joy_fieldspell = "Field Spell",
+            k_joy_None = "None",
         }
     }
 }

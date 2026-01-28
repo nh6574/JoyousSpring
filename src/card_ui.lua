@@ -38,6 +38,8 @@ JoyousSpring.get_type_ui = function(card)
         }
     end
 
+    local has_attribute = (extra_values.attribute or joyous_spring_table.attribute or "None") ~= "None"
+    local has_type = (extra_values.monster_type or joyous_spring_table.monster_type or "None") ~= "None"
     local attribute_text = localize("k_joy_" .. (extra_values.attribute or joyous_spring_table.attribute or "LIGHT"))
     local type_text = localize("k_joy_" .. (extra_values.monster_type or joyous_spring_table.monster_type or "Beast"))
     local summon_type_text = joyous_spring_table.summon_type and joyous_spring_table.summon_type ~= "NORMAL" and
@@ -48,50 +50,74 @@ JoyousSpring.get_type_ui = function(card)
     local effect_text = (extra_values.is_effect or joyous_spring_table.is_effect) and localize("k_joy_effect") or
         localize("k_joy_normal")
     local trap_text = joyous_spring_table.is_trap and localize("k_joy_trap") or nil
-    local full_text = attribute_text ..
-        "/" .. type_text .. "/" .. (summon_type_text or "") .. (summon_type_text and "/" or "") ..
+    local full_text = (has_attribute and attribute_text or "") ..
+        (has_attribute and "/" or "") ..
+        (has_type and type_text or "") ..
+        (has_type and "/" or "") .. (summon_type_text or "") .. (summon_type_text and "/" or "") ..
         (pendulum_text or "") .. (pendulum_text and "/" or "") ..
         (flip_text or "") .. (flip_text and "/" or "") ..
         (tuner_text or "") .. (tuner_text and "/" or "") ..
         effect_text .. (trap_text and "/" or "") ..
         (trap_text or "")
 
-    local attribute = {
-        n = G.UIT.O,
+    local separator = {
+        n = G.UIT.T,
         config = {
-            object = DynaText({
-                string = { attribute_text },
-                colours = { G.C.JOY[extra_values.attribute or joyous_spring_table.attribute or "LIGHT"] },
-                bump = true,
-                silent = true,
-                pop_in = 0,
-                pop_in_rate = 4,
-                maxw = 5,
-                shadow = true,
-                y_offset = 0,
-                spacing = math.max(0, 0.32 * (17 - #full_text)),
-                scale = (0.4 - 0.004 * #full_text)
-            })
+            text = "/",
+            colour = G.C.UI.TEXT_LIGHT,
+            scale = (0.4 - 0.004 * #full_text)
         }
     }
-    local monster_type = {
-        n = G.UIT.O,
-        config = {
-            object = DynaText({
-                string = { type_text },
-                colours = { G.C.JOY.NORMAL },
-                bump = true,
-                silent = true,
-                pop_in = 0,
-                pop_in_rate = 4,
-                maxw = 5,
-                shadow = true,
-                y_offset = 0,
-                spacing = math.max(0, 0.32 * (17 - #full_text)),
-                scale = (0.4 - 0.004 * #full_text)
-            })
+
+    local ret = {}
+
+    local attribute
+    if has_attribute then
+        attribute = {
+            n = G.UIT.O,
+            config = {
+                object = DynaText({
+                    string = { attribute_text },
+                    colours = { G.C.JOY[extra_values.attribute or joyous_spring_table.attribute or "LIGHT"] },
+                    bump = true,
+                    silent = true,
+                    pop_in = 0,
+                    pop_in_rate = 4,
+                    maxw = 5,
+                    shadow = true,
+                    y_offset = 0,
+                    spacing = math.max(0, 0.32 * (17 - #full_text)),
+                    scale = (0.4 - 0.004 * #full_text)
+                })
+            }
         }
-    }
+        table.insert(ret, attribute)
+    end
+
+    local monster_type
+    if has_type then
+        monster_type = {
+            n = G.UIT.O,
+            config = {
+                object = DynaText({
+                    string = { type_text },
+                    colours = { G.C.JOY.NORMAL },
+                    bump = true,
+                    silent = true,
+                    pop_in = 0,
+                    pop_in_rate = 4,
+                    maxw = 5,
+                    shadow = true,
+                    y_offset = 0,
+                    spacing = math.max(0, 0.32 * (17 - #full_text)),
+                    scale = (0.4 - 0.004 * #full_text)
+                })
+            }
+        }
+        if #ret > 0 then table.insert(ret, separator) end
+        table.insert(ret, monster_type)
+    end
+
     local summon_type
     if summon_type_text then
         summon_type = {
@@ -112,7 +138,10 @@ JoyousSpring.get_type_ui = function(card)
                 })
             }
         }
+        if #ret > 0 then table.insert(ret, separator) end
+        table.insert(ret, summon_type)
     end
+
     local pendulum
     if joyous_spring_table.is_pendulum then
         pendulum = {
@@ -133,7 +162,10 @@ JoyousSpring.get_type_ui = function(card)
                 })
             }
         }
+        if #ret > 0 then table.insert(ret, separator) end
+        table.insert(ret, pendulum)
     end
+
     local tuner
     if tuner_text then
         tuner = {
@@ -154,7 +186,10 @@ JoyousSpring.get_type_ui = function(card)
                 })
             }
         }
+        if #ret > 0 then table.insert(ret, separator) end
+        table.insert(ret, tuner)
     end
+
     local effect = {
         n = G.UIT.O,
         config = {
@@ -173,6 +208,9 @@ JoyousSpring.get_type_ui = function(card)
             })
         }
     }
+    if #ret > 0 then table.insert(ret, separator) end
+    table.insert(ret, effect)
+
     local flip
     if flip_text then
         flip = {
@@ -193,7 +231,10 @@ JoyousSpring.get_type_ui = function(card)
                 })
             }
         }
+        if #ret > 0 then table.insert(ret, separator) end
+        table.insert(ret, flip)
     end
+
     local trap
     if trap_text then
         trap = {
@@ -214,32 +255,11 @@ JoyousSpring.get_type_ui = function(card)
                 })
             }
         }
+        if #ret > 0 then table.insert(ret, separator) end
+        table.insert(ret, trap)
     end
-    local separator = {
-        n = G.UIT.T,
-        config = {
-            text = "/",
-            colour = G.C.UI.TEXT_LIGHT,
-            scale = (0.4 - 0.004 * #full_text)
-        }
-    }
-    return {
-        attribute,
-        separator,
-        monster_type,
-        separator,
-        summon_type,
-        summon_type and separator or nil,
-        pendulum,
-        pendulum and separator or nil,
-        flip,
-        flip and separator or nil,
-        tuner,
-        tuner and separator or nil,
-        effect,
-        trap and separator or nil,
-        trap
-    }
+
+    return ret
 end
 
 ---Generates Joker's description UI. This is done to add:
@@ -255,7 +275,7 @@ end
 JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
     --SMODS.Center.generate_ui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
 
-    if desc_nodes == full_UI_table.main and self.set == "Joker" then
+    if desc_nodes == full_UI_table.main and (self.set == "Joker" or self.set == "joy_Opponent") then
         -- Add type information under names
         full_UI_table.name = {
             {
@@ -448,7 +468,7 @@ function init_localization()
     end
 end
 
----Adds YGO's back to cards
+---Adds YGO's back and alt sprites (yes sorry I'm not changng the name) to cards
 ---@param self table|SMODS.Center?
 ---@param card Card
 ---@param front table?
@@ -470,7 +490,8 @@ JoyousSpring.set_back_sprite = function(self, card, front)
 
 
     if card.children.back then card.children.back:remove() end
-    card.children.back = Sprite(card.T.x, card.T.y, card.T.w, card.T.h, G.ASSET_ATLAS["joy_Back"], { x = 0, y = 0 })
+    card.children.back = Sprite(card.T.x, card.T.y, card.T.w, card.T.h,
+        G.ASSET_ATLAS[self.set == "joy_Opponent" and "joy_small_Back" or "joy_Back"], { x = 0, y = 0 })
     card.children.back.states.hover = card.states.hover
     card.children.back.states.click = card.states.click
     card.children.back.states.drag = card.states.drag

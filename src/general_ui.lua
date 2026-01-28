@@ -605,6 +605,9 @@ function Game:update(dt)
             }
         end
     end
+    if JoyousSpring.opponent_area and JoyousSpring.opponent_area.cards then
+        JoyousSpring.opponent_area.states.visible = #JoyousSpring.opponent_area.cards > 0
+    end
 end
 
 local cardarea_can_highlight_ref = CardArea.can_highlight

@@ -54,6 +54,7 @@ SMODS.Atlas({
 ---|'"LINK"'
 
 ---@alias attribute
+---|'"None"'
 ---|'"LIGHT"'
 ---|'"DARK"'
 ---|'"WATER"'
@@ -63,6 +64,7 @@ SMODS.Atlas({
 ---|'"DIVINE"'
 
 ---@alias monster_type
+---|'"None"'
 ---|'"Aqua"'
 ---|'"Beast"'
 ---|'"BeastWarrior"'
@@ -206,8 +208,8 @@ JoyousSpring.init_joy_table = function(params)
         is_pendulum = params.is_pendulum or false,
         is_trap = params.is_trap or false,
         is_flip = params.is_flip or false,
-        attribute = params.attribute or "FIRE",
-        monster_type = params.monster_type or "Dragon",
+        attribute = params.attribute or "None",
+        monster_type = params.monster_type or "None",
         monster_archetypes = params.monster_archetypes or {},
         is_all_attributes = params.is_all_attributes or false,
         is_all_types = params.is_all_types or false,
@@ -300,7 +302,12 @@ JoyousSpring.get_monster_type = function(card)
     end
     if (JoyousSpring.get_extra_values(card) or {}).is_all_types or (JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.is_all_types) then return true end
 
-    return (JoyousSpring.get_extra_values(card) or {}).monster_type or card.ability.extra.joyous_spring.monster_type
+    local monster_type = (JoyousSpring.get_extra_values(card) or {}).monster_type or
+        card.ability.extra.joyous_spring.monster_type
+
+    if monster_type == "None" then return end
+
+    return monster_type
 end
 
 ---Checks if *card* is *attribute*
@@ -326,13 +333,18 @@ end
 ---@return attribute|true?
 JoyousSpring.get_attribute = function(card)
     if not JoyousSpring.is_monster_card(card) and (not JoyousSpring.get_extra_values(card) or not (JoyousSpring.get_extra_values(card).is_all_attributes and not JoyousSpring.get_extra_values(card).attribute)) then
-        return nil
+        return
     end
     if (JoyousSpring.get_extra_values(card) or {}).is_all_attributes or (JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.is_all_attributes) then
         return true
     end
 
-    return (JoyousSpring.get_extra_values(card) or {}).attribute or card.ability.extra.joyous_spring.attribute
+    local attribute = (JoyousSpring.get_extra_values(card) or {}).attribute or
+        card.ability.extra.joyous_spring.attribute
+
+    if attribute == "None" then return end
+
+    return attribute
 end
 
 ---Check if card_a and card_b are the same type and/or attribute
@@ -452,6 +464,13 @@ JoyousSpring.is_field_spell = function(card)
     if (JoyousSpring.get_extra_values(card) or {}).is_field_spell then return true end
 
     return JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.is_field_spell or false
+end
+
+---Checks if *card* is an Opponent's Joker
+---@param card Card|table
+---@return boolean
+JoyousSpring.is_opponent_card = function(card)
+    return JoyousSpring.is_monster_card(card) and card.ability.set == "joy_Opponent"
 end
 
 ---Checks if *card* is treated as all matrerials for a summon type
@@ -708,6 +727,16 @@ JoyousSpring.is_material = function(card, properties, summon_type)
             return false
         end
     end
+    if not properties.allow_opponent then
+        if card.ability.set == "joy_Opponent" then
+            return false
+        end
+    end
+    if properties.opponent then
+        if card.ability.set ~= "joy_Opponent" then
+            return false
+        end
+    end
     if summon_type and JoyousSpring.is_all_materials(card, summon_type) then
         return true
     end
@@ -942,6 +971,16 @@ JoyousSpring.is_material_center = function(card_key, properties)
 
     if properties.func then
         if not properties.func(card_center, properties.func_vars) then
+            return false
+        end
+    end
+    if not properties.allow_opponent then
+        if card_center.set == "joy_Opponent" then
+            return false
+        end
+    end
+    if properties.opponent then
+        if card_center.set ~= "joy_Opponent" then
             return false
         end
     end

@@ -54,11 +54,36 @@ if JoyousSpring and G.GAME.joy_active_blinds then
         local key = sorted_table[blind_type]
         if key then
             local prototype = G.P_BLINDS[key]
-            if prototype and (not G.GAME.blind or G.GAME.blind.config.blind.key ~= key)
+            if prototype and not SMODS.is_active_blind(key, true)
                 and JoyousSpring.BES[key] then
                 t[#t + 1] = { object = JoyousSpring.BES[key], scored_card = JoyousSpring.find_blind_effect_card(key) or G.deck.cards[1] or G.deck }
             end
         end
     end
+end
+'''
+
+# Don't game over if a blind has an on_game_over effect
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+pattern = '''
+SMODS.calculate_context({end_of_round = true, game_over = game_over, beat_boss = G.GAME.blind.boss })
+'''
+position = 'at'
+match_indent = true
+payload = '''
+if JoyousSpring and game_over then
+    G.GAME.joy_win_by_blind = nil
+    local win_by_blind, text = JoyousSpring.was_saved_by_blind()
+    if win_by_blind then
+        game_over = false
+        G.GAME.saved_text = text
+        G.GAME.joy_win_by_blind = true
+    end
+end
+SMODS.calculate_context({end_of_round = true, game_over = game_over, beat_boss = G.GAME.blind.boss })
+if G.GAME.joy_win_by_blind then
+    JoyousSpring.blind_on_game_over()
 end
 '''

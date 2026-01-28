@@ -64,9 +64,10 @@ position = 'before'
 match_indent = true
 payload = '''
 if JoyousSpring and JoyousSpring.is_field_spell(_card) then other_key = 'other_field_spell' end
+if JoyousSpring and JoyousSpring.is_opponent_card(_card) then other_key = 'other_opponent_joker' end
 '''
 
-# Add field spell area to joker evaluation
+# Add field spell and opponent's areas to joker evaluation
 [[patches]]
 [patches.pattern]
 target = '=[SMODS _ "src/utils.lua"]'
@@ -74,5 +75,6 @@ pattern = "-- TARGET: add your own CardAreas for joker evaluation"
 position = 'before'
 match_indent = true
 payload = '''
-if JoyousSpring and JoyousSpring.field_spell_area then table.insert(t, JoyousSpring.field_spell_area) end
+if JoyousSpring and JoyousSpring.field_spell_area and JoyousSpring.field_spell_area.cards then table.insert(t, JoyousSpring.field_spell_area) end
+if JoyousSpring and JoyousSpring.opponent_area and JoyousSpring.opponent_area.cards then table.insert(t, JoyousSpring.opponent_area) end
 '''

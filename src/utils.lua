@@ -199,14 +199,14 @@ JoyousSpring.get_material_attributes = function(card_list, ignore_debuffed)
     }
     for _, card in ipairs(card_list) do
         if type(card) == "table" and (not ignore_debuffed or not card.debuff) and JoyousSpring.is_monster_card(card) then
-            if not JoyousSpring.is_all_attributes(card) then
+            if not JoyousSpring.is_all_attributes(card) and JoyousSpring.get_attribute(card) then
                 attributes[JoyousSpring.get_attribute(card)] = true
             end
         else
             local card_center = G.P_CENTERS[card]
             if card_center and card_center.config and card_center.config.extra and
                 type(card_center.config.extra) == "table" and
-                card_center.config.extra.joyous_spring and not card_center.config.extra.joyous_spring.is_all_attributes then
+                card_center.config.extra.joyous_spring and card_center.config.extra.joyous_spring.attribute ~= "None" and not card_center.config.extra.joyous_spring.is_all_attributes then
                 attributes[card_center.config.extra.joyous_spring.attribute] = true
             end
         end
@@ -319,14 +319,14 @@ JoyousSpring.get_material_types = function(card_list, ignore_debuffed)
 
     for _, card in ipairs(card_list) do
         if type(card) == "table" and (not ignore_debuffed or not card.debuff) and JoyousSpring.is_monster_card(card) then
-            if not JoyousSpring.is_all_types(card) then
+            if not JoyousSpring.is_all_types(card) and JoyousSpring.get_monster_type(card) then
                 types[JoyousSpring.get_monster_type(card)] = true
             end
         else
             local card_center = G.P_CENTERS[card]
             if card_center and card_center.config and card_center.config.extra and
                 type(card_center.config.extra) == "table" and
-                card_center.config.extra.joyous_spring and not card_center.config.extra.joyous_spring.is_all_types then
+                card_center.config.extra.joyous_spring and card_center.config.extra.joyous_spring.monster_type ~= "None" and not card_center.config.extra.joyous_spring.is_all_types then
                 types[card_center.config.extra.joyous_spring.monster_type] = true
             end
         end
