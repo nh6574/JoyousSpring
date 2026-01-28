@@ -1,3 +1,5 @@
+-- Blinds and Opponent's Blind cards
+
 SMODS.Atlas {
     key = "blinds",
     path = "blind_macro.png",
@@ -14,14 +16,36 @@ SMODS.Blind {
     discovered = true,
     boss_colour = G.C.JOY.TRAP,
     boss = { min = 1, max = 10 },
-    loc_txt = {
-        name = "Macro Cosmos",
-        text = {
-            "No cards are sent to",
-            "the {C:attention}GY{} this ante"
-        }
-    },
-    in_pool = function (self)
+    config = {},
+    joy_joker_key = "opp_joy_macrocosmos",
+    in_pool = function(self)
         return false
     end
+}
+
+JoyousSpring.OpponentCard {
+    key = "macrocosmos",
+    atlas = "blinds",
+    joy_blind_key = "bl_joy_macrocosmos",
+    loc_vars = function(self, info_queue, card)
+        return { key = card.area and card.area == G.joy_blind_effects_area and self.key .. "_blind" or nil }
+    end,
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_trap = true,
+            },
+        }
+    },
+    calculate = function(self, card, context)
+        JoyousSpring.calculate_flip_effect(card, context)
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        if not card.debuff and not JoyousSpring.is_perma_debuffed(card) then
+            if not from_debuff and JoyousSpring.should_trap_flip(card) then
+                JoyousSpring.flip(card, card)
+            end
+        end
+    end,
 }

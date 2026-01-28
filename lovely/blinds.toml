@@ -1,0 +1,89 @@
+[manifest]
+version = "0.1.0"
+dump_lua = true
+priority = 0
+
+# Blinds
+
+# Make blind_choices into a metatable so I can check if the blind is changed
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "self.GAME = saveTable and saveTable.GAME or self:init_game_object()"
+position = 'after'
+match_indent = true
+payload = '''
+if JoyousSpring then
+    self.GAME.round_resets.blind_choices.joy_Small = self.GAME.round_resets.blind_choices.joy_Small or self.GAME.round_resets.blind_choices.Small or 'bl_small'
+    self.GAME.round_resets.blind_choices.joy_Big = self.GAME.round_resets.blind_choices.joy_Big or self.GAME.round_resets.blind_choices.Big or 'bl_big'
+    self.GAME.round_resets.blind_choices.Small = nil
+    self.GAME.round_resets.blind_choices.Big = nil
+    setmetatable(self.GAME.round_resets.blind_choices, {
+        __index = function(t, key)
+            if key == "Small" or key == "Big" or key == "Boss" then
+                return rawget(t, "joy_".. key)
+            end
+        end,
+        __newindex = function(t, key, value)
+            if key == "Small" or key == "Big" or key == "Boss" then
+                JoyousSpring.blind_changed(key, value, rawget(t, "joy_".. key))
+                rawset(t, "joy_".. key, value)
+            else
+                rawset(t, key, value)
+            end
+        end
+    })
+
+end
+'''
+
+# Add new ante calculate function to Blinds
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = "-- TARGET: add your own individual scoring targets"
+position = 'after'
+match_indent = true
+payload = '''
+if JoyousSpring and G.GAME.joy_active_blinds then
+    local sorted_table = {}
+    for key, blind_type in pairs(G.GAME.joy_active_blinds) do
+        sorted_table[blind_type] = key
+    end
+    for _, blind_type in ipairs { "Small", "Big", "Boss" } do
+        local key = sorted_table[blind_type]
+        if key then
+            local prototype = G.P_BLINDS[key]
+            if prototype and not SMODS.is_active_blind(key, true)
+                and JoyousSpring.BES[key] then
+                t[#t + 1] = { object = JoyousSpring.BES[key], scored_card = JoyousSpring.find_blind_effect_card(key) or G.deck.cards[1] or G.deck }
+            end
+        end
+    end
+end
+'''
+
+# Don't game over if a blind has an on_game_over effect
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+pattern = '''
+SMODS.calculate_context({end_of_round = true, game_over = game_over, beat_boss = G.GAME.blind.boss })
+'''
+position = 'at'
+match_indent = true
+payload = '''
+if JoyousSpring and game_over then
+    G.GAME.joy_win_by_blind = nil
+    local win_by_blind, text = JoyousSpring.was_saved_by_blind()
+    if win_by_blind then
+        game_over = false
+        G.GAME.saved_text = text
+        G.GAME.joy_win_by_blind = true
+    end
+end
+SMODS.calculate_context({end_of_round = true, game_over = game_over, beat_boss = G.GAME.blind.boss })
+if G.GAME.joy_win_by_blind then
+    JoyousSpring.blind_on_game_over()
+end
+'''

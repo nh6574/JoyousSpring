@@ -64,8 +64,8 @@ end
 ---@param context table
 JoyousSpring.calculate_context = function(context)
     if not JoyousSpring.field_spell_area then return end
-    -- Check if card is flipped by blind
     if context.joy_pre_setting_blind then
+        -- Check if card is flipped by blind
         for _, joker in ipairs(G.jokers.cards) do
             joker.joy_faceup_before_blind = joker.facing == "front"
         end
@@ -81,6 +81,12 @@ JoyousSpring.calculate_context = function(context)
         while #JoyousSpring.banish_blind_selected_area.cards > 0 do
             JoyousSpring.return_from_banish(JoyousSpring.banish_blind_selected_area.cards[1])
         end
+        -- Update Blind effects area
+        if G.GAME.joy_disabled_blinds[G.GAME.blind.config.blind.key] then
+            G.GAME.blind:disable()
+        else
+            JoyousSpring.update_blind_effects_area()
+        end
     end
     if context.end_of_round and context.game_over == false then
         if G.GAME.blind and G.GAME.blind.boss then
@@ -91,6 +97,10 @@ JoyousSpring.calculate_context = function(context)
         while #JoyousSpring.banish_end_of_round_area.cards > 0 do
             JoyousSpring.return_from_banish(JoyousSpring.banish_end_of_round_area.cards[1])
         end
+    end
+
+    if context.ante_change and context.ante_end then
+        G.GAME.joy_disabled_blinds = {}
     end
 
     -- Excavate
@@ -537,6 +547,7 @@ JoyousSpring.excavate = function(amount, context)
 end
 
 JoyousSpring.calculate_excavate = function(context)
+    if not G.jokers or not G.jokers.cards then return end
     local maxlimit = 0
     for _, joker in ipairs(G.jokers.cards) do
         if not joker.debuff and joker.config.center.joy_calculate_excavate then
@@ -620,6 +631,9 @@ end
 local cardarea_emplace_ref = CardArea.emplace
 function CardArea:emplace(card, location, stay_flipped)
     cardarea_emplace_ref(self, card, location, JoyousSpring.is_monster_card(card) or stay_flipped)
+    if self == JoyousSpring.opponent_area then
+        JoyousSpring.handle_opponent_area_limit()
+    end
 end
 
 local card_add_to_deck_ref = Card.add_to_deck

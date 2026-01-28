@@ -68,7 +68,7 @@ if TheFamily then
         type = "switch",
         keep = true,
         force_highlight = function(definition, card)
-            if JoyousSpring.first_run_family then
+            if JoyousSpring.field_spell_area and JoyousSpring.first_run_family then
                 JoyousSpring.first_run_family = nil
                 JoyousSpring.field_spell_area.states.visible = true
                 return true

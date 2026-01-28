@@ -23,7 +23,8 @@ local solfa_use = function(self, card, area, copier)
                 for _, pcard in ipairs(G.hand.highlighted) do
                     assert(SMODS.change_base(pcard, nil, card.ability.extra.rank))
                     if next(SMODS.find_card("j_joy_solfa_musecia")) and not pcard.edition then
-                        local edition = poll_edition("j_joy_solfa_musecia", nil, true, true) or 'e_foil'
+                        local edition = SMODS.poll_edition { key = "j_joy_solfa_musecia", guaranteed = true, no_negative = true } or
+                            'e_foil'
                         pcard:set_edition(edition, true)
                     end
                     if next(SMODS.find_card("j_joy_solfa_grancoolia")) and not card.seal then
