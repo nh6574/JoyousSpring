@@ -431,7 +431,6 @@ local joy_groups = {
     },
     {
         name = "Score Helper",
-        properties = {},
         extra_keys = { "j_joy_dmaid_kitchen", "j_joy_dmaid_parlor", "j_joy_dmaid_nurse", "j_joy_dmaid_laundry",
             "j_joy_ltwin_lilla", "j_joy_ltwin_kisikil", "j_joy_etwin_kisikil", "j_joy_etwin_lilla",
             "j_joy_etwin_kisikil_lilla", "j_joy_etwin_sunny", "j_joy_dogma_ecclesia", "j_joy_dogma_fleur",
@@ -470,7 +469,7 @@ local joy_groups = {
 
 for i, data in ipairs(joy_groups) do
     local joy_desc_cards = { data.extra_keys }
-    for _, property in ipairs(data.properties) do
+    for _, property in ipairs(data.properties or {}) do
         property.from_shop = true
     end
     joy_desc_cards[1].properties = data.properties
@@ -515,7 +514,7 @@ for i, data in ipairs(joy_groups) do
                     exclude_extra_deck = G.GAME.modifiers["joy_no_extra_deck_jokers"] and true or nil
                 }
             end
-            for _, main_property in ipairs(main_properties) do
+            for _, main_property in ipairs(main_properties or {}) do
                 main_property.exclude_extra_deck = G.GAME.modifiers["joy_no_extra_deck_jokers"] and true or nil
                 properties[#properties + 1] = main_property
             end
