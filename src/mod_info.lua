@@ -11,6 +11,15 @@ SMODS.current_mod.description_loc_vars = function()
     return { background_colour = G.C.CLEAR, text_colour = G.C.WHITE, scale = 1.2 }
 end
 
+SMODS.current_mod.menu_cards = function()
+    if not JoyousSpring.config.disable_main_menu then
+        return {
+            key = "j_joy_yokai_ash",
+            no_edition = true
+        }
+    end
+end
+
 SMODS.current_mod.custom_ui = function(modNodes)
     modNodes[1].nodes[1].config.colour = G.C.JOY.MOD
 
