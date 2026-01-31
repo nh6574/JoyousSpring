@@ -9,17 +9,19 @@ SMODS.Atlas {
     frames = 21
 }
 
+-- Macro Cosmos
 SMODS.Blind {
     key = "macrocosmos",
     atlas = "blinds",
     pos = { x = 0, y = 0 },
     discovered = true,
     boss_colour = G.C.JOY.TRAP,
-    boss = { min = 1, max = 10 },
+    boss = { min = 2 },
     config = {},
     joy_joker_key = "opp_joy_macrocosmos",
-    in_pool = function(self)
-        return false
+    joy_ante_ability = true,
+    joy_can_be_sent_to_graveyard = function(self, choices)
+        return {}
     end
 }
 
@@ -30,7 +32,6 @@ JoyousSpring.OpponentCard {
     loc_vars = function(self, info_queue, card)
         return { key = card.area and card.area == G.joy_blind_effects_area and self.key .. "_blind" or nil }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -48,4 +49,9 @@ JoyousSpring.OpponentCard {
             end
         end
     end,
+    joy_can_be_sent_to_graveyard = function(self, card, choices)
+        if JoyousSpring.can_use_abilities(card) then
+            return {}
+        end
+    end
 }

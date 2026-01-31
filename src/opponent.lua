@@ -2,6 +2,42 @@
 
 -- no there's no AI to play against in this mod
 
+--#region LSP
+
+---@class JoyousSpring.OpponentCard: SMODS.Center
+---@field super? SMODS.Center|table Parent class.
+---@field __call? fun(self: JoyousSpring.OpponentCard|table, o: JoyousSpring.OpponentCard|table): nil|table|JoyousSpring.OpponentCard
+---@field extend? fun(self: JoyousSpring.OpponentCard|table, o: JoyousSpring.OpponentCard|table): table Primary method of creating a class.
+---@field check_duplicate_register? fun(self: JoyousSpring.OpponentCard|table): boolean? Ensures objects already registered will not register.
+---@field check_duplicate_key? fun(self: JoyousSpring.OpponentCard|table): boolean? Ensures objects with duplicate keys will not register. Checked on `__call` but not `take_ownership`. For take_ownership, the key must exist.
+---@field register? fun(self: JoyousSpring.OpponentCard|table) Registers the object.
+---@field check_dependencies? fun(self: JoyousSpring.OpponentCard|table): boolean? Returns `true` if there's no failed dependencies.
+---@field process_loc_text? fun(self: JoyousSpring.OpponentCard|table) Called during `inject_class`. Handles injecting loc_text.
+---@field send_to_subclasses? fun(self: JoyousSpring.OpponentCard|table, func: string, ...: any) Starting from this class, recusively searches for functions with the given key on all subordinate classes and run all found functions with the given arguments.
+---@field pre_inject_class? fun(self: JoyousSpring.OpponentCard|table) Called before `inject_class`. Injects and manages class information before object injection.
+---@field post_inject_class? fun(self: JoyousSpring.OpponentCard|table) Called after `inject_class`. Injects and manages class information after object injection.
+---@field inject_class? fun(self: JoyousSpring.OpponentCard|table) Injects all direct instances of class objects by calling `obj:inject` and `obj:process_loc_text`. Also injects anything necessary for the class itself. Only called if class has defined both `obj_table` and `obj_buffer`.
+---@field inject? fun(self: JoyousSpring.OpponentCard|table, i?: number) Called during `inject_class`. Injects the object into the game.
+---@field take_ownership? fun(self: JoyousSpring.OpponentCard|table, key: string, obj: JoyousSpring.OpponentCard|table, silent?: boolean): nil|table|JoyousSpring.OpponentCard Takes control of vanilla objects. Child class must have get_obj for this to function
+---@field get_obj? fun(self: JoyousSpring.OpponentCard|table, key: string): JoyousSpring.OpponentCard|table? Returns an object if one matches the `key`.
+---@field calc_dollar_bonus? fun(self: JoyousSpring.OpponentCard|table, card: Card|table): nil|number Calculates reward money.
+---@field joy_blind_key? string String for the blind that rewards this joker, if any
+---@field joy_allow_ability? fun(card:table|Card, other_card:table|Card):boolean? Returns `true` if *other_card* is allowed to use abilities while facedown [Not Implemented Yet]
+---@field joy_apply_to_jokers_added? fun(card:table|Card,added_card:table|Card) Used to modify *added_card* when obtained [Not Implemented Yet]
+---@field joy_prevent_flip? fun(card:table|Card, other_card:table|Card):boolean? Determines if *other_card* should flip [Not Implemented Yet]
+---@field joy_prevent_trap_flip? fun(card:table|Card, other_card:table|Card):boolean? Determines if the Trap *other_card* should flip at end of round [Not Implemented Yet]
+---@field joy_flip_effect_active? fun(card:table|Card, other_card:table|Card):boolean? Determines if the FLIP ability of *other_card* should activate at the start of Blind [Not Implemented Yet]
+---@field joy_calculate_excavate? fun(card:table|Card, context:CalcContext):integer? Determines how many cards to excavate in a certain context [Not Implemented Yet]
+---@field joy_can_be_sent_to_graveyard? fun(self:JoyousSpring.OpponentCard|table, card:table|Card, choices:string[]):string[]? Used to filter cards that can be sent to the GY
+---@overload fun(self: JoyousSpring.OpponentCard): JoyousSpring.OpponentCard
+JoyousSpring.OpponentCard = setmetatable({}, {
+    __call = function(self)
+        return self
+    end
+})
+
+--#endregion
+
 SMODS.Atlas({
     key = "small_Back",
     path = "blind_back.png",
@@ -14,6 +50,7 @@ JoyousSpring.OpponentCard = SMODS.Center:extend {
     unlocked = true,
     discovered = true,
     class_prefix = "opp",
+    set_sprites = JoyousSpring.set_back_sprite,
     config = {},
     pos = { x = 0, y = 0 },
     display_size = { w = 34, h = 34 },

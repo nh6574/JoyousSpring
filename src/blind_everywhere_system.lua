@@ -1,5 +1,24 @@
 -- BLIND SYSTEMS
 
+--#region LSP
+
+---@class SMODS.Blind
+---@field joy_joker_key string Key for the Joker to add if the player loses to the Blind instead of losing the run
+---@field joy_ante_ability true? If true, the Blind can be active for the entire ante
+---@field joy_calculate_ante fun(self:SMODS.Blind|table, context:CalcContext):table? Calculate but for the ante (acts like joy_ante_ability is set to true)
+---@field joy_on_entry? fun(self:SMODS.Blind|table, blind_type:'Small'|'Big'|'Boss') Called when Blind is chosen for the ante
+---@field joy_on_exit? fun(self:SMODS.Blind|table, blind_type:'Small'|'Big'|'Boss') Called when Blind is rerolled for the ante
+---@field joy_on_game_over? fun(self:SMODS.Blind|table) Called when the player loses to the Blind instead of losing the run
+---@field joy_allow_ability? fun(self:SMODS.Blind|table, other_card:table|Card):boolean? Returns `true` if *other_card* is allowed to use abilities while facedown [Not Implemented Yet]
+---@field joy_apply_to_jokers_added? fun(self:SMODS.Blind|table, added_card:table|Card) Used to modify *added_card* when obtained [Not Implemented Yet]
+---@field joy_prevent_flip? fun(self:SMODS.Blind|table, other_card:table|Card):boolean? Determines if *other_card* should flip [Not Implemented Yet]
+---@field joy_prevent_trap_flip? fun(self:SMODS.Blind|table, other_card:table|Card):boolean? Determines if the Trap *other_card* should flip at end of round [Not Implemented Yet]
+---@field joy_flip_effect_active? fun(self:SMODS.Blind|table, other_card:table|Card):boolean? Determines if the FLIP ability of *other_card* should activate at the start of Blind [Not Implemented Yet]
+---@field joy_calculate_excavate? fun(self:SMODS.Blind|table, context:CalcContext):integer? Determines how many cards to excavate in a certain context [Not Implemented Yet]
+---@field joy_can_be_sent_to_graveyard? fun(self:SMODS.Blind|table, choices:string[]):string[]? Used to filter cards that can be sent to the GY
+
+--#endregion
+
 ---@type table<{calculate: fun(self:SMODS.Blind, context:CalcContext)}>
 JoyousSpring.BES = {}
 
@@ -44,7 +63,7 @@ JoyousSpring.blind_changed = function(blind_type, new_key, old_key)
         if type(new_blind.joy_on_enter) == "function" then
             new_blind:joy_on_enter(blind_type)
         end
-        if type(new_blind.joy_calculate_ante) == "function" then
+        if new_blind.joy_ante_ability or type(new_blind.joy_calculate_ante) == "function" then
             G.GAME.joy_active_blinds[new_key] = blind_type
             G.GAME.joy_disabled_blinds[new_key] = nil
             update = true
@@ -168,7 +187,7 @@ SMODS.current_mod.custom_card_areas = function(game)
             highlight_limit = 0,
             negative_info = 'joker',
             no_card_count = true,
-            --bg_colour = G.C.CLEAR
+            bg_colour = G.C.CLEAR
         })
     game.joy_opponent_area = CardArea(
         0, 0, game.CARD_W * 1.9, 0.7,
@@ -179,6 +198,4 @@ SMODS.current_mod.custom_card_areas = function(game)
             negative_info = 'joker',
             bg_colour = { G.C.JOY.TRAP[1], G.C.JOY.TRAP[2], G.C.JOY.TRAP[3], 0.5 }
         })
-    game.joy_blind_effects_area.states.visible = false
-    game.joy_opponent_area.states.visible = false
 end
