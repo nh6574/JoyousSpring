@@ -121,6 +121,7 @@ SMODS.Atlas({
 ---@field is_main_deck boolean?
 ---@field exclude_main_deck boolean?
 ---@field is_field_spell boolean?
+---@field is_spell boolean?
 ---@field exclude_field_spell boolean?
 ---@field summon_type summon_type?
 ---@field exclude_summon_types summon_type[]?
@@ -159,6 +160,7 @@ SMODS.Atlas({
 
 ---@class joyous_spring
 ---@field is_field_spell boolean?
+---@field is_spell boolean?
 ---@field is_main_deck boolean?
 ---@field summon_type summon_type?
 ---@field is_effect boolean?
@@ -185,6 +187,7 @@ SMODS.Atlas({
 ---@field attribute? attribute
 ---@field is_tuner? boolean
 ---@field is_field_spell? boolean
+---@field is_spell? boolean
 ---@field is_effect? boolean
 ---@field is_all_materials? { RITUAL:boolean?, FUSION:boolean?, SYNCHRO:boolean?, XYZ:boolean?, LINK:boolean? }
 ---@field numerator_const? integer
@@ -198,7 +201,7 @@ SMODS.Atlas({
 ---@param params joyous_spring
 ---@return joyous_spring|table
 JoyousSpring.init_joy_table = function(params)
-    return not params.is_field_spell and {
+    return not params.is_field_spell and not params.is_spell and {
         is_main_deck = params.is_main_deck or
             not params.summon_type or params.summon_type == "NORMAL" or params.summon_type == "RITUAL",
         summon_type = params.summon_type or "NORMAL",
@@ -228,7 +231,8 @@ JoyousSpring.init_joy_table = function(params)
         detached_count = 0,
         detached_count_round = 0
     } or {
-        is_field_spell = true,
+        is_field_spell = params.is_field_spell,
+        is_spell = params.is_spell,
         monster_archetypes = params.monster_archetypes or {},
         perma_debuffed = false,
         is_free = false,

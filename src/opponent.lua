@@ -6,7 +6,7 @@
 
 ---@class JoyousSpring.OpponentCard: SMODS.Center
 ---@field super? SMODS.Center|table Parent class.
----@field __call? fun(self: JoyousSpring.OpponentCard|table, o: JoyousSpring.OpponentCard|table): nil|table|JoyousSpring.OpponentCard
+---@field __call? fun(self: JoyousSpring.OpponentCard|table, o: JoyousSpring.OpponentCard|table): table|JoyousSpring.OpponentCard?
 ---@field extend? fun(self: JoyousSpring.OpponentCard|table, o: JoyousSpring.OpponentCard|table): table Primary method of creating a class.
 ---@field check_duplicate_register? fun(self: JoyousSpring.OpponentCard|table): boolean? Ensures objects already registered will not register.
 ---@field check_duplicate_key? fun(self: JoyousSpring.OpponentCard|table): boolean? Ensures objects with duplicate keys will not register. Checked on `__call` but not `take_ownership`. For take_ownership, the key must exist.

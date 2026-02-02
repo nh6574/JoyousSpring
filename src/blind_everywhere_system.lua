@@ -2,13 +2,14 @@
 
 --#region LSP
 
----@class SMODS.Blind
----@field joy_joker_key string Key for the Joker to add if the player loses to the Blind instead of losing the run
----@field joy_ante_ability true? If true, the Blind can be active for the entire ante
----@field joy_calculate_ante fun(self:SMODS.Blind|table, context:CalcContext):table? Calculate but for the ante (acts like joy_ante_ability is set to true)
----@field joy_on_entry? fun(self:SMODS.Blind|table, blind_type:'Small'|'Big'|'Boss') Called when Blind is chosen for the ante
----@field joy_on_exit? fun(self:SMODS.Blind|table, blind_type:'Small'|'Big'|'Boss') Called when Blind is rerolled for the ante
----@field joy_on_game_over? fun(self:SMODS.Blind|table) Called when the player loses to the Blind instead of losing the run
+---@class JoyousSpring.Blind: SMODS.Blind
+---@field opponent_card? JoyousSpring.OpponentCard
+---@field opponent_key? string Key for the Joker to add if the player loses to the Blind instead of losing the run (if opponent_card is not specified)
+---@field has_ante_ability? true? If true, the Blind can be active for the entire ante
+---@field calculate_ante? fun(self:SMODS.Blind|table, context:CalcContext):table? Calculate but for the ante (acts like has_ante_ability is set to true)
+---@field on_enter? fun(self:SMODS.Blind|table, blind_type:'Small'|'Big'|'Boss') Called when Blind is chosen for the ante
+---@field on_exit? fun(self:SMODS.Blind|table, blind_type:'Small'|'Big'|'Boss') Called when Blind is rerolled for the ante
+---@field on_game_over? fun(self:SMODS.Blind|table) Called when the player loses to the Blind instead of losing the run
 ---@field joy_allow_ability? fun(self:SMODS.Blind|table, other_card:table|Card):boolean? Returns `true` if *other_card* is allowed to use abilities while facedown [Not Implemented Yet]
 ---@field joy_apply_to_jokers_added? fun(self:SMODS.Blind|table, added_card:table|Card) Used to modify *added_card* when obtained [Not Implemented Yet]
 ---@field joy_prevent_flip? fun(self:SMODS.Blind|table, other_card:table|Card):boolean? Determines if *other_card* should flip [Not Implemented Yet]
@@ -16,17 +17,51 @@
 ---@field joy_flip_effect_active? fun(self:SMODS.Blind|table, other_card:table|Card):boolean? Determines if the FLIP ability of *other_card* should activate at the start of Blind [Not Implemented Yet]
 ---@field joy_calculate_excavate? fun(self:SMODS.Blind|table, context:CalcContext):integer? Determines how many cards to excavate in a certain context [Not Implemented Yet]
 ---@field joy_can_be_sent_to_graveyard? fun(self:SMODS.Blind|table, choices:string[]):string[]? Used to filter cards that can be sent to the GY
+---@overload fun(self: JoyousSpring.Blind): JoyousSpring.Blind
+JoyousSpring.Blind = setmetatable({}, {
+    __call = function(self)
+        return self
+    end
+})
 
 --#endregion
 
 ---@type table<{calculate: fun(self:SMODS.Blind, context:CalcContext)}>
 JoyousSpring.BES = {}
 
+JoyousSpring.Blind = SMODS.Blind:extend {
+    discovered = true,
+    config = {},
+    pos = { x = 0, y = 0 },
+    boss = { min = 2 },
+    inject = function(self, i)
+        SMODS.Blind.inject(self, i)
+        if self.opponent_card then
+            self.opponent_card.key = "joy_" .. (self.opponent_card.key or self.original_key)
+            self.opponent_card.atlas = (self.opponent_card.atlas and "joy_" .. self.opponent_card.atlas or self.atlas)
+            self.opponent_card.pos = self.opponent_card.pos or { x = self.pos.x, y = self.pos.y }
+            self.opponent_card.joy_blind_key = self.opponent_card.joy_blind_key or self.key
+            self.opponent_card.loc_vars = self.opponent_card.loc_vars or function(self, info_queue, card)
+                return {
+                    key = card.area and card.area == G.joy_blind_effects_area and self.joy_blind_key or nil,
+                    set = card.area and card.area == G.joy_blind_effects_area and "Blind" or nil
+                }
+            end
+            local proto = JoyousSpring.OpponentCard(SMODS.shallow_copy(self.opponent_card))
+
+            self.opponent_key = proto.key
+        end
+    end,
+    post_inject_class = function(self)
+        SMODS.injectObjects(JoyousSpring.OpponentCard)
+    end
+}
+
 local smods_blind_inject_ref = SMODS.Blind.inject or function() end
 SMODS.Blind.inject = function(self, i)
     smods_blind_inject_ref(self, i)
-    if self.joy_calculate_ante then
-        JoyousSpring.BES[self.key] = { calculate = self.joy_calculate_ante }
+    if self.calculate_ante then
+        JoyousSpring.BES[self.key] = { calculate = self.calculate_ante }
     end
 end
 
@@ -49,8 +84,8 @@ JoyousSpring.blind_changed = function(blind_type, new_key, old_key)
     local update = false
 
     if old_blind then
-        if not G.GAME.joy_blind_defeated and type(old_blind.joy_on_exit) == "function" then
-            old_blind:joy_on_exit(blind_type)
+        if not G.GAME.joy_blind_defeated and type(old_blind.on_exit) == "function" then
+            old_blind:on_exit(blind_type)
         end
         if blind_type == "Boss" or (G.GAME.round_resets.blind_choices.Boss ~= old_key and
                 (blind_type ~= "Small" or G.GAME.round_resets.blind_choices.Big ~= old_key)) then
@@ -60,10 +95,10 @@ JoyousSpring.blind_changed = function(blind_type, new_key, old_key)
     end
 
     if new_blind then
-        if type(new_blind.joy_on_enter) == "function" then
-            new_blind:joy_on_enter(blind_type)
+        if type(new_blind.on_enter) == "function" then
+            new_blind:on_enter(blind_type)
         end
-        if new_blind.joy_ante_ability or type(new_blind.joy_calculate_ante) == "function" then
+        if new_blind.has_ante_ability or type(new_blind.calculate_ante) == "function" then
             G.GAME.joy_active_blinds[new_key] = blind_type
             G.GAME.joy_disabled_blinds[new_key] = nil
             update = true
@@ -90,8 +125,8 @@ JoyousSpring.update_blind_effects_area = function()
     end
     for key, _ in pairs(G.GAME.joy_active_blinds) do
         local prototype = G.P_BLINDS[key]
-        if not SMODS.is_active_blind(blind_key, true) and prototype and prototype.joy_joker_key and not cards_in_area[prototype.joy_joker_key] then
-            local created_card = SMODS.create_card { key = prototype.joy_joker_key, no_edition = true }
+        if not SMODS.is_active_blind(blind_key, true) and prototype and prototype.opponent_key and not cards_in_area[prototype.opponent_key] then
+            local created_card = SMODS.create_card { key = prototype.opponent_key, no_edition = true }
             G.joy_blind_effects_area:emplace(created_card)
         end
     end
@@ -117,11 +152,11 @@ JoyousSpring.was_saved_by_blind = function()
     local was_saved = false
     for key, _ in pairs(G.GAME.joy_active_blinds) do
         local prototype = G.P_BLINDS[key]
-        was_saved = not not (prototype and (prototype.joy_joker_key or prototype.joy_blind_save))
+        was_saved = not not (prototype and (prototype.opponent_key or prototype.joy_blind_save))
     end
     if not G.GAME.blind.disabled and not G.GAME.joy_active_blinds[G.GAME.blind.config.blind.key] then
         local prototype = G.GAME.blind.config.blind
-        was_saved = was_saved or not not (prototype and (prototype.joy_joker_key or prototype.joy_blind_save))
+        was_saved = was_saved or not not (prototype and (prototype.opponent_key or prototype.joy_blind_save))
     end
     return was_saved, localize("k_joy_saved_by_blind")
 end
@@ -132,22 +167,22 @@ JoyousSpring.blind_on_game_over = function()
     for key, _ in pairs(G.GAME.joy_active_blinds) do
         local prototype = G.P_BLINDS[key]
         if prototype then
-            if prototype.joy_joker_key then
-                SMODS.add_card { key = prototype.joy_joker_key, no_edition = true, area = JoyousSpring.opponent_area }
+            if prototype.opponent_key then
+                SMODS.add_card { key = prototype.opponent_key, no_edition = true, area = JoyousSpring.opponent_area }
             end
-            if type(prototype.joy_on_game_over) == "function" then
-                prototype:joy_on_game_over()
+            if type(prototype.on_game_over) == "function" then
+                prototype:on_game_over()
             end
         end
         table.insert(disable, key)
     end
     if not G.GAME.blind.disabled and not G.GAME.joy_active_blinds[G.GAME.blind.config.blind.key] then
         local prototype = G.GAME.blind.config.blind
-        if prototype.joy_joker_key then
-            SMODS.add_card { key = prototype.joy_joker_key, no_edition = true, area = JoyousSpring.opponent_area }
+        if prototype.opponent_key then
+            SMODS.add_card { key = prototype.opponent_key, no_edition = true, area = JoyousSpring.opponent_area }
         end
-        if type(prototype.joy_on_game_over) == "function" then
-            prototype:joy_on_game_over()
+        if type(prototype.on_game_over) == "function" then
+            prototype:on_game_over()
         end
     end
     for _, key in ipairs(disable) do
@@ -164,8 +199,8 @@ JoyousSpring.disable_blind_ante = function(key)
     local prototype = G.P_BLINDS[key]
 
     if not SMODS.is_active_blind(key, true) then
-        if G.GAME.joy_active_blinds[key] and prototype and type(prototype.joy_on_exit) == "function" then
-            prototype:joy_on_exit(G.GAME.joy_active_blinds[key])
+        if G.GAME.joy_active_blinds[key] and prototype and type(prototype.on_exit) == "function" then
+            prototype:on_exit(G.GAME.joy_active_blinds[key])
         end
     else
         if not G.GAME.blind.disabled then

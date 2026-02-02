@@ -15,13 +15,15 @@ JoyousSpring.get_type_ui = function(card)
         and card.ability.extra.joyous_spring or {}
     local extra_values = JoyousSpring.get_extra_values(card) or {}
 
-    if extra_values.is_field_spell or joyous_spring_table.is_field_spell then
+    if extra_values.is_field_spell or joyous_spring_table.is_field_spell or extra_values.is_spell or joyous_spring_table.is_spell then
+        local text = (extra_values.is_field_spell or joyous_spring_table.is_field_spell) and localize("k_joy_fieldspell") or
+        localize("k_joy_spell")
         return {
             {
                 n = G.UIT.O,
                 config = {
                     object = DynaText({
-                        string = { localize("k_joy_fieldspell") },
+                        string = { text },
                         colours = { G.C.JOY.SPELL },
                         bump = true,
                         silent = true,
@@ -30,8 +32,8 @@ JoyousSpring.get_type_ui = function(card)
                         maxw = 5,
                         shadow = true,
                         y_offset = 0,
-                        spacing = math.max(0, 0.32 * (17 - #localize("k_joy_fieldspell"))),
-                        scale = (0.4 - 0.004 * #localize("k_joy_fieldspell"))
+                        spacing = math.max(0, 0.32 * (17 - #text)),
+                        scale = (0.4 - 0.004 * #text)
                     })
                 }
             }
