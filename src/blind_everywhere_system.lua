@@ -48,13 +48,11 @@ JoyousSpring.Blind = SMODS.Blind:extend {
                 }
             end
             local proto = JoyousSpring.OpponentCard(SMODS.shallow_copy(self.opponent_card))
+            proto:inject()
 
             self.opponent_key = proto.key
         end
     end,
-    post_inject_class = function(self)
-        SMODS.injectObjects(JoyousSpring.OpponentCard)
-    end
 }
 
 local smods_blind_inject_ref = SMODS.Blind.inject or function() end
