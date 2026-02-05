@@ -89,3 +89,34 @@ function Moveable:drag(offset)
         moveable_drag_ref(self, offset)
     end
 end
+
+G.FUNCS.joy_your_collection_opponent = function(e)
+    G.SETTINGS.paused = true
+    G.FUNCS.overlay_menu {
+        definition = JoyousSpring.create_UIBox_your_collection_opponent(),
+    }
+end
+
+JoyousSpring.create_UIBox_your_collection_opponent = function()
+    return SMODS.card_collection_UIBox(G.P_CENTER_POOLS.joy_Opponent, { 8, 8, 8, 8, 8 }, {
+        no_materialize = true,
+        h_mod = 0.5,
+        w_mod = 0.8,
+        card_scale = 1.5,
+    })
+end
+
+function JoyousSpring.opponent_collection_tally()
+    local obj_tally = { tally = 0, of = 0 }
+
+    for _, v in pairs(G.P_CENTER_POOLS.joy_Opponent) do
+        if not v.no_collection then
+            obj_tally.of = obj_tally.of + 1
+            if v.discovered then
+                obj_tally.tally = obj_tally.tally + 1
+            end
+        end
+    end
+
+    return obj_tally
+end
