@@ -19,6 +19,21 @@ if card and card.ability and (type(card.ability.extra) == "table" and
 end
 '''
 
+# Remove win sticker tooltip
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''
+if specific_vars and specific_vars.sticker then info_queue[#info_queue+1] = {key = string.lower(specific_vars.sticker)..'_sticker', set = 'Other'} end
+'''
+position = 'at'
+match_indent = true
+payload = '''
+if not card or (card.config.center.mod or {}).id ~= "JoyousSpring" then
+if specific_vars and specific_vars.sticker then info_queue[#info_queue+1] = {key = string.lower(specific_vars.sticker)..'_sticker', set = 'Other'} end
+end
+'''
+
 # Customize sell cost
 [[patches]]
 [patches.pattern]
