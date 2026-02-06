@@ -107,73 +107,87 @@ return {
             opp_joy_fordress = {
                 name = "{C:joy_spell}Forbidden Dress",
                 text = {
-                    "TBD"
+                    "Scored cards give {X:chips,C:white}X#1#{} Chips",
+                    "but playing cards can't be debuffed"
                 }
             },
             opp_joy_fordroplet = {
                 name = "{C:joy_spell}Forbidden Droplet",
                 text = {
-                    "TBD"
+                    "Debuffs an {C:joy_effect}Effect{}, {C:joy_trap}Trap",
+                    "or {C:joy_spell}Field Spell {C:attention}Joker{}",
+                    "Cycles between options each round",
+                    "{C:inactive}(Currently #1#){}"
                 }
             },
             opp_joy_forlance = {
                 name = "{C:joy_spell}Forbidden Lance",
                 text = {
-                    "TBD"
+                    "All {C:joy_effect}Effect{} {C:attention}Jokers give {X:mult,C:white}X#1#{} Mult",
+                    "but they can't be {C:attention}flipped{} face-down",
+                    "or debuffed"
                 }
             },
             opp_joy_forscript = {
                 name = "{C:joy_spell}Forbidden Scripture",
                 text = {
-                    "TBD"
+                    "{C:dark_edition}Editions{}, {C:attention}Enhancements",
+                    "and {C:attention}Seals{} don't activate"
                 }
             },
             opp_joy_harpiesfeatherduster = {
                 name = "{C:joy_spell}Harpie's Feather Duster",
                 text = {
-                    "TBD"
+                    "Reduces {C:joy_spell}Field Spell{} slots by {C:attention}1{}",
                 }
             },
             opp_joy_lightningstorm = {
                 name = "{C:joy_spell}Lightning Storm",
                 text = {
-                    "TBD"
+                    "Destroys all {C:joy_spell}Field Spells",
+                    "or all {C:attention}Jokers{} if none",
+                    "at end of ante"
                 }
             },
             opp_joy_necrovalley = {
                 name = "{C:joy_spell}Necrovalley",
                 text = {
-                    "TBD"
+                    "{C:attention}Jokers{} can't be {C:attention}revived{}"
                 }
             },
             opp_joy_senetswitch = {
                 name = "{C:joy_spell}Senet Switch",
                 text = {
-                    "TBD"
+                    "A random {C:attention}Joker{} is",
+                    "{C:attention}pinned{} to the left each round"
                 }
             },
             opp_joy_superpoly = {
                 name = "{C:joy_spell}Super Polymerization",
                 text = {
-                    "TBD"
+                    "Can't summon {C:attention}Jokers{}",
+                    "except {C:joy_fusion}Fusions{}"
                 }
             },
             opp_joy_terminalworld = {
                 name = "{C:joy_spell}Terminal World",
                 text = {
-                    "TBD"
+                    "{C:attention}Big Blind",
+                    "can't be selected"
                 }
             },
             opp_joy_terminalworldnext = {
                 name = "{C:joy_spell}Terminal World NEXT",
                 text = {
-                    "TBD"
+                    "{C:attention}Joker{} slots are",
+                    "reduced by {C:attention}2{}"
                 }
             },
             opp_joy_ultimateslayer = {
                 name = "{C:joy_spell}Ultimate Slayer",
                 text = {
-                    "TBD"
+                    "Only {C:joy_effect}#1#{}", -- whatever was destroyed by the blind or links
+                    "can be summoned"
                 }
             },
             --#endregion
@@ -181,49 +195,60 @@ return {
             opp_joy_chaindisappearance = {
                 name = "{C:joy_trap}Chain Disappearance",
                 text = {
-                    "TBD"
+                    "Each time a {C:attention}Joker is summoned,",
+                    "{C:attention}banishes{} all others that share its {C:attention}Type",
+                    "or {C:attention}Attribute{} until end of round"
                 }
             },
             opp_joy_chaindispel = {
                 name = "{C:joy_trap}Chain Dispel",
                 text = {
-                    "TBD"
+                    "Destroy all {C:attention}Jokers",
+                    "that share the same name except one",
+                    "{C:inactive}(including Field Spells)"
                 }
             },
             opp_joy_chainhole = {
                 name = "{C:joy_trap}Chain Hole",
                 text = {
-                    "TBD"
+                    "Banishes all {C:attention}Jokers",
+                    "that share the same name except one",
+                    "when {C:attention}Blind{} is selected",
+                    "until end of round",
+                    "{C:inactive}(including Field Spells)"
                 }
             },
             opp_joy_evenly = {
                 name = "{C:joy_trap}Evenly Matched",
                 text = {
-                    "TBD"
+                    "A {C:attention}Joker{} is {C:attention}banished{}",
+                    "when {C:attention}Blind{} is selected",
+                    "until next {C:attention}Blind{} is selected"
                 }
             },
             opp_joy_imperialironwall = {
                 name = "{C:joy_trap}Imperial Iron Wall",
                 text = {
-                    "TBD"
+                    "Cards can't be {C:attention}banished"
                 }
             },
             opp_joy_imperialorder = {
                 name = "{C:joy_trap}Imperial Order",
                 text = {
-                    "TBD"
+                    "{C:joy_spell}Field Spells{} are debuffed"
                 }
             },
             opp_joy_imperm = {
                 name = "{C:joy_trap}Infinite Impermanence",
                 text = {
-                    "TBD"
+                    "A non-{C:joy_trap}Trap {C:joy_effect}Effect {C:attention}Joker",
+                    "is debuffed each {C:attention}Small{} and {C:attention}Big Blind{}"
                 }
             },
             opp_joy_lightforcesword = {
                 name = "{C:joy_trap}Lightforce Sword",
                 text = {
-                    "TBD"
+                    "{C:attention}Banishes 1{} scored card from each", "until end of ante"
                 }
             },
             opp_joy_macrocosmos = {
@@ -236,12 +261,13 @@ return {
             opp_joy_redreboot = {
                 name = "{C:joy_trap}Red Reboot",
                 text = {
-                    "TBD"
+                    "A {C:joy_trap}Trap{} is debuffed each round"
                 }
             },
             --#endregion
         },
         Blind = {
+            -- Blinds don't support formatting (yet at least) but the blind reminder cards use these
             --#region Effect
             bl_joy_dimensionshifter = {
                 name = "{C:joy_effect}Dimension Shifter",
@@ -353,79 +379,98 @@ return {
                 name = "{C:joy_spell}Forbidden Chalice",
                 text = {
                     "Debuffs an {C:joy_effect}Effect{} {C:attention}Joker",
-                    "but that {C:attention}Joker{}", "gives {X:mult,C:white}X#1#{} Mult"
+                    "but that {C:attention}Joker{}", "gives {X:mult,C:white}X#1#{} Mult" --X2
                 }
             },
             bl_joy_fordress = {
                 name = "{C:joy_spell}Forbidden Dress",
                 text = {
-                    "TBD"
+                    "Scored cards give",
+                    "{X:chips,C:white}X#1#{} Chips" --X0.75
                 }
             },
             bl_joy_fordroplet = {
                 name = "{C:joy_spell}Forbidden Droplet",
                 text = {
-                    "TBD"
+                    "Debuffs an {C:joy_effect}Effect {C:attention}Joker",
+                    "a {C:joy_trap}Trap {C:attention}Joker{} and",
+                    "a {C:joy_spell}Field Spell"
                 }
             },
             bl_joy_forlance = {
                 name = "{C:joy_spell}Forbidden Lance",
                 text = {
-                    "TBD"
+                    "All {C:joy_effect}Effect{} {C:attention}Jokers",
+                    "give {X:mult,C:white}X#1#{} Mult" --X0.75
                 }
             },
             bl_joy_forscript = {
                 name = "{C:joy_spell}Forbidden Scripture",
                 text = {
-                    "TBD"
+                    "{C:dark_edition}Editions{}, {C:attention}Enhancements",
+                    "and {C:attention}Seals{} don't activate"
                 }
             },
             bl_joy_harpiesfeatherduster = {
                 name = "{C:joy_spell}Harpie's Feather Duster",
                 text = {
-                    "TBD"
+                    "Destroys all",
+                    "{C:joy_spell}Field Spells"
                 }
             },
             bl_joy_lightningstorm = {
                 name = "{C:joy_spell}Lightning Storm",
                 text = {
-                    "TBD"
+                    "Destroys all",
+                    "{C:joy_spell}Field Spells",
+                    "or all {C:attention}Jokers{}",
+                    "if none"
                 }
             },
             bl_joy_necrovalley = {
                 name = "{C:joy_spell}Necrovalley",
                 text = {
-                    "TBD"
+                    "{C:attention}Jokers{} can't be",
+                    "{C:attention}revived{} this ante"
                 }
             },
             bl_joy_senetswitch = {
                 name = "{C:joy_spell}Senet Switch",
                 text = {
-                    "TBD"
+                    "Can't move {C:attention}Jokers",
+                    "this ante"
                 }
             },
             bl_joy_superpoly = {
                 name = "{C:joy_spell}Super Polymerization",
                 text = {
-                    "TBD"
+                    "Summons a random",
+                    "{C:joy_fusion}Fusion{} using",
+                    "materials you own"
                 }
             },
             bl_joy_terminalworld = {
                 name = "{C:joy_spell}Terminal World",
                 text = {
-                    "TBD"
+                    "{C:attention}Big Blind",
+                    "can't be selected"
                 }
             },
             bl_joy_terminalworldnext = {
                 name = "{C:joy_spell}Terminal World NEXT",
                 text = {
-                    "TBD"
+                    "{C:attention}Joker{} slots are",
+                    "limited to 3",
+                    "this ante"
                 }
             },
             bl_joy_ultimateslayer = {
                 name = "{C:joy_spell}Ultimate Slayer",
                 text = {
-                    "TBD"
+                    "Destroys an {C:joy_spell}Extra Deck{} {C:attention}Joker",
+                    "Adds a {C:attention}Joker{} of the same",
+                    "summon type to the {C:joy_spell}Extra Deck{}",
+                    "if possible"
                 }
             },
             --#endregion
@@ -433,49 +478,66 @@ return {
             bl_joy_chaindisappearance = {
                 name = "{C:joy_trap}Chain Disappearance",
                 text = {
-                    "TBD"
+                    "Each time a {C:attention}Joker",
+                    "is summoned this ante",
+                    "{C:attention}banishes{} all others",
+                    "that share its {C:attention}Type",
+                    "or {C:attention}Attribute{}",
+                    "until end of ante"
                 }
             },
             bl_joy_chaindispel = {
                 name = "{C:joy_trap}Chain Dispel",
                 text = {
-                    "TBD"
+                    "Destroys all {C:attention}Jokers",
+                    "that share the same name",
+                    "{C:inactive}(including Field Spells)"
                 }
             },
             bl_joy_chainhole = {
                 name = "{C:joy_trap}Chain Hole",
                 text = {
-                    "TBD"
+                    "Banishes all {C:attention}Jokers",
+                    "that share the same name",
+                    "until end of round",
+                    "{C:inactive}(including Field Spells)"
                 }
             },
             bl_joy_evenly = {
                 name = "{C:joy_trap}Evenly Matched",
                 text = {
-                    "TBD"
+                    "Choose a {C:attention}Joker",
+                    "{C:attention}banish{} all others",
+                    "until end of round",
+                    "{C:inactive}(Except Tokens){}"
                 }
             },
             bl_joy_imperialironwall = {
                 name = "{C:joy_trap}Imperial Iron Wall",
                 text = {
-                    "TBD"
+                    "Cards can't be {C:attention}banished"
                 }
             },
             bl_joy_imperialorder = {
                 name = "{C:joy_trap}Imperial Order",
                 text = {
-                    "TBD"
+                    "{C:joy_spell}Field Spells{} are debuffed"
                 }
             },
             bl_joy_imperm = {
                 name = "{C:joy_trap}Infinite Impermanence",
                 text = {
-                    "TBD"
+                    "A non-{C:joy_trap}Trap {C:joy_effect}Effect {C:attention}Joker",
+                    "is debuffed each round"
                 }
             },
             bl_joy_lightforcesword = {
                 name = "{C:joy_trap}Lightforce Sword",
                 text = {
-                    "TBD"
+                    "{C:attention}Banishes 1{}",
+                    "scored card from each",
+                    "played hand this ante",
+                    "until end of ante"
                 }
             },
             bl_joy_macrocosmos = {
@@ -488,7 +550,7 @@ return {
             bl_joy_redreboot = {
                 name = "{C:joy_trap}Red Reboot",
                 text = {
-                    "TBD"
+                    "{C:joy_trap}Traps{} are debuffed"
                 }
             },
             --#endregion
