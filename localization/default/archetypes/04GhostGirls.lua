@@ -27,8 +27,11 @@ return {
                     {
                         "{C:green}#1# in #2#{} chance to not draw cards",
                         "after playing/discarding",
+                    },
+                    {
                         "Gains {X:mult,C:white}X#3#{} Mult each time",
-                        "this effect is triggered",
+                        "{C:joy_effect}\"Ash Blossom & Joyous Spring\"{}",
+                        "triggers the previous effect",
                         "{C:inactive}(Currently{} {X:mult,C:white}X#4#{} {C:inactive}Mult){}",
                     },
                 },
@@ -37,8 +40,8 @@ return {
                 name = "{C:joy_effect}Ghost Belle & Haunted Mansion",
                 text = {
                     {
-                        "Gains {X:mult,C:white}X#1#{} Mult when a {C:attention}Joker{}",
-                        "is {C:attention}revived{}",
+                        "Gains {X:mult,C:white}X#1#{} Mult for each",
+                        "{C:attention}Joker{} {C:attention}revived{}",
                         "{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}",
                     },
                 },
@@ -47,8 +50,8 @@ return {
                 name = "{C:joy_effect}Ghost Sister & Spooky Dogwood",
                 text = {
                     {
-                        "Gains {X:mult,C:white}X#1#{} Mult per consumable used",
-                        "during a {C:attention}Blind{}",
+                        "Gains {X:mult,C:white}X#1#{} Mult for each",
+                        "consumable used during a {C:attention}Blind{}",
                         "{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}",
                     },
                     {
