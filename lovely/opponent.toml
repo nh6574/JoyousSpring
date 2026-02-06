@@ -20,6 +20,7 @@ if JoyousSpring then
 end
 '''
 
+# Add to collection
 [[patches]]
 [patches.pattern]
 target = "functions/UI_definitions.lua"
@@ -29,7 +30,7 @@ UIBox_button({button = 'your_collection_jokers', label = {localize('b_jokers')},
 position = 'after'
 match_indent = true
 payload = '''
-UIBox_button({button = 'joy_your_collection_opponent', label = {localize('k_joy_opponentcards')}, count = JoyousSpring.opponent_collection_tally(), minw = 5, id = 'joy_your_collection_opponent'}),
+JoyousSpring and JoyousSpring.config.only_ygo_cards and UIBox_button({button = 'joy_your_collection_opponent', label = {localize('k_joy_opponentcards')}, count = JoyousSpring.opponent_collection_tally(), minw = 5, id = 'joy_your_collection_opponent'}) or nil,
 '''
 
 [[patches]]

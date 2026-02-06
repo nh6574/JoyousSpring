@@ -34,7 +34,7 @@ SMODS.current_mod.custom_ui = function(modNodes)
         local card = Card(G.joy_desc_area.T.x + G.joy_desc_area.T.w / 2, G.joy_desc_area.T.y,
             G.CARD_W, G.CARD_H, G.P_CARDS.empty,
             G.P_CENTERS[key])
-        JoyousSpring.set_back_sprite(nil, card)
+        JoyousSpring.set_back_sprite(G.P_CENTERS[key], card)
         G.joy_desc_area:emplace(card)
         card:flip()
         G.E_MANAGER:add_event(Event({

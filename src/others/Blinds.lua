@@ -47,6 +47,15 @@ JoyousSpring.Blind {
     opponent_card = {}
 }
 
+-- Theia, the Primal Being
+JoyousSpring.Blind {
+    key = "theia",
+    atlas = "blinds01",
+    pos = { x = 0, y = 36 },
+    boss_colour = G.C.JOY.EFFECT,
+    opponent_card = {}
+}
+
 -- Parasite Paracide
 JoyousSpring.Blind {
     key = "parasiteparacide",
@@ -65,35 +74,17 @@ JoyousSpring.Blind {
     opponent_card = {}
 }
 
--- Theia, the Primal Being
-JoyousSpring.Blind {
-    key = "theia",
-    atlas = "blinds01",
-    pos = { x = 0, y = 36 },
-    boss_colour = G.C.JOY.EFFECT,
-    opponent_card = {}
-}
-
 --#endregion
 
 --#region Spell
 
--- Book of Taiyou
+-- Book of Eclipse
 JoyousSpring.Blind {
-    key = "bookoftaiyou",
+    key = "bookofeclipse",
     atlas = "blinds01",
     pos = { x = 0, y = 0 },
     boss_colour = G.C.JOY.SPELL,
-    joy_ante_ability = true,
-    opponent_card = {
-        config = {
-            extra = {
-                joyous_spring = JoyousSpring.init_joy_table {
-                    is_spell = true,
-                },
-            }
-        },
-    }
+    opponent_card = {}
 }
 
 -- Book of Lunar Eclipse
@@ -116,11 +107,20 @@ JoyousSpring.Blind {
 
 -- Book of Taiyou
 JoyousSpring.Blind {
-    key = "taiyou",
+    key = "bookoftaiyou",
     atlas = "blinds01",
     pos = { x = 0, y = 3 },
     boss_colour = G.C.JOY.SPELL,
-    opponent_card = {}
+    joy_ante_ability = true,
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_spell = true,
+                },
+            }
+        },
+    }
 }
 
 -- Cosmic Cyclone
@@ -235,7 +235,7 @@ JoyousSpring.Blind {
 JoyousSpring.Blind {
     key = "terminalworld",
     atlas = "blinds01",
-    pos = { x = 0, y = 16 },
+    pos = { x = 0, y = 17 },
     boss_colour = G.C.JOY.SPELL,
     opponent_card = {}
 }
@@ -244,7 +244,7 @@ JoyousSpring.Blind {
 JoyousSpring.Blind {
     key = "terminalworldnext",
     atlas = "blinds01",
-    pos = { x = 0, y = 17 },
+    pos = { x = 0, y = 16 },
     boss_colour = G.C.JOY.SPELL,
     opponent_card = {}
 }
