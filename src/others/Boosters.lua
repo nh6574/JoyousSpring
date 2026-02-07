@@ -396,13 +396,13 @@ local joy_groups = {
     {
         name = "Fiend Support",
         properties = { { monster_archetypes = { "BurningAbyss" } }, { monster_type = "Fiend" }, },
-        extra_keys = { "j_joy_etwin_lilla", "j_joy_etwin_kisikil" },
+        extra_keys = {},
         center = "j_joy_rhino"
     },
     {
         name = "Cyberse Support",
         properties = { { monster_archetypes = { "Ignister" } }, { monster_type = "Cyberse" }, },
-        extra_keys = { "j_joy_ignis_ailand", "j_joy_ltwin_kisikil", "j_joy_ltwin_lilla" },
+        extra_keys = { "j_joy_ignis_ailand" },
         center = "j_joy_backup"
     },
     {
