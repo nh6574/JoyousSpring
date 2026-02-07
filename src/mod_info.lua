@@ -36,17 +36,20 @@ SMODS.current_mod.custom_ui = function(modNodes)
             G.P_CENTERS[key])
         JoyousSpring.set_back_sprite(G.P_CENTERS[key], card)
         G.joy_desc_area:emplace(card)
-        card:flip()
-        G.E_MANAGER:add_event(Event({
-            blocking = false,
-            trigger = "after",
-            delay = 0.4 * i,
-            func = function()
-                play_sound("card1")
-                card:flip()
-                return true
-            end,
-        }))
+        if not JoyousSpring.modmenu_flip then
+            card:flip()
+            G.E_MANAGER:add_event(Event({
+                blocking = false,
+                trigger = "after",
+                delay = 0.4 * i,
+                func = function()
+                    play_sound("card1")
+                    card:flip()
+                    JoyousSpring.modmenu_flip = true
+                    return true
+                end,
+            }))
+        end
     end
 
     modNodes[#modNodes + 1] = {
@@ -57,43 +60,127 @@ SMODS.current_mod.custom_ui = function(modNodes)
         }
     }
 
+    local discordgit = {
+        {
+            n = G.UIT.C,
+            config = {
+                padding = 0.2,
+                align = "cm",
+            },
+            nodes = {
+                UIBox_button({
+                    colour = G.C.JOY.LINK,
+                    minw = 3.85,
+                    button = "joy_discord",
+                    label = { localize('k_joy_discord') }
+                })
+            }
+        },
+        {
+            n = G.UIT.C,
+            config = {
+                padding = 0.2,
+                align = "cm",
+            },
+            nodes = {
+                UIBox_button({
+                    colour = G.C.JOY.TRAP,
+                    minw = 3.85,
+                    button = "joy_github",
+                    label = { localize('k_joy_github') }
+                })
+            }
+        },
+    }
+
+    local othermods = {
+        {
+            n = G.UIT.C,
+            config = {
+                padding = 0.2,
+                align = "cm",
+            },
+            nodes = {
+                UIBox_button({
+                    colour = G.C.RED,
+                    minw = 2.6,
+                    minh = 0.45,
+                    scale = 0.35,
+                    button = "joy_jokerdisplay",
+                    label = { localize('k_joy_jokerdisplay') }
+                })
+            }
+        },
+        {
+            n = G.UIT.C,
+            config = {
+                padding = 0.2,
+                align = "cm",
+            },
+            nodes = {
+                UIBox_button({
+                    colour = HEX("1E7A0A"),
+                    minw = 2.6,
+                    minh = 0.45,
+                    scale = 0.35,
+                    button = "joy_repertorium",
+                    label = { localize('k_joy_repertorium') }
+                })
+            }
+        },
+        {
+            n = G.UIT.C,
+            config = {
+                padding = 0.2,
+                align = "cm",
+            },
+            nodes = {
+                UIBox_button({
+                    colour = HEX("ECB474"),
+                    minw = 2.6,
+                    minh = 0.45,
+                    scale = 0.35,
+                    button = "joy_hotpotato",
+                    label = { localize('k_joy_hotpotato') }
+                })
+            }
+        },
+    }
+
     modNodes[#modNodes + 1] = {
         n = G.UIT.R,
         config = {
-            padding = 0.2,
+            padding = 0.01,
             align = "cm",
         },
         nodes = {
             {
-                n = G.UIT.C,
-                config = {
-                    padding = 0.2,
-                    align = "cm",
-                },
-                nodes = {
-                    UIBox_button({
-                        colour = G.C.JOY.LINK,
-                        minw = 3.85,
-                        button = "joy_discord",
-                        label = { localize('k_joy_discord') }
-                    })
-                }
+                n = G.UIT.R,
+                config = { align = "cm", padding = 0.07, no_fill = true },
+                nodes = discordgit
             },
             {
-                n = G.UIT.C,
-                config = {
-                    padding = 0.2,
-                    align = "cm",
-                },
+                n = G.UIT.R,
+                config = { align = "cm", padding = 0.07, no_fill = true },
                 nodes = {
-                    UIBox_button({
-                        colour = G.C.JOY.TRAP,
-                        minw = 3.85,
-                        button = "joy_github",
-                        label = { localize('k_joy_github') }
-                    })
+                    {
+                        n = G.UIT.T,
+                        config = { text = localize("k_joy_othermods"), colour = G.C.UI.TEXT_LIGHT, scale = 0.35 },
+                    },
+                },
+            },
+            {
+                n = G.UIT.R,
+                config = { align = "cm", padding = 0.1, no_fill = true },
+                nodes = {
+                    {
+                        n = G.UIT.R,
+                        config = { align = "cm", padding = -0.3, no_fill = true },
+                        nodes = othermods
+                    },
                 }
             },
+
         }
     }
 end
@@ -104,6 +191,42 @@ end
 
 function G.FUNCS.joy_github(e)
     love.system.openURL("https://github.com/nh6574/JoyousSpring")
+end
+
+function G.FUNCS.joy_jokerdisplay(e)
+    love.system.openURL("https://github.com/nh6574/JokerDisplay")
+end
+
+function G.FUNCS.joy_repertorium(e)
+    love.system.openURL("https://github.com/nh6574/Repertorium")
+end
+
+function G.FUNCS.joy_hotpotato(e)
+    love.system.openURL("https://github.com/Balatro-Potato-Patch/Hot-Potato/")
+end
+
+function G.FUNCS.joy_aikoyori(e)
+    love.system.openURL("https://github.com/Aikoyori/Balatro-Aikoyoris-Shenanigans/")
+end
+
+function G.FUNCS.joy_starrail(e)
+    love.system.openURL("https://github.com/bepisfever/balatro-star-rail")
+end
+
+function G.FUNCS.joy_cartomancer(e)
+    love.system.openURL("https://github.com/stupxd/Cartomancer")
+end
+
+function G.FUNCS.joy_cryptid(e)
+    love.system.openURL("https://github.com/SpectralPack/Cryptid")
+end
+
+function G.FUNCS.joy_lobcorp(e)
+    love.system.openURL("https://github.com/Mysthaps/LobotomyCorp")
+end
+
+function G.FUNCS.joy_ortalab(e)
+    love.system.openURL("https://github.com/EremelMods/Ortalab")
 end
 
 SMODS.current_mod.extra_tabs = function()
