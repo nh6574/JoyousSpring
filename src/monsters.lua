@@ -10,7 +10,10 @@ SMODS.Atlas({
 --#region LSP
 
 ---@class SMODS.Joker
----@field get_weight? fun(self: SMODS.Joker|table, args: table):number? Only YGO monsters weighted rarity, if it returns nil then it uses the default rate for the rarity. (Added by JoyousSpring)
+---@field joy_get_weight? fun(self: SMODS.Joker|table, args: table):number? Only YGO monsters weighted rarity, if it returns nil then it uses the default rate for the rarity
+---@field joy_alt_pos? {x:number, y:number}[] Atlas position for alternative art
+---@field joy_desc_cards? {[number]:string?, properties:material_properties[]?, name:string?}[] Definition of tabs for the related cards popup
+---@field joy_no_shop? true True if it can't be found in the shop or boosters naturally
 ---@field use? fun(self: SMODS.Joker|table, card: Card|table, area: CardArea|table, copier?: table) Defines behaviour when this Joker is used. (Added by JoyousSpring)
 ---@field can_use? fun(self: SMODS.Joker|table, card: Card|table): boolean? Return `true` if the Joker is allowed to be used. (Added by JoyousSpring)
 ---@field joy_set_cost? fun(card:table|Card) Sets its own cost and sell cost inside Card:set_cost()
@@ -19,7 +22,7 @@ SMODS.Atlas({
 ---@field joy_can_detach? fun(self: SMODS.Joker|table, card:table|Card):boolean? Returns `true` if a card can be detached for the ability (no need to check for detach count)
 ---@field joy_create_card_for_shop? fun(self: SMODS.Joker|table, card:table|Card, other_card:table|Card, area:CardArea) Used to modify *other_card* when it's created for the shop
 ---@field joy_apply_to_jokers_added? fun(card:table|Card,added_card:table|Card) Used to modify *added_card* when obtained
----@field joy_on_emplace? fun(self: SMODS.Joker|table, card:table|Card,added_card:table|Card,area:table|CardArea) Used to modify *added_card* when emplaced in *area*
+---@field joy_on_emplace? fun(self: SMODS.Joker|table, card:table|Card, added_card:table|Card, area:table|CardArea) Used to modify *added_card* when emplaced in *area*
 ---@field joy_allow_ability? fun(card:table|Card, other_card:table|Card):boolean? Determines if *other_card* can use abilities while face-down
 ---@field joy_prevent_flip? fun(card:table|Card, other_card:table|Card):boolean? Determines if *other_card* should flip
 ---@field joy_prevent_trap_flip? fun(card:table|Card, other_card:table|Card):boolean? Determines if the Trap *other_card* should flip at end of round
@@ -42,9 +45,7 @@ SMODS.Atlas({
 ---@field joy_transfer_set_hand_highlight_limit? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table):integer? Returns what the hand highlight limit should be (at minimum) after calling `JoyousSpring.calculate_hand_highlight_limit` but for transferred abilities
 ---@field joy_transfer_set_excavate_count? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, context:CalcContext):integer? Determines how many cards to excavate in a certain context but for transferred abilities
 ---@field joy_transfer_create_card_for_shop? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card, area:CardArea) Used to modify *other_card* when it's created for the shop but for transferred abilities
----@field joy_alt_pos? {x:number, y:number}[] Atlas position for alternative art
----@field joy_desc_cards? {[number]:string?, properties:material_properties[]?, name:string?}[] Definition of tabs for the related cards popup
----@field joy_no_shop? true True if it can't be found in the shop or boosters naturally
+---@field joy_transfer_on_emplace? fun(self: SMODS.Joker|table, ability_card:table|Card, config:table,  added_card:table|Card, area:table|CardArea) Used to modify *added_card* when emplaced in *area* but for transferred abilities
 
 ---@class Card
 ---@field joy_modify_cost? table

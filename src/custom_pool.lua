@@ -63,7 +63,7 @@ local get_weighted_pool = function(starting_pool, default_key, _append, allow_du
         if add and not G.GAME.banned_keys[v.key] then
             local weight = 0.75
 
-            weight = (v.get_weight and type(v.get_weight) == 'function' and v:get_weight({ source = _append })) or
+            weight = (type(v.joy_get_weight) == 'function' and v:joy_get_weight({ source = _append })) or
                 (available_rarities[v.rarity] or {}).weight or weight
             _total_weight = _total_weight + weight
 
