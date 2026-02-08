@@ -27,7 +27,7 @@ return {
 					"{C:joy_effect,button:joy_cryptid,u:joy_effect}Cryptid{}, {C:joy_effect,button:joy_lobcorp,u:joy_effect}Lobotomy Corporation{}, {C:joy_effect,button:joy_ortalab,u:joy_effect}Ortalab",
 					" ",
 					"{C:joy_mod}Special Thanks{} to the folks in",
-					"the {C:joy_mod}JoyousSpring{} and {C:attention}Balatro{} Discord servers <3",
+					"the {C:joy_mod}JoyousSpring{}, {C:attention}Potato Patch{} and {C:attention}Balatro{} Discord servers <3",
 				},
 			},
 		},

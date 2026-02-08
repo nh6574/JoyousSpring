@@ -227,36 +227,6 @@ end
 
 local game_start_run_ref = Game.start_run
 function Game:start_run(args)
-    self.joy_field_spell_area = CardArea(
-        0,
-        0,
-        self.CARD_W * 1.9,
-        self.CARD_H * 0.95,
-        {
-            card_limit = 1,
-            type = 'joker',
-            highlight_limit = 1,
-            negative_info = "field_spell",
-            bg_colour = { G.C.JOY.SPELL[1], G.C.JOY.SPELL[2], G.C.JOY.SPELL[3], 0.5 }
-        }
-    )
-    JoyousSpring.field_spell_area = G.joy_field_spell_area
-    if JoyousSpring.hide_ui then JoyousSpring.field_spell_area.states.visible = false end
-    self.joy_extra_deck_area = CardArea(
-        0,
-        0,
-        self.CARD_W * 4.95,
-        self.CARD_H * 0.95,
-        {
-            card_limit = 5,
-            type = 'joker',
-            highlight_limit = 1,
-            negative_info = "extra_deck",
-            bg_colour = { G.C.JOY.SPELL[1], G.C.JOY.SPELL[2], G.C.JOY.SPELL[3], 0.5 }
-        }
-    )
-    JoyousSpring.extra_deck_area = G.joy_extra_deck_area
-
     game_start_run_ref(self, args)
 
     if self.GAME.modifiers["joy_extra_deck_slots"] then

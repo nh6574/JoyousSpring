@@ -10,24 +10,31 @@ if debug then
     debug()
 end
 
-assert(SMODS.load_file("src/utils.lua"))()
-assert(SMODS.load_file("src/globals.lua"))()
-assert(SMODS.load_file("src/mod_info.lua"))()
-assert(SMODS.load_file("src/states.lua"))()
-assert(SMODS.load_file("src/general_ui.lua"))()
-assert(SMODS.load_file("src/card_ui.lua"))()
-assert(SMODS.load_file("src/extra_deck.lua"))()
-assert(SMODS.load_file("src/graveyard.lua"))()
-assert(SMODS.load_file("src/banishment.lua"))()
-assert(SMODS.load_file("src/pendulum.lua"))()
-assert(SMODS.load_file("src/summon.lua"))()
-assert(SMODS.load_file("src/monsters.lua"))()
-assert(SMODS.load_file("src/material_functions.lua"))()
-assert(SMODS.load_file("src/effects.lua"))()
-assert(SMODS.load_file("src/opponent.lua"))()
-assert(SMODS.load_file("src/blind_everywhere_system.lua"))()
-assert(SMODS.load_file("src/custom_pool.lua"))()
-assert(SMODS.load_file("src/cross_mod.lua"))()
+local filelist = {
+    "utils.lua",
+    "globals.lua",
+    "mod_info.lua",
+    "states.lua",
+    "general_ui.lua",
+    "card_ui.lua",
+    "zones.lua",
+    "extra_deck.lua",
+    "graveyard.lua",
+    "banishment.lua",
+    "pendulum.lua",
+    "summon.lua",
+    "monsters.lua",
+    "material_functions.lua",
+    "effects.lua",
+    "opponent.lua",
+    "blind_everywhere_system.lua",
+    "custom_pool.lua",
+    "cross_mod.lua",
+}
+
+for _, file in ipairs(filelist) do
+    assert(SMODS.load_file("src/" .. file))()
+end
 
 -- Jokers
 local joker_src = SMODS.NFS.getDirectoryItems(SMODS.current_mod.path .. "src/jokers")

@@ -212,25 +212,3 @@ JoyousSpring.disable_blind_ante = function(key)
     G.GAME.joy_disabled_blinds[key] = true
     JoyousSpring.update_blind_effects_area()
 end
-
-SMODS.current_mod.custom_card_areas = function(game)
-    game.joy_blind_effects_area = CardArea(
-        0, 0, game.CARD_W * 1.1, 0.7,
-        {
-            card_limit = 99,
-            type = 'joker',
-            highlight_limit = 0,
-            negative_info = 'joker',
-            no_card_count = true,
-            bg_colour = G.C.CLEAR
-        })
-    game.joy_opponent_area = CardArea(
-        0, 0, game.CARD_W * 1.9, 0.7,
-        {
-            card_limit = 5,
-            type = 'joker',
-            highlight_limit = 0,
-            negative_info = 'joker',
-            bg_colour = { G.C.JOY.TRAP[1], G.C.JOY.TRAP[2], G.C.JOY.TRAP[3], 0.5 }
-        })
-end

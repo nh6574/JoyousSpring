@@ -17,7 +17,7 @@ JoyousSpring.get_type_ui = function(card)
 
     if extra_values.is_field_spell or joyous_spring_table.is_field_spell or extra_values.is_spell or joyous_spring_table.is_spell then
         local text = (extra_values.is_field_spell or joyous_spring_table.is_field_spell) and localize("k_joy_fieldspell") or
-        localize("k_joy_spell")
+            localize("k_joy_spell")
         return {
             {
                 n = G.UIT.O,
