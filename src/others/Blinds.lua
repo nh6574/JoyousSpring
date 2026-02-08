@@ -345,7 +345,7 @@ JoyousSpring.Blind {
     pos = { x = 0, y = 27 },
     boss_colour = G.C.JOY.TRAP,
     has_ante_ability = true,
-    joy_can_be_sent_to_graveyard = function(self, choices)
+    joy_can_be_sent_to_graveyard = function(self, blind, choices)
         return {}
     end,
     opponent_card = {

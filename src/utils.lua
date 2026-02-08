@@ -639,14 +639,14 @@ end
 
 ---comment
 ---@param func string
----@param args {default_return:any, return_func:(fun(new:any, original:any):any), ignore_jokers:boolean, ignore_blinds:boolean,ignore_debuff:boolean, ignore_disabled_blind:boolean}?
+---@param args {default_return:any, return_func:(fun(new:any, original:any):any), ignore_jokers:boolean, ignore_blinds:boolean,ignore_debuff:boolean, ignore_disabled_blind:boolean, pass_return:boolean}?
 ---@param ... any?
 ---@return any?
 JoyousSpring.calculate_prototype_function = function(func, args, ...)
     if not func or not G.jokers or not G.jokers.cards then return end
     args = args or {}
     return_func = args.return_func or function(new, original)
-        return new
+        return new or original
     end
     local transfer_func = "joy_transfer_" .. func
     func = "joy_" .. func
@@ -658,15 +658,27 @@ JoyousSpring.calculate_prototype_function = function(func, args, ...)
             for _, joker in ipairs(area.cards or {}) do
                 if (not joker.debuff or args.ignore_debuff) then
                     if type(joker.config.center[func]) == "function" then
-                        return_value = return_func(joker.config.center[func](joker.config.center, joker, ...),
-                            return_value)
+                        local obj_return
+                        if not args.pass_return then
+                            obj_return = joker.config.center[func](joker.config.center, joker, ...)
+                        else
+                            obj_return = joker.config.center[func](joker.config.center, joker, return_value, ...)
+                        end
+                        return_value = return_func(obj_return, return_value)
                     end
                     if JoyousSpring.is_monster_card(joker) and JoyousSpring.has_joyous_table(joker) and joker.ability.extra.joyous_spring.material_effects and next(joker.ability.extra.joyous_spring.material_effects) then
                         for material_key, config in pairs(joker.ability.extra.joyous_spring.material_effects) do
                             local material_center = G.P_CENTERS[material_key]
 
                             if material_center and type(material_center[transfer_func]) == "function" then
-                                material_center[transfer_func](material_center, joker, config, ...)
+                                local obj_return
+                                if not args.pass_return then
+                                    obj_return = material_center[transfer_func](material_center, joker, config, ...)
+                                else
+                                    obj_return = material_center[transfer_func](material_center, joker, config,
+                                        return_value, ...)
+                                end
+                                return_value = return_func(obj_return, return_value)
                             end
                         end
                     end
@@ -677,14 +689,24 @@ JoyousSpring.calculate_prototype_function = function(func, args, ...)
 
     if G.GAME.blind and G.GAME.blind.config and not args.ignore_blinds then
         if (not G.GAME.blind.disabled or args.ignore_disabled_blind) and type(G.GAME.blind.config.blind[func]) == "function" then
-            return_value = return_func(
-                G.GAME.blind.config.blind[func](G.GAME.blind.config.blind, G.GAME.blind, ...),
-                return_value)
+            local obj_return
+            if not args.pass_return then
+                obj_return = G.GAME.blind.config.blind[func](G.GAME.blind.config.blind, G.GAME.blind, ...)
+            else
+                obj_return = G.GAME.blind.config.blind[func](G.GAME.blind.config.blind, G.GAME.blind, return_value, ...)
+            end
+            return_value = return_func(obj_return, return_value)
         end
         for key, _ in pairs(G.GAME.joy_active_blinds or {}) do
             local prototype = G.P_BLINDS[key]
             if not SMODS.is_active_blind(key, true) and prototype and type(prototype[func]) == "function" then
-                return_value = return_func(prototype[func](prototype, nil, ...), return_value)
+                local obj_return
+                if not args.pass_return then
+                    obj_return = prototype[func](prototype, nil, ...)
+                else
+                    obj_return = prototype[func](prototype, nil, return_value, ...)
+                end
+                return_value = return_func(obj_return, return_value)
             end
         end
     end

@@ -44,6 +44,7 @@ SMODS.Atlas({
 ---@field joy_transfer_set_hand_highlight_limit? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table):integer? Returns what the hand highlight limit should be (at minimum) after calling `JoyousSpring.calculate_hand_highlight_limit` but for transferred abilities
 ---@field joy_transfer_set_excavate_count? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, context:CalcContext):integer? Determines how many cards to excavate in a certain context but for transferred abilities
 ---@field joy_transfer_create_card_for_shop? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card, area:CardArea) Used to modify *other_card* when it's created for the shop but for transferred abilities
+---@field joy_transfer_can_be_sent_to_graveyard? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, choices:string[]):string[]? Used to filter cards that can be sent to the GY but for transferred abilities
 
 ---@class Card
 ---@field joy_modify_cost? table

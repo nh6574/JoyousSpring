@@ -54,37 +54,12 @@ end
 
 local function filter_cards_sent_to_gy(choices)
     if not next(choices) then return {} end
-    --TODO: Not specifically for this function but these types of functions can probably be generalized... someday
-    if G.jokers then
-        for _, joker in ipairs(G.jokers.cards) do
-            if not joker.debuff and joker.config.center.joy_can_be_sent_to_graveyard then
-                choices = joker.config.center:joy_can_be_sent_to_graveyard(joker, choices) or choices
-            end
-        end
-        if JoyousSpring.field_spell_area then
-            for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
-                if not joker.debuff and joker.config.center.joy_can_be_sent_to_graveyard then
-                    choices = joker.config.center:joy_can_be_sent_to_graveyard(joker, choices) or choices
-                end
-            end
-        end
-        if JoyousSpring.opponent_area then
-            for _, joker in ipairs(JoyousSpring.opponent_area.cards) do
-                if not joker.debuff and joker.config.center.joy_can_be_sent_to_graveyard then
-                    choices = joker.config.center:joy_can_be_sent_to_graveyard(joker, choices) or choices
-                end
-            end
-        end
-        if not G.GAME.blind.disabled and G.GAME.blind.config.blind.joy_can_be_sent_to_graveyard then
-            choices = G.GAME.blind.config.blind:joy_can_be_sent_to_graveyard(choices) or choices
-        end
-        for key, _ in pairs(G.GAME.joy_active_blinds or {}) do
-            local prototype = G.P_BLINDS[key]
-            if not SMODS.is_active_blind(key, true) and prototype and prototype.joy_can_be_sent_to_graveyard then
-                choices = prototype:joy_can_be_sent_to_graveyard(choices) or choices
-            end
-        end
-    end
+
+    choices = JoyousSpring.calculate_prototype_function("can_be_sent_to_graveyard", {
+        default_return = choices,
+        pass_return = true
+    })
+
     return choices, #choices > 0
 end
 
