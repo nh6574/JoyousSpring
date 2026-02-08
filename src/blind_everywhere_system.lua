@@ -10,13 +10,15 @@
 ---@field on_enter? fun(self:SMODS.Blind|table, blind_type:'Small'|'Big'|'Boss') Called when Blind is chosen for the ante
 ---@field on_exit? fun(self:SMODS.Blind|table, blind_type:'Small'|'Big'|'Boss') Called when Blind is rerolled for the ante
 ---@field on_game_over? fun(self:SMODS.Blind|table) Called when the player loses to the Blind instead of losing the run
+---@field joy_modify_cost? fun(self: JoyousSpring.Blind|table, blind:table|Blind?, other_card:table|Card) Like joy_set_cost but for another card
 ---@field joy_allow_ability? fun(self:SMODS.Blind|table, other_card:table|Card):boolean? Returns `true` if *other_card* is allowed to use abilities while facedown [Not Implemented Yet]
 ---@field joy_apply_to_jokers_added? fun(self:SMODS.Blind|table, added_card:table|Card) Used to modify *added_card* when obtained [Not Implemented Yet]
 ---@field joy_prevent_flip? fun(self:SMODS.Blind|table, other_card:table|Card):boolean? Determines if *other_card* should flip [Not Implemented Yet]
 ---@field joy_prevent_trap_flip? fun(self:SMODS.Blind|table, other_card:table|Card):boolean? Determines if the Trap *other_card* should flip at end of round [Not Implemented Yet]
 ---@field joy_flip_effect_active? fun(self:SMODS.Blind|table, other_card:table|Card):boolean? Determines if the FLIP ability of *other_card* should activate at the start of Blind [Not Implemented Yet]
----@field joy_calculate_excavate? fun(self:SMODS.Blind|table, context:CalcContext):integer? Determines how many cards to excavate in a certain context [Not Implemented Yet]
+---@field joy_set_excavate_count? fun(self: SMODS.Blind|table,blind:table|Blind?, context:CalcContext):integer? Determines how many cards to excavate in a certain context
 ---@field joy_can_be_sent_to_graveyard? fun(self:SMODS.Blind|table, choices:string[]):string[]? Used to filter cards that can be sent to the GY
+---@field joy_set_hand_highlight_limit? fun(self:SMODS.Blind|table, blind:Blind|table?):integer? Returns what the hand highlight limit should be (at minimum) after calling `JoyousSpring.calculate_hand_highlight_limit`
 ---@field joy_on_emplace? fun(self: SMODS.Joker|table,added_card:table|Card,area:table|CardArea) Used to modify *added_card* when emplaced in *area*
 ---@overload fun(self: JoyousSpring.Blind): JoyousSpring.Blind
 JoyousSpring.Blind = setmetatable({}, {

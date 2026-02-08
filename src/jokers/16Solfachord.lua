@@ -600,12 +600,12 @@ SMODS.Joker({
         },
     },
     add_to_deck = function(self, card, from_debuff)
-        JoyousSpring.calculate_hand_highlight_limit(card)
+        JoyousSpring.calculate_hand_highlight_limit()
     end,
     remove_from_deck = function(self, card, from_debuff)
-        JoyousSpring.calculate_hand_highlight_limit(nil, card)
+        JoyousSpring.calculate_hand_highlight_limit()
     end,
-    joy_set_hand_highlight_limit = function(card)
+    joy_set_hand_highlight_limit = function(self, card)
         return 6
     end,
     use = solfa_use,
@@ -709,12 +709,12 @@ SMODS.Joker({
         },
     },
     add_to_deck = function(self, card, from_debuff)
-        JoyousSpring.calculate_hand_highlight_limit(card)
+        JoyousSpring.calculate_hand_highlight_limit()
     end,
     remove_from_deck = function(self, card, from_debuff)
-        JoyousSpring.calculate_hand_highlight_limit(nil, card)
+        JoyousSpring.calculate_hand_highlight_limit()
     end,
-    joy_set_hand_highlight_limit = function(card)
+    joy_set_hand_highlight_limit = function(self, card)
         return 7
     end,
     use = solfa_use,
@@ -811,12 +811,12 @@ SMODS.Joker({
         },
     },
     add_to_deck = function(self, card, from_debuff)
-        JoyousSpring.calculate_hand_highlight_limit(card)
+        JoyousSpring.calculate_hand_highlight_limit()
     end,
     remove_from_deck = function(self, card, from_debuff)
-        JoyousSpring.calculate_hand_highlight_limit(nil, card)
+        JoyousSpring.calculate_hand_highlight_limit()
     end,
-    joy_set_hand_highlight_limit = function(card)
+    joy_set_hand_highlight_limit = function(self, card)
         return 8
     end,
     use = solfa_use,

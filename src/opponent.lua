@@ -22,13 +22,15 @@
 ---@field get_obj? fun(self: JoyousSpring.OpponentCard|table, key: string): JoyousSpring.OpponentCard|table? Returns an object if one matches the `key`.
 ---@field calc_dollar_bonus? fun(self: JoyousSpring.OpponentCard|table, card: Card|table): nil|number Calculates reward money.
 ---@field joy_blind_key? string String for the blind that rewards this joker, if any
+---@field joy_modify_cost? fun(self: JoyousSpring.OpponentCard|table, card:table|Card, other_card:table|Card) Like joy_set_cost but for another card
 ---@field joy_allow_ability? fun(card:table|Card, other_card:table|Card):boolean? Returns `true` if *other_card* is allowed to use abilities while facedown [Not Implemented Yet]
 ---@field joy_apply_to_jokers_added? fun(card:table|Card,added_card:table|Card) Used to modify *added_card* when obtained [Not Implemented Yet]
 ---@field joy_prevent_flip? fun(card:table|Card, other_card:table|Card):boolean? Determines if *other_card* should flip [Not Implemented Yet]
 ---@field joy_prevent_trap_flip? fun(card:table|Card, other_card:table|Card):boolean? Determines if the Trap *other_card* should flip at end of round [Not Implemented Yet]
 ---@field joy_flip_effect_active? fun(card:table|Card, other_card:table|Card):boolean? Determines if the FLIP ability of *other_card* should activate at the start of Blind [Not Implemented Yet]
----@field joy_calculate_excavate? fun(card:table|Card, context:CalcContext):integer? Determines how many cards to excavate in a certain context [Not Implemented Yet]
+---@field joy_set_excavate_count? fun(self: JoyousSpring.OpponentCard|table, card:table|Card, context:CalcContext):integer? Determines how many cards to excavate in a certain context
 ---@field joy_can_be_sent_to_graveyard? fun(self:JoyousSpring.OpponentCard|table, card:table|Card, choices:string[]):string[]? Used to filter cards that can be sent to the GY
+---@field joy_set_hand_highlight_limit? fun(self:JoyousSpring.OpponentCard|table, card:table|Card):integer? Returns what the hand highlight limit should be (at minimum) after calling `JoyousSpring.calculate_hand_highlight_limit`
 ---@overload fun(self: JoyousSpring.OpponentCard): JoyousSpring.OpponentCard
 JoyousSpring.OpponentCard = setmetatable({}, {
     __call = function(self)

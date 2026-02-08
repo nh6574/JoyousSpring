@@ -2208,7 +2208,7 @@ SMODS.Joker({
             end
         end
     end,
-    joy_calculate_excavate = function(card, context)
+    joy_set_excavate_count = function(self, card, context)
         if context.setting_blind then
             return card.ability.extra.excavates
         end
@@ -2277,7 +2277,7 @@ SMODS.Joker({
     remove_from_deck = function(self, card, from_debuff)
         card.ability.extra.active = false
     end,
-    joy_calculate_excavate = function(card, context)
+    joy_set_excavate_count = function(self, card, context)
         if context.setting_blind and card.ability.extra.active then
             local count = 0
             for i = #G.deck.cards, 1, -1 do

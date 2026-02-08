@@ -6,7 +6,7 @@ SMODS.Atlas({
     py = 95
 })
 
-local cardian_excavate = function(card, context)
+local cardian_excavate = function(self, card, context)
     if context.setting_blind then
         return card.ability.extra.excavates
     end
@@ -126,7 +126,7 @@ SMODS.Joker({
             end
         end
     end,
-    joy_calculate_excavate = cardian_excavate,
+    joy_set_excavate_count = cardian_excavate,
     joy_bypass_room_check = cardian_bypass_room_check
 })
 
@@ -214,7 +214,7 @@ SMODS.Joker({
             end
         end
     end,
-    joy_calculate_excavate = cardian_excavate,
+    joy_set_excavate_count = cardian_excavate,
     joy_bypass_room_check = cardian_bypass_room_check
 })
 
@@ -307,7 +307,7 @@ SMODS.Joker({
             end
         end
     end,
-    joy_calculate_excavate = cardian_excavate,
+    joy_set_excavate_count = cardian_excavate,
     joy_bypass_room_check = cardian_bypass_room_check
 })
 
@@ -395,7 +395,7 @@ SMODS.Joker({
             end
         end
     end,
-    joy_calculate_excavate = cardian_excavate,
+    joy_set_excavate_count = cardian_excavate,
     joy_bypass_room_check = cardian_bypass_room_check
 })
 
@@ -488,7 +488,7 @@ SMODS.Joker({
             end
         end
     end,
-    joy_calculate_excavate = cardian_excavate,
+    joy_set_excavate_count = cardian_excavate,
     joy_bypass_room_check = cardian_bypass_room_check
 })
 
@@ -580,7 +580,7 @@ SMODS.Joker({
             end
         end
     end,
-    joy_calculate_excavate = cardian_excavate,
+    joy_set_excavate_count = cardian_excavate,
     joy_bypass_room_check = cardian_bypass_room_check
 })
 
@@ -673,7 +673,7 @@ SMODS.Joker({
             end
         end
     end,
-    joy_calculate_excavate = cardian_excavate,
+    joy_set_excavate_count = cardian_excavate,
     joy_bypass_room_check = cardian_bypass_room_check
 })
 
@@ -760,7 +760,7 @@ SMODS.Joker({
             end
         end
     end,
-    joy_calculate_excavate = cardian_excavate,
+    joy_set_excavate_count = cardian_excavate,
     joy_bypass_room_check = cardian_bypass_room_check
 })
 
@@ -850,7 +850,7 @@ SMODS.Joker({
             end
         end
     end,
-    joy_calculate_excavate = cardian_excavate,
+    joy_set_excavate_count = cardian_excavate,
     joy_bypass_room_check = cardian_bypass_room_check
 })
 
@@ -943,7 +943,7 @@ SMODS.Joker({
             end
         end
     end,
-    joy_calculate_excavate = cardian_excavate,
+    joy_set_excavate_count = cardian_excavate,
     joy_bypass_room_check = cardian_bypass_room_check
 })
 
@@ -1027,7 +1027,7 @@ SMODS.Joker({
             end
         end
     end,
-    joy_calculate_excavate = cardian_excavate,
+    joy_set_excavate_count = cardian_excavate,
     joy_bypass_room_check = cardian_bypass_room_check
 })
 
@@ -1120,7 +1120,7 @@ SMODS.Joker({
             end
         end
     end,
-    joy_calculate_excavate = cardian_excavate,
+    joy_set_excavate_count = cardian_excavate,
     joy_bypass_room_check = cardian_bypass_room_check
 })
 
@@ -1208,7 +1208,7 @@ SMODS.Joker({
             end
         end
     end,
-    joy_calculate_excavate = cardian_excavate,
+    joy_set_excavate_count = cardian_excavate,
     joy_bypass_room_check = cardian_bypass_room_check
 })
 

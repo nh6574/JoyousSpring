@@ -24,9 +24,10 @@ SMODS.Atlas({
 ---@field joy_prevent_flip? fun(card:table|Card, other_card:table|Card):boolean? Determines if *other_card* should flip
 ---@field joy_prevent_trap_flip? fun(card:table|Card, other_card:table|Card):boolean? Determines if the Trap *other_card* should flip at end of round
 ---@field joy_flip_effect_active? fun(card:table|Card, other_card:table|Card):boolean? Determines if the FLIP ability of *other_card* should activate at the start of Blind
----@field joy_calculate_excavate? fun(card:table|Card, context:CalcContext):integer? Determines how many cards to excavate in a certain context
+---@field joy_set_excavate_count? fun(self: SMODS.Joker|table, card:table|Card, context:CalcContext):integer? Determines how many cards to excavate in a certain context
 ---@field joy_bypass_room_check? fun(self:SMODS.Joker|table, card:table|Card, from_booster:boolean?):boolean? Determines if you can buy the card with no room
 ---@field joy_can_be_sent_to_graveyard? fun(self:SMODS.Joker|table, card:table|Card, choices:string[]):string[]? Used to filter cards that can be sent to the GY
+---@field joy_set_hand_highlight_limit? fun(self:SMODS.Joker|table, card:table|Card):integer? Returns what the hand highlight limit should be (at minimum) after calling `JoyousSpring.calculate_hand_highlight_limit`
 ---@field joy_can_transfer_ability? fun(self:SMODS.Joker|table, other_card:Card|table, card:Card|table?):boolean? Determines if *self* transfers its ability to *other_card*. When transforming, `other_card.joy_transforming == self.key`
 ---@field joy_transfer_ability_calculate? fun(self:SMODS.Joker|table, other_card:Card|table, context:CalcContext, config:table):table? Similar to `calculate` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect
 ---@field joy_transfer_config? fun(self:SMODS.Joker|table, other_card:Card|table):table? Similar to `config`, it returns the initial config table for the transferred ability
@@ -38,6 +39,8 @@ SMODS.Atlas({
 ---@field joy_transfer_modify_cost? fun(self:SMODS.Joker|table, ability_card:Card|table, other_card:Card|table, config:table):boolean? Similar to `joy_modify_cost` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
 ---@field joy_transfer_prevent_flip? fun(self:SMODS.Joker|table, ability_card:Card|table, other_card:Card|table, config:table):boolean? Similar to `joy_prevent_flip` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
 ---@field joy_transfer_apply_to_jokers_added? fun(self:SMODS.Joker|table, ability_card:Card|table, added_card:Card|table, config:table):boolean? Similar to `joy_apply_to_jokers_added` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
+---@field joy_transfer_set_hand_highlight_limit? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table):integer? Returns what the hand highlight limit should be (at minimum) after calling `JoyousSpring.calculate_hand_highlight_limit` but for transferred abilities
+---@field joy_transfer_set_excavate_count? fun(self: SMODS.Joker|table, ability_card:table|Card, config:table, context:CalcContext):integer? Determines how many cards to excavate in a certain context but for transferred abilities
 ---@field joy_alt_pos? {x:number, y:number}[] Atlas position for alternative art
 ---@field joy_desc_cards? {[number]:string?, properties:material_properties[]?, name:string?}[] Definition of tabs for the related cards popup
 ---@field joy_no_shop? true True if it can't be found in the shop or boosters naturally

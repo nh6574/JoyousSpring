@@ -643,7 +643,7 @@ end
 ---@param ... any?
 ---@return any?
 JoyousSpring.calculate_prototype_function = function(func, args, ...)
-    if not func or not G.jokers then return end
+    if not func or not G.jokers or not G.jokers.cards then return end
     args = args or {}
     return_func = args.return_func or function(new, original)
         return new

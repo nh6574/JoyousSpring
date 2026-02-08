@@ -439,28 +439,25 @@ JoyousSpring.ease_detach = function(card, value, silent)
     end
 end
 
-JoyousSpring.calculate_hand_highlight_limit = function(count_card, remove_card)
-    G.GAME.joy_original_hand_limit = G.GAME.joy_original_hand_limit or G.hand.config.highlighted_limit or 5
-    local maxlimit = -1
-    if count_card and not count_card.debuff and count_card.config.center.joy_set_hand_highlight_limit then
-        local new_limit = count_card.config.center.joy_set_hand_highlight_limit(count_card) or -1
-        maxlimit = (new_limit > maxlimit) and new_limit or maxlimit
-    end
-    for _, joker in ipairs(G.jokers.cards) do
-        if joker ~= remove_card and not joker.debuff and joker.config.center.joy_set_hand_highlight_limit then
-            local new_limit = joker.config.center.joy_set_hand_highlight_limit(joker) or -1
-            maxlimit = (new_limit > maxlimit) and new_limit or maxlimit
-        end
-    end
-    for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
-        if joker ~= remove_card and not joker.debuff and joker.config.center.joy_set_hand_highlight_limit then
-            local new_limit = joker.config.center.joy_set_hand_highlight_limit(joker) or -1
-            maxlimit = (new_limit > maxlimit) and new_limit or maxlimit
-        end
-    end
+JoyousSpring.calculate_hand_highlight_limit = function()
+    G.E_MANAGER:add_event(Event({
+        func = function()
+            G.GAME.joy_original_hand_limit = G.GAME.joy_original_hand_limit or G.hand.config.highlighted_limit or 5
 
-    G.hand.config.highlighted_limit = math.max(G.GAME.starting_params.discard_limit, G.GAME.starting_params.play_limit, 5,
-        maxlimit or G.GAME.joy_original_hand_limit)
+            local maxlimit = JoyousSpring.calculate_prototype_function("set_hand_highlight_limit", {
+                default_return = -1,
+                return_func = function(new, original)
+                    local new_limit = new or -1
+                    return (new_limit > original) and new_limit or original
+                end
+            })
+
+            G.hand.config.highlighted_limit = math.max(G.GAME.starting_params.discard_limit,
+                G.GAME.starting_params.play_limit, 5,
+                maxlimit or G.GAME.joy_original_hand_limit)
+            return true
+        end
+    }))
 end
 
 ---Excavates (reveals) cards from the top of the deck
@@ -527,20 +524,13 @@ JoyousSpring.excavate = function(amount, context)
 end
 
 JoyousSpring.calculate_excavate = function(context)
-    if not G.jokers or not G.jokers.cards then return end
-    local maxlimit = 0
-    for _, joker in ipairs(G.jokers.cards) do
-        if not joker.debuff and joker.config.center.joy_calculate_excavate then
-            local new_limit = joker.config.center.joy_calculate_excavate(joker, context) or -1
-            maxlimit = (new_limit > maxlimit) and new_limit or maxlimit
+    local maxlimit = JoyousSpring.calculate_prototype_function("set_excavate_count", {
+        default_return = 0,
+        return_func    = function(new, original)
+            local new_limit = new or -1
+            return (new_limit > original) and new_limit or original
         end
-    end
-    for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
-        if not joker.debuff and joker.config.center.joy_calculate_excavate then
-            local new_limit = joker.config.center.joy_calculate_excavate(joker, context) or -1
-            maxlimit = (new_limit > maxlimit) and new_limit or maxlimit
-        end
-    end
+    }, context)
 
     if maxlimit > 0 then
         JoyousSpring.excavate(maxlimit, context)

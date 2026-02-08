@@ -100,7 +100,7 @@ SMODS.Joker({
             card.cost = 0
         end
     end,
-    joy_calculate_excavate = adaman_excavate,
+    joy_set_excavate_count = adaman_excavate,
     joker_display_def = function(JokerDisplay)
         ---@type JDJokerDefinition
         return {
@@ -213,7 +213,7 @@ SMODS.Joker({
             card.cost = 0
         end
     end,
-    joy_calculate_excavate = adaman_excavate,
+    joy_set_excavate_count = adaman_excavate,
     joker_display_def = function(JokerDisplay)
         ---@type JDJokerDefinition
         return {
@@ -326,7 +326,7 @@ SMODS.Joker({
             card.cost = 0
         end
     end,
-    joy_calculate_excavate = adaman_excavate,
+    joy_set_excavate_count = adaman_excavate,
     joker_display_def = function(JokerDisplay)
         ---@type JDJokerDefinition
         return {
@@ -680,7 +680,7 @@ SMODS.Joker({
         card.ability.extra.excavated = 0
         card.ability.extra.activated = false
     end,
-    joy_calculate_excavate = adaman_excavate,
+    joy_set_excavate_count = adaman_excavate,
     joker_display_def = function(JokerDisplay)
         ---@type JDJokerDefinition
         return {
@@ -781,7 +781,7 @@ SMODS.Joker({
         card.ability.extra.excavated = 0
         card.ability.extra.activated = false
     end,
-    joy_calculate_excavate = adaman_excavate,
+    joy_set_excavate_count = adaman_excavate,
 })
 
 -- Adamancipator Risen - Leonite
@@ -867,7 +867,7 @@ SMODS.Joker({
         card.ability.extra.excavated = 0
         card.ability.extra.activated = false
     end,
-    joy_calculate_excavate = adaman_excavate,
+    joy_set_excavate_count = adaman_excavate,
     joker_display_def = function(JokerDisplay)
         ---@type JDJokerDefinition
         return {
