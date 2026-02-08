@@ -1247,7 +1247,7 @@ SMODS.Joker({
             SMODS.debuff_card(added_card, "prevent_debuff", "j_joy_invoked_meltdown")
         end
     end,
-    joy_prevent_flip = function(card, other_card)
+    joy_prevent_flip = function(self, card, other_card)
         return JoyousSpring.is_summon_type(other_card, "FUSION")
     end,
     joker_display_def = function(JokerDisplay)

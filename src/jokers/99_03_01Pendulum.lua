@@ -524,7 +524,7 @@ SMODS.Joker({
             SMODS.debuff_card(added_card, "prevent_debuff", "j_joy_pmcaptor")
         end
     end,
-    joy_prevent_flip = function(card, other_card)
+    joy_prevent_flip = function(self, card, other_card)
         return JoyousSpring.is_monster_type(other_card, "Zombie") and not JoyousSpring.is_trap_monster(other_card)
     end,
     use = function(self, card, area, copier)

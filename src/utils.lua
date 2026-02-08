@@ -639,7 +639,7 @@ end
 
 ---comment
 ---@param func string
----@param args {default_return:any, return_func:(fun(new:any, original:any):any), ignore_jokers:boolean, ignore_blinds:boolean,ignore_debuff:boolean, ignore_disabled_blind:boolean, pass_return:boolean}?
+---@param args {default_return:any, return_func:(fun(new:any, original:any):any), ignore_jokers:boolean, ignore_blinds:boolean,ignore_debuff:boolean, ignore_disabled_blind:boolean, pass_return:boolean, return_if_true:boolean}?
 ---@param ... any?
 ---@return any?
 JoyousSpring.calculate_prototype_function = function(func, args, ...)
@@ -665,6 +665,7 @@ JoyousSpring.calculate_prototype_function = function(func, args, ...)
                             obj_return = joker.config.center[func](joker.config.center, joker, return_value, ...)
                         end
                         return_value = return_func(obj_return, return_value)
+                        if args.return_if_true and return_value then return return_value end
                     end
                     if JoyousSpring.is_monster_card(joker) and JoyousSpring.has_joyous_table(joker) and joker.ability.extra.joyous_spring.material_effects and next(joker.ability.extra.joyous_spring.material_effects) then
                         for material_key, config in pairs(joker.ability.extra.joyous_spring.material_effects) do
@@ -679,6 +680,7 @@ JoyousSpring.calculate_prototype_function = function(func, args, ...)
                                         return_value, ...)
                                 end
                                 return_value = return_func(obj_return, return_value)
+                                if args.return_if_true and return_value then return return_value end
                             end
                         end
                     end
@@ -696,6 +698,7 @@ JoyousSpring.calculate_prototype_function = function(func, args, ...)
                 obj_return = G.GAME.blind.config.blind[func](G.GAME.blind.config.blind, G.GAME.blind, return_value, ...)
             end
             return_value = return_func(obj_return, return_value)
+            if args.return_if_true and return_value then return return_value end
         end
         for key, _ in pairs(G.GAME.joy_active_blinds or {}) do
             local prototype = G.P_BLINDS[key]
@@ -707,6 +710,7 @@ JoyousSpring.calculate_prototype_function = function(func, args, ...)
                     obj_return = prototype[func](prototype, nil, return_value, ...)
                 end
                 return_value = return_func(obj_return, return_value)
+                if args.return_if_true and return_value then return return_value end
             end
         end
     end

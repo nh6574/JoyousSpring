@@ -371,7 +371,7 @@ SMODS.Joker({
             SMODS.debuff_card(added_card, "prevent_debuff", "j_joy_midbreaker")
         end
     end,
-    joy_prevent_flip = function(card, other_card)
+    joy_prevent_flip = function(self, card, other_card)
         return G.GAME.blind.boss and true or false
     end,
     joker_display_def = function(JokerDisplay)
