@@ -295,13 +295,61 @@ SMODS.Joker({
         end
         return false
     end,
-    joy_modify_cost = function(card, other_card)
-        if other_card.ability.set == "Booster" and other_card.config.center.kind == "JoyousSpring" then
+    add_to_deck = function(self, card, from_debuff)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                if G.shop_booster then
+                    for _, booster in ipairs(G.shop_booster.cards) do
+                        booster:set_cost()
+                    end
+                end
+                return true
+            end
+        }))
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                if G.shop_booster then
+                    for _, booster in ipairs(G.shop_booster.cards) do
+                        booster:set_cost()
+                    end
+                end
+                return true
+            end
+        }))
+    end,
+    joy_transfer_add_to_deck = function(self, other_card, config, card, from_debuff, materials, was_material)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                if G.shop_booster then
+                    for _, booster in ipairs(G.shop_booster.cards) do
+                        booster:set_cost()
+                    end
+                end
+                return true
+            end
+        }))
+    end,
+    joy_transfer_remove_from_deck = function(self, other_card, config, from_debuff)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                if G.shop_booster then
+                    for _, booster in ipairs(G.shop_booster.cards) do
+                        booster:set_cost()
+                    end
+                end
+                return true
+            end
+        }))
+    end,
+    joy_modify_cost = function(self, card, other_card)
+        if other_card.ability.set == "Booster" and (other_card.config.center.kind == "JoyousSpring" or other_card.config.center.kind == "joy_selection") then
             other_card.cost = math.max(0, other_card.cost - card.ability.extra.reduces)
         end
     end,
-    joy_transfer_modify_cost = function(self, ability_card, other_card, config)
-        if other_card.ability.set == "Booster" and other_card.config.center.kind == "JoyousSpring" then
+    joy_transfer_modify_cost = function(self, ability_card, config, other_card)
+        if other_card.ability.set == "Booster" and (other_card.config.center.kind == "JoyousSpring" or other_card.config.center.kind == "joy_selection") then
             other_card.cost = math.max(0, other_card.cost - config.reduces)
         end
     end,

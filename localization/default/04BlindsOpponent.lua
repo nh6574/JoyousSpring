@@ -267,7 +267,6 @@ return {
             --#endregion
         },
         Blind = {
-            -- Blinds don't support formatting (yet at least) but the blind reminder cards use these
             --#region Effect
             bl_joy_dimensionshifter = {
                 name = "{C:joy_effect}Dimension Shifter",
@@ -290,7 +289,8 @@ return {
                 name = "{C:joy_effect}Kurikara Divincarnate",
                 text = {
                     "{C:attention}Tributes{} a {C:attention}Joker{} with",
-                    "the highest rarity at random", "and {C:attention}revives{} a {C:attention}Joker{} of the",
+                    "the highest rarity at random",
+                    "and {C:attention}revives{} a {C:attention}Joker{} of the",
                     "same rarity but different name",
                     "if possible"
                 }

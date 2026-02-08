@@ -17,8 +17,15 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 29 },
     boss_colour = G.C.JOY.EFFECT,
-    opponent_card = {}
+    has_ante_ability = true,
+    opponent_card = {},
+    joy_on_emplace = function(self, added_card, area)
+
+    end
 }
+
+
+
 
 -- Droll & Lock Bird
 JoyousSpring.Blind {

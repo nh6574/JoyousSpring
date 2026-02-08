@@ -379,28 +379,8 @@ JoyousSpring.set_cost = function(card)
             card.cost = 0
         end
     end
-    if card and G.jokers then
-        for _, joker in ipairs(G.jokers.cards) do
-            if not joker.debuff and joker.config.center.joy_modify_cost then
-                joker.config.center.joy_modify_cost(joker, card)
-            end
-            if JoyousSpring.is_monster_card(joker) and JoyousSpring.has_joyous_table(joker) and not joker.debuff and joker.ability.extra.joyous_spring.material_effects and next(joker.ability.extra.joyous_spring.material_effects) then
-                for material_key, config in pairs(joker.ability.extra.joyous_spring.material_effects) do
-                    local material_center = G.P_CENTERS[material_key]
-
-                    if material_center and material_center.joy_transfer_modify_cost then
-                        material_center:joy_transfer_modify_cost(joker, card, config)
-                    end
-                end
-            end
-        end
-        if JoyousSpring.field_spell_area then
-            for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
-                if not joker.debuff and joker.config.center.joy_modify_cost then
-                    joker.config.center.joy_modify_cost(joker, card)
-                end
-            end
-        end
+    if card then
+        JoyousSpring.calculate_prototype_function("modify_cost", {}, card)
     end
     if card.joy_modify_cost then
         if card.joy_modify_cost.cost then
@@ -633,6 +613,37 @@ function CardArea:emplace(card, location, stay_flipped)
     cardarea_emplace_ref(self, card, location, JoyousSpring.is_monster_card(card) or stay_flipped)
     if self == JoyousSpring.opponent_area then
         JoyousSpring.handle_opponent_area_limit()
+    end
+
+    if G.jokers then
+        for _, joker in ipairs(G.jokers.cards) do
+            if not joker.debuff and joker.config.center.joy_on_emplace then
+                joker.config.center:joy_on_emplace(joker, card, area)
+            end
+        end
+        if JoyousSpring.field_spell_area then
+            for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
+                if not joker.debuff and joker.config.center.joy_on_emplace then
+                    joker.config.center:joy_on_emplace(joker, card, area)
+                end
+            end
+        end
+        if JoyousSpring.opponent_area then
+            for _, joker in ipairs(JoyousSpring.opponent_area.cards) do
+                if not joker.debuff and joker.config.center.joy_on_emplace then
+                    joker.config.center:joy_on_emplace(joker, card, area)
+                end
+            end
+        end
+        if G.GAME.blind and not G.GAME.blind.disabled and G.GAME.blind.config.blind.joy_on_emplace then
+            G.GAME.blind.config.blind:joy_on_emplace(joker, card, area)
+        end
+        for key, _ in pairs(G.GAME.joy_active_blinds or {}) do
+            local prototype = G.P_BLINDS[key]
+            if not SMODS.is_active_blind(key, true) and prototype and prototype.joy_on_emplace then
+                prototype:joy_on_emplace(joker, card, area)
+            end
+        end
     end
 end
 

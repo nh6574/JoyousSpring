@@ -14,11 +14,12 @@ SMODS.Atlas({
 ---@field use? fun(self: SMODS.Joker|table, card: Card|table, area: CardArea|table, copier?: table) Defines behaviour when this Joker is used. (Added by JoyousSpring)
 ---@field can_use? fun(self: SMODS.Joker|table, card: Card|table): boolean? Return `true` if the Joker is allowed to be used. (Added by JoyousSpring)
 ---@field joy_set_cost? fun(card:table|Card) Sets its own cost and sell cost inside Card:set_cost()
----@field joy_modify_cost? fun(card:table|Card, other_card:table|Card) Like joy_set_cost but for another card
+---@field joy_modify_cost? fun(self: SMODS.Joker|table, card:table|Card, other_card:table|Card) Like joy_set_cost but for another card
 ---@field joy_can_activate? fun(card:table|Card):boolean? Returns `true` if the activated ability can be used
 ---@field joy_can_detach? fun(self: SMODS.Joker|table, card:table|Card):boolean? Returns `true` if a card can be detached for the ability (no need to check for detach count)
 ---@field joy_create_card_for_shop? fun(card:table|Card, other_card:table|Card, area:CardArea) Used to modify *other_Card* when it's created for the shop
 ---@field joy_apply_to_jokers_added? fun(card:table|Card,added_card:table|Card) Used to modify *added_card* when obtained
+---@field joy_on_emplace? fun(self: SMODS.Joker|table, card:table|Card,added_card:table|Card,area:table|CardArea) Used to modify *added_card* when emplaced in *area*
 ---@field joy_allow_ability? fun(card:table|Card, other_card:table|Card):boolean? Determines if *other_card* can use abilities while face-down
 ---@field joy_prevent_flip? fun(card:table|Card, other_card:table|Card):boolean? Determines if *other_card* should flip
 ---@field joy_prevent_trap_flip? fun(card:table|Card, other_card:table|Card):boolean? Determines if the Trap *other_card* should flip at end of round

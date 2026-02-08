@@ -277,115 +277,115 @@ end
 JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
     --SMODS.Center.generate_ui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
 
-    if desc_nodes == full_UI_table.main and (self.set == "Joker" or self.set == "joy_Opponent") then
-        -- Add type information under names
-        full_UI_table.name = {
-            {
-                n = G.UIT.C,
-                config = { align = "cm", padding = 0.05 },
-                nodes = {
-                    {
-                        n = G.UIT.R,
-                        config = { align = "cm" },
-                        nodes = full_UI_table.name
-                    },
-                    {
-                        n = G.UIT.R,
-                        config = { align = "cm" },
-                        nodes = JoyousSpring.get_type_ui(card)
-                    },
+    if desc_nodes == full_UI_table.main then
+        if self.set == "Joker" or self.set == "joy_Opponent" then
+            -- Add type information under names
+            full_UI_table.name = {
+                {
+                    n = G.UIT.C,
+                    config = { align = "cm", padding = 0.05 },
+                    nodes = {
+                        {
+                            n = G.UIT.R,
+                            config = { align = "cm" },
+                            nodes = full_UI_table.name
+                        },
+                        {
+                            n = G.UIT.R,
+                            config = { align = "cm" },
+                            nodes = JoyousSpring.get_type_ui(card)
+                        },
+                    }
                 }
             }
-        }
 
-        -- Pendulum ability
-        if card and not card.debuff and G.localization.descriptions[self.set][self.key].joy_consumable then
-            full_UI_table.joy_consumable = {}
-            full_UI_table.joy_consumable.background_colour = lighten(G.C.JOY.SPELL, 0.7)
-            local loc_vars = {}
-            if self.loc_vars and type(self.loc_vars) == 'function' then
-                loc_vars = self:loc_vars({}, card) or {}
+            -- Pendulum ability
+            if card and not card.debuff and G.localization.descriptions[self.set][self.key].joy_consumable then
+                full_UI_table.joy_consumable = {}
+                full_UI_table.joy_consumable.background_colour = lighten(G.C.JOY.SPELL, 0.7)
+                local loc_vars = {}
+                if self.loc_vars and type(self.loc_vars) == 'function' then
+                    loc_vars = self:loc_vars({}, card) or {}
+                end
+                localize { type = "joy_consumable", set = self.set, key = self.key, nodes = full_UI_table.joy_consumable, vars = loc_vars.vars or {} }
+                if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
+                    table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_pendulum_joker" })
+                end
             end
-            localize { type = "joy_consumable", set = self.set, key = self.key, nodes = full_UI_table.joy_consumable, vars = loc_vars.vars or {} }
+
+            local is_monster = type(card.ability.extra) == "table" and card.ability.extra.joyous_spring
+
+            -- Transferred ability
+            if card and not card.debuff and is_monster and card.joy_transfer_text and card.ability.extra.joyous_spring.material_effects and next(card.ability.extra.joyous_spring.material_effects) then
+                full_UI_table.multi_box = {}
+                local initial = true
+                for material_key, config in pairs(card.ability.extra.joyous_spring.material_effects) do
+                    local name_node = {}
+                    local node = {}
+
+                    local material_center = G.P_CENTERS[material_key]
+                    if material_center and G.localization.descriptions["Joker"][material_key].joy_transfer_ability then
+                        localize { type = 'name', set = "Joker", key = material_key, nodes = name_node, vars = material_center.joy_transfer_loc_vars and material_center:joy_transfer_loc_vars(info_queue, card, config).vars or {}, scale = 0.7 }
+                        localize { type = "joy_transfer_ability", set = "Joker", key = material_key, nodes = node, vars = material_center.joy_transfer_loc_vars and material_center:joy_transfer_loc_vars(info_queue, card, config).vars or {}, scale = 0.9 }
+                    end
+                    if initial then
+                        full_UI_table.main = name_node
+                        full_UI_table.main.main_box_flag = true
+                        full_UI_table.main.joy_box_minh = 0
+                        full_UI_table.box_colours[1] = G.C.CLEAR
+                    else
+                        full_UI_table.multi_box[#full_UI_table.multi_box + 1] = name_node
+                        full_UI_table.multi_box[#full_UI_table.multi_box].joy_box_minh = 0
+                        full_UI_table.box_colours[#full_UI_table.multi_box + 1] = G.C.CLEAR
+                    end
+                    full_UI_table.multi_box[#full_UI_table.multi_box + 1] = node
+                    initial = false
+                end
+            end
+
+            -- Add summoning conditions to info_queue automatically
+            if G.localization.descriptions[self.set][self.key].joy_summon_conditions then
+                full_UI_table.info[#full_UI_table.info + 1] = {}
+                local summon_desc_nodes = full_UI_table.info[#full_UI_table.info]
+                summon_desc_nodes.name = localize('k_joy_summon_conditions')
+                localize { type = "joy_summon_conditions", set = self.set, key = self.key, nodes = summon_desc_nodes }
+            end
+
             if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-                table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_pendulum_joker" })
-            end
-        end
-
-        local is_monster = type(card.ability.extra) == "table" and card.ability.extra.joyous_spring
-
-        -- Transferred ability
-        if card and not card.debuff and is_monster and card.joy_transfer_text and card.ability.extra.joyous_spring.material_effects and next(card.ability.extra.joyous_spring.material_effects) then
-            full_UI_table.multi_box = {}
-            local initial = true
-            for material_key, config in pairs(card.ability.extra.joyous_spring.material_effects) do
-                local name_node = {}
-                local node = {}
-
-                local material_center = G.P_CENTERS[material_key]
-                if material_center and G.localization.descriptions["Joker"][material_key].joy_transfer_ability then
-                    localize { type = 'name', set = "Joker", key = material_key, nodes = name_node, vars = material_center.joy_transfer_loc_vars and material_center:joy_transfer_loc_vars(info_queue, card, config).vars or {}, scale = 0.7 }
-                    localize { type = "joy_transfer_ability", set = "Joker", key = material_key, nodes = node, vars = material_center.joy_transfer_loc_vars and material_center:joy_transfer_loc_vars(info_queue, card, config).vars or {}, scale = 0.9 }
+                -- Add tooltip if it's a flip
+                if JoyousSpring.is_flip_monster(card) then
+                    table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_flip" })
                 end
-                if initial then
-                    full_UI_table.main = name_node
-                    full_UI_table.main.main_box_flag = true
-                    full_UI_table.main.joy_box_minh = 0
-                    full_UI_table.box_colours[1] = G.C.CLEAR
-                else
-                    full_UI_table.multi_box[#full_UI_table.multi_box + 1] = name_node
-                    full_UI_table.multi_box[#full_UI_table.multi_box].joy_box_minh = 0
-                    full_UI_table.box_colours[#full_UI_table.multi_box + 1] = G.C.CLEAR
+                -- Add tooltip if it's a trap
+                if JoyousSpring.is_trap_monster(card) then
+                    table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_trap" })
                 end
-                full_UI_table.multi_box[#full_UI_table.multi_box + 1] = node
-                initial = false
-            end
-        end
-
-        -- Add summoning conditions to info_queue automatically
-        if G.localization.descriptions[self.set][self.key].joy_summon_conditions then
-            full_UI_table.info[#full_UI_table.info + 1] = {}
-            local summon_desc_nodes = full_UI_table.info[#full_UI_table.info]
-            summon_desc_nodes.name = localize('k_joy_summon_conditions')
-            localize { type = "joy_summon_conditions", set = self.set, key = self.key, nodes = summon_desc_nodes }
-        end
-
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            -- Add tooltip if it's a flip
-            if JoyousSpring.is_flip_monster(card) then
-                table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_flip" })
-            end
-            -- Add tooltip if it's a trap
-            if JoyousSpring.is_trap_monster(card) then
-                table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_trap" })
-            end
-            -- Add tooltip if it's a field spell
-            if JoyousSpring.is_field_spell(card) then
-                table.insert(info_queue, 1,
-                    { set = "Other", key = "joy_tooltip_field_spell_joker", vars = { scale = 0.5 } })
-            end
-            -- Add Special Joker tooltips
-            for _, type in ipairs({ "RITUAL", "FUSION", "SYNCHRO", "XYZ", "LINK" }) do
-                if JoyousSpring.is_summon_type(card, type) then
-                    table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_" .. type:lower() .. "_joker" })
-                    break
+                -- Add tooltip if it's a field spell
+                if JoyousSpring.is_field_spell(card) then
+                    table.insert(info_queue, 1,
+                        { set = "Other", key = "joy_tooltip_field_spell_joker", vars = { scale = 0.5 } })
+                end
+                -- Add Special Joker tooltips
+                for _, type in ipairs({ "RITUAL", "FUSION", "SYNCHRO", "XYZ", "LINK" }) do
+                    if JoyousSpring.is_summon_type(card, type) then
+                        table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_" .. type:lower() .. "_joker" })
+                        break
+                    end
                 end
             end
-        end
 
-        -- Add tooltip if it's face-down
-        if card.facing == 'back' and JoyousSpring.is_from_joyousspring(card) then
-            if not card.fake_card then
-                table.insert(info_queue, 1, { set = "Other", key = "joy_face_down" })
+            -- Add tooltip if it's face-down
+            if card.facing == 'back' and JoyousSpring.is_from_joyousspring(card) then
+                if not card.fake_card then
+                    table.insert(info_queue, 1, { set = "Other", key = "joy_face_down" })
+                end
+            end
+            -- Add tooltip if it has alt arts
+            if self.joy_alt_pos and not card.fake_card then
+                table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_alt_art" })
             end
         end
-        -- Add tooltip if it has alt arts
-        if self.joy_alt_pos and not card.fake_card then
-            table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_alt_art" })
-        end
-    end
 
-    if desc_nodes == full_UI_table.main then
         -- Add tooltip if it has a related cards menu
         if self.joy_desc_cards and not card.fake_card then
             table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_related" })

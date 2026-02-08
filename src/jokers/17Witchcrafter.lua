@@ -798,7 +798,31 @@ SMODS.Joker({
             end
         end
     end,
-    joy_modify_cost = function(card, other_card)
+    add_to_deck = function(self, card, from_debuff)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                if G.shop_booster then
+                    for _, booster in ipairs(G.shop_booster.cards) do
+                        booster:set_cost()
+                    end
+                end
+                return true
+            end
+        }))
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                if G.shop_booster then
+                    for _, booster in ipairs(G.shop_booster.cards) do
+                        booster:set_cost()
+                    end
+                end
+                return true
+            end
+        }))
+    end,
+    joy_modify_cost = function(self, card, other_card)
         if other_card.ability.set == "Booster" and other_card.config.center.kind == "Arcana" then
             other_card.cost = 0
         end

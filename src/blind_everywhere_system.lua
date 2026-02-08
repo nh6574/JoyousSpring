@@ -17,6 +17,7 @@
 ---@field joy_flip_effect_active? fun(self:SMODS.Blind|table, other_card:table|Card):boolean? Determines if the FLIP ability of *other_card* should activate at the start of Blind [Not Implemented Yet]
 ---@field joy_calculate_excavate? fun(self:SMODS.Blind|table, context:CalcContext):integer? Determines how many cards to excavate in a certain context [Not Implemented Yet]
 ---@field joy_can_be_sent_to_graveyard? fun(self:SMODS.Blind|table, choices:string[]):string[]? Used to filter cards that can be sent to the GY
+---@field joy_on_emplace? fun(self: SMODS.Joker|table,added_card:table|Card,area:table|CardArea) Used to modify *added_card* when emplaced in *area*
 ---@overload fun(self: JoyousSpring.Blind): JoyousSpring.Blind
 JoyousSpring.Blind = setmetatable({}, {
     __call = function(self)
