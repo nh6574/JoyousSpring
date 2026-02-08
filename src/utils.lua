@@ -637,7 +637,7 @@ JoyousSpring.get_card_limit = function(card)
     return card and card.ability and card.ability.card_limit or 0
 end
 
----comment
+---Runs **func** on all (supported) objects
 ---@param func string
 ---@param args {default_return:any, return_func:(fun(new:any, original:any):any), ignore_jokers:boolean, ignore_blinds:boolean,ignore_debuff:boolean, ignore_disabled_blind:boolean, pass_return:boolean, return_if_true:boolean}?
 ---@param ... any?
