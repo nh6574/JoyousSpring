@@ -24,7 +24,7 @@ SMODS.Atlas({
 ---@field joy_apply_to_jokers_added? fun(self: SMODS.Joker|table, card:table|Card, added_card:table|Card) Used to modify *added_card* when obtained
 ---@field joy_allow_facedown_ability? fun(self: SMODS.Joker|table, card:table|Card, other_card:table|Card):boolean? Determines if *other_card* can use abilities while face-down
 ---@field joy_prevent_flip? fun(self: SMODS.Joker|table, card:table|Card, other_card:table|Card):boolean? Determines if *other_card* should flip
----@field joy_prevent_trap_flip? fun(card:table|Card, other_card:table|Card):boolean? Determines if the Trap *other_card* should flip at end of round
+---@field joy_prevent_trap_flip? fun(self: SMODS.Joker|table, card:table|Card, other_card:table|Card):boolean? Determines if the Trap *other_card* should flip at end of round
 ---@field joy_flip_effect_active? fun(card:table|Card, other_card:table|Card):boolean? Determines if the FLIP ability of *other_card* should activate at the start of Blind
 ---@field joy_set_excavate_count? fun(self: SMODS.Joker|table, card:table|Card, context:CalcContext):integer? Determines how many cards to excavate in a certain context
 ---@field joy_bypass_room_check? fun(self:SMODS.Joker|table, card:table|Card, from_booster:boolean?):boolean? Determines if you can buy the card with no room
@@ -45,7 +45,8 @@ SMODS.Atlas({
 ---@field joy_transfer_set_excavate_count? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, context:CalcContext):integer? Determines how many cards to excavate in a certain context but for transferred abilities
 ---@field joy_transfer_create_card_for_shop? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card, area:CardArea) Used to modify *other_card* when it's created for the shop but for transferred abilities
 ---@field joy_transfer_can_be_sent_to_graveyard? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, choices:string[]):string[]? Used to filter cards that can be sent to the GY but for transferred abilities
----@field joy_allow_facedown_ability? fun(self: SMODS.Joker|table, card:table|Card, config:table, other_card:table|Card):boolean? Determines if *other_card* can use abilities while face-down but for transferred abilities
+---@field joy_transfer_allow_facedown_ability? fun(self: SMODS.Joker|table, card:table|Card, config:table, other_card:table|Card):boolean? Determines if *other_card* can use abilities while face-down but for transferred abilities
+---@field joy_transfer_prevent_trap_flip? fun(self: SMODS.Joker|table, card:table|Card, config:table, other_card:table|Card):boolean? Determines if the Trap *other_card* should flip at end of round but for transferred abilities
 
 ---@class Card
 ---@field joy_modify_cost? table
@@ -635,17 +636,9 @@ JoyousSpring.should_trap_flip = function(card)
         return false
     end
 
-    for _, joker in ipairs(G.jokers.cards) do
-        if not joker.debuff and joker.config.center.joy_prevent_trap_flip and joker.config.center.joy_prevent_trap_flip(joker, card) then
-            return false
-        end
-    end
-    for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
-        if not joker.debuff and joker.config.center.joy_prevent_trap_flip and joker.config.center.joy_prevent_trap_flip(joker, card) then
-            return false
-        end
-    end
-    return true
+    return not JoyousSpring.calculate_prototype_function("prevent_trap_flip", {
+        return_if_true = true
+    }, card)
 end
 
 ---Checks if *card* should have its FLIP ability active

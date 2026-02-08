@@ -264,7 +264,7 @@ SMODS.Joker({
             end
         end
     end,
-    joy_prevent_trap_flip = function(card, other_card)
+    joy_prevent_trap_flip = function(self, card, other_card)
         return other_card.facing == 'front'
     end,
     joy_flip_effect_active = function(card, other_card)
