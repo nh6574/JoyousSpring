@@ -1576,13 +1576,13 @@ SMODS.Joker({
             end
         end
     end,
-    joy_flip_effect_active = function(card, other_card)
+    joy_flip_effect_active = function(self, card, other_card)
         return JoyousSpring.is_monster_archetype(other_card, "Shaddoll")
     end,
     joy_can_transfer_ability = function(self, other_card, card)
         return JoyousSpring.is_summon_type(other_card, "FUSION")
     end,
-    joy_transfer_flip_effect_active = function(self, ability_card, other_card, config)
+    joy_transfer_flip_effect_active = function(self, ability_card, config, other_card)
         return JoyousSpring.is_monster_archetype(other_card, "Shaddoll")
     end
 })

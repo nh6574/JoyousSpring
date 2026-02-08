@@ -15,7 +15,7 @@
 ---@field joy_apply_to_jokers_added? fun(self:SMODS.Blind|table, blind:table|Blind?, added_card:table|Card) Used to modify *added_card* when obtained
 ---@field joy_prevent_flip? fun(self:SMODS.Blind|table, blind:Blind|table?, other_card:table|Card):boolean? Determines if *other_card* should flip
 ---@field joy_prevent_trap_flip? fun(self:SMODS.Blind|table,blind:table|Blind?, other_card:table|Card):boolean? Determines if the Trap *other_card* should flip at end of round
----@field joy_flip_effect_active? fun(self:SMODS.Blind|table, other_card:table|Card):boolean? Determines if the FLIP ability of *other_card* should activate at the start of Blind [Not Implemented Yet]
+---@field joy_flip_effect_active? fun(self:SMODS.Blind|table, blind:table|Blind?, other_card:table|Card):boolean? Determines if the FLIP ability of *other_card* should activate at the start of Blind
 ---@field joy_set_excavate_count? fun(self: SMODS.Blind|table,blind:table|Blind?, context:CalcContext):integer? Determines how many cards to excavate in a certain context
 ---@field joy_can_be_sent_to_graveyard? fun(self:SMODS.Blind|table, blind:table|Blind?, choices:string[]):string[]? Used to filter cards that can be sent to the GY
 ---@field joy_set_hand_highlight_limit? fun(self:SMODS.Blind|table, blind:Blind|table?):integer? Returns what the hand highlight limit should be (at minimum) after calling `JoyousSpring.calculate_hand_highlight_limit`

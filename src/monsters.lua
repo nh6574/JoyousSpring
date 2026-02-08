@@ -25,7 +25,7 @@ SMODS.Atlas({
 ---@field joy_allow_facedown_ability? fun(self: SMODS.Joker|table, card:table|Card, other_card:table|Card):boolean? Determines if *other_card* can use abilities while face-down
 ---@field joy_prevent_flip? fun(self: SMODS.Joker|table, card:table|Card, other_card:table|Card):boolean? Determines if *other_card* should flip
 ---@field joy_prevent_trap_flip? fun(self: SMODS.Joker|table, card:table|Card, other_card:table|Card):boolean? Determines if the Trap *other_card* should flip at end of round
----@field joy_flip_effect_active? fun(card:table|Card, other_card:table|Card):boolean? Determines if the FLIP ability of *other_card* should activate at the start of Blind
+---@field joy_flip_effect_active? fun(self: SMODS.Joker|table, card:table|Card, other_card:table|Card):boolean? Determines if the FLIP ability of *other_card* should activate at the start of Blind
 ---@field joy_set_excavate_count? fun(self: SMODS.Joker|table, card:table|Card, context:CalcContext):integer? Determines how many cards to excavate in a certain context
 ---@field joy_bypass_room_check? fun(self:SMODS.Joker|table, card:table|Card, from_booster:boolean?):boolean? Determines if you can buy the card with no room
 ---@field joy_can_be_sent_to_graveyard? fun(self:SMODS.Joker|table, card:table|Card, choices:string[]):string[]? Used to filter cards that can be sent to the GY
@@ -37,7 +37,7 @@ SMODS.Atlas({
 ---@field joy_transfer_add_to_deck? fun(self:SMODS.Joker|table, other_card:Card|table, config:table, card:Card|table?, from_debuff:boolean, materials:table[]|Card[]?, was_material:boolean?) Similar to `add_to_deck` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect, `card` is the transfering material which only exists when transferred
 ---@field joy_transfer_remove_from_deck? fun(self:SMODS.Joker|table, other_card:Card|table, config:table, from_debuff:boolean) Similar to `remove_from_deck` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect
 ---@field joy_transfer_calc_dollar_bonus? fun(self:SMODS.Joker|table, other_card:Card|table, config:table):number? Similar to `calc_dollar_bonus` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect
----@field joy_transfer_flip_effect_active? fun(self:SMODS.Joker|table, ability_card:Card|table, other_card:Card|table, config:table):boolean? Similar to `joy_flip_effect_active` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
+---@field joy_transfer_flip_effect_active? fun(self:SMODS.Joker|table, ability_card:Card|table, config:table, other_card:Card|table):boolean? Similar to `joy_flip_effect_active` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
 ---@field joy_transfer_modify_cost? fun(self:SMODS.Joker|table, ability_card:Card|table, other_card:Card|table, config:table):boolean? Similar to `joy_modify_cost` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
 ---@field joy_transfer_prevent_flip? fun(self:SMODS.Joker|table, ability_card:Card|table, config:table, other_card:Card|table):boolean? Similar to `joy_prevent_flip` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
 ---@field joy_transfer_apply_to_jokers_added? fun(self:SMODS.Joker|table, ability_card:Card|table, config:table, added_card:Card|table):boolean? Similar to `joy_apply_to_jokers_added` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
@@ -45,8 +45,8 @@ SMODS.Atlas({
 ---@field joy_transfer_set_excavate_count? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, context:CalcContext):integer? Determines how many cards to excavate in a certain context but for transferred abilities
 ---@field joy_transfer_create_card_for_shop? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card, area:CardArea) Used to modify *other_card* when it's created for the shop but for transferred abilities
 ---@field joy_transfer_can_be_sent_to_graveyard? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, choices:string[]):string[]? Used to filter cards that can be sent to the GY but for transferred abilities
----@field joy_transfer_allow_facedown_ability? fun(self: SMODS.Joker|table, card:table|Card, config:table, other_card:table|Card):boolean? Determines if *other_card* can use abilities while face-down but for transferred abilities
----@field joy_transfer_prevent_trap_flip? fun(self: SMODS.Joker|table, card:table|Card, config:table, other_card:table|Card):boolean? Determines if the Trap *other_card* should flip at end of round but for transferred abilities
+---@field joy_transfer_allow_facedown_ability? fun(self: SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card):boolean? Determines if *other_card* can use abilities while face-down but for transferred abilities
+---@field joy_transfer_prevent_trap_flip? fun(self: SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card):boolean? Determines if the Trap *other_card* should flip at end of round but for transferred abilities
 
 ---@class Card
 ---@field joy_modify_cost? table
@@ -645,26 +645,9 @@ end
 ---@param card Card|table
 ---@return boolean
 JoyousSpring.flip_effect_active = function(card)
-    for _, joker in ipairs(G.jokers.cards) do
-        if not joker.debuff and joker.config.center.joy_flip_effect_active and joker.config.center.joy_flip_effect_active(joker, card) then
-            return true
-        end
-        if JoyousSpring.is_monster_card(joker) and not joker.debuff and joker.ability.extra.joyous_spring.material_effects and next(joker.ability.extra.joyous_spring.material_effects) then
-            for material_key, config in pairs(joker.ability.extra.joyous_spring.material_effects) do
-                local material_center = G.P_CENTERS[material_key]
-
-                if material_center and material_center.joy_transfer_flip_effect_active and material_center:joy_transfer_flip_effect_active(joker, card, config) then
-                    return true
-                end
-            end
-        end
-    end
-    for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
-        if not joker.debuff and joker.config.center.joy_flip_effect_active and joker.config.center.joy_flip_effect_active(joker, card) then
-            return true
-        end
-    end
-    return false
+    return JoyousSpring.calculate_prototype_function("flip_effect_active", {
+        return_if_true = true
+    }, card)
 end
 
 ---Checks if *card* has its FLIP ability active by having been flipped

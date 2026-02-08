@@ -267,7 +267,7 @@ SMODS.Joker({
     joy_prevent_trap_flip = function(self, card, other_card)
         return other_card.facing == 'front'
     end,
-    joy_flip_effect_active = function(card, other_card)
+    joy_flip_effect_active = function(self, card, other_card)
         return JoyousSpring.is_trap_monster(other_card)
     end,
     joker_display_def = function(JokerDisplay)
