@@ -1242,7 +1242,7 @@ SMODS.Joker({
             (#G.jokers.cards + G.GAME.joker_buffer - card.ability.extra.tributes < G.jokers.config.card_limit and #materials >= card.ability.extra.tributes) and
             true or false
     end,
-    joy_apply_to_jokers_added = function(card, added_card)
+    joy_apply_to_jokers_added = function(self, card, added_card)
         if JoyousSpring.is_summon_type(added_card, "FUSION") and not JoyousSpring.is_perma_debuffed(added_card) then
             SMODS.debuff_card(added_card, "prevent_debuff", "j_joy_invoked_meltdown")
         end

@@ -746,7 +746,7 @@ SMODS.Joker({
             }
         end
     end,
-    joy_apply_to_jokers_added = function(card, added_card)
+    joy_apply_to_jokers_added = function(self, card, added_card)
         if not card.debuff then
             if JoyousSpring.is_monster_type(added_card, "Psychic") and JoyousSpring.is_summon_type(added_card, "SYNCHRO") and JoyousSpring.is_summoned(added_card) then
                 if not added_card.edition then

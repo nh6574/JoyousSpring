@@ -21,7 +21,7 @@ SMODS.Atlas({
 ---@field joy_can_activate? fun(card:table|Card):boolean? Returns `true` if the activated ability can be used
 ---@field joy_can_detach? fun(self: SMODS.Joker|table, card:table|Card):boolean? Returns `true` if a card can be detached for the ability (no need to check for detach count)
 ---@field joy_create_card_for_shop? fun(self: SMODS.Joker|table, card:table|Card, other_card:table|Card, area:CardArea) Used to modify *other_card* when it's created for the shop
----@field joy_apply_to_jokers_added? fun(card:table|Card,added_card:table|Card) Used to modify *added_card* when obtained
+---@field joy_apply_to_jokers_added? fun(self: SMODS.Joker|table, card:table|Card, added_card:table|Card) Used to modify *added_card* when obtained
 ---@field joy_allow_ability? fun(card:table|Card, other_card:table|Card):boolean? Determines if *other_card* can use abilities while face-down
 ---@field joy_prevent_flip? fun(card:table|Card, other_card:table|Card):boolean? Determines if *other_card* should flip
 ---@field joy_prevent_trap_flip? fun(card:table|Card, other_card:table|Card):boolean? Determines if the Trap *other_card* should flip at end of round
@@ -40,7 +40,7 @@ SMODS.Atlas({
 ---@field joy_transfer_flip_effect_active? fun(self:SMODS.Joker|table, ability_card:Card|table, other_card:Card|table, config:table):boolean? Similar to `joy_flip_effect_active` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
 ---@field joy_transfer_modify_cost? fun(self:SMODS.Joker|table, ability_card:Card|table, other_card:Card|table, config:table):boolean? Similar to `joy_modify_cost` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
 ---@field joy_transfer_prevent_flip? fun(self:SMODS.Joker|table, ability_card:Card|table, other_card:Card|table, config:table):boolean? Similar to `joy_prevent_flip` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
----@field joy_transfer_apply_to_jokers_added? fun(self:SMODS.Joker|table, ability_card:Card|table, added_card:Card|table, config:table):boolean? Similar to `joy_apply_to_jokers_added` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
+---@field joy_transfer_apply_to_jokers_added? fun(self:SMODS.Joker|table, ability_card:Card|table, config:table, added_card:Card|table):boolean? Similar to `joy_apply_to_jokers_added` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
 ---@field joy_transfer_set_hand_highlight_limit? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table):integer? Returns what the hand highlight limit should be (at minimum) after calling `JoyousSpring.calculate_hand_highlight_limit` but for transferred abilities
 ---@field joy_transfer_set_excavate_count? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, context:CalcContext):integer? Determines how many cards to excavate in a certain context but for transferred abilities
 ---@field joy_transfer_create_card_for_shop? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card, area:CardArea) Used to modify *other_card* when it's created for the shop but for transferred abilities

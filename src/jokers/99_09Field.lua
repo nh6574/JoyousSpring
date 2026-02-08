@@ -366,7 +366,7 @@ SMODS.Joker({
             SMODS.debuff_card(joker, false, "j_joy_midbreaker")
         end
     end,
-    joy_apply_to_jokers_added = function(card, added_card)
+    joy_apply_to_jokers_added = function(self, card, added_card)
         if G.GAME.blind.boss then
             SMODS.debuff_card(added_card, "prevent_debuff", "j_joy_midbreaker")
         end

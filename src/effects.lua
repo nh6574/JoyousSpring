@@ -597,26 +597,8 @@ end
 
 local card_add_to_deck_ref = Card.add_to_deck
 function Card:add_to_deck(from_debuff)
-    if G.jokers and not self.added_to_deck and self.ability.set == "Joker" and not JoyousSpring.is_field_spell(self) then
-        for _, joker in ipairs(G.jokers.cards) do
-            if not joker.debuff and joker.config.center.joy_apply_to_jokers_added then
-                joker.config.center.joy_apply_to_jokers_added(joker, self)
-            end
-            if JoyousSpring.is_monster_card(joker) and JoyousSpring.has_joyous_table(joker) and not joker.debuff and joker.ability.extra.joyous_spring.material_effects and next(joker.ability.extra.joyous_spring.material_effects) then
-                for material_key, config in pairs(joker.ability.extra.joyous_spring.material_effects) do
-                    local material_center = G.P_CENTERS[material_key]
-
-                    if material_center and material_center.joy_transfer_apply_to_jokers_added then
-                        material_center:joy_transfer_apply_to_jokers_added(joker, self, config)
-                    end
-                end
-            end
-        end
-        for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
-            if not joker.debuff and joker.config.center.joy_apply_to_jokers_added then
-                joker.config.center.joy_apply_to_jokers_added(joker, self)
-            end
-        end
+    if not self.added_to_deck and self.ability.set == "Joker" and not JoyousSpring.is_field_spell(self) then
+        JoyousSpring.calculate_prototype_function("apply_to_jokers_added", {}, self)
     end
     card_add_to_deck_ref(self, from_debuff)
     if G.shop_jokers and not G.OVERLAY_MENU then

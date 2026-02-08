@@ -438,7 +438,7 @@ SMODS.Joker({
             SMODS.debuff_card(joker, false, "j_joy_spright_sprind" .. (card.ability.extra.unique_count or 0))
         end
     end,
-    joy_apply_to_jokers_added = function(card, added_card)
+    joy_apply_to_jokers_added = function(self, card, added_card)
         if not card.debuff then
             local spright_material = false
             for _, key in ipairs(JoyousSpring.get_materials(card)) do

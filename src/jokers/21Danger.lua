@@ -841,7 +841,7 @@ SMODS.Joker({
             SMODS.debuff_card(G.jokers.cards[i], false, 'j_joy_danger_disorder')
         end
     end,
-    joy_apply_to_jokers_added = function(card, added_card)
+    joy_apply_to_jokers_added = function(self, card, added_card)
         if not card.debuff and not JoyousSpring.is_monster_archetype(added_card, "Danger") then
             SMODS.debuff_card(added_card, true, "j_joy_danger_disorder")
         end

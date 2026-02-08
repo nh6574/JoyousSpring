@@ -519,7 +519,7 @@ SMODS.Joker({
             SMODS.debuff_card(joker, false, "j_joy_pmcaptor")
         end
     end,
-    joy_apply_to_jokers_added = function(card, added_card)
+    joy_apply_to_jokers_added = function(self, card, added_card)
         if JoyousSpring.is_monster_type(added_card, "Zombie") and not JoyousSpring.is_perma_debuffed(added_card) then
             SMODS.debuff_card(added_card, "prevent_debuff", "j_joy_pmcaptor")
         end

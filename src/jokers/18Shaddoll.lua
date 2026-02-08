@@ -1089,7 +1089,7 @@ SMODS.Joker({
             SMODS.debuff_card(joker, false, "j_joy_shaddoll_apka")
         end
     end,
-    joy_apply_to_jokers_added = function(card, added_card)
+    joy_apply_to_jokers_added = function(self, card, added_card)
         if JoyousSpring.is_summon_type(added_card, "FUSION") and not JoyousSpring.is_perma_debuffed(added_card) then
             SMODS.debuff_card(added_card, "prevent_debuff", "j_joy_shaddoll_apka")
         end
@@ -1117,7 +1117,7 @@ SMODS.Joker({
     joy_transfer_prevent_flip = function(self, ability_card, other_card, config)
         return JoyousSpring.is_summon_type(other_card, "FUSION")
     end,
-    joy_transfer_apply_to_jokers_added = function(self, ability_card, added_card, config)
+    joy_transfer_apply_to_jokers_added = function(self, ability_card, config, added_card)
         if JoyousSpring.is_summon_type(added_card, "FUSION") and not JoyousSpring.is_perma_debuffed(added_card) then
             SMODS.debuff_card(added_card, "prevent_debuff", ability_card.config.center.key .. "_shaddoll_apka")
         end
