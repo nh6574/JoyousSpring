@@ -23,7 +23,7 @@
 ---@field calc_dollar_bonus? fun(self: JoyousSpring.OpponentCard|table, card: Card|table): nil|number Calculates reward money.
 ---@field joy_blind_key? string String for the blind that rewards this joker, if any
 ---@field joy_modify_cost? fun(self: JoyousSpring.OpponentCard|table, card:table|Card, other_card:table|Card) Like joy_set_cost but for another card
----@field joy_allow_ability? fun(card:table|Card, other_card:table|Card):boolean? Returns `true` if *other_card* is allowed to use abilities while facedown [Not Implemented Yet]
+---@field joy_allow_facedown_ability? fun(self: JoyousSpring.OpponentCard|table, card:table|Card, other_card:table|Card):boolean? Returns `true` if *other_card* is allowed to use abilities while facedown
 ---@field joy_apply_to_jokers_added? fun(self: JoyousSpring.OpponentCard|table, card:table|Card, added_card:table|Card) Used to modify *added_card* when obtained
 ---@field joy_prevent_flip? fun(self: JoyousSpring.OpponentCard|table, card:table|Card, other_card:table|Card):boolean? Determines if *other_card* should flip
 ---@field joy_prevent_trap_flip? fun(card:table|Card, other_card:table|Card):boolean? Determines if the Trap *other_card* should flip at end of round [Not Implemented Yet]

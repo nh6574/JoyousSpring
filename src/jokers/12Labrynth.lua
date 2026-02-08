@@ -846,9 +846,8 @@ SMODS.Joker({
             card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.extra_xmult
         end
     end,
-    joy_allow_ability = function(card, other_card)
-        return not JoyousSpring.is_trap_monster(other_card) and JoyousSpring.is_monster_type(other_card, "Fiend") and
-            true or false
+    joy_allow_facedown_ability = function(self, card, other_card)
+        return not JoyousSpring.is_trap_monster(other_card) and JoyousSpring.is_monster_type(other_card, "Fiend")
     end,
     joker_display_def = function(JokerDisplay)
         ---@type JDJokerDefinition
