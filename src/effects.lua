@@ -581,19 +581,8 @@ end
 local create_card_for_shop_ref = create_card_for_shop
 function create_card_for_shop(area)
     local card = create_card_for_shop_ref(area)
-    if card and G.jokers then
-        for _, joker in ipairs(G.jokers.cards) do
-            if not joker.debuff and joker.config.center.joy_create_card_for_shop then
-                joker.config.center.joy_create_card_for_shop(joker, card, area)
-            end
-        end
-        if JoyousSpring.field_spell_area then
-            for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
-                if not joker.debuff and joker.config.center.joy_create_card_for_shop then
-                    joker.config.center.joy_create_card_for_shop(joker, card, area)
-                end
-            end
-        end
+    if card then
+        JoyousSpring.calculate_prototype_function("create_card_for_shop", {}, card, area)
     end
     return card
 end

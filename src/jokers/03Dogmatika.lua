@@ -649,8 +649,8 @@ SMODS.Joker({
             end
         end
     end,
-    joy_create_card_for_shop = function(card, other_card, area)
-        if other_card and JoyousSpring.is_extra_deck_monster(other_card) and next(SMODS.find_card("j_joy_dogma_knight")) then
+    joy_create_card_for_shop = function(self, card, other_card, area)
+        if other_card and JoyousSpring.is_extra_deck_monster(other_card) then
             other_card.ability.extra.joyous_spring.is_free = true
             JoyousSpring.create_perma_debuffed_card(other_card, "Dogmatika")
             other_card:set_cost()
