@@ -29,7 +29,7 @@ if specific_vars and specific_vars.sticker then info_queue[#info_queue+1] = {key
 position = 'at'
 match_indent = true
 payload = '''
-if not card or (card.config.center.mod or {}).id ~= "JoyousSpring" then
+if not _c or (_c.mod or {}).id ~= "JoyousSpring" then
 if specific_vars and specific_vars.sticker then info_queue[#info_queue+1] = {key = string.lower(specific_vars.sticker)..'_sticker', set = 'Other'} end
 end
 '''

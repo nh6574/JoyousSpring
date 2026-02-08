@@ -47,4 +47,5 @@ SMODS.current_mod.custom_card_areas = function(game)
             negative_info = 'joker',
             bg_colour = { game.C.JOY.TRAP[1], game.C.JOY.TRAP[2], game.C.JOY.TRAP[3], 0.5 }
         })
+    JoyousSpring.opponent_area = game.joy_opponent_area
 end
