@@ -593,8 +593,6 @@ function CardArea:emplace(card, location, stay_flipped)
     if self == JoyousSpring.opponent_area then
         JoyousSpring.handle_opponent_area_limit()
     end
-
-    JoyousSpring.calculate_prototype_function("on_emplace", {}, card, self)
 end
 
 local card_add_to_deck_ref = Card.add_to_deck

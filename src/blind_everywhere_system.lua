@@ -20,7 +20,6 @@
 ---@field joy_can_be_sent_to_graveyard? fun(self:SMODS.Blind|table, choices:string[]):string[]? Used to filter cards that can be sent to the GY
 ---@field joy_set_hand_highlight_limit? fun(self:SMODS.Blind|table, blind:Blind|table?):integer? Returns what the hand highlight limit should be (at minimum) after calling `JoyousSpring.calculate_hand_highlight_limit`
 ---@field joy_create_card_for_shop? fun(self:SMODS.Blind|table, blind:table|Blind?, other_card:table|Card, area:CardArea) Used to modify *other_card* when it's created for the shop
----@field joy_on_emplace? fun(self:SMODS.Blind|table, blind:table|Blind?, added_card:table|Card,area:table|CardArea) Used to modify *added_card* when emplaced in *area*
 ---@overload fun(self: JoyousSpring.Blind): JoyousSpring.Blind
 JoyousSpring.Blind = setmetatable({}, {
     __call = function(self)

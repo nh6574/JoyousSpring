@@ -19,9 +19,6 @@ JoyousSpring.Blind {
     boss_colour = G.C.JOY.EFFECT,
     has_ante_ability = true,
     opponent_card = {},
-    joy_on_emplace = function(self, added_card, area)
-
-    end
 }
 
 
