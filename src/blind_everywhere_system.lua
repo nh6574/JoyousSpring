@@ -40,7 +40,8 @@ JoyousSpring.Blind = SMODS.Blind:extend {
     boss = { min = 2 },
     inject = function(self, i)
         SMODS.Blind.inject(self, i)
-        if self.opponent_card then
+
+        if self.opponent_card and not SMODS.Centers["opp_" .. (self.opponent_card.key or "")] then
             self.opponent_card.key = "joy_" .. (self.opponent_card.key or self.original_key)
             self.opponent_card.atlas = (self.opponent_card.atlas and "joy_" .. self.opponent_card.atlas or self.atlas)
             self.opponent_card.pos = self.opponent_card.pos or { x = self.pos.x, y = self.pos.y }
@@ -54,7 +55,20 @@ JoyousSpring.Blind = SMODS.Blind:extend {
             local proto = JoyousSpring.OpponentCard(SMODS.shallow_copy(self.opponent_card))
             proto.mod = SMODS.Mods.JoyousSpring
             proto.original_mod = proto.mod
-            proto:inject()
+
+            if proto._discovered_unlocked_overwritten then
+                assert(proto._saved_d_u,
+                    ("Internal: original discovery/unlocked state for object \"%s\" should have been saved at this point.")
+                    :format(proto and proto.key or "UNKNOWN"))
+                proto.discovered, proto.unlocked = proto._d, proto._u
+                proto._discovered_unlocked_overwritten = false
+            else
+                SMODS._save_d_u(proto)
+            end
+
+            proto:inject(i)
+
+            proto:process_loc_text()
 
             self.opponent_key = proto.key
         end
