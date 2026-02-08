@@ -594,36 +594,7 @@ function CardArea:emplace(card, location, stay_flipped)
         JoyousSpring.handle_opponent_area_limit()
     end
 
-    if G.jokers then
-        for _, joker in ipairs(G.jokers.cards) do
-            if not joker.debuff and joker.config.center.joy_on_emplace then
-                joker.config.center:joy_on_emplace(joker, card, area)
-            end
-        end
-        if JoyousSpring.field_spell_area then
-            for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
-                if not joker.debuff and joker.config.center.joy_on_emplace then
-                    joker.config.center:joy_on_emplace(joker, card, area)
-                end
-            end
-        end
-        if JoyousSpring.opponent_area then
-            for _, joker in ipairs(JoyousSpring.opponent_area.cards) do
-                if not joker.debuff and joker.config.center.joy_on_emplace then
-                    joker.config.center:joy_on_emplace(joker, card, area)
-                end
-            end
-        end
-        if G.GAME.blind and not G.GAME.blind.disabled and G.GAME.blind.config.blind.joy_on_emplace then
-            G.GAME.blind.config.blind:joy_on_emplace(joker, card, area)
-        end
-        for key, _ in pairs(G.GAME.joy_active_blinds or {}) do
-            local prototype = G.P_BLINDS[key]
-            if not SMODS.is_active_blind(key, true) and prototype and prototype.joy_on_emplace then
-                prototype:joy_on_emplace(joker, card, area)
-            end
-        end
-    end
+    JoyousSpring.calculate_prototype_function("on_emplace", {}, card, self)
 end
 
 local card_add_to_deck_ref = Card.add_to_deck
