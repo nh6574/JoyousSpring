@@ -1,7 +1,7 @@
 --- SPYRAL
 SMODS.Atlas({
     key = "spy",
-    path = "25SPYRAL.png",
+    path = "98SPYRAL.png",
     px = 71,
     py = 95
 })

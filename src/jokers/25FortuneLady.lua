@@ -1,7 +1,7 @@
 --- FORTUNE LADY
 SMODS.Atlas({
     key = "flady",
-    path = "26FortuneLady.png",
+    path = "25FortuneLady.png",
     px = 71,
     py = 95
 })
