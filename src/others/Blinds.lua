@@ -213,6 +213,29 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 0 },
     boss_colour = G.C.JOY.SPELL,
+    calculate = function(self, blind, context)
+        if blind.disabled then return end
+
+        if context.setting_blind then
+            for _, joker in ipairs(G.jokers.cards) do
+                if joker.facing == "front" then
+                    JoyousSpring.flip(joker, blind)
+                end
+            end
+        end
+
+        if context.end_of_round and context.game_over == false
+            and context.main_eval then
+            local count = 0
+            for _, joker in ipairs(G.jokers.cards) do
+                if joker.facing == "back" then
+                    JoyousSpring.flip(joker, blind)
+                    if joker.facing == "front" then count = count + 1 end
+                end
+            end
+            G.hand:change_size(count)
+        end
+    end,
     opponent_card = {}
 }
 
