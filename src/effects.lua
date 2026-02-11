@@ -382,12 +382,12 @@ JoyousSpring.set_cost = function(card)
     if card then
         JoyousSpring.calculate_prototype_function("modify_cost", {}, card)
     end
-    if card.joy_modify_cost then
-        if card.joy_modify_cost.cost then
-            card.cost = card.joy_modify_cost.cost
+    if card.ability.joy_modify_cost then
+        if card.ability.joy_modify_cost.cost then
+            card.cost = card.ability.joy_modify_cost.cost
         end
-        if card.joy_modify_cost.sell_cost then
-            card.sell_cost = card.joy_modify_cost.sell_cost
+        if card.ability.joy_modify_cost.sell_cost then
+            card.sell_cost = card.ability.joy_modify_cost.sell_cost
         end
     end
 end

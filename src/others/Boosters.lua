@@ -275,10 +275,13 @@ SMODS.Booster({
         JoyousSpring.in_pack_selection = true
         local pack = get_pack("joy_selection_booster", "joy_secret")
         JoyousSpring.in_pack_selection = nil
-        return SMODS.create_card({
-            key = (pack or {}).key,
+        local booster = SMODS.create_card({
+            key = (pack or { key = "p_joy_secret_pack_1" }).key,
             area = G.pack_cards,
         })
+        booster.ability.joy_modify_cost = { cost = 0 }
+        booster:set_cost()
+        return booster
     end,
     ease_background_colour = function(self)
         ease_colour(G.C.DYN_UI.MAIN, G.C.L_BLACK)
