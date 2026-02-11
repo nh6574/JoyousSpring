@@ -107,7 +107,7 @@ end
 local create_card_ref = create_card
 function create_card(_type, area, legendary, _rarity, skip_materialize, soulable, forced_key, key_append)
     local key = nil
-    if JoyousSpring.config.only_ygo_cards and _type == "Joker" and not forced_key then
+    if G.GAME.joy_only_ygo_cards and _type == "Joker" and not forced_key then
         local _rarity = (legendary and 4) or
             (type(_rarity) == "number" and ((_rarity > 0.95 and 3) or (_rarity > 0.7 and 2) or 1)) or _rarity
         _rarity = ({ Common = 1, Uncommon = 2, Rare = 3, Legendary = 4 })[_rarity] or _rarity

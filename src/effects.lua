@@ -205,6 +205,9 @@ function Game:init_game_object()
 end
 
 function SMODS.current_mod.reset_game_globals(run_start)
+    if run_start then
+        G.GAME.joy_only_ygo_cards = JoyousSpring.config.only_ygo_cards
+    end
     G.GAME.current_round.joy_tributed_cards = {}
 end
 
