@@ -87,3 +87,18 @@ if G.GAME.joy_win_by_blind then
     JoyousSpring.blind_on_game_over()
 end
 '''
+
+# Change sound in the collection
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/overrides.lua"]'
+pattern = "play_sound('chips1', math.random() * 0.1 + 0.55, 0.12)"
+position = 'at'
+match_indent = true
+payload = '''
+if JoyousSpring and v.original_mod and v.original_mod.id == "JoyousSpring" then
+    play_sound('paper1', math.random() * 0.1 + 0.55, 0.12)
+else
+    play_sound('chips1', math.random() * 0.1 + 0.55, 0.12)
+end
+'''
