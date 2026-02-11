@@ -31,6 +31,8 @@ SMODS.Atlas({
 ---@field joy_can_be_sent_to_graveyard? fun(self:SMODS.Joker|table, card:table|Card, choices:string[]):string[]? Used to filter cards that can be sent to the GY
 ---@field joy_set_hand_highlight_limit? fun(self:SMODS.Joker|table, card:table|Card):integer? Returns what the hand highlight limit should be (at minimum) after calling `JoyousSpring.calculate_hand_highlight_limit`
 ---@field joy_prevent_buy? fun(self:SMODS.Joker|table, card:table|Card, other_card:table|Card):boolean? Returns if *other_card* is prevented from being bought from the shop
+---@field joy_get_attribute? fun(self:SMODS.Joker|table, card:table|Card, other_card:table|Card, original_attribute:attribute|true?):attribute|true? Returns what attribute *other_card* should be considered as. `"None"` for none, `true` for all.
+---@field joy_get_monster_type? fun(self:SMODS.Joker|table, card:table|Card, other_card:table|Card, original_type:monster_type|true?):monster_type|true? Returns what monster type *other_card* should be considered as. `"None"` for none, `true` for all.
 ---@field joy_can_transfer_ability? fun(self:SMODS.Joker|table, other_card:Card|table, card:Card|table?):boolean? Determines if *self* transfers its ability to *other_card*. When transforming, `other_card.joy_transforming == self.key`
 ---@field joy_transfer_ability_calculate? fun(self:SMODS.Joker|table, other_card:Card|table, context:CalcContext, config:table):table? Similar to `calculate` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect
 ---@field joy_transfer_config? fun(self:SMODS.Joker|table, other_card:Card|table):table? Similar to `config`, it returns the initial config table for the transferred ability
@@ -49,9 +51,8 @@ SMODS.Atlas({
 ---@field joy_transfer_allow_facedown_ability? fun(self: SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card):boolean? Determines if *other_card* can use abilities while face-down but for transferred abilities
 ---@field joy_transfer_prevent_trap_flip? fun(self: SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card):boolean? Determines if the Trap *other_card* should flip at end of round but for transferred abilities
 ---@field joy_transfer_prevent_buy? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card):boolean? Returns if *other_card* is prevented from being bought from the shop
-
----@class Card
----@field joy_modify_cost? table
+---@field joy_transfer_get_attribute? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card, original_attribute:attribute|true?):attribute|true? Returns what attribute *other_card* should be considered as. `"None"` for none, `true` for all.
+---@field joy_transfer_get_monster_type? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card, original_type:monster_type|true?):monster_type|true? Returns what monster type *other_card* should be considered as. `"None"` for none, `true` for all.
 
 ---@alias summon_type
 ---|'"NORMAL"'
@@ -288,20 +289,15 @@ JoyousSpring.is_monster_archetype = function(card, archetype)
         card.ability.extra.joyous_spring.monster_archetypes[archetype] and true or false
 end
 
+--TODO: Allow multi-types/attributes
+
 ---Checks if *card* belongs to *monster_type*
 ---@param card Card|table
 ---@param monster_type monster_type
 ---@return boolean
 JoyousSpring.is_monster_type = function(card, monster_type)
-    if not JoyousSpring.is_monster_card(card) and (not JoyousSpring.get_extra_values(card) or (not JoyousSpring.get_extra_values(card).is_all_types and not JoyousSpring.get_extra_values(card).monster_type)) then
-        return false
-    end
-    if (JoyousSpring.get_extra_values(card) or {}).is_all_types or (JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.is_all_types) then return true end
-    if (JoyousSpring.get_extra_values(card) or {}).monster_type then
-        return JoyousSpring.get_extra_values(card).monster_type == monster_type
-    end
-
-    return JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.monster_type == monster_type
+    local card_type = JoyousSpring.get_monster_type(card)
+    return card_type == true or (card_type and card_type == monster_type)
 end
 
 ---Gets the monster type of the card
@@ -309,15 +305,30 @@ end
 ---@param card Card|table
 ---@return monster_type|true?
 JoyousSpring.get_monster_type = function(card)
+    local monster_type
     if not JoyousSpring.is_monster_card(card) and (not JoyousSpring.get_extra_values(card) or (not JoyousSpring.get_extra_values(card).is_all_types and not JoyousSpring.get_extra_values(card).monster_type)) then
-        return nil
+        -- I didnt want to rewrite this
+    elseif (JoyousSpring.get_extra_values(card) or {}).is_all_types or (JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.is_all_types) then
+        monster_type = true
+    else
+        monster_type = (JoyousSpring.get_extra_values(card) or {}).monster_type or
+            card.ability.extra.joyous_spring.monster_type
+
+        if monster_type == "None" then
+            monster_type = nil
+        end
     end
-    if (JoyousSpring.get_extra_values(card) or {}).is_all_types or (JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.is_all_types) then return true end
 
-    local monster_type = (JoyousSpring.get_extra_values(card) or {}).monster_type or
-        card.ability.extra.joyous_spring.monster_type
-
-    if monster_type == "None" then return end
+    if card.area and not card.area.config.collection then
+        local calc_return = JoyousSpring.calculate_prototype_function("get_monster_type", {
+            return_func = function(new, original)
+                return original == true and original or new
+            end
+        }, card, monster_type)
+        if calc_return then
+            return calc_return ~= "None" and calc_return or nil
+        end
+    end
 
     return monster_type
 end
@@ -327,16 +338,8 @@ end
 ---@param attribute attribute
 ---@return boolean
 JoyousSpring.is_attribute = function(card, attribute)
-    if not JoyousSpring.is_monster_card(card) and (not JoyousSpring.get_extra_values(card) or (not JoyousSpring.get_extra_values(card).is_all_attributes and not JoyousSpring.get_extra_values(card).attribute)) then
-        return false
-    end
-    if (JoyousSpring.get_extra_values(card) or {}).is_all_attributes or (JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.is_all_attributes) then return true end
-    if (JoyousSpring.get_extra_values(card) or {}).attribute then
-        return JoyousSpring.get_extra_values(card).attribute ==
-            attribute
-    end
-
-    return JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.attribute == attribute
+    local card_attribute = JoyousSpring.get_attribute(card)
+    return card_attribute == true or (card_attribute and card_attribute == attribute)
 end
 
 ---Gets the attribute of the card
@@ -344,17 +347,31 @@ end
 ---@param card Card|table
 ---@return attribute|true?
 JoyousSpring.get_attribute = function(card)
+    local attribute
+
     if not JoyousSpring.is_monster_card(card) and (not JoyousSpring.get_extra_values(card) or not (JoyousSpring.get_extra_values(card).is_all_attributes and not JoyousSpring.get_extra_values(card).attribute)) then
-        return
-    end
-    if (JoyousSpring.get_extra_values(card) or {}).is_all_attributes or (JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.is_all_attributes) then
-        return true
+        -- I didnt want to rewrite this
+    elseif (JoyousSpring.get_extra_values(card) or {}).is_all_attributes or (JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.is_all_attributes) then
+        attribute = true
+    else
+        attribute = (JoyousSpring.get_extra_values(card) or {}).attribute or
+            card.ability.extra.joyous_spring.attribute
+
+        if attribute == "None" then
+            attribute = nil
+        end
     end
 
-    local attribute = (JoyousSpring.get_extra_values(card) or {}).attribute or
-        card.ability.extra.joyous_spring.attribute
-
-    if attribute == "None" then return end
+    if card.area and not card.area.config.collection then
+        local calc_return = JoyousSpring.calculate_prototype_function("get_attribute", {
+            return_func = function(new, original)
+                return original == true and original or new
+            end
+        }, card, attribute)
+        if calc_return then
+            return calc_return ~= "None" and calc_return or nil
+        end
+    end
 
     return attribute
 end

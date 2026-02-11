@@ -40,10 +40,12 @@ JoyousSpring.get_type_ui = function(card)
         }
     end
 
-    local has_attribute = (extra_values.attribute or joyous_spring_table.attribute or "None") ~= "None"
-    local has_type = (extra_values.monster_type or joyous_spring_table.monster_type or "None") ~= "None"
-    local attribute_text = localize("k_joy_" .. (extra_values.attribute or joyous_spring_table.attribute or "LIGHT"))
-    local type_text = localize("k_joy_" .. (extra_values.monster_type or joyous_spring_table.monster_type or "Beast"))
+    local card_attribute = JoyousSpring.get_attribute(card)
+    local card_type = JoyousSpring.get_monster_type(card)
+    local has_attribute = (card_attribute or "None") ~= "None"
+    local has_type = (card_type or "None") ~= "None"
+    local attribute_text = localize("k_joy_" .. (card_attribute == true and "DIVINE" or card_attribute or "None"))
+    local type_text = localize("k_joy_" .. (card_type == true and "BeastWarrior" or card_type or "None"))
     local summon_type_text = joyous_spring_table.summon_type and joyous_spring_table.summon_type ~= "NORMAL" and
         localize("k_joy_" .. joyous_spring_table.summon_type) or nil
     local pendulum_text = joyous_spring_table.is_pendulum and localize("k_joy_pendulum") or nil
@@ -79,8 +81,18 @@ JoyousSpring.get_type_ui = function(card)
             n = G.UIT.O,
             config = {
                 object = DynaText({
-                    string = { attribute_text },
-                    colours = { G.C.JOY[extra_values.attribute or joyous_spring_table.attribute or "LIGHT"] },
+                    string = card_attribute == true and
+                        (function()
+                            local text = {}
+                            for _, att in ipairs(JoyousSpring.attributes_list) do
+                                text[#text + 1] = {}
+                                text[#text].string = localize("k_joy_" .. att)
+                                text[#text].colour = G.C.JOY[att]
+                            end
+                            return text
+                        end)()
+                        or { attribute_text },
+                    colours = card_attribute ~= true and { G.C.JOY[card_attribute] } or nil,
                     bump = true,
                     silent = true,
                     pop_in = 0,
@@ -102,7 +114,15 @@ JoyousSpring.get_type_ui = function(card)
             n = G.UIT.O,
             config = {
                 object = DynaText({
-                    string = { type_text },
+                    string = card_type == true and
+                        (function()
+                            local text = {}
+                            for _, typ in ipairs(JoyousSpring.types_list) do
+                                text[#text + 1] = localize("k_joy_" .. typ)
+                            end
+                            return text
+                        end)()
+                        or { type_text },
                     colours = { G.C.JOY.NORMAL },
                     bump = true,
                     silent = true,

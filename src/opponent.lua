@@ -33,6 +33,8 @@
 ---@field joy_set_hand_highlight_limit? fun(self:JoyousSpring.OpponentCard|table, card:table|Card):integer? Returns what the hand highlight limit should be (at minimum) after calling `JoyousSpring.calculate_hand_highlight_limit`
 ---@field joy_create_card_for_shop? fun(self:JoyousSpring.OpponentCard|table, card:table|Card, other_card:table|Card, area:CardArea) Used to modify *other_card* when it's created for the shop
 ---@field joy_prevent_buy? fun(self:JoyousSpring.OpponentCard|table, card:table|Card, other_card:table|Card):boolean? Returns if *other_card* is prevented from being bought from the shop
+---@field joy_get_attribute? fun(self:JoyousSpring.OpponentCard|table, card:table|Card, other_card:table|Card, original_attribute:attribute|true?):attribute|true? Returns what attribute *other_card* should be considered as. `"None"` for none, `true` for all.
+---@field joy_get_monster_type? fun(self:JoyousSpring.OpponentCard|table, card:table|Card, other_card:table|Card, original_type:monster_type|true?):monster_type|true? Returns what monster type *other_card* should be considered as. `"None"` for none, `true` for all.
 ---@overload fun(self: JoyousSpring.OpponentCard): JoyousSpring.OpponentCard
 JoyousSpring.OpponentCard = setmetatable({}, {
     __call = function(self)

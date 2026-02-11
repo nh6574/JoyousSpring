@@ -21,6 +21,8 @@
 ---@field joy_set_hand_highlight_limit? fun(self:SMODS.Blind|table, blind:Blind|table?):integer? Returns what the hand highlight limit should be (at minimum) after calling `JoyousSpring.calculate_hand_highlight_limit`
 ---@field joy_create_card_for_shop? fun(self:SMODS.Blind|table, blind:table|Blind?, other_card:table|Card, area:CardArea) Used to modify *other_card* when it's created for the shop
 ---@field joy_prevent_buy? fun(self:SMODS.Blind|table, blind:table|Blind?, other_card:table|Card):boolean? Returns if *other_card* is prevented from being bought from the shop
+---@field joy_get_attribute? fun(self:SMODS.Blind|table, blind:table|Blind?, other_card:table|Card, original_attribute:attribute|true?):attribute|true? Returns what attribute *other_card* should be considered as. `"None"` for none, `true` for all.
+---@field joy_get_monster_type? fun(self:SMODS.Blind|table, blind:table|Blind?, other_card:table|Card, original_type:monster_type|true?):monster_type|true? Returns what monster type *other_card* should be considered as. `"None"` for none, `true` for all.
 ---@overload fun(self: JoyousSpring.Blind): JoyousSpring.Blind
 JoyousSpring.Blind = setmetatable({}, {
     __call = function(self)
@@ -46,11 +48,22 @@ JoyousSpring.Blind = SMODS.Blind:extend {
             self.opponent_card.atlas = (self.opponent_card.atlas and "joy_" .. self.opponent_card.atlas or self.atlas)
             self.opponent_card.pos = self.opponent_card.pos or { x = self.pos.x, y = self.pos.y }
             self.opponent_card.joy_blind_key = self.opponent_card.joy_blind_key or self.key
-            self.opponent_card.loc_vars = self.opponent_card.loc_vars or function(self, info_queue, card)
-                return {
-                    key = card.area and card.area == G.joy_blind_effects_area and self.joy_blind_key or nil,
-                    set = card.area and card.area == G.joy_blind_effects_area and "Blind" or nil
-                }
+            local og_loc_vars_ref = self.opponent_card.loc_vars
+            self.opponent_card.loc_vars = function(opp_self, info_queue, card)
+                local og_loc_vars
+                if card.area and card.area == G.joy_blind_effects_area then
+                    if self.loc_vars then
+                        og_loc_vars = self:loc_vars()
+                    end
+                elseif og_loc_vars_ref then
+                    og_loc_vars = og_loc_vars_ref(opp_self, info_queue, card)
+                end
+                og_loc_vars = og_loc_vars or {}
+                og_loc_vars.key = og_loc_vars.key or
+                    (card.area and card.area == G.joy_blind_effects_area and opp_self.joy_blind_key or nil)
+                og_loc_vars.set = og_loc_vars.set or
+                    (card.area and card.area == G.joy_blind_effects_area and "Blind" or nil)
+                return og_loc_vars
             end
             local proto = JoyousSpring.OpponentCard(SMODS.shallow_copy(self.opponent_card))
             proto.mod = SMODS.Mods.JoyousSpring

@@ -31,6 +31,8 @@ payload = '''
 if JoyousSpring and (JoyousSpring.is_extra_deck_monster(c1) or JoyousSpring.is_field_spell(c1)) then
     JoyousSpring.add_to_extra_deck(c1)
     JoyousSpring.open_extra_deck(false, false, 1.85)
+elseif c1.ability.set == "joy_Opponent" then
+    JoyousSpring.opponent_area:emplace(c1)
 else
     G.jokers:emplace(c1)
 end

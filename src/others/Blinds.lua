@@ -151,7 +151,39 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 34 },
     boss_colour = G.C.JOY.EFFECT,
-    opponent_card = {}
+    has_ante_ability = true,
+    calculate_ante = function(self, context)
+        if context.create_shop_card and context.set == "Joker" and
+            SMODS.pseudorandom_probability(self, self.key, 1, 2, nil, true) then
+            return {
+                shop_create_flags = {
+                    set = "joy_Opponent",
+                    key = "opp_joy_parasiteparacide"
+                }
+            }
+        end
+        if context.modify_shop_card and context.card.config.center.key == "opp_joy_parasiteparacide" then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    G.FUNCS.buy_from_shop({ config = { ref_table = context.card } })
+                    return true
+                end
+            }))
+        end
+    end,
+    opponent_card = {
+        config = { extra = { xmult = 0.5 } },
+        loc_vars = function(self, info_queue, card)
+            return { vars = { card.ability.extra.xmult } }
+        end,
+        calculate = function(self, card, context)
+            if context.joker_main then
+                return {
+                    xmult = card.ability.extra.xmult
+                }
+            end
+        end
+    },
 }
 
 -- Parasite Paranoid
@@ -160,7 +192,15 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 35 },
     boss_colour = G.C.JOY.EFFECT,
-    opponent_card = {}
+    has_ante_ability = true,
+    joy_get_monster_type = function(self, blind, other_card, original_type)
+        return "Insect"
+    end,
+    opponent_card = {
+        joy_get_monster_type = function(self, card, other_card, original_type)
+            return "Insect"
+        end
+    },
 }
 
 --#endregion

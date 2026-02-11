@@ -143,6 +143,7 @@ end
 
 local check_for_buy_space_ref = G.FUNCS.check_for_buy_space
 G.FUNCS.check_for_buy_space = function(card)
+    if card.ability.set == 'joy_Opponent' then return true end
     if card.ability.set ~= 'Joker' then return check_for_buy_space_ref(card) end
     if JoyousSpring.is_field_spell(card) then
         if #JoyousSpring.field_spell_area.cards < JoyousSpring.field_spell_area.config.card_limit +

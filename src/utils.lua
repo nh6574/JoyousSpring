@@ -1,3 +1,42 @@
+JoyousSpring.types_list = {
+    "Aqua",
+    "Beast",
+    "BeastWarrior",
+    "CreatorGod",
+    "Cyberse",
+    "Dinosaur",
+    "DivineBeast",
+    "Dragon",
+    "Fairy",
+    "Fiend",
+    "Fish",
+    "Illusion",
+    "Insect",
+    "Machine",
+    "Plant",
+    "Psychic",
+    "Pyro",
+    "Reptile",
+    "Rock",
+    "SeaSerpent",
+    "Spellcaster",
+    "Thunder",
+    "Warrior",
+    "WingedBeast",
+    "Wyrm",
+    "Zombie",
+}
+
+JoyousSpring.attributes_list = {
+    "LIGHT",
+    "DARK",
+    "WATER",
+    "FIRE",
+    "EARTH",
+    "WIND",
+    "DIVINE",
+}
+
 ---Checks if card is in the Extra Deck
 ---@param card_key string
 ---@return boolean
@@ -188,15 +227,7 @@ JoyousSpring.get_material_attributes = function(card_list, ignore_debuffed)
         WIND = false,
         DIVINE = false
     }
-    local attributes_list = {
-        "LIGHT",
-        "DARK",
-        "WATER",
-        "FIRE",
-        "EARTH",
-        "WIND",
-        "DIVINE",
-    }
+    local attributes_list = JoyousSpring.attributes_list
     for _, card in ipairs(card_list) do
         if type(card) == "table" and (not ignore_debuffed or not card.debuff) and JoyousSpring.is_monster_card(card) then
             if not JoyousSpring.is_all_attributes(card) and JoyousSpring.get_attribute(card) then
@@ -288,34 +319,7 @@ JoyousSpring.get_material_types = function(card_list, ignore_debuffed)
         Zombie = false,
     }
 
-    local types_list = {
-        "Aqua",
-        "Beast",
-        "BeastWarrior",
-        "CreatorGod",
-        "Cyberse",
-        "Dinosaur",
-        "DivineBeast",
-        "Dragon",
-        "Fairy",
-        "Fiend",
-        "Fish",
-        "Illusion",
-        "Insect",
-        "Machine",
-        "Plant",
-        "Psychic",
-        "Pyro",
-        "Reptile",
-        "Rock",
-        "SeaSerpent",
-        "Spellcaster",
-        "Thunder",
-        "Warrior",
-        "WingedBeast",
-        "Wyrm",
-        "Zombie",
-    }
+    local types_list = JoyousSpring.types_list
 
     for _, card in ipairs(card_list) do
         if type(card) == "table" and (not ignore_debuffed or not card.debuff) and JoyousSpring.is_monster_card(card) then
