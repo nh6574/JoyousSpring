@@ -18,11 +18,27 @@ JoyousSpring.Blind {
     pos = { x = 0, y = 29 },
     boss_colour = G.C.JOY.EFFECT,
     has_ante_ability = true,
-    opponent_card = {},
+    calculate_ante = function(self, context)
+        if context.card_added and context.card.ability.set == "Joker" then
+            JoyousSpring.banish(context.card, "end_of_ante")
+        end
+    end,
+    opponent_card = {
+        config = { extra = { activated = false } },
+        -- calculate = function(self, card, context)
+        --     if context.buying_card and context.card.ability.set == "Joker" then
+        --         JoyousSpring.banish(context.card, "end_of_ante")
+        --         card.ability.extra.activated = true
+        --     end
+        --     if context.ending_shop then
+        --         card.ability.extra.activated = false
+        --     end
+        -- end,
+        remove_from_deck = function(self, card, from_debuff)
+            card.ability.extra.activated = false
+        end
+    },
 }
-
-
-
 
 -- Droll & Lock Bird
 JoyousSpring.Blind {
@@ -30,7 +46,20 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 30 },
     boss_colour = G.C.JOY.EFFECT,
-    opponent_card = {}
+    has_ante_ability = true,
+    opponent_card = {},
+    calculate_ante = function(self, context)
+        if context.buying_card and context.card.ability.set ~= "Voucher" then
+            JoyousSpring.blind_effects[self.key].active = true
+        end
+        if context.ending_shop then
+            JoyousSpring.blind_effects[self.key].active = nil
+        end
+    end,
+    joy_prevent_buy = function(self, blind, other_card)
+        return other_card.ability.set ~= "Voucher" and
+            JoyousSpring.blind_effects[self.key].active
+    end
 }
 
 -- Kurikara Divincarnate

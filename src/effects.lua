@@ -741,6 +741,49 @@ function SMODS.pseudorandom_probability(trigger_obj, seed, base_numerator, base_
     return ret
 end
 
+JoyousSpring.prevent_buy = function(card)
+    return JoyousSpring.calculate_prototype_function("prevent_buy", {
+        return_if_true = true
+    }, card)
+end
+
+local g_funcs_can_buy_ref = G.FUNCS.can_buy
+G.FUNCS.can_buy = function(e)
+    g_funcs_can_buy_ref(e)
+    if JoyousSpring.prevent_buy(e.config.ref_table) then
+        e.config.colour = G.C.UI.BACKGROUND_INACTIVE
+        e.config.button = nil
+    end
+end
+
+local g_funcs_can_buy_and_use_ref = G.FUNCS.can_buy_and_use
+G.FUNCS.can_buy_and_use = function(e)
+    g_funcs_can_buy_and_use_ref(e)
+    if JoyousSpring.prevent_buy(e.config.ref_table) then
+        e.UIBox.states.visible = false
+        e.config.colour = G.C.UI.BACKGROUND_INACTIVE
+        e.config.button = nil
+    end
+end
+
+local g_funcs_can_redeem_ref = G.FUNCS.can_redeem
+G.FUNCS.can_redeem = function(e)
+    g_funcs_can_redeem_ref(e)
+    if JoyousSpring.prevent_buy(e.config.ref_table) then
+        e.config.colour = G.C.UI.BACKGROUND_INACTIVE
+        e.config.button = nil
+    end
+end
+
+local g_funcs_can_open_ref = G.FUNCS.can_open
+G.FUNCS.can_open = function(e)
+    g_funcs_can_open_ref(e)
+    if JoyousSpring.prevent_buy(e.config.ref_table) then
+        e.config.colour = G.C.UI.BACKGROUND_INACTIVE
+        e.config.button = nil
+    end
+end
+
 --#endregion
 
 --#region Transfer Abilities

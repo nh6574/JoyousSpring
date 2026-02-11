@@ -20,6 +20,7 @@
 ---@field joy_can_be_sent_to_graveyard? fun(self:SMODS.Blind|table, blind:table|Blind?, choices:string[]):string[]? Used to filter cards that can be sent to the GY
 ---@field joy_set_hand_highlight_limit? fun(self:SMODS.Blind|table, blind:Blind|table?):integer? Returns what the hand highlight limit should be (at minimum) after calling `JoyousSpring.calculate_hand_highlight_limit`
 ---@field joy_create_card_for_shop? fun(self:SMODS.Blind|table, blind:table|Blind?, other_card:table|Card, area:CardArea) Used to modify *other_card* when it's created for the shop
+---@field joy_prevent_buy? fun(self:SMODS.Blind|table, blind:table|Blind?, other_card:table|Card):boolean? Returns if *other_card* is prevented from being bought from the shop
 ---@overload fun(self: JoyousSpring.Blind): JoyousSpring.Blind
 JoyousSpring.Blind = setmetatable({}, {
     __call = function(self)
@@ -78,7 +79,7 @@ local smods_blind_inject_ref = SMODS.Blind.inject or function() end
 SMODS.Blind.inject = function(self, i)
     smods_blind_inject_ref(self, i)
     if self.calculate_ante then
-        JoyousSpring.BES[self.key] = { calculate = self.calculate_ante }
+        JoyousSpring.BES[self.key] = { key = self.key, config = self.config, calculate = self.calculate_ante }
     end
 end
 
@@ -97,6 +98,8 @@ JoyousSpring.blind_changed = function(blind_type, new_key, old_key)
     local old_blind = old_key and G.P_BLINDS[old_key]
     G.GAME.joy_active_blinds = G.GAME.joy_active_blinds or {}
     G.GAME.joy_disabled_blinds = G.GAME.joy_disabled_blinds or {}
+    G.GAME.joy_blind_effects = G.GAME.joy_blind_effects or {}
+    JoyousSpring.blind_effects = G.GAME.joy_blind_effects
 
     local update = false
 
@@ -106,12 +109,14 @@ JoyousSpring.blind_changed = function(blind_type, new_key, old_key)
         end
         if blind_type == "Boss" or (G.GAME.round_resets.blind_choices.Boss ~= old_key and
                 (blind_type ~= "Small" or G.GAME.round_resets.blind_choices.Big ~= old_key)) then
+            JoyousSpring.blind_effects[old_key] = nil
             G.GAME.joy_active_blinds[old_key] = nil
             update = true
         end
     end
 
     if new_blind then
+        JoyousSpring.blind_effects[new_key] = {}
         if type(new_blind.on_enter) == "function" then
             new_blind:on_enter(blind_type)
         end
@@ -228,4 +233,11 @@ JoyousSpring.disable_blind_ante = function(key)
     G.GAME.joy_active_blinds[key] = nil
     G.GAME.joy_disabled_blinds[key] = true
     JoyousSpring.update_blind_effects_area()
+end
+
+local game_start_run_ref = Game.start_run
+function Game:start_run(args)
+    game_start_run_ref(self, args)
+
+    JoyousSpring.blind_effects = G.GAME.joy_blind_effects
 end
