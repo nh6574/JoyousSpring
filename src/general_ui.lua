@@ -426,10 +426,6 @@ function Card:highlight(is_highlighted)
         end
     else
         card_highlight_ref(self, is_highlighted)
-        if self.area and (JoyousSpring.is_extra_deck_monster(self)) and
-            (self.area == G.shop_jokers and G.shop_jokers or self.area == G.pack_cards and G.pack_cards) then
-            JoyousSpring.open_extra_deck(false, is_highlighted)
-        end
     end
 
     if not JoyousSpring.config.disable_side_deck and self.ability.set == "Joker" and self.area and self.area == G.pack_cards then
@@ -629,7 +625,25 @@ function CardArea:add_to_highlighted(card, silent)
         if not silent then play_sound('cardSlide1') end
     elseif (self == G.joy_blind_effects_area or self == JoyousSpring.opponent_area) then
     else
+        JoyousSpring.adding_to_highlight = card
         cardarea_add_to_highlighted_ref(self, card, silent)
+        JoyousSpring.adding_to_highlight = nil
+        if JoyousSpring.is_extra_deck_monster(card) and
+            (self == G.shop_jokers and G.shop_jokers or self == G.pack_cards and G.pack_cards) then
+            JoyousSpring.open_extra_deck(false, true)
+        end
+    end
+end
+
+local cardarea_remove_from_highlighted_ref = CardArea.remove_from_highlighted
+function CardArea:remove_from_highlighted(card, force)
+    cardarea_remove_from_highlighted_ref(self, card, force)
+    if JoyousSpring.is_extra_deck_monster(card) and (self == G.shop_jokers and G.shop_jokers or self == G.pack_cards and G.pack_cards) then
+        if not JoyousSpring.adding_to_highlight or
+            JoyousSpring.adding_to_highlight == card or
+            not JoyousSpring.is_extra_deck_monster(JoyousSpring.adding_to_highlight) then
+            JoyousSpring.open_extra_deck(false, false)
+        end
     end
 end
 
