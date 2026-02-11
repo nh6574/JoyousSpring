@@ -17,7 +17,7 @@
 ---@field joy_returned_area CardArea|table? Area the card is returned to.
 ---@field joy_returned_from CardArea|table? Area the card is returned from.
 ---@field joy_tributed boolean? When a card is being tributed.
----@field joy_source Card|table? Source of the effect.
+---@field joy_source Card|Blind|table? Source of the effect.
 ---@field joy_danger Card|table? Card destroyed by a Danger! effect.
 ---@field joy_summon boolean? When a card is being summoned.
 ---@field joy_transform_summon boolean? When a card is transformed and counting it as a summon.

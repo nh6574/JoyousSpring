@@ -592,6 +592,25 @@ JoyousSpring.is_card_rarity_from_array = function(card, list)
     return false
 end
 
+---Returns highest (vanilla) rarity, nil if none
+---@param list Card[]|table[]
+---@return integer?
+JoyousSpring.get_highest_rarity = function(list)
+    local rarity
+    for _, card in ipairs(list) do
+        if card:is_rarity(4) then
+            return 4
+        else
+            for i = (rarity or 0) + 1, 3 do
+                if card:is_rarity(i) then
+                    rarity = i
+                end
+            end
+        end
+    end
+    return rarity
+end
+
 ---Return the planet card for the handname
 ---@param handname string
 ---@return string?

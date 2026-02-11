@@ -89,6 +89,7 @@ end
 '''
 
 # Change sound in the collection
+# TODO: Change everywhere else
 [[patches]]
 [patches.pattern]
 target = '=[SMODS _ "src/overrides.lua"]'

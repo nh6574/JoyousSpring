@@ -47,7 +47,6 @@ JoyousSpring.Blind {
     pos = { x = 0, y = 30 },
     boss_colour = G.C.JOY.EFFECT,
     has_ante_ability = true,
-    opponent_card = {},
     calculate_ante = function(self, context)
         if context.buying_card and context.card.ability.set ~= "Voucher" then
             JoyousSpring.blind_effects[self.key].active = true
@@ -59,7 +58,8 @@ JoyousSpring.Blind {
     joy_prevent_buy = function(self, blind, other_card)
         return other_card.ability.set ~= "Voucher" and
             JoyousSpring.blind_effects[self.key].active
-    end
+    end,
+    opponent_card = {},
 }
 
 -- Kurikara Divincarnate
@@ -68,6 +68,21 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 31 },
     boss_colour = G.C.JOY.EFFECT,
+    calculate = function(self, blind, context)
+        if blind.disabled then return end
+
+        if context.setting_blind and #G.jokers.cards > 0 then
+            local rarity = JoyousSpring.get_highest_rarity(G.jokers.cards)
+            local choices = JoyousSpring.get_materials_owned({ { rarity = rarity } }, nil, true)
+            if #choices > 0 then
+                local joker = pseudorandom_element(choices, self.key .. "_tribute")
+                local key = joker.config.center.key
+                JoyousSpring.tribute(blind, { joker })
+                JoyousSpring.revive_pseudorandom({ { rarity = rarity, exclude_keys = { key } } }, self.key .. "_revive",
+                    true)
+            end
+        end
+    end,
     opponent_card = {}
 }
 
@@ -77,6 +92,37 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 32 },
     boss_colour = G.C.JOY.EFFECT,
+    has_ante_ability = true,
+    calculate_ante = function(self, context)
+        if context.joy_summon then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            JoyousSpring.tribute(self, { context.joy_card })
+                            return true
+                        end
+                    }))
+                    return true
+                end
+            }))
+        end
+    end,
+    calculate = function(self, blind, context)
+        if context.joy_summon then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            JoyousSpring.tribute(blind, { context.joy_card })
+                            return true
+                        end
+                    }))
+                    return true
+                end
+            }))
+        end
+    end,
     opponent_card = {}
 }
 
@@ -86,7 +132,17 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 36 },
     boss_colour = G.C.JOY.EFFECT,
-    opponent_card = {}
+    opponent_card = {},
+    calculate = function(self, blind, context)
+        if blind.disabled then return end
+
+        if context.setting_blind and #G.jokers.cards > 0 then
+            local choices = JoyousSpring.get_materials_owned({ { rarity = 3 } }, nil, true)
+            if #choices > 0 then
+                JoyousSpring.tribute(blind, choices)
+            end
+        end
+    end,
 }
 
 -- Parasite Paracide
