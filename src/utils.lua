@@ -741,6 +741,38 @@ JoyousSpring.calculate_prototype_function = function(func, args, ...)
     return return_value
 end
 
+--- Overflow compat
+
+JoyousSpring.destroy_cards = function(cards, ...)
+    local list = {}
+    if type(Card.getQty) == "function" then
+        if not cards[1] then
+            if Object.is(cards, Card) then
+                cards = { cards }
+            else
+                return
+            end
+        end
+
+        for _, card in ipairs(cards) do
+            if card:getQty() > 1 then
+                card:addQty(-1)
+                card:juice_up()
+            else
+                list[#list + 1] = card
+            end
+        end
+    else
+        list = cards
+    end
+
+    SMODS.destroy_cards(list, ...)
+end
+
+JoyousSpring.get_consumable_quantity = function(card)
+    return type(Card.getQty) == "function" and card:getQty() or 1
+end
+
 --- Talisman compat
 to_big = to_big or function(num)
     return num

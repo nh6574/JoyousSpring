@@ -112,7 +112,7 @@ SMODS.Joker({
             destroyed_cards[#destroyed_cards + 1] = G.hand.highlighted[i]
         end
         JoyousSpring.pre_consumable_use(card, true)
-        SMODS.destroy_cards(G.hand.highlighted)
+        JoyousSpring.destroy_cards(G.hand.highlighted)
         JoyousSpring.post_consumable_highlighted_use()
     end,
     can_use = function(self, card)

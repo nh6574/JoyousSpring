@@ -357,7 +357,7 @@ SMODS.Joker({
             end
             if card.ability.extra.active and context.other_consumeable and context.other_consumeable.ability.set == "Tarot" then
                 return {
-                    xmult = card.ability.extra.xmult
+                    xmult = card.ability.extra.xmult ^ JoyousSpring.get_consumable_quantity(context.other_consumeable)
                 }
             end
         end
@@ -390,7 +390,7 @@ SMODS.Joker({
                 if card.ability.extra.active then
                     for _, consumable in pairs(G.consumeables.cards) do
                         if consumable.ability.set == "Tarot" then
-                            count = count + 1
+                            count = count + JoyousSpring.get_consumable_quantity(consumable)
                         end
                     end
                 end
@@ -449,7 +449,7 @@ SMODS.Joker({
             end
             if card.ability.extra.active and context.other_consumeable and context.other_consumeable.ability.set == "Planet" then
                 return {
-                    xmult = card.ability.extra.xmult
+                    xmult = card.ability.extra.xmult ^ JoyousSpring.get_consumable_quantity(context.other_consumeable)
                 }
             end
         end
@@ -482,7 +482,7 @@ SMODS.Joker({
                 if card.ability.extra.active then
                     for _, consumable in pairs(G.consumeables.cards) do
                         if consumable.ability.set == "Planet" then
-                            count = count + 1
+                            count = count + JoyousSpring.get_consumable_quantity(consumable)
                         end
                     end
                 end

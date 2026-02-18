@@ -240,7 +240,7 @@ JoyousSpring.tribute = function(card, card_list)
 
     for _, material in ipairs(card_list) do
         JoyousSpring.count_as_tributed(material)
-        SMODS.destroy_cards(material, nil, true)
+        JoyousSpring.destroy_cards(material, nil, true)
         SMODS.calculate_context({ joy_tributed = true, joy_card = material, joy_source = card })
     end
 end

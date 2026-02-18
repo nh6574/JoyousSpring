@@ -112,7 +112,8 @@ return {
                 name = "{C:joy_effect}Witchcrafter Madame Verre",
                 text = {
                     {
-                        "Creates all {C:tarot}Tarot{} {C:attention}tributed{} this round as {C:dark_edition}Negative{} when obtained",
+                        "Creates all {C:tarot}Tarot{} {C:attention}tributed{} this round",
+                        "as {C:dark_edition}Negative{} when obtained",
                     },
                     {
                         "{X:mult,C:white}X#1#{} Mult for each {C:tarot}Tarot",

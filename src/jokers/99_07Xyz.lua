@@ -334,7 +334,7 @@ SMODS.Joker({
                     card.ability.extra.enhance_active = true
                 end
                 if effect == 6 then
-                    SMODS.destroy_cards(card)
+                    JoyousSpring.destroy_cards(card)
                 end
                 return {
                     message = tostring(effect),

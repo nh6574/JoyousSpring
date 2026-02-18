@@ -82,7 +82,7 @@ JoyousSpring.handle_opponent_area_limit = function()
         local card = area.cards[i]
         if not card then break end
         if (not card.edition or not card.edition.negative) and JoyousSpring.get_card_limit(card) <= 0 then
-            SMODS.destroy_cards(card, true)
+            JoyousSpring.destroy_cards(card, true)
             amount = amount - 1
         end
         i = i + 1

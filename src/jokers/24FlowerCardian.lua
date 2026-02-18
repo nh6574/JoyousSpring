@@ -109,7 +109,7 @@ SMODS.Joker({
                     }, false)
 
                     JoyousSpring.banish(added_card, "boss_selected")
-                    SMODS.destroy_cards(card)
+                    JoyousSpring.destroy_cards(card)
                 end
                 card.joy_hit = nil
             end
@@ -197,7 +197,7 @@ SMODS.Joker({
                     }, false)
 
                     JoyousSpring.banish(added_card, "end_of_round")
-                    SMODS.destroy_cards(card)
+                    JoyousSpring.destroy_cards(card)
                 end
                 card.joy_hit = nil
             end
@@ -290,7 +290,7 @@ SMODS.Joker({
                     }, false)
 
                     JoyousSpring.banish(added_card, "boss_selected")
-                    SMODS.destroy_cards(card)
+                    JoyousSpring.destroy_cards(card)
                 end
                 card.joy_hit = nil
             end
@@ -378,7 +378,7 @@ SMODS.Joker({
                     }, false)
 
                     JoyousSpring.banish(added_card, "end_of_round")
-                    SMODS.destroy_cards(card)
+                    JoyousSpring.destroy_cards(card)
                 end
                 card.joy_hit = nil
             end
@@ -471,7 +471,7 @@ SMODS.Joker({
                         "j_joy_cardian_butterfly", false)
 
                     JoyousSpring.banish(added_card, "end_of_round")
-                    SMODS.destroy_cards(card)
+                    JoyousSpring.destroy_cards(card)
                 end
                 card.joy_hit = nil
             end
@@ -563,7 +563,7 @@ SMODS.Joker({
                         "j_joy_cardian_boar", false)
 
                     JoyousSpring.banish(added_card, "end_of_round")
-                    SMODS.destroy_cards(card)
+                    JoyousSpring.destroy_cards(card)
                 end
                 card.joy_hit = nil
             end
@@ -656,7 +656,7 @@ SMODS.Joker({
                     }, false)
 
                     JoyousSpring.banish(added_card, "boss_selected")
-                    SMODS.destroy_cards(card)
+                    JoyousSpring.destroy_cards(card)
                 end
                 card.joy_hit = nil
             end
@@ -740,7 +740,7 @@ SMODS.Joker({
                     }, false)
 
                     JoyousSpring.banish(added_card, "end_of_round")
-                    SMODS.destroy_cards(card)
+                    JoyousSpring.destroy_cards(card)
                 end
                 card.joy_hit = nil
             end
@@ -833,7 +833,7 @@ SMODS.Joker({
                         "j_joy_cardian_deer", false)
 
                     JoyousSpring.banish(added_card, "end_of_round")
-                    SMODS.destroy_cards(card)
+                    JoyousSpring.destroy_cards(card)
                 end
                 card.joy_hit = nil
             end
@@ -926,7 +926,7 @@ SMODS.Joker({
                     }, false)
 
                     JoyousSpring.banish(added_card, "boss_selected")
-                    SMODS.destroy_cards(card)
+                    JoyousSpring.destroy_cards(card)
                 end
                 card.joy_hit = nil
             end
@@ -1014,7 +1014,7 @@ SMODS.Joker({
                     }, false)
 
                     JoyousSpring.banish(added_card, "end_of_round")
-                    SMODS.destroy_cards(card)
+                    JoyousSpring.destroy_cards(card)
                 end
                 card.joy_hit = nil
             end
@@ -1103,7 +1103,7 @@ SMODS.Joker({
                     }, false)
 
                     JoyousSpring.banish(added_card, "boss_selected")
-                    SMODS.destroy_cards(card)
+                    JoyousSpring.destroy_cards(card)
                 end
                 card.joy_hit = nil
             end
@@ -1191,7 +1191,7 @@ SMODS.Joker({
                     }, false)
 
                     JoyousSpring.banish(added_card, "end_of_round")
-                    SMODS.destroy_cards(card)
+                    JoyousSpring.destroy_cards(card)
                 end
                 card.joy_hit = nil
             end

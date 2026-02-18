@@ -477,8 +477,10 @@ SMODS.Joker({
                 if (context.individual and context.cardarea == G.hand) or context.other_joker or context.other_consumeable then
                     local other_card = context.other_card or context.other_joker or context.other_consumeable
                     if other_card and other_card.facing == 'back' then
+                        local amount = context.other_consumeable and
+                            JoyousSpring.get_consumable_quantity(context.other_consumeable) or 1
                         return {
-                            xmult = card.ability.extra.xmult,
+                            xmult = card.ability.extra.xmult ^ amount,
                             message_card = other_card
                         }
                     end

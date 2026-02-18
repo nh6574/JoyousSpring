@@ -221,7 +221,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if context.joy_summon and JoyousSpring.get_summoned_count(nil, true) >= card.ability.extra.to_summon then
             context.joy_card:set_edition("e_negative", true)
-            SMODS.destroy_cards(card, nil, true)
+            JoyousSpring.destroy_cards(card, nil, true)
         end
     end,
 })

@@ -707,7 +707,7 @@ SMODS.Joker({
             local count = 0
             for i = 1, #G.consumeables.cards do
                 if not SMODS.is_eternal(G.consumeables.cards[i], card) and not G.consumeables.cards[i].getting_sliced then
-                    SMODS.destroy_cards(G.consumeables.cards[i], nil, true)
+                    JoyousSpring.destroy_cards(G.consumeables.cards[i], nil, true)
                     count = count + 1
                 end
             end

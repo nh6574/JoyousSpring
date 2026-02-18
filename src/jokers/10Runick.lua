@@ -386,7 +386,7 @@ SMODS.Joker({
                     if i == 1 then
                         SMODS.calculate_effect({ message = localize('k_joy_banished') }, card_to_destroy)
                     end
-                    SMODS.destroy_cards(card_to_destroy, nil, true)
+                    JoyousSpring.destroy_cards(card_to_destroy, nil, true)
                 end
             end
         end
