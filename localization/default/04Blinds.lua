@@ -113,14 +113,15 @@ return {
                 name = "{C:joy_spell}Forbidden Chalice",
                 text = {
                     "Debuffs an {C:joy_effect}Effect{} {C:attention}Joker",
-                    "but that {C:attention}Joker{}", "gives {X:mult,C:white}X#1#{} Mult" --X2
+                    "but that {C:attention}Joker{}", "gives {X:mult,C:white}X#1#{} Mult"
                 }
             },
             bl_joy_fordress = {
                 name = "{C:joy_spell}Forbidden Dress",
                 text = {
-                    "Scored cards give",
-                    "{X:chips,C:white}X#1#{} Chips" --X0.75
+                    "Scored cards",
+                    "in played hand give",
+                    "{X:chips,C:white}X#1#{} Chips"
                 }
             },
             bl_joy_fordroplet = {
@@ -135,14 +136,14 @@ return {
                 name = "{C:joy_spell}Forbidden Lance",
                 text = {
                     "All {C:joy_effect}Effect{} {C:attention}Jokers",
-                    "give {X:mult,C:white}X#1#{} Mult" --X0.75
+                    "give {X:mult,C:white}X#1#{} Mult"
                 }
             },
             bl_joy_forscript = {
                 name = "{C:joy_spell}Forbidden Scripture",
                 text = {
-                    "{C:dark_edition}Editions{}, {C:attention}Enhancements",
-                    "and {C:attention}Seals{} don't activate"
+                    "Removes all {C:dark_edition}Editions{}",
+                    "from {C:joy_effect}Effect{} {C:attention}Jokers{}"
                 }
             },
             bl_joy_harpiesfeatherduster = {
@@ -180,7 +181,7 @@ return {
                 text = {
                     "Summons a random",
                     "{C:joy_fusion}Fusion{} using",
-                    "materials you own"
+                    "materials you own [TBD]"
                 }
             },
             bl_joy_terminalworld = {
@@ -193,9 +194,8 @@ return {
             bl_joy_terminalworldnext = {
                 name = "{C:joy_spell}Terminal World NEXT",
                 text = {
-                    "{C:attention}Joker{} slots are",
-                    "limited to 3",
-                    "this ante"
+                    "Reduce {C:attention}Joker{} slots",
+                    "by {C:attention}2{} this ante",
                 }
             },
             bl_joy_ultimateslayer = {
@@ -243,13 +243,14 @@ return {
                     "Choose a {C:attention}Joker",
                     "{C:attention}banish{} all others",
                     "until end of round",
-                    "{C:inactive}(Except Tokens){}"
+                    "{C:inactive}(Except Tokens){} [TBD]"
                 }
             },
             bl_joy_imperialironwall = {
                 name = "{C:joy_trap}Imperial Iron Wall",
                 text = {
-                    "Cards can't be {C:attention}banished"
+                    "Cards can't be",
+                    "{C:attention}banished{} this ante"
                 }
             },
             bl_joy_imperialorder = {

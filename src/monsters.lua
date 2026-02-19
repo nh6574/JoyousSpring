@@ -33,6 +33,9 @@ SMODS.Atlas({
 ---@field joy_prevent_buy? fun(self:SMODS.Joker|table, card:table|Card, other_card:table|Card):boolean? Returns if *other_card* is prevented from being bought from the shop
 ---@field joy_get_attribute? fun(self:SMODS.Joker|table, card:table|Card, other_card:table|Card, original_attribute:attribute|true?):attribute|true? Returns what attribute *other_card* should be considered as. `"None"` for none, `true` for all.
 ---@field joy_get_monster_type? fun(self:SMODS.Joker|table, card:table|Card, other_card:table|Card, original_type:monster_type|true?):monster_type|true? Returns what monster type *other_card* should be considered as. `"None"` for none, `true` for all.
+---@field joy_prevent_revive? fun(self: SMODS.Joker|table, card:table|Card, key:string):boolean? Determines if card with *key* should be able to be revived
+---@field joy_prevent_banish? fun(self: SMODS.Joker|table, card:table|Card, other_card:Card|table, banish_until:string):boolean? Determines if *other_card* can be banished
+---@field joy_prevent_drag? fun(self: SMODS.Joker|table, card:table|Card, other_card:Card|table, area:CardArea|table):boolean? Determines if *other_card* can be dragged
 ---@field joy_can_transfer_ability? fun(self:SMODS.Joker|table, other_card:Card|table, card:Card|table?):boolean? Determines if *self* transfers its ability to *other_card*. When transforming, `other_card.joy_transforming == self.key`
 ---@field joy_transfer_ability_calculate? fun(self:SMODS.Joker|table, other_card:Card|table, context:CalcContext, config:table):table? Similar to `calculate` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect
 ---@field joy_transfer_config? fun(self:SMODS.Joker|table, other_card:Card|table):table? Similar to `config`, it returns the initial config table for the transferred ability
@@ -50,9 +53,12 @@ SMODS.Atlas({
 ---@field joy_transfer_can_be_sent_to_graveyard? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, choices:string[]):string[]? Used to filter cards that can be sent to the GY but for transferred abilities
 ---@field joy_transfer_allow_facedown_ability? fun(self: SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card):boolean? Determines if *other_card* can use abilities while face-down but for transferred abilities
 ---@field joy_transfer_prevent_trap_flip? fun(self: SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card):boolean? Determines if the Trap *other_card* should flip at end of round but for transferred abilities
----@field joy_transfer_prevent_buy? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card):boolean? Returns if *other_card* is prevented from being bought from the shop
----@field joy_transfer_get_attribute? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card, original_attribute:attribute|true?):attribute|true? Returns what attribute *other_card* should be considered as. `"None"` for none, `true` for all.
----@field joy_transfer_get_monster_type? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card, original_type:monster_type|true?):monster_type|true? Returns what monster type *other_card* should be considered as. `"None"` for none, `true` for all.
+---@field joy_transfer_prevent_buy? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card):boolean? Returns if *other_card* is prevented from being bought from the shop but for transferred abilities
+---@field joy_transfer_get_attribute? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card, original_attribute:attribute|true?):attribute|true? Returns what attribute *other_card* should be considered as. `"None"` for none, `true` for all but for transferred abilities
+---@field joy_transfer_get_monster_type? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card, original_type:monster_type|true?):monster_type|true? Returns what monster type *other_card* should be considered as. `"None"` for none, `true` for all but for transferred abilities
+---@field joy_transfer_prevent_revive? fun(self: SMODS.Joker|table, ability_card:table|Card, config:table, key:string):boolean? Determines if card with *key* should be able to be revived but for transferred abilities
+---@field joy_transfer_prevent_banish? fun(self: SMODS.Joker|table, ability_card:table|Card, config:table, other_card:Card|table, banish_until:string):boolean? Determines if *other_card* can be banished but for transferred abilities
+---@field joy_transfer_prevent_drag? fun(self: SMODS.Joker|table, ability_card:table|Card, config:table, other_card:Card|table, area:CardArea|table):boolean? Determines if *other_card* can be dragged but for transferred abilities
 
 ---@alias summon_type
 ---|'"NORMAL"'
@@ -597,9 +603,11 @@ end
 ---@return boolean
 JoyousSpring.cannot_flip = function(card)
     if not JoyousSpring.is_monster_card(card) or card.facing == 'back' or not JoyousSpring.has_joyous_table(card) then
-        return false
+        return JoyousSpring.calculate_prototype_function("prevent_flip", {
+            return_if_true = true
+        }, card)
     end
-    if card.ability.extra.joyous_spring.cannot_flip or JoyousSpring.is_summon_type(card, "LINK") then
+    if card.ability.extra.joyous_spring.cannot_flip or JoyousSpring.is_summon_type(card, "LINK") or card.config.center_key == "j_joy_token" then
         return true
     end
 

@@ -23,6 +23,9 @@
 ---@field joy_prevent_buy? fun(self:SMODS.Blind|table, blind:table|Blind?, other_card:table|Card):boolean? Returns if *other_card* is prevented from being bought from the shop
 ---@field joy_get_attribute? fun(self:SMODS.Blind|table, blind:table|Blind?, other_card:table|Card, original_attribute:attribute|true?):attribute|true? Returns what attribute *other_card* should be considered as. `"None"` for none, `true` for all.
 ---@field joy_get_monster_type? fun(self:SMODS.Blind|table, blind:table|Blind?, other_card:table|Card, original_type:monster_type|true?):monster_type|true? Returns what monster type *other_card* should be considered as. `"None"` for none, `true` for all.
+---@field joy_prevent_revive? fun(self:SMODS.Blind|table, blind:table|Blind?, key:string):boolean? Determines if card with *key* should be able to be revived
+---@field joy_prevent_banish? fun(self:SMODS.Blind|table, blind:table|Blind?, other_card:Card|table, banish_until:string):boolean? Determines if *other_card* can be banished
+---@field joy_prevent_drag? fun(self:SMODS.Blind|table, blind:table|Blind?, other_card:Card|table, area:CardArea|table):boolean? Determines if *other_card* can be dragged
 ---@overload fun(self: JoyousSpring.Blind): JoyousSpring.Blind
 JoyousSpring.Blind = setmetatable({}, {
     __call = function(self)
@@ -99,7 +102,9 @@ end
 local blind_defeat_ref = Blind.defeat
 function Blind:defeat(silent)
     blind_defeat_ref(self, silent)
-    G.GAME.joy_blind_defeated = true
+    if self.boss then
+        G.GAME.joy_blind_defeated = true
+    end
 end
 
 ---Runs when a blind is selected (initially or by rerolling)

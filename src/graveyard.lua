@@ -10,7 +10,10 @@
 ---@param debuff_source string?
 ---@return Card?
 JoyousSpring.revive = function(key, must_have_room, edition, card_limit_modif, debuff_source)
-    if JoyousSpring.graveyard[key] and JoyousSpring.graveyard[key].summonable > 0 then
+    local prevent_revive = JoyousSpring.calculate_prototype_function("prevent_revive", {
+        return_if_true = true
+    }, key)
+    if not prevent_revive and JoyousSpring.graveyard[key] and JoyousSpring.graveyard[key].summonable > 0 then
         JoyousSpring.graveyard[key].count = JoyousSpring.graveyard[key].count - 1
         JoyousSpring.graveyard[key].summonable = JoyousSpring.graveyard[key].summonable - 1
 

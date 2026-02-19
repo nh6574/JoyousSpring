@@ -13,6 +13,11 @@
 ---@param immediate boolean?
 JoyousSpring.banish = function(card, banish_until, func, immediate)
     if not card or card.getting_sliced or card.destroyed then return end
+    local prevent_banish = JoyousSpring.calculate_prototype_function("prevent_banish", {
+        return_if_true = true
+    }, card, banish_until)
+    if prevent_banish then return end
+
     if immediate then
         if not card.area then return end
         card:juice_up()
@@ -86,8 +91,13 @@ JoyousSpring.return_from_banish = function(card)
     local area
     from:remove_card(card)
     if card.ability.set == 'Joker' then
-        G.jokers:emplace(card)
-        area = G.jokers
+        if JoyousSpring.is_field_spell(card) then
+            JoyousSpring.field_spell_area:emplace(card)
+            area = JoyousSpring.field_spell_area
+        else
+            G.jokers:emplace(card)
+            area = G.jokers
+        end
     elseif JoyousSpring.is_playing_card(card) then
         G.hand:emplace(card)
         area = G.hand

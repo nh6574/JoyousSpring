@@ -629,7 +629,7 @@ end
 
 local card_flip_ref = Card.flip
 function Card:flip()
-    if not JoyousSpring.is_summon_type(self, "LINK") and self.config.center_key ~= "j_joy_token" and not JoyousSpring.cannot_flip(self) then
+    if not JoyousSpring.cannot_flip(self) then
         card_flip_ref(self)
         local is_play_area = false
         for _, area in ipairs(SMODS.get_card_areas('jokers')) do
@@ -784,6 +784,47 @@ G.FUNCS.can_open = function(e)
     if JoyousSpring.prevent_buy(e.config.ref_table) then
         e.config.colour = G.C.UI.BACKGROUND_INACTIVE
         e.config.button = nil
+    end
+end
+
+JoyousSpring.prevent_drag = function(card)
+    if not card or not card.area then return end
+    if card.area == JoyousSpring.opponent_area then
+        return true
+    end
+    return JoyousSpring.calculate_prototype_function("prevent_drag", {
+        return_if_true = true
+    }, card, card.area)
+end
+
+local moveable_drag_ref = Moveable.drag
+function Moveable:drag(offset)
+    if not JoyousSpring.prevent_drag(self) then
+        moveable_drag_ref(self, offset)
+    end
+end
+
+local g_funcs_blind_choice_handler_ref = G.FUNCS.blind_choice_handler
+G.FUNCS.blind_choice_handler = function(e)
+    g_funcs_blind_choice_handler_ref(e)
+    if not e.config.ref_table.run_info and G.blind_select and e.config.id and G.blind_select_opts[string.lower(e.config.id)] then
+        if e.config.ref_table.deck == 'on' and e.config.id == "Big" then
+            local _top_button = e.UIBox:get_UIE_by_ID('select_blind_button')
+            if _top_button then
+                --TODO: Unhardcode this check to generalize
+                if G.GAME.joy_active_blinds["bl_joy_terminalworld"] then
+                    _top_button.config.colour = G.C.UI.BACKGROUND_INACTIVE
+                    _top_button.config.button = nil
+                    _top_button.config.hover = false
+                    _top_button.children[1].config.colour = G.C.UI.TEXT_INACTIVE
+                else
+                    _top_button.config.button = 'select_blind'
+                    _top_button.config.colour = G.C.FILTER
+                    _top_button.config.hover = true
+                    _top_button.children[1].config.colour = G.C.WHITE
+                end
+            end
+        end
     end
 end
 

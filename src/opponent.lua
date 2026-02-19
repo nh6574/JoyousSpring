@@ -35,6 +35,9 @@
 ---@field joy_prevent_buy? fun(self:JoyousSpring.OpponentCard|table, card:table|Card, other_card:table|Card):boolean? Returns if *other_card* is prevented from being bought from the shop
 ---@field joy_get_attribute? fun(self:JoyousSpring.OpponentCard|table, card:table|Card, other_card:table|Card, original_attribute:attribute|true?):attribute|true? Returns what attribute *other_card* should be considered as. `"None"` for none, `true` for all.
 ---@field joy_get_monster_type? fun(self:JoyousSpring.OpponentCard|table, card:table|Card, other_card:table|Card, original_type:monster_type|true?):monster_type|true? Returns what monster type *other_card* should be considered as. `"None"` for none, `true` for all.
+---@field joy_prevent_revive? fun(self: JoyousSpring.OpponentCard|table, card:table|Card, key:string):boolean? Determines if card with *key* should be able to be revived
+---@field joy_prevent_banish? fun(self: JoyousSpring.OpponentCard|table, card:table|Card, other_card:Card|table, banish_until:string):boolean? Determines if *other_card* can be banished
+---@field joy_prevent_drag? fun(self: JoyousSpring.OpponentCard|table, card:table|Card, other_card:Card|table, area:CardArea|table):boolean? Determines if *other_card* can be dragged
 ---@overload fun(self: JoyousSpring.OpponentCard): JoyousSpring.OpponentCard
 JoyousSpring.OpponentCard = setmetatable({}, {
     __call = function(self)
@@ -86,13 +89,6 @@ JoyousSpring.handle_opponent_area_limit = function()
             amount = amount - 1
         end
         i = i + 1
-    end
-end
-
-local moveable_drag_ref = Moveable.drag
-function Moveable:drag(offset)
-    if not self.area or self.area ~= JoyousSpring.opponent_area then
-        moveable_drag_ref(self, offset)
     end
 end
 

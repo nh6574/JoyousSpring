@@ -20,7 +20,29 @@ JoyousSpring.Blind {
     has_ante_ability = true,
     calculate_ante = function(self, context)
         if context.card_added and context.card.ability.set == "Joker" then
+            context.card.ability.joy_banished_by_dimensionshifter = true
             JoyousSpring.banish(context.card, "end_of_ante")
+        end
+    end,
+    disable = function(self)
+        for _, joker in ipairs(JoyousSpring.banish_end_of_ante_area.cards) do
+            if joker.ability.joy_banished_by_dimensionshifter then
+                joker.ability.joy_banished_by_dimensionshifter = nil
+                JoyousSpring.return_from_banish(joker)
+            end
+        end
+    end,
+    defeat = function(self)
+        for _, joker in ipairs(JoyousSpring.banish_end_of_ante_area.cards) do
+            joker.ability.joy_banished_by_dimensionshifter = nil
+        end
+    end,
+    on_exit = function(self, blind_type)
+        for _, joker in ipairs(JoyousSpring.banish_end_of_ante_area.cards) do
+            if joker.ability.joy_banished_by_dimensionshifter then
+                joker.ability.joy_banished_by_dimensionshifter = nil
+                JoyousSpring.return_from_banish(joker)
+            end
         end
     end,
     opponent_card = {
@@ -109,6 +131,8 @@ JoyousSpring.Blind {
         end
     end,
     calculate = function(self, blind, context)
+        if blind.disabled then return end
+
         if context.joy_summon then
             G.E_MANAGER:add_event(Event({
                 func = function()
@@ -245,6 +269,50 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 1 },
     boss_colour = G.C.JOY.SPELL,
+    has_ante_ability = true,
+    calculate_ante = function(self, context)
+        if context.setting_blind then
+            local choices = JoyousSpring.get_materials_owned({ { can_flip = true }, { facedown = true } })
+            for i = 1, 2 do
+                local joker, index = pseudorandom_element(choices, self.key)
+                if joker then
+                    JoyousSpring.flip(joker, blind)
+                    table.remove(choices, index)
+                end
+            end
+        end
+        if context.end_of_round and context.game_over == false
+            and context.main_eval then
+            for _, joker in ipairs(G.jokers.cards) do
+                if joker.facing == "back" then
+                    JoyousSpring.flip(joker, blind)
+                end
+            end
+        end
+    end,
+    calculate = function(self, blind, context)
+        if blind.disabled then return end
+
+        if context.setting_blind then
+            local choices = JoyousSpring.get_materials_owned({ { can_flip = true }, { facedown = true } })
+            for i = 1, 2 do
+                local joker, index = pseudorandom_element(choices, self.key)
+                if joker then
+                    JoyousSpring.flip(joker, blind)
+                    table.remove(choices, index)
+                end
+            end
+        end
+
+        if context.end_of_round and context.game_over == false
+            and context.main_eval then
+            for _, joker in ipairs(G.jokers.cards) do
+                if joker.facing == "back" then
+                    JoyousSpring.flip(joker, blind)
+                end
+            end
+        end
+    end,
     opponent_card = {}
 }
 
@@ -254,6 +322,29 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 2 },
     boss_colour = G.C.JOY.SPELL,
+    has_ante_ability = true,
+    calculate_ante = function(self, context)
+        if context.setting_blind then
+            local choices = JoyousSpring.get_materials_owned({ { can_flip = true } })
+
+            local joker = pseudorandom_element(choices, self.key)
+            if joker and joker.facing == "front" then
+                JoyousSpring.flip(joker, blind)
+            end
+        end
+    end,
+    calculate = function(self, blind, context)
+        if blind.disabled then return end
+
+        if context.setting_blind then
+            local choices = JoyousSpring.get_materials_owned({ { can_flip = true } })
+
+            local joker = pseudorandom_element(choices, self.key)
+            if joker and joker.facing == "front" then
+                JoyousSpring.flip(joker, blind)
+            end
+        end
+    end,
     opponent_card = {}
 }
 
@@ -263,7 +354,10 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 3 },
     boss_colour = G.C.JOY.SPELL,
-    joy_ante_ability = true,
+    has_ante_ability = true,
+    joy_prevent_flip = function(self, blind, other_card)
+        return JoyousSpring.is_flip_monster(other_card)
+    end,
     opponent_card = {
         config = {
             extra = {
@@ -281,6 +375,30 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 4 },
     boss_colour = G.C.JOY.SPELL,
+    calculate = function(self, blind, context)
+        if blind.disabled then return end
+
+        if context.setting_blind then
+            local joker = pseudorandom_element(JoyousSpring.field_spell_area.cards, self.key)
+            if joker then
+                joker.ability.joy_banished_by_cosmiccyclone = true
+                JoyousSpring.banish(joker, "end_of_round")
+            end
+        end
+    end,
+    disable = function(self)
+        for _, joker in ipairs(JoyousSpring.banish_end_of_round_area.cards) do
+            if joker.ability.joy_banished_by_cosmiccyclone then
+                joker.ability.joy_banished_by_cosmiccyclone = nil
+                JoyousSpring.return_from_banish(joker)
+            end
+        end
+    end,
+    defeat = function(self)
+        for _, joker in ipairs(JoyousSpring.banish_end_of_round_area.cards) do
+            joker.ability.joy_banished_by_cosmiccyclone = nil
+        end
+    end,
     opponent_card = {}
 }
 
@@ -290,6 +408,15 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 5 },
     boss_colour = G.C.JOY.SPELL,
+    calculate = function(self, blind, context)
+        if blind.disabled then return end
+
+        if context.debuff_card and context.debuff_card.area == G.jokers and context.debuff_card:is_rarity("Uncommon") then
+            return {
+                debuff = true
+            }
+        end
+    end,
     opponent_card = {}
 }
 
@@ -299,6 +426,48 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 6 },
     boss_colour = G.C.JOY.SPELL,
+    config = { xmult = 2 },
+    loc_vars = function(self)
+        return { vars = { self.config.xmult } }
+    end,
+    collection_loc_vars = function(self)
+        return { vars = { self.config.xmult } }
+    end,
+    calculate = function(self, blind, context)
+        if blind.disabled then return end
+
+        if context.setting_blind then
+            local choices = JoyousSpring.get_materials_owned({ { is_effect = true } })
+            local joker = pseudorandom_element(choices, self.key)
+            if joker then
+                joker.ability.joy_debuffed_by_forchalice = true
+            end
+            SMODS.recalc_debuff(joker)
+        end
+
+        if context.debuff_card and context.debuff_card.area == G.jokers and context.debuff_card.ability.joy_debuffed_by_forchalice then
+            return {
+                debuff = true
+            }
+        end
+
+        if context.other_joker and context.other_joker.ability.joy_debuffed_by_forchalice then
+            return {
+                xmult = blind.effect.xmult,
+                message_card = context.other_joker
+            }
+        end
+    end,
+    defeat = function(self)
+        for _, joker in ipairs(G.jokers.cards) do
+            joker.ability.joy_debuffed_by_forchalice = nil
+        end
+    end,
+    disable = function(self)
+        for _, joker in ipairs(G.jokers.cards) do
+            joker.ability.joy_debuffed_by_forchalice = nil
+        end
+    end,
     opponent_card = {}
 }
 
@@ -308,6 +477,22 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 7 },
     boss_colour = G.C.JOY.SPELL,
+    config = { xchips = 0.75 },
+    loc_vars = function(self)
+        return { vars = { self.config.xchips } }
+    end,
+    collection_loc_vars = function(self)
+        return { vars = { self.config.xchips } }
+    end,
+    calculate = function(self, blind, context)
+        if blind.disabled then return end
+
+        if context.individual and context.cardarea == G.play then
+            return {
+                xchips = blind.effect.xchips
+            }
+        end
+    end,
     opponent_card = {}
 }
 
@@ -317,6 +502,51 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 8 },
     boss_colour = G.C.JOY.SPELL,
+    calculate = function(self, blind, context)
+        if blind.disabled then return end
+
+        if context.setting_blind then
+            local choices = JoyousSpring.get_materials_owned({ { is_effect = true, exclude_traps = true } })
+            local joker = pseudorandom_element(choices, self.key)
+            if joker then
+                joker.ability.joy_debuffed_by_fordroplet = true
+            end
+            SMODS.recalc_debuff(joker)
+            choices = JoyousSpring.get_materials_owned({ { is_trap = true } })
+            joker = pseudorandom_element(choices, self.key)
+            if joker then
+                joker.ability.joy_debuffed_by_fordroplet = true
+            end
+            SMODS.recalc_debuff(joker)
+
+            joker = pseudorandom_element(JoyousSpring.field_spell_area.cards, self.key)
+            if joker then
+                SMODS.debuff_card(joker, true, self.key)
+            end
+        end
+
+        if context.debuff_card and context.debuff_card.area == G.jokers and context.debuff_card.ability.joy_debuffed_by_fordroplet then
+            return {
+                debuff = true
+            }
+        end
+    end,
+    defeat = function(self)
+        for _, joker in ipairs(G.jokers.cards) do
+            joker.ability.joy_debuffed_by_fordroplet = nil
+        end
+        for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
+            SMODS.debuff_card(joker, false, self.key)
+        end
+    end,
+    disable = function(self)
+        for _, joker in ipairs(G.jokers.cards) do
+            joker.ability.joy_debuffed_by_fordroplet = nil
+        end
+        for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
+            SMODS.debuff_card(joker, false, self.key)
+        end
+    end,
     opponent_card = {}
 }
 
@@ -326,6 +556,23 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 9 },
     boss_colour = G.C.JOY.SPELL,
+    config = { xmult = 0.75 },
+    loc_vars = function(self)
+        return { vars = { self.config.xmult } }
+    end,
+    collection_loc_vars = function(self)
+        return { vars = { self.config.xmult } }
+    end,
+    calculate = function(self, blind, context)
+        if blind.disabled then return end
+
+        if context.other_joker and JoyousSpring.is_effect_monster(context.other_joker) then
+            return {
+                xmult = blind.effect.xmult,
+                message_card = context.other_joker
+            }
+        end
+    end,
     opponent_card = {}
 }
 
@@ -335,6 +582,17 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 10 },
     boss_colour = G.C.JOY.SPELL,
+    calculate = function(self, blind, context)
+        if blind.disabled then return end
+
+        if context.setting_blind then
+            for _, joker in ipairs(G.jokers.cards) do
+                if JoyousSpring.is_effect_monster(joker) then
+                    joker:set_edition()
+                end
+            end
+        end
+    end,
     opponent_card = {}
 }
 
@@ -344,6 +602,13 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 11 },
     boss_colour = G.C.JOY.SPELL,
+    calculate = function(self, blind, context)
+        if blind.disabled then return end
+
+        if context.setting_blind then
+            SMODS.destroy_cards(JoyousSpring.field_spell_area.cards)
+        end
+    end,
     opponent_card = {}
 }
 
@@ -353,6 +618,14 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 12 },
     boss_colour = G.C.JOY.SPELL,
+    calculate = function(self, blind, context)
+        if blind.disabled then return end
+
+        if context.setting_blind then
+            SMODS.destroy_cards(#JoyousSpring.field_spell_area.cards > 0 and JoyousSpring.field_spell_area.cards or
+                G.jokers.cards)
+        end
+    end,
     opponent_card = {}
 }
 
@@ -362,7 +635,11 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 13 },
     boss_colour = G.C.JOY.SPELL,
-    opponent_card = {}
+    has_ante_ability = true,
+    opponent_card = {},
+    joy_prevent_revive = function(self, blind, key)
+        return true
+    end
 }
 
 -- Senet Switch
@@ -371,17 +648,21 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 14 },
     boss_colour = G.C.JOY.SPELL,
+    has_ante_ability = true,
+    joy_prevent_drag = function(self, blind, other_card, area)
+        return area == G.jokers
+    end,
     opponent_card = {}
 }
 
 -- Super Polymerization
-JoyousSpring.Blind {
-    key = "superpoly",
-    atlas = "blinds01",
-    pos = { x = 0, y = 15 },
-    boss_colour = G.C.JOY.SPELL,
-    opponent_card = {}
-}
+-- JoyousSpring.Blind {
+--     key = "superpoly",
+--     atlas = "blinds01",
+--     pos = { x = 0, y = 15 },
+--     boss_colour = G.C.JOY.SPELL,
+--     opponent_card = {}
+-- }
 
 -- Terminal World
 JoyousSpring.Blind {
@@ -389,6 +670,7 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 17 },
     boss_colour = G.C.JOY.SPELL,
+    has_ante_ability = true,
     opponent_card = {}
 }
 
@@ -398,6 +680,21 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 16 },
     boss_colour = G.C.JOY.SPELL,
+    has_ante_ability = true,
+    on_enter = function(self, blind_type)
+        G.jokers:change_size(-2)
+    end,
+    on_exit = function(self, blind_type)
+        G.jokers:change_size(2)
+    end,
+    disable = function(self)
+        G.jokers:change_size(2)
+    end,
+    defeat = function(self)
+        if not G.GAME.blind.disabled then
+            G.jokers:change_size(2)
+        end
+    end,
     opponent_card = {}
 }
 
@@ -407,6 +704,24 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 18 },
     boss_colour = G.C.JOY.SPELL,
+    calculate = function(self, blind, context)
+        if blind.disabled then return end
+
+        if context.setting_blind then
+            local choices = JoyousSpring.get_materials_owned({ { is_extra_deck = true } }, nil, true)
+            local joker = pseudorandom_element(choices, self.key)
+
+            if joker then
+                local ed_choices = JoyousSpring.get_materials_in_collection({ { summon_type = joker.ability.extra.joyous_spring.summon_type, is_extra_deck = true, exclude_keys = { joker.config.center_key } } })
+
+                local key_to_add = pseudorandom_element(ed_choices, self.key .. "_extra")
+                if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
+                    JoyousSpring.add_to_extra_deck(key_to_add)
+                end
+                SMODS.destroy_cards(joker)
+            end
+        end
+    end,
     opponent_card = {}
 }
 
@@ -420,6 +735,82 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 19 },
     boss_colour = G.C.JOY.TRAP,
+    has_ante_ability = true,
+    calculate_ante = function(self, context)
+        if context.joy_summon then
+            local attribute = JoyousSpring.get_attribute(context.joy_card)
+            local monster_type = JoyousSpring.get_monster_type(context.joy_card)
+            if attribute ~= nil and monster_type ~= nil then
+                local properties = { {} }
+
+                if attribute ~= true and monster_type ~= true then
+                    properties = {
+                        {
+                            monster_type = monster_type,
+                        },
+                        {
+                            monster_attribute = attribute
+                        },
+                    }
+                end
+
+                local to_banish = JoyousSpring.get_materials_owned(properties)
+                for _, joker in ipairs(to_banish) do
+                    joker.ability.joy_banished_by_chaindisappearance = true
+                    JoyousSpring.banish(joker, "end_of_ante")
+                end
+            end
+        end
+    end,
+    calculate = function(self, blind, context)
+        if blind.disabled then return end
+
+        if context.joy_summon then
+            local attribute = JoyousSpring.get_attribute(context.joy_card)
+            local monster_type = JoyousSpring.get_monster_type(context.joy_card)
+            if attribute ~= nil and monster_type ~= nil then
+                local properties = { {} }
+
+                if attribute ~= true and monster_type ~= true then
+                    properties = {
+                        {
+                            monster_type = monster_type,
+                        },
+                        {
+                            monster_attribute = attribute
+                        },
+                    }
+                end
+
+                local to_banish = JoyousSpring.get_materials_owned(properties)
+                for _, joker in ipairs(to_banish) do
+                    joker.ability.joy_banished_by_chaindisappearance = true
+                    JoyousSpring.banish(joker, "end_of_ante")
+                end
+            end
+        end
+    end,
+    disable = function(self)
+        for _, joker in ipairs(JoyousSpring.banish_end_of_ante_area.cards) do
+            if joker.ability.joy_banished_by_chaindisappearance then
+                joker.ability.joy_banished_by_chaindisappearance = nil
+                JoyousSpring.return_from_banish(joker)
+            end
+        end
+    end,
+    defeat = function(self)
+        for _, joker in ipairs(JoyousSpring.banish_end_of_ante_area.cards) do
+            joker.ability.joy_banished_by_chaindisappearance = nil
+        end
+    end,
+    on_exit = function(self, blind_type)
+        for _, joker in ipairs(JoyousSpring.banish_end_of_ante_area.cards) do
+            if joker.ability.joy_banished_by_chaindisappearance then
+                joker.ability.joy_banished_by_chaindisappearance = nil
+                JoyousSpring.return_from_banish(joker)
+            end
+        end
+    end,
     opponent_card = {}
 }
 
@@ -429,6 +820,24 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 20 },
     boss_colour = G.C.JOY.TRAP,
+    calculate = function(self, blind, context)
+        if blind.disabled then return end
+
+        if context.setting_blind then
+            for _, joker in ipairs(G.jokers.cards) do
+                local same = JoyousSpring.get_materials_owned({ { key = joker.config.center.key } }, nil, nil, true)
+                if #same > 1 then
+                    SMODS.destroy_cards(same)
+                end
+            end
+            for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
+                local same = JoyousSpring.get_materials_owned({ { key = joker.config.center.key } }, nil, nil, true)
+                if #same > 1 then
+                    SMODS.destroy_cards(same)
+                end
+            end
+        end
+    end,
     opponent_card = {}
 }
 
@@ -438,17 +847,64 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 21 },
     boss_colour = G.C.JOY.TRAP,
+    calculate = function(self, blind, context)
+        if blind.disabled then return end
+
+        if context.setting_blind then
+            for _, joker in ipairs(G.jokers.cards) do
+                local same = JoyousSpring.get_materials_owned({ { key = joker.config.center.key } }, nil, nil, true)
+                if #same > 1 then
+                    for _, card in ipairs(same) do
+                        card.ability.joy_banished_by_chainhole = true
+                        JoyousSpring.banish(card, "end_of_round")
+                    end
+                end
+            end
+            for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
+                local same = JoyousSpring.get_materials_owned({ { key = joker.config.center.key } }, nil, nil, true)
+                if #same > 1 then
+                    for _, card in ipairs(same) do
+                        card.ability.joy_banished_by_chainhole = true
+                        JoyousSpring.banish(card, "end_of_round")
+                    end
+                end
+            end
+        end
+    end,
+    disable = function(self)
+        for _, joker in ipairs(JoyousSpring.banish_end_of_round_area.cards) do
+            if joker.ability.joy_banished_by_chainhole then
+                joker.ability.joy_banished_by_chainhole = nil
+            end
+        end
+    end,
+    defeat = function(self)
+        for _, joker in ipairs(JoyousSpring.banish_end_of_round_area.cards) do
+            if joker.ability.joy_banished_by_chainhole then
+                joker.ability.joy_banished_by_chainhole = nil
+                JoyousSpring.return_from_banish(joker)
+            end
+        end
+    end,
+    on_exit = function(self, blind_type)
+        for _, joker in ipairs(JoyousSpring.banish_end_of_round_area.cards) do
+            if joker.ability.joy_banished_by_chainhole then
+                joker.ability.joy_banished_by_chainhole = nil
+                JoyousSpring.return_from_banish(joker)
+            end
+        end
+    end,
     opponent_card = {}
 }
 
 -- Evenly Matched
-JoyousSpring.Blind {
-    key = "evenly",
-    atlas = "blinds01",
-    pos = { x = 0, y = 22 },
-    boss_colour = G.C.JOY.TRAP,
-    opponent_card = {}
-}
+-- JoyousSpring.Blind {
+--     key = "evenly",
+--     atlas = "blinds01",
+--     pos = { x = 0, y = 22 },
+--     boss_colour = G.C.JOY.TRAP,
+--     opponent_card = {}
+-- }
 
 -- Imperial Iron Wall
 JoyousSpring.Blind {
@@ -456,6 +912,10 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 23 },
     boss_colour = G.C.JOY.TRAP,
+    has_ante_ability = true,
+    joy_prevent_banish = function(self, blind, other_card, banish_until)
+        return true
+    end,
     opponent_card = {}
 }
 
@@ -465,6 +925,25 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 24 },
     boss_colour = G.C.JOY.TRAP,
+    calculate = function(self, blind, context)
+        if blind.disabled then return end
+
+        if context.setting_blind then
+            for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
+                SMODS.debuff_card(joker, true, self.key)
+            end
+        end
+    end,
+    defeat = function(self)
+        for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
+            SMODS.debuff_card(joker, false, self.key)
+        end
+    end,
+    disable = function(self)
+        for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
+            SMODS.debuff_card(joker, false, self.key)
+        end
+    end,
     opponent_card = {}
 }
 
@@ -474,6 +953,57 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 25 },
     boss_colour = G.C.JOY.TRAP,
+    has_ante_ability = true,
+    calculate_ante = function(self, context)
+        if context.setting_blind then
+            local choices = JoyousSpring.get_materials_owned({ { is_effect = true, exclude_traps = true } })
+            local joker = pseudorandom_element(choices, self.key)
+            if joker then
+                joker.ability.joy_debuffed_by_imperm = true
+            end
+            SMODS.recalc_debuff(joker)
+        end
+
+        if context.debuff_card and context.debuff_card.area == G.jokers and context.debuff_card.ability.joy_debuffed_by_imperm then
+            return {
+                debuff = true
+            }
+        end
+    end,
+    calculate = function(self, blind, context)
+        if blind.disabled then return end
+
+        if context.setting_blind then
+            local choices = JoyousSpring.get_materials_owned({ { is_effect = true, exclude_traps = true, exclude_debuffed = true } })
+            local joker = pseudorandom_element(choices, self.key)
+            if joker then
+                joker.ability.joy_debuffed_by_imperm = true
+                SMODS.recalc_debuff(joker)
+            end
+        end
+
+        if context.debuff_card and context.debuff_card.area == G.jokers and context.debuff_card.ability.joy_debuffed_by_imperm then
+            return {
+                debuff = true
+            }
+        end
+    end,
+    defeat = function(self)
+        for _, joker in ipairs(G.jokers.cards) do
+            joker.ability.joy_debuffed_by_imperm = nil
+        end
+    end,
+    disable = function(self)
+        for _, joker in ipairs(G.jokers.cards) do
+            joker.ability.joy_debuffed_by_imperm = nil
+        end
+    end,
+    on_exit = function(self, blind_type)
+        for _, joker in ipairs(G.jokers.cards) do
+            joker.ability.joy_debuffed_by_imperm = nil
+            SMODS.recalc_debuff(joker)
+        end
+    end,
     opponent_card = {}
 }
 
@@ -483,6 +1013,48 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 26 },
     boss_colour = G.C.JOY.TRAP,
+    has_ante_ability = true,
+    calculate_ante = function(self, context)
+        if context.after then
+            local choice = pseudorandom_element(context.scoring_hand, self.key)
+            if choice then
+                choice.ability.joy_banished_by_lightforcesword = true
+                JoyousSpring.banish(choice, "end_of_ante")
+            end
+        end
+    end,
+    calculate = function(self, blind, context)
+        if blind.disabled then return end
+
+        if context.after then
+            local choice = pseudorandom_element(context.scoring_hand, self.key)
+            if choice then
+                choice.ability.joy_banished_by_lightforcesword = true
+                JoyousSpring.banish(choice, "end_of_ante")
+            end
+        end
+    end,
+    disable = function(self)
+        for _, card in ipairs(JoyousSpring.banish_end_of_ante_area.cards) do
+            if card.ability.joy_banished_by_lightforcesword then
+                card.ability.joy_banished_by_lightforcesword = nil
+                JoyousSpring.return_from_banish(card)
+            end
+        end
+    end,
+    defeat = function(self)
+        for _, card in ipairs(JoyousSpring.banish_end_of_ante_area.cards) do
+            card.ability.joy_banished_by_lightforcesword = nil
+        end
+    end,
+    on_exit = function(self, blind_type)
+        for _, card in ipairs(JoyousSpring.banish_end_of_ante_area.cards) do
+            if card.ability.joy_banished_by_lightforcesword then
+                card.ability.joy_banished_by_lightforcesword = nil
+                JoyousSpring.return_from_banish(card)
+            end
+        end
+    end,
     opponent_card = {}
 }
 
@@ -528,6 +1100,15 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 28 },
     boss_colour = G.C.JOY.TRAP,
+    calculate = function(self, blind, context)
+        if blind.disabled then return end
+
+        if context.debuff_card and context.debuff_card.area == G.jokers and JoyousSpring.is_trap_monster(context.debuff_card) then
+            return {
+                debuff = true
+            }
+        end
+    end,
     opponent_card = {}
 }
 
