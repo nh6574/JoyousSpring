@@ -3,7 +3,7 @@ version = "0.1.0"
 dump_lua = true
 priority = 0
 
-# Oppoent Jokers
+# Opponent Jokers
 
 # Change shadow
 [[patches]]
