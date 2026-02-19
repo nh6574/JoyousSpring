@@ -46,7 +46,13 @@ JoyousSpring.Blind {
         end
     end,
     opponent_card = {
-        config = { extra = { activated = false } },
+        config = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Spellcaster"
+            },
+            extra = { activated = false },
+        },
         -- calculate = function(self, card, context)
         --     if context.buying_card and context.card.ability.set == "Joker" then
         --         JoyousSpring.banish(context.card, "end_of_ante")
@@ -81,7 +87,16 @@ JoyousSpring.Blind {
         return other_card.ability.set ~= "Voucher" and
             JoyousSpring.blind_effects[self.key].active
     end,
-    opponent_card = {},
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    attribute = "WIND",
+                    monster_type = "Spellcaster"
+                },
+            }
+        },
+    },
 }
 
 -- Kurikara Divincarnate
@@ -105,7 +120,16 @@ JoyousSpring.Blind {
             end
         end
     end,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    attribute = "FIRE",
+                    monster_type = "Fairy"
+                },
+            }
+        },
+    }
 }
 
 -- Nibiru, the Primal Being
@@ -147,7 +171,16 @@ JoyousSpring.Blind {
             }))
         end
     end,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    attribute = "LIGHT",
+                    monster_type = "Rock"
+                },
+            }
+        },
+    }
 }
 
 -- Theia, the Primal Being
@@ -156,7 +189,6 @@ JoyousSpring.Blind {
     atlas = "blinds01",
     pos = { x = 0, y = 36 },
     boss_colour = G.C.JOY.EFFECT,
-    opponent_card = {},
     calculate = function(self, blind, context)
         if blind.disabled then return end
 
@@ -167,6 +199,16 @@ JoyousSpring.Blind {
             end
         end
     end,
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    attribute = "DARK",
+                    monster_type = "Rock"
+                },
+            }
+        },
+    },
 }
 
 -- Parasite Paracide
@@ -196,7 +238,16 @@ JoyousSpring.Blind {
         end
     end,
     opponent_card = {
-        config = { extra = { xmult = 0.5 } },
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    attribute = "EARTH",
+                    monster_type = "Insect",
+                    is_flip = true
+                },
+                xmult = 0.5
+            }
+        },
         loc_vars = function(self, info_queue, card)
             return { vars = { card.ability.extra.xmult } }
         end,
@@ -221,6 +272,14 @@ JoyousSpring.Blind {
         return "Insect"
     end,
     opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    attribute = "EARTH",
+                    monster_type = "Insect"
+                },
+            }
+        },
         joy_get_monster_type = function(self, card, other_card, original_type)
             return "Insect"
         end
@@ -260,7 +319,15 @@ JoyousSpring.Blind {
             G.hand:change_size(count)
         end
     end,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_spell = true,
+                },
+            }
+        },
+    }
 }
 
 -- Book of Lunar Eclipse
@@ -313,7 +380,15 @@ JoyousSpring.Blind {
             end
         end
     end,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_spell = true,
+                },
+            }
+        },
+    }
 }
 
 -- Book of Moon
@@ -345,7 +420,15 @@ JoyousSpring.Blind {
             end
         end
     end,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_spell = true,
+                },
+            }
+        },
+    }
 }
 
 -- Book of Taiyou
@@ -399,7 +482,15 @@ JoyousSpring.Blind {
             joker.ability.joy_banished_by_cosmiccyclone = nil
         end
     end,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_spell = true,
+                },
+            }
+        },
+    }
 }
 
 -- Dark Ruler No More
@@ -417,7 +508,15 @@ JoyousSpring.Blind {
             }
         end
     end,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_spell = true,
+                },
+            }
+        },
+    }
 }
 
 -- Forbidden Chalice
@@ -468,7 +567,15 @@ JoyousSpring.Blind {
             joker.ability.joy_debuffed_by_forchalice = nil
         end
     end,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_spell = true,
+                },
+            }
+        },
+    }
 }
 
 -- Forbidden Dress
@@ -493,7 +600,15 @@ JoyousSpring.Blind {
             }
         end
     end,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_spell = true,
+                },
+            }
+        },
+    }
 }
 
 -- Forbidden Droplet
@@ -547,7 +662,15 @@ JoyousSpring.Blind {
             SMODS.debuff_card(joker, false, self.key)
         end
     end,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_spell = true,
+                },
+            }
+        },
+    }
 }
 
 -- Forbidden Lance
@@ -573,7 +696,15 @@ JoyousSpring.Blind {
             }
         end
     end,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_spell = true,
+                },
+            }
+        },
+    }
 }
 
 -- Forbidden Scripture
@@ -593,7 +724,15 @@ JoyousSpring.Blind {
             end
         end
     end,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_spell = true,
+                },
+            }
+        },
+    }
 }
 
 -- Harpie's Feather Duster
@@ -609,7 +748,15 @@ JoyousSpring.Blind {
             SMODS.destroy_cards(JoyousSpring.field_spell_area.cards)
         end
     end,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_spell = true,
+                },
+            }
+        },
+    }
 }
 
 -- Lightning Storm
@@ -626,7 +773,15 @@ JoyousSpring.Blind {
                 G.jokers.cards)
         end
     end,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_spell = true,
+                },
+            }
+        },
+    }
 }
 
 -- Necrovalley
@@ -636,10 +791,18 @@ JoyousSpring.Blind {
     pos = { x = 0, y = 13 },
     boss_colour = G.C.JOY.SPELL,
     has_ante_ability = true,
-    opponent_card = {},
     joy_prevent_revive = function(self, blind, key)
         return true
-    end
+    end,
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_field_spell = true,
+                },
+            }
+        },
+    },
 }
 
 -- Senet Switch
@@ -652,7 +815,15 @@ JoyousSpring.Blind {
     joy_prevent_drag = function(self, blind, other_card, area)
         return area == G.jokers
     end,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_spell = true,
+                },
+            }
+        },
+    }
 }
 
 -- Super Polymerization
@@ -661,7 +832,15 @@ JoyousSpring.Blind {
 --     atlas = "blinds01",
 --     pos = { x = 0, y = 15 },
 --     boss_colour = G.C.JOY.SPELL,
---     opponent_card = {}
+--     opponent_card = {
+--         config = {
+--             extra = {
+--                 joyous_spring = JoyousSpring.init_joy_table {
+--                     is_spell = true,
+--                 },
+--             }
+--         },
+--     }
 -- }
 
 -- Terminal World
@@ -671,7 +850,15 @@ JoyousSpring.Blind {
     pos = { x = 0, y = 17 },
     boss_colour = G.C.JOY.SPELL,
     has_ante_ability = true,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_spell = true,
+                },
+            }
+        },
+    }
 }
 
 -- Terminal World NEXT
@@ -695,7 +882,15 @@ JoyousSpring.Blind {
             G.jokers:change_size(2)
         end
     end,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_spell = true,
+                },
+            }
+        },
+    }
 }
 
 -- Ultimate Slayer
@@ -722,7 +917,15 @@ JoyousSpring.Blind {
             end
         end
     end,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_spell = true,
+                },
+            }
+        },
+    }
 }
 
 --#endregion
@@ -811,7 +1014,15 @@ JoyousSpring.Blind {
             end
         end
     end,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_trap = true,
+                },
+            }
+        },
+    }
 }
 
 -- Chain Dispel
@@ -838,7 +1049,15 @@ JoyousSpring.Blind {
             end
         end
     end,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_trap = true,
+                },
+            }
+        },
+    }
 }
 
 -- Chain Hole
@@ -894,7 +1113,15 @@ JoyousSpring.Blind {
             end
         end
     end,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_trap = true,
+                },
+            }
+        },
+    }
 }
 
 -- Evenly Matched
@@ -903,7 +1130,15 @@ JoyousSpring.Blind {
 --     atlas = "blinds01",
 --     pos = { x = 0, y = 22 },
 --     boss_colour = G.C.JOY.TRAP,
---     opponent_card = {}
+--     opponent_card = {
+--         config = {
+--             extra = {
+--                 joyous_spring = JoyousSpring.init_joy_table {
+--                     is_trap = true,
+--                 },
+--             }
+--         },
+--     }
 -- }
 
 -- Imperial Iron Wall
@@ -916,7 +1151,15 @@ JoyousSpring.Blind {
     joy_prevent_banish = function(self, blind, other_card, banish_until)
         return true
     end,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_trap = true,
+                },
+            }
+        },
+    }
 }
 
 -- Imperial Order
@@ -944,7 +1187,15 @@ JoyousSpring.Blind {
             SMODS.debuff_card(joker, false, self.key)
         end
     end,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_trap = true,
+                },
+            }
+        },
+    }
 }
 
 -- Infinite Impermanence
@@ -1004,7 +1255,15 @@ JoyousSpring.Blind {
             SMODS.recalc_debuff(joker)
         end
     end,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_trap = true,
+                },
+            }
+        },
+    }
 }
 
 -- Lightforce Sword
@@ -1055,7 +1314,15 @@ JoyousSpring.Blind {
             end
         end
     end,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_trap = true,
+                },
+            }
+        },
+    }
 }
 
 -- Macro Cosmos
@@ -1109,7 +1376,15 @@ JoyousSpring.Blind {
             }
         end
     end,
-    opponent_card = {}
+    opponent_card = {
+        config = {
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    is_trap = true,
+                },
+            }
+        },
+    }
 }
 
 --#endregion
