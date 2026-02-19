@@ -212,26 +212,28 @@ JoyousSpring.get_type_ui = function(card)
         table.insert(ret, tuner)
     end
 
-    local effect = {
-        n = G.UIT.O,
-        config = {
-            object = DynaText({
-                string = { effect_text },
-                colours = { joyous_spring_table.is_effect and G.C.JOY.EFFECT or G.C.JOY.NORMAL },
-                bump = true,
-                silent = true,
-                pop_in = 0,
-                pop_in_rate = 4,
-                maxw = 5,
-                shadow = true,
-                y_offset = 0,
-                spacing = math.max(0, 0.32 * (17 - #full_text)),
-                scale = (0.4 - 0.004 * #full_text)
-            })
+    if not trap_text or card.config.center.set ~= "joy_Opponent" then
+        local effect = {
+            n = G.UIT.O,
+            config = {
+                object = DynaText({
+                    string = { effect_text },
+                    colours = { joyous_spring_table.is_effect and G.C.JOY.EFFECT or G.C.JOY.NORMAL },
+                    bump = true,
+                    silent = true,
+                    pop_in = 0,
+                    pop_in_rate = 4,
+                    maxw = 5,
+                    shadow = true,
+                    y_offset = 0,
+                    spacing = math.max(0, 0.32 * (17 - #full_text)),
+                    scale = (0.4 - 0.004 * #full_text)
+                })
+            }
         }
-    }
-    if #ret > 0 then table.insert(ret, separator) end
-    table.insert(ret, effect)
+        if #ret > 0 then table.insert(ret, separator) end
+        table.insert(ret, effect)
+    end
 
     local flip
     if flip_text then

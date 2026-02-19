@@ -47,11 +47,13 @@ JoyousSpring.Blind {
     end,
     opponent_card = {
         config = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                attribute = "DARK",
-                monster_type = "Spellcaster"
+            extra = {
+                joyous_spring = JoyousSpring.init_joy_table {
+                    attribute = "DARK",
+                    monster_type = "Spellcaster"
+                },
+                activated = false,
             },
-            extra = { activated = false },
         },
         -- calculate = function(self, card, context)
         --     if context.buying_card and context.card.ability.set == "Joker" then
