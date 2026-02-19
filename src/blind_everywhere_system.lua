@@ -26,6 +26,7 @@
 ---@field joy_prevent_revive? fun(self:SMODS.Blind|table, blind:table|Blind?, key:string):boolean? Determines if card with *key* should be able to be revived
 ---@field joy_prevent_banish? fun(self:SMODS.Blind|table, blind:table|Blind?, other_card:Card|table, banish_until:string):boolean? Determines if *other_card* can be banished
 ---@field joy_prevent_drag? fun(self:SMODS.Blind|table, blind:table|Blind?, other_card:Card|table, area:CardArea|table):boolean? Determines if *other_card* can be dragged
+---@field joy_prevent_summon? fun(self:SMODS.Blind|table, blind:table|Blind?, other_card:Card|table, card_list:Card[]|table?):boolean? Determines if *other_card* can be summoned
 ---@overload fun(self: JoyousSpring.Blind): JoyousSpring.Blind
 JoyousSpring.Blind = setmetatable({}, {
     __call = function(self)

@@ -525,7 +525,8 @@ SMODS.Joker({
         end
     end,
     joy_prevent_flip = function(self, card, other_card)
-        return JoyousSpring.is_monster_type(other_card, "Zombie") and not JoyousSpring.is_trap_monster(other_card)
+        return other_card.facing == "front" and JoyousSpring.is_monster_type(other_card, "Zombie") and
+            not JoyousSpring.is_trap_monster(other_card)
     end,
     use = function(self, card, area, copier)
         for i = 1, card.ability.extra.revives do

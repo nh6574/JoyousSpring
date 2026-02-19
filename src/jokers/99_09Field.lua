@@ -372,7 +372,7 @@ SMODS.Joker({
         end
     end,
     joy_prevent_flip = function(self, card, other_card)
-        return G.GAME.blind.boss and true or false
+        return not not (other_card.facing == "front" and G.GAME.blind.boss)
     end,
     joker_display_def = function(JokerDisplay)
         ---@type JDJokerDefinition

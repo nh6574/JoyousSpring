@@ -68,9 +68,9 @@ end
 [patches.pattern]
 target = "functions/state_events.lua"
 pattern = '''
-SMODS.calculate_context({end_of_round = true, game_over = game_over, beat_boss = G.GAME.blind.boss })
+G.GAME.saved_text = nil
 '''
-position = 'at'
+position = 'after'
 match_indent = true
 payload = '''
 if JoyousSpring and game_over then
@@ -82,7 +82,17 @@ if JoyousSpring and game_over then
         G.GAME.joy_win_by_blind = true
     end
 end
-SMODS.calculate_context({end_of_round = true, game_over = game_over, beat_boss = G.GAME.blind.boss })
+'''
+
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+pattern = '''
+if SMODS.saved then game_over = false end
+'''
+position = 'before'
+match_indent = true
+payload = '''
 if G.GAME.joy_win_by_blind then
     JoyousSpring.blind_on_game_over()
 end

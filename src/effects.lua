@@ -812,7 +812,7 @@ G.FUNCS.blind_choice_handler = function(e)
             local _top_button = e.UIBox:get_UIE_by_ID('select_blind_button')
             if _top_button then
                 --TODO: Unhardcode this check to generalize
-                if G.GAME.joy_active_blinds["bl_joy_terminalworld"] then
+                if G.GAME.joy_active_blinds["bl_joy_terminalworld"] or next(SMODS.find_card("opp_joy_terminalworld")) then
                     _top_button.config.colour = G.C.UI.BACKGROUND_INACTIVE
                     _top_button.config.button = nil
                     _top_button.config.hover = false
@@ -826,6 +826,15 @@ G.FUNCS.blind_choice_handler = function(e)
             end
         end
     end
+end
+
+local card_set_edition_ref = Card.set_edition
+function Card:set_edition(edition, ...)
+    --TODO: Unhardcode this check to generalize
+    if not G.OVERLAY_MENU and self.area and not self.area.config.collection and next(SMODS.find_card("opp_joy_forscript")) then
+        return card_set_edition_ref(self, nil, ...)
+    end
+    return card_set_edition_ref(self, edition, ...)
 end
 
 --#endregion

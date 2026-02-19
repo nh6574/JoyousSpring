@@ -31,7 +31,7 @@ return {
                 text = {
                     "Cards {C:attention}summoned{} are",
                     "immediately {C:attention}tributed{} after",
-                    "the 5th summon (#1#/5)"
+                    "the {C:attention}5{}th summon {C:inactive}(#1#/5)"
                 }
             },
             opp_joy_theia = {
@@ -94,7 +94,8 @@ return {
                 name = "{C:joy_spell}Dark Ruler No More",
                 text = {
                     "A random {C:green}Uncommon {C:attention}Joker",
-                    "is debuffed each round"
+                    "is debuffed each round",
+                    "until end of round"
                 }
             },
             opp_joy_forchalice = {
@@ -131,8 +132,7 @@ return {
             opp_joy_forscript = {
                 name = "{C:joy_spell}Forbidden Scripture",
                 text = {
-                    "{C:dark_edition}Editions{}, {C:attention}Enhancements",
-                    "and {C:attention}Seals{} don't activate"
+                    "{C:dark_edition}Editions{} are not applied"
                 }
             },
             opp_joy_harpiesfeatherduster = {
@@ -159,7 +159,8 @@ return {
                 name = "{C:joy_spell}Senet Switch",
                 text = {
                     "A random {C:attention}Joker{} is",
-                    "{C:attention}pinned{} to the left each round"
+                    "{C:attention}pinned{} to the left each round",
+                    "until end of round"
                 }
             },
             opp_joy_superpoly = {
@@ -186,7 +187,7 @@ return {
             opp_joy_ultimateslayer = {
                 name = "{C:joy_spell}Ultimate Slayer",
                 text = {
-                    "Only {C:joy_effect}#1#{}", -- whatever was destroyed by the blind or links
+                    "Only {V:1}#1#{} {C:attention}Jokers{}",
                     "can be summoned"
                 }
             },
@@ -195,7 +196,7 @@ return {
             opp_joy_chaindisappearance = {
                 name = "{C:joy_trap}Chain Disappearance",
                 text = {
-                    "Each time a {C:attention}Joker is summoned,",
+                    "Each time a {C:attention}Joker{} is summoned",
                     "{C:attention}banishes{} all others that share its {C:attention}Type",
                     "or {C:attention}Attribute{} until end of round"
                 }
@@ -203,7 +204,7 @@ return {
             opp_joy_chaindispel = {
                 name = "{C:joy_trap}Chain Dispel",
                 text = {
-                    "Destroy all {C:attention}Jokers",
+                    "{C:joy_effect}FLIP{}: Destroy all {C:attention}Jokers",
                     "that share the same name except one",
                     "{C:inactive}(including Field Spells)"
                 }
@@ -235,20 +236,23 @@ return {
             opp_joy_imperialorder = {
                 name = "{C:joy_trap}Imperial Order",
                 text = {
-                    "{C:joy_spell}Field Spells{} are debuffed"
+                    "{C:joy_spell}Field Spells{} are debuffed",
+                    "each round until end of round"
                 }
             },
             opp_joy_imperm = {
                 name = "{C:joy_trap}Infinite Impermanence",
                 text = {
                     "A non-{C:joy_trap}Trap {C:joy_effect}Effect {C:attention}Joker",
-                    "is debuffed each {C:attention}Small{} and {C:attention}Big Blind{}"
+                    "is debuffed each round",
+                    "until end of round"
                 }
             },
             opp_joy_lightforcesword = {
                 name = "{C:joy_trap}Lightforce Sword",
                 text = {
-                    "{C:attention}Banishes 1{} scored card from each", "until end of ante"
+                    "{C:attention}Banishes 1{} scored card from each",
+                    "played hand until end of ante"
                 }
             },
             opp_joy_macrocosmos = {
@@ -261,7 +265,8 @@ return {
             opp_joy_redreboot = {
                 name = "{C:joy_trap}Red Reboot",
                 text = {
-                    "A {C:joy_trap}Trap{} is debuffed each round"
+                    "A {C:joy_trap}Trap{} is debuffed each round",
+                    "until end of round"
                 }
             },
             --#endregion
@@ -271,6 +276,9 @@ return {
         dictionary = {
             k_joy_opponent = "Opponent",
             k_joy_opponentcards = "Opponent cards",
+            --#region Card specific
+            k_joy_ultimateslayer_type = "[summon type destroyed by blind]"
+            --#endregion
         }
     }
 }

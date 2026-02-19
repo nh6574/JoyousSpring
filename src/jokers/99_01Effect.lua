@@ -62,7 +62,7 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not from_debuff then
-            card.ability.extra.unique_count = #SMODS.find_card("j_joy_spright_sprind", true)
+            card.ability.extra.unique_count = #SMODS.find_card(self.key, true)
         end
         if not card.debuff then
             for _, joker in ipairs(JoyousSpring.get_materials_owned({ { is_main_deck = true, exclude_keys = { "j_joy_boarder" } } })) do
@@ -71,10 +71,8 @@ SMODS.Joker({
         end
     end,
     remove_from_deck = function(self, card, from_debuff)
-        if not next(SMODS.find_card("j_joy_boarder")) then
-            for _, joker in ipairs(G.jokers.cards) do
-                SMODS.debuff_card(joker, false, "j_joy_boarder" .. (card.ability.extra.unique_count or 0))
-            end
+        for _, joker in ipairs(G.jokers.cards) do
+            SMODS.debuff_card(joker, false, "j_joy_boarder" .. (card.ability.extra.unique_count or 0))
         end
     end,
     joy_apply_to_jokers_added = function(self, card, added_card)

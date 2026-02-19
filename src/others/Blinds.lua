@@ -52,20 +52,23 @@ JoyousSpring.Blind {
                     attribute = "DARK",
                     monster_type = "Spellcaster"
                 },
-                activated = false,
+                active = false,
             },
         },
-        -- calculate = function(self, card, context)
-        --     if context.buying_card and context.card.ability.set == "Joker" then
-        --         JoyousSpring.banish(context.card, "end_of_ante")
-        --         card.ability.extra.activated = true
-        --     end
-        --     if context.ending_shop then
-        --         card.ability.extra.activated = false
-        --     end
-        -- end,
+        calculate = function(self, card, context)
+            if JoyousSpring.can_use_abilities(card) then
+                if context.buying_card and context.card.ability.set == "Joker" and
+                    not card.ability.extra.active then
+                    JoyousSpring.banish(context.card, "end_of_ante")
+                    card.ability.extra.active = true
+                end
+                if context.ending_shop then
+                    card.ability.extra.active = false
+                end
+            end
+        end,
         remove_from_deck = function(self, card, from_debuff)
-            card.ability.extra.activated = false
+            card.ability.extra.active = false
         end
     },
 }
@@ -81,7 +84,10 @@ JoyousSpring.Blind {
         if context.buying_card and context.card.ability.set ~= "Voucher" then
             JoyousSpring.blind_effects[self.key].active = true
         end
-        if context.ending_shop then
+        if context.open_booster then
+            JoyousSpring.blind_effects[self.key].active = nil
+        end
+        if context.starting_shop or context.ending_shop then
             JoyousSpring.blind_effects[self.key].active = nil
         end
     end,
@@ -98,6 +104,24 @@ JoyousSpring.Blind {
                 },
             }
         },
+        calculate = function(self, card, context)
+            if JoyousSpring.can_use_abilities(card) then
+                if context.buying_card and context.card.ability.set ~= "Voucher" then
+                    card.ability.extra.active = true
+                end
+                if context.open_booster then
+                    card.ability.extra.active = true
+                end
+                if context.starting_shop or context.ending_shop then
+                    card.ability.extra.active = nil
+                end
+            end
+        end,
+        joy_prevent_buy = function(self, card, other_card)
+            if not JoyousSpring.can_use_abilities(card) then return end
+            return other_card.ability.set ~= "Voucher" and
+                card.ability.extra.active
+        end,
     },
 }
 
@@ -131,6 +155,22 @@ JoyousSpring.Blind {
                 },
             }
         },
+        calculate = function(self, card, context)
+            if JoyousSpring.can_use_abilities(card) then
+                if context.ante_change and context.ante_end and #G.jokers.cards > 0 then
+                    local rarity = JoyousSpring.get_highest_rarity(G.jokers.cards)
+                    local choices = JoyousSpring.get_materials_owned({ { rarity = rarity } }, nil, true)
+                    if #choices > 0 then
+                        local joker = pseudorandom_element(choices, self.key .. "_tribute")
+                        local key = joker.config.center.key
+                        JoyousSpring.tribute(blind, { joker })
+                        JoyousSpring.revive_pseudorandom({ { rarity = rarity, exclude_keys = { key } } },
+                            self.key .. "_revive",
+                            true)
+                    end
+                end
+            end
+        end
     }
 }
 
@@ -180,8 +220,33 @@ JoyousSpring.Blind {
                     attribute = "LIGHT",
                     monster_type = "Rock"
                 },
+                count = 0
             }
         },
+        loc_vars = function(self, info_queue, card)
+            return { vars = { card.ability.extra.count } }
+        end,
+        calculate = function(self, card, context)
+            if JoyousSpring.can_use_abilities(card) then
+                if context.joy_summon then
+                    if card.ability.extra.count < 5 then
+                        card.ability.extra.count = card.ability.extra.count + 1
+                    else
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                G.E_MANAGER:add_event(Event({
+                                    func = function()
+                                        JoyousSpring.tribute(blind, { context.joy_card })
+                                        return true
+                                    end
+                                }))
+                                return true
+                            end
+                        }))
+                    end
+                end
+            end
+        end
     }
 }
 
@@ -210,6 +275,14 @@ JoyousSpring.Blind {
                 },
             }
         },
+        calculate = function(self, card, context)
+            if JoyousSpring.can_use_abilities(card) then
+                if context.card_added and context.card:is_rarity("Rare") and #G.jokers.cards > 0
+                    and #JoyousSpring.get_materials_owned({ { rarity = 3 } }) > 0 and not SMODS.is_eternal(context.card, card) then
+                    JoyousSpring.tribute(card, { context.card })
+                end
+            end
+        end,
     },
 }
 
@@ -231,12 +304,14 @@ JoyousSpring.Blind {
             }
         end
         if context.modify_shop_card and context.card.config.center.key == "opp_joy_parasiteparacide" then
-            G.E_MANAGER:add_event(Event({
-                func = function()
-                    G.FUNCS.buy_from_shop({ config = { ref_table = context.card } })
-                    return true
-                end
-            }))
+            if not JoyousSpring.prevent_buy(context.card) then
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        G.FUNCS.buy_from_shop({ config = { ref_table = context.card } })
+                        return true
+                    end
+                }))
+            end
         end
     end,
     opponent_card = {
@@ -254,10 +329,12 @@ JoyousSpring.Blind {
             return { vars = { card.ability.extra.xmult } }
         end,
         calculate = function(self, card, context)
-            if context.joker_main then
-                return {
-                    xmult = card.ability.extra.xmult
-                }
+            if JoyousSpring.can_use_abilities(card) then
+                if context.joker_main then
+                    return {
+                        xmult = card.ability.extra.xmult
+                    }
+                end
             end
         end
     },
@@ -283,6 +360,7 @@ JoyousSpring.Blind {
             }
         },
         joy_get_monster_type = function(self, card, other_card, original_type)
+            if not JoyousSpring.can_use_abilities(card) then return end
             return "Insect"
         end
     },
@@ -329,6 +407,10 @@ JoyousSpring.Blind {
                 },
             }
         },
+        joy_prevent_flip = function(self, card, other_card)
+            if not JoyousSpring.can_use_abilities(card) then return end
+            return other_card.facing == "back"
+        end
     }
 }
 
@@ -390,6 +472,20 @@ JoyousSpring.Blind {
                 },
             }
         },
+        calculate = function(self, card, context)
+            if JoyousSpring.can_use_abilities(card) then
+                if context.setting_blind then
+                    local choices = JoyousSpring.get_materials_owned({ { can_flip = true }, { facedown = true } })
+                    for i = 1, 2 do
+                        local joker, index = pseudorandom_element(choices, self.key)
+                        if joker then
+                            JoyousSpring.flip(joker, blind)
+                            table.remove(choices, index)
+                        end
+                    end
+                end
+            end
+        end
     }
 }
 
@@ -430,6 +526,18 @@ JoyousSpring.Blind {
                 },
             }
         },
+        calculate = function(self, card, context)
+            if JoyousSpring.can_use_abilities(card) then
+                if context.end_of_round and context.game_over == false and context.main_eval then
+                    local choices = JoyousSpring.get_materials_owned({ { can_flip = true } })
+
+                    local joker = pseudorandom_element(choices, self.key)
+                    if joker and joker.facing == "front" then
+                        JoyousSpring.flip(joker, card)
+                    end
+                end
+            end
+        end
     }
 }
 
@@ -451,6 +559,10 @@ JoyousSpring.Blind {
                 },
             }
         },
+        joy_prevent_flip = function(self, card, other_card)
+            if not JoyousSpring.can_use_abilities(card) then return end
+            return other_card.facing == "front"
+        end
     }
 }
 
@@ -492,6 +604,16 @@ JoyousSpring.Blind {
                 },
             }
         },
+        calculate = function(self, card, context)
+            if JoyousSpring.can_use_abilities(card) then
+                if context.joy_pre_setting_blind then
+                    local joker = pseudorandom_element(JoyousSpring.field_spell_area.cards, self.key)
+                    if joker then
+                        JoyousSpring.banish(joker, "boss_selected")
+                    end
+                end
+            end
+        end
     }
 }
 
@@ -518,6 +640,35 @@ JoyousSpring.Blind {
                 },
             }
         },
+        calculate = function(self, card, context)
+            if JoyousSpring.can_use_abilities(card) then
+                if context.setting_blind then
+                    local choices = JoyousSpring.get_materials_owned({ { rarity = 2 } })
+                    local joker = pseudorandom_element(choices, self.key)
+                    if joker then
+                        joker.ability.joy_debuffed_by_drnm_opp = true
+                        SMODS.recalc_debuff(joker)
+                    end
+                end
+
+                if context.debuff_card and context.debuff_card.area == G.jokers and context.debuff_card.ability.joy_debuffed_by_drnm_opp then
+                    return {
+                        debuff = true
+                    }
+                end
+            end
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                for _, joker in ipairs(G.jokers.cards) do
+                    joker.ability.joy_debuffed_by_drnm_opp = nil
+                end
+            end
+        end,
+        remove_from_deck = function(self, card, from_debuff)
+            for _, joker in ipairs(G.jokers.cards) do
+                joker.ability.joy_debuffed_by_drnm_opp = nil
+                SMODS.recalc_debuff(joker)
+            end
+        end
     }
 }
 
@@ -542,8 +693,8 @@ JoyousSpring.Blind {
             local joker = pseudorandom_element(choices, self.key)
             if joker then
                 joker.ability.joy_debuffed_by_forchalice = true
+                SMODS.recalc_debuff(joker)
             end
-            SMODS.recalc_debuff(joker)
         end
 
         if context.debuff_card and context.debuff_card.area == G.jokers and context.debuff_card.ability.joy_debuffed_by_forchalice then
@@ -575,8 +726,48 @@ JoyousSpring.Blind {
                 joyous_spring = JoyousSpring.init_joy_table {
                     is_spell = true,
                 },
+                xmult = 2
             }
         },
+        loc_vars = function(self, info_queue, card)
+            return { vars = { card.ability.extra.xmult } }
+        end,
+        calculate = function(self, card, context)
+            if JoyousSpring.can_use_abilities(card) then
+                if context.setting_blind then
+                    local choices = JoyousSpring.get_materials_owned({ { is_effect = true } })
+                    local joker = pseudorandom_element(choices, self.key)
+                    if joker then
+                        joker.ability.joy_debuffed_by_forchalice_opp = true
+                        SMODS.recalc_debuff(joker)
+                    end
+                end
+
+                if context.debuff_card and context.debuff_card.area == G.jokers and context.debuff_card.ability.joy_debuffed_by_forchalice_opp then
+                    return {
+                        debuff = true
+                    }
+                end
+
+                if context.other_joker and context.other_joker.ability.joy_debuffed_by_forchalice_opp then
+                    return {
+                        xmult = card.ability.extra.xmult,
+                        message_card = context.other_joker
+                    }
+                end
+            end
+
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                for _, joker in ipairs(G.jokers.cards) do
+                    joker.ability.joy_debuffed_by_forchalice_opp = nil
+                end
+            end
+        end,
+        remove_from_deck = function(self, card, from_debuff)
+            for _, joker in ipairs(G.jokers.cards) do
+                joker.ability.joy_debuffed_by_forchalice_opp = nil
+            end
+        end
     }
 }
 
@@ -608,8 +799,27 @@ JoyousSpring.Blind {
                 joyous_spring = JoyousSpring.init_joy_table {
                     is_spell = true,
                 },
+                xchips = 0.75
             }
         },
+        loc_vars = function(self, info_queue, card)
+            return { vars = { card.ability.extra.xchips } }
+        end,
+        calculate = function(self, card, context)
+            if JoyousSpring.can_use_abilities(card) then
+                if context.individual and context.cardarea == G.play then
+                    return {
+                        xchips = card.ability.extra.xchips
+                    }
+                end
+
+                if context.debuff_card and context.debuff_card.area ~= G.jokers then
+                    return {
+                        prevent_debuff = true
+                    }
+                end
+            end
+        end
     }
 }
 
@@ -627,14 +837,14 @@ JoyousSpring.Blind {
             local joker = pseudorandom_element(choices, self.key)
             if joker then
                 joker.ability.joy_debuffed_by_fordroplet = true
+                SMODS.recalc_debuff(joker)
             end
-            SMODS.recalc_debuff(joker)
             choices = JoyousSpring.get_materials_owned({ { is_trap = true } })
             joker = pseudorandom_element(choices, self.key)
             if joker then
                 joker.ability.joy_debuffed_by_fordroplet = true
+                SMODS.recalc_debuff(joker)
             end
-            SMODS.recalc_debuff(joker)
 
             joker = pseudorandom_element(JoyousSpring.field_spell_area.cards, self.key)
             if joker then
@@ -670,8 +880,70 @@ JoyousSpring.Blind {
                 joyous_spring = JoyousSpring.init_joy_table {
                     is_spell = true,
                 },
+                current = "effect"
             }
         },
+        loc_vars = function(self, info_queue, card)
+            return { vars = { localize("k_joy_" .. card.ability.extra.current) } }
+        end,
+        calculate = function(self, card, context)
+            if JoyousSpring.can_use_abilities(card) then
+                if context.setting_blind then
+                    local choices
+                    local joker
+                    if card.ability.extra.current == "effect" then
+                        choices = JoyousSpring.get_materials_owned({ { is_effect = true, exclude_traps = true } })
+                        joker = pseudorandom_element(choices, self.key)
+                        if joker then
+                            joker.ability.joy_debuffed_by_fordroplet_opp = true
+                            SMODS.recalc_debuff(joker)
+                        end
+                    elseif card.ability.extra.current == "trap" then
+                        choices = JoyousSpring.get_materials_owned({ { is_trap = true } })
+                        joker = pseudorandom_element(choices, self.key)
+                        if joker then
+                            joker.ability.joy_debuffed_by_fordroplet_opp = true
+                            SMODS.recalc_debuff(joker)
+                        end
+                    else
+                        joker = pseudorandom_element(JoyousSpring.field_spell_area.cards, self.key)
+                        if joker then
+                            SMODS.debuff_card(joker, true, self.key)
+                        end
+                    end
+                end
+
+                if context.debuff_card and context.debuff_card.area == G.jokers and context.debuff_card.ability.joy_debuffed_by_fordroplet_opp then
+                    return {
+                        debuff = true
+                    }
+                end
+            end
+
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                for _, joker in ipairs(G.jokers.cards) do
+                    joker.ability.joy_debuffed_by_fordroplet_opp = nil
+                end
+                for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
+                    SMODS.debuff_card(joker, false, self.key)
+                end
+                if card.ability.extra.current == "fieldspell" then
+                    card.ability.extra.current = "effect"
+                elseif card.ability.extra.current == "trap" then
+                    card.ability.extra.current = "fieldspell"
+                else
+                    card.ability.extra.current = "trap"
+                end
+            end
+        end,
+        remove_from_deck = function(self, card, from_debuff)
+            for _, joker in ipairs(G.jokers.cards) do
+                joker.ability.joy_debuffed_by_fordroplet_opp = nil
+            end
+            for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
+                SMODS.debuff_card(joker, false, self.key)
+            end
+        end
     }
 }
 
@@ -704,8 +976,48 @@ JoyousSpring.Blind {
                 joyous_spring = JoyousSpring.init_joy_table {
                     is_spell = true,
                 },
+                xmult = 0.75
             }
         },
+        loc_vars = function(self, info_queue, card)
+            return { vars = { card.ability.extra.xmult } }
+        end,
+        calculate = function(self, card, context)
+            if JoyousSpring.can_use_abilities(card) then
+                if context.other_joker and JoyousSpring.is_effect_monster(context.other_joker) then
+                    return {
+                        xmult = card.ability.extra.xmult,
+                        message_card = context.other_joker
+                    }
+                end
+            end
+        end,
+        joy_prevent_flip = function(self, card, other_card)
+            if not JoyousSpring.can_use_abilities(card) then return end
+            return other_card.facing == "front" and JoyousSpring.is_effect_monster(other_card)
+        end,
+        joy_apply_to_jokers_added = function(self, card, added_card)
+            if JoyousSpring.is_effect_monster(added_card) and not JoyousSpring.is_perma_debuffed(added_card) then
+                SMODS.debuff_card(added_card, "prevent_debuff", self.key .. card.ability.extra.unique_count)
+            end
+        end,
+        add_to_deck = function(self, card, from_debuff)
+            if not from_debuff then
+                card.ability.extra.unique_count = #SMODS.find_card(self.key, true)
+            end
+            if not card.debuff then
+                for _, joker in ipairs(G.jokers.cards) do
+                    if JoyousSpring.is_effect_monster(joker) and not JoyousSpring.is_perma_debuffed(joker) then
+                        SMODS.debuff_card(joker, "prevent_debuff", self.key .. card.ability.extra.unique_count)
+                    end
+                end
+            end
+        end,
+        remove_from_deck = function(self, card, from_debuff)
+            for _, joker in ipairs(G.jokers.cards) do
+                SMODS.debuff_card(joker, false, self.key .. card.ability.extra.unique_count)
+            end
+        end,
     }
 }
 
@@ -758,6 +1070,12 @@ JoyousSpring.Blind {
                 },
             }
         },
+        add_to_deck = function(self, card, from_debuff)
+            JoyousSpring.field_spell_area:change_size(-1)
+        end,
+        remove_from_deck = function(self, card, from_debuff)
+            JoyousSpring.field_spell_area:change_size(1)
+        end
     }
 }
 
@@ -783,6 +1101,14 @@ JoyousSpring.Blind {
                 },
             }
         },
+        calculate = function(self, card, context)
+            if JoyousSpring.can_use_abilities(card) then
+                if context.ante_change and context.ante_end then
+                    SMODS.destroy_cards(#JoyousSpring.field_spell_area.cards > 0 and JoyousSpring.field_spell_area.cards or
+                        G.jokers.cards)
+                end
+            end
+        end
     }
 }
 
@@ -804,6 +1130,10 @@ JoyousSpring.Blind {
                 },
             }
         },
+        joy_prevent_revive = function(self, card, key)
+            if not JoyousSpring.can_use_abilities(card) then return end
+            return true
+        end,
     },
 }
 
@@ -825,8 +1155,44 @@ JoyousSpring.Blind {
                 },
             }
         },
+        calculate = function(self, card, context)
+            if JoyousSpring.can_use_abilities(card) then
+                if context.setting_blind then
+                    local joker = pseudorandom_element(G.jokers.cards, self.key)
+                    joker:add_sticker("pinned", true)
+                    joker.ability.joy_pinned_by_senetswitch = true
+                end
+            end
+
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                for _, joker in ipairs(G.jokers.cards) do
+                    if joker.ability.joy_pinned_by_senetswitch then
+                        joker:remove_sticker("pinned")
+                    end
+                    joker.ability.joy_pinned_by_senetswitch = nil
+                end
+            end
+        end,
+        remove_from_deck = function(self, card, from_debuff)
+            for _, joker in ipairs(G.jokers.cards) do
+                if joker.ability.joy_pinned_by_senetswitch then
+                    joker:remove_sticker("pinned")
+                end
+                joker.ability.joy_pinned_by_senetswitch = nil
+            end
+        end
     }
 }
+
+-- Temp hook while SMODS doesn't merge my PR
+local card_remove_sticker_ref = Card.remove_sticker
+function Card:remove_sticker(sticker)
+    if sticker == 'pinned' and self.pinned then
+        SMODS.Stickers[sticker]:apply(self, false)
+        SMODS.enh_cache:write(self, nil)
+    end
+    return card_remove_sticker_ref(self, sticker)
+end
 
 -- Super Polymerization
 -- JoyousSpring.Blind {
@@ -892,6 +1258,12 @@ JoyousSpring.Blind {
                 },
             }
         },
+        add_to_deck = function(self, card, from_debuff)
+            G.jokers:change_size(-2)
+        end,
+        remove_from_deck = function(self, card, from_debuff)
+            G.jokers:change_size(2)
+        end
     }
 }
 
@@ -909,7 +1281,8 @@ JoyousSpring.Blind {
             local joker = pseudorandom_element(choices, self.key)
 
             if joker then
-                local ed_choices = JoyousSpring.get_materials_in_collection({ { summon_type = joker.ability.extra.joyous_spring.summon_type, is_extra_deck = true, exclude_keys = { joker.config.center_key } } })
+                G.GAME.joy_ultimateslayer_summon_type = joker.ability.extra.joyous_spring.summon_type
+                local ed_choices = JoyousSpring.get_materials_in_collection({ { summon_type = G.GAME.joy_ultimateslayer_summon_type, is_extra_deck = true, exclude_keys = { joker.config.center_key } } })
 
                 local key_to_add = pseudorandom_element(ed_choices, self.key .. "_extra")
                 if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
@@ -927,6 +1300,14 @@ JoyousSpring.Blind {
                 },
             }
         },
+        loc_vars = function(self, info_queue, card)
+            return { vars = { localize("k_joy_" .. (G.GAME.joy_ultimateslayer_summon_type or card.area and not card.area.config.collection and "LINK" or "ultimateslayer_type")), colours = { G.GAME.joy_ultimateslayer_summon_type and G.C.JOY[G.GAME.joy_ultimateslayer_summon_type] or card.area and not card.area.config.collection and G.C.JOY.LINK or G.C.FILTER } } }
+        end,
+        joy_prevent_summon = function(self, card, other_card, card_list)
+            if not JoyousSpring.can_use_abilities(card) then return end
+            return other_card.ability.extra.joyous_spring.summon_type ~=
+                (G.GAME.joy_ultimateslayer_summon_type or "LINK")
+        end
     }
 }
 
@@ -1024,6 +1405,41 @@ JoyousSpring.Blind {
                 },
             }
         },
+        calculate = function(self, card, context)
+            if JoyousSpring.can_use_abilities(card) then
+                if context.joy_summon then
+                    local attribute = JoyousSpring.get_attribute(context.joy_card)
+                    local monster_type = JoyousSpring.get_monster_type(context.joy_card)
+                    if attribute ~= nil and monster_type ~= nil then
+                        local properties = { {} }
+
+                        if attribute ~= true and monster_type ~= true then
+                            properties = {
+                                {
+                                    monster_type = monster_type,
+                                },
+                                {
+                                    monster_attribute = attribute
+                                },
+                            }
+                        end
+
+                        local to_banish = JoyousSpring.get_materials_owned(properties)
+                        for _, joker in ipairs(to_banish) do
+                            JoyousSpring.banish(joker, "end_of_round")
+                        end
+                    end
+                end
+            end
+            JoyousSpring.calculate_flip_effect(card, context)
+        end,
+        add_to_deck = function(self, card, from_debuff)
+            if not card.debuff and not JoyousSpring.is_perma_debuffed(card) then
+                if not from_debuff and JoyousSpring.should_trap_flip(card) then
+                    JoyousSpring.flip(card, card)
+                end
+            end
+        end,
     }
 }
 
@@ -1059,6 +1475,31 @@ JoyousSpring.Blind {
                 },
             }
         },
+        calculate = function(self, card, context)
+            if JoyousSpring.calculate_flip_effect(card, context) then
+                for _, joker in ipairs(G.jokers.cards) do
+                    local same = JoyousSpring.get_materials_owned({ { key = joker.config.center.key } }, nil, nil, true)
+                    if #same > 1 then
+                        table.remove(same, 1)
+                        SMODS.destroy_cards(same)
+                    end
+                end
+                for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
+                    local same = JoyousSpring.get_materials_owned({ { key = joker.config.center.key } }, nil, nil, true)
+                    if #same > 1 then
+                        table.remove(same, 1)
+                        SMODS.destroy_cards(same)
+                    end
+                end
+            end
+        end,
+        add_to_deck = function(self, card, from_debuff)
+            if not card.debuff and not JoyousSpring.is_perma_debuffed(card) then
+                if not from_debuff and JoyousSpring.should_trap_flip(card) then
+                    JoyousSpring.flip(card, card)
+                end
+            end
+        end,
     }
 }
 
@@ -1123,6 +1564,40 @@ JoyousSpring.Blind {
                 },
             }
         },
+        calculate = function(self, card, context)
+            if JoyousSpring.can_use_abilities(card) then
+                if context.setting_blind then
+                    for _, joker in ipairs(G.jokers.cards) do
+                        local same = JoyousSpring.get_materials_owned({ { key = joker.config.center.key } }, nil, nil,
+                            true)
+                        if #same > 1 then
+                            table.remove(same, 1)
+                            for _, other_joker in ipairs(same) do
+                                JoyousSpring.banish(other_joker, "end_of_round")
+                            end
+                        end
+                    end
+                    for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
+                        local same = JoyousSpring.get_materials_owned({ { key = joker.config.center.key } }, nil, nil,
+                            true)
+                        if #same > 1 then
+                            table.remove(same, 1)
+                            for _, other_joker in ipairs(same) do
+                                JoyousSpring.banish(other_joker, "end_of_round")
+                            end
+                        end
+                    end
+                end
+            end
+            JoyousSpring.calculate_flip_effect(card, context)
+        end,
+        add_to_deck = function(self, card, from_debuff)
+            if not card.debuff and not JoyousSpring.is_perma_debuffed(card) then
+                if not from_debuff and JoyousSpring.should_trap_flip(card) then
+                    JoyousSpring.flip(card, card)
+                end
+            end
+        end,
     }
 }
 
@@ -1161,6 +1636,19 @@ JoyousSpring.Blind {
                 },
             }
         },
+        calculate = function(self, card, context)
+            JoyousSpring.calculate_flip_effect(card, context)
+        end,
+        add_to_deck = function(self, card, from_debuff)
+            if not card.debuff and not JoyousSpring.is_perma_debuffed(card) then
+                if not from_debuff and JoyousSpring.should_trap_flip(card) then
+                    JoyousSpring.flip(card, card)
+                end
+            end
+        end,
+        joy_prevent_banish = function(self, card, other_card, banish_until)
+            return JoyousSpring.can_use_abilities(card)
+        end,
     }
 }
 
@@ -1197,6 +1685,36 @@ JoyousSpring.Blind {
                 },
             }
         },
+        calculate = function(self, card, context)
+            if JoyousSpring.can_use_abilities(card) then
+                if context.setting_blind then
+                    for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
+                        SMODS.debuff_card(joker, true, self.key .. (card.ability.extra.unique_count or 0))
+                    end
+                end
+            end
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
+                    SMODS.debuff_card(joker, false, self.key .. (card.ability.extra.unique_count or 0))
+                end
+            end
+            JoyousSpring.calculate_flip_effect(card, context)
+        end,
+        add_to_deck = function(self, card, from_debuff)
+            if not from_debuff then
+                card.ability.extra.unique_count = #SMODS.find_card(self.key, true)
+            end
+            if not card.debuff and not JoyousSpring.is_perma_debuffed(card) then
+                if not from_debuff and JoyousSpring.should_trap_flip(card) then
+                    JoyousSpring.flip(card, card)
+                end
+            end
+        end,
+        remove_from_deck = function(self, card, from_debuff)
+            for _, joker in ipairs(JoyousSpring.field_spell_area.cards) do
+                SMODS.debuff_card(joker, false, self.key .. (card.ability.extra.unique_count or 0))
+            end
+        end,
     }
 }
 
@@ -1265,6 +1783,45 @@ JoyousSpring.Blind {
                 },
             }
         },
+        calculate = function(self, card, context)
+            if JoyousSpring.can_use_abilities(card) then
+                if context.setting_blind then
+                    local choices = JoyousSpring.get_materials_owned({ { is_effect = true, exclude_traps = true, exclude_debuffed = true } })
+                    local joker = pseudorandom_element(choices, self.key)
+                    if joker then
+                        joker.ability.joy_debuffed_by_imperm_opp = true
+                        SMODS.recalc_debuff(joker)
+                    end
+                end
+
+                if context.debuff_card and context.debuff_card.area == G.jokers and context.debuff_card.ability.joy_debuffed_by_imperm_opp then
+                    return {
+                        debuff = true
+                    }
+                end
+            end
+
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                for _, joker in ipairs(G.jokers.cards) do
+                    joker.ability.joy_debuffed_by_imperm_opp = nil
+                    SMODS.recalc_debuff(joker)
+                end
+            end
+            JoyousSpring.calculate_flip_effect(card, context)
+        end,
+        add_to_deck = function(self, card, from_debuff)
+            if not card.debuff and not JoyousSpring.is_perma_debuffed(card) then
+                if not from_debuff and JoyousSpring.should_trap_flip(card) then
+                    JoyousSpring.flip(card, card)
+                end
+            end
+        end,
+        remove_from_deck = function(self, card, from_debuff)
+            for _, joker in ipairs(G.jokers.cards) do
+                joker.ability.joy_debuffed_by_imperm_opp = nil
+                SMODS.recalc_debuff(joker)
+            end
+        end
     }
 }
 
@@ -1324,6 +1881,24 @@ JoyousSpring.Blind {
                 },
             }
         },
+        calculate = function(self, card, context)
+            if JoyousSpring.can_use_abilities(card) then
+                if context.after then
+                    local choice = pseudorandom_element(context.scoring_hand, self.key)
+                    if choice then
+                        JoyousSpring.banish(choice, "end_of_ante")
+                    end
+                end
+            end
+            JoyousSpring.calculate_flip_effect(card, context)
+        end,
+        add_to_deck = function(self, card, from_debuff)
+            if not card.debuff and not JoyousSpring.is_perma_debuffed(card) then
+                if not from_debuff and JoyousSpring.should_trap_flip(card) then
+                    JoyousSpring.flip(card, card)
+                end
+            end
+        end,
     }
 }
 
@@ -1386,6 +1961,45 @@ JoyousSpring.Blind {
                 },
             }
         },
+        calculate = function(self, card, context)
+            if JoyousSpring.can_use_abilities(card) then
+                if context.setting_blind then
+                    local choices = JoyousSpring.get_materials_owned({ { is_trap = true, exclude_debuffed = true } })
+                    local joker = pseudorandom_element(choices, self.key)
+                    if joker then
+                        joker.ability.joy_debuffed_by_redreboot_opp = true
+                        SMODS.recalc_debuff(joker)
+                    end
+                end
+
+                if context.debuff_card and context.debuff_card.area == G.jokers and context.debuff_card.ability.joy_debuffed_by_redreboot_opp then
+                    return {
+                        debuff = true
+                    }
+                end
+            end
+
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                for _, joker in ipairs(G.jokers.cards) do
+                    joker.ability.joy_debuffed_by_redreboot_opp = nil
+                    SMODS.recalc_debuff(joker)
+                end
+            end
+            JoyousSpring.calculate_flip_effect(card, context)
+        end,
+        add_to_deck = function(self, card, from_debuff)
+            if not card.debuff and not JoyousSpring.is_perma_debuffed(card) then
+                if not from_debuff and JoyousSpring.should_trap_flip(card) then
+                    JoyousSpring.flip(card, card)
+                end
+            end
+        end,
+        remove_from_deck = function(self, card, from_debuff)
+            for _, joker in ipairs(G.jokers.cards) do
+                joker.ability.joy_debuffed_by_redreboot_opp = nil
+                SMODS.recalc_debuff(joker)
+            end
+        end
     }
 }
 

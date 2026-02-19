@@ -36,6 +36,7 @@ SMODS.Atlas({
 ---@field joy_prevent_revive? fun(self: SMODS.Joker|table, card:table|Card, key:string):boolean? Determines if card with *key* should be able to be revived
 ---@field joy_prevent_banish? fun(self: SMODS.Joker|table, card:table|Card, other_card:Card|table, banish_until:string):boolean? Determines if *other_card* can be banished
 ---@field joy_prevent_drag? fun(self: SMODS.Joker|table, card:table|Card, other_card:Card|table, area:CardArea|table):boolean? Determines if *other_card* can be dragged
+---@field joy_prevent_summon? fun(self: SMODS.Joker|table, card:table|Card, other_card:Card|table, card_list:Card[]|table?):boolean? Determines if *other_card* can be summoned
 ---@field joy_can_transfer_ability? fun(self:SMODS.Joker|table, other_card:Card|table, card:Card|table?):boolean? Determines if *self* transfers its ability to *other_card*. When transforming, `other_card.joy_transforming == self.key`
 ---@field joy_transfer_ability_calculate? fun(self:SMODS.Joker|table, other_card:Card|table, context:CalcContext, config:table):table? Similar to `calculate` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect
 ---@field joy_transfer_config? fun(self:SMODS.Joker|table, other_card:Card|table):table? Similar to `config`, it returns the initial config table for the transferred ability
@@ -59,6 +60,7 @@ SMODS.Atlas({
 ---@field joy_transfer_prevent_revive? fun(self: SMODS.Joker|table, ability_card:table|Card, config:table, key:string):boolean? Determines if card with *key* should be able to be revived but for transferred abilities
 ---@field joy_transfer_prevent_banish? fun(self: SMODS.Joker|table, ability_card:table|Card, config:table, other_card:Card|table, banish_until:string):boolean? Determines if *other_card* can be banished but for transferred abilities
 ---@field joy_transfer_prevent_drag? fun(self: SMODS.Joker|table, ability_card:table|Card, config:table, other_card:Card|table, area:CardArea|table):boolean? Determines if *other_card* can be dragged but for transferred abilities
+---@field joy_prevent_summon? fun(self: SMODS.Joker|table, ability_card:table|Card, config:table, other_card:Card|table, card_list:Card[]|table?):boolean? Determines if *other_card* can be summoned
 
 ---@alias summon_type
 ---|'"NORMAL"'
@@ -603,7 +605,7 @@ end
 ---@return boolean
 JoyousSpring.cannot_flip = function(card)
     if not JoyousSpring.is_monster_card(card) or card.facing == 'back' or not JoyousSpring.has_joyous_table(card) then
-        return JoyousSpring.calculate_prototype_function("prevent_flip", {
+        return card and JoyousSpring.calculate_prototype_function("prevent_flip", {
             return_if_true = true
         }, card)
     end

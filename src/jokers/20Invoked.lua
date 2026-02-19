@@ -1223,17 +1223,21 @@ SMODS.Joker({
         end
     end,
     add_to_deck = function(self, card, from_debuff)
+        if not from_debuff then
+            card.ability.extra.unique_count = #SMODS.find_card(self.key, true)
+        end
         if not card.debuff then
             for _, joker in ipairs(G.jokers.cards) do
                 if JoyousSpring.is_summon_type(joker, "FUSION") and not JoyousSpring.is_perma_debuffed(joker) then
-                    SMODS.debuff_card(joker, "prevent_debuff", "j_joy_invoked_meltdown")
+                    SMODS.debuff_card(joker, "prevent_debuff", "j_joy_invoked_meltdown" ..
+                    card.ability.extra.unique_count)
                 end
             end
         end
     end,
     remove_from_deck = function(self, card, from_debuff)
         for _, joker in ipairs(G.jokers.cards) do
-            SMODS.debuff_card(joker, false, "j_joy_invoked_meltdown")
+            SMODS.debuff_card(joker, false, "j_joy_invoked_meltdown" .. card.ability.extra.unique_count)
         end
     end,
     joy_can_activate = function(card)
@@ -1244,11 +1248,11 @@ SMODS.Joker({
     end,
     joy_apply_to_jokers_added = function(self, card, added_card)
         if JoyousSpring.is_summon_type(added_card, "FUSION") and not JoyousSpring.is_perma_debuffed(added_card) then
-            SMODS.debuff_card(added_card, "prevent_debuff", "j_joy_invoked_meltdown")
+            SMODS.debuff_card(added_card, "prevent_debuff", "j_joy_invoked_meltdown" .. card.ability.extra.unique_count)
         end
     end,
     joy_prevent_flip = function(self, card, other_card)
-        return JoyousSpring.is_summon_type(other_card, "FUSION")
+        return other_card.facing == "front" and JoyousSpring.is_summon_type(other_card, "FUSION")
     end,
     joker_display_def = function(JokerDisplay)
         return {

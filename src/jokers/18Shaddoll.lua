@@ -1095,7 +1095,7 @@ SMODS.Joker({
         end
     end,
     joy_prevent_flip = function(self, card, other_card)
-        return JoyousSpring.is_summon_type(other_card, "FUSION")
+        return other_card.facing == "front" and JoyousSpring.is_summon_type(other_card, "FUSION")
     end,
     joy_can_transfer_ability = function(self, other_card, card)
         return JoyousSpring.is_summon_type(other_card, "FUSION")
@@ -1115,7 +1115,7 @@ SMODS.Joker({
         end
     end,
     joy_transfer_prevent_flip = function(self, ability_card, config, other_card)
-        return JoyousSpring.is_summon_type(other_card, "FUSION")
+        return other_card.facing == "front" and JoyousSpring.is_summon_type(other_card, "FUSION")
     end,
     joy_transfer_apply_to_jokers_added = function(self, ability_card, config, added_card)
         if JoyousSpring.is_summon_type(added_card, "FUSION") and not JoyousSpring.is_perma_debuffed(added_card) then

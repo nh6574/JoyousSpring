@@ -584,14 +584,20 @@ end
 ---Checks if there's any combination in **card_list** that fulfills the card's summon conditions
 ---@param card Card
 ---@param card_list Card[]?
----@return boolean
----@return boolean _ If it has room
+---@return boolean can_summon
+---@return boolean has_room If it has room
 JoyousSpring.can_summon = function(card, card_list)
     if not JoyousSpring.is_monster_card(card) or not JoyousSpring.has_joyous_table(card) then
         return false, false
     end
     if not card.ability.extra.joyous_spring.summon_conditions and not card.ability.extra.joyous_spring.summon_consumeable_conditions then
         return true, true
+    end
+
+    if JoyousSpring.calculate_prototype_function("prevent_summon", {
+            return_if_true = true
+        }, card, card_list) then
+        return false, false
     end
 
     if card.ability.extra.joyous_spring.summon_consumeable_conditions then
