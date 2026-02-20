@@ -8,6 +8,6 @@
   "main_file": "JoyousSpring.lua",
   "priority": 0,
   "badge_colour": "F4A6C7",
-  "version": "1.0.0~dev1418a",
+  "version": "1.0.0~dev1420a",
   "dependencies": ["Steamodded (>=1.0.0~BETA-1407a)", "Lovely (>=0.9.0)"]
 }
