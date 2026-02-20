@@ -310,6 +310,12 @@ JoyousSpring.Blind {
                 G.E_MANAGER:add_event(Event({
                     func = function()
                         G.FUNCS.buy_from_shop({ config = { ref_table = context.card } })
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                save_run()
+                                return true
+                            end
+                        }))
                         return true
                     end
                 }))

@@ -389,6 +389,10 @@ JoyousSpring.set_cost = function(card)
             card.cost = 0
         end
     end
+    if card.ability.set == "joy_Opponent" then
+        card.cost = 0
+        card.sell_cost = 0
+    end
     if card then
         JoyousSpring.calculate_prototype_function("modify_cost", {}, card)
     end
