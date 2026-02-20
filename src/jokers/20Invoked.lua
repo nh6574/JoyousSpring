@@ -901,9 +901,11 @@ SMODS.Joker({
             end
             if context.selling_card and context.card ~= card then
                 card.ability.extra.sold = card.ability.extra.sold + 1
-                if not card.ability.extra.activated and card.ability.extra.sold >= card.ability.extra.sell then
+                if not card.ability.extra.activated and card.ability.extra.sold >= card.ability.extra.sell and
+                    JoyousSpring.are_there_blinds_to_disable_this_ante() then
                     card.ability.extra.activated = true
-                    G.GAME.blind:disable()
+                    JoyousSpring.disable_all_active_blinds()
+                    JoyousSpring.disable_next_boss_blinds()
                     return { message = localize('ph_boss_disabled') }
                 end
             end
@@ -1230,7 +1232,7 @@ SMODS.Joker({
             for _, joker in ipairs(G.jokers.cards) do
                 if JoyousSpring.is_summon_type(joker, "FUSION") and not JoyousSpring.is_perma_debuffed(joker) then
                     SMODS.debuff_card(joker, "prevent_debuff", "j_joy_invoked_meltdown" ..
-                    card.ability.extra.unique_count)
+                        card.ability.extra.unique_count)
                 end
             end
         end

@@ -1504,16 +1504,40 @@ SMODS.Joker({
                 end
             end
         end
-        if (JoyousSpring.can_use_abilities(card) or card.joy_faceup_before_blind) and not context.blueprint_card and context.setting_blind and context.main_eval and G.GAME.blind and ((not G.GAME.blind.disabled) and (G.GAME.blind.boss)) then
-            G.GAME.blind:disable()
+        if (JoyousSpring.can_use_abilities(card) or card.joy_faceup_before_blind) and not context.blueprint_card
+            and context.setting_blind then
+            JoyousSpring.disable_all_active_blinds()
+        end
+        if context.joy_card_flipped and context.joy_card_flipped == card and card.facing == "front" then
+            JoyousSpring.disable_all_active_blinds()
+        end
+        if JoyousSpring.can_use_abilities(card) and context.joy_blind_changed then
+            JoyousSpring.disable_all_active_blinds()
+        end
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        if JoyousSpring.can_use_abilities(card) then
+            JoyousSpring.disable_all_active_blinds()
         end
     end,
     joy_can_transfer_ability = function(self, other_card, card)
         return JoyousSpring.is_summon_type(other_card, "FUSION")
     end,
     joy_transfer_ability_calculate = function(self, other_card, context, config)
-        if (JoyousSpring.can_use_abilities(other_card) or other_card.joy_faceup_before_blind) and not context.blueprint_card and context.setting_blind and context.main_eval and G.GAME.blind and ((not G.GAME.blind.disabled) and (G.GAME.blind.boss)) then
-            G.GAME.blind:disable()
+        if (JoyousSpring.can_use_abilities(other_card) or card.joy_faceup_before_blind) and not context.blueprint_card
+            and context.setting_blind then
+            JoyousSpring.disable_all_active_blinds()
+        end
+        if context.joy_card_flipped and context.joy_card_flipped == other_card and other_card.facing == "front" then
+            JoyousSpring.disable_all_active_blinds()
+        end
+        if JoyousSpring.can_use_abilities(other_card) and context.joy_blind_changed then
+            JoyousSpring.disable_all_active_blinds()
+        end
+    end,
+    joy_transfer_add_to_deck = function(self, other_card, config, card, from_debuff, materials, was_material)
+        if JoyousSpring.can_use_abilities(other_card) then
+            JoyousSpring.disable_all_active_blinds()
         end
     end
 })

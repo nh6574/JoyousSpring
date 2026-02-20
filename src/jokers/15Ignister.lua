@@ -780,8 +780,8 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if not context.blueprint_card and context.selling_self then
-            if G.GAME.blind and ((not G.GAME.blind.disabled) and (G.GAME.blind:get_type() == 'Boss')) then
-                G.GAME.blind:disable()
+            if JoyousSpring.are_blinds_active() then
+                JoyousSpring.disable_all_active_blinds()
 
                 if JoyousSpring.count_materials_owned({ { monster_type = "Cyberse", is_summoned = true, is_extra_deck = true } }) > 0 then
                     JoyousSpring.add_monster_tag("j_joy_ignis_kiruku")

@@ -49,6 +49,10 @@
 ---@field joy_exit_effect_selection boolean? When the card selection screen is closed properly.
 ---@field joy_selection Card[]|table? Cards selected in the selection screen.
 ---@field joy_post_round_eval boolean? After round evaluation
+---@field joy_blind_changed true? When blind changes (either by being picked first or reroling)
+---@field joy_blind_type 'Small'|'Big'|'Boss'? Slot of Blind that changed
+---@field joy_old_blind string? old blind key
+---@field joy_new_blind string? new blind key
 
 --#endregion
 
@@ -82,7 +86,7 @@ JoyousSpring.calculate_context = function(context)
             JoyousSpring.return_from_banish(JoyousSpring.banish_blind_selected_area.cards[1])
         end
         -- Update Blind effects area
-        if G.GAME.joy_disabled_blinds[G.GAME.blind.config.blind.key] then
+        if G.GAME.joy_disabled_blinds[G.GAME.blind.config.blind.key] and not G.GAME.blind.disabled then
             G.GAME.blind:disable()
         else
             JoyousSpring.update_blind_effects_area()
@@ -97,10 +101,6 @@ JoyousSpring.calculate_context = function(context)
         while #JoyousSpring.banish_end_of_round_area.cards > 0 do
             JoyousSpring.return_from_banish(JoyousSpring.banish_end_of_round_area.cards[1])
         end
-    end
-
-    if context.ante_change and context.ante_end then
-        G.GAME.joy_disabled_blinds = {}
     end
 
     -- Excavate
@@ -193,6 +193,11 @@ SMODS.current_mod.calculate = function(self, context)
                 G.GAME.joy_hanafuda_played[key] = (G.GAME.joy_hanafuda_played[key] or 0) + 1
             end
         end
+    end
+
+    -- Reset disabled blinds
+    if context.ante_change and context.ante_end then
+        G.GAME.joy_disabled_blinds = {}
     end
 end
 
@@ -808,6 +813,17 @@ local g_funcs_blind_choice_handler_ref = G.FUNCS.blind_choice_handler
 G.FUNCS.blind_choice_handler = function(e)
     g_funcs_blind_choice_handler_ref(e)
     if not e.config.ref_table.run_info and G.blind_select and e.config.id and G.blind_select_opts[string.lower(e.config.id)] then
+        local _blind_choice = G.blind_select_opts[string.lower(e.config.id)]
+        local blind_key = G.GAME.round_resets.blind_choices[e.config.id]
+        if not _blind_choice.children.alert and blind_key ~= "bl_big" and blind_key ~= "bl_small" and G.GAME.joy_disabled_blinds[blind_key] then
+            _blind_choice.children.alert = UIBox {
+                definition = create_UIBox_card_alert({ text_rot = -0.35, no_bg = true, text = localize('k_joy_disabled_cap'), bump_amount = 1, scale = 0.9, maxw = 3.4 }),
+                config = {
+                    align = "tmi",
+                    offset = { x = 0, y = 2.2 },
+                    major = _blind_choice, parent = _blind_choice }
+            }
+        end
         if e.config.ref_table.deck == 'on' and e.config.id == "Big" then
             local _top_button = e.UIBox:get_UIE_by_ID('select_blind_button')
             if _top_button then

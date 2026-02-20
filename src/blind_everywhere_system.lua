@@ -8,7 +8,7 @@
 ---@field has_ante_ability? true? If true, the Blind can be active for the entire ante
 ---@field calculate_ante? fun(self:SMODS.Blind|table, context:CalcContext):table? Calculate but for the ante (acts like has_ante_ability is set to true)
 ---@field on_enter? fun(self:SMODS.Blind|table, blind_type:'Small'|'Big'|'Boss') Called when Blind is chosen for the ante
----@field on_exit? fun(self:SMODS.Blind|table, blind_type:'Small'|'Big'|'Boss') Called when Blind is rerolled for the ante
+---@field on_exit? fun(self:SMODS.Blind|table, blind_type:'Small'|'Big'|'Boss', from_defeat:boolean?) Called when Blind is rerolled for the ante
 ---@field on_game_over? fun(self:SMODS.Blind|table) Called when the player loses to the Blind instead of losing the run
 ---@field joy_modify_cost? fun(self: JoyousSpring.Blind|table, blind:table|Blind?, other_card:table|Card) Like joy_set_cost but for another card
 ---@field joy_allow_facedown_ability? fun(self:SMODS.Blind|table, blind:table|Blind?, other_card:table|Card):boolean? Returns `true` if *other_card* is allowed to use abilities while facedown
@@ -104,7 +104,7 @@ local blind_defeat_ref = Blind.defeat
 function Blind:defeat(silent)
     blind_defeat_ref(self, silent)
     if self.boss then
-        G.GAME.joy_blind_defeated = true
+        G.GAME.joy_blind_defeated = self.config.blind.key
     end
 end
 
@@ -113,45 +113,114 @@ end
 ---@param new_key string
 ---@param old_key string
 JoyousSpring.blind_changed = function(blind_type, new_key, old_key)
-    local new_blind = new_key and G.P_BLINDS[new_key]
-    local old_blind = old_key and G.P_BLINDS[old_key]
     G.GAME.joy_active_blinds = G.GAME.joy_active_blinds or {}
     G.GAME.joy_disabled_blinds = G.GAME.joy_disabled_blinds or {}
     G.GAME.joy_blind_effects = G.GAME.joy_blind_effects or {}
     JoyousSpring.blind_effects = G.GAME.joy_blind_effects
 
-    local update = false
-
-    if old_blind then
-        if not G.GAME.joy_blind_defeated and type(old_blind.on_exit) == "function" then
-            old_blind:on_exit(blind_type)
-        end
-        if blind_type == "Boss" or (G.GAME.round_resets.blind_choices.Boss ~= old_key and
-                (blind_type ~= "Small" or G.GAME.round_resets.blind_choices.Big ~= old_key)) then
-            JoyousSpring.blind_effects[old_key] = nil
-            G.GAME.joy_active_blinds[old_key] = nil
-            update = true
-        end
-    end
-
-    if new_blind then
-        JoyousSpring.blind_effects[new_key] = {}
-        if type(new_blind.on_enter) == "function" then
-            new_blind:on_enter(blind_type)
-        end
-        if new_blind.has_ante_ability or type(new_blind.calculate_ante) == "function" then
-            G.GAME.joy_active_blinds[new_key] = blind_type
-            G.GAME.joy_disabled_blinds[new_key] = nil
-            update = true
-        end
-    end
-
-    if update then JoyousSpring.update_blind_effects_area() end
+    JoyousSpring.disable_blind_ante(old_key, blind_type)
+    JoyousSpring.enable_blind_ante(new_key, blind_type)
 
     G.GAME.joy_blind_defeated = nil
+
+    if G.jokers then
+        SMODS.calculate_context({
+            joy_blind_changed = true,
+            joy_blind_type = blind_type,
+            joy_old = old_key,
+            joy_new = new_key
+        })
+    end
 end
 
----Updates de cards in G.joy_blind_effects_area
+---Enables Blind with ante abilities
+---@param key string
+---@param blind_type 'Small'|'Big'|'Boss'
+JoyousSpring.enable_blind_ante = function(key, blind_type)
+    if not key then return end
+    JoyousSpring.blind_effects[key] = {}
+    local prototype = G.P_BLINDS[key]
+    if not prototype then return end
+
+    if type(prototype.on_enter) == "function" then
+        prototype:on_enter(blind_type)
+    end
+    if prototype.has_ante_ability or type(prototype.calculate_ante) == "function" then
+        G.GAME.joy_active_blinds[key] = blind_type
+        G.GAME.joy_disabled_blinds[key] = nil
+    end
+    JoyousSpring.update_blind_effects_area()
+end
+
+---Disables blind effects during the ante
+---@param key string
+---@param blind_type 'Small'|'Big'|'Boss'
+JoyousSpring.disable_blind_ante = function(key, blind_type)
+    if not key then return end
+    local prototype = G.P_BLINDS[key]
+
+    if not SMODS.is_active_blind(key, true) then
+        if prototype and type(prototype.on_exit) == "function" then
+            prototype:on_exit(blind_type, G.GAME.joy_blind_defeated == key)
+        end
+    else
+        if not G.GAME.blind.disabled then
+            G.GAME.blind:disable()
+        end
+    end
+
+    JoyousSpring.blind_effects[key] = nil
+    G.GAME.joy_active_blinds[key] = nil
+    G.GAME.joy_disabled_blinds[key] = true
+    JoyousSpring.update_blind_effects_area()
+end
+
+---Disables all current active blinds
+JoyousSpring.disable_all_active_blinds = function()
+    for key, blind_type in pairs(G.GAME.joy_active_blinds) do
+        JoyousSpring.disable_blind_ante(key, blind_type)
+    end
+    if G.GAME.blind.boss and G.GAME.blind.in_blind then
+        JoyousSpring.disable_blind_ante(G.GAME.blind.config.blind.key, G.GAME.blind_on_deck)
+    end
+end
+
+---Disables all the remaining blinds this ante
+JoyousSpring.disable_next_boss_blinds = function()
+    for blind_type, key in pairs(G.GAME.round_resets.blind_choices) do
+        if not SMODS.is_active_blind(key, true) then
+            JoyousSpring.disable_blind_ante(key, G.GAME.joy_active_blinds[key] or blind_type:sub(4))
+        end
+    end
+end
+
+---Checks if there are any blinds currently active
+---@return boolean?
+JoyousSpring.are_blinds_active = function()
+    return (not not next(G.GAME.joy_active_blinds)) or
+        (G.GAME.blind.boss and not G.GAME.blind.disabled and G.GAME.blind.in_blind)
+end
+
+---Checks if there are any future blinds this ante left to disable
+---@return boolean?
+JoyousSpring.are_any_future_blinds_enabled = function()
+    local ret = false
+    for _, key in pairs(G.GAME.round_resets.blind_choices) do
+        if key ~= "bl_small" and key ~= "bl_big" and not SMODS.is_active_blind(key, true) then
+            ret = not G.GAME.joy_disabled_blinds[key]
+            if ret then return ret end
+        end
+    end
+    return ret
+end
+
+---Checks if there are any active or future blinds this ante left to disable
+---@return boolean?
+JoyousSpring.are_there_blinds_to_disable_this_ante = function()
+    return JoyousSpring.are_blinds_active() or JoyousSpring.are_any_future_blinds_enabled()
+end
+
+---Updates the cards in G.joy_blind_effects_area
 JoyousSpring.update_blind_effects_area = function()
     if not G.joy_blind_effects_area or not G.joy_blind_effects_area.cards then return end
     local cards_in_area = {}
@@ -230,27 +299,6 @@ JoyousSpring.blind_on_game_over = function()
         G.GAME.joy_active_blinds[key] = nil
         G.GAME.joy_disabled_blinds[key] = true
     end
-    JoyousSpring.update_blind_effects_area()
-end
-
----Disables blind effects during the ante
----@param key string
-JoyousSpring.disable_blind_ante = function(key)
-    --TODO: For mod compat also run this after defeating a blind
-    local prototype = G.P_BLINDS[key]
-
-    if not SMODS.is_active_blind(key, true) then
-        if G.GAME.joy_active_blinds[key] and prototype and type(prototype.on_exit) == "function" then
-            prototype:on_exit(G.GAME.joy_active_blinds[key])
-        end
-    else
-        if not G.GAME.blind.disabled then
-            G.GAME.blind:disable()
-        end
-    end
-
-    G.GAME.joy_active_blinds[key] = nil
-    G.GAME.joy_disabled_blinds[key] = true
     JoyousSpring.update_blind_effects_area()
 end
 

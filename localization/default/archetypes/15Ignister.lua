@@ -175,7 +175,7 @@ return {
                 name = "{C:joy_effect}Kurikurinku @Ignister",
                 text = {
                     {
-                        "Sell this card to disable the current {C:attention}Boss Blind{} and",
+                        "Sell this card to disable the current active {C:attention}Blinds{} and",
                         "add it to the next shop if you own a summoned {C:joy_spell}Extra Deck{} {C:joy_normal}Cyberse{}",
                     },
                 }

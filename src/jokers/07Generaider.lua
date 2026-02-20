@@ -155,14 +155,15 @@ SMODS.Joker({
                 end
             end
             if context.joy_exit_effect_selection and context.joy_card == card and
-                #context.joy_selection == card.ability.extra.tributes then
+                #context.joy_selection == card.ability.extra.tributes and JoyousSpring.are_there_blinds_to_disable_this_ante() then
                 JoyousSpring.tribute(card, context.joy_selection)
-                G.GAME.blind:disable()
+                JoyousSpring.disable_all_active_blinds()
+                JoyousSpring.disable_next_boss_blinds()
             end
         end
     end,
     joy_can_activate = function(card)
-        if not G.GAME.blind or G.GAME.blind.disabled or not G.GAME.blind.boss then
+        if not JoyousSpring.are_there_blinds_to_disable_this_ante() then
             return false
         end
         local materials = JoyousSpring.get_materials_owned(
@@ -179,8 +180,7 @@ SMODS.Joker({
                 { ref_table = "card.joker_display_values", ref_value = "active_text" },
             },
             calc_function = function(card)
-                local disableable = G.GAME and G.GAME.blind and G.GAME.blind.get_type and
-                    ((not G.GAME.blind.disabled) and (G.GAME.blind:get_type() == 'Boss'))
+                local disableable = JoyousSpring.are_there_blinds_to_disable_this_ante()
                 card.joker_display_values.active = disableable
                 card.joker_display_values.active_text = localize(disableable and 'k_active' or 'ph_no_boss_active')
             end,

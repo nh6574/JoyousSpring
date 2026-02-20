@@ -293,7 +293,8 @@ return {
     },
     misc = {
         dictionary = {
-            k_joy_saved_by_blind = "Blind was stolen by the opponent"
+            k_joy_saved_by_blind = "Blind was stolen by the opponent",
+            k_joy_disabled_cap = "DISABLED"
         }
     }
 }

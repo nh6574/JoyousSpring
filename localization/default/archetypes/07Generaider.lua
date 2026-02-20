@@ -40,7 +40,7 @@ return {
                     {
                         "You can {C:attention}tribute #1#{} {C:joy_normal}\"Generaider\"{}",
                         "and/or {C:joy_normal}Spellcaster{} {C:attention}Jokers{}",
-                        "to disable the current {C:attention}Boss Blind{}",
+                        "to disable all {C:attention}Blind{} effects this ante",
                     },
                 },
             },

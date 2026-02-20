@@ -43,8 +43,8 @@ SMODS.Joker({
             end
         end
         if not context.blueprint_card and context.selling_self then
-            if G.GAME.blind and ((not G.GAME.blind.disabled) and (G.GAME.blind:get_type() == 'Boss')) then
-                G.GAME.blind:disable()
+            if JoyousSpring.are_blinds_active() then
+                JoyousSpring.disable_all_active_blinds()
                 JoyousSpring.add_monster_tag("j_joy_sauravis")
                 G.GAME.joy_sauravis_uses = (G.GAME.joy_sauravis_uses or 0) + 1
                 return { message = localize('ph_boss_disabled') }
@@ -65,8 +65,7 @@ SMODS.Joker({
                 { ref_table = "card.joker_display_values", ref_value = "active_text" },
             },
             calc_function = function(card)
-                local disableable = G.GAME and G.GAME.blind and G.GAME.blind.get_type and
-                    ((not G.GAME.blind.disabled) and (G.GAME.blind:get_type() == 'Boss'))
+                local disableable = JoyousSpring.are_there_blinds_to_disable_this_ante()
                 card.joker_display_values.active = disableable
                 card.joker_display_values.active_text = localize(disableable and 'k_active' or 'ph_no_boss_active')
                 card.joker_display_values.xmult = 1 + (card.ability.extra.xmult * (G.GAME.joy_sauravis_uses or 0))

@@ -976,8 +976,8 @@ SMODS.Joker({
             if not context.blueprint_card and not context.retrigger_joker and
                 context.setting_blind and context.main_eval then
                 card.ability.extra.faceup_before_blind = nil
-                if G.GAME.blind and ((not G.GAME.blind.disabled) and (G.GAME.blind.boss)) then
-                    G.GAME.blind:disable()
+                if JoyousSpring.are_blinds_active() then
+                    JoyousSpring.disable_all_active_blinds()
 
                     for i = 1, card.ability.extra.cards_to_create do
                         JoyousSpring.create_pseudorandom({ { monster_archetypes = { "Dragonmaid" }, rarity = 1 } },

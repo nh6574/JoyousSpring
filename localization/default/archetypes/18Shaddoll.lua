@@ -347,7 +347,7 @@ return {
                 name = "{C:joy_fusion}El Shaddoll Shekhinaga",
                 text = {
                     {
-                        "Disables effect of every {C:attention}Boss Blind",
+                        "Disables all {C:attention}Blind{} effects",
                         "A {C:joy_fusion}Fusion{} summoned using this card",
                         "as {C:attention}material{} gains this ability",
                     },
@@ -358,7 +358,7 @@ return {
                     },
                 },
                 joy_transfer_ability = {
-                    "Disables effect of every {C:attention}Boss Blind"
+                    "Disables all {C:attention}Blind{} effects"
                 },
                 joy_summon_conditions = {
                     "{C:attention}1{} {C:joy_normal}\"Shaddoll\"{}",

@@ -6,7 +6,7 @@ return {
                 text = {
                     {
                         "Sell this card to disable the current",
-                        "{C:attention}Boss Blind{} and add it to",
+                        "active {C:attention}Blinds{} and add it to",
                         "the next shop",
                     },
                     {

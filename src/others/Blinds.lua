@@ -37,11 +37,13 @@ JoyousSpring.Blind {
             joker.ability.joy_banished_by_dimensionshifter = nil
         end
     end,
-    on_exit = function(self, blind_type)
-        for _, joker in ipairs(JoyousSpring.banish_end_of_ante_area.cards) do
-            if joker.ability.joy_banished_by_dimensionshifter then
-                joker.ability.joy_banished_by_dimensionshifter = nil
-                JoyousSpring.return_from_banish(joker)
+    on_exit = function(self, blind_type, from_defeat)
+        if not from_defeat then
+            for _, joker in ipairs(JoyousSpring.banish_end_of_ante_area.cards) do
+                if joker.ability.joy_banished_by_dimensionshifter then
+                    joker.ability.joy_banished_by_dimensionshifter = nil
+                    JoyousSpring.return_from_banish(joker)
+                end
             end
         end
     end,
@@ -1239,8 +1241,10 @@ JoyousSpring.Blind {
     on_enter = function(self, blind_type)
         G.jokers:change_size(-2)
     end,
-    on_exit = function(self, blind_type)
-        G.jokers:change_size(2)
+    on_exit = function(self, blind_type, from_defeat)
+        if not from_defeat then
+            G.jokers:change_size(2)
+        end
     end,
     disable = function(self)
         G.jokers:change_size(2)
@@ -1389,11 +1393,13 @@ JoyousSpring.Blind {
             joker.ability.joy_banished_by_chaindisappearance = nil
         end
     end,
-    on_exit = function(self, blind_type)
-        for _, joker in ipairs(JoyousSpring.banish_end_of_ante_area.cards) do
-            if joker.ability.joy_banished_by_chaindisappearance then
-                joker.ability.joy_banished_by_chaindisappearance = nil
-                JoyousSpring.return_from_banish(joker)
+    on_exit = function(self, blind_type, from_defeat)
+        if not from_defeat then
+            for _, joker in ipairs(JoyousSpring.banish_end_of_ante_area.cards) do
+                if joker.ability.joy_banished_by_chaindisappearance then
+                    joker.ability.joy_banished_by_chaindisappearance = nil
+                    JoyousSpring.return_from_banish(joker)
+                end
             end
         end
     end,
@@ -1548,11 +1554,13 @@ JoyousSpring.Blind {
             end
         end
     end,
-    on_exit = function(self, blind_type)
-        for _, joker in ipairs(JoyousSpring.banish_end_of_round_area.cards) do
-            if joker.ability.joy_banished_by_chainhole then
-                joker.ability.joy_banished_by_chainhole = nil
-                JoyousSpring.return_from_banish(joker)
+    on_exit = function(self, blind_type, from_defeat)
+        if not from_defeat then
+            for _, joker in ipairs(JoyousSpring.banish_end_of_round_area.cards) do
+                if joker.ability.joy_banished_by_chainhole then
+                    joker.ability.joy_banished_by_chainhole = nil
+                    JoyousSpring.return_from_banish(joker)
+                end
             end
         end
     end,
@@ -1769,10 +1777,12 @@ JoyousSpring.Blind {
             joker.ability.joy_debuffed_by_imperm = nil
         end
     end,
-    on_exit = function(self, blind_type)
-        for _, joker in ipairs(G.jokers.cards) do
-            joker.ability.joy_debuffed_by_imperm = nil
-            SMODS.recalc_debuff(joker)
+    on_exit = function(self, blind_type, from_defeat)
+        if not from_defeat then
+            for _, joker in ipairs(G.jokers.cards) do
+                joker.ability.joy_debuffed_by_imperm = nil
+                SMODS.recalc_debuff(joker)
+            end
         end
     end,
     opponent_card = {
@@ -1865,11 +1875,13 @@ JoyousSpring.Blind {
             card.ability.joy_banished_by_lightforcesword = nil
         end
     end,
-    on_exit = function(self, blind_type)
-        for _, card in ipairs(JoyousSpring.banish_end_of_ante_area.cards) do
-            if card.ability.joy_banished_by_lightforcesword then
-                card.ability.joy_banished_by_lightforcesword = nil
-                JoyousSpring.return_from_banish(card)
+    on_exit = function(self, blind_type, from_defeat)
+        if not from_defeat then
+            for _, card in ipairs(JoyousSpring.banish_end_of_ante_area.cards) do
+                if card.ability.joy_banished_by_lightforcesword then
+                    card.ability.joy_banished_by_lightforcesword = nil
+                    JoyousSpring.return_from_banish(card)
+                end
             end
         end
     end,

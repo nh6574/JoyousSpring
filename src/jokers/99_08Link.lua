@@ -262,8 +262,8 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if not context.blueprint_card and context.selling_self then
-            if G.GAME.blind and ((not G.GAME.blind.disabled) and (G.GAME.blind:get_type() == 'Boss')) then
-                G.GAME.blind:disable()
+            if JoyousSpring.are_blinds_active() then
+                JoyousSpring.disable_all_active_blinds()
                 ease_dollars(-G.GAME.dollars)
                 return { message = localize('ph_boss_disabled') }
             end
@@ -309,8 +309,8 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if not context.blueprint_card and context.selling_self then
-            if G.GAME.blind and ((not G.GAME.blind.disabled) and (G.GAME.blind:get_type() == 'Boss')) then
-                G.GAME.blind:disable()
+            if JoyousSpring.are_blinds_active() then
+                JoyousSpring.disable_all_active_blinds()
                 local used_ignister = false
                 for _, material in ipairs(card.ability.extra.joyous_spring.summon_materials) do
                     if JoyousSpring.is_material_center(material, { monster_archetypes = { "Ignister" } }) then

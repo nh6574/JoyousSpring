@@ -173,7 +173,8 @@ return {
                         "to {C:attention}transform{} this card into {C:joy_effect}\"Aleister the Invoker\"",
                     },
                     {
-                        "Disables effect of {C:attention}Boss Blind{} after {C:attention}#2#{} cards are sold this round",
+                        "Disables all {C:attention}Blind{} effects this ante",
+                        "after {C:attention}#2#{} cards are sold this round",
                         "{C:inactive}(#3#/#2#)",
                     },
                 },
@@ -183,7 +184,8 @@ return {
                     "{s:0.8,C:inactive}a non-Monster)"
                 },
                 joy_transfer_ability = {
-                    "Disables effect of {C:attention}Boss Blind{} after {C:attention}#1#{} cards are sold this round",
+                    "Disables all {C:attention}Blind{} effects this ante",
+                    "after {C:attention}#2#{} cards are sold this round",
                     "{C:inactive}(#2#/#1#)"
                 }
             },
