@@ -88,6 +88,7 @@ JoyousSpring.calculate_context = function(context)
         -- Update Blind effects area
         if G.GAME.joy_disabled_blinds[G.GAME.blind.config.blind.key] and not G.GAME.blind.disabled then
             G.GAME.blind:disable()
+            G.GAME.joy_already_disabled_blinds[G.GAME.blind.config.blind.key] = true
         else
             JoyousSpring.update_blind_effects_area()
         end
@@ -198,6 +199,7 @@ SMODS.current_mod.calculate = function(self, context)
     -- Reset disabled blinds
     if context.ante_change and context.ante_end then
         G.GAME.joy_disabled_blinds = {}
+        G.GAME.joy_already_disabled_blinds = {}
     end
 end
 

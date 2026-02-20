@@ -113,3 +113,16 @@ else
     play_sound('chips1', math.random() * 0.1 + 0.55, 0.12)
 end
 '''
+
+# Don't disable blinds twice
+[[patches]]
+[patches.pattern]
+target = "blind.lua"
+pattern = "obj:disable()"
+position = 'at'
+match_indent = true
+payload = '''
+if not JoyousSpring or not G.GAME.joy_already_disabled_blinds[self.config.blind.key] then
+    obj:disable()
+end
+'''

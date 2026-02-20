@@ -115,6 +115,7 @@ end
 JoyousSpring.blind_changed = function(blind_type, new_key, old_key)
     G.GAME.joy_active_blinds = G.GAME.joy_active_blinds or {}
     G.GAME.joy_disabled_blinds = G.GAME.joy_disabled_blinds or {}
+    G.GAME.joy_already_disabled_blinds = G.GAME.joy_already_disabled_blinds or {}
     G.GAME.joy_blind_effects = G.GAME.joy_blind_effects or {}
     JoyousSpring.blind_effects = G.GAME.joy_blind_effects
 
@@ -148,6 +149,7 @@ JoyousSpring.enable_blind_ante = function(key, blind_type)
     if prototype.has_ante_ability or type(prototype.calculate_ante) == "function" then
         G.GAME.joy_active_blinds[key] = blind_type
         G.GAME.joy_disabled_blinds[key] = nil
+        G.GAME.joy_already_disabled_blinds[key] = nil
     end
     JoyousSpring.update_blind_effects_area()
 end
@@ -162,10 +164,12 @@ JoyousSpring.disable_blind_ante = function(key, blind_type)
     if not SMODS.is_active_blind(key, true) then
         if prototype and type(prototype.on_exit) == "function" then
             prototype:on_exit(blind_type, G.GAME.joy_blind_defeated == key)
+            G.GAME.joy_already_disabled_blinds[key] = true
         end
     else
         if not G.GAME.blind.disabled then
             G.GAME.blind:disable()
+            G.GAME.joy_already_disabled_blinds[key] = true
         end
     end
 
@@ -296,10 +300,8 @@ JoyousSpring.blind_on_game_over = function()
         end
     end
     for _, key in ipairs(disable) do
-        G.GAME.joy_active_blinds[key] = nil
-        G.GAME.joy_disabled_blinds[key] = true
+        JoyousSpring.disable_blind_ante(key, G.GAME.joy_active_blinds[key])
     end
-    JoyousSpring.update_blind_effects_area()
 end
 
 local game_start_run_ref = Game.start_run
