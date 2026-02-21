@@ -1192,16 +1192,6 @@ JoyousSpring.Blind {
     }
 }
 
--- Temp hook while SMODS doesn't merge my PR
-local card_remove_sticker_ref = Card.remove_sticker
-function Card:remove_sticker(sticker)
-    if sticker == 'pinned' and self.pinned then
-        SMODS.Stickers[sticker]:apply(self, false)
-        SMODS.enh_cache:write(self, nil)
-    end
-    return card_remove_sticker_ref(self, sticker)
-end
-
 -- Super Polymerization
 -- JoyousSpring.Blind {
 --     key = "superpoly",
