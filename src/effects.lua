@@ -220,33 +220,42 @@ end
 
 ---Count card as being tributed
 ---@param card Card|table
-JoyousSpring.count_as_tributed = function(card)
+JoyousSpring.count_as_tributed = function(card, for_ritual)
     if not G.GAME.joy_tributed_cards[card.config.center.key] then
         G.GAME.joy_tributed_cards[card.config.center.key] = {
             set = card.ability.set,
-            count = 0
+            count = 0,
+            for_ritual = 0
         }
     end
     if not G.GAME.current_round.joy_tributed_cards[card.config.center.key] then
         G.GAME.current_round.joy_tributed_cards[card.config.center.key] = {
             set = card.ability.set,
-            count = 0
+            count = 0,
+            for_ritual = 0
         }
     end
     G.GAME.joy_tributed_cards[card.config.center.key].count = G.GAME.joy_tributed_cards[card.config.center.key]
         .count + 1
     G.GAME.current_round.joy_tributed_cards[card.config.center.key].count = G.GAME.current_round.joy_tributed_cards
         [card.config.center.key].count + 1
+    if for_ritual then
+        G.GAME.joy_tributed_cards[card.config.center.key].for_ritual =
+            G.GAME.joy_tributed_cards[card.config.center.key].for_ritual + 1
+        G.GAME.current_round.joy_tributed_cards[card.config.center.key].for_ritual =
+            G.GAME.current_round.joy_tributed_cards[card.config.center.key].for_ritual + 1
+    end
 end
 
 ---Tribute a card
 ---@param card Card|table Source of the tributing
 ---@param card_list Card[]|table Cards to tribute
-JoyousSpring.tribute = function(card, card_list)
+---@param for_ritual boolean? For a Ritual Summon
+JoyousSpring.tribute = function(card, card_list, for_ritual)
     if not card_list then return end
 
     for _, material in ipairs(card_list) do
-        JoyousSpring.count_as_tributed(material)
+        JoyousSpring.count_as_tributed(material, for_ritual)
         JoyousSpring.destroy_cards(material, nil, true)
         SMODS.calculate_context({ joy_tributed = true, joy_card = material, joy_source = card })
     end

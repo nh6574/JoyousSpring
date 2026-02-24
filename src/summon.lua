@@ -146,7 +146,11 @@ JoyousSpring.perform_summon = function(card, card_list, summon_type)
                 joker.ability.extra.joyous_spring.xyz_materials
         end
         joker.getting_sliced = true
-        joker:start_dissolve()
+        if summon_type == "RITUAL" then
+            JoyousSpring.tribute(card, card_list, true)
+        else
+            joker:start_dissolve()
+        end
     end
     card.ability.extra.joyous_spring.summoned = true
 

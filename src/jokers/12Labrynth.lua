@@ -666,7 +666,7 @@ SMODS.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 attribute = "DARK",
                 monster_type = "Fiend",
-                monster_archetypes = { ["Labrynth"] = true }
+                monster_archetypes = { ["Labrynth"] = true, ["Archfiend"] = true }
             },
             mult = 5,
             flips = 1
