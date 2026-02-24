@@ -147,7 +147,7 @@ JoyousSpring.perform_summon = function(card, card_list, summon_type)
         end
         joker.getting_sliced = true
         if summon_type == "RITUAL" then
-            JoyousSpring.tribute(card, card_list, true)
+            JoyousSpring.tribute(card, { joker }, true)
         else
             joker:start_dissolve()
         end
