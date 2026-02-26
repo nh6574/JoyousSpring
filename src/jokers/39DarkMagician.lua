@@ -1,15 +1,15 @@
---- MISCELLANEOUS
+--- DARK MAGICIAN
 SMODS.Atlas({
-    key = "Misc06",
-    path = "99Misc06.png",
+    key = "dm",
+    path = "39DarkMagician.png",
     px = 71,
     py = 95
 })
 
--- Dogmatika Lawbringer
+-- Dark Magician
 SMODS.Joker({
-    key = "dogma_law",
-    atlas = "Misc06",
+    key = "dm_dm",
+    atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -19,19 +19,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+
             },
         },
     },
 })
 
--- Solfachord Primoa
+-- Dark Magician Girl
 SMODS.Joker({
-    key = "solfa_primoa",
-    atlas = "Misc06",
+    key = "dm_dmg",
+    atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -41,20 +45,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
-                is_pendulum = true,
+
             },
         },
     },
 })
 
--- Solfachord Solfegia
+-- Apprentice Illusion Magician
 SMODS.Joker({
-    key = "solfa_solfegia",
-    atlas = "Misc06",
+    key = "dm_apprentice",
+    atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -64,20 +71,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
-                is_pendulum = true,
+
             },
         },
     },
 })
 
--- Dimension Shifter
+-- Chronicle Magician
 SMODS.Joker({
-    key = "dimensionshifter",
-    atlas = "Misc06",
+    key = "dm_chromagician",
+    atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -87,19 +97,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+
             },
         },
     },
 })
 
--- Droll & Lock Bird
+-- Chronicle Sorceress
 SMODS.Joker({
-    key = "droll",
-    atlas = "Misc06",
+    key = "dm_sorceress",
+    atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -109,19 +123,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+
             },
         },
     },
 })
 
--- Kurikara Divincarnate
+-- Dark Magician Knight
 SMODS.Joker({
-    key = "kurikara",
-    atlas = "Misc06",
+    key = "dm_knight",
+    atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -131,19 +149,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+
             },
         },
     },
 })
 
--- Nibiru, the Primal Being
+-- Dark Magician of Chaos
 SMODS.Joker({
-    key = "nibiru",
-    atlas = "Misc06",
+    key = "dm_chaos",
+    atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -153,19 +175,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+
             },
         },
     },
 })
 
--- Theia, the Primal Being
+-- Magician of Dark Illusion
 SMODS.Joker({
-    key = "theia",
-    atlas = "Misc06",
+    key = "dm_darkillusion",
+    atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -175,19 +201,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+
             },
         },
     },
 })
 
--- Parasite Paracide
+-- Magician's Robe
 SMODS.Joker({
-    key = "parasiteparacide",
-    atlas = "Misc06",
+    key = "dm_robe",
+    atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -197,19 +227,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+
             },
         },
     },
 })
 
--- Parasite Paranoid
+-- Magician's Rod
 SMODS.Joker({
-    key = "parasiteparanoid",
-    atlas = "Misc06",
+    key = "dm_rod",
+    atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -219,19 +253,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+
             },
         },
     },
 })
 
--- Dark Ruler Ha Des
+-- Magician's Valkyria
 SMODS.Joker({
-    key = "hades",
-    atlas = "Misc06",
+    key = "dm_valkyria",
+    atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -241,19 +279,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+
             },
         },
     },
 })
 
--- Helios - The Primordial Sun
+-- Magicians' Souls
 SMODS.Joker({
-    key = "helios",
-    atlas = "Misc06",
+    key = "dm_souls",
+    atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -263,19 +305,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+
             },
         },
     },
 })
 
--- Helios Duo Megistus
+-- Magikuriboh
 SMODS.Joker({
-    key = "heliosduo",
-    atlas = "Misc06",
+    key = "dm_kuri",
+    atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -285,19 +331,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+
             },
         },
     },
 })
 
--- Helios Trice Megistus
+-- Dimension Conjurer
 SMODS.Joker({
-    key = "heliostrice",
-    atlas = "Misc06",
+    key = "dm_conjurer",
+    atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -307,19 +357,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+
             },
         },
     },
 })
 
--- Magical Undertaker
+-- Palladium Oracle Mahad
 SMODS.Joker({
-    key = "magicalundertaker",
-    atlas = "Misc06",
+    key = "dm_mahad",
+    atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -329,19 +383,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+
             },
         },
     },
 })
 
--- Maiden of the Millennium Moon
+-- Palladium Oracle Mana
 SMODS.Joker({
-    key = "milleniummoon",
-    atlas = "Misc06",
+    key = "dm_mana",
+    atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -351,19 +409,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+
             },
         },
     },
 })
 
--- Master Tao the Chanter
+-- Timaeus the United Dragon
 SMODS.Joker({
-    key = "mastertao",
-    atlas = "Misc06",
+    key = "dm_timaeus",
+    atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -373,19 +435,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+
             },
         },
     },
 })
 
--- Maxx "C"
+-- Dark Eradicator Warlock
 SMODS.Joker({
-    key = "maxxc",
-    atlas = "Misc06",
+    key = "dm_warlock",
+    atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -395,19 +461,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+
             },
         },
     },
 })
 
--- Nightmare Apprentice
+-- Magician's Salvation
 SMODS.Joker({
-    key = "nightapprentice",
-    atlas = "Misc06",
+    key = "dm_salvation",
+    atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -417,19 +487,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                is_field_spell = true,
             },
         },
     },
 })
 
--- Nightmare Magician
+-- Magician of Black Chaos
 SMODS.Joker({
-    key = "nightmagician",
-    atlas = "Misc06",
+    key = "dm_blackchaos",
+    atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -439,130 +513,24 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-            },
-        },
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-})
-
--- Talons of Shurilane
-SMODS.Joker({
-    key = "shurilane",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-            },
-        },
-    },
-})
-
--- Tao Tao the Chanter
-SMODS.Joker({
-    key = "taotao",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-            },
-        },
-    },
-})
-
--- Necrovalley
-SMODS.Joker({
-    key = "necrovalley",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-            },
-        },
-    },
-})
-
--- Secret Village of the Spellcasters
-SMODS.Joker({
-    key = "secretvillage",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-            },
-        },
-    },
-})
-
--- Skull Guardian
-SMODS.Joker({
-    key = "skullguardian",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "RITUAL",
+
             },
         },
     },
 })
 
--- Saffira, Queen of Dragons
+-- Magician of Black Chaos MAX
 SMODS.Joker({
-    key = "saffira",
-    atlas = "Misc06",
+    key = "dm_blackchaosmax",
+    atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -572,20 +540,24 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "RITUAL",
+
             },
         },
     },
 })
 
--- Quintet Magician
+-- Magician of Chaos
 SMODS.Joker({
-    key = "quintet",
-    atlas = "Misc06",
+    key = "dm_chaosritual",
+    atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -595,20 +567,78 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                summon_type = "RITUAL",
+
+            },
+        },
+    },
+})
+
+-- Illusion of Chaos
+SMODS.Joker({
+    key = "dm_illusion",
+    atlas = 'dm',
+    pos = { x = 0, y = 0 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                summon_type = "RITUAL",
+
+            },
+        },
+    },
+})
+
+-- Dark Cavalry
+SMODS.Joker({
+    key = "dm_cavalry",
+    atlas = 'dm',
+    pos = { x = 0, y = 0 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "FUSION",
+
             },
         },
     },
 })
 
--- Slacker Magician
+-- Dark Magician of Destruction
 SMODS.Joker({
-    key = "slacker",
-    atlas = "Misc06",
+    key = "dm_destruction",
+    atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -618,20 +648,213 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                summon_type = "FUSION",
+
+            },
+        },
+    },
+})
+
+-- Dark Magician the Dragon Knight
+SMODS.Joker({
+    key = "dm_dragonknight",
+    atlas = 'dm',
+    pos = { x = 0, y = 0 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                summon_type = "FUSION",
+
+            },
+        },
+    },
+})
+
+-- Amulet Dragon
+SMODS.Joker({
+    key = "dm_amulet",
+    atlas = 'dm',
+    pos = { x = 0, y = 0 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                summon_type = "FUSION",
+
+            },
+        },
+    },
+})
+
+-- Timaeus the United Magical Dragon
+SMODS.Joker({
+    key = "dm_timaeusmagical",
+    atlas = 'dm',
+    pos = { x = 0, y = 0 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                summon_type = "FUSION",
+
+            },
+        },
+    },
+})
+
+-- The Dark Magicians
+SMODS.Joker({
+    key = "dm_magicians",
+    atlas = 'dm',
+    pos = { x = 0, y = 0 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                summon_type = "FUSION",
+
+            },
+        },
+    },
+})
+
+-- Red-Eyes Dark Dragoon
+SMODS.Joker({
+    key = "dm_dragoon",
+    atlas = 'dm',
+    pos = { x = 0, y = 0 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                summon_type = "FUSION",
+
+            },
+        },
+    },
+})
+
+-- Dark Magician Girl the Dragon Knight
+SMODS.Joker({
+    key = "dm_dmgknight",
+    atlas = 'dm',
+    pos = { x = 0, y = 0 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                summon_type = "FUSION",
+
+            },
+        },
+    },
+})
+
+-- Ebon Illusion Magician
+SMODS.Joker({
+    key = "dm_ebonillusion",
+    atlas = 'dm',
+    pos = { x = 0, y = 0 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "XYZ",
+
             },
         },
     },
 })
 
--- Downerd Magician
+-- Ebon High Magician
 SMODS.Joker({
-    key = "downerd",
-    atlas = "Misc06",
+    key = "dm_ebonhigh",
+    atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -641,128 +864,21 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "XYZ",
+
             },
         },
     },
 })
 
--- Alchemic Magician
-SMODS.Joker({
-    key = "alchemic",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                summon_type = "XYZ",
-            },
-        },
-    },
-})
-
--- Heretical Phobos Covos
-SMODS.Joker({
-    key = "phoboscobos",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                summon_type = "XYZ",
-            },
-        },
-    },
-})
-
--- Miracle Raven
-SMODS.Joker({
-    key = "miracleraven",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                is_pendulum = true,
-                summon_type = "RITUAL",
-            },
-        },
-    },
-})
-
--- Relinquished Anima
-SMODS.Joker({
-    key = "relinq_anima",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                summon_type = "LINK",
-            },
-        },
-    },
-})
-
--- W:P Fancy Ball
-SMODS.Joker({
-    key = "wp",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                summon_type = "LINK",
-            },
-        },
-    },
-})
+JoyousSpring.collection_pool[#JoyousSpring.collection_pool + 1] = {
+    keys = { "dm" },
+    label = "k_joy_archetype_dm"
+}

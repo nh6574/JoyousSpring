@@ -1,15 +1,15 @@
---- MISCELLANEOUS
+--- SKY STRIKER
 SMODS.Atlas({
-    key = "Misc06",
-    path = "99Misc06.png",
+    key = "striker",
+    path = "35SkyStriker.png",
     px = 71,
     py = 95
 })
 
--- Dogmatika Lawbringer
+-- Sky Striker Ace - Raye
 SMODS.Joker({
-    key = "dogma_law",
-    atlas = "Misc06",
+    key = "striker_raye",
+    atlas = 'striker',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -19,19 +19,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_archetypes = { ["SkyStriker"] = true }
             },
         },
     },
 })
 
--- Solfachord Primoa
+-- Sky Striker Ace - Roze
 SMODS.Joker({
-    key = "solfa_primoa",
-    atlas = "Misc06",
+    key = "striker_roze",
+    atlas = 'striker',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -41,20 +45,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
-                is_pendulum = true,
+                monster_archetypes = { ["SkyStriker"] = true }
             },
         },
     },
 })
 
--- Solfachord Solfegia
+-- Surgical Striker - H.A.M.P.
 SMODS.Joker({
-    key = "solfa_solfegia",
-    atlas = "Misc06",
+    key = "striker_hamp",
+    atlas = 'striker',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -64,20 +71,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
-                is_pendulum = true,
+                monster_archetypes = { ["SkyStriker"] = true }
             },
         },
     },
 })
 
--- Dimension Shifter
+-- Aileron
 SMODS.Joker({
-    key = "dimensionshifter",
-    atlas = "Misc06",
+    key = "striker_aileron",
+    atlas = 'striker',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -87,19 +97,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_archetypes = { ["SkyStriker"] = true }
             },
         },
     },
 })
 
--- Droll & Lock Bird
+-- Pillar of the Future - Cyanos
 SMODS.Joker({
-    key = "droll",
-    atlas = "Misc06",
+    key = "striker_cyanos",
+    atlas = 'striker',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -109,19 +123,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_archetypes = { ["SkyStriker"] = true }
             },
         },
     },
 })
 
--- Kurikara Divincarnate
+-- Sage of Benevolence - Ciela
 SMODS.Joker({
-    key = "kurikara",
-    atlas = "Misc06",
+    key = "striker_ciela",
+    atlas = 'striker',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -131,19 +149,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_archetypes = { ["SkyStriker"] = true }
             },
         },
     },
 })
 
--- Nibiru, the Primal Being
+-- Sage of Strength - Akash
 SMODS.Joker({
-    key = "nibiru",
-    atlas = "Misc06",
+    key = "striker_akash",
+    atlas = 'striker',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -153,19 +175,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_archetypes = { ["SkyStriker"] = true }
             },
         },
     },
 })
 
--- Theia, the Primal Being
+-- Sage of Wisdom - Himmel
 SMODS.Joker({
-    key = "theia",
-    atlas = "Misc06",
+    key = "striker_himmel",
+    atlas = 'striker',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -175,19 +201,23 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_archetypes = { ["SkyStriker"] = true }
             },
         },
     },
 })
 
--- Parasite Paracide
+-- Sky Striker Airspace - Area Zero
 SMODS.Joker({
-    key = "parasiteparacide",
-    atlas = "Misc06",
+    key = "striker_areazero",
+    atlas = 'striker',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -197,19 +227,24 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                is_field_spell = true,
+                monster_archetypes = { ["SkyStriker"] = true }
             },
         },
     },
 })
 
--- Parasite Paranoid
+-- Sky Striker Ace - Hayate
 SMODS.Joker({
-    key = "parasiteparanoid",
-    atlas = "Misc06",
+    key = "striker_hayate",
+    atlas = 'striker',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -219,535 +254,24 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-            },
-        },
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
     },
-})
-
--- Dark Ruler Ha Des
-SMODS.Joker({
-    key = "hades",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-            },
-        },
-    },
-})
-
--- Helios - The Primordial Sun
-SMODS.Joker({
-    key = "helios",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-            },
-        },
-    },
-})
-
--- Helios Duo Megistus
-SMODS.Joker({
-    key = "heliosduo",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-            },
-        },
-    },
-})
-
--- Helios Trice Megistus
-SMODS.Joker({
-    key = "heliostrice",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-            },
-        },
-    },
-})
-
--- Magical Undertaker
-SMODS.Joker({
-    key = "magicalundertaker",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-            },
-        },
-    },
-})
-
--- Maiden of the Millennium Moon
-SMODS.Joker({
-    key = "milleniummoon",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-            },
-        },
-    },
-})
-
--- Master Tao the Chanter
-SMODS.Joker({
-    key = "mastertao",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-            },
-        },
-    },
-})
-
--- Maxx "C"
-SMODS.Joker({
-    key = "maxxc",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-            },
-        },
-    },
-})
-
--- Nightmare Apprentice
-SMODS.Joker({
-    key = "nightapprentice",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-            },
-        },
-    },
-})
-
--- Nightmare Magician
-SMODS.Joker({
-    key = "nightmagician",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-            },
-        },
-    },
-})
-
--- Talons of Shurilane
-SMODS.Joker({
-    key = "shurilane",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-            },
-        },
-    },
-})
-
--- Tao Tao the Chanter
-SMODS.Joker({
-    key = "taotao",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-            },
-        },
-    },
-})
-
--- Necrovalley
-SMODS.Joker({
-    key = "necrovalley",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-            },
-        },
-    },
-})
-
--- Secret Village of the Spellcasters
-SMODS.Joker({
-    key = "secretvillage",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-            },
-        },
-    },
-})
-
--- Skull Guardian
-SMODS.Joker({
-    key = "skullguardian",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                summon_type = "RITUAL",
-            },
-        },
-    },
-})
-
--- Saffira, Queen of Dragons
-SMODS.Joker({
-    key = "saffira",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                summon_type = "RITUAL",
-            },
-        },
-    },
-})
-
--- Quintet Magician
-SMODS.Joker({
-    key = "quintet",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                summon_type = "FUSION",
-            },
-        },
-    },
-})
-
--- Slacker Magician
-SMODS.Joker({
-    key = "slacker",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                summon_type = "XYZ",
-            },
-        },
-    },
-})
-
--- Downerd Magician
-SMODS.Joker({
-    key = "downerd",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                summon_type = "XYZ",
-            },
-        },
-    },
-})
-
--- Alchemic Magician
-SMODS.Joker({
-    key = "alchemic",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                summon_type = "XYZ",
-            },
-        },
-    },
-})
-
--- Heretical Phobos Covos
-SMODS.Joker({
-    key = "phoboscobos",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                summon_type = "XYZ",
-            },
-        },
-    },
-})
-
--- Miracle Raven
-SMODS.Joker({
-    key = "miracleraven",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    set_sprites = JoyousSpring.set_back_sprite,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                is_pendulum = true,
-                summon_type = "RITUAL",
-            },
-        },
-    },
-})
-
--- Relinquished Anima
-SMODS.Joker({
-    key = "relinq_anima",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
-    discovered = true,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "LINK",
+                monster_archetypes = { ["SkyStriker"] = true }
             },
         },
     },
 })
 
--- W:P Fancy Ball
+-- Sky Striker Ace - Kagari
 SMODS.Joker({
-    key = "wp",
-    atlas = "Misc06",
+    key = "striker_kagari",
+    atlas = 'striker',
     pos = { x = 0, y = 0 },
     rarity = 1,
     discovered = true,
@@ -757,12 +281,291 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
+    },
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "LINK",
+                monster_archetypes = { ["SkyStriker"] = true }
             },
         },
     },
 })
+
+-- Sky Striker Ace - Shizuku
+SMODS.Joker({
+    key = "striker_shizuku",
+    atlas = 'striker',
+    pos = { x = 0, y = 0 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
+    },
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                summon_type = "LINK",
+                monster_archetypes = { ["SkyStriker"] = true }
+            },
+        },
+    },
+})
+
+-- Sky Striker Ace - Kaina
+SMODS.Joker({
+    key = "striker_kaina",
+    atlas = 'striker',
+    pos = { x = 0, y = 0 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
+    },
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                summon_type = "LINK",
+                monster_archetypes = { ["SkyStriker"] = true }
+            },
+        },
+    },
+})
+
+-- Prototype Sky Striker Ace - Amatsu
+SMODS.Joker({
+    key = "striker_amatsu",
+    atlas = 'striker',
+    pos = { x = 0, y = 0 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
+    },
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                summon_type = "LINK",
+                monster_archetypes = { ["SkyStriker"] = true }
+            },
+        },
+    },
+})
+
+-- Sky Striker Ace - Zeke
+SMODS.Joker({
+    key = "striker_zeke",
+    atlas = 'striker',
+    pos = { x = 0, y = 0 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
+    },
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                summon_type = "LINK",
+                monster_archetypes = { ["SkyStriker"] = true }
+            },
+        },
+    },
+})
+
+-- Sky Striker Ace - Azalea
+SMODS.Joker({
+    key = "striker_azalea",
+    atlas = 'striker',
+    pos = { x = 0, y = 0 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
+    },
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                summon_type = "LINK",
+                monster_archetypes = { ["SkyStriker"] = true }
+            },
+        },
+    },
+})
+
+-- Sky Striker Ace - Azalea Temperance
+SMODS.Joker({
+    key = "striker_azaleatemp",
+    atlas = 'striker',
+    pos = { x = 0, y = 0 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
+    },
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                summon_type = "LINK",
+                monster_archetypes = { ["SkyStriker"] = true }
+            },
+        },
+    },
+})
+
+-- Sky Striker Ace - Camellia
+SMODS.Joker({
+    key = "striker_camellia",
+    atlas = 'striker',
+    pos = { x = 0, y = 0 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
+    },
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                summon_type = "LINK",
+                monster_archetypes = { ["SkyStriker"] = true }
+            },
+        },
+    },
+})
+
+-- Sky Striker Ace = Zero
+SMODS.Joker({
+    key = "striker_zero",
+    atlas = 'striker',
+    pos = { x = 0, y = 0 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
+    },
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                summon_type = "LINK",
+                monster_archetypes = { ["SkyStriker"] = true }
+            },
+        },
+    },
+})
+
+-- Combined Maneuver - Engage Zero!
+SMODS.Joker({
+    key = "striker_combined",
+    atlas = 'striker',
+    pos = { x = 0, y = 0 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
+    },
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                summon_type = "LINK",
+                monster_archetypes = { ["SkyStriker"] = true }
+            },
+        },
+    },
+})
+
+-- Surgical Striker - S.P.E.C.T.R.A
+SMODS.Joker({
+    key = "striker_spectra",
+    atlas = 'striker',
+    pos = { x = 0, y = 0 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
+    },
+    set_sprites = JoyousSpring.set_back_sprite,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                summon_type = "LINK",
+                monster_archetypes = { ["SkyStriker"] = true }
+            },
+        },
+    },
+})
+
+JoyousSpring.collection_pool[#JoyousSpring.collection_pool + 1] = {
+    keys = { "striker" },
+    label = "k_joy_archetype_striker"
+}
