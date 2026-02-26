@@ -537,7 +537,20 @@ JoyousSpring.get_all_summon_material_combos = function(card, card_list)
             JoyousSpring.get_summon_materials_consumables(card.ability.extra.joyous_spring.summon_consumeable_conditions,
                 card_table))
     else
-        card_table = card_list or G.jokers.cards
+        card_table = card_list or
+            G.STATE == G.STATES.JOY_SIDE_DECK and
+            SMODS.merge_lists({ G.jokers.cards, JoyousSpring.side_deck_area.cards }) or
+            G.jokers.cards
+        if card.area and card.area == JoyousSpring.side_deck_area then
+            local remove_self_pos
+            for i, material in ipairs(card_table) do
+                if material == card then
+                    remove_self_pos = i
+                    break
+                end
+            end
+            if remove_self_pos then table.remove(card_table, remove_self_pos) end
+        end
         local conditions = card.ability.extra.joyous_spring.summon_conditions
 
         for _, condition in ipairs(conditions) do
@@ -646,7 +659,8 @@ JoyousSpring.can_summon_with_combo = function(card, combo)
             if JoyousSpring.fulfills_conditions(combo, condition) then
                 local materials = 0
                 for _, material in ipairs(combo) do
-                    if material.ability.set == "Joker" and not (JoyousSpring.get_card_limit(material) > 0) then
+                    if material.ability.set == "Joker" and not (JoyousSpring.get_card_limit(material) > 0)
+                        and not material.joy_side_deck_pos then
                         materials = materials + 1
                     end
                 end
@@ -1095,7 +1109,13 @@ JoyousSpring.create_overlay_select_summon_materials = function(card, card_list)
                 added_joker.facing = 'back'
                 added_joker.sprite_facing = 'back'
             end
-            if joker.ability.set == 'Joker' then
+            if joker.area == JoyousSpring.side_deck_area then
+                for i, og_joker in ipairs(JoyousSpring.side_deck_area.cards) do
+                    if og_joker == joker then
+                        added_joker.joy_side_deck_pos = i
+                    end
+                end
+            elseif joker.ability.set == 'Joker' then
                 for i, og_joker in ipairs(G.jokers.cards) do
                     if og_joker == joker then
                         added_joker.joy_g_jokers_pos = i
@@ -1163,6 +1183,9 @@ G.FUNCS.joy_exit_select_material_menu = function(e)
             end
             if material.joy_g_consumeables_pos then
                 table.insert(material_list, G.consumeables.cards[material.joy_g_consumeables_pos])
+            end
+            if material.joy_side_deck_pos then
+                table.insert(material_list, JoyousSpring.side_deck_area.cards[material.joy_side_deck_pos])
             end
         end
         JoyousSpring.perform_summon(card, material_list, summon_type)

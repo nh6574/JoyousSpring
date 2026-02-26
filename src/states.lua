@@ -326,9 +326,12 @@ function Card:stop_drag()
                 self.area:remove_card(self)
                 if area == JoyousSpring.side_deck_area then
                     self:remove_from_deck(true)
-                else
+                elseif area ~= JoyousSpring.extra_deck_area then
                     self.ability.joy_extra_values = self.ability.joy_extra_values or {}
                     self:add_to_deck(not self.ability.joy_extra_values.added_to_side)
+                    self.ability.joy_extra_values.added_to_side = nil
+                else
+                    self.ability.joy_extra_values = self.ability.joy_extra_values or {}
                     self.ability.joy_extra_values.added_to_side = nil
                 end
                 draw_card(self.area, area, 1, 'up', nil, self, 0)
