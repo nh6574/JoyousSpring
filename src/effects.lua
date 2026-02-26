@@ -65,7 +65,7 @@ function SMODS.calculate_context(context, return_table, no_resolve)
 end
 
 ---Does global effects when a context is being calculated
----@param context table
+---@param context CalcContext
 JoyousSpring.calculate_context = function(context)
     if not JoyousSpring.field_spell_area then return end
     if context.joy_pre_setting_blind then
@@ -93,14 +93,29 @@ JoyousSpring.calculate_context = function(context)
             JoyousSpring.update_blind_effects_area()
         end
     end
-    if context.end_of_round and context.game_over == false then
+    if context.end_of_round and context.game_over == false and not context.individual and not context.repetition then
+        for _, joker in ipairs(JoyousSpring.banish_boss_selected_area.cards) do
+            joker:calculate_perishable()
+        end
+        for _, joker in ipairs(JoyousSpring.banish_blind_selected_area.cards) do
+            joker:calculate_perishable()
+        end
         if G.GAME.blind and G.GAME.blind.boss then
             while #JoyousSpring.banish_end_of_ante_area.cards > 0 do
                 JoyousSpring.return_from_banish(JoyousSpring.banish_end_of_ante_area.cards[1])
             end
+        else
+            for _, joker in ipairs(JoyousSpring.banish_end_of_ante_area.cards) do
+                joker:calculate_perishable()
+            end
         end
         while #JoyousSpring.banish_end_of_round_area.cards > 0 do
             JoyousSpring.return_from_banish(JoyousSpring.banish_end_of_round_area.cards[1])
+        end
+        if JoyousSpring.side_deck_area then
+            for _, joker in ipairs(JoyousSpring.side_deck_area.cards) do
+                joker:calculate_perishable()
+            end
         end
     end
 
@@ -216,6 +231,13 @@ function SMODS.current_mod.reset_game_globals(run_start)
         G.GAME.joy_only_ygo_cards = JoyousSpring.config.only_ygo_cards
     end
     G.GAME.current_round.joy_tributed_cards = {}
+end
+
+local card_eval_status_text_ref = card_eval_status_text
+function card_eval_status_text(card, ...)
+    -- Disable messages for banished or side deck cards
+    if JoyousSpring.is_banished(card) or card.area == JoyousSpring.side_deck_area then return end
+    return card_eval_status_text_ref(card, ...)
 end
 
 ---Count card as being tributed
