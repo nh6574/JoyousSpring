@@ -470,7 +470,6 @@ JoyousSpring.calculate_hand_highlight_limit = function()
             local maxlimit = JoyousSpring.calculate_prototype_function("set_hand_highlight_limit", {
                 default_return = -1,
                 return_func = function(new, original)
-                    if not original then return new end
                     local new_limit = new or -1
                     return original(new_limit > original) and new_limit or original
                 end
@@ -551,7 +550,6 @@ JoyousSpring.calculate_excavate = function(context)
     local maxlimit = JoyousSpring.calculate_prototype_function("set_excavate_count", {
         default_return = 0,
         return_func    = function(new, original)
-            if not original then return new end
             local new_limit = new or -1
             return (new_limit > original) and new_limit or original
         end

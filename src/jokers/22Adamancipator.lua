@@ -6,7 +6,7 @@ SMODS.Atlas({
     py = 95
 })
 
-local adaman_excavate = function(card, context)
+local adaman_excavate = function(self, card, context)
     if context.setting_blind then
         return card.ability.extra.excavates
     end

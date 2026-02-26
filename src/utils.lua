@@ -668,7 +668,7 @@ end
 JoyousSpring.calculate_prototype_function = function(func, args, ...)
     if not func or not G.jokers or not G.jokers.cards then return end
     args = args or {}
-    return_func = args.return_func or function(new, original)
+    local return_func = args.return_func or function(new, original)
         return new or original
     end
     local transfer_func = "joy_transfer_" .. func
