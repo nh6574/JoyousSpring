@@ -51,3 +51,18 @@ if JoyousSpring.is_monster_card(card) then
 end
 '''
 match_indent = true
+
+# Stuff for Info Menu
+[[patches]]
+[patches.pattern]
+target = 'functions/misc_functions.lua'
+match_indent = true
+position = 'at'
+pattern = '''
+if args.type == 'other' then
+'''
+payload = '''
+if args.loc_target then
+    loc_target = args.loc_target
+elseif args.type == 'other' then
+'''

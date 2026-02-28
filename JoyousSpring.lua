@@ -11,29 +11,30 @@ if debug then
 end
 
 local filelist = {
-    "utils.lua",
-    "globals.lua",
-    "mod_info.lua",
-    "states.lua",
-    "general_ui.lua",
-    "card_ui.lua",
-    "zones.lua",
-    "extra_deck.lua",
-    "graveyard.lua",
-    "banishment.lua",
-    "pendulum.lua",
-    "summon.lua",
-    "monsters.lua",
-    "material_functions.lua",
-    "effects.lua",
-    "opponent.lua",
-    "blind_everywhere_system.lua",
-    "custom_pool.lua",
-    "cross_mod.lua",
+    "utils",
+    "globals",
+    "mod_info",
+    "states",
+    "general_ui",
+    "card_ui",
+    "zones",
+    "extra_deck",
+    "graveyard",
+    "banishment",
+    "pendulum",
+    "summon",
+    "monsters",
+    "material_functions",
+    "effects",
+    "opponent",
+    "blind_everywhere_system",
+    "custom_pool",
+    "cross_mod",
+    "tutorials"
 }
 
 for _, file in ipairs(filelist) do
-    assert(SMODS.load_file("src/" .. file))()
+    assert(SMODS.load_file("src/" .. file .. ".lua"))()
 end
 
 -- Jokers
