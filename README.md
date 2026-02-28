@@ -14,9 +14,8 @@ Check out the [Discord](https://discord.gg/Ac5FKpQCRV) for troubleshooting and c
 
 ## Known Issues and future ideas
 
-- Still very much WIP
 - Extra Deck and summon material selection doesn't work properly with a controller
-- It hasn't been tested with other mods (other than JokerDisplay) so it might not play well with them
+- Not designed to play well with other content mods. Check recommended Quality of Life mods below.
 
 ## Screenshots
 
