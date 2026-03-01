@@ -40,6 +40,11 @@ pattern = "local rightside_nodes = {}"
 position = 'before'
 match_indent = true
 payload = '''
-local joy_button = UIBox_button({button = 'joy_your_collection_opponent', label = {localize('k_joy_opponentcards')}, count = modsCollectionTally(G.P_CENTER_POOLS.joy_Opponent), minw = 5, id = 'joy_your_collection_opponent'})
-table.insert(leftside_nodes, 2, joy_button)
+if JoyousSpring then
+    local tally = modsCollectionTally(G.P_CENTER_POOLS.joy_Opponent)
+    if tally.of > 0 then
+        local joy_button = UIBox_button({button = 'joy_your_collection_opponent', label = {localize('k_joy_opponentcards')}, count = modsCollectionTally(G.P_CENTER_POOLS.joy_Opponent), minw = 5, id = 'joy_your_collection_opponent'})
+        table.insert(leftside_nodes, 2, joy_button)
+    end
+end
 '''

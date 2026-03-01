@@ -304,7 +304,7 @@ local init_localization_ref = init_localization
 function init_localization()
     init_localization_ref()
 
-    for _, box in pairs(G.localization.descriptions.JoyousSpringTutorial) do
+    for _, box in pairs(G.localization.descriptions.JoyousSpringTutorial or {}) do
         box.text_parsed = {}
         if box.text then
             for _, page in ipairs(box.text) do
