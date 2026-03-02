@@ -12,7 +12,8 @@ return {
 			joy_credits = {
 				name = " ",
 				text = {
-					"{C:joy_mod}Booster Art:{} IcyEthics",
+					"{C:joy_mod}Booster Art:{}",
+					"IcyEthics",
 					" ",
 					"{C:joy_mod}Localization:{}",
 					"{C:attention}French:{} Keraloon",
@@ -25,6 +26,7 @@ return {
 					"Some ideas taken from these mods (click to see!):",
 					"{C:joy_effect,button:joy_aikoyori,u:joy_effect}Aikoyori's Shenanigans{}, {C:joy_effect,button:joy_starrail,u:joy_effect}Balatro: Star Rail{}, {C:joy_effect,button:joy_cartomancer,u:joy_effect}Cartomancer",
 					"{C:joy_effect,button:joy_cryptid,u:joy_effect}Cryptid{}, {C:joy_effect,button:joy_lobcorp,u:joy_effect}Lobotomy Corporation{}, {C:joy_effect,button:joy_ortalab,u:joy_effect}Ortalab",
+					"Tutorial system from {C:joy_effect,button:joy_ppu,u:joy_effect}Potato Patch Utils",
 					" ",
 					"{C:joy_mod}Special Thanks{} to the folks in",
 					"the {C:joy_mod}JoyousSpring{}, {C:attention}Potato Patch{} and {C:attention}Balatro{} Discord servers <3",
