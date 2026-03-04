@@ -839,7 +839,7 @@ function Game:main_menu(change_context)
         })
     end
 
-    --JoyousSpring.INFO_MENU.open("stocking_stuffer")
+    --JoyousSpring.INFO_MENU.open("welcome")
 
     return ret
 end

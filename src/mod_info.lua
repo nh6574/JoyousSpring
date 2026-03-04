@@ -229,6 +229,14 @@ function G.FUNCS.joy_ortalab(e)
     love.system.openURL("https://github.com/EremelMods/Ortalab")
 end
 
+function G.FUNCS.joy_ppu(e)
+    love.system.openURL("https://github.com/Balatro-Potato-Patch/Potato-Patch-Utils")
+end
+
+function G.FUNCS.joy_open_config(e)
+    G.FUNCS.openModUI_JoyousSpring({ config = { page = "config" } })
+end
+
 SMODS.current_mod.extra_tabs = function()
     return {
         {
