@@ -14,7 +14,7 @@ return {
                     },
                     {
                         "{C:joy_effect}FLIP{}: Destroys itself,",
-                        "creates {C:attention}#3#{} {C:blue}Common{} {C:joy_normal}\"Mimighoul\"{}",
+                        "creates {C:attention}#3#{} {C:blue}Common{} {C:joy_normal}Main Deck{} {C:joy_normal}\"Mimighoul\"{}",
                         "{C:inactive}(Must have room)",
                         "and a {C:joy_effect}\"Mimighoul Archfiend\"{} in the {C:joy_trap}Opponent{}'s area",
                     },
@@ -33,7 +33,7 @@ return {
                     },
                     {
                         "{C:joy_effect}FLIP{}: Destroys itself,",
-                        "creates {C:attention}#3#{} {C:green}Uncommon{} {C:joy_normal}\"Mimighoul\"{}",
+                        "creates {C:attention}#3#{} {C:green}Uncommon{} {C:joy_normal}Main Deck{} {C:joy_normal}\"Mimighoul\"{}",
                         "{C:inactive}(Must have room)",
                         "and a {C:joy_effect}\"Mimighoul Armor\"{} in the {C:joy_trap}Opponent{}'s area",
                     },
@@ -50,7 +50,7 @@ return {
                     },
                     {
                         "{C:joy_effect}FLIP{}: Destroys itself,",
-                        "creates {C:attention}#2#{} {C:green}Uncommon{} {C:joy_normal}\"Mimighoul\"{}",
+                        "creates {C:attention}#2#{} {C:green}Uncommon{} {C:joy_normal}Main Deck{} {C:joy_normal}\"Mimighoul\"{}",
                         "{C:inactive}(Must have room)",
                         "and a {C:joy_effect}\"Mimighoul Cerberus\"{} in the {C:joy_trap}Opponent{}'s area",
                     },
@@ -86,7 +86,7 @@ return {
                     },
                     {
                         "{C:joy_effect}FLIP{}: Destroys itself,",
-                        "creates {C:attention}#3#{} {C:blue}Common{} {C:joy_normal}\"Mimighoul\"{}",
+                        "creates {C:attention}#3#{} {C:blue}Common{} {C:joy_normal}Main Deck{} {C:joy_normal}\"Mimighoul\"{}",
                         "{C:inactive}(Must have room)",
                         "and a {C:joy_effect}\"Mimighoul Fairy\"{} in the {C:joy_trap}Opponent{}'s area",
                     },
@@ -113,7 +113,7 @@ return {
                 text = {
                     {
                         "All {C:joy_effect}Flip{} {C:joy_normal}\"Mimighoul\"{} in any area",
-                        "flips when {C:attention}Blind{} is selected",
+                        "flip when {C:attention}Blind{} is selected",
                         "{C:inactive}(even if this card is face-down)"
                     },
                     {
@@ -121,7 +121,8 @@ return {
                     },
                     {
                         "{C:joy_effect}FLIP{}: Destroys itself,",
-                        "creates {C:attention}#1#{} {C:blue}Common{} or {C:green}Uncommon{} {C:joy_normal}\"Mimighoul\"{}",
+                        "creates {C:attention}#1#{} {C:blue}Common{} or {C:green}Uncommon{}",
+                        "{C:joy_normal}Main Deck{} {C:joy_normal}\"Mimighoul\"{}",
                         "{C:inactive}(Must have room)",
                         "and a {C:joy_effect}\"Mimighoul Slime\"{} in the {C:joy_trap}Opponent{}'s area",
                     },
@@ -313,7 +314,7 @@ return {
                     },
                     {
                         "{C:joy_effect}FLIP{}: Destroys itself,",
-                        "rerolls this ante's {C:attention}Boss Blind{} if possible",
+                        "rerolls the next possible {C:attention}Boss Blind{}",
                         "and creates a {C:joy_effect}\"Mimighoul Fairy\"{} in the {C:attention}Joker{} area",
                         "{C:inactive}(Must have room)"
                     },

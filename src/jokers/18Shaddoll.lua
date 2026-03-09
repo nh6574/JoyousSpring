@@ -93,7 +93,7 @@ SMODS.Joker({
                 card.ability.extra.activated = false
                 G.hand:change_size(-card.ability.extra.h_size)
             end
-            if shaddoll_should_flip(card) then card:flip() end
+            if shaddoll_should_flip(card) then JoyousSpring.flip(card) end
         end
     end,
     remove_from_deck = function(self, card, from_debuff)
@@ -177,7 +177,7 @@ SMODS.Joker({
                 G.GAME.round_resets.hands = G.GAME.round_resets.hands - card.ability.extra.hands
                 ease_hands_played(-card.ability.extra.hands)
             end
-            if shaddoll_should_flip(card) then card:flip() end
+            if shaddoll_should_flip(card) then JoyousSpring.flip(card) end
         end
     end,
     remove_from_deck = function(self, card, from_debuff)
@@ -232,7 +232,7 @@ SMODS.Joker({
                 local revived_card = JoyousSpring.revive_pseudorandom({ { is_flip = true } },
                     'j_joy_shaddoll_falco', true)
                 if revived_card then
-                    revived_card:flip()
+                    JoyousSpring.flip(revived_card, card)
                 end
             end
             for i = 1, card.ability.extra.revives do
@@ -249,11 +249,11 @@ SMODS.Joker({
                     key = "j_joy_shaddoll_falco",
                     edition = "e_negative"
                 })
-                added_card:flip()
+                JoyousSpring.flip(added_card, card)
             end
         end
         if context.end_of_round and context.game_over == false and context.main_eval then
-            if shaddoll_should_flip(card) then card:flip() end
+            if shaddoll_should_flip(card) then JoyousSpring.flip(card) end
         end
     end,
 })
@@ -321,7 +321,7 @@ SMODS.Joker({
             end
         end
         if context.end_of_round and context.game_over == false and context.main_eval then
-            if shaddoll_should_flip(card) then card:flip() end
+            if shaddoll_should_flip(card) then JoyousSpring.flip(card) end
         end
     end,
 })
@@ -378,7 +378,7 @@ SMODS.Joker({
             JoyousSpring.flip_all_cards(card, 'front', { G.jokers })
         end
         if context.end_of_round and context.game_over == false and context.main_eval then
-            if shaddoll_should_flip(card) then card:flip() end
+            if shaddoll_should_flip(card) then JoyousSpring.flip(card) end
         end
     end,
 })
@@ -456,7 +456,7 @@ SMODS.Joker({
                 G.GAME.round_resets.discards = G.GAME.round_resets.discards - card.ability.extra.discards
                 ease_discard(-card.ability.extra.discards)
             end
-            if shaddoll_should_flip(card) then card:flip() end
+            if shaddoll_should_flip(card) then JoyousSpring.flip(card) end
         end
     end,
     remove_from_deck = function(self, card, from_debuff)
@@ -603,7 +603,7 @@ SMODS.Joker({
         end
         JoyousSpring.calculate_flip_effect(card, context)
         if context.end_of_round and context.game_over == false and context.main_eval then
-            if shaddoll_should_flip(card) then card:flip() end
+            if shaddoll_should_flip(card) then JoyousSpring.flip(card) end
         end
     end,
     joy_can_transfer_ability = function(self, other_card, card)
@@ -672,7 +672,7 @@ SMODS.Joker({
         end
         if context.end_of_round and context.game_over == false and context.main_eval then
             card.ability.extra.activated = false
-            if shaddoll_should_flip(card) then card:flip() end
+            if shaddoll_should_flip(card) then JoyousSpring.flip(card) end
         end
     end,
     joy_can_activate = function(card)
@@ -734,7 +734,7 @@ SMODS.Joker({
             end
         end
         if context.end_of_round and context.game_over == false and context.main_eval then
-            if shaddoll_should_flip(card) then card:flip() end
+            if shaddoll_should_flip(card) then JoyousSpring.flip(card) end
         end
     end,
     joy_can_transfer_ability = function(self, other_card, card)
@@ -802,7 +802,7 @@ SMODS.Joker({
             end
         end
         if context.end_of_round and context.game_over == false and context.main_eval then
-            if shaddoll_should_flip(card) then card:flip() end
+            if shaddoll_should_flip(card) then JoyousSpring.flip(card) end
         end
     end,
     joy_can_transfer_ability = function(self, other_card, card)
@@ -868,7 +868,7 @@ SMODS.Joker({
                 card.config.center.key, card.ability.extra.mills)
         end
         if context.end_of_round and context.game_over == false and context.main_eval then
-            if shaddoll_should_flip(card) then card:flip() end
+            if shaddoll_should_flip(card) then JoyousSpring.flip(card) end
         end
     end,
     joy_can_transfer_ability = function(self, other_card, card)

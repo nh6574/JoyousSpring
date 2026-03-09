@@ -216,6 +216,14 @@ SMODS.current_mod.calculate = function(self, context)
         G.GAME.joy_disabled_blinds = {}
         G.GAME.joy_already_disabled_blinds = {}
     end
+
+    -- Add temporary hand size
+    if context.setting_blind and JoyousSpring.temporary_handsize then
+        G.hand:change_size(JoyousSpring.temporary_handsize)
+        G.GAME.round_resets.temp_handsize = (G.GAME.round_resets.temp_handsize or 0) +
+            JoyousSpring.temporary_handsize
+        JoyousSpring.temporary_handsize = 0
+    end
 end
 
 local game_init_game_object_ref = Game.init_game_object
@@ -590,9 +598,7 @@ JoyousSpring.calculate_flip_effect = function(card, context)
     if not card.ability.extra.joyous_spring.flip_active and ((context.joy_card_flipped and context.joy_card_flipped == card and card.facing == "front") or
             (context.setting_blind and context.main_eval and JoyousSpring.flip_effect_active(card))) then
         if card.facing == 'back' then
-            JoyousSpring.joy_flip_source = card
-            card:flip()
-            JoyousSpring.joy_flip_source = nil
+            JoyousSpring.flip(card)
         end
         card.ability.extra.joyous_spring.flip_active = true
         SMODS.calculate_effect({ message = localize("k_joy_flip_ex") }, card)
@@ -602,9 +608,7 @@ JoyousSpring.calculate_flip_effect = function(card, context)
     if not context.blueprint_card and context.end_of_round and context.main_eval and context.game_over == false then
         card.ability.extra.joyous_spring.flip_active = false
         if JoyousSpring.should_trap_flip(card) then
-            JoyousSpring.joy_flip_source = card
-            card:flip()
-            JoyousSpring.joy_flip_source = nil
+            JoyousSpring.flip(card)
             if card.facing == 'back' then
                 SMODS.calculate_effect({ message = localize("k_joy_set") }, card)
             end

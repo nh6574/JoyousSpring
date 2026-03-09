@@ -187,8 +187,9 @@ JoyousSpring.create_summon = function(add_params, must_have_room, card_limit_mod
     card.states.visible = false
     G.E_MANAGER:add_event(Event({
         func = function()
-            local area = JoyousSpring.is_field_spell(card) and JoyousSpring.field_spell_area or G.jokers
-            if not must_have_room or (#area.cards + (area == G.jokers and G.GAME.joker_buffer or 0) < area.config.card_limit + (card_limit_modif or 0)) then
+            local area = card.ability.set == "joy_Opponent" and JoyousSpring.opponent_area or
+                JoyousSpring.is_field_spell(card) and JoyousSpring.field_spell_area or G.jokers
+            if card.ability.set == "joy_Opponent" or not must_have_room or (#area.cards + (area == G.jokers and G.GAME.joker_buffer or 0) < area.config.card_limit + (card_limit_modif or 0)) then
                 card.states.visible = true
                 card:add_to_deck()
                 area:emplace(card)

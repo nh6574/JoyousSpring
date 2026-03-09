@@ -159,6 +159,10 @@ SMODS.Atlas({
 ---@field can_flip boolean?
 ---@field cannot_flip boolean?
 ---@field from_shop boolean?
+---@field is_opponent boolean?
+---@field allow_opponent boolean?
+---@field is_blind_card boolean?
+---@field exclude_blind_cards boolean?
 
 ---@class material_restrictions
 ---@field different_names boolean?
@@ -696,6 +700,28 @@ JoyousSpring.is_material = function(card, properties, summon_type)
     if summon_type and card.ability.eternal then
         return false
     end
+    if not properties.allow_opponent and not properties.is_opponent then
+        if card.ability.set == "joy_Opponent" then
+            return false
+        end
+    end
+    if properties.is_opponent then
+        if card.ability.set ~= "joy_Opponent" then
+            return false
+        end
+    end
+    if card.ability.set == "joy_Opponent" then
+        if properties.is_blind_card then
+            if not card.config.center.joy_blind_key then
+                return false
+            end
+        end
+        if properties.exclude_blind_cards then
+            if card.config.center.joy_blind_key then
+                return false
+            end
+        end
+    end
     if not next(properties) then
         return true
     end
@@ -711,16 +737,6 @@ JoyousSpring.is_material = function(card, properties, summon_type)
     end
     if properties.func and JoyousSpring.material_functions[properties.func] then
         if not JoyousSpring.material_functions[properties.func](card, properties.func_vars) then
-            return false
-        end
-    end
-    if not properties.allow_opponent then
-        if card.ability.set == "joy_Opponent" then
-            return false
-        end
-    end
-    if properties.opponent then
-        if card.ability.set ~= "joy_Opponent" then
             return false
         end
     end
@@ -961,14 +977,26 @@ JoyousSpring.is_material_center = function(card_key, properties)
             return false
         end
     end
-    if not properties.allow_opponent then
+    if not properties.allow_opponent and not properties.is_opponent then
         if card_center.set == "joy_Opponent" then
             return false
         end
     end
-    if properties.opponent then
+    if properties.is_opponent then
         if card_center.set ~= "joy_Opponent" then
             return false
+        end
+    end
+    if card_center.set == "joy_Opponent" then
+        if properties.is_blind_card then
+            if not card_center.joy_blind_key then
+                return false
+            end
+        end
+        if properties.exclude_blind_cards then
+            if card_center.joy_blind_key then
+                return false
+            end
         end
     end
     if properties.from_shop then
@@ -1241,7 +1269,7 @@ JoyousSpring.get_materials_owned = function(property_list, different_names, for_
     local materials = {}
     local keys = {}
 
-    for _, joker in ipairs(G.jokers.cards) do
+    for _, joker in ipairs(SMODS.merge_lists({ G.jokers.cards, property_list and #property_list > 0 and JoyousSpring.opponent_area.cards or {} })) do
         if joker.getting_sliced then
         elseif not property_list or #property_list == 0 then
             if not keys[joker.config.center_key] or not different_names then
@@ -1372,7 +1400,7 @@ end
 ---@return string[]
 JoyousSpring.get_materials_in_collection = function(property_list, not_owned, not_extra, is_in_pool)
     local pool = {}
-    for _, v in pairs(G.P_CENTER_POOLS.Joker) do
+    for _, v in pairs(SMODS.merge_lists({ G.P_CENTER_POOLS.Joker, G.P_CENTER_POOLS.joy_Opponent })) do
         local k = v.key
         if (not not_owned or not G.jokers or not next(SMODS.find_card(k, true))) and
             (not not_extra or not JoyousSpring.is_in_extra_deck(k)) then

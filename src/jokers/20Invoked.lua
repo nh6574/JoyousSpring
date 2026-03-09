@@ -458,7 +458,7 @@ SMODS.Joker({
                     end
                 end
                 local card_to_flip = pseudorandom_element(cards, 'j_joy_invoked_raidjin')
-                if card_to_flip then card_to_flip:flip() end
+                if card_to_flip then JoyousSpring.flip(card_to_flip, card) end
             end
             if context.joker_main then
                 return {
@@ -497,7 +497,7 @@ SMODS.Joker({
                     end
                 end
                 local card_to_flip = pseudorandom_element(cards, 'j_joy_invoked_raidjin')
-                if card_to_flip then card_to_flip:flip() end
+                if card_to_flip then JoyousSpring.flip(card_to_flip, other_card) end
             end
         end
     end,

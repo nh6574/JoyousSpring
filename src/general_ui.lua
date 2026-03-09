@@ -570,8 +570,11 @@ function Card:align_h_popup()
         ret.offset.x = 0
         ret.offset.y = focused_ui and 0.12 or 0.1
         ret.type = 'bm'
-    end
-    if (self.T.y < G.CARD_H * 1.2) and self.area and (self.area.config.type == "title" and JoyousSpring.is_monster_card(self)) then
+    elseif self.area and (self.area == JoyousSpring.opponent_area and JoyousSpring.is_monster_card(self)) then
+        ret.offset.x = 0
+        ret.offset.y = focused_ui and 0.12 or 0.1
+        ret.type = 'cl'
+    elseif (self.T.y < G.CARD_H * 1.2) and self.area and (self.area.config.type == "title" and JoyousSpring.is_monster_card(self)) then
         ret.offset.x = 0
         ret.offset.y = focused_ui and 0.12 or 0.1
         ret.type = 'bm'

@@ -118,7 +118,7 @@ JoyousSpring.flip_random_card = function(source_card, card_list, facing, seed)
     end
     local pick = pseudorandom_element(facing_cards, seed or "JoyousSpring")
     if pick then
-        pick:flip(source_card)
+        JoyousSpring.flip(pick, source_card)
     end
     return pick
 end
@@ -134,7 +134,7 @@ JoyousSpring.flip_all_cards = function(source, flip_direction, areas)
         local any_flipped = false
         for _, card in ipairs(area.cards) do
             if not flip_direction or card.facing ~= flip_direction then
-                card:flip(source)
+                JoyousSpring.flip(card, source)
                 any_flipped = true
             end
         end
@@ -646,8 +646,9 @@ end
 
 ---Flips a card specifying the source
 ---@param card Card|table
----@param source Card|table
+---@param source Card|table?
 JoyousSpring.flip = function(card, source)
+    source = source or card
     JoyousSpring.joy_flip_source = source
     card:flip()
     JoyousSpring.joy_flip_source = nil
