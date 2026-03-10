@@ -180,13 +180,9 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.used_as_material(card, context) then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_type = "Fish", is_extra_deck = true } },
-                nil, nil, card.config.center.key)
             for _ = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, 'j_joy_fishlamp')
-                if key_to_add and #JoyousSpring.extra_deck_area.cards - (JoyousSpring.get_card_limit(context.joy_card) > 0 and 0 or 1) < JoyousSpring.extra_deck_area.config.card_limit then
-                    JoyousSpring.add_to_extra_deck(key_to_add)
-                end
+                JoyousSpring.add_to_extra_deck_pseudorandom(
+                    { { monster_type = "Fish" } }, card.config.center.key, true)
             end
             for i = 1, card.ability.extra.creates do
                 JoyousSpring.summon_token("lamp")
@@ -260,21 +256,7 @@ SMODS.Joker({
                             destroyed = destroyed + 1
                             table.remove(choices, index)
 
-                            G.E_MANAGER:add_event(Event({
-                                func = (function()
-                                    if #JoyousSpring.field_spell_area.cards < JoyousSpring.field_spell_area.config.card_limit then
-                                        local choices_field = JoyousSpring.get_materials_in_collection(
-                                            { { is_field_spell = true } },
-                                            nil, nil, card.config.center.key)
-
-                                        local spell = pseudorandom_element(choices_field, pseudorandom("j_joy_afd"))
-                                        if spell then
-                                            JoyousSpring.add_to_extra_deck(spell)
-                                        end
-                                    end
-                                    return true
-                                end)
-                            }))
+                            JoyousSpring.create_pseudorandom({ { is_field_spell = true } }, card.config.center.key, true)
                         end
                     end
                     return {

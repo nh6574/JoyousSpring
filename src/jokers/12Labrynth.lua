@@ -427,10 +427,8 @@ SMODS.Joker({
             end
             card.ability.extra.count = card.ability.extra.count + 1
             if JoyousSpring.can_use_abilities(card) and not card.ability.extra.active and card.ability.extra.count >= card.ability.extra.flipped then
-                local choices = JoyousSpring.get_materials_in_collection({ { rarity = 2, monster_archetypes = { "Labrynth" } } })
-                local pick = pseudorandom_element(choices, 'j_joy_lab_ariane')
-
-                JoyousSpring.add_monster_tag(pick or "j_joy_lab_arianna")
+                JoyousSpring.add_monster_tag_pseudorandom(
+                    { { rarity = 2, monster_archetypes = { "Labrynth" } } }, card.config.center.key)
                 card.ability.extra.active = true
             end
         end
@@ -521,9 +519,8 @@ SMODS.Joker({
             end
             card.ability.extra.count = card.ability.extra.count + 1
             if JoyousSpring.can_use_abilities(card) and not card.ability.extra.active and card.ability.extra.count >= card.ability.extra.flipped then
-                local choices = JoyousSpring.get_materials_in_collection({ { rarity = 1, monster_archetypes = { "Labrynth" } } })
-                local pick = pseudorandom_element(choices, 'j_joy_lab_arianna')
-                JoyousSpring.add_monster_tag(pick or "j_joy_lab_clock")
+                JoyousSpring.add_monster_tag_pseudorandom(
+                    { { rarity = 1, monster_archetypes = { "Labrynth" } } }, card.config.center.key)
                 card.ability.extra.active = true
             end
         end
@@ -607,9 +604,8 @@ SMODS.Joker({
             end
             card.ability.extra.count = card.ability.extra.count + 1
             if JoyousSpring.can_use_abilities(card) and not card.ability.extra.active and card.ability.extra.count > card.ability.extra.flipped then
-                local choices = JoyousSpring.get_materials_in_collection({ { rarity = 3, monster_archetypes = { "Labrynth" } } })
-                local pick = pseudorandom_element(choices, 'j_joy_lab_arianna')
-                JoyousSpring.add_monster_tag(pick or "j_joy_lab_lovely")
+                JoyousSpring.add_monster_tag_pseudorandom(
+                    { { rarity = 3, monster_archetypes = { "Labrynth" } } }, card.config.center.key)
                 card.ability.extra.active = true
             end
         end

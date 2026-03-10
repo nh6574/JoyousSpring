@@ -93,10 +93,10 @@ SMODS.Joker({
             if context.before then
                 if vw_played_hand("qinglong", context) and not card.ability.extra.shop_activated then
                     card.ability.extra.shop_activated = true
-                    local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "VirtualWorld" }, is_extra_deck = true } })
                     for _ = 1, card.ability.extra.shop_add do
-                        local key_to_add = pseudorandom_element(choices, 'j_joy_vw_lulu')
-                        JoyousSpring.add_monster_tag(key_to_add)
+                        JoyousSpring.add_monster_tag_pseudorandom(
+                            { { monster_archetypes = { "VirtualWorld" }, is_extra_deck = true } }, card.config.center
+                            .key)
                     end
                 end
                 if vw_played_hand("kauwloon", context) and not card.ability.extra.create_activated then
@@ -323,15 +323,9 @@ SMODS.Joker({
             if context.before then
                 if vw_played_hand("qinglong", context) and not card.ability.extra.shop_activated then
                     card.ability.extra.shop_activated = true
-                    local choices = JoyousSpring.get_materials_in_graveyard(
-                        { { monster_archetypes = { "VirtualWorld" } } },
-                        nil,
-                        true)
                     for _ = 1, card.ability.extra.shop_add do
-                        local key_to_add = pseudorandom_element(choices, 'j_joy_vw_jiji')
-                        if key_to_add then
-                            JoyousSpring.add_monster_tag(key_to_add)
-                        end
+                        JoyousSpring.add_monster_tag_pseudorandom(
+                            { { monster_archetypes = { "VirtualWorld" } } }, card.config.center.key)
                     end
                 end
                 if vw_played_hand("kauwloon", context) and not card.ability.extra.create_activated then
@@ -568,13 +562,10 @@ SMODS.Joker({
                 if vw_played_hand("kauwloon", context) and not card.ability.extra.add_active then
                     if JoyousSpring.get_graveyard_count() == JoyousSpring.count_materials_in_graveyard({ { monster_type = "Psychic" }, { monster_type = "Wyrm" } }) then
                         card.ability.extra.add_active = true
-                        local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "VirtualWorld" }, is_extra_deck = true } })
 
                         for i = 1, card.ability.extra.adds do
-                            local key_to_add, _ = pseudorandom_element(choices, 'j_joy_vw_lili')
-                            if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
-                                JoyousSpring.add_to_extra_deck(key_to_add)
-                            end
+                            JoyousSpring.add_to_extra_deck_pseudorandom(
+                                { { monster_archetypes = { "VirtualWorld" } } }, card.config.center.key, true)
                         end
                     end
                 end
@@ -766,7 +757,6 @@ SMODS.Joker({
         { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     set_sprites = JoyousSpring.set_back_sprite,
-    update = JoyousSpring.update_counter,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -883,7 +873,6 @@ SMODS.Joker({
         { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     set_sprites = JoyousSpring.set_back_sprite,
-    update = JoyousSpring.update_counter,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -979,7 +968,6 @@ SMODS.Joker({
         { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     set_sprites = JoyousSpring.set_back_sprite,
-    update = JoyousSpring.update_counter,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1059,7 +1047,6 @@ SMODS.Joker({
         { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     set_sprites = JoyousSpring.set_back_sprite,
-    update = JoyousSpring.update_counter,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

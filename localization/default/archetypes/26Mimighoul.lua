@@ -112,8 +112,8 @@ return {
                 name = "{C:joy_effect}Mimighoul Slime",
                 text = {
                     {
-                        "All {C:joy_effect}Flip{} {C:joy_normal}\"Mimighoul\"{} in any area",
-                        "flip when {C:attention}Blind{} is selected",
+                        "All {C:joy_effect}Flip{} {C:joy_normal}\"Mimighoul\"{} in this area",
+                        "flip face-up when {C:attention}Blind{} is selected",
                         "{C:inactive}(even if this card is face-down)"
                     },
                     {
@@ -157,9 +157,9 @@ return {
                     {
                         "{C:joy_xyz}Detach{} {C:attention}#2#{}: Creates as many {C:attention}Blind{} cards",
                         "in the {C:joy_trap}Opponent{}'s area as {C:joy_normal}\"Mimighoul\"{} in that area",
-                        "then gives {X:mult,C:white}X#3#{} extra Mult this round",
-                        "for each non-{C:joy_normal}\"Mimighoul\"{} in that area",
-                        "{C:inactive}(Currently {X:mult,C:white}X#3#{}{C:inactive} Mult)"
+                        "then gives {X:mult,C:white}X#3#{} Mult this round",
+                        "times the number of non-{C:joy_normal}\"Mimighoul\"{} in that area",
+                        "{C:inactive}(Currently {X:mult,C:white}X#4#{}{C:inactive} Mult)"
                     },
                 },
                 joy_summon_conditions = {
@@ -337,8 +337,8 @@ return {
                     },
                     {
                         "{C:joy_effect}FLIP{}: Destroys itself,",
-                        "and creates a {C:red}Rare{} {C:joy_normal}\"Mimighoul\"{}",
-                        "and a {C:joy_effect}\"Mimighoul Flower\"{} in the {C:attention}Joker{} area",
+                        "and creates a {C:red}Rare{} {C:joy_normal}\"Mimighoul\"{} and then",
+                        "a {C:joy_effect}\"Mimighoul Flower\"{} in the {C:attention}Joker{} area",
                         "{C:inactive}(Must have room)"
                     },
                 }
@@ -347,8 +347,8 @@ return {
                 name = "{C:joy_effect}Mimighoul Slime",
                 text = {
                     {
-                        "All {C:joy_effect}Flip{} {C:joy_normal}\"Mimighoul\"{} in any area",
-                        "flips when {C:attention}Blind{} is selected",
+                        "All {C:joy_effect}Flip{} {C:joy_normal}\"Mimighoul\"{} in this area",
+                        "flip face-up when {C:attention}Blind{} is selected",
                         "{C:inactive}(even if this card is face-down)"
                     },
                     {

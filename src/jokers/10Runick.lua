@@ -51,10 +51,8 @@ SMODS.Joker({
                 end
                 local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Runick" }, is_extra_deck = true } })
                 for i = 1, card.ability.extra.adds do
-                    local key_to_add, _ = pseudorandom_element(choices, 'j_joy_runick_hugin')
-                    if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
-                        JoyousSpring.add_to_extra_deck(key_to_add)
-                    end
+                    JoyousSpring.add_to_extra_deck_pseudorandom(
+                        { { monster_archetypes = { "Runick" } } }, card.config.center.key, true)
                 end
             end
         end
@@ -122,12 +120,9 @@ SMODS.Joker({
             G.consumeables.config.card_limit = G.consumeables.config.card_limit + 1
         end
         if not from_debuff and not card.debuff then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Runick" }, is_extra_deck = true } })
             for i = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, 'j_joy_runick_munin')
-                if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
-                    JoyousSpring.add_to_extra_deck(key_to_add)
-                end
+                JoyousSpring.add_to_extra_deck_pseudorandom(
+                    { { monster_archetypes = { "Runick" } } }, card.config.center.key, true)
             end
         end
     end,
@@ -209,12 +204,9 @@ SMODS.Joker({
                 end
             end
 
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Runick" }, is_extra_deck = true } })
             for i = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, 'j_joy_runick_geri')
-                if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
-                    JoyousSpring.add_to_extra_deck(key_to_add)
-                end
+                JoyousSpring.add_to_extra_deck_pseudorandom(
+                    { { monster_archetypes = { "Runick" } } }, card.config.center.key, true)
             end
         end
     end,
@@ -275,12 +267,9 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Runick" }, is_extra_deck = true } })
             for i = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, 'j_joy_runick_freki')
-                if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
-                    JoyousSpring.add_to_extra_deck(key_to_add)
-                end
+                JoyousSpring.add_to_extra_deck_pseudorandom(
+                    { { monster_archetypes = { "Runick" } } }, card.config.center.key, true)
             end
         end
     end,
@@ -340,12 +329,9 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Runick" }, is_extra_deck = true } })
             for i = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, 'j_joy_runick_sleipnir')
-                if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
-                    JoyousSpring.add_to_extra_deck(key_to_add)
-                end
+                JoyousSpring.add_to_extra_deck_pseudorandom(
+                    { { monster_archetypes = { "Runick" } } }, card.config.center.key, true)
             end
         end
     end,

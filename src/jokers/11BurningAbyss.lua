@@ -543,12 +543,9 @@ SMODS.Joker({
             if (context.selling_self or (context.setting_blind and context.main_eval and ba_die())) and not context.blueprint then
                 JoyousSpring.destroy_cards(card, nil, true)
 
-                local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "BurningAbyss" }, is_extra_deck = true } })
                 for _ = 1, card.ability.extra.adds do
-                    local key_to_add = pseudorandom_element(choices, 'j_joy_ba_draghig')
-                    if #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
-                        JoyousSpring.add_to_extra_deck(key_to_add or "j_joy_ba_dante")
-                    end
+                    JoyousSpring.add_to_extra_deck_pseudorandom(
+                        { { monster_archetypes = { "BurningAbyss" } } }, card.config.center.key, true)
                 end
             end
         end
@@ -738,7 +735,6 @@ SMODS.Joker({
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
     set_sprites = JoyousSpring.set_back_sprite,
-    update = JoyousSpring.update_counter,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -915,7 +911,6 @@ SMODS.Joker({
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
     set_sprites = JoyousSpring.set_back_sprite,
-    update = JoyousSpring.update_counter,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

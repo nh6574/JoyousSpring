@@ -777,7 +777,6 @@ SMODS.Joker({
         { properties = { { monster_archetypes = { "Generaider" } } }, name = "k_joy_archetype" },
     },
     set_sprites = JoyousSpring.set_back_sprite,
-    update = JoyousSpring.update_counter,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

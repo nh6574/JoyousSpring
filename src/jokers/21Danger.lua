@@ -396,10 +396,9 @@ SMODS.Joker({
         if context.joy_danger == card and not card.ability.extra.activated then
             card.ability.extra.activated = true
             inc_danger_count()
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Danger" } } })
             for i = 1, card.ability.extra.adds do
-                key_to_add = pseudorandom_element(choices, 'j_joy_danger_dog')
-                JoyousSpring.add_monster_tag(key_to_add or "j_joy_danger_jack")
+                JoyousSpring.add_monster_tag_pseudorandom(
+                    { { monster_archetypes = { "Danger" } } }, card.config.center.key)
             end
         end
     end,
@@ -464,10 +463,9 @@ SMODS.Joker({
         if context.joy_danger == card and not card.ability.extra.activated then
             card.ability.extra.activated = true
             inc_danger_count()
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Danger" } } })
             for i = 1, card.ability.extra.adds do
-                key_to_add = pseudorandom_element(choices, 'j_joy_danger_ness')
-                JoyousSpring.add_monster_tag(key_to_add or "j_joy_danger_jack")
+                JoyousSpring.add_monster_tag_pseudorandom(
+                    { { monster_archetypes = { "Danger" } } }, card.config.center.key)
             end
         end
     end,
@@ -711,10 +709,9 @@ SMODS.Joker({
                     count = count + 1
                 end
             end
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Danger" } } })
             for i = 1, count do
-                key_to_add = pseudorandom_element(choices, 'j_joy_danger_thunder')
-                JoyousSpring.add_monster_tag(key_to_add or "j_joy_danger_jack")
+                JoyousSpring.add_monster_tag_pseudorandom(
+                    { { monster_archetypes = { "Danger" } } }, card.config.center.key)
             end
         end
     end,

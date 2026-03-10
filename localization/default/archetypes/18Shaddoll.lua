@@ -418,16 +418,17 @@ return {
                 name = "{C:joy_spell}Curse of the Shadow Prison",
                 text = {
                     {
-                        "Each time a {C:joy_normal}\"Shaddoll\"{}, {C:joy_normal}Spellcaster{} or {C:joy_effect}Flip{} {C:attention}Joker",
-                        "is sent to the {C:attention}GY{}, add {C:attention}#1#{} {C:joy_token}Counter{} to this card",
-                        "{C:inactive}(Currently {C:attention}#2#{C:inactive})",
+                        "Each time a {C:joy_normal}\"Shaddoll\"{}, {C:joy_normal}Spellcaster{}",
+                        "or {C:joy_effect}Flip{} {C:attention}Joker is sent to the {C:attention}GY{},",
+                        "add {C:attention}#1#{} {C:joy_token}Spellstone Counter{} to this card",
                     },
                     {
-                        "{C:chips}+#3#{} Chips for each {C:joy_token}Counter{}",
+                        "{C:chips}+#3#{} Chips for each {C:joy_token}Spellstone Counter{}",
                         "{C:inactive}(Currently {C:chips}+#4#{C:inactive} Chips)",
                     },
                     {
-                        "You can remove {C:attention}#5#{} {C:joy_token}Counters{} to {C:attention}revive #6#{} {C:joy_fusion}Fusion",
+                        "You can remove {C:attention}#5#{} {C:joy_token}Spellstone Counters{}",
+                        "to {C:attention}revive #6#{} {C:joy_fusion}Fusion",
                     },
                 }
             },

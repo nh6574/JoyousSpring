@@ -170,10 +170,6 @@ JoyousSpring.perform_summon = function(card, card_list, summon_type)
     }))
 
     card:set_cost()
-
-    if summon_type == "XYZ" then
-        card.children.xyz_materials = JoyousSpring.create_UIBox_xyz_materials(card)
-    end
 end
 
 ---Creates a card with correct timings
@@ -217,12 +213,11 @@ end
 ---@param ignore_in_pool boolean?
 ---@return Card|table?
 JoyousSpring.create_pseudorandom = function(property_list, seed, must_have_room, not_owned, edition, ignore_in_pool)
-    local choices = JoyousSpring.get_materials_in_collection(property_list, not_owned, nil, not ignore_in_pool)
+    local choices = JoyousSpring.get_materials_in_collection(property_list, not_owned, nil, not ignore_in_pool and seed)
     local key_to_add = pseudorandom_element(choices, seed or "JoyousSpring")
     if key_to_add then
         return JoyousSpring.create_summon({
             key = key_to_add,
-            ---@diagnostic disable-next-line: assign-type-mismatch
             edition = edition
         }, must_have_room)
     end

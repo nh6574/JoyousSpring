@@ -457,11 +457,9 @@ SMODS.Joker({
         end
     end,
     use = function(self, card, area, copier)
-        local choices = JoyousSpring.get_materials_in_collection({ { is_pendulum = true } }, nil, nil,
-            card.config.center.key)
         for i = 1, card.ability.extra.adds do
-            local key_to_add = pseudorandom_element(choices, 'j_joy_moissa')
-            JoyousSpring.add_monster_tag(key_to_add or "j_joy_eccentrick")
+            JoyousSpring.add_monster_tag_pseudorandom(
+                { { is_pendulum = true } }, card.config.center.key)
         end
     end,
     can_use = function(self, card)

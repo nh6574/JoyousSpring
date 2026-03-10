@@ -490,7 +490,6 @@ SMODS.Joker({
         return { vars = { card.ability.extra.cards_to_create } }
     end,
     set_sprites = JoyousSpring.set_back_sprite,
-    update = JoyousSpring.update_counter,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Spright" } } }, name = "k_joy_archetype" },
     },

@@ -370,10 +370,6 @@ JoyousSpring.transform_card = function(card, other_key, keep_materials, summon_t
             end
 
             card:set_cost()
-
-            if summon_type == "XYZ" then
-                card.children.xyz_materials = JoyousSpring.create_UIBox_xyz_materials(card)
-            end
             return true
         end,
     }))
@@ -1304,7 +1300,13 @@ JoyousSpring.create_overlay_effect_selection = function(card, card_list, min, ma
             added_joker.facing = 'back'
             added_joker.sprite_facing = 'back'
         end
-        if joker.ability.set == 'Joker' then
+        if joker.area == JoyousSpring.opponent_area then
+            for i, og_joker in ipairs(JoyousSpring.opponent_area.cards) do
+                if og_joker == joker then
+                    added_joker.joy_opponent_pos = i
+                end
+            end
+        elseif joker.ability.set == 'Joker' then
             for i, og_joker in ipairs(G.jokers.cards) do
                 if og_joker == joker then
                     added_joker.joy_g_jokers_pos = i
@@ -1372,6 +1374,9 @@ G.FUNCS.joy_exit_select_effect = function(e)
     if card and JoyousSpring.summon_effect_area and next(JoyousSpring.summon_effect_area.highlighted) then
         local material_list = {}
         for _, material in ipairs(JoyousSpring.summon_effect_area.highlighted) do
+            if material.joy_opponent_pos then
+                table.insert(material_list, JoyousSpring.opponent_area.cards[material.joy_opponent_pos])
+            end
             if material.joy_g_jokers_pos then
                 table.insert(material_list, G.jokers.cards[material.joy_g_jokers_pos])
             end

@@ -725,12 +725,9 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.calculate_flip_effect(card, context) then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Shaddoll" }, is_extra_deck = true } })
             for _ = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, 'j_joy_shaddoll_keios')
-                if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
-                    JoyousSpring.add_to_extra_deck(key_to_add)
-                end
+                JoyousSpring.add_to_extra_deck_pseudorandom(
+                    { { monster_archetypes = { "Shaddoll" } } }, card.config.center.key, true)
             end
         end
         if context.end_of_round and context.game_over == false and context.main_eval then
@@ -947,12 +944,9 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.used_as_material(card, context) then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Shaddoll" }, is_extra_deck = true } })
             for _ = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, card.config.center.key)
-                if key_to_add and #JoyousSpring.extra_deck_area.cards - (JoyousSpring.get_card_limit(context.joy_card) > 0 and 0 or 1) < JoyousSpring.extra_deck_area.config.card_limit then
-                    JoyousSpring.add_to_extra_deck(key_to_add)
-                end
+                JoyousSpring.add_to_extra_deck_pseudorandom(
+                    { { monster_archetypes = { "Shaddoll" } } }, card.config.center.key, true)
             end
         end
         if JoyousSpring.can_use_abilities(card) then
@@ -1066,12 +1060,9 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.used_as_material(card, context) then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Shaddoll" }, is_extra_deck = true } })
             for _ = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, card.config.center.key)
-                if key_to_add and #JoyousSpring.extra_deck_area.cards - (JoyousSpring.get_card_limit(context.joy_card) > 0 and 0 or 1) < JoyousSpring.extra_deck_area.config.card_limit then
-                    JoyousSpring.add_to_extra_deck(key_to_add)
-                end
+                JoyousSpring.add_to_extra_deck_pseudorandom(
+                    { { monster_archetypes = { "Shaddoll" } } }, card.config.center.key, true)
             end
         end
     end,
@@ -1179,12 +1170,9 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.used_as_material(card, context) then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Shaddoll" }, is_extra_deck = true } })
             for _ = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, card.config.center.key)
-                if key_to_add and #JoyousSpring.extra_deck_area.cards - (JoyousSpring.get_card_limit(context.joy_card) > 0 and 0 or 1) < JoyousSpring.extra_deck_area.config.card_limit then
-                    JoyousSpring.add_to_extra_deck(key_to_add)
-                end
+                JoyousSpring.add_to_extra_deck_pseudorandom(
+                    { { monster_archetypes = { "Shaddoll" } } }, card.config.center.key, true)
             end
         end
         if JoyousSpring.can_use_abilities(card) then
@@ -1298,12 +1286,9 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.used_as_material(card, context) then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Shaddoll" }, is_extra_deck = true } })
             for _ = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, card.config.center.key)
-                if key_to_add and #JoyousSpring.extra_deck_area.cards - (JoyousSpring.get_card_limit(context.joy_card) > 0 and 0 or 1) < JoyousSpring.extra_deck_area.config.card_limit then
-                    JoyousSpring.add_to_extra_deck(key_to_add)
-                end
+                JoyousSpring.add_to_extra_deck_pseudorandom(
+                    { { monster_archetypes = { "Shaddoll" } } }, card.config.center.key, true)
             end
         end
         if JoyousSpring.can_use_abilities(card) then
@@ -1388,12 +1373,9 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.used_as_material(card, context) then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Shaddoll" }, is_extra_deck = true } })
             for _ = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, card.config.center.key)
-                if key_to_add and #JoyousSpring.extra_deck_area.cards - (JoyousSpring.get_card_limit(context.joy_card) > 0 and 0 or 1) < JoyousSpring.extra_deck_area.config.card_limit then
-                    JoyousSpring.add_to_extra_deck(key_to_add)
-                end
+                JoyousSpring.add_to_extra_deck_pseudorandom(
+                    { { monster_archetypes = { "Shaddoll" } } }, card.config.center.key, true)
             end
         end
         if JoyousSpring.can_use_abilities(card) then
@@ -1496,12 +1478,9 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.used_as_material(card, context) then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Shaddoll" }, is_extra_deck = true } })
             for _ = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, card.config.center.key)
-                if key_to_add and #JoyousSpring.extra_deck_area.cards - (JoyousSpring.get_card_limit(context.joy_card) > 0 and 0 or 1) < JoyousSpring.extra_deck_area.config.card_limit then
-                    JoyousSpring.add_to_extra_deck(key_to_add)
-                end
+                JoyousSpring.add_to_extra_deck_pseudorandom(
+                    { { monster_archetypes = { "Shaddoll" } } }, card.config.center.key, true)
             end
         end
         if (JoyousSpring.can_use_abilities(card) or card.joy_faceup_before_blind) and not context.blueprint_card
@@ -1591,12 +1570,9 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.used_as_material(card, context) then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Shaddoll" }, is_extra_deck = true } })
             for _ = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, card.config.center.key)
-                if key_to_add and #JoyousSpring.extra_deck_area.cards - (JoyousSpring.get_card_limit(context.joy_card) > 0 and 0 or 1) < JoyousSpring.extra_deck_area.config.card_limit then
-                    JoyousSpring.add_to_extra_deck(key_to_add)
-                end
+                JoyousSpring.add_to_extra_deck_pseudorandom(
+                    { { monster_archetypes = { "Shaddoll" } } }, card.config.center.key, true)
             end
         end
     end,
@@ -1668,12 +1644,9 @@ SMODS.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.used_as_material(card, context) then
-            local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Shaddoll" }, is_extra_deck = true } })
             for _ = 1, card.ability.extra.adds do
-                local key_to_add, _ = pseudorandom_element(choices, card.config.center.key)
-                if key_to_add and #JoyousSpring.extra_deck_area.cards - (JoyousSpring.get_card_limit(context.joy_card) > 0 and 0 or 1) < JoyousSpring.extra_deck_area.config.card_limit then
-                    JoyousSpring.add_to_extra_deck(key_to_add)
-                end
+                JoyousSpring.add_to_extra_deck_pseudorandom(
+                    { { monster_archetypes = { "Shaddoll" } } }, card.config.center.key, true)
             end
         end
     end,

@@ -22,6 +22,35 @@ JoyousSpring.add_to_extra_deck = function(card, args)
     end
 end
 
+---Create a random card with *property_list* properties to the Extra Deck
+---@param property_list material_properties[]
+---@param seed string|number?
+---@param must_have_room boolean?
+---@param not_owned boolean?
+---@param edition table|string?
+---@param ignore_in_pool boolean?
+JoyousSpring.add_to_extra_deck_pseudorandom = function(property_list, seed, must_have_room, not_owned, edition,
+                                                       ignore_in_pool)
+    property_list = property_list or { {} }
+    for _, property in ipairs(property_list) do
+        property.is_extra_deck = true
+    end
+    G.E_MANAGER:add_event(Event({
+        func = function()
+            if not must_have_room or #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
+                local choices = JoyousSpring.get_materials_in_collection(property_list, not_owned, not_owned,
+                    not ignore_in_pool and seed)
+                local key_to_add = pseudorandom_element(choices, seed or "JoyousSpring")
+                if key_to_add then
+                    JoyousSpring.add_to_extra_deck(key_to_add,
+                        { edition = edition or nil, no_edition = edition == false })
+                end
+            end
+            return true
+        end
+    }))
+end
+
 ---Return from G.jokers to Extra Deck
 ---@param card Card
 JoyousSpring.return_to_extra_deck = function(card)

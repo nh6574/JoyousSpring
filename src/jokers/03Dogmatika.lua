@@ -434,10 +434,9 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then
-                local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "Dogmatika" }, summon_type = "RITUAL" } })
                 for i = 1, card.ability.extra.adds do
-                    key_to_add = pseudorandom_element(choices, 'j_joy_dogma_ashiyan')
-                    JoyousSpring.add_monster_tag(key_to_add or "j_joy_dogma_relic")
+                    JoyousSpring.add_monster_tag_pseudorandom(
+                        { { monster_archetypes = { "Dogmatika" }, summon_type = "RITUAL" } }, card.config.center.key)
                 end
             end
         end

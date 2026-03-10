@@ -13,7 +13,6 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.detach, card.ability.extra.percent * 100 } }
     end,
-    update = JoyousSpring.update_counter,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -80,7 +79,6 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.detach, card.ability.extra.percent * 100 } }
     end,
-    update = JoyousSpring.update_counter,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -168,7 +166,6 @@ SMODS.Joker({
             self.key)
         return { vars = { card.ability.extra.detach, card.ability.extra.from, card.ability.extra.to, numerator, denominator, card.ability.extra.attach } }
     end,
-    update = JoyousSpring.update_counter,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -266,7 +263,6 @@ SMODS.Joker({
             card.ability.extra.odds, self.key)
         return { vars = { card.ability.extra.detach, card.ability.extra.plus_h_size, card.ability.extra.minus_h_size, numerator, denominator, card.ability.extra.attach } }
     end,
-    update = JoyousSpring.update_counter,
     set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
@@ -404,7 +400,6 @@ SMODS.Joker({
         return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * JoyousSpring.get_summoned_count("RITUAL"), card.ability.extra.detach, card.ability.extra.adds } }
     end,
     set_sprites = JoyousSpring.set_back_sprite,
-    update = JoyousSpring.update_counter,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -430,10 +425,9 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if context.joy_detach and context.joy_detaching_card == card then
                 JoyousSpring.ease_detach(card)
-                local choices = JoyousSpring.get_materials_in_collection({ { summon_type = "RITUAL" } })
                 for i = 1, card.ability.extra.adds do
-                    key_to_add = pseudorandom_element(choices, card.config.center.key)
-                    JoyousSpring.add_monster_tag(key_to_add or "j_joy_sauravis")
+                    JoyousSpring.add_monster_tag_pseudorandom(
+                        { { summon_type = "RITUAL" } }, card.config.center.key)
                 end
             end
             if context.joker_main then

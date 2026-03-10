@@ -1185,6 +1185,9 @@ SMODS.Joker({
             card.ability.extra.activated = false
         end
     end,
+    remove_from_deck = function(self, card, from_debuff)
+        card.ability.extra.activated = false
+    end,
     joy_can_activate = function(card)
         if card.ability.extra.activated then
             return false

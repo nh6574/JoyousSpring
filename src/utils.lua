@@ -104,6 +104,22 @@ JoyousSpring.add_monster_tag = function(card_key)
     add_tag(tag)
 end
 
+---Create a random card tag with *property_list* properties
+---@param property_list material_properties[]
+---@param seed string|number?
+---@param not_owned boolean?
+---@param ignore_in_pool boolean?
+---@return string?
+JoyousSpring.add_monster_tag_pseudorandom = function(property_list, seed, not_owned, ignore_in_pool)
+    local choices = JoyousSpring.get_materials_in_collection(property_list, not_owned, not_owned,
+        not ignore_in_pool and seed)
+    local key_to_add = pseudorandom_element(choices, seed or "JoyousSpring")
+    if key_to_add then
+        return JoyousSpring.add_monster_tag(key_to_add)
+    end
+    return key_to_add
+end
+
 ---Flips a random card in *card_list*
 ---@param card_list table|Card[]
 ---@param facing? 'front'|'back' If card has to be facing a direction for it to be flipped

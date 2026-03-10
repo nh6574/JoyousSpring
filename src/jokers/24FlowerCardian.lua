@@ -451,12 +451,9 @@ SMODS.Joker({
                     hit = true
                 end
                 if JoyousSpring.get_hanafuda(context.joy_excavated) and (next(SMODS.find_card("j_joy_cardian_lightflare")) or JoyousSpring.get_hanafuda(context.joy_excavated).type == "light") then
-                    local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "FlowerCardian" }, is_extra_deck = true } })
                     for i = 1, card.ability.extra.adds do
-                        local key_to_add, _ = pseudorandom_element(choices, 'j_joy_cardian_butterfly')
-                        if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
-                            JoyousSpring.add_to_extra_deck(key_to_add)
-                        end
+                        JoyousSpring.add_to_extra_deck_pseudorandom(
+                            { { monster_archetypes = { "FlowerCardian" } } }, card.config.center.key, true)
                     end
                     hit = true
                 end
@@ -543,12 +540,9 @@ SMODS.Joker({
                     hit = true
                 end
                 if JoyousSpring.get_hanafuda(context.joy_excavated) and (next(SMODS.find_card("j_joy_cardian_lightflare")) or JoyousSpring.get_hanafuda(context.joy_excavated).type == "light") then
-                    local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "FlowerCardian" }, is_extra_deck = true } })
                     for i = 1, card.ability.extra.adds do
-                        local key_to_add, _ = pseudorandom_element(choices, 'j_joy_cardian_boar')
-                        if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
-                            JoyousSpring.add_to_extra_deck(key_to_add)
-                        end
+                        JoyousSpring.add_to_extra_deck_pseudorandom(
+                            { { monster_archetypes = { "FlowerCardian" } } }, card.config.center.key, true)
                     end
                     hit = true
                 end
@@ -815,10 +809,9 @@ SMODS.Joker({
                     hit = true
                 end
                 if JoyousSpring.get_hanafuda(context.joy_excavated) and (next(SMODS.find_card("j_joy_cardian_lightflare")) or JoyousSpring.get_hanafuda(context.joy_excavated).type == "light") then
-                    local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "FlowerCardian" } } })
                     for i = 1, card.ability.extra.adds do
-                        local key_to_add = pseudorandom_element(choices, 'j_joy_moissa')
-                        JoyousSpring.add_monster_tag(key_to_add or "j_joy_eccentrick")
+                        JoyousSpring.add_monster_tag_pseudorandom(
+                            { { monster_archetypes = { "FlowerCardian" } } }, card.config.center.key)
                     end
                     hit = true
                 end

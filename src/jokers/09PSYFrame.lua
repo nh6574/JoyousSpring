@@ -700,13 +700,10 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and not context.retrigger_joker and
                 context.joy_returned and JoyousSpring.is_monster_type(context.joy_returned_card, "Psychic") then
-                local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "PSYFrame" }, is_extra_deck = true, exclude_keys = { "j_joy_psy_lambda" } } })
-
                 for i = 1, card.ability.extra.cards_to_create do
-                    local key_to_add, _ = pseudorandom_element(choices, 'j_joy_psy_lambda')
-                    if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
-                        JoyousSpring.add_to_extra_deck(key_to_add)
-                    end
+                    JoyousSpring.add_to_extra_deck_pseudorandom(
+                        { { monster_archetypes = { "PSYFrame" }, exclude_keys = { "j_joy_psy_lambda" } } },
+                        card.config.center.key, true)
                 end
             end
         end

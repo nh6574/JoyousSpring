@@ -17,7 +17,6 @@ SMODS.Joker({
         return { vars = { card.ability.extra.attach, card.ability.extra.detach, card.ability.extra.revives } }
     end,
     set_sprites = JoyousSpring.set_back_sprite,
-    update = JoyousSpring.update_counter,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

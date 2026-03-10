@@ -417,7 +417,7 @@ JoyousSpring.Blind {
         },
         joy_prevent_flip = function(self, card, other_card)
             if not JoyousSpring.can_use_abilities(card) then return end
-            return other_card.facing == "back"
+            return other_card.ability.set == "Joker" and other_card.facing == "back"
         end
     }
 }
@@ -569,7 +569,7 @@ JoyousSpring.Blind {
         },
         joy_prevent_flip = function(self, card, other_card)
             if not JoyousSpring.can_use_abilities(card) then return end
-            return other_card.facing == "front"
+            return other_card.ability.set == "Joker" and other_card.facing == "front"
         end
     }
 }
@@ -1282,12 +1282,9 @@ JoyousSpring.Blind {
 
             if joker then
                 G.GAME.joy_ultimateslayer_summon_type = joker.ability.extra.joyous_spring.summon_type
-                local ed_choices = JoyousSpring.get_materials_in_collection({ { summon_type = G.GAME.joy_ultimateslayer_summon_type, is_extra_deck = true, exclude_keys = { joker.config.center_key } } })
-
-                local key_to_add = pseudorandom_element(ed_choices, self.key .. "_extra")
-                if key_to_add and #JoyousSpring.extra_deck_area.cards < JoyousSpring.extra_deck_area.config.card_limit then
-                    JoyousSpring.add_to_extra_deck(key_to_add)
-                end
+                JoyousSpring.add_to_extra_deck_pseudorandom(
+                    { { summon_type = G.GAME.joy_ultimateslayer_summon_type or "LINK", exclude_keys = { joker.config.center_key } } },
+                    self.key .. "_extra", true)
                 SMODS.destroy_cards(joker)
             end
         end
