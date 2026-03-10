@@ -6,7 +6,7 @@ return {
 	instant_poker_hand = false,
 	disable_main_menu = false,
 	disable_glow = false,
-	disable_side_deck = true,
+	disable_counters = false,
 	alt_art = {
 		j_joy_dmaid_house = false,
 		j_joy_etwin_kisikil = false,

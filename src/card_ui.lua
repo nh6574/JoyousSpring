@@ -286,6 +286,52 @@ JoyousSpring.get_type_ui = function(card)
     return ret
 end
 
+JoyousSpring.get_counter_ui = function(card)
+    if not JoyousSpring.config.disable_counters then return end
+    local counter_cards = {
+        j_joy_shaddoll_prison = true
+    }
+
+    local ctype = counter_cards[card.config.center.key] and "counters" or
+        JoyousSpring.is_summon_type(card, "XYZ") and "xyzmaterials" or nil
+
+    if not ctype then return end
+
+    local value = ctype == "counters" and
+        (counter_cards[card.config.center.key] == true and card.ability.extra.counters or
+            counter_cards[card.config.center.key].ref_table[counter_cards[card.config.center.key].ref_value]) or
+        card.ability.extra.joyous_spring.xyz_materials
+
+    if value <= 0 then return end
+
+    local text = localize({
+        type = "variable",
+        key = "v_joy_" .. ctype,
+        vars = { value }
+    })
+
+    return {
+        {
+            n = G.UIT.O,
+            config = {
+                object = DynaText({
+                    string = { text },
+                    colours = { ctype == "counters" and G.C.JOY.NORMAL or G.C.JOY.XYZ },
+                    bump = true,
+                    silent = true,
+                    pop_in = 0,
+                    pop_in_rate = 4,
+                    maxw = 5,
+                    shadow = true,
+                    y_offset = 0,
+                    spacing = math.max(0, 0.32 * (17 - #text)),
+                    scale = (0.4 - 0.004 * #text)
+                })
+            }
+        }
+    }
+end
+
 ---Generates Joker's description UI. This is done to add:
 ---* Type information under names
 ---* Some tooltips to info_queue automatically
@@ -301,6 +347,7 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
 
     if desc_nodes == full_UI_table.main then
         if self.set == "Joker" or self.set == "joy_Opponent" then
+            local counters = JoyousSpring.get_counter_ui(card)
             -- Add type information under names
             full_UI_table.name = {
                 {
@@ -317,6 +364,11 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
                             config = { align = "cm" },
                             nodes = JoyousSpring.get_type_ui(card)
                         },
+                        counters and {
+                            n = G.UIT.R,
+                            config = { align = "cm" },
+                            nodes = counters
+                        } or nil
                     }
                 }
             }

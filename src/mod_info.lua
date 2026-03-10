@@ -460,9 +460,9 @@ local main_tab = function()
                                 config = { align = "cr", padding = 0.01 },
                                 nodes = {
                                     create_toggle({
-                                        label = localize('k_joy_disable_side_deck'),
+                                        label = localize('k_joy_disable_counters'),
                                         ref_table = JoyousSpring.config,
-                                        ref_value = 'disable_side_deck'
+                                        ref_value = 'disable_counters'
                                     })
                                 }
                             },

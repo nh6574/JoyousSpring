@@ -11,7 +11,7 @@ return {
             k_joy_extra_ygo_booster = "Add a Selection Pack to each shop (test feature)",
             k_joy_instant_poker_hand = "Disable poker hand level up animation (for this mod)",
             k_joy_disable_glow = "Disable glow effect on cards that can be activated",
-            k_joy_disable_side_deck = "Disable Side Deck (test feature)"
+            k_joy_disable_counters = "Disable Counter/Xyz material graphics (Might boost performance)"
         }
     }
 }

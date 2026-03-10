@@ -18,6 +18,10 @@ return {
             k_joy_doubled = "Doubled!",
             k_joy_increased = "Increased!",
             k_joy_attach = "Attach!",
+        },
+        v_dictionary = {
+            v_joy_xyzmaterials = "Xyz Materials: #1#",
+            v_joy_counters = "Counters: #1#"
         }
     }
 }

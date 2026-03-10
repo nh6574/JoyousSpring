@@ -39,42 +39,46 @@ local draw_counter = function(card, key, ref_table, ref_value, x_off, y_off)
 
     love.graphics.push()
     love.graphics.origin()
-    canvas.canvas:renderTo(love.graphics.clear, 0, 0, 0, 0)
-    canvas.canvas:renderTo(love.graphics.draw,
-        graphic,
-        (59 + x_off) * canvas.canvasScale,
-        (9 + y_off) * canvas.canvasScale,
-        0,
-        2.25, 2.25,
-        32, 32
-    )
-    local text = love.graphics.newText(G.FONTS[1].FONT,
-        { G.C.UI.TEXT_LIGHT, ref_table[ref_value] })
-    local shadow = love.graphics.newText(G.FONTS[1].FONT,
-        { { 0, 0, 0, 1 }, ref_table[ref_value] })
-    if text then
-        local shadow_offset = 10
-        for i = 1, 4 do
-            canvas.canvas:renderTo(love.graphics.draw,
-                shadow,
-                (60 + x_off) * canvas.canvasScale +
-                (i == 1 and shadow_offset or i == 2 and -shadow_offset or 0),
-                (8 + y_off) * canvas.canvasScale +
-                (i == 3 and shadow_offset or i == 4 and -shadow_offset or 0),
-                0,
-                0.75, 0.75,
-                text:getWidth() / 2, text:getHeight() / 2
-            )
-        end
-        canvas.canvas:renderTo(love.graphics.draw,
-            text,
-            (60 + x_off) * canvas.canvasScale,
-            (8 + y_off) * canvas.canvasScale,
-            0,
-            0.75, 0.75,
-            text:getWidth() / 2, text:getHeight() / 2
-        )
+
+    if not canvas.cached_text or canvas.cached_value ~= ref_table[ref_value] then
+        canvas.cached_value = ref_table[ref_value]
+
+        canvas.cached_text = love.graphics.newText(G.FONTS[1].FONT,
+            { G.C.UI.TEXT_LIGHT, canvas.cached_value })
+
+        canvas.cached_shadow = love.graphics.newText(G.FONTS[1].FONT,
+            { { 0, 0, 0, 1 }, canvas.cached_value })
     end
+
+    local scale = canvas.canvasScale
+
+    local gx = (59 + x_off) * scale
+    local gy = (9 + y_off) * scale
+    local cx = (60 + x_off) * scale
+    local cy = (8 + y_off) * scale
+
+    canvas.canvas:renderTo(function()
+        love.graphics.clear(0, 0, 0, 0)
+
+        love.graphics.draw(graphic, gx, gy, 0, 2.25, 2.25, 32, 32)
+
+        if canvas.cached_text then
+            local tw = canvas.cached_text:getWidth() / 2
+            local th = canvas.cached_text:getHeight() / 2
+
+            local offsets = {
+                { 10, 0 }, { -10, 0 }, { 0, 10 }, { 0, -10 }
+            }
+
+            for i = 1, 4 do
+                local o = offsets[i]
+                love.graphics.draw(canvas.cached_shadow, cx + o[1], cy + o[2], 0, 0.75, 0.75, tw, th)
+            end
+
+            love.graphics.draw(canvas.cached_text, cx, cy, 0, 0.75, 0.75, tw, th)
+        end
+    end)
+
     love.graphics.pop()
     canvas.role.draw_major = card
     canvas:draw_shader('dissolve', nil, nil, nil, card.children.center)
@@ -84,11 +88,13 @@ SMODS.DrawStep {
     key = 'xyz_materials',
     order = 45,
     func = function(card, layer)
-        if JoyousSpring.is_summon_type(card, "XYZ") and card.ability.extra.joyous_spring.xyz_materials > 0 then
-            draw_counter(card, "xyzmaterial", card.ability.extra.joyous_spring, "xyz_materials")
-        end
-        if card.config.center.key == "j_joy_shaddoll_prison" and card.ability.extra.counters > 0 then
-            draw_counter(card, "spellstone", card.ability.extra, "counters")
+        if not JoyousSpring.config.disable_counters then
+            if JoyousSpring.is_summon_type(card, "XYZ") and card.ability.extra.joyous_spring.xyz_materials > 0 then
+                draw_counter(card, "xyzmaterial", card.ability.extra.joyous_spring, "xyz_materials")
+            end
+            if card.config.center.key == "j_joy_shaddoll_prison" and card.ability.extra.counters > 0 then
+                draw_counter(card, "spellstone", card.ability.extra, "counters")
+            end
         end
     end,
     conditions = { vortex = false, facing = 'front' },
