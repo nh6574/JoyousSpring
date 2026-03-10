@@ -306,3 +306,29 @@ function Game:start_run(args)
 
     game_start_run_ref(self, args)
 end
+
+local set_joker_win_ref = set_joker_win
+function set_joker_win(...)
+    for k, v in pairs(SMODS.merge_lists {
+        JoyousSpring.field_spell_area.cards,
+        JoyousSpring.banish_blind_selected_area.cards,
+        JoyousSpring.banish_end_of_round_area.cards,
+        JoyousSpring.banish_boss_selected_area.cards,
+        JoyousSpring.banish_end_of_ante_area.cards
+    }) do
+        if v.config.center_key and v.ability.set == 'Joker' then
+            G.PROFILES[G.SETTINGS.profile].joker_usage[v.config.center_key] = G.PROFILES[G.SETTINGS.profile].joker_usage
+                [v.config.center_key] or
+                { count = 1, order = v.config.center.order, wins = {}, losses = {}, wins_by_key = {}, losses_by_key = {} }
+            if G.PROFILES[G.SETTINGS.profile].joker_usage[v.config.center_key] then
+                G.PROFILES[G.SETTINGS.profile].joker_usage[v.config.center_key].wins = G.PROFILES[G.SETTINGS.profile]
+                    .joker_usage[v.config.center_key].wins or {}
+                G.PROFILES[G.SETTINGS.profile].joker_usage[v.config.center_key].wins[G.GAME.stake] = (G.PROFILES[G.SETTINGS.profile].joker_usage[v.config.center_key].wins[G.GAME.stake] or 0) +
+                    1
+                G.PROFILES[G.SETTINGS.profile].joker_usage[v.config.center_key].wins_by_key[SMODS.stake_from_index(G.GAME.stake)] = (G.PROFILES[G.SETTINGS.profile].joker_usage[v.config.center_key].wins_by_key[SMODS.stake_from_index(G.GAME.stake)] or 0) +
+                    1
+            end
+        end
+    end
+    return set_joker_win_ref(...)
+end
