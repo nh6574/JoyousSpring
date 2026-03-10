@@ -585,6 +585,30 @@ SMODS.current_mod.config_tab = function()
     }
 end
 
+-- Remove normal monsters from the tally
+local modsCollectionTally_ref = modsCollectionTally
+function modsCollectionTally(pool, set, ignore_discovered)
+    if pool == G.P_CENTER_POOLS.Joker and G.ACTIVE_MOD_UI.id == "JoyousSpring" then
+        local obj_tally = { tally = 0, of = 0 }
+
+        for _, v in pairs(pool) do
+            if v.mod and G.ACTIVE_MOD_UI.id == v.mod.id and not v.no_collection then
+                local joyous_spring = (((v.config or {}).extra or {}).joyous_spring or {})
+                if joyous_spring.is_effect or joyous_spring.is_field_spell or v.key == "j_joy_token" then
+                    obj_tally.of = obj_tally.of + 1
+                    if ignore_discovered or v.discovered then
+                        obj_tally.tally = obj_tally.tally + 1
+                    end
+                end
+            end
+        end
+
+        return obj_tally
+    else
+        return modsCollectionTally_ref(pool, set, ignore_discovered)
+    end
+end
+
 JoyousSpring.collection_pool = {}
 JoyousSpring.token_pool = {}
 JoyousSpring.card_order = {}

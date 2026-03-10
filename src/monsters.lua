@@ -441,6 +441,22 @@ JoyousSpring.is_extra_deck_monster = function(card)
         not card.ability.extra.joyous_spring.is_main_deck and not card.ability.extra.joyous_spring.is_field_spell
 end
 
+---Checks if *card* is a Normal Joker
+---@param card Card|table
+---@return boolean
+JoyousSpring.is_normal_monster = function(card)
+    return JoyousSpring.is_monster_card(card) and
+        not (JoyousSpring.is_effect_monster(card) or JoyousSpring.is_extra_deck_monster(card) or JoyousSpring.is_field_spell(card))
+end
+
+---Checks if *card* is a non-Effect Joker
+---@param card Card|table
+---@return boolean
+JoyousSpring.is_noneffect_monster = function(card)
+    return JoyousSpring.is_monster_card(card) and
+        not (JoyousSpring.is_effect_monster(card) or JoyousSpring.is_field_spell(card))
+end
+
 ---Checks if *card* has summon type *summon_type*
 ---@param card Card|table
 ---@param summon_type summon_type
@@ -892,12 +908,12 @@ JoyousSpring.is_material = function(card, properties, summon_type)
         end
     end
     if properties.is_non_effect then
-        if JoyousSpring.is_effect_monster(card) then
+        if not JoyousSpring.is_noneffect_monster(card) then
             return false
         end
     end
     if properties.is_normal then
-        if JoyousSpring.is_effect_monster(card) or JoyousSpring.is_extra_deck_monster(card) then
+        if not JoyousSpring.is_normal_monster(card) then
             return false
         end
     end
@@ -1209,12 +1225,12 @@ JoyousSpring.is_material_center = function(card_key, properties)
         end
     end
     if properties.is_non_effect then
-        if monster_card_properties and monster_card_properties.is_effect or extra_values.is_effect then
+        if monster_card_properties and (monster_card_properties.is_effect or monster_card_properties.is_field_spell) or (extra_values.is_effect or extra_values.is_field_spell) then
             return false
         end
     end
     if properties.is_normal then
-        if monster_card_properties and (monster_card_properties.is_effect or not monster_card_properties.is_main_deck) or extra_values.is_effect then
+        if monster_card_properties and (monster_card_properties.is_effect or not monster_card_properties.is_main_deck or monster_card_properties.is_field_spell) or (extra_values.is_effect or extra_values.is_field_spell) then
             return false
         end
     end
