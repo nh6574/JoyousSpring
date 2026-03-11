@@ -658,7 +658,7 @@ end
 
 local create_UIBox_your_collection_jokers_ref = create_UIBox_your_collection_jokers
 create_UIBox_your_collection_jokers = function()
-    if G.ACTIVE_MOD_UI and G.ACTIVE_MOD_UI.id and G.ACTIVE_MOD_UI.id == "JoyousSpring" and #JoyousSpring.collection_pool > 0 then
+    if (JoyousSpring.config.only_ygo_cards and not G.ACTIVE_MOD_UI) or G.ACTIVE_MOD_UI and G.ACTIVE_MOD_UI.id and G.ACTIVE_MOD_UI.id == "JoyousSpring" and #JoyousSpring.collection_pool > 0 then
         return JoyousSpring.card_collection_UIBox(G.P_CENTER_POOLS.Joker, { 5, 5, 5 }, {
             no_materialize = true,
             modify_card = function(card, center) card.sticker = get_joker_win_sticker(center) end,
@@ -679,7 +679,10 @@ JoyousSpring.card_collection_UIBox = function(_pool, rows, args)
     args.h_mod = 1
     args.card_scale = 1
     local deck_tables = {}
+    local old_mod = G.ACTIVE_MOD_UI -- for vanilla collection
+    G.ACTIVE_MOD_UI = SMODS.Mods.JoyousSpring
     local pool = SMODS.collection_pool(_pool)
+    G.ACTIVE_MOD_UI = old_mod
     local archetype_pool, pages = JoyousSpring.get_archetype_pool(pool)
 
     G.your_collection = {}
