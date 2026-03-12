@@ -27,6 +27,12 @@
 ---@field joy_prevent_banish? fun(self:SMODS.Blind|table, blind:table|Blind?, other_card:Card|table, banish_until:string):boolean? Determines if *other_card* can be banished
 ---@field joy_prevent_drag? fun(self:SMODS.Blind|table, blind:table|Blind?, other_card:Card|table, area:CardArea|table):boolean? Determines if *other_card* can be dragged
 ---@field joy_prevent_summon? fun(self:SMODS.Blind|table, blind:table|Blind?, other_card:Card|table, card_list:Card[]|table?):boolean? Determines if *other_card* can be summoned
+---@field can_debuff? fun():boolean
+---@field can_banish? fun():boolean
+---@field can_destroy? fun():boolean
+---@field can_affect_shop? fun():boolean
+---@field can_affect_summon? fun():boolean
+---@field can_flip? fun():boolean
 ---@overload fun(self: JoyousSpring.Blind): JoyousSpring.Blind
 JoyousSpring.Blind = setmetatable({}, {
     __call = function(self)
@@ -310,3 +316,31 @@ function Game:start_run(args)
 
     JoyousSpring.blind_effects = G.GAME.joy_blind_effects
 end
+
+-- Effects
+-- Kinda hardcoded because I don't really care
+
+JoyousSpring.Blind.prevent_debuff_keys = {}
+JoyousSpring.Blind.prevent_banish_keys = {}
+JoyousSpring.Blind.prevent_destruction_keys = {}
+JoyousSpring.Blind.prevent_shop_keys = {}
+JoyousSpring.Blind.prevent_summon_keys = {}
+JoyousSpring.Blind.prevent_flip_keys = {}
+
+local can_do_effect = function(type)
+    local list = JoyousSpring.Blind["prevent_" .. type .. "_keys"]
+    if not list or #list <= 0 then return true end
+    for _, key in ipairs(list) do
+        if next(SMODS.find_card(key)) then
+            return false
+        end
+    end
+    return true
+end
+
+JoyousSpring.Blind.can_debuff = function() return can_do_effect("debuff") end
+JoyousSpring.Blind.can_banish = function() return can_do_effect("banish") end
+JoyousSpring.Blind.can_destroy = function() return can_do_effect("destruction") end
+JoyousSpring.Blind.can_affect_shop = function() return can_do_effect("shop") end
+JoyousSpring.Blind.can_affect_summon = function() return can_do_effect("summon") end
+JoyousSpring.Blind.can_flip = function() return can_do_effect("flip") end

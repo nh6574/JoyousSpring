@@ -128,6 +128,20 @@ SMODS.current_mod.calculate = function(self, context)
     if context.remove_playing_cards then
         G.GAME.joy_cards_destroyed = G.GAME.joy_cards_destroyed and
             (G.GAME.joy_cards_destroyed + #context.removed) or #context.removed
+        for _, pcard in ipairs(context.removed) do
+            if pcard.glass_trigger then
+                G.GAME.joy_glass_shattered = (G.GAME.joy_glass_shattered or 0) + 1
+            end
+        end
+    end
+
+    if context.joker_type_destroyed then
+        G.GAME.joy_joker_cards_destroyed = (G.GAME.joy_joker_cards_destroyed or 0) + 1
+    end
+
+    -- Global counter for revived cards
+    if context.joy_revived then
+        G.GAME.joy_joker_cards_revived = (G.GAME.joy_joker_cards_revived or 0) + 1
     end
 
     -- Global counter for summoned cards

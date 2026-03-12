@@ -38,6 +38,7 @@ return {
                     {
                         "Level up played hand once for each {C:joy_normal}\"Artifact\"{}",
                         "in the {C:joy_trap}Opponent{}'s area with a different name",
+                        "after scoring",
                         "Each hand can be leveled up once per ante"
                     },
                     {
@@ -53,7 +54,7 @@ return {
                 text = {
                     {
                         "Each card held in hand gives Mult",
-                        "equal to their rank times {C:mult}#1#{}"
+                        "equal to their rank times the number of {C:joy_normal}\"Artifact\"{} owned"
                     },
                     {
                         "If there are 2 or less {C:joy_normal}\"Artifact\"{}",
@@ -160,7 +161,7 @@ return {
                 name = "{C:joy_effect}Artifact Scythe",
                 text = {
                     {
-                        "Gains {X:mult,C:white}X#1#{} Mult for each card {C:attention}summoned{} this run",
+                        "Gains {X:mult,C:white}X#1#{} Mult for each card {C:attention}summoned{}",
                         "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
                     },
                     {
@@ -190,13 +191,13 @@ return {
                 text = {
                     {
                         "{C:attention}Attach #1# material{} when {C:attention}5{} cards",
-                        "are added to the {C:joy_trap}Opponent{}'s area",
+                        "are added to the {C:joy_trap}Opponent{}'s area {C:inactive}(#2#/5){}",
                         "or when a non-{C:joy_normal}\"Artifact\"{} in that area is destroyed"
                     },
                     {
-                        "{C:joy_xyz}Detach{} {C:attention}#2#{}: Draw {C:attention}#2#{} card",
+                        "{C:joy_xyz}Detach{} {C:attention}#3#{}: Draw {C:attention}#4#{} card",
                         "for each card in the {C:joy_trap}Opponent{}'s area",
-                        "and increase that area's slots by {C:attention}#3#{} permanently"
+                        "and increase that area's slots by {C:attention}#5#{} permanently"
                     },
                 },
                 joy_summon_conditions = {
@@ -230,7 +231,7 @@ return {
                     {
                         "Cards can't be debuffed",
                         "by {C:joy_mod}Card{} {C:attention}Blinds{}",
-                        "or cards in the {C:joy_trap}Opponent{}'s area"
+                        "or {C:attention}Blind{} {C:joy_trap}Opponent{} cards"
                     }
                 }
             },
@@ -240,7 +241,7 @@ return {
                     {
                         "Cards can't be destroyed",
                         "by {C:joy_mod}Card{} {C:attention}Blinds{}",
-                        "or cards in the {C:joy_trap}Opponent{}'s area"
+                        "or {C:attention}Blind{} {C:joy_trap}Opponent{} cards"
                     }
                 }
             },
@@ -302,7 +303,7 @@ return {
                     {
                         "Cards can't be {C:attention}banished{}",
                         "by {C:joy_mod}Card{} {C:attention}Blinds{}",
-                        "or cards in the {C:joy_trap}Opponent{}'s area"
+                        "or {C:attention}Blind{} {C:joy_trap}Opponent{} cards"
                     }
                 }
             },
@@ -331,7 +332,7 @@ return {
                 text = {
                     {
                         "{C:joy_mod}Card{} {C:attention}Blinds{}",
-                        "or cards in the {C:joy_trap}Opponent{}'s area",
+                        "or {C:attention}Blind{} {C:joy_trap}Opponent{} cards",
                         "can't prevent {C:attention}summoning{} or buying"
                     }
                 }
@@ -340,8 +341,9 @@ return {
                 name = "{C:joy_effect}Artifact Vajra",
                 text = {
                     {
-                        "{C:attention}Revives{} as many {C:joy_normal}\"Artifact\"{} as possible",
-                        "to the {C:joy_token}Side Deck{} when obtained",
+                        "Cards can't be {C:attention}flipped{}",
+                        "by {C:joy_mod}Card{} {C:attention}Blinds{}",
+                        "or {C:attention}Blind{} {C:joy_trap}Opponent{} cards"
                     }
                 }
             },
