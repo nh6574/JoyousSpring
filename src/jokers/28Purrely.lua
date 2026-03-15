@@ -6,6 +6,38 @@ SMODS.Atlas({
     py = 95
 })
 
+SMODS.Consumable {
+    key = "purr_delicious",
+    atlas = 'purr',
+    pos = { x = 2, y = 2 },
+    set = "Spectral",
+    discovered = true,
+}
+
+SMODS.Consumable {
+    key = "purr_happy",
+    atlas = 'purr',
+    pos = { x = 3, y = 2 },
+    set = "Spectral",
+    discovered = true,
+}
+
+SMODS.Consumable {
+    key = "purr_pretty",
+    atlas = 'purr',
+    pos = { x = 0, y = 3 },
+    set = "Spectral",
+    discovered = true,
+}
+
+SMODS.Consumable {
+    key = "purr_sleepy",
+    atlas = 'purr',
+    pos = { x = 1, y = 3 },
+    set = "Spectral",
+    discovered = true,
+}
+
 -- Purrely
 SMODS.Joker({
     key = "purr_purrely",
