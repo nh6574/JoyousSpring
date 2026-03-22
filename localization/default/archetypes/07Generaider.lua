@@ -50,7 +50,7 @@ return {
                     {
                         "You can {C:attention}tribute #1#{} other {C:joy_normal}\"Generaider\"{}",
                         "and/or {C:joy_normal}Wyrm{} {C:attention}Jokers{}",
-                        "to retrigger each scored card this round",
+                        "to retrigger each scored card in played hand this round",
                     },
                 },
             },

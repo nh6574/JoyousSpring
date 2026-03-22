@@ -5,7 +5,7 @@ return {
                 name = "{C:joy_effect}Ghost Ogre & Snow Rabbit",
                 text = {
                     {
-                        "Destroys every scored card",
+                        "Destroys every scored card in played hand",
                         "Gains {X:mult,C:white}X#1#{} Mult for each",
                         "{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}",
                     },

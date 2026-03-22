@@ -100,7 +100,7 @@ return {
                 text = {
                     {
                         "Gains {X:mult,C:white}X#1#{} Mult for each card",
-                        "destroyed by an {C:joy_normal}\"Artifact\"{} effect this run",
+                        "destroyed by an {C:joy_normal}\"Artifact\"{} ability this run",
                         "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
                     },
                     {
@@ -214,7 +214,7 @@ return {
                         "creates {C:attention}#1#{} {C:joy_normal}Main Deck \"Artifact\"{}"
                     },
                     {
-                        "{C:joy_normal}\"Artifact\"{} can activate their effects even if there",
+                        "{C:joy_normal}\"Artifact\"{} can activate their abilities even if there",
                         "ignoring their conditions"
                     }
                 },
@@ -291,7 +291,7 @@ return {
                 text = {
                     {
                         "Once per round, when a card is destroyed",
-                        "by an {C:joy_normal}\"Artifact\"{} effect,",
+                        "by an {C:joy_normal}\"Artifact\"{} abilities,",
                         "creates {C:attention}#1#{} {C:joy_normal}Main Deck \"Artifact\"{}",
                         "{C:inactive}(Must have room)"
                     }

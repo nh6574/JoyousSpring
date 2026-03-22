@@ -537,7 +537,8 @@ return {
                         "{X:mult,C:white}X#1#{} Mult",
                         "{C:green}#2# in #3#{} chance for scored {C:attention}Aces{} to give {X:mult,C:white}X#1#{} Mult",
                         "{C:green}#4# in #5#{} chance to level up scored hand",
-                        "{C:green}#6# in #7#{} to turn each scored card into a {C:attention}Gold Seal Lucky Ace{}",
+                        "{C:green}#6# in #7#{} to turn each scored card in played hand",
+                        "into a {C:attention}Gold Seal Lucky Ace{}",
                     },
                 }
             },

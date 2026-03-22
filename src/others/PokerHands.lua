@@ -1015,3 +1015,165 @@ SMODS.Consumable {
     end
 }
 --#endregion
+
+--#region Purrelyeap
+
+has_purrelyeap_graph = function(graph, have_eq_or_more_than, index, count, hits)
+    if not graph or not graph[index] or ((#graph - index + 1 + count) < have_eq_or_more_than) then return false end
+    local new_hits = copy_table(hits)
+    for _, suit_key in ipairs(graph[index]) do
+        if not hits[suit_key] then
+            if (count + 1) >= have_eq_or_more_than then return true end
+            new_hits[suit_key] = true
+            if has_purrelyeap_graph(graph, have_eq_or_more_than, index + 1, count + 1, new_hits) then
+                return true
+            end
+            new_hits[suit_key] = nil
+        end
+    end
+    return has_purrelyeap_graph(graph, have_eq_or_more_than, index + 1, count, hits)
+end
+
+SMODS.PokerHand({
+    key = "purr_yeap",
+    chips = 35,
+    mult = 4,
+    l_chips = 15,
+    l_mult = 2,
+    visible = false,
+    example = {
+        { 'H_A', true },
+        { 'D_J', true },
+        { 'S_7', true },
+        { 'H_4', true },
+        { 'C_3', true },
+    },
+    evaluate = function(parts, hand)
+        local has_street = false
+        for _, joker in ipairs(SMODS.find_card("j_joy_purr_street")) do
+            if JoyousSpring.can_use_abilities(joker) then
+                has_street = true
+                break
+            end
+        end
+        if #hand >= 4 and has_street then
+            local any = 0
+            for _, pcard in ipairs(hand) do
+                if SMODS.has_any_suit(pcard) then
+                    any = any + 1
+                    if any >= 4 then
+                        return { hand }
+                    end
+                end
+            end
+            local have_eq_or_more_than = 4 - any
+            local has_suit = 0
+            local graph = {}
+            for _, pcard in ipairs(hand) do
+                if not SMODS.has_any_suit(pcard) then
+                    local first_suit
+                    for _, suit_key in ipairs(SMODS.Suit.obj_buffer) do
+                        if pcard:is_suit(suit_key) then
+                            if not first_suit then
+                                first_suit = true
+                                has_suit = has_suit + 1
+                                graph[#graph + 1] = {}
+                            end
+                            graph[#graph][#graph[#graph] + 1] = suit_key
+                        end
+                    end
+                end
+            end
+            if has_suit < have_eq_or_more_than then
+                return {}
+            end
+            if has_purrelyeap_graph(graph, have_eq_or_more_than, 1, 0, {}) then
+                return { hand }
+            end
+        end
+        return {}
+    end
+})
+
+local purr_friend_apply_seal = function(card)
+    local conv_card = G.hand.highlighted[1]
+    if conv_card then
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                play_sound('tarot1')
+                card:juice_up(0.3, 0.5)
+                return true
+            end
+        }))
+
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.1,
+            func = function()
+                conv_card:set_seal("joy_purr_memory", nil, true)
+                return true
+            end
+        }))
+
+        delay(0.5)
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.2,
+            func = function()
+                G.hand:unhighlight_all()
+
+                local has_street = false
+                for _, joker in ipairs(SMODS.find_card("j_joy_purr_street")) do
+                    if JoyousSpring.can_use_abilities(joker) then
+                        has_street = true
+                        break
+                    end
+                end
+                if has_street then
+                    local choices = JoyousSpring.get_materials_owned({ { summon_type = "XYZ" } })
+                    local joker = pseudorandom_element(choices, "j_joy_purr_street")
+
+                    if joker then
+                        joker.ability.extra.joyous_spring.xyz_materials =
+                            joker.ability.extra.joyous_spring.xyz_materials + 1
+                        SMODS.calculate_effect({ message = localize("k_joy_attach"), colour = G.C.JOY.XYZ }, joker)
+                    end
+                end
+                return true
+            end
+        }))
+    end
+end
+
+SMODS.Consumable {
+    key = 'purr_friend',
+    set = 'Planet',
+    atlas = 'purr',
+    discovered = true,
+    config = { hand_type = 'joy_purr_yeap', softlock = true },
+    pos = { x = 1, y = 2 },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_SEALS.joy_purr_memory
+        return {
+            vars = {
+                G.GAME.hands[card.ability.hand_type].level,
+                localize(card.ability.hand_type, 'poker_hands'),
+                G.GAME.hands[card.ability.hand_type].l_mult,
+                G.GAME.hands[card.ability.hand_type].l_chips,
+                colours = { (G.GAME.hands[card.ability.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.hand_type].level)]) }
+            }
+        }
+    end,
+    calculate = function(self, card, context)
+        if context.selling_self then
+            purr_friend_apply_seal(card)
+        end
+    end,
+    use = function(self, card, area, copier)
+        if G.GAME.joy_purr_friend_apply then
+            purr_friend_apply_seal(card)
+        end
+        SMODS.upgrade_poker_hands { hands = { "joy_purr_yeap" }, level_up = 1, from = card }
+    end
+}
+--#endregion

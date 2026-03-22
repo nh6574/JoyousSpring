@@ -35,7 +35,8 @@ return {
                     {
                         "{C:attention}Banishes{} a {C:joy_normal}\"PSY-Frame Driver\"",
                         "when {C:attention}Blind{} is selected until end of round to",
-                        "make all scored cards give {X:mult,C:white}X#2#{} Mult this round",
+                        "make all scored cards in played hand",
+                        "give {X:mult,C:white}X#2#{} Mult this round",
                     },
                 },
             },

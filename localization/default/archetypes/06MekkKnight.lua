@@ -70,7 +70,7 @@ return {
                 text = {
                     {
                         "Gets ability based on the {C:attention}column{}",
-                        "{V:1}1: All scored cards retrigger once{}",
+                        "{V:1}1: All scored cards in played hand retrigger once{}",
                         "{V:2}2:{} {C:chips}+#1#{} {V:2}Chips{}",
                         "{V:3}3:{} {C:mult}+#2#{} {V:3}Mult{}",
                         "{V:4}4:{} {X:mult,C:white}X#3#{} {V:4}Mult{}",

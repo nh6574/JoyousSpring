@@ -6,10 +6,11 @@ return {
                 text = {
                     {
                         "Enables {C:attention}Virtual World{} hands and",
-                        "applies effects based on the hand played:"
+                        "applies abilities based on the hand played:"
                     },
                     {
-                        "{C:attention}Xuanwu{}: Each scored card gives {X:mult,C:white}X#1#{} Mult"
+                        "{C:attention}Xuanwu{}: Each scored card in played hand",
+                        "gives {X:mult,C:white}X#1#{} Mult"
                     },
                     {
                         "{C:attention}Qinglong{}: Once per round, adds {C:attention}#2#{}",
@@ -29,10 +30,11 @@ return {
                 text = {
                     {
                         "Enables {C:attention}Virtual World{} hands and",
-                        "applies effects based on the hand played:"
+                        "applies abilities based on the hand played:"
                     },
                     {
-                        "{C:attention}Xuanwu{}: Each scored card gives {C:chips}+#1#{} Chips"
+                        "{C:attention}Xuanwu{}: Each scored card in played hand",
+                        "gives {C:chips}+#1#{} Chips"
                     },
                     {
                         "{C:attention}Qinglong{}: Once per round, adds {C:attention}#2#{}",
@@ -56,10 +58,11 @@ return {
                 text = {
                     {
                         "Enables {C:attention}Virtual World{} hands and",
-                        "applies effects based on the hand played:"
+                        "applies abilities based on the hand played:"
                     },
                     {
-                        "{C:attention}Xuanwu{}: Each scored card gives {C:mult}+#1#{} Mult"
+                        "{C:attention}Xuanwu{}: Each scored card in played hand",
+                        "gives {C:mult}+#1#{} Mult"
                     },
                     {
                         "{C:attention}Qinglong{}: Once per round, adds {C:attention}#2#{}",
@@ -83,7 +86,7 @@ return {
                 text = {
                     {
                         "Enables {C:attention}Virtual World{} hands and",
-                        "applies effects based on the hand played:"
+                        "applies abilities based on the hand played:"
                     },
                     {
                         "{C:attention}Xuanwu{}: Each {C:joy_normal}Psychic{} and {C:joy_normal}Wyrm{} gives {C:mult}+#1#{} Mult"
@@ -108,10 +111,11 @@ return {
                 text = {
                     {
                         "Enables {C:attention}Virtual World{} hands and",
-                        "applies effects based on the hand played:"
+                        "applies abilities based on the hand played:"
                     },
                     {
-                        "{C:attention}Xuanwu{}: Each scored card gives {C:chips}+#1#{} Chips",
+                        "{C:attention}Xuanwu{}: Each scored card in played hand",
+                        "gives {C:chips}+#1#{} Chips",
                         "for each {C:joy_normal}Psychic{} or {C:joy_normal}Wyrm{} in the {C:attention}GY{}",
                         "{C:inactive}(Currently {C:chips}+#2#{}{C:inactive} Chips)"
                     },
@@ -137,10 +141,11 @@ return {
                 text = {
                     {
                         "Enables {C:attention}Virtual World{} hands and",
-                        "applies effects based on the hand played:"
+                        "applies abilities based on the hand played:"
                     },
                     {
-                        "{C:attention}Xuanwu{}: Each scored card gives {C:mult}+#1#{} Mult",
+                        "{C:attention}Xuanwu{}: Each scored card in played hand",
+                        "gives {C:mult}+#1#{} Mult",
                         "for each {C:joy_wind}WIND{} or {C:joy_earth}EARTH{} in the {C:attention}GY{}",
                         "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
                     },
@@ -193,7 +198,7 @@ return {
                     },
                     {
                         "If all cards in the {C:attention}GY{} share both {C:attention}Type{} and {C:attention}Attribute{}",
-                        "with any owned {C:attention}Joker{}, apply the following effects:"
+                        "with any owned {C:attention}Joker{}, apply the following abilities:"
                     },
                     {
                         "{X:mult,C:white}X#3#{} Mult if a {C:attention}Virtual World{} hand is played",
@@ -239,7 +244,7 @@ return {
                     },
                     {
                         "Enables {C:attention}Virtual World{} hands and",
-                        "applies effects based on the hand played:"
+                        "applies abilities based on the hand played:"
                     },
                     {
                         "{C:attention}Xuanwu{} or {C:attention}Qinglong{}:",
@@ -267,7 +272,7 @@ return {
                     },
                     {
                         "If all cards in the {C:attention}GY{} share both {C:attention}Type{} and {C:attention}Attribute{}",
-                        "with any owned {C:attention}Joker{}, apply the following effects:"
+                        "with any owned {C:attention}Joker{}, apply the following abilities:"
                     },
                     {
                         "{C:chips}+#2#{} Chips for each card in the {C:attention}GY{}",
@@ -297,7 +302,7 @@ return {
                     },
                     {
                         "If all cards in the {C:attention}GY{} share both {C:attention}Type{} and {C:attention}Attribute{}",
-                        "with any owned {C:attention}Joker{}, apply the following effects:"
+                        "with any owned {C:attention}Joker{}, apply the following abilities:"
                     },
                     {
                         "{X:chips,C:white}X#1#{} Chips",

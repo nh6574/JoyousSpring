@@ -1,4 +1,4 @@
--- Blinds and Opponent's Blind cards
+-- BLINDS AND OPPONENT'S BLIND CARDS
 
 SMODS.Atlas {
     key = "blinds01",

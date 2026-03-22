@@ -21,7 +21,7 @@ return {
                 name = "{C:joy_xyz}Super Starslayer TY-PHON - Sky Crisis",
                 text = {
                     {
-                        "{C:joy_xyz}Detach{} {C:attention}#1#{}: Turns each scored card this round into a",
+                        "{C:joy_xyz}Detach{} {C:attention}#1#{}: Turns each scored card in played hands this round into a",
                         "{C:attention}Red Seal{} {C:dark_edition}Polychrome{} {C:attention}Glass{} card after scoring",
                         "but reduces {C:money}money{} by {C:red}#2#%{}",
                     },
@@ -38,7 +38,7 @@ return {
                 text = {
                     {
                         "During a {C:attention}Blind{}, you can {C:joy_xyz}detach{} {C:attention}#1#{}:",
-                        "Applies one of these effects randomly",
+                        "Applies one of these abilities randomly",
                         "{C:attention}1{}: Double {C:attention}Blind{}'s requirement",
                         "{C:attention}2{}: Halves {C:attention}Blind{}'s requirement",
                         "{C:attention}3{}: {C:attention}+#2#{} hand size this round",

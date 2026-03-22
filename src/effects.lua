@@ -207,8 +207,8 @@ SMODS.current_mod.calculate = function(self, context)
         end
     end
 
-    -- Check for hands contained in hands played
     if context.before then
+        -- Check for hands contained in hands played
         G.GAME.joy_played = G.GAME.joy_played or {}
         for key, hands in pairs(context.poker_hands) do
             G.GAME.joy_played[key] = next(hands) and true or nil
@@ -253,6 +253,8 @@ function SMODS.current_mod.reset_game_globals(run_start)
         G.GAME.joy_only_ygo_cards = JoyousSpring.config.only_ygo_cards
     end
     G.GAME.current_round.joy_tributed_cards = {}
+    G.GAME.joy_purr_memory_apply = false
+    G.GAME.joy_purr_friend_apply = false
 end
 
 local card_eval_status_text_ref = card_eval_status_text
@@ -309,7 +311,7 @@ end
 ---@param card Card
 ---@param other_key string
 ---@param keep_materials boolean?
----@param summon_type string?
+---@param summon_type summon_type?
 ---@param summon_materials Card[]|string[]?
 JoyousSpring.transform_card = function(card, other_key, keep_materials, summon_type, summon_materials)
     local joyous_spring_table = card.ability.extra.joyous_spring
@@ -557,6 +559,7 @@ JoyousSpring.excavate = function(amount, context)
 
     for i, card in ipairs(copied_cards) do
         JoyousSpring.update_excavated_count(original_cards[i])
+
         G.E_MANAGER:add_event(Event({
             trigger = "after",
             delay = 0.5,
@@ -948,11 +951,11 @@ JoyousSpring.calculate_transfer_abilities = function(card, context, effects)
         end
     end
 
-    if #transfer_effects == 0 then return effects end 
+    if #transfer_effects == 0 then return effects end
 
     if not effects then effects = table.remove(transfer_effects, 1) end
     if #transfer_effects == 1 then return effects end
-    
+
     effects = SMODS.merge_effects(effects)
     return effects
 end

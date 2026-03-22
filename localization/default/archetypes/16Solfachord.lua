@@ -9,7 +9,8 @@ return {
                 },
                 text = {
                     {
-                        "Scored cards with even rank give {C:mult}+#2#{} Mult for each {C:joy_normal}\"Solfachord\"",
+                        "Scored even ranks in played hand",
+                        "give {C:mult}+#2#{} Mult for each {C:joy_normal}\"Solfachord\"",
                         "{C:inactive}(Currently{} {C:mult}+#3#{} {C:inactive}Mult){}",
                     },
                     {
@@ -27,7 +28,8 @@ return {
                 },
                 text = {
                     {
-                        "Scored cards with odd rank give {C:mult}+#2#{} Mult for each {C:joy_normal}\"Solfachord\"",
+                        "Scored odd ranks in played hand",
+                        "give {C:mult}+#2#{} Mult for each {C:joy_normal}\"Solfachord\"",
                         "{C:inactive}(Currently{} {C:mult}+#3#{} {C:inactive}Mult){}",
                     },
                     {
@@ -43,7 +45,8 @@ return {
                 },
                 text = {
                     {
-                        "Gains {C:chips}+#2#{} Chips for each scored card with even rank",
+                        "Gains {C:chips}+#2#{} Chips",
+                        "for each scored even rank in played hand",
                         "{C:inactive}(Currently{} {C:chips}+#3#{} {C:inactive}Chips){}",
                     },
                     {
@@ -61,7 +64,8 @@ return {
                 },
                 text = {
                     {
-                        "Gains {C:chips}+#2#{} Chips for each scored card with odd rank",
+                        "Gains {C:chips}+#2#{} Chips ",
+                        "for each scored odd rank in played hand",
                         "{C:inactive}(Currently{} {C:chips}+#3#{} {C:inactive}Chips){}",
                     },
                     {
@@ -111,7 +115,7 @@ return {
                 },
                 text = {
                     {
-                        "Scored cards with even rank give an extra",
+                        "Scored even ranks in played hand give an extra",
                         "{X:chips,C:white}X#2#{} Chips for each {C:joy_normal}\"Solfachord\"{}",
                         "{C:inactive}(Currently {X:chips,C:white}X#3#{} {C:inactive}Chips)",
                     },
@@ -129,7 +133,7 @@ return {
                 },
                 text = {
                     {
-                        "Scored cards with odd rank give an extra",
+                        "Scored odd ranks in played hand give an extra",
                         "{X:mult,C:white}X#2#{} Mult for each {C:joy_normal}\"Solfachord\"{}",
                         "{C:inactive}(Currently {X:mult,C:white}X#3#{} {C:inactive}Mult)",
                     },

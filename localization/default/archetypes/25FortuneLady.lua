@@ -142,7 +142,7 @@ return {
                         "at end of round until {C:attention}Blind{} is selected",
                         "{C:green}#7# in #8#{} chance to give {C:money}+$#9#{} at end of round",
                         "{C:green}#10# in #11#{} chance to permanently double",
-                        "all listed {C:green}probabilities{} on each scored card",
+                        "all listed {C:green}probabilities{} on each scored card in played hand",
                         "{C:green}#12# in #13#{} chance to create {C:attention}#14#{} {C:joy_normal}\"Fortune Fairy\"{}",
                         "when {C:attention}Blind{} is selected",
                         "{C:green}#15# in #16#{} chance to {C:attention}revive #17#{} {C:joy_normal}\"Fortune Lady\"{}",
@@ -192,7 +192,7 @@ return {
                     },
                     {
                         "{C:green}#3# in #4#{} chance to turn each scored card",
-                        "into a {C:attention}Lucky{} card"
+                        "in played hand into a {C:attention}Lucky{} card"
                     },
                     {
                         "Free and doesn't need room when obtained from the shop",

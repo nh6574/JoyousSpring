@@ -142,7 +142,7 @@ return {
                 text = {
                     "Goes to the {C:joy_spell}Field Spell Area{}",
                     "{s:0.15} ",
-                    "{s:0.9}Doesn't count a an owned Joker for abilities",
+                    "{s:0.9}Doesn't count as an owned Joker for abilities",
                     "{s:0.9}while in that area unless specified",
                     "{s:0.9}Can't be revived"
                 },
@@ -153,7 +153,7 @@ return {
                     "Card temporarily disappears until specified time and",
                     "return even if you don't have room",
                     "{s:0.15} ",
-                    "{s:0.9,C:inactive}(Might keep some effects active)"
+                    "{s:0.9,C:inactive}(Might keep some abilities active)"
                 },
             },
             joy_tooltip_tribute = {

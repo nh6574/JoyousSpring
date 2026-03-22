@@ -9,7 +9,8 @@ return {
                         "{C:joy_normal}Zombie{} owned or in the {C:attention}GY{}",
                     },
                     {
-                        "Scored cards become {C:attention}Gold{} cards after scoring",
+                        "Scored cards in played hand",
+                        "become {C:attention}Gold{} cards after scoring",
                     },
                     {
                         "Once per round, you can {C:attention}tribute #2#{} {C:joy_normal}Zombie{} or {C:joy_trap}Trap{} {C:attention}Joker",

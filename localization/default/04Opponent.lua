@@ -108,7 +108,8 @@ return {
             opp_joy_fordress = {
                 name = "{C:joy_spell}Forbidden Dress",
                 text = {
-                    "Scored cards give {X:chips,C:white}X#1#{} Chips",
+                    "Scored cards in played hand",
+                    "give {X:chips,C:white}X#1#{} Chips",
                     "but playing cards can't be debuffed"
                 }
             },

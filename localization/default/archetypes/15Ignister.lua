@@ -200,13 +200,15 @@ return {
                         "to the {C:joy_spell}Extra Deck{} when summoned",
                     },
                     {
-                        "Scored cards gain {C:chips}+#2#{} Chips for each {C:attention}Attribute{} used for its summon",
+                        "Scored cards in played hand gain {C:chips}+#2#{} Chips",
+                        "for each {C:attention}Attribute{} used for its summon",
                         "{C:inactive}(Currently {C:chips}+#3# {C:inactive}Chips)",
                         "A {C:joy_link}Link{} summoned using this card as {C:attention}material{} gains this ability",
                     },
                 },
                 joy_transfer_ability = {
-                    "Scored cards gain {C:chips}+#1#{} Chips for each {C:attention}Attribute{} used for its summon",
+                    "Scored cards in played hand gain {C:chips}+#1#{} Chips",
+                    "for each {C:attention}Attribute{} used for its summon",
                     "{C:inactive}(Currently {C:chips}+#2# {C:inactive}Chips)",
                 },
                 joy_summon_conditions = {
@@ -265,14 +267,16 @@ return {
                         "to the {C:joy_spell}Extra Deck{} when summoned",
                     },
                     {
-                        "Scored cards gain {C:money}+$#2#{} when held in hand at end of round",
+                        "Scored cards in played hand gain a permanent {C:money}+$#2#{}",
+                        "when held in hand at end of round",
                         "for each {C:attention}Attribute{} used for its summon",
                         "{C:inactive}(Currently {C:money}+$#3#{C:inactive})",
                         "A {C:joy_link}Link{} summoned using this card as {C:attention}material{} gains this ability",
                     },
                 },
                 joy_transfer_ability = {
-                    "Scored cards gain {C:money}+$#1#{} when held in hand",
+                    "Scored cards in played hand gain a permanent {C:money}+$#1#{}",
+                    "when held in hand at end of round",
                     "for each {C:attention}Attribute{} used for its summon",
                     "{C:inactive}(Currently {C:money}+$#2#{C:inactive})",
                 },
@@ -294,13 +298,15 @@ return {
                         "when used as {C:attention}material{} for a {C:joy_normal}Cyberse",
                     },
                     {
-                        "Scored cards gain {C:mult}+#3#{} Mult for each {C:attention}Attribute{} used for its summon",
+                        "Scored cards in played hand gain {C:mult}+#3#{} Mult",
+                        "for each {C:attention}Attribute{} used for its summon",
                         "{C:inactive}(Currently {C:mult}+#4#{} {C:inactive}Mult)",
                         "A {C:joy_link}Link{} summoned using this card as {C:attention}material{} gains this ability",
                     },
                 },
                 joy_transfer_ability = {
-                    "Scored cards gain {C:mult}+#1#{} Mult for each {C:attention}Attribute{} used for its summon",
+                    "Scored cards in played hand gain {C:mult}+#1#{} Mult",
+                    "for each {C:attention}Attribute{} used for its summon",
                     "{C:inactive}(Currently {C:mult}+#2#{} {C:inactive}Mult)",
                 },
                 joy_summon_conditions = {
