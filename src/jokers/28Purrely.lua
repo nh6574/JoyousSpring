@@ -77,7 +77,7 @@ local purrely_can_activate = function()
     return memory_suits[suit]
 end
 
-local purr_retrigger_count = function(memory_type)
+local purr_retrigger_count = function(memory_type, card)
     return (card.ability.extra.retriggers + count_seals_in_deck(memory_type, card.ability.extra.per)) *
         count_suits_in_hand(context.scoring_hand) * (next(SMODS.find_card("j_joy_purr_exnoir")) and 2 or 1)
 end
@@ -276,7 +276,7 @@ SMODS.Joker({
             if context.repetition and (context.cardarea == G.play or G.GAME.joy_purr_memory_apply) and not context.end_of_round then
                 if get_memory_seal(context.other_card) == "happy" then
                     return {
-                        repetitions = purr_retrigger_count("happy")
+                        repetitions = purr_retrigger_count("happy", card)
                     }
                 end
             end
@@ -350,7 +350,7 @@ SMODS.Joker({
             if context.repetition and (context.cardarea == G.play or G.GAME.joy_purr_memory_apply) and not context.end_of_round then
                 if get_memory_seal(context.other_card) == "sleepy" then
                     return {
-                        repetitions = purr_retrigger_count("sleepy")
+                        repetitions = purr_retrigger_count("sleepy", card)
                     }
                 end
             end
@@ -426,7 +426,7 @@ SMODS.Joker({
             if context.repetition and (context.cardarea == G.play or G.GAME.joy_purr_memory_apply) and not context.end_of_round then
                 if get_memory_seal(context.other_card) == "pretty" then
                     return {
-                        repetitions = purr_retrigger_count("pretty")
+                        repetitions = purr_retrigger_count("pretty", card)
                     }
                 end
             end
@@ -504,7 +504,7 @@ SMODS.Joker({
             if context.repetition and (context.cardarea == G.play or G.GAME.joy_purr_memory_apply) and not context.end_of_round then
                 if get_memory_seal(context.other_card) == "delicious" then
                     return {
-                        repetitions = purr_retrigger_count("delicious")
+                        repetitions = purr_retrigger_count("delicious", card)
                     }
                 end
             end
