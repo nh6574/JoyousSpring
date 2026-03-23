@@ -23,6 +23,7 @@ end)
 '''
 
 # Joker Loadouts
+
 [[patches]]
 [patches.pattern]
 target = '=[SMODS jokerloadouts "modules/ui.lua"]'
@@ -169,4 +170,45 @@ position = 'at'
 match_indent = true
 payload = '''
 if target_jkr.facing == "front" or JoyousSpring.is_from_joyousspring(target_jkr) then
+'''
+
+# DebugPlus
+[[patches]]
+[patches.pattern]
+target = '=[lovely debugplus.core "debugplus/core.lua"]'
+pattern = '''
+if _card.ability.set == 'Joker' then
+'''
+position = 'at'
+match_indent = true
+payload = '''
+if JoyousSpring and JoyousSpring.is_field_spell(_card) then
+    _area = JoyousSpring.field_spell_area
+elseif _card.ability.set == 'Joker' then
+'''
+
+[[patches]]
+[patches.pattern]
+target = 'engine/controller.lua'
+pattern = '''
+if _card.ability.set == 'Joker' and G.jokers and #G.jokers.cards < G.jokers.config.card_limit then
+'''
+position = 'at'
+match_indent = true
+payload = '''
+if _card.ability.set == 'Joker' and G.jokers and #G.jokers.cards < G.jokers.config.card_limit and (not JoyousSpring or not JoyousSpring.is_field_spell(_card)) then
+'''
+
+[[patches]]
+[patches.pattern]
+target = '=[lovely debugplus.core "debugplus/core.lua"]'
+pattern = '''
+function global.handleSpawn(controller, _card)
+'''
+position = 'after'
+match_indent = true
+payload = '''
+if JoyousSpring and JoyousSpring.is_field_spell(_card) and #JoyousSpring.field_spell_area.cards < JoyousSpring.field_spell_area.config.card_limit then
+    SMODS.add_card{key = _card.config.center.key, area = JoyousSpring.field_spell_area}
+end
 '''
