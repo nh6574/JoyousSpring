@@ -220,6 +220,7 @@ SMODS.Consumable {
     pos = { x = 3, y = 2 },
     set = "Spectral",
     discovered = true,
+    config = { extra = {} },
     use = function(self, card, area, copier)
         purr_use(self, card)
     end,
@@ -228,6 +229,11 @@ SMODS.Consumable {
     end,
     joy_can_transfer_ability = function(self, other_card, card)
         return card and card.ability.extra.transferring and JoyousSpring.is_summon_type(other_card, "XYZ") or false
+    end,
+    joy_transfer_config = function(self, other_card)
+        return {
+            set = "Spectral"
+        }
     end,
     joy_transfer_ability_calculate = function(self, other_card, context, config)
         if JoyousSpring.can_use_abilities(other_card) then
@@ -249,6 +255,7 @@ SMODS.Consumable {
     pos = { x = 1, y = 3 },
     set = "Spectral",
     discovered = true,
+    config = { extra = {} },
     use = function(self, card, area, copier)
         purr_use(self, card, true)
     end,
@@ -257,6 +264,11 @@ SMODS.Consumable {
     end,
     joy_can_transfer_ability = function(self, other_card, card)
         return card and card.ability.extra.transferring and JoyousSpring.is_summon_type(other_card, "XYZ") or false
+    end,
+    joy_transfer_config = function(self, other_card)
+        return {
+            set = "Spectral"
+        }
     end,
     joy_transfer_ability_calculate = function(self, other_card, context, config)
         if JoyousSpring.can_use_abilities(other_card) then
@@ -278,6 +290,7 @@ SMODS.Consumable {
     pos = { x = 0, y = 3 },
     set = "Spectral",
     discovered = true,
+    config = { extra = {} },
     use = function(self, card, area, copier)
         purr_use(self, card)
     end,
@@ -286,6 +299,11 @@ SMODS.Consumable {
     end,
     joy_can_transfer_ability = function(self, other_card, card)
         return card and card.ability.extra.transferring and JoyousSpring.is_summon_type(other_card, "XYZ") or false
+    end,
+    joy_transfer_config = function(self, other_card)
+        return {
+            set = "Spectral"
+        }
     end,
     joy_transfer_ability_calculate = function(self, other_card, context, config)
         if JoyousSpring.can_use_abilities(other_card) then
@@ -306,6 +324,10 @@ SMODS.Consumable {
     pos = { x = 2, y = 2 },
     set = "Spectral",
     discovered = true,
+    config = { extra = { mult = 5 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.mult } }
+    end,
     use = function(self, card, area, copier)
         purr_use(self, card)
     end,
@@ -330,6 +352,7 @@ SMODS.Consumable {
     joy_transfer_config = function(self, other_card)
         return {
             mult = 5,
+            set = "Spectral"
         }
     end,
     joy_transfer_loc_vars = function(self, info_queue, other_card, config)

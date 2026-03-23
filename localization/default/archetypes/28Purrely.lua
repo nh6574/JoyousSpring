@@ -232,7 +232,7 @@ return {
         },
         Spectral = {
             c_joy_purr_happy = {
-                name = "Purrely Happy Memory",
+                name = "{C:joy_spell}Purrely Happy Memory",
                 text = {
                     {
                         "Creates {C:attention}1{} {C:joy_effect}\"Purrely\"{}",
@@ -259,7 +259,7 @@ return {
                 }
             },
             c_joy_purr_sleepy = {
-                name = "Purrely Sleepy Memory",
+                name = "{C:joy_spell}Purrely Sleepy Memory",
                 text = {
                     {
                         "Creates {C:attention}1{} {C:joy_effect}\"Purrelyly\"{}",
@@ -272,7 +272,7 @@ return {
                     {
                         "A random {C:joy_xyz}Xyz{} {C:attention}Joker{} you own",
                         "gains the following ability:",
-                        "{s:0.9}When {s:0.9,C:attention}Blind{} is selected, gives {s:0.9,C:attention}+#1#{} hand size",
+                        "{s:0.9}When {s:0.9,C:attention}Blind{} is selected, gives {s:0.9,C:attention}+1{} hand size",
                         "{s:0.9}this round for each {s:0.9,C:joy_xyz}Xyz{} {s:0.9,C:attention}material{}",
                         "{s:0.9} ",
                         "{s:0.9,C:attention}Detaches 1 material{s:0.9} at end of round",
@@ -286,7 +286,7 @@ return {
                 }
             },
             c_joy_purr_pretty = {
-                name = "Purrely Pretty Memory",
+                name = "{C:joy_spell}Purrely Pretty Memory",
                 text = {
                     {
                         "Creates {C:attention}1{} {C:joy_effect}\"Purrely\"{}",
@@ -313,7 +313,7 @@ return {
                 }
             },
             c_joy_purr_delicious = {
-                name = "Purrely Delicious Memory",
+                name = "{C:joy_spell}Purrely Delicious Memory",
                 text = {
                     {
                         "Creates {C:attention}1{} {C:joy_effect}\"Purrely\"{}",

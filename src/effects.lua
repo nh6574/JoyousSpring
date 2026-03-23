@@ -956,7 +956,7 @@ JoyousSpring.calculate_transfer_abilities = function(card, context, effects)
     if not effects then effects = table.remove(transfer_effects, 1) end
     if #transfer_effects == 1 then return effects end
 
-    effects = SMODS.merge_effects(effects)
+    effects = SMODS.merge_effects({ effects })
     return effects
 end
 

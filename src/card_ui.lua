@@ -398,9 +398,10 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
                     local node = {}
 
                     local material_center = G.P_CENTERS[material_key]
-                    if material_center and G.localization.descriptions["Joker"][material_key].joy_transfer_ability then
-                        localize { type = 'name', set = "Joker", key = material_key, nodes = name_node, vars = material_center.joy_transfer_loc_vars and material_center:joy_transfer_loc_vars(info_queue, card, config).vars or {}, scale = 0.7 }
-                        localize { type = "joy_transfer_ability", set = "Joker", key = material_key, nodes = node, vars = material_center.joy_transfer_loc_vars and material_center:joy_transfer_loc_vars(info_queue, card, config).vars or {}, scale = 0.9 }
+                    local material_set = config.set or "Joker"
+                    if material_center and G.localization.descriptions[material_set][material_key].joy_transfer_ability then
+                        localize { type = 'name', set = material_set, key = material_key, nodes = name_node, vars = material_center.joy_transfer_loc_vars and material_center:joy_transfer_loc_vars(info_queue, card, config).vars or {}, scale = 0.7 }
+                        localize { type = "joy_transfer_ability", set = material_set, key = material_key, nodes = node, vars = material_center.joy_transfer_loc_vars and material_center:joy_transfer_loc_vars(info_queue, card, config).vars or {}, scale = 0.9 }
                     end
                     if initial then
                         full_UI_table.main = name_node
@@ -539,6 +540,16 @@ function init_localization()
             center.joy_consumable_parsed = {}
             for _, line in ipairs(center.joy_consumable) do
                 center.joy_consumable_parsed[#center.joy_consumable_parsed + 1] = loc_parse_string(line)
+            end
+        end
+    end
+    for _, set in ipairs { "Tarot", "Planet", "Spectral" } do
+        for _, center in pairs(G.localization.descriptions[set]) do
+            if center.joy_transfer_ability then
+                center.joy_transfer_ability_parsed = {}
+                for _, line in ipairs(center.joy_transfer_ability) do
+                    center.joy_transfer_ability_parsed[#center.joy_transfer_ability_parsed + 1] = loc_parse_string(line)
+                end
             end
         end
     end
