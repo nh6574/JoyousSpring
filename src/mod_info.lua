@@ -668,6 +668,7 @@ create_UIBox_your_collection_jokers = function()
     return create_UIBox_your_collection_jokers_ref()
 end
 
+
 ---Modified from SMODS. Creates the UI for the Joker collection sorting by archetype in JoyousSpring.collection_pool
 ---@param _pool table
 ---@param rows table
@@ -708,19 +709,28 @@ JoyousSpring.card_collection_UIBox = function(_pool, rows, args)
     end
 
     local options = {}
+    local options_lookup = {}
     local paginated_pool = {}
 
     for i, archetype_page in ipairs(archetype_pool) do
         for j = 1, #archetype_page do
             table.insert(paginated_pool, archetype_page[j])
-            table.insert(options,
-                (JoyousSpring.collection_pool[i].label and localize(JoyousSpring.collection_pool[i].label) or localize("k_joy_archetype_misc")) ..
-                ' (' .. tostring(#paginated_pool) .. '/' .. pages .. ")")
+            local option_name = (JoyousSpring.collection_pool[i].label and localize(JoyousSpring.collection_pool[i].label) or localize("k_joy_archetype_misc")) ..
+                (j > 1 and ' (' .. j .. ")" or "")
+            table.insert(options, option_name)
+            options_lookup[option_name] = #paginated_pool
         end
     end
 
     G.FUNCS.SMODS_card_collection_page = function(e)
         if not e or not e.cycle_config then return end
+        if e.to_val then
+            local drop = G.OVERLAY_MENU:get_UIE_by_ID("joy_collection_dropdown")
+            if drop.config.dropdown_obj then
+                G.FUNCS.toggle_dropdown_menu(drop)
+            end
+            JoyousSpring.collection_dropdown = e.to_val
+        end
         for j = 1, #G.your_collection do
             for i = #G.your_collection[j].cards, 1, -1 do
                 local c = G.your_collection[j]:remove_card(G.your_collection[j].cards[i])
@@ -770,14 +780,29 @@ JoyousSpring.card_collection_UIBox = function(_pool, rows, args)
         INIT_COLLECTION_CARD_ALERTS()
     end
 
+    G.FUNCS.joy_card_collection_dropdown = function(e)
+        local value = e.config.value
+        G.FUNCS.SMODS_card_collection_page { cycle_config = { current_option = options_lookup[value] or 1 } }
+        local cycle = G.OVERLAY_MENU:get_UIE_by_ID("joy_collection_cycle").children[1]
+        cycle.config.ref_table.current_option = options_lookup[value] or 1
+        cycle.config.ref_table.current_option_val =
+            cycle.config.ref_table.options[cycle.config.ref_table.current_option]
+    end
+
+    G.FUNCS.joy_card_collection_back = function(e)
+        JoyousSpring.collection_dropdown = nil
+        local func = (args and args.back_func) or G.ACTIVE_MOD_UI and "openModUI_" .. G.ACTIVE_MOD_UI.id or
+            'your_collection'
+        G.FUNCS[func](e)
+    end
+
     G.FUNCS.SMODS_card_collection_page { cycle_config = { current_option = 1 } }
 
     local t = create_UIBox_generic_options({
         bg_colour = { G.C.JOY.MOD[1], G.C.JOY.MOD[2], G.C.JOY.MOD[3], 0.6 } or nil,
         colour = G.C.JOY.XYZ or nil,
         back_colour = darken(G.C.JOY.MOD, 0.3) or nil,
-        back_func = (args and args.back_func) or G.ACTIVE_MOD_UI and "openModUI_" .. G.ACTIVE_MOD_UI.id or
-            'your_collection',
+        back_func = 'joy_card_collection_back',
         snap_back = args.snap_back,
         infotip = args.infotip,
         contents = {
@@ -787,6 +812,7 @@ JoyousSpring.card_collection_UIBox = function(_pool, rows, args)
                 config = { align = "cm" },
                 nodes = {
                     create_option_cycle({
+                        id = "joy_collection_cycle",
                         options = options,
                         w = 5,
                         cycle_shoulders = true,
@@ -795,7 +821,24 @@ JoyousSpring.card_collection_UIBox = function(_pool, rows, args)
                         current_option = 1,
                         colour = darken(G.C.JOY.MOD, 0.2),
                         no_pips = true,
-                        focus_args = { snap_to = true, nav = 'wide' }
+                        focus_args = { snap_to = true, nav = 'wide' },
+                        mid = SMODS.GUI.dropdown_select({
+                            id = "joy_collection_dropdown",
+                            options = options,
+                            ref_table = JoyousSpring,
+                            ref_value = "collection_dropdown",
+                            minw = 5,
+                            scale = 0.5,
+                            align = "cm",
+                            option_align = "cm",
+                            callback = "joy_card_collection_dropdown",
+                            colour = darken(G.C.JOY.MOD, 0.2),
+                            max_menu_h = 3,
+                            border_colour = G.C.JOY.XYZ,
+                            dropdown_bg_colour = darken(G.C.JOY.MOD, 0.2),
+                            selected_colour = G.C.JOY.MOD,
+                            close_on_select = true
+                        }),
                     })
                 }
             },
