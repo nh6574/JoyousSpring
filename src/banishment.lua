@@ -35,8 +35,7 @@ JoyousSpring.banish = function(card, banish_until, func, immediate)
         })
         card.area:remove_card(card)
         time_to_banish:emplace(card)
-        G.GAME.joy_cards_banished = G.GAME.joy_cards_banished and
-            (G.GAME.joy_cards_banished + 1) or 1
+        JoyousSpring.count_as_banished(card)
 
         if func then
             func(card)
@@ -73,8 +72,7 @@ JoyousSpring.banish = function(card, banish_until, func, immediate)
                     })
                     card.area:remove_card(card)
                     time_to_banish:emplace(card)
-                    G.GAME.joy_cards_banished = G.GAME.joy_cards_banished and
-                        (G.GAME.joy_cards_banished + 1) or 1
+                    JoyousSpring.count_as_banished(card)
                     if func then
                         func(card)
                     end
