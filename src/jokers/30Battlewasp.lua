@@ -312,7 +312,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.percent, math.min(0.5, card.ability.extra.percent * count_owned_insects({ { monster_type = "Insect" } })) * 100 } }
+        return { vars = { card.ability.extra.percent * 100, math.min(0.5, card.ability.extra.percent * count_owned_insects({ { monster_type = "Insect" } })) * 100 } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
@@ -613,7 +613,7 @@ SMODS.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.mult, card.ability.extra.mult * (G.GAME.joy_cards_banished_by_type["Insect"] or 0) } }
+        return { vars = { card.ability.extra.mult, card.ability.extra.mult * ((G.GAME.joy_cards_banished_by_type or {})["Insect"] or 0) } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
@@ -647,7 +647,7 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if context.joker_main then
                 return {
-                    mult = card.ability.extra.mult * (G.GAME.joy_cards_banished_by_type["Insect"] or 0)
+                    mult = card.ability.extra.mult * ((G.GAME.joy_cards_banished_by_type or {})["Insect"] or 0)
                 }
             end
             if context.end_of_round and context.game_over == false and context.main_eval then
@@ -663,7 +663,7 @@ SMODS.Joker({
     joy_transfer_ability_calculate = function(self, other_card, context, config)
         if JoyousSpring.can_use_abilities(other_card) then
             if context.joker_main then
-                return { mult = config.mult * (G.GAME.joy_cards_banished_by_type["Insect"] or 0) }
+                return { mult = config.mult * ((G.GAME.joy_cards_banished_by_type or {})["Insect"] or 0) }
             end
         end
     end,
@@ -673,7 +673,7 @@ SMODS.Joker({
         }
     end,
     joy_transfer_loc_vars = function(self, info_queue, other_card, config)
-        return { vars = { config.mult, config.mult * (G.GAME.joy_cards_banished_by_type["Insect"] or 0) } }
+        return { vars = { config.mult, config.mult * ((G.GAME.joy_cards_banished_by_type or {})["Insect"] or 0) } }
     end
 })
 
@@ -722,7 +722,7 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if context.joker_main then
                 return {
-                    mult = card.ability.extra.mult * (G.GAME.joy_cards_banished_by_type["Insect"] or 0)
+                    mult = card.ability.extra.mult * ((G.GAME.joy_cards_banished_by_type or {})["Insect"] or 0)
                 }
             end
         end
@@ -742,7 +742,7 @@ SMODS.Joker({
     joy_transfer_ability_calculate = function(self, other_card, context, config)
         if JoyousSpring.can_use_abilities(other_card) then
             if context.joker_main then
-                return { xmult = 1 + config.xmult * (G.GAME.joy_cards_banished_by_type["Insect"] or 0) }
+                return { xmult = 1 + config.xmult * ((G.GAME.joy_cards_banished_by_type or {})["Insect"] or 0) }
             end
         end
     end,
@@ -752,7 +752,7 @@ SMODS.Joker({
         }
     end,
     joy_transfer_loc_vars = function(self, info_queue, other_card, config)
-        return { vars = { config.xmult, 1 + config.xmult * (G.GAME.joy_cards_banished_by_type["Insect"] or 0) } }
+        return { vars = { config.xmult, 1 + config.xmult * ((G.GAME.joy_cards_banished_by_type or {})["Insect"] or 0) } }
     end
 })
 
