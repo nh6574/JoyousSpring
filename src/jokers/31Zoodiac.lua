@@ -10,7 +10,7 @@ SMODS.Atlas({
 SMODS.Joker({
     key = "zoo_horse",
     atlas = 'zoo',
-    pos = { x = 0, y = 0 },
+    pos = { x = 0, y = 1 },
     rarity = 1,
     discovered = true,
     blueprint_compat = false,
@@ -26,6 +26,8 @@ SMODS.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "BeastWarrior",
+                attribute = "EARTH",
                 monster_archetypes = { ["Zoodiac"] = true }
             },
         },
@@ -52,6 +54,8 @@ SMODS.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "BeastWarrior",
+                attribute = "EARTH",
                 monster_archetypes = { ["Zoodiac"] = true }
             },
         },
@@ -62,7 +66,7 @@ SMODS.Joker({
 SMODS.Joker({
     key = "zoo_snake",
     atlas = 'zoo',
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 1 },
     rarity = 1,
     discovered = true,
     blueprint_compat = false,
@@ -78,6 +82,8 @@ SMODS.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "BeastWarrior",
+                attribute = "EARTH",
                 monster_archetypes = { ["Zoodiac"] = true }
             },
         },
@@ -88,7 +94,7 @@ SMODS.Joker({
 SMODS.Joker({
     key = "zoo_rooster",
     atlas = 'zoo',
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 0 },
     rarity = 1,
     discovered = true,
     blueprint_compat = false,
@@ -104,6 +110,8 @@ SMODS.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "BeastWarrior",
+                attribute = "EARTH",
                 monster_archetypes = { ["Zoodiac"] = true }
             },
         },
@@ -114,7 +122,7 @@ SMODS.Joker({
 SMODS.Joker({
     key = "zoo_ram",
     atlas = 'zoo',
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 0 },
     rarity = 1,
     discovered = true,
     blueprint_compat = false,
@@ -130,6 +138,8 @@ SMODS.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "BeastWarrior",
+                attribute = "EARTH",
                 monster_archetypes = { ["Zoodiac"] = true }
             },
         },
@@ -140,7 +150,7 @@ SMODS.Joker({
 SMODS.Joker({
     key = "zoo_rat",
     atlas = 'zoo',
-    pos = { x = 0, y = 0 },
+    pos = { x = 3, y = 0 },
     rarity = 1,
     discovered = true,
     blueprint_compat = false,
@@ -156,6 +166,8 @@ SMODS.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "BeastWarrior",
+                attribute = "EARTH",
                 monster_archetypes = { ["Zoodiac"] = true }
             },
         },
@@ -166,7 +178,7 @@ SMODS.Joker({
 SMODS.Joker({
     key = "zoo_bull",
     atlas = 'zoo',
-    pos = { x = 0, y = 0 },
+    pos = { x = 3, y = 1 },
     rarity = 1,
     discovered = true,
     blueprint_compat = false,
@@ -183,6 +195,8 @@ SMODS.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "XYZ",
+                monster_type = "BeastWarrior",
+                attribute = "EARTH",
                 monster_archetypes = { ["Zoodiac"] = true }
             },
         },
@@ -193,7 +207,7 @@ SMODS.Joker({
 SMODS.Joker({
     key = "zoo_dog",
     atlas = 'zoo',
-    pos = { x = 0, y = 0 },
+    pos = { x = 0, y = 2 },
     rarity = 1,
     discovered = true,
     blueprint_compat = false,
@@ -210,6 +224,8 @@ SMODS.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "XYZ",
+                monster_type = "BeastWarrior",
+                attribute = "EARTH",
                 monster_archetypes = { ["Zoodiac"] = true }
             },
         },
@@ -220,7 +236,7 @@ SMODS.Joker({
 SMODS.Joker({
     key = "zoo_tiger",
     atlas = 'zoo',
-    pos = { x = 0, y = 0 },
+    pos = { x = 3, y = 2 },
     rarity = 1,
     discovered = true,
     blueprint_compat = false,
@@ -237,6 +253,8 @@ SMODS.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "XYZ",
+                monster_type = "BeastWarrior",
+                attribute = "EARTH",
                 monster_archetypes = { ["Zoodiac"] = true }
             },
         },
@@ -247,7 +265,7 @@ SMODS.Joker({
 SMODS.Joker({
     key = "zoo_monkey",
     atlas = 'zoo',
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 2 },
     rarity = 1,
     discovered = true,
     blueprint_compat = false,
@@ -264,6 +282,8 @@ SMODS.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "XYZ",
+                monster_type = "BeastWarrior",
+                attribute = "EARTH",
                 monster_archetypes = { ["Zoodiac"] = true }
             },
         },
@@ -274,7 +294,7 @@ SMODS.Joker({
 SMODS.Joker({
     key = "zoo_dragon",
     atlas = 'zoo',
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 2 },
     rarity = 1,
     discovered = true,
     blueprint_compat = false,
@@ -291,6 +311,8 @@ SMODS.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "XYZ",
+                monster_type = "BeastWarrior",
+                attribute = "EARTH",
                 monster_archetypes = { ["Zoodiac"] = true }
             },
         },
@@ -301,7 +323,7 @@ SMODS.Joker({
 SMODS.Joker({
     key = "zoo_boar",
     atlas = 'zoo',
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 1 },
     rarity = 1,
     discovered = true,
     blueprint_compat = false,
@@ -318,6 +340,8 @@ SMODS.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "XYZ",
+                monster_type = "BeastWarrior",
+                attribute = "EARTH",
                 monster_archetypes = { ["Zoodiac"] = true }
             },
         },
