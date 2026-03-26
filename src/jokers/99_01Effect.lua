@@ -1250,7 +1250,7 @@ SMODS.Joker({
 })
 
 JoyousSpring.token_pool["ringo"] = {
-    order = 8,
+    order = 9,
     name = "j_joy_token_ringo",
     atlas = "joy_Misc04",
     sprite_pos = { x = 0, y = 4 },

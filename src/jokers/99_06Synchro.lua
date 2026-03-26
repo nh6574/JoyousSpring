@@ -129,7 +129,7 @@ SMODS.Joker({
 })
 
 JoyousSpring.token_pool["utchatzimime"] = {
-    order = 6,
+    order = 7,
     name = "j_joy_token_utchatzimime",
     atlas = "joy_Misc04",
     sprite_pos = { x = 1, y = 4 },
@@ -192,7 +192,7 @@ SMODS.Joker({
 })
 
 JoyousSpring.token_pool["lamp"] = {
-    order = 7,
+    order = 8,
     name = "j_joy_token_lamp",
     atlas = "joy_Misc04",
     sprite_pos = { x = 7, y = 3 },

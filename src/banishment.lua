@@ -37,6 +37,7 @@ JoyousSpring.banish = function(card, banish_until, func, immediate)
         time_to_banish:emplace(card)
         G.GAME.joy_cards_banished = G.GAME.joy_cards_banished and
             (G.GAME.joy_cards_banished + 1) or 1
+
         if func then
             func(card)
         end
@@ -121,6 +122,23 @@ JoyousSpring.is_banished = function(card)
         card.area == JoyousSpring.banish_boss_selected_area or
         card.area == JoyousSpring.banish_end_of_ante_area or
         card.area == JoyousSpring.banish_end_of_round_area
+end
+
+JoyousSpring.count_as_banished = function(card)
+    G.GAME.joy_cards_banished = G.GAME.joy_cards_banished and
+        (G.GAME.joy_cards_banished + 1) or 1
+    G.GAME.joy_cards_banished_by_type = G.GAME.joy_cards_banished_by_type or {}
+    G.GAME.joy_cards_banished_by_attribute = G.GAME.joy_cards_banished_by_attribute or {}
+    for _, key in ipairs(JoyousSpring.types_list) do
+        if JoyousSpring.is_monster_type(card, key) then
+            G.GAME.joy_cards_banished_by_type[key] = (G.GAME.joy_cards_banished_by_type[key] or 0) + 1
+        end
+    end
+    for _, key in ipairs(JoyousSpring.attributes_list) do
+        if JoyousSpring.is_attribute(card, key) then
+            G.GAME.joy_cards_banished_by_attribute[key] = (G.GAME.joy_cards_banished_by_attribute[key] or 0) + 1
+        end
+    end
 end
 
 JoyousSpring.get_banished_areas = function()
