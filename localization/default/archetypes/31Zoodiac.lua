@@ -243,7 +243,8 @@ return {
                 text = {
                     {
                         "{C:joy_xyz}Detach{} {C:attention}#1#{}:",
-                        "Destroys {C:attention}1{} other {C:attention}Joker{},",
+                        "Destroys {C:attention}1{} random {C:joy_trap}Opponent{} card",
+                        "(or 1 other random {C:attention}Joker{} if none),",
                         "and if it does, gives {X:mult,C:white}X#2#{}",
                         "for each {C:joy_xyz}Xyz{} {C:attention}material{} this round",
                         "{C:inactive}(Must have room)"
