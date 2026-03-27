@@ -359,10 +359,10 @@ SMODS.Joker({
                 JoyousSpring.transform_card(card, "j_joy_purr_purrelyly")
             end
 
-            if context.joy_excavated and card.ability.extra.activated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.joy_detach and context.joy_other_context.joy_detaching_card == card and #G.hand.highlighted == 1 then
+            if context.joy_excavated and card.ability.extra.activated and context.joy_number <= 1 and context.joy_other_context.joy_detach and context.joy_other_context.joy_detaching_card == card and #G.hand.highlighted == 1 then
                 card.ability.extra.activated = false
                 context.joy_excavated:juice_up()
-                copy_card(context.joy_excavated, G.hand.highlighted[1])
+                copy_card(G.hand.highlighted[1], context.joy_excavated)
             end
         end
     end,

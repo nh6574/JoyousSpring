@@ -55,11 +55,13 @@ SMODS.Joker({
         end
     end,
     add_to_deck = function(self, card, from_debuff)
-        if not from_debuff and not card.joy_from_pin then
+        if not from_debuff then
             G.E_MANAGER:add_event(Event({
                 func = function()
-                    local added_card = SMODS.add_card { key = "j_joy_wasp_pin" }
-                    added_card.joy_from_pin = true
+                    if not card.joy_from_pin then
+                        local added_card = SMODS.add_card { key = "j_joy_wasp_pin" }
+                        added_card.joy_from_pin = true
+                    end
                     return true
                 end
             }))

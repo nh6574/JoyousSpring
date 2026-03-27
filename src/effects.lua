@@ -1055,7 +1055,7 @@ end
 
 local card_calculate_dollar_bonus_ref = Card.calculate_dollar_bonus
 function Card:calculate_dollar_bonus()
-    local ret = card_calculate_dollar_bonus_ref(self)
+    local ret, ret_ops = card_calculate_dollar_bonus_ref(self)
 
     if JoyousSpring.is_monster_card(self) and JoyousSpring.has_joyous_table(self) then
         local add = JoyousSpring.transfer_calc_dollar_bonus(self)
@@ -1064,7 +1064,7 @@ function Card:calculate_dollar_bonus()
         end
     end
 
-    return ret
+    return ret, ret_ops
 end
 
 --#endregion

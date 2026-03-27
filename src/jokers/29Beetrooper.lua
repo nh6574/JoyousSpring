@@ -56,13 +56,15 @@ SMODS.Joker({
         end
     end,
     add_to_deck = function(self, card, from_debuff)
-        if not from_debuff and not card.joy_from_buggy then
+        if not from_debuff then
             G.E_MANAGER:add_event(Event({
                 func = function()
-                    local to_create = G.jokers.config.card_limit - #G.jokers.cards
-                    for i = 1, to_create do
-                        local added_card = SMODS.add_card { key = "j_joy_bee_scout" }
-                        added_card.joy_from_buggy = true
+                    if not card.joy_from_buggy then
+                        local to_create = G.jokers.config.card_limit - #G.jokers.cards
+                        for i = 1, to_create do
+                            local added_card = SMODS.add_card { key = "j_joy_bee_scout" }
+                            added_card.joy_from_buggy = true
+                        end
                     end
                     return true
                 end
