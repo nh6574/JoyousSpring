@@ -160,7 +160,8 @@ return {
                     },
                     {
                         "Cards in the {C:attention}GY{} count as owned",
-                        "for {C:joy_normal}Insect{} abilities"
+                        "for {C:joy_normal}Insect{} abilities",
+                        "{C:inactive}(Only for original type){}"
                     }
                 },
                 joy_summon_conditions = {

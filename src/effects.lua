@@ -225,10 +225,12 @@ SMODS.current_mod.calculate = function(self, context)
         end
     end
 
-    -- Reset disabled blinds
     if context.ante_change and context.ante_end then
+        -- Reset disabled blinds
         G.GAME.joy_disabled_blinds = {}
         G.GAME.joy_already_disabled_blinds = {}
+        -- Reset zoodiac count
+        G.GAME.joy_zoo_summoned = {}
     end
 
     -- Add temporary hand size
@@ -939,6 +941,7 @@ JoyousSpring.calculate_transfer_abilities = function(card, context, effects)
         return effects
     end
     local transfer_effects = {}
+    if effects then transfer_effects[#transfer_effects + 1] = effects end
 
     for material_key, config in pairs(card.ability.extra.joyous_spring.material_effects) do
         local material_center = G.P_CENTERS[material_key]
@@ -951,13 +954,7 @@ JoyousSpring.calculate_transfer_abilities = function(card, context, effects)
         end
     end
 
-    if #transfer_effects == 0 then return effects end
-
-    if not effects then effects = table.remove(transfer_effects, 1) end
-    if #transfer_effects == 1 then return effects end
-
-    effects = SMODS.merge_effects({ effects })
-    return effects
+    return SMODS.merge_effects(transfer_effects)
 end
 
 local card_calculate_joker_ref = Card.calculate_joker

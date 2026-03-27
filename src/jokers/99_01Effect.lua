@@ -1479,12 +1479,12 @@ SMODS.Joker({
                     card.config.center.key, card.ability.extra.mills)
                 JoyousSpring.revive_pseudorandom(
                     { { monster_type = "Rock" } },
-                    card.config.center.key, true
+                    card.config.center.key .. "_revive", true
                 )
             end
             if JoyousSpring.used_as_material(card, context) then
                 for _ = 1, card.ability.extra.adds do
-                    SMODS.add_card { set = "Enhanced", suit = "Diamonds", area = G.deck }
+                    SMODS.add_card { set = "Enhanced", suit = "Diamonds", area = G.deck, key_append = self.key .. "_card" }
                 end
             end
         end
@@ -1522,7 +1522,7 @@ SMODS.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if JoyousSpring.used_as_material(card, context) then
                 for _ = 1, card.ability.extra.adds do
-                    SMODS.add_card { set = "Base", suit = "Diamonds", seal = SMODS.poll_seal({ guaranteed = true }), area = G.deck }
+                    SMODS.add_card { set = "Base", suit = "Diamonds", seal = SMODS.poll_seal({ guaranteed = true }), area = G.deck, key_append = self.key }
                 end
                 JoyousSpring.create_perma_debuffed_card("j_joy_revgolem", card.config.center.key, "e_negative")
             end
@@ -1575,7 +1575,7 @@ SMODS.Joker({
                 card.ability.extra.activated = true
                 JoyousSpring.tribute(card, context.joy_selection)
                 for _ = 1, card.ability.extra.adds do
-                    SMODS.add_card { set = "Base", suit = "Diamonds", edition = SMODS.poll_edition { key = card.config.center.key, guaranteed = true, no_negative = true }, area = G.deck }
+                    SMODS.add_card { set = "Base", suit = "Diamonds", edition = SMODS.poll_edition { key = card.config.center.key, guaranteed = true, no_negative = true }, area = G.deck, key_append = self.key }
                 end
                 JoyousSpring.flip_all_cards(card, 'front', { G.jokers })
             end

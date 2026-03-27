@@ -141,6 +141,12 @@ JoyousSpring.perform_summon = function(card, card_list, summon_type)
         if transfer and JoyousSpring.is_summon_type(joker, "XYZ") then
             for _, material in ipairs(joker.ability.extra.joyous_spring.summon_materials) do
                 table.insert(card.ability.extra.joyous_spring.summon_materials, material)
+                -- TODO: maybe make this not hardcoded and for all xyz (but it needs a way to deal with the card not existing for add_to_deck and maybe a nicer xyz material view)
+                if JoyousSpring.is_monster_archetype(card, "Zoodiac") then
+                    if JoyousSpring.is_material_center(material, { monster_archetypes = { "Zoodiac" } }) then
+                        JoyousSpring.transfer_abilities(card, material, joker, card_list)
+                    end
+                end
             end
             card.ability.extra.joyous_spring.xyz_materials = card.ability.extra.joyous_spring.xyz_materials +
                 joker.ability.extra.joyous_spring.xyz_materials

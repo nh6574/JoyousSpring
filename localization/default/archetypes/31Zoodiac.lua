@@ -31,14 +31,12 @@ return {
                         "An {C:joy_xyz}Xyz{} summoned using this card",
                         "as {C:attention}material{} gains the following ability:",
                         "{s:0.9}Creates {s:0.9,C:attention}1{} {s:0.9,C:dark_edition}Negative{} {s:0.9,C:tarot}Tarot{s:0.9} and",
-                        "{s:0.9,C:attention}1{} {s:0.9,C:dark_edition}Negative{} {s:0.9,C:planet}Planet{}",
-                        "{s:0.9}at end of round"
+                        "{s:0.9,C:attention}2{} {s:0.9,C:dark_edition}Negative{} {s:0.9,C:planet}Planets{} {s:0.9}at end of round"
                     },
                 },
                 joy_transfer_ability = {
                     "Creates {C:attention}1{} {C:dark_edition}Negative{} {C:tarot}Tarot{} and",
-                    "{C:attention}1{} {C:dark_edition}Negative{} {C:planet}Planet{}",
-                    "at end of round"
+                    "{C:attention}2{} {C:dark_edition}Negative{} {C:planet}Planets{} at end of round"
                 },
             },
             j_joy_zoo_snake = {
@@ -70,8 +68,8 @@ return {
                     {
                         "An {C:joy_xyz}Xyz{} summoned using this card",
                         "as {C:attention}material{} gains the following ability:",
-                        "{s:0.9,C:money}+$#1#{s:0.9} when a {s:0.9,C:attention}material{}",
-                        "{s:0.9}is detached from an {s:0.9,C:joy_xyz}Xyz{}"
+                        "{s:0.9,C:money}+$#1#{s:0.9} for each {s:0.9,C:attention}material{}",
+                        "{s:0.9}detached from an {s:0.9,C:joy_xyz}Xyz{}"
                     },
                 },
                 joy_transfer_ability = {
@@ -144,7 +142,8 @@ return {
                     "{C:attention}2{} {C:blue}Common{} {C:attention}Jokers{}",
                     "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, {s:0.9,C:joy_link}Links{}",
                     "{s:0.9,C:inactive}or {s:0.9,C:joy_token}Tokens{s:0.9,C:inactive})",
-                    "OR {C:attention}1{} {C:joy_normal}\"Zoodiac\"{}"
+                    "OR {C:attention}1{} {C:joy_normal}\"Zoodiac\"{}",
+                    "{s:0.9,C:inactive}(If {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, transfer its materials)",
                 }
             },
             j_joy_zoo_dog = {
@@ -152,8 +151,8 @@ return {
                 text = {
                     {
                         "{C:joy_xyz}Detach{} {C:attention}#1#{}:",
-                        "Once per round, {C:attention}revives 1{}",
-                        "{C:joy_normal}\"Zoodiac\"{}",
+                        "Once per round,",
+                        "{C:attention}revives 1{} {C:joy_normal}\"Zoodiac\"{}",
                     },
                     {
                         "Keeps all {C:joy_normal}\"Zoodiac\"{} {C:attention}transferred abilities{}",
@@ -175,15 +174,18 @@ return {
                     "{C:attention}2+{} {C:blue}Common{} {C:attention}Jokers{}",
                     "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, {s:0.9,C:joy_link}Links{}",
                     "{s:0.9,C:inactive}or {s:0.9,C:joy_token}Tokens{s:0.9,C:inactive})",
-                    "OR {C:attention}1{} {C:joy_normal}\"Zoodiac\"{}"
+                    "OR {C:attention}1{} {C:joy_normal}\"Zoodiac\"{}",
+                    "{s:0.9,C:inactive}(If {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, transfer its materials)",
                 }
             },
             j_joy_zoo_tiger = {
                 name = "{C:joy_xyz}Zoodiac Tigermortar",
                 text = {
                     {
-                        "{C:joy_xyz}Detach{} {C:attention}#1#{}:",
-                        "Attaches as many {C:joy_normal}\"Zoodiac\"{} to itself as possible"
+                        "{C:joy_xyz}Detach{} {C:attention}all{}:",
+                        "Attaches as many {C:joy_normal}\"Zoodiac\"{}",
+                        "from the {C:attention}GY{} to itself as possible",
+                        "{C:inactive}(Doesn't transfer abilities){}"
                     },
                     {
                         "Keeps all {C:joy_normal}\"Zoodiac\"{} {C:attention}transferred abilities{}",
@@ -205,7 +207,8 @@ return {
                     "{C:attention}3{} {C:blue}Common{} {C:attention}Jokers{}",
                     "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, {s:0.9,C:joy_link}Links{}",
                     "{s:0.9,C:inactive}or {s:0.9,C:joy_token}Tokens{s:0.9,C:inactive})",
-                    "OR {C:attention}1{} {C:joy_normal}\"Zoodiac\"{}"
+                    "OR {C:attention}1{} {C:joy_normal}\"Zoodiac\"{}",
+                    "{s:0.9,C:inactive}(If {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, transfer its materials)",
                 }
             },
             j_joy_zoo_monkey = {
@@ -214,7 +217,8 @@ return {
                     {
                         "{C:joy_xyz}Detach{} {C:attention}#1#{}:",
                         "Add {C:attention}1{} {C:joy_normal}\"Zoodiac\"{}",
-                        "to the {C:joy_spell}Extra Deck{}"
+                        "to the {C:joy_spell}Extra Deck{}",
+                        "{C:inactive}(Must have room)"
                     },
                     {
                         "Keeps all {C:joy_normal}\"Zoodiac\"{} {C:attention}transferred abilities{}",
@@ -235,7 +239,8 @@ return {
                     "{C:attention}3+{} {C:blue}Common{} {C:attention}Jokers{}",
                     "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, {s:0.9,C:joy_link}Links{}",
                     "{s:0.9,C:inactive}or {s:0.9,C:joy_token}Tokens{s:0.9,C:inactive})",
-                    "OR {C:attention}1{} {C:joy_normal}\"Zoodiac\"{}"
+                    "OR {C:attention}1{} {C:joy_normal}\"Zoodiac\"{}",
+                    "{s:0.9,C:inactive}(If {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, transfer its materials)",
                 }
             },
             j_joy_zoo_dragon = {
@@ -247,7 +252,7 @@ return {
                         "(or 1 other random {C:attention}Joker{} if none),",
                         "and if it does, gives {X:mult,C:white}X#2#{}",
                         "for each {C:joy_xyz}Xyz{} {C:attention}material{} this round",
-                        "{C:inactive}(Must have room)"
+                        "{C:inactive}(Currently {X:mult,C:white}X#3#{}{C:inactive} Mult)"
                     },
                     {
                         "Keeps all {C:joy_normal}\"Zoodiac\"{} {C:attention}transferred abilities{}",
@@ -270,7 +275,8 @@ return {
                     "{C:attention}4{} {C:blue}Common{} {C:attention}Jokers{}",
                     "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, {s:0.9,C:joy_link}Links{}",
                     "{s:0.9,C:inactive}or {s:0.9,C:joy_token}Tokens{s:0.9,C:inactive})",
-                    "OR {C:attention}1{} {C:joy_normal}\"Zoodiac\"{}"
+                    "OR {C:attention}1{} {C:joy_normal}\"Zoodiac\"{}",
+                    "{s:0.9,C:inactive}(If {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, transfer its materials)",
                 }
             },
             j_joy_zoo_boar = {
@@ -300,7 +306,8 @@ return {
                     "{C:attention}5{} {C:blue}Common{} {C:attention}Jokers{}",
                     "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, {s:0.9,C:joy_link}Links{}",
                     "{s:0.9,C:inactive}or {s:0.9,C:joy_token}Tokens{s:0.9,C:inactive})",
-                    "OR {C:attention}1{} {C:joy_normal}\"Zoodiac\"{}"
+                    "OR {C:attention}1{} {C:joy_normal}\"Zoodiac\"{}",
+                    "{s:0.9,C:inactive}(If {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, transfer its materials)",
                 }
             },
         }

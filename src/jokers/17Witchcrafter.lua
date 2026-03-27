@@ -73,7 +73,8 @@ SMODS.Joker({
             for i = 1, card.ability.extra.creates_tarot do
                 if #G.consumeables.cards < G.consumeables.config.card_limit then
                     SMODS.add_card({
-                        set = 'Tarot'
+                        set = 'Tarot',
+                        key_append = self.key .. "_tarot"
                     })
                 end
             end
@@ -168,7 +169,8 @@ SMODS.Joker({
             for i = 1, card.ability.extra.creates_tarot do
                 if #G.consumeables.cards == 0 and #G.consumeables.cards < G.consumeables.config.card_limit then
                     SMODS.add_card({
-                        set = 'Tarot'
+                        set = 'Tarot',
+                        key_append = self.key .. "_tarot"
                     })
                 end
             end
@@ -241,7 +243,8 @@ SMODS.Joker({
                         for i = 1, card.ability.extra.creates_tarot do
                             if #G.consumeables.cards < G.consumeables.config.card_limit then
                                 SMODS.add_card({
-                                    set = 'Tarot'
+                                    set = 'Tarot',
+                                    key_append = self.key .. "_tarot"
                                 })
                             end
                         end
@@ -354,7 +357,8 @@ SMODS.Joker({
                     for i = 1, card.ability.extra.creates_tarot do
                         if #G.consumeables.cards < G.consumeables.config.card_limit then
                             SMODS.add_card({
-                                set = 'Tarot'
+                                set = 'Tarot',
+                                key_append = self.key .. "_tarot"
                             })
                         end
                     end
@@ -553,7 +557,8 @@ SMODS.Joker({
                 for i = 1, card.ability.extra.creates_tarot do
                     SMODS.add_card({
                         set = 'Tarot',
-                        edition = "e_negative"
+                        edition = "e_negative",
+                        key_append = self.key .. "_tarot"
                     })
                 end
             end

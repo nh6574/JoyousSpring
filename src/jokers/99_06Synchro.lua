@@ -44,7 +44,8 @@ SMODS.Joker({
             for i = 1, card.ability.extra.creates do
                 SMODS.add_card({
                     set = "Spectral",
-                    edition = "e_negative"
+                    edition = "e_negative",
+                    key_append = self.key .. "_spectral"
                 })
             end
         end

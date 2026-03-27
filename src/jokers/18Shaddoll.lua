@@ -299,7 +299,8 @@ SMODS.Joker({
             for i = 1, card.ability.extra.creates_tarot do
                 if #G.consumeables.cards < G.consumeables.config.card_limit then
                     SMODS.add_card({
-                        set = 'Tarot'
+                        set = 'Tarot',
+                        key_append = self.key .. "_tarot"
                     })
                 end
             end
@@ -315,7 +316,8 @@ SMODS.Joker({
             for i = 1, card.ability.extra.creates_spectral do
                 if #G.consumeables.cards < G.consumeables.config.card_limit then
                     SMODS.add_card({
-                        set = 'Spectral'
+                        set = 'Spectral',
+                        key_append = self.key .. "_spectral"
                     })
                 end
             end

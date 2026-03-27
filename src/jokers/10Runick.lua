@@ -187,7 +187,8 @@ SMODS.Joker({
                 for i = 1, card.ability.extra.cards_to_create do
                     if #G.consumeables.cards < G.consumeables.config.card_limit then
                         SMODS.add_card({
-                            set = 'Tarot'
+                            set = 'Tarot',
+                            key_append = self.key .. "_tarot"
                         })
                     else
                         break
@@ -251,7 +252,8 @@ SMODS.Joker({
                 for i = 1, card.ability.extra.cards_to_create do
                     if #G.consumeables.cards < G.consumeables.config.card_limit then
                         SMODS.add_card({
-                            set = 'Tarot'
+                            set = 'Tarot',
+                            key_append = self.key .. "_tarot"
                         })
                     else
                         break
@@ -260,7 +262,7 @@ SMODS.Joker({
             end
             if context.using_consumeable and G.GAME.blind.in_blind and context.consumeable.ability.set == 'Tarot' then
                 for i = 1, card.ability.extra.playing_cards_to_create do
-                    SMODS.add_card { set = "Playing Card" }
+                    SMODS.add_card { set = "Playing Card", key_append = self.key .. "_card" }
                 end
             end
         end
@@ -321,7 +323,8 @@ SMODS.Joker({
                 for i = 1, card.ability.extra.cards_to_create do
                     SMODS.add_card({
                         set = 'Tarot',
-                        edition = "e_negative"
+                        edition = "e_negative",
+                        key_append = self.key .. "_tarot"
                     })
                 end
             end
