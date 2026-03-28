@@ -68,7 +68,7 @@ SMODS.Joker({
             },
             text_config = { colour = G.C.CHIPS },
         }
-    end
+    end,
 })
 
 -- Live☆Twin Ki-sikil
