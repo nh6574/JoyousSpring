@@ -69,9 +69,6 @@ SMODS.Joker({
             text_config = { colour = G.C.CHIPS },
         }
     end,
-    calc_dollar_bonus = function(self, card)
-        return 10, { no_eval_row = true }
-    end
 })
 
 -- Live☆Twin Ki-sikil
