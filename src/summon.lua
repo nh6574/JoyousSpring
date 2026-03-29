@@ -130,6 +130,17 @@ JoyousSpring.perform_summon = function(card, card_list, summon_type)
         joy_summon_type =
             summon_type
     })
+    for _, material in ipairs(card_list) do
+        local eval, post = material:calculate_joker(
+            {
+                joy_summon = true,
+                joy_card = card,
+                joy_summon_materials = summon_materials,
+                joy_material_self = true,
+                joy_summon_type = summon_type,
+            })
+        SMODS.trigger_effects({ eval, post }, material)
+    end
     card.ability.extra.joyous_spring.summon_materials = {}
     local transfer = summon_type == "XYZ" and JoyousSpring.transfer_materials_with_combo(card, card_list) or false
     card.ability.extra.joyous_spring.xyz_materials = card.ability.extra.joyous_spring.xyz_materials or 0
@@ -626,7 +637,7 @@ JoyousSpring.can_summon = function(card, card_list)
             JoyousSpring.get_card_limit(card) > 0 or
             (#G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit)
     else
-        local card_table = card_list or G.jokers.cards
+        local card_table = card_list or SMODS.merge_lists({ G.jokers.cards, JoyousSpring.side_deck_area.cards })
         local conditions = card.ability.extra.joyous_spring.summon_conditions
 
         for _, condition in ipairs(conditions) do

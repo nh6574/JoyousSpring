@@ -5,7 +5,16 @@ return {
                 name = "{C:joy_effect}Centur-Ion Primera",
                 text = {
                     {
-                        "TBD"
+                        "{C:mult}+#1#{} Mult"
+                    },
+                    {
+                        "If this card is in the {C:joy_link}Side Deck{},",
+                        "{C:joy_synchro}Synchros{} can't be debuffed or {C:attention}flipped{} face-down"
+                    },
+                    {
+                        "Creates {C:attention}1 Perishable{} {C:joy_effect}\"Centur-Ion Primera\"{} in the {C:joy_link}Side Deck{} and",
+                        "adds {C:attention}1{} {C:joy_spell}Extra Deck{} {C:joy_normal}\"Centur-Ion\"{} to the shop",
+                        "when used as {C:attention}material{} for a {C:joy_synchro}Synchro{}"
                     }
                 }
             },
@@ -13,7 +22,15 @@ return {
                 name = "{C:joy_effect}Centur-Ion Atrii",
                 text = {
                     {
-                        "TBD"
+                        "{C:chips}+#1#{} Chips"
+                    },
+                    {
+                        "Treated as any {C:attention}material{} for a {C:joy_synchro}Synchro",
+                    },
+                    {
+                        "Creates {C:attention}1 Perishable{} {C:joy_effect}\"Centur-Ion Atrii\"{} in the {C:joy_link}Side Deck{} and",
+                        "adds {C:attention}+#2#{} hand size until end of round",
+                        "when used as {C:attention}material{} for a {C:joy_synchro}Synchro{}"
                     }
                 }
             },
@@ -21,7 +38,16 @@ return {
                 name = "{C:joy_effect}Centur-Ion Chimerea",
                 text = {
                     {
-                        "TBD"
+                        "{C:money}+$#1#{} when a hand is played"
+                    },
+                    {
+                        "If this card is in the {C:joy_link}Side Deck{},",
+                        "{C:joy_synchro}Synchros{} are free in the shop"
+                    },
+                    {
+                        "Creates {C:attention}1 Perishable{} {C:joy_effect}\"Centur-Ion Chimerea\"{} in the {C:joy_link}Side Deck{} and",
+                        "adds {C:attention}1{} {C:joy_normal}Main Deck \"Centur-Ion\"{} to the shop",
+                        "when used as {C:attention}material{} for a {C:joy_synchro}Synchro{}"
                     }
                 }
             },
@@ -29,7 +55,16 @@ return {
                 name = "{C:joy_effect}Centur-Ion Trudea",
                 text = {
                     {
-                        "TBD"
+                        "{X:mult,C:white}X#1#{} Mult"
+                    },
+                    {
+                        "If this card is in the {C:joy_link}Side Deck{},",
+                        "{C:joy_normal}\"Centur-Ion\"{} can't be {C:attention}flipped{} face-down"
+                    },
+                    {
+                        "Creates {C:attention}1 Perishable{} {C:joy_effect}\"Centur-Ion Trudea\"{} in the {C:joy_link}Side Deck{} and",
+                        "adds {C:attention}1{} {C:joy_spell}\"Stand Up Centur-Ion!\"{} to the shop",
+                        "when used as {C:attention}material{} for a {C:joy_synchro}Synchro{}"
                     }
                 }
             },
@@ -37,7 +72,16 @@ return {
                 name = "{C:joy_effect}Centur-Ion Gargoyle II",
                 text = {
                     {
-                        "TBD"
+                        "{X:chips,C:white}X#1#{} Chips"
+                    },
+                    {
+                        "If this card is in the {C:joy_link}Side Deck{},",
+                        "Perishable cards give {X:mult,C:white}X#2#{} Mult"
+                    },
+                    {
+                        "Creates {C:attention}1 Perishable{} {C:joy_effect}\"Centur-Ion Gargoyle II\"{} in the {C:joy_link}Side Deck{} and",
+                        "{C:attention}revives 1{} {C:joy_normal}\"Centur-Ion\"{}",
+                        "when used as {C:attention}material{} for a {C:joy_synchro}Synchro{}"
                     }
                 }
             },
@@ -45,7 +89,18 @@ return {
                 name = "{C:joy_effect}Centur-Ion Emeth VI",
                 text = {
                     {
-                        "TBD"
+                        "Retriggers the leftmost card",
+                        "in scoring hand twice"
+                    },
+                    {
+                        "If this card is in the {C:joy_link}Side Deck{},",
+                        "{C:joy_synchro}Synchros{} give {C:mult}+#1#{} Mult",
+                        "for each {C:joy_normal}\"Centur-Ion\"{} in the {C:attention}GY{}"
+                    },
+                    {
+                        "Creates {C:attention}1 Perishable{} {C:joy_effect}\"Centur-Ion Emeth VI\"{} in the {C:joy_link}Side Deck{} and",
+                        "sends {C:attention}2{} {C:joy_normal}\"Centur-Ion\"{} to the {C:attention}GY{}",
+                        "when used as {C:attention}material{} for a {C:joy_synchro}Synchro{}"
                     }
                 }
             },
@@ -53,7 +108,14 @@ return {
                 name = "{C:joy_synchro}Centur-Ion Primera Primus",
                 text = {
                     {
-                        "TBD"
+                        "Gains {X:mult,C:white}X#1#{} Mult",
+                        "for each {C:joy_synchro}Synchro{} {C:attention}summoned{} this run",
+                        "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
+                    },
+                    {
+                        "You can {C:attention}tribute{} this card",
+                        "and another {C:joy_synchro}Synchro{} to add",
+                        "{C:attention}2 Perishable{} {C:joy_normal}\"Centur-Ion\"{} to the {C:joy_spell}Extra Deck{}"
                     }
                 }
             },
@@ -61,7 +123,14 @@ return {
                 name = "{C:joy_synchro}Centur-Ion Auxila",
                 text = {
                     {
-                        "TBD"
+                        "Gains {X:mult,C:white}X#1#{} Mult",
+                        "for each card in the {C:joy_link}Side Deck{}",
+                        "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
+                    },
+                    {
+                        "Creates {C:attention}1 Perishable{} {C:joy_normal}Main Deck \"Centur-Ion\"{} in the {C:joy_link}Side Deck{} and",
+                        "adds {C:attention}1{} {C:joy_normal}\"Centur-Ion\"{} to the {C:joy_spell}Extra Deck{}",
+                        "when used as {C:attention}material{} for a {C:joy_synchro}Synchro{}"
                     }
                 }
             },
@@ -69,7 +138,13 @@ return {
                 name = "{C:joy_synchro}Centur-Ion Legatia",
                 text = {
                     {
-                        "TBD"
+                        "Scores {C:joy_normal}\"Centur-Ion\"{} in the",
+                        "{C:joy_link}Side Deck{} as if owned",
+                    },
+                    {
+                        "Returns to the {C:joy_spell}Extra Deck{} at end of round",
+                        "and, if it does, allows the {C:joy_link}Side Deck{} to be skipped",
+                        "this round even if slots are full"
                     }
                 }
             },
@@ -77,7 +152,12 @@ return {
                 name = "{C:joy_spell}Stand Up Centur-Ion!",
                 text = {
                     {
-                        "TBD"
+                        "Creates all cards used for the first summon each round",
+                        "as {C:attention}Perishable{} in the {C:joy_link}Side Deck{}"
+                    },
+                    {
+                        "If a card {C:attention}Perishes{},",
+                        "creates {C:attention}1{} {C:joy_normal}\"Centur-Ion\"{} in the {C:joy_link}Side Deck{}"
                     }
                 }
             },

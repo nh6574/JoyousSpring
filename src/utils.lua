@@ -526,14 +526,7 @@ end
 ---@return boolean
 JoyousSpring.used_as_material = function(card, context)
     if type(card) ~= "table" then return false end
-    if context.joy_summon and context.main_eval and not context.blueprint_card then
-        for _, joker in ipairs(context.joy_summon_materials) do
-            if joker == card then
-                return true
-            end
-        end
-    end
-    return false
+    return context.joy_material_self and not context.blueprint_card
 end
 
 ---Gets the most owned Joker rarities and their count
@@ -727,6 +720,25 @@ JoyousSpring.calculate_prototype_function = function(func, args, ...)
                 end
             end
         end
+
+        if not args.ignore_side_deck then
+            for _, joker in ipairs(JoyousSpring.side_deck_area.cards or {}) do
+                if (not joker.debuff or args.ignore_debuff) then
+                    if type(joker.config.center.joy_can_calculate_in_side) == "function" and
+                        joker.config.center:joy_can_calculate_in_side(joker, func) and
+                        type(joker.config.center[func]) == "function" then
+                        local obj_return
+                        if not args.pass_return then
+                            obj_return = joker.config.center[func](joker.config.center, joker, ...)
+                        else
+                            obj_return = joker.config.center[func](joker.config.center, joker, return_value, ...)
+                        end
+                        return_value = return_func(obj_return, return_value)
+                        if args.return_if_true and return_value then return return_value end
+                    end
+                end
+            end
+        end
     end
 
     if G.GAME.blind and G.GAME.blind.config and not args.ignore_blinds then
@@ -756,6 +768,25 @@ JoyousSpring.calculate_prototype_function = function(func, args, ...)
     end
 
     return return_value
+end
+
+---Calculates cards in the side deck
+---@param context CalcContext
+---@param calc_card Card|table?
+---@return table?
+JoyousSpring.calculate_in_side_deck = function(context, calc_card)
+    local ret = {}
+    local old_blueprint = context.blueprint_card
+    context.blueprint_card = calc_card
+    for _, joker in ipairs(JoyousSpring.side_deck_area.cards) do
+        if type(joker.config.center.joy_can_calculate_in_side) == "function" and
+            joker.config.center:joy_can_calculate_in_side(joker, "calculate") then
+            local jret, _ = joker:calculate_joker(context)
+            ret[#ret + 1] = jret
+        end
+    end
+    context.blueprint_card = old_blueprint
+    return SMODS.merge_effects(ret)
 end
 
 --- Overflow compat

@@ -352,6 +352,17 @@ JoyousSpring.transform_card = function(card, other_key, keep_materials, summon_t
                     joy_summon_type =
                         summon_type
                 })
+                for _, material in ipairs(summon_materials) do
+                    local eval, post = material:calculate_joker(
+                        {
+                            joy_summon = true,
+                            joy_card = card,
+                            joy_summon_materials = summon_materials,
+                            joy_material_self = true,
+                            joy_summon_type = summon_type,
+                        })
+                    SMODS.trigger_effects({ eval, post }, material)
+                end
                 card.ability.extra.joyous_spring.summon_materials = { original_key }
                 card.ability.extra.joyous_spring.xyz_materials = 1
                 card.joy_transforming = original_key
