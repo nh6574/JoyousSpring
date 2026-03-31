@@ -1,12 +1,5 @@
 --- MOD CONFIG
 
-SMODS.Atlas({
-    key = "modicon",
-    path = "icon.png",
-    px = 32,
-    py = 32
-})
-
 SMODS.current_mod.description_loc_vars = function()
     return { background_colour = G.C.CLEAR, text_colour = G.C.WHITE, scale = 1.2 }
 end
@@ -837,7 +830,7 @@ JoyousSpring.card_collection_UIBox = function(_pool, rows, args)
                             border_colour = G.C.JOY.XYZ,
                             dropdown_bg_colour = darken(G.C.JOY.MOD, 0.2),
                             selected_colour = G.C.JOY.MOD,
-                            close_on_select = true
+                            close_on_select = true,
                         }),
                     })
                 }
