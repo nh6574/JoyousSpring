@@ -50,53 +50,36 @@ JoyousSpring.Blind = SMODS.Blind:extend {
     config = {},
     pos = { x = 0, y = 0 },
     boss = { min = 2 },
-    inject = function(self, i)
-        SMODS.Blind.inject(self, i)
-
-        if self.opponent_card and not SMODS.Centers["opp_" .. (self.opponent_card.key or "")] then
-            self.opponent_card.key = "joy_" .. (self.opponent_card.key or self.original_key)
-            self.opponent_card.atlas = (self.opponent_card.atlas and "joy_" .. self.opponent_card.atlas or self.atlas)
-            self.opponent_card.pos = self.opponent_card.pos or { x = self.pos.x, y = self.pos.y }
-            self.opponent_card.joy_blind_key = self.opponent_card.joy_blind_key or self.key
-            local og_loc_vars_ref = self.opponent_card.loc_vars
-            self.opponent_card.loc_vars = function(opp_self, info_queue, card)
-                local og_loc_vars
-                if card.area and card.area == G.joy_blind_effects_area then
-                    if self.loc_vars then
-                        og_loc_vars = self:loc_vars()
-                    end
-                elseif og_loc_vars_ref then
-                    og_loc_vars = og_loc_vars_ref(opp_self, info_queue, card)
-                end
-                og_loc_vars = og_loc_vars or {}
-                og_loc_vars.key = og_loc_vars.key or
-                    (card.area and card.area == G.joy_blind_effects_area and opp_self.joy_blind_key or nil)
-                og_loc_vars.set = og_loc_vars.set or
-                    (card.area and card.area == G.joy_blind_effects_area and "Blind" or nil)
-                return og_loc_vars
-            end
-            local proto = JoyousSpring.OpponentCard(SMODS.shallow_copy(self.opponent_card))
-            proto.mod = SMODS.Mods.JoyousSpring
-            proto.original_mod = proto.mod
-
-            if proto._discovered_unlocked_overwritten then
-                assert(proto._saved_d_u,
-                    ("Internal: original discovery/unlocked state for object \"%s\" should have been saved at this point.")
-                    :format(proto and proto.key or "UNKNOWN"))
-                proto.discovered, proto.unlocked = proto._d, proto._u
-                proto._discovered_unlocked_overwritten = false
-            else
-                SMODS._save_d_u(proto)
-            end
-
-            proto:inject(i)
-
-            proto:process_loc_text()
-
-            self.opponent_key = proto.key
-        end
-    end,
 }
+
+JoyousSpring.Blind.register = function(self)
+    self.opponent_card.key = self.opponent_card.key or self.original_key
+    self.opponent_card.atlas = (self.opponent_card.atlas or self.atlas)
+    self.opponent_card.pos = self.opponent_card.pos or { x = self.pos.x, y = self.pos.y }
+    self.opponent_card.joy_blind_key = self.opponent_card.joy_blind_key or self.key
+    local og_loc_vars_ref = self.opponent_card.loc_vars
+    self.opponent_card.loc_vars = function(opp_self, info_queue, card)
+        local og_loc_vars
+        if card.area and card.area == G.joy_blind_effects_area then
+            if self.loc_vars then
+                og_loc_vars = self:loc_vars()
+            end
+        elseif og_loc_vars_ref then
+            og_loc_vars = og_loc_vars_ref(opp_self, info_queue, card)
+        end
+        og_loc_vars = og_loc_vars or {}
+        og_loc_vars.key = og_loc_vars.key or
+            (card.area and card.area == G.joy_blind_effects_area and opp_self.joy_blind_key or nil)
+        og_loc_vars.set = og_loc_vars.set or
+            (card.area and card.area == G.joy_blind_effects_area and "Blind" or nil)
+        return og_loc_vars
+    end
+    local proto = JoyousSpring.OpponentCard(SMODS.shallow_copy(self.opponent_card))
+
+    self.opponent_key = proto.key
+
+    SMODS.Blind.register(self)
+end
 
 local smods_blind_inject_ref = SMODS.Blind.inject or function() end
 SMODS.Blind.inject = function(self, i)

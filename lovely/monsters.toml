@@ -153,8 +153,8 @@ end
 [[patches]]
 [patches.pattern]
 target = "functions/misc_functions.lua"
-pattern = "if args.type == 'name' then"
-position = 'after'
+pattern = "local final_line = SMODS.localize_box(lines, args)"
+position = 'before'
 match_indent = true
 payload = '''
 if JoyousSpring.main_card_ui then
