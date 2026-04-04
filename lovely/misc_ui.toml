@@ -66,3 +66,80 @@ if args.loc_target then
     loc_target = args.loc_target
 elseif args.type == 'other' then
 '''
+
+# Replace splash screen cards (copied from Maximus <3)
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''
+SC = Card(G.ROOM.T.w/2 - SC_scale*G.CARD_W/2, 10. + G.ROOM.T.h/2 - SC_scale*G.CARD_H/2, SC_scale*G.CARD_W, SC_scale*G.CARD_H, G.P_CARDS.empty, G.P_CENTERS['j_joker'])
+'''
+position = "after"
+payload = '''
+if JoyousSpring and not JoyousSpring.config.disable_main_menu then
+    math.randomseed(os.time())
+    local joy_center, _ = G.P_CENTER_POOLS.joy_monster[math.random(1, #G.P_CENTER_POOLS.joy_monster)]
+    SC = Card(G.ROOM.T.w/2 - SC_scale*G.CARD_W/2, 10. + G.ROOM.T.h/2 - SC_scale*G.CARD_H/2, SC_scale*G.CARD_W, SC_scale*G.CARD_H, G.P_CARDS.empty, joy_center,{bypass_discovery_center = true, bypass_discovery_ui = true})
+end
+'''
+match_indent = true
+
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''
+local card = Card(  card_pos.x + G.ROOM.T.w/2 - G.CARD_W*card_size/2,
+                    card_pos.y + G.ROOM.T.h/2 - G.CARD_H*card_size/2,
+                    card_size*G.CARD_W, card_size*G.CARD_H, pseudorandom_element(G.P_CARDS), G.P_CENTERS.c_base)
+'''
+position = "at"
+payload = '''
+local card
+if JoyousSpring and not JoyousSpring.config.disable_main_menu then
+    local joy_center, _ = G.P_CENTER_POOLS.joy_monster[math.random(1, #G.P_CENTER_POOLS.joy_monster)]
+    card = Card(  card_pos.x + G.ROOM.T.w/2 - G.CARD_W*card_size/2,
+                        card_pos.y + G.ROOM.T.h/2 - G.CARD_H*card_size/2,
+                        card_size*G.CARD_W, card_size*G.CARD_H, G.P_CARDS.empty, joy_center,{bypass_discovery_center = true, bypass_discovery_ui = true})
+else
+    card = Card(  card_pos.x + G.ROOM.T.w/2 - G.CARD_W*card_size/2,
+                    card_pos.y + G.ROOM.T.h/2 - G.CARD_H*card_size/2,
+                    card_size*G.CARD_W, card_size*G.CARD_H, pseudorandom_element(G.P_CARDS), G.P_CENTERS.c_base)
+end
+'''
+match_indent = true
+times = 1
+
+# Replace splash screen colours
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''
+{name = 'colour_1', ref_table = G.C, ref_value = 'BLUE'},
+{name = 'colour_2', ref_table = G.C, ref_value = 'WHITE'},
+'''
+position = "at"
+payload = '''
+JoyousSpring and not JoyousSpring.config.disable_main_menu and { name = "colour_1",   ref_table = G.C.JOY,  ref_value = "EFFECT" } or {name = 'colour_1', ref_table = G.C, ref_value = 'BLUE'},
+JoyousSpring and not JoyousSpring.config.disable_main_menu and { name = "colour_2",   ref_table = G.C,      ref_value = "BLACK" } or {name = 'colour_2', ref_table = G.C, ref_value = 'WHITE'},
+'''
+match_indent = true
+times = 1
+
+# Replace screenwipe card
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = '''
+G.screenwipecard = Card(1, 1, G.CARD_W, G.CARD_H, pseudorandom_element(G.P_CARDS), G.P_CENTERS.c_base)
+'''
+position = "at"
+payload = '''
+if JoyousSpring and not JoyousSpring.config.disable_main_menu then
+    G.screenwipecard = Card(1, 1, G.CARD_W, G.CARD_H, G.P_CARDS.empty, pseudorandom_element(G.P_CENTER_POOLS.joy_monster))
+else
+    G.screenwipecard = Card(1, 1, G.CARD_W, G.CARD_H, pseudorandom_element(G.P_CARDS), G.P_CENTERS.c_base)
+end
+'''
+match_indent = true
+times = 1
