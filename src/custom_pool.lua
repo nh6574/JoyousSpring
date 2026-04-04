@@ -1,4 +1,4 @@
--- -- CUSTOM POOL
+-- CUSTOM POOL
 
 ---Filters a pool from SMODS.create_poll_pool by property_list
 ---@param pool {key:string|'UNAVAILABLE', type:string}[]
