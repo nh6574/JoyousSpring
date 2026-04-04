@@ -11,6 +11,7 @@ JoyousSpring.Joker({
     key = "striker_raye",
     atlas = 'striker',
     pos = { x = 0, y = 0 },
+    joy_alt_pos = { { x = 1, y = 0 } },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -34,7 +35,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "striker_roze",
     atlas = 'striker',
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 0 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -58,7 +59,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "striker_hamp",
     atlas = 'striker',
-    pos = { x = 0, y = 0 },
+    pos = { x = 3, y = 0 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -82,7 +83,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "striker_aileron",
     atlas = 'striker',
-    pos = { x = 0, y = 0 },
+    pos = { x = 4, y = 0 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -106,7 +107,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "striker_cyanos",
     atlas = 'striker',
-    pos = { x = 0, y = 0 },
+    pos = { x = 5, y = 0 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -130,7 +131,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "striker_ciela",
     atlas = 'striker',
-    pos = { x = 0, y = 0 },
+    pos = { x = 0, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -154,7 +155,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "striker_akash",
     atlas = 'striker',
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -178,7 +179,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "striker_himmel",
     atlas = 'striker',
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -202,7 +203,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "striker_areazero",
     atlas = 'striker',
-    pos = { x = 0, y = 0 },
+    pos = { x = 3, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -227,7 +228,8 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "striker_hayate",
     atlas = 'striker',
-    pos = { x = 0, y = 0 },
+    pos = { x = 4, y = 2 },
+    joy_alt_pos = { { x = 5, y = 2 } },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -252,7 +254,8 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "striker_kagari",
     atlas = 'striker',
-    pos = { x = 0, y = 0 },
+    pos = { x = 0, y = 3 },
+    joy_alt_pos = { { x = 1, y = 3 } },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -277,7 +280,8 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "striker_shizuku",
     atlas = 'striker',
-    pos = { x = 0, y = 0 },
+    pos = { x = 3, y = 3 },
+    joy_alt_pos = { { x = 4, y = 3 } },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -302,7 +306,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "striker_kaina",
     atlas = 'striker',
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 3 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -327,7 +331,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "striker_amatsu",
     atlas = 'striker',
-    pos = { x = 0, y = 0 },
+    pos = { x = 0, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -352,7 +356,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "striker_zeke",
     atlas = 'striker',
-    pos = { x = 0, y = 0 },
+    pos = { x = 5, y = 3 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -377,7 +381,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "striker_azalea",
     atlas = 'striker',
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -402,7 +406,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "striker_azaleatemp",
     atlas = 'striker',
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -427,7 +431,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "striker_camellia",
     atlas = 'striker',
-    pos = { x = 0, y = 0 },
+    pos = { x = 3, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -452,7 +456,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "striker_zero",
     atlas = 'striker',
-    pos = { x = 0, y = 0 },
+    pos = { x = 0, y = 4 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -477,7 +481,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "striker_combined",
     atlas = 'striker',
-    pos = { x = 0, y = 0 },
+    pos = { x = 5, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -502,7 +506,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "striker_spectra",
     atlas = 'striker',
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 4 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,

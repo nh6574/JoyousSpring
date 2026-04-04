@@ -172,7 +172,8 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "parasiteparacide",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 4, y = 0 },
+    joy_alt_pos = { { x = 5, y = 0 } },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,

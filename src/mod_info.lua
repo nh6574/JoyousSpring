@@ -480,11 +480,22 @@ JoyousSpring.alt_arts = {
     "j_joy_shaddoll_elconstruct",
     "j_joy_invoked_aleister",
     "j_joy_invoked_mechaba",
+    "j_joy_striker_raye",
+    "j_joy_striker_hayate",
+    "j_joy_striker_kagari",
+    "j_joy_striker_shizuku",
+    "j_joy_dm_dm",
+    "j_joy_dm_dmg",
     "j_joy_apollousa",
-    "j_joy_ipmasq"
+    "j_joy_ipmasq",
+    "j_joy_spknight",
+    "j_joy_parasiteparacide",
 }
 
-local art_callback = function()
+G.FUNCS.joy_art_callback = function(e)
+    if not e.cycle_config then return end
+    local key = e.cycle_config.joy_card
+    JoyousSpring.config.alt_art[key] = e.cycle_config.current_option
     for _, card in pairs(G.I.CARD) do
         if card.config and card.config.center and card.config.center.joy_alt_pos then
             card:set_sprites(card.config.center)
@@ -506,49 +517,151 @@ local art_tab = function()
 
     local columns = {}
 
-    for i, key in ipairs(JoyousSpring.alt_arts) do
-        if i % 6 == 1 then
-            columns[#columns + 1] = {
-                n = G.UIT.C,
-                config = { align = "cr" },
+    local i = 1
+    local total = 0
+    for _, key in ipairs(JoyousSpring.alt_arts) do
+        if G.P_CENTERS[key] then total = total + 1 end
+    end
+    for _, key in ipairs(JoyousSpring.alt_arts) do
+        local center = G.P_CENTERS[key]
+        if center then
+            if i % math.ceil(total / 4) == 1 then
+                columns[#columns + 1] = {
+                    n = G.UIT.C,
+                    config = { align = "tm" },
+                    nodes = {
+                    }
+                }
+            end
+            local options = { center.pos }
+            for _, pos in ipairs(center.joy_alt_pos) do
+                options[#options + 1] = pos
+            end
+            columns[#columns].nodes[#columns[#columns].nodes + 1] = {
+                n = G.UIT.R,
+                config = { align = "tm" },
                 nodes = {
+                    {
+                        n = G.UIT.C,
+                        config = { align = "tm" },
+                        nodes = {
+                            {
+                                n = G.UIT.R,
+                                config = { align = "tm" },
+                                nodes = {
+                                    {
+                                        n = G.UIT.T,
+                                        config = {
+                                            text = localize { type = "name_text", set = "Joker", key = key },
+                                            scale = 0.3,
+                                            colour = JoyousSpring.get_name_color(key, "Joker"),
+                                            shadow = true
+                                        }
+                                    },
+                                }
+                            },
+                            {
+                                n = G.UIT.R,
+                                config = { align = "tm" },
+                                nodes = {
+                                    create_option_cycle({
+                                        options = options,
+                                        w = 2,
+                                        cycle_shoulders = true,
+                                        opt_callback = 'joy_art_callback',
+                                        current_option = JoyousSpring.config.alt_art[key],
+                                        colour = darken(G.C.JOY.MOD, 0.2),
+                                        no_pips = true,
+                                        focus_args = { snap_to = true, nav = 'wide' },
+                                        joy_card = key,
+                                        mid = {
+                                            n = G.UIT.R,
+                                            config = { align = "cm" },
+                                            nodes = {
+                                                {
+                                                    n = G.UIT.O,
+                                                    config = {
+                                                        object = Card(0, 0,
+                                                            G.CARD_W / 2, G.CARD_H / 2, G.P_CARDS.empty,
+                                                            G.P_CENTERS[key])
+                                                    }
+                                                },
+                                            }
+                                        }
+                                    })
+                                }
+                            },
+                        }
+                    },
                 }
             }
+            i = i + 1
         end
-        columns[#columns].nodes[#columns[#columns].nodes + 1] = {
-            n = G.UIT.R,
-            config = { align = "cr", padding = 0.01 },
-            nodes = {
-                create_toggle({
-                    label = localize { type = "name_text", set = "Joker", key = key },
-                    ref_table = JoyousSpring.config.alt_art,
-                    ref_value = key,
-                    callback = art_callback
-                })
-            }
-        }
     end
-
+    local scrollbox = SMODS.UIScrollBox({
+        content = {
+            definition = {
+                n = G.UIT.ROOT,
+                config = { r = 0.1, minw = 8, align = "tm", padding = 0.2, colour = G.C.BLACK },
+                nodes = {
+                    {
+                        n = G.UIT.R,
+                        config = { padding = 0.2 },
+                        nodes = columns
+                    },
+                }
+            },
+            config = { align = "cm" },
+        },
+        overflow = {
+            node_config = {
+                maxh = 6,
+                r = 0.1,
+            },
+        },
+    })
     return {
         n = G.UIT.ROOT,
-        config = { r = 0.1, minw = 8, align = "tm", padding = 0.2, colour = G.C.BLACK },
+        config = { align = "cm", colour = G.C.JOY.XYZ, padding = 0.1, r = 0.1, },
         nodes = {
             {
                 n = G.UIT.R,
-                config = { padding = 0.2, align = "cm" },
+                config = { padding = 0.1, align = "cm" },
                 nodes = {
+
                     {
-                        n = G.UIT.T,
-                        config = { text = localize("k_joy_enable_alts"), colour = G.C.UI.TEXT_LIGHT, scale = 0.55, shadow = true },
+                        n = G.UIT.C,
+                        config = { align = "cm" },
+                        nodes = {
+                            {
+                                n = G.UIT.O,
+                                config = {
+                                    align = "cm",
+                                    object = scrollbox,
+                                },
+                            },
+                        },
+                    },
+                    {
+                        n = G.UIT.C,
+                        config = { align = "cm" },
+                        nodes = {
+                            SMODS.GUI.scrollbar({
+                                h = 6,
+                                w = 0.3,
+                                max = 1,
+                                min = 0,
+                                colour = darken(G.C.JOY.MOD, 0.2),
+                                bg_colour = { 0, 0, 0, 0.15 },
+                                scroll_collision_obj = scrollbox,
+                                knob_h = 0.6,
+                                scroll_mult = 1.2,
+                            }),
+                        },
                     },
                 },
             },
-            {
-                n = G.UIT.R,
-                config = { padding = 0.2 },
-                nodes = columns
-            },
-        }
+        },
     }
 end
 

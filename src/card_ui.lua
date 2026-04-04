@@ -564,14 +564,15 @@ JoyousSpring.set_back_sprite = function(self, card, front)
     if self.joy_alt_pos then
         if not card.ability or not card.ability.extra or card.ability.extra.joyous_spring.alt_art == nil then
             if JoyousSpring.config.alt_art[self.key] then
-                card.children.center:set_sprite_pos(self.joy_alt_pos[1])
+                local pos = JoyousSpring.config.alt_art[self.key]
+                card.children.center:set_sprite_pos(pos == 1 and self.pos or self.joy_alt_pos[pos - 1])
             else
                 card.children.center:set_sprite_pos(self.pos)
             end
-        elseif card.ability.extra.joyous_spring.alt_art == false then
+        elseif card.ability.extra.joyous_spring.alt_art == 1 then
             card.children.center:set_sprite_pos(self.pos)
         else
-            card.children.center:set_sprite_pos(self.joy_alt_pos[1])
+            card.children.center:set_sprite_pos(self.joy_alt_pos[card.ability.extra.joyous_spring.alt_art - 1])
         end
     end
 
@@ -626,10 +627,15 @@ SMODS.Keybind({
             return
         end
 
+        local arts = selected.config.center.joy_alt_pos
+
         if selected.ability.extra.joyous_spring.alt_art ~= nil then
-            selected.ability.extra.joyous_spring.alt_art = not selected.ability.extra.joyous_spring.alt_art
+            selected.ability.extra.joyous_spring.alt_art = selected.ability.extra.joyous_spring.alt_art + 1
         else
-            selected.ability.extra.joyous_spring.alt_art = not JoyousSpring.config.alt_art[selected.config.center.key]
+            selected.ability.extra.joyous_spring.alt_art = JoyousSpring.config.alt_art[selected.config.center.key] + 1
+        end
+        if selected.ability.extra.joyous_spring.alt_art > #arts + 1 then
+            selected.ability.extra.joyous_spring.alt_art = 1
         end
         selected:set_sprites(selected.config.center)
     end

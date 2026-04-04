@@ -11,6 +11,7 @@ JoyousSpring.Joker({
     key = "dm_dm",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
+    joy_alt_pos = { { x = 1, y = 0 }, { x = 2, y = 0 } },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -34,7 +35,8 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dm_dmg",
     atlas = 'dm',
-    pos = { x = 0, y = 0 },
+    pos = { x = 3, y = 0 },
+    joy_alt_pos = { { x = 4, y = 0 }, { x = 5, y = 0 }, { x = 6, y = 0 } },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
