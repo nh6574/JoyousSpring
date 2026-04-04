@@ -1,12 +1,11 @@
 --- PENDULUM XYZ FREE AGENTS
 
 -- Daidaratant the Ooze Giant
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ooze",
     atlas = 'Misc04',
     pos = { x = 5, y = 5 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -16,7 +15,6 @@ SMODS.Joker({
         end
         return { vars = { card.ability.extra.attach, card.ability.extra.detach, card.ability.extra.revives } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

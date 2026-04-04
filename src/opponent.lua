@@ -14,7 +14,6 @@ JoyousSpring.OpponentCard = SMODS.Center:extend {
     unlocked = true,
     discovered = true,
     class_prefix = "opp",
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {},
     pos = { x = 0, y = 0 },
     display_size = { w = 34, h = 34 },

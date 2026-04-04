@@ -7,12 +7,11 @@ SMODS.Atlas({
 })
 
 -- Lo, of the Voiceless Voice
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "voice_lo",
     atlas = 'voice',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -22,7 +21,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "VoicelessVoice" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -33,12 +31,11 @@ SMODS.Joker({
 })
 
 -- Saffira, of the Voiceless Voice
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "voice_saffira",
     atlas = 'voice',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -48,7 +45,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "VoicelessVoice" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -59,12 +55,11 @@ SMODS.Joker({
 })
 
 -- Sauravis, of the Voiceless Voice
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "voice_sauravis",
     atlas = 'voice',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -74,7 +69,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "VoicelessVoice" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -85,12 +79,11 @@ SMODS.Joker({
 })
 
 -- Saffira, Divine Dragon of the Voiceless Voice
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "voice_divine",
     atlas = 'voice',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -100,7 +93,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "VoicelessVoice" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -112,12 +104,11 @@ SMODS.Joker({
 })
 
 -- Skull Guardian, Protector of the Voiceless Voice
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "voice_skull",
     atlas = 'voice',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -127,7 +118,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "VoicelessVoice" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

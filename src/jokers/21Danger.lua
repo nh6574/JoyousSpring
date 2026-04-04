@@ -33,12 +33,11 @@ local get_danger_count = function()
 end
 
 -- Danger!? Jackalope?
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "danger_jack",
     atlas = 'danger',
     pos = { x = 3, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -48,7 +47,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Danger" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -112,12 +110,11 @@ SMODS.Joker({
 })
 
 -- Danger!? Tsuchinoko?
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "danger_tsuch",
     atlas = 'danger',
     pos = { x = 0, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -127,7 +124,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Danger" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -190,12 +186,11 @@ SMODS.Joker({
 })
 
 -- Danger! Chupacabra!
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "danger_chup",
     atlas = 'danger',
     pos = { x = 1, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -208,7 +203,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Danger" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -272,12 +266,11 @@ SMODS.Joker({
 })
 
 -- Danger! Mothman!
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "danger_moth",
     atlas = 'danger',
     pos = { x = 3, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -290,7 +283,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Danger" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -343,12 +335,11 @@ SMODS.Joker({
 })
 
 -- Danger! Dogman!
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "danger_dog",
     atlas = 'danger',
     pos = { x = 2, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -358,7 +349,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Danger" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -412,12 +402,11 @@ SMODS.Joker({
 })
 
 -- Danger! Nessie!
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "danger_ness",
     atlas = 'danger',
     pos = { x = 0, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -427,7 +416,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Danger" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -477,12 +465,11 @@ SMODS.Joker({
 })
 
 -- Danger! Bigfoot!
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "danger_big",
     atlas = 'danger',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -492,7 +479,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Danger" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -566,12 +552,11 @@ SMODS.Joker({
 })
 
 -- Danger! Ogopogo!
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "danger_ogo",
     atlas = 'danger',
     pos = { x = 1, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -581,7 +566,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Danger" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -631,12 +615,11 @@ SMODS.Joker({
 })
 
 -- Danger! Thunderbird!
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "danger_thunder",
     atlas = 'danger',
     pos = { x = 2, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -646,7 +629,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Danger" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -735,12 +717,11 @@ SMODS.Joker({
 })
 
 -- Realm of Danger!
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "danger_realm",
     atlas = 'danger',
     pos = { x = 1, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -753,7 +734,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Danger" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -776,12 +756,11 @@ SMODS.Joker({
 })
 
 -- Danger! Disturbance! Disorder!
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "danger_disorder",
     atlas = 'danger',
     pos = { x = 2, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -797,7 +776,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Danger" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

@@ -7,12 +7,11 @@ SMODS.Atlas({
 })
 
 -- Kitchen Dragonmaid
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dmaid_kitchen",
     atlas = 'Dragonmaid',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -26,7 +25,6 @@ SMODS.Joker({
         { "j_joy_dmaid_tinkhec",                                      name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -65,12 +63,11 @@ SMODS.Joker({
 })
 
 -- Dragonmaid Tinkhec
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dmaid_tinkhec",
     atlas = 'Dragonmaid',
     pos = { x = 1, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 6,
@@ -86,7 +83,6 @@ SMODS.Joker({
         { "j_joy_dmaid_kitchen",                                      name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -152,12 +148,11 @@ SMODS.Joker({
 })
 
 -- Parlor Dragonmaid
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dmaid_parlor",
     atlas = 'Dragonmaid',
     pos = { x = 2, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 4,
@@ -177,7 +172,6 @@ SMODS.Joker({
         { "j_joy_dmaid_lorpar",                                       name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -231,12 +225,11 @@ SMODS.Joker({
 })
 
 -- Dragonmaid Lorpar
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dmaid_lorpar",
     atlas = 'Dragonmaid',
     pos = { x = 3, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 4,
@@ -252,7 +245,6 @@ SMODS.Joker({
         { "j_joy_dmaid_parlor",                                       name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -321,16 +313,14 @@ SMODS.Joker({
 })
 
 -- Nurse Dragonmaid
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dmaid_nurse",
     atlas = 'Dragonmaid',
     pos = { x = 4, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
-    set_sprites = JoyousSpring.set_back_sprite,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
@@ -404,12 +394,11 @@ SMODS.Joker({
 })
 
 -- Dragonmaid Ernus
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dmaid_ernus",
     atlas = 'Dragonmaid',
     pos = { x = 0, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 3,
@@ -425,7 +414,6 @@ SMODS.Joker({
         { "j_joy_dmaid_nurse",                                        name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -471,12 +459,11 @@ SMODS.Joker({
 })
 
 -- Laundry Dragonmaid
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dmaid_laundry",
     atlas = 'Dragonmaid',
     pos = { x = 1, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -491,7 +478,6 @@ SMODS.Joker({
         { "j_joy_dmaid_nudyarl",                                      name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -521,12 +507,11 @@ SMODS.Joker({
 })
 
 -- Dragonmaid Nudyarl
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dmaid_nudyarl",
     atlas = 'Dragonmaid',
     pos = { x = 2, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 5,
@@ -542,7 +527,6 @@ SMODS.Joker({
         { "j_joy_dmaid_laundry",                                      name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -588,12 +572,11 @@ SMODS.Joker({
 })
 
 -- Cehrmba Dragonmaid
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dmaid_chamber",
     atlas = 'Dragonmaid',
     pos = { x = 3, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 2,
@@ -613,7 +596,6 @@ SMODS.Joker({
         { "j_joy_dmaid_cehrmba",                                      name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -666,12 +648,11 @@ SMODS.Joker({
 })
 
 -- Dragonmaid Cehrmba
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dmaid_cehrmba",
     atlas = 'Dragonmaid',
     pos = { x = 4, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 2,
@@ -691,7 +672,6 @@ SMODS.Joker({
         { "j_joy_dmaid_chamber",                                      name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -758,12 +738,11 @@ SMODS.Joker({
 })
 
 -- Lady's Dragonmaid
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dmaid_lady",
     atlas = 'Dragonmaid',
     pos = { x = 0, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 9,
@@ -780,7 +759,6 @@ SMODS.Joker({
         { "j_joy_dmaid_house",                                        name = "k_joy_adds" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -843,13 +821,12 @@ SMODS.Joker({
 })
 
 -- House Dragonmaid
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dmaid_house",
     atlas = 'Dragonmaid',
     pos = { x = 1, y = 2 },
     joy_alt_pos = { { x = 3, y = 2 } },
     rarity = 3,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 9,
@@ -871,7 +848,6 @@ SMODS.Joker({
         { "j_joy_dmaid_sheou",                                        name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -938,12 +914,11 @@ SMODS.Joker({
 })
 
 -- Dragonmaid Sheou
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dmaid_sheou",
     atlas = 'Dragonmaid',
     pos = { x = 2, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 9,
@@ -959,7 +934,6 @@ SMODS.Joker({
         { "j_joy_dmaid_house",                                        name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

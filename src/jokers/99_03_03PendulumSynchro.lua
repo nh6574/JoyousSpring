@@ -1,19 +1,17 @@
 --- PENDULUM SYNCHRO FREE AGENTS
 
 -- Nirvana High Paladin
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "nirvana",
     atlas = 'Misc04',
     pos = { x = 4, y = 5 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

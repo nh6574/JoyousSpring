@@ -7,19 +7,17 @@ SMODS.Atlas({
 })
 
 -- Mekk-Knight Avram
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "mekk_avram",
     atlas = 'MekkKnight',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 1,
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     joy_no_shop = true,
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
@@ -42,12 +40,11 @@ SMODS.Joker({
 })
 
 -- Mekk-Knight Red Moon
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "mekk_red",
     atlas = 'MekkKnight',
     pos = { x = 1, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 4,
@@ -57,7 +54,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -113,12 +109,11 @@ SMODS.Joker({
 })
 
 -- Mekk-Knight Orange Sunset
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "mekk_orange",
     atlas = 'MekkKnight',
     pos = { x = 2, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 6,
@@ -128,7 +123,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -200,12 +194,11 @@ SMODS.Joker({
 })
 
 -- Mekk-Knight Yellow Star
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "mekk_yellow",
     atlas = 'MekkKnight',
     pos = { x = 3, y = 0 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -215,7 +208,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -271,12 +263,11 @@ SMODS.Joker({
 })
 
 -- Mekk-Knight Green Horizon
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "mekk_green",
     atlas = 'MekkKnight',
     pos = { x = 0, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 4,
@@ -289,7 +280,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -332,12 +322,11 @@ SMODS.Joker({
 })
 
 -- Mekk-Knight Blue Sky
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "mekk_blue",
     atlas = 'MekkKnight',
     pos = { x = 1, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 4,
@@ -347,7 +336,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -403,12 +391,11 @@ SMODS.Joker({
 })
 
 -- Mekk-Knight Indigo Eclipse
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "mekk_indigo",
     atlas = 'MekkKnight',
     pos = { x = 2, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 7,
@@ -438,7 +425,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -532,12 +518,11 @@ SMODS.Joker({
 })
 
 -- Mekk-Knight Purple Nightfall
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "mekk_purple",
     atlas = 'MekkKnight',
     pos = { x = 3, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -551,7 +536,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -581,12 +565,11 @@ SMODS.Joker({
 })
 
 -- Mekk-Knight of the Morning Star
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "mekk_morningstar",
     atlas = 'MekkKnight',
     pos = { x = 0, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 5,
@@ -596,7 +579,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -673,12 +655,11 @@ SMODS.Joker({
 })
 
 -- Mekk-Knight Spectrum Supreme
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "mekk_spectrum",
     atlas = 'MekkKnight',
     pos = { x = 1, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 7,
@@ -691,7 +672,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -733,12 +713,11 @@ SMODS.Joker({
 })
 
 -- Mekk-Knight Crusadia Avramax
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "mekkcrus_avramax",
     atlas = 'MekkKnight',
     pos = { x = 2, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = false,
     cost = 12,
@@ -748,7 +727,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -811,12 +789,11 @@ SMODS.Joker({
 })
 
 -- World Legacy Scars
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "mekkleg_scars",
     atlas = 'MekkKnight',
     pos = { x = 3, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -830,7 +807,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

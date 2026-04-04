@@ -21,12 +21,11 @@ local zoo_xyz_add_to_deck = function(self, card, from_debuff)
 end
 
 -- Zoodiac Thoroughblade
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "zoo_horse",
     atlas = 'zoo',
     pos = { x = 0, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -36,7 +35,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Zoodiac" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -62,12 +60,11 @@ SMODS.Joker({
 })
 
 -- Zoodiac Bunnyblast
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "zoo_bunny",
     atlas = 'zoo',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -77,7 +74,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Zoodiac" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -103,12 +99,11 @@ SMODS.Joker({
 })
 
 -- Zoodiac Whiptail
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "zoo_snake",
     atlas = 'zoo',
     pos = { x = 1, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -118,7 +113,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Zoodiac" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -142,12 +136,11 @@ SMODS.Joker({
 })
 
 -- Zoodiac Kataroost
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "zoo_rooster",
     atlas = 'zoo',
     pos = { x = 1, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -157,7 +150,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Zoodiac" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -192,12 +184,11 @@ SMODS.Joker({
 })
 
 -- Zoodiac Ramram
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "zoo_ram",
     atlas = 'zoo',
     pos = { x = 2, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -207,7 +198,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Zoodiac" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -231,12 +221,11 @@ SMODS.Joker({
 })
 
 -- Zoodiac Ratpier
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "zoo_rat",
     atlas = 'zoo',
     pos = { x = 3, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -246,7 +235,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Zoodiac" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -277,12 +265,11 @@ SMODS.Joker({
 })
 
 -- Zoodiac Broadbull
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "zoo_bull",
     atlas = 'zoo',
     pos = { x = 3, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -292,7 +279,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Zoodiac" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -362,12 +348,11 @@ SMODS.Joker({
 })
 
 -- Zoodiac Chakanine
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "zoo_dog",
     atlas = 'zoo',
     pos = { x = 0, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -377,7 +362,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Zoodiac" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -442,12 +426,11 @@ SMODS.Joker({
 })
 
 -- Zoodiac Tigermortar
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "zoo_tiger",
     atlas = 'zoo',
     pos = { x = 3, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -457,7 +440,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Zoodiac" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -523,12 +505,11 @@ SMODS.Joker({
 })
 
 -- Zoodiac Hammerkong
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "zoo_monkey",
     atlas = 'zoo',
     pos = { x = 2, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -538,7 +519,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Zoodiac" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -592,12 +572,11 @@ SMODS.Joker({
 })
 
 -- Zoodiac Drident
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "zoo_dragon",
     atlas = 'zoo',
     pos = { x = 1, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -608,7 +587,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Zoodiac" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -703,12 +681,11 @@ SMODS.Joker({
 })
 
 -- Zoodiac Boarbow
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "zoo_boar",
     atlas = 'zoo',
     pos = { x = 2, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -718,7 +695,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Zoodiac" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

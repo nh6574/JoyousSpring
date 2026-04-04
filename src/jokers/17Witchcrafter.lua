@@ -7,12 +7,11 @@ SMODS.Atlas({
 })
 
 -- Witchcrafter Genni
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "witch_genni",
     atlas = 'witch',
     pos = { x = 1, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = false,
     cost = 4,
@@ -26,7 +25,6 @@ SMODS.Joker({
         { "j_joy_witch_potterie",                                       name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Witchcrafter" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -83,12 +81,11 @@ SMODS.Joker({
 })
 
 -- Witchcrafter Potterie
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "witch_potterie",
     atlas = 'witch',
     pos = { x = 0, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = false,
     cost = 4,
@@ -103,7 +100,6 @@ SMODS.Joker({
         { "j_joy_witch_pittore",                                        name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Witchcrafter" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -179,12 +175,11 @@ SMODS.Joker({
 })
 
 -- Witchcrafter Pittore
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "witch_pittore",
     atlas = 'witch',
     pos = { x = 2, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = false,
     cost = 5,
@@ -198,7 +193,6 @@ SMODS.Joker({
         { "j_joy_witch_schmietta",                                      name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Witchcrafter" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -298,12 +292,11 @@ SMODS.Joker({
 })
 
 -- Witchcrafter Schmietta
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "witch_schmietta",
     atlas = 'witch',
     pos = { x = 1, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = false,
     cost = 5,
@@ -317,7 +310,6 @@ SMODS.Joker({
         { "j_joy_witch_edel",                                           name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Witchcrafter" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -406,12 +398,11 @@ SMODS.Joker({
 })
 
 -- Witchcrafter Edel
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "witch_edel",
     atlas = 'witch',
     pos = { x = 0, y = 0 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = false,
     cost = 7,
@@ -425,7 +416,6 @@ SMODS.Joker({
         { "j_joy_witch_genni",                                          "j_joy_witch_haine",     name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Witchcrafter" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -500,12 +490,11 @@ SMODS.Joker({
 })
 
 -- Witchcrafter Haine
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "witch_haine",
     atlas = 'witch',
     pos = { x = 0, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = false,
     cost = 7,
@@ -519,7 +508,6 @@ SMODS.Joker({
         { "j_joy_witch_verre",                                          name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Witchcrafter" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -579,12 +567,11 @@ SMODS.Joker({
 })
 
 -- Witchcrafter Madame Verre
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "witch_verre",
     atlas = 'witch',
     pos = { x = 1, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -597,7 +584,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Witchcrafter" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -666,12 +652,11 @@ SMODS.Joker({
 })
 
 -- Witchcrafter Golem Aruru
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "witch_aruru",
     atlas = 'witch',
     pos = { x = 2, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -684,7 +669,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Witchcrafter" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -743,12 +727,11 @@ SMODS.Joker({
 })
 
 -- Witchcrafter Vice-Madame
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "witch_vicemadame",
     atlas = 'witch',
     pos = { x = 2, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -759,7 +742,6 @@ SMODS.Joker({
         { "j_joy_witch_genni",                                          name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Witchcrafter" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

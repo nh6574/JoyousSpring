@@ -41,13 +41,12 @@ local invoked_detransform = function(card, tribute)
 end
 
 -- Aleister the Invoker
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "invoked_aleister",
     atlas = 'invoked',
     pos = { x = 0, y = 0 },
     joy_alt_pos = { { x = 0, y = 3 } },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -62,7 +61,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_invoked_meltdown", properties = { { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Invoked" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -123,12 +121,11 @@ SMODS.Joker({
 })
 
 -- Aleister the Invoker of Madness
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "invoked_madness",
     atlas = 'invoked',
     pos = { x = 2, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -143,7 +140,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_invoked_meltdown", properties = { { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Invoked" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -225,12 +221,11 @@ SMODS.Joker({
 })
 
 -- Invoked Caliga
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "invoked_caliga",
     atlas = 'invoked',
     pos = { x = 3, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -246,7 +241,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_invoked_meltdown", properties = { { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Invoked" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -394,12 +388,11 @@ SMODS.Joker({
 })
 
 -- Invoked Raidjin
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "invoked_raidjin",
     atlas = 'invoked',
     pos = { x = 1, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -415,7 +408,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_invoked_meltdown", properties = { { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Invoked" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -529,12 +521,11 @@ SMODS.Joker({
 })
 
 -- Invoked Cocytus
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "invoked_cocytus",
     atlas = 'invoked',
     pos = { x = 0, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -550,7 +541,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_invoked_meltdown", properties = { { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Invoked" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -635,12 +625,11 @@ SMODS.Joker({
 })
 
 -- Invoked Purgatrio
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "invoked_purgatorio",
     atlas = 'invoked',
     pos = { x = 0, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -656,7 +645,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_invoked_meltdown", properties = { { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Invoked" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -740,12 +728,11 @@ SMODS.Joker({
 })
 
 -- Invoked Magellanica
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "invoked_mage",
     atlas = 'invoked',
     pos = { x = 2, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -761,7 +748,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_invoked_meltdown", properties = { { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Invoked" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -842,13 +828,12 @@ SMODS.Joker({
 })
 
 -- Invoked Mechaba
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "invoked_mechaba",
     atlas = 'invoked',
     pos = { x = 3, y = 1 },
     joy_alt_pos = { { x = 3, y = 2 } },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -864,7 +849,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_invoked_meltdown", properties = { { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Invoked" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -958,12 +942,11 @@ SMODS.Joker({
 })
 
 -- Invoked Augoeides
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "invoked_augo",
     atlas = 'invoked',
     pos = { x = 2, y = 0 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -979,7 +962,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_invoked_meltdown", properties = { { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Invoked" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1092,12 +1074,11 @@ SMODS.Joker({
 })
 
 -- Invoked Elysium
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "invoked_elysium",
     atlas = 'invoked',
     pos = { x = 1, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 12,
@@ -1113,7 +1094,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_invoked_meltdown", properties = { { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Invoked" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1173,12 +1153,11 @@ SMODS.Joker({
 })
 
 -- Magical Meltdown
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "invoked_meltdown",
     atlas = 'invoked',
     pos = { x = 1, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -1191,7 +1170,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_invoked_meltdown", properties = { { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Invoked" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

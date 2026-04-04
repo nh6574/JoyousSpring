@@ -19,12 +19,11 @@ local bee_bypass_room_check = function(card, from_booster)
 end
 
 -- Beetrooper Scout Buggy
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "bee_scout",
     atlas = 'bee',
     pos = { x = 3, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -34,7 +33,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Beetrooper" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -75,12 +73,11 @@ SMODS.Joker({
 })
 
 -- Beetrooper Scale Bomber
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "bee_bomber",
     atlas = 'bee',
     pos = { x = 2, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -90,7 +87,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Beetrooper" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -146,12 +142,11 @@ SMODS.Joker({
 })
 
 -- Beetrooper Assault Roller
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "bee_roller",
     atlas = 'bee',
     pos = { x = 0, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -161,7 +156,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Beetrooper" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -188,12 +182,11 @@ SMODS.Joker({
 })
 
 -- Beetrooper Light Flapper
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "bee_flapper",
     atlas = 'bee',
     pos = { x = 1, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -203,7 +196,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Beetrooper" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -240,12 +232,11 @@ SMODS.Joker({
 })
 
 -- Beetrooper Sting Lancer
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "bee_lancer",
     atlas = 'bee',
     pos = { x = 0, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -255,7 +246,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Beetrooper" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -286,12 +276,11 @@ SMODS.Joker({
 })
 
 -- Heavy Beetrooper Mighty Neptune
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "bee_neptune",
     atlas = 'bee',
     pos = { x = 1, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -301,7 +290,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Beetrooper" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -349,12 +337,11 @@ SMODS.Joker({
 })
 
 -- Beetrooper Armor Horn
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "bee_armor",
     atlas = 'bee',
     pos = { x = 1, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -364,7 +351,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Beetrooper" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -402,12 +388,11 @@ SMODS.Joker({
 })
 
 -- Giant Beetrooper Invincible Atlas
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "bee_atlas",
     atlas = 'bee',
     pos = { x = 2, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -417,7 +402,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Beetrooper" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -478,12 +462,11 @@ SMODS.Joker({
 })
 
 -- Beetrooper Cruel Saturnas
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "bee_saturnas",
     atlas = 'bee',
     pos = { x = 2, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 15,
@@ -493,7 +476,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Beetrooper" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -532,12 +514,11 @@ SMODS.Joker({
 })
 
 -- Ultra Beetrooper Absolute Hercules
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "bee_hercules",
     atlas = 'bee',
     pos = { x = 3, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 20,
@@ -547,7 +528,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Beetrooper" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

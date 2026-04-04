@@ -7,12 +7,11 @@ SMODS.Atlas({
 })
 
 -- Paleozoic Canadia
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "paleo_canadia",
     atlas = 'paleo',
     pos = { x = 0, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -25,7 +24,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Paleozoic" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -79,12 +77,11 @@ SMODS.Joker({
 })
 
 -- Paleozoic Dinomischus
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "paleo_dino",
     atlas = 'paleo',
     pos = { x = 1, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -98,7 +95,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Paleozoic" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -150,12 +146,11 @@ SMODS.Joker({
 })
 
 -- Paleozoic Eldonia
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "paleo_eldonia",
     atlas = 'paleo',
     pos = { x = 2, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -168,7 +163,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Paleozoic" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -221,12 +215,11 @@ SMODS.Joker({
 })
 
 -- Paleozoic Hallucigenia
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "paleo_hallu",
     atlas = 'paleo',
     pos = { x = 3, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -239,7 +232,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Paleozoic" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -292,12 +284,11 @@ SMODS.Joker({
 })
 
 -- Paleozoic Leanchoilia
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "paleo_lean",
     atlas = 'paleo',
     pos = { x = 0, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -310,7 +301,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Paleozoic" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -364,12 +354,11 @@ SMODS.Joker({
 })
 
 -- Paleozoic Marrella
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "paleo_marrella",
     atlas = 'paleo',
     pos = { x = 1, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -382,7 +371,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Paleozoic" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -419,12 +407,11 @@ SMODS.Joker({
 })
 
 -- Paleozoic Olenoides
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "paleo_oleno",
     atlas = 'paleo',
     pos = { x = 2, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -437,7 +424,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Paleozoic" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -489,12 +475,11 @@ SMODS.Joker({
 })
 
 -- Paleozoic Pikaia
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "paleo_pikaia",
     atlas = 'paleo',
     pos = { x = 3, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -507,7 +492,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Paleozoic" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -556,12 +540,11 @@ SMODS.Joker({
 })
 
 -- Paleozoic Cambroraster
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "paleo_cambro",
     atlas = 'paleo',
     pos = { x = 2, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -574,7 +557,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Paleozoic" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -611,12 +593,11 @@ SMODS.Joker({
 })
 
 -- Paleozoic Anomalocaris
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "paleo_anomalo",
     atlas = 'paleo',
     pos = { x = 1, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -630,7 +611,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Paleozoic" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -694,12 +674,11 @@ SMODS.Joker({
 })
 
 -- Paleozoic Opabinia
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "paleo_opa",
     atlas = 'paleo',
     pos = { x = 0, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -714,7 +693,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Paleozoic" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

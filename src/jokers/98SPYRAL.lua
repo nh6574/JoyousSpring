@@ -7,12 +7,11 @@ SMODS.Atlas({
 })
 
 -- SPYRAL GEAR - Drone
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "spy_drone",
     atlas = 'spy',
     pos = { x = 2, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 0,
@@ -22,7 +21,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -35,12 +33,11 @@ SMODS.Joker({
 })
 
 -- SPYRAL GEAR - Last Resort
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "spy_lastresort",
     atlas = 'spy',
     pos = { x = 3, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 0,
@@ -50,7 +47,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -63,12 +59,11 @@ SMODS.Joker({
 })
 
 -- SPYRAL Double Agent
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "spy_double",
     atlas = 'spy',
     pos = { x = 1, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 0,
@@ -78,7 +73,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -91,12 +85,11 @@ SMODS.Joker({
 })
 
 -- SPYRAL Master Plan
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "spy_masterplan",
     atlas = 'spy',
     pos = { x = 0, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 0,
@@ -106,7 +99,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -119,12 +111,11 @@ SMODS.Joker({
 })
 
 -- SPYRAL Quik-Fix
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "spy_quik",
     atlas = 'spy',
     pos = { x = 1, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 0,
@@ -134,7 +125,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -147,12 +137,11 @@ SMODS.Joker({
 })
 
 -- SPYRAL Sleeper
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "spy_sleeper",
     atlas = 'spy',
     pos = { x = 2, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 0,
@@ -162,7 +151,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -175,12 +163,11 @@ SMODS.Joker({
 })
 
 -- SPYRAL Tough
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "spy_tough",
     atlas = 'spy',
     pos = { x = 0, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 0,
@@ -190,7 +177,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -203,12 +189,11 @@ SMODS.Joker({
 })
 
 -- SPYRAL Super Agent
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "spy_super",
     atlas = 'spy',
     pos = { x = 3, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 0,
@@ -218,7 +203,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -231,12 +215,11 @@ SMODS.Joker({
 })
 
 -- SPYGAL Misty
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "spy_misty",
     atlas = 'spy',
     pos = { x = 1, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 0,
@@ -246,7 +229,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -258,12 +240,11 @@ SMODS.Joker({
 })
 
 -- Charming Resort Staff
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "spy_staff",
     atlas = 'spy',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 0,
@@ -273,7 +254,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -285,12 +265,11 @@ SMODS.Joker({
 })
 
 -- SPYRAL Double Helix
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "spy_helix",
     atlas = 'spy',
     pos = { x = 3, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 0,
@@ -300,7 +279,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -313,12 +291,11 @@ SMODS.Joker({
 })
 
 -- SPYRAL SPYRAL Resort
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "spy_resort",
     atlas = 'spy',
     pos = { x = 2, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 0,
@@ -328,7 +305,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_spy_staff", "j_joy_spy_misty", properties = { { monster_archetypes = { "SPYRAL" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

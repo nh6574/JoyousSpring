@@ -7,13 +7,12 @@ SMODS.Atlas({
 })
 
 -- Eldlich the Golden Lord
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "eld_eldlich",
     atlas = 'eld',
     pos = { x = 0, y = 0 },
     joy_alt_pos = { { x = 1, y = 2 } },
     rarity = 3,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 12,
@@ -26,7 +25,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Eldlich" } }, { monster_archetypes = { "GoldenLand" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -117,12 +115,11 @@ SMODS.Joker({
 })
 
 -- Conquistador of the Golden Land
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "eld_conq",
     atlas = 'eld',
     pos = { x = 1, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -132,7 +129,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Eldlich" } }, { monster_archetypes = { "GoldenLand" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -214,12 +210,11 @@ SMODS.Joker({
 })
 
 -- Guardian of the Golden Land
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "eld_guard",
     atlas = 'eld',
     pos = { x = 0, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -229,7 +224,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Eldlich" } }, { monster_archetypes = { "GoldenLand" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -311,12 +305,11 @@ SMODS.Joker({
 })
 
 -- Huaquero of the Golden Land
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "eld_huaq",
     atlas = 'eld',
     pos = { x = 2, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -329,7 +322,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Eldlich" } }, { monster_archetypes = { "GoldenLand" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -401,12 +393,11 @@ SMODS.Joker({
 })
 
 -- Eldlixir of the Glorious Golden Land
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "eld_glorious",
     atlas = 'eld',
     pos = { x = 1, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -419,7 +410,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Eldlich" } }, { monster_archetypes = { "GoldenLand" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -491,12 +481,11 @@ SMODS.Joker({
 })
 
 -- Eldlich the Mad Golden Lord
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "eld_mad",
     atlas = 'eld',
     pos = { x = 2, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 12,
@@ -506,7 +495,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Eldlich" } }, { monster_archetypes = { "GoldenLand" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -581,12 +569,11 @@ SMODS.Joker({
 })
 
 -- Fallen Angel of the Golden Land
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "eld_angel",
     atlas = 'eld',
     pos = { x = 0, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -601,7 +588,6 @@ SMODS.Joker({
         { "j_joy_eld_eldlich",                                                                                name = "k_joy_mills" },
         { properties = { { monster_archetypes = { "Eldlich" } }, { monster_archetypes = { "GoldenLand" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

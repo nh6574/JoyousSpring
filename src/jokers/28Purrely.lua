@@ -83,12 +83,11 @@ local purr_retrigger_count = function(memory_type, card)
 end
 
 -- Purrely
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "purr_purrely",
     atlas = 'purr',
     pos = { x = 0, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -98,7 +97,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -136,12 +134,11 @@ SMODS.Joker({
 })
 
 -- Purrelyly
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "purr_purrelyly",
     atlas = 'purr',
     pos = { x = 1, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -151,7 +148,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -231,12 +227,11 @@ SMODS.Joker({
 })
 
 -- Epurrely Happiness
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "purr_ehappiness",
     atlas = 'purr',
     pos = { x = 0, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -246,7 +241,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -306,12 +300,11 @@ SMODS.Joker({
 })
 
 -- Epurrely Noir
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "purr_enoir",
     atlas = 'purr',
     pos = { x = 1, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -321,7 +314,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -380,12 +372,11 @@ SMODS.Joker({
 })
 
 -- Epurrely Beauty
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "purr_ebeauty",
     atlas = 'purr',
     pos = { x = 3, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -395,7 +386,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -459,12 +449,11 @@ SMODS.Joker({
 })
 
 -- Epurrely Plump
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "purr_eplump",
     atlas = 'purr',
     pos = { x = 2, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -474,7 +463,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -527,12 +515,11 @@ SMODS.Joker({
 })
 
 -- Expurrely Happiness
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "purr_exhappiness",
     atlas = 'purr',
     pos = { x = 3, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 15,
@@ -542,7 +529,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -605,12 +591,11 @@ SMODS.Joker({
 })
 
 -- Expurrely Noir
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "purr_exnoir",
     atlas = 'purr',
     pos = { x = 0, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 15,
@@ -620,7 +605,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -679,12 +663,11 @@ SMODS.Joker({
 })
 
 -- Stray Purrely Street
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "purr_street",
     atlas = 'purr',
     pos = { x = 2, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -694,7 +677,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

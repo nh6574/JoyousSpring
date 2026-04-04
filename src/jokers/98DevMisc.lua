@@ -7,19 +7,17 @@ SMODS.Atlas({
 })
 
 -- Dogmatika Lawbringer
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dogma_law",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -29,19 +27,17 @@ SMODS.Joker({
 })
 
 -- Solfachord Primoa
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "solfa_primoa",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -52,19 +48,17 @@ SMODS.Joker({
 })
 
 -- Solfachord Solfegia
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "solfa_solfegia",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -75,19 +69,17 @@ SMODS.Joker({
 })
 
 -- Dimension Shifter
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dimensionshifter",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -97,19 +89,17 @@ SMODS.Joker({
 })
 
 -- Droll & Lock Bird
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "droll",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -119,19 +109,17 @@ SMODS.Joker({
 })
 
 -- Kurikara Divincarnate
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "kurikara",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -141,19 +129,17 @@ SMODS.Joker({
 })
 
 -- Nibiru, the Primal Being
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "nibiru",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -163,19 +149,17 @@ SMODS.Joker({
 })
 
 -- Theia, the Primal Being
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "theia",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -185,19 +169,17 @@ SMODS.Joker({
 })
 
 -- Parasite Paracide
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "parasiteparacide",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -207,19 +189,17 @@ SMODS.Joker({
 })
 
 -- Parasite Paranoid
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "parasiteparanoid",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -229,19 +209,17 @@ SMODS.Joker({
 })
 
 -- Dark Ruler Ha Des
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "hades",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -251,19 +229,17 @@ SMODS.Joker({
 })
 
 -- Helios - The Primordial Sun
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "helios",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -273,19 +249,17 @@ SMODS.Joker({
 })
 
 -- Helios Duo Megistus
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "heliosduo",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -295,19 +269,17 @@ SMODS.Joker({
 })
 
 -- Helios Trice Megistus
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "heliostrice",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -317,19 +289,17 @@ SMODS.Joker({
 })
 
 -- Magical Undertaker
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "magicalundertaker",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -339,19 +309,17 @@ SMODS.Joker({
 })
 
 -- Maiden of the Millennium Moon
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "milleniummoon",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -361,19 +329,17 @@ SMODS.Joker({
 })
 
 -- Master Tao the Chanter
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "mastertao",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -383,19 +349,17 @@ SMODS.Joker({
 })
 
 -- Maxx "C"
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "maxxc",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -405,19 +369,17 @@ SMODS.Joker({
 })
 
 -- Nightmare Apprentice
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "nightapprentice",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -427,19 +389,17 @@ SMODS.Joker({
 })
 
 -- Nightmare Magician
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "nightmagician",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -449,19 +409,17 @@ SMODS.Joker({
 })
 
 -- Talons of Shurilane
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "shurilane",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -471,19 +429,17 @@ SMODS.Joker({
 })
 
 -- Tao Tao the Chanter
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "taotao",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -493,19 +449,17 @@ SMODS.Joker({
 })
 
 -- Necrovalley
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "necrovalley",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -515,19 +469,17 @@ SMODS.Joker({
 })
 
 -- Secret Village of the Spellcasters
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "secretvillage",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -537,19 +489,17 @@ SMODS.Joker({
 })
 
 -- Skull Guardian
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "skullguardian",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -560,19 +510,17 @@ SMODS.Joker({
 })
 
 -- Saffira, Queen of Dragons
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "saffira",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -583,19 +531,17 @@ SMODS.Joker({
 })
 
 -- Quintet Magician
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "quintet",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -606,19 +552,17 @@ SMODS.Joker({
 })
 
 -- Slacker Magician
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "slacker",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -629,19 +573,17 @@ SMODS.Joker({
 })
 
 -- Downerd Magician
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "downerd",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -652,19 +594,17 @@ SMODS.Joker({
 })
 
 -- Alchemic Magician
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "alchemic",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -675,19 +615,17 @@ SMODS.Joker({
 })
 
 -- Heretical Phobos Covos
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "phoboscobos",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -698,19 +636,17 @@ SMODS.Joker({
 })
 
 -- Miracle Raven
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "miracleraven",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -722,19 +658,17 @@ SMODS.Joker({
 })
 
 -- Relinquished Anima
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "relinq_anima",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -745,19 +679,17 @@ SMODS.Joker({
 })
 
 -- W:P Fancy Ball
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "wp",
     atlas = "Misc06",
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

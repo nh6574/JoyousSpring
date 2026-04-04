@@ -89,12 +89,11 @@ local count_all_cards = function(scoring_hand)
 end
 
 -- DoSolfachord Cutia
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "solfa_cutia",
     atlas = 'solfa',
     pos = { x = 1, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -104,7 +103,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Solfachord" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -194,12 +192,11 @@ SMODS.Joker({
 })
 
 -- ReSolfachord Dreamia
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "solfa_dreamia",
     atlas = 'solfa',
     pos = { x = 2, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -209,7 +206,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Solfachord" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -278,12 +274,11 @@ SMODS.Joker({
 })
 
 -- MiSolfachord Eliteia
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "solfa_eliteia",
     atlas = 'solfa',
     pos = { x = 3, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -293,7 +288,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Solfachord" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -368,12 +362,11 @@ SMODS.Joker({
 })
 
 -- FaSolfachord Fancia
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "solfa_fancia",
     atlas = 'solfa',
     pos = { x = 0, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -383,7 +376,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Solfachord" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -460,12 +452,11 @@ SMODS.Joker({
 })
 
 -- SolSolfachord Gracia
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "solfa_gracia",
     atlas = 'solfa',
     pos = { x = 1, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 9,
@@ -476,7 +467,6 @@ SMODS.Joker({
         { "j_joy_solfa_harmonia",                                     name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Solfachord" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -561,12 +551,11 @@ SMODS.Joker({
 })
 
 -- LaSolfachord Angelia
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "solfa_angelia",
     atlas = 'solfa',
     pos = { x = 2, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -579,7 +568,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Solfachord" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -672,12 +660,11 @@ SMODS.Joker({
 })
 
 -- TiSolfachord Beautia
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "solfa_beautia",
     atlas = 'solfa',
     pos = { x = 3, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 9,
@@ -690,7 +677,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Solfachord" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -778,12 +764,11 @@ SMODS.Joker({
 })
 
 -- DoSolfachord Coolia
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "solfa_coolia",
     atlas = 'solfa',
     pos = { x = 0, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -793,7 +778,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Solfachord" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -869,12 +853,11 @@ SMODS.Joker({
 })
 
 -- GranSolfachord Musecia
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "solfa_musecia",
     atlas = 'solfa',
     pos = { x = 2, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -884,7 +867,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Solfachord" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -932,12 +914,11 @@ SMODS.Joker({
 })
 
 -- GranSolfachord Coolia
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "solfa_grancoolia",
     atlas = 'solfa',
     pos = { x = 1, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -947,7 +928,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Solfachord" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1009,12 +989,11 @@ SMODS.Joker({
 })
 
 -- Solfachord Harmonia
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "solfa_harmonia",
     atlas = 'solfa',
     pos = { x = 0, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 12,
@@ -1027,7 +1006,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Solfachord" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

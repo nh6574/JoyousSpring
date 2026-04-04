@@ -49,6 +49,67 @@ JoyousSpring.init_joy_table = function(params)
     }
 end
 
+local smods_attribute_list = {
+    "joy_field_spell", "joy_spell", "joy_main_deck", "joy_extra_deck", "joy_effect", "joy_noneffect",
+    "joy_special", "joy_nonspecial", "joy_normal", "joy_tuner", "joy_pendulum", "joy_trap",
+    "joy_flip", "joy_RITUAL", "joy_FUSION", "joy_SYNCHRO", "joy_XYZ", "joy_LINK",
+}
+for _, key in ipairs(SMODS.merge_lists({ JoyousSpring.types_list, JoyousSpring.attributes_list })) do
+    smods_attribute_list[#smods_attribute_list + 1] = key
+end
+
+for _, key in ipairs(smods_attribute_list) do
+    SMODS.Attribute {
+        key = key,
+    }
+end
+
+-- It's too much work to switch my systems to SMODS.Attributes so you get this instead
+local get_attributes_from_joy_table = function(center)
+    local attributes = {}
+    ---@type joyous_spring
+    local joy_table = (center.config.extra or {}).joyous_spring
+    if not joy_table then return attributes end
+    for archetype, _ in pairs(joy_table.monster_archetypes) do -- this is not used for now because im too lazy to make an attribute for each
+        attributes[#attributes + 1] = "joy_" .. archetype
+    end
+    if joy_table.is_field_spell or joy_table.is_spell then
+        attributes[#attributes + 1] = joy_table.is_field_spell and "joy_field_spell" or "joy_spell"
+        return attributes
+    end
+    attributes[#attributes + 1] = joy_table.is_main_deck and "joy_main_deck" or "joy_extra_deck"
+    attributes[#attributes + 1] = joy_table.is_effect and "joy_effect" or "joy_noneffect"
+    attributes[#attributes + 1] = "joy_" .. joy_table.attribute
+    attributes[#attributes + 1] = "joy_" .. joy_table.monster_type
+    if joy_table.summon_type ~= "NORMAL" then
+        attributes[#attributes + 1] = "joy_" .. joy_table.summon_type
+        attributes[#attributes + 1] = "joy_special"
+    else
+        attributes[#attributes + 1] = "joy_nonspecial"
+        if not joy_table.is_effect then
+            attributes[#attributes + 1] = "joy_normal"
+        end
+    end
+    if joy_table.is_tuner then attributes[#attributes + 1] = "joy_tuner" end
+    if joy_table.is_pendulum then attributes[#attributes + 1] = "joy_pendulum" end
+    if joy_table.is_trap then attributes[#attributes + 1] = "joy_trap" end
+    if joy_table.is_flip then attributes[#attributes + 1] = "joy_flip" end
+
+    return attributes
+end
+
+JoyousSpring.Joker = SMODS.Joker:extend {
+    unlocked = true,
+    discovered = true,
+    config = { extra = { joyous_spring = JoyousSpring.init_joy_table {} } },
+    set_sprites = JoyousSpring.set_back_sprite,
+    inject = function(self, i)
+        self.attributes = SMODS.merge_lists({ self.attributes or {}, get_attributes_from_joy_table(self) })
+
+        SMODS.Joker.inject(self, i)
+    end
+}
+
 ---Checks if *card* is from JoyousSpring originally
 ---@param card Card|table
 ---@return boolean

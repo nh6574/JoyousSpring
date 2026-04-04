@@ -7,12 +7,11 @@ SMODS.Atlas({
 })
 
 -- Astellar of the White Forest
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "wforest_astellar",
     atlas = 'wforest',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -22,7 +21,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "WhiteForest" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -33,12 +31,11 @@ SMODS.Joker({
 })
 
 -- Elzette of the White Forest
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "wforest_elzette",
     atlas = 'wforest',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -48,7 +45,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "WhiteForest" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -59,12 +55,11 @@ SMODS.Joker({
 })
 
 -- Silvy of the White Forest
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "wforest_silvy",
     atlas = 'wforest',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -74,7 +69,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "WhiteForest" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -85,12 +79,11 @@ SMODS.Joker({
 })
 
 -- Rucia of the White Forest
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "wforest_rucia",
     atlas = 'wforest',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -100,7 +93,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "WhiteForest" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -111,12 +103,11 @@ SMODS.Joker({
 })
 
 -- Poplar of the White Forest
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "wforest_poplar",
     atlas = 'wforest',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -126,7 +117,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "WhiteForest" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -138,12 +128,11 @@ SMODS.Joker({
 })
 
 -- Rciela, Sinister Soul of the White Forest
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "wforest_rciela",
     atlas = 'wforest',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -153,7 +142,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "WhiteForest" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -165,12 +153,11 @@ SMODS.Joker({
 })
 
 -- Silvera, Wolf Tamer of the White Forest
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "wforest_silvera",
     atlas = 'wforest',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -180,7 +167,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "WhiteForest" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -192,12 +178,11 @@ SMODS.Joker({
 })
 
 -- Diabell, Queen of the White Forest
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "wforest_diabell",
     atlas = 'wforest',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -207,7 +192,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "WhiteForest" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -219,12 +203,11 @@ SMODS.Joker({
 })
 
 -- Witch of the White Forest
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "wforest_witch",
     atlas = 'wforest',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -234,7 +217,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "WhiteForest" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

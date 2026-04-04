@@ -2,12 +2,11 @@
 
 -- Mudragon of the Swamp
 
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "mudragon",
     atlas = 'Misc01',
     pos = { x = 2, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -17,7 +16,6 @@ SMODS.Joker({
         end
         return {}
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -45,12 +43,11 @@ SMODS.Joker({
 
 -- Garura, Wings of Resonant Life
 
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "garura",
     atlas = 'Misc01',
     pos = { x = 0, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -60,7 +57,6 @@ SMODS.Joker({
         end
         return { vars = { card.ability.extra.h_size, card.ability.extra.h_size_gain } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

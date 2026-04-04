@@ -26,12 +26,11 @@ local inc_artifact_count = function()
 end
 
 -- Artifact Achilleshield
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "artifact_achil",
     atlas = 'artifact',
     pos = { x = 0, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -42,7 +41,6 @@ SMODS.Joker({
         { "opp_joy_mimi_archfiend",                                  name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -92,7 +90,6 @@ JoyousSpring.OpponentCard {
     key = "artifact_achil",
     atlas = 'artifact_opp',
     pos = { x = 0, y = 0 },
-    set_sprites = JoyousSpring.set_back_sprite,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
@@ -112,12 +109,11 @@ JoyousSpring.OpponentCard {
 }
 
 -- Artifact Aegis
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "artifact_aegis",
     atlas = 'artifact',
     pos = { x = 1, y = 0 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -128,7 +124,6 @@ SMODS.Joker({
         { "opp_joy_artifact_aegis",                                  name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -173,7 +168,6 @@ JoyousSpring.OpponentCard {
     key = "artifact_aegis",
     atlas = 'artifact_opp',
     pos = { x = 0, y = 1 },
-    set_sprites = JoyousSpring.set_back_sprite,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
@@ -193,12 +187,11 @@ JoyousSpring.OpponentCard {
 }
 
 -- Artifact Beagalltach
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "artifact_beaga",
     atlas = 'artifact',
     pos = { x = 2, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -209,7 +202,6 @@ SMODS.Joker({
         { "opp_joy_artifact_beaga",                                  name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -262,7 +254,6 @@ JoyousSpring.OpponentCard {
     key = "artifact_beaga",
     atlas = 'artifact_opp',
     pos = { x = 0, y = 2 },
-    set_sprites = JoyousSpring.set_back_sprite,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.creates } }
     end,
@@ -291,12 +282,11 @@ JoyousSpring.OpponentCard {
 }
 
 -- Artifact Caduceus
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "artifact_cadu",
     atlas = 'artifact',
     pos = { x = 3, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -307,7 +297,6 @@ SMODS.Joker({
         { "opp_joy_artifact_cadu",                                   name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -355,7 +344,6 @@ JoyousSpring.OpponentCard {
     key = "artifact_cadu",
     atlas = 'artifact_opp',
     pos = { x = 0, y = 3 },
-    set_sprites = JoyousSpring.set_back_sprite,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.h_size } }
     end,
@@ -386,12 +374,11 @@ JoyousSpring.OpponentCard {
 }
 
 -- Artifact Chakram
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "artifact_chak",
     atlas = 'artifact',
     pos = { x = 0, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -405,7 +392,6 @@ SMODS.Joker({
         { "opp_joy_artifact_chak",                                   name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -452,7 +438,6 @@ JoyousSpring.OpponentCard {
     key = "artifact_chak",
     atlas = 'artifact_opp',
     pos = { x = 0, y = 4 },
-    set_sprites = JoyousSpring.set_back_sprite,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.creates } }
     end,
@@ -480,12 +465,11 @@ JoyousSpring.OpponentCard {
 }
 
 -- Artifact Failnaught
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "artifact_fail",
     atlas = 'artifact',
     pos = { x = 1, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -500,7 +484,6 @@ SMODS.Joker({
         { "opp_joy_artifact_fail",                                   name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -543,7 +526,6 @@ JoyousSpring.OpponentCard {
     key = "artifact_fail",
     atlas = 'artifact_opp',
     pos = { x = 0, y = 7 },
-    set_sprites = JoyousSpring.set_back_sprite,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.creates } }
     end,
@@ -578,12 +560,11 @@ JoyousSpring.OpponentCard {
 }
 
 -- Artifact Labrys
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "artifact_labrys",
     atlas = 'artifact',
     pos = { x = 2, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -594,7 +575,6 @@ SMODS.Joker({
         { "opp_joy_artifact_labrys",                                 name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -639,7 +619,6 @@ JoyousSpring.OpponentCard {
     key = "artifact_labrys",
     atlas = 'artifact_opp',
     pos = { x = 0, y = 8 },
-    set_sprites = JoyousSpring.set_back_sprite,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.creates } }
     end,
@@ -660,12 +639,11 @@ JoyousSpring.OpponentCard {
 }
 
 -- Artifact Lancea
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "artifact_lancea",
     atlas = 'artifact',
     pos = { x = 3, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -679,7 +657,6 @@ SMODS.Joker({
         { "opp_joy_artifact_lancea",                                 name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -721,7 +698,6 @@ JoyousSpring.OpponentCard {
     key = "artifact_lancea",
     atlas = 'artifact_opp',
     pos = { x = 0, y = 9 },
-    set_sprites = JoyousSpring.set_back_sprite,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
@@ -741,12 +717,11 @@ JoyousSpring.OpponentCard {
 }
 
 -- Artifact Mjollnir
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "artifact_mjol",
     atlas = 'artifact',
     pos = { x = 0, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -760,7 +735,6 @@ SMODS.Joker({
         { "opp_joy_artifact_mjol",                                   name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -802,7 +776,6 @@ JoyousSpring.OpponentCard {
     key = "artifact_mjol",
     atlas = 'artifact_opp',
     pos = { x = 0, y = 10 },
-    set_sprites = JoyousSpring.set_back_sprite,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.revives } }
     end,
@@ -832,12 +805,11 @@ JoyousSpring.OpponentCard {
 }
 
 -- Artifact Moralltach
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "artifact_morall",
     atlas = 'artifact',
     pos = { x = 1, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 4,
@@ -851,7 +823,6 @@ SMODS.Joker({
         { "opp_joy_artifact_morall",                                 name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -896,7 +867,6 @@ JoyousSpring.OpponentCard {
     key = "artifact_morall",
     atlas = 'artifact_opp',
     pos = { x = 0, y = 11 },
-    set_sprites = JoyousSpring.set_back_sprite,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.adds } }
     end,
@@ -935,12 +905,11 @@ JoyousSpring.OpponentCard {
 }
 
 -- Artifact Scythe
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "artifact_scythe",
     atlas = 'artifact',
     pos = { x = 2, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -951,7 +920,6 @@ SMODS.Joker({
         { "opp_joy_artifact_scythe",                                 name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1002,7 +970,6 @@ JoyousSpring.OpponentCard {
     key = "artifact_scythe",
     atlas = 'artifact_opp',
     pos = { x = 0, y = 12 },
-    set_sprites = JoyousSpring.set_back_sprite,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
@@ -1022,12 +989,11 @@ JoyousSpring.OpponentCard {
 }
 
 -- Artifact Vajra
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "artifact_vajra",
     atlas = 'artifact',
     pos = { x = 3, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -1038,7 +1004,6 @@ SMODS.Joker({
         { "opp_joy_artifact_vajra",                                  name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1081,7 +1046,6 @@ JoyousSpring.OpponentCard {
     key = "artifact_vajra",
     atlas = 'artifact_opp',
     pos = { x = 0, y = 13 },
-    set_sprites = JoyousSpring.set_back_sprite,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
@@ -1101,12 +1065,11 @@ JoyousSpring.OpponentCard {
 }
 
 -- Artifact Durendal
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "artifact_durendal",
     atlas = 'artifact',
     pos = { x = 0, y = 3 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -1116,7 +1079,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1168,12 +1130,11 @@ SMODS.Joker({
 })
 
 -- Artifact Dagda
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "artifact_dagda",
     atlas = 'artifact',
     pos = { x = 1, y = 3 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 15,
@@ -1183,7 +1144,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

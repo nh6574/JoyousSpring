@@ -28,13 +28,12 @@ local get_debuffed_ed_count = function()
 end
 
 -- Dogmatika Ecclesia, the Virtuous
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dogma_ecclesia",
     atlas = 'Dogmatika',
     pos = { x = 0, y = 0 },
     joy_alt_pos = { { x = 3, y = 0 } },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 7,
@@ -47,7 +46,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -90,12 +88,11 @@ SMODS.Joker({
 })
 
 -- Dogmatika Fleurdelis, the Knighted
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dogma_fleur",
     atlas = 'Dogmatika',
     pos = { x = 1, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 4,
@@ -105,7 +102,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -169,12 +165,11 @@ SMODS.Joker({
 })
 
 -- Dogmatika Fleurdelis, the Thunderbolt
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dogma_thunderbolt",
     atlas = 'Dogmatika',
     pos = { x = 4, y = 0 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 8,
@@ -187,7 +182,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -246,12 +240,11 @@ SMODS.Joker({
 })
 
 -- Dogmatika Maximus
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dogma_maximus",
     atlas = 'Dogmatika',
     pos = { x = 2, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 2,
@@ -264,7 +257,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -292,12 +284,11 @@ SMODS.Joker({
 })
 
 -- Dogmatika Adin, the Enlightened
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dogma_adin",
     atlas = 'Dogmatika',
     pos = { x = 0, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 4,
@@ -310,7 +301,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -340,12 +330,11 @@ SMODS.Joker({
 })
 
 -- Dogmatika Theo, the Iron Punch
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dogma_theo",
     atlas = 'Dogmatika',
     pos = { x = 1, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 3,
@@ -358,7 +347,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -400,12 +388,11 @@ SMODS.Joker({
 })
 
 -- Dogmatika Ashiyan
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dogma_ashiyan",
     atlas = 'Dogmatika',
     pos = { x = 2, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 2,
@@ -419,7 +406,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -461,12 +447,11 @@ SMODS.Joker({
 })
 
 -- Dogmatika Nexus
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dogma_nexus",
     atlas = 'Dogmatika',
     pos = { x = 0, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 6,
@@ -479,7 +464,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -513,12 +497,11 @@ SMODS.Joker({
 })
 
 -- White Relic of Dogmatika
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dogma_relic",
     atlas = 'Dogmatika',
     pos = { x = 1, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -539,7 +522,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -586,12 +568,11 @@ SMODS.Joker({
 })
 
 -- White Knight of Dogmatika
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dogma_knight",
     atlas = 'Dogmatika',
     pos = { x = 2, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 10,
@@ -604,7 +585,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -671,12 +651,11 @@ SMODS.Joker({
 })
 
 -- Dogmatika Alba Zoa
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dogma_albazoa",
     atlas = 'Dogmatika',
     pos = { x = 3, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 10,
@@ -690,7 +669,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -751,12 +729,11 @@ SMODS.Joker({
 })
 
 -- Dogmatika Nation
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dogma_nation",
     atlas = 'Dogmatika',
     pos = { x = 4, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -771,7 +748,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

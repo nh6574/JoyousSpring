@@ -13,12 +13,11 @@ local adaman_excavate = function(self, card, context)
 end
 
 -- Adamancipator Analyzer
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "adaman_analyzer",
     atlas = 'adaman',
     pos = { x = 0, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -32,7 +31,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Adamancipator" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -126,12 +124,11 @@ SMODS.Joker({
 })
 
 -- Adamancipator Researcher
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "adaman_researcher",
     atlas = 'adaman',
     pos = { x = 1, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -145,7 +142,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Adamancipator" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -239,12 +235,11 @@ SMODS.Joker({
 })
 
 -- Adamancipator Seeker
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "adaman_seeker",
     atlas = 'adaman',
     pos = { x = 2, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -258,7 +253,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Adamancipator" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -352,12 +346,11 @@ SMODS.Joker({
 })
 
 -- Adamancipator Crystal - Dragite
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "adaman_crysdragite",
     atlas = 'adaman',
     pos = { x = 3, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 4,
@@ -370,7 +363,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Adamancipator" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -435,12 +427,11 @@ SMODS.Joker({
 })
 
 -- Adamancipator Crystal - Raptite
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "adaman_crysraptite",
     atlas = 'adaman',
     pos = { x = 0, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 4,
@@ -453,7 +444,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Adamancipator" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -515,12 +505,11 @@ SMODS.Joker({
 })
 
 -- Adamancipator Crystal - Leonite
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "adaman_crysleonite",
     atlas = 'adaman',
     pos = { x = 1, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 4,
@@ -533,7 +522,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Adamancipator" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -598,12 +586,11 @@ SMODS.Joker({
 })
 
 -- Adamancipator Risen - Dragite
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "adaman_dragite",
     atlas = 'adaman',
     pos = { x = 3, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 12,
@@ -617,7 +604,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Adamancipator" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -701,12 +687,11 @@ SMODS.Joker({
 })
 
 -- Adamancipator Risen - Raptite
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "adaman_raptite",
     atlas = 'adaman',
     pos = { x = 0, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 12,
@@ -720,7 +705,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Adamancipator" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -785,12 +769,11 @@ SMODS.Joker({
 })
 
 -- Adamancipator Risen - Leonite
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "adaman_leonite",
     atlas = 'adaman',
     pos = { x = 1, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 12,
@@ -804,7 +787,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Adamancipator" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -887,12 +869,11 @@ SMODS.Joker({
 })
 
 -- Adamancipator Laputite
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "adaman_laputite",
     atlas = 'adaman',
     pos = { x = 2, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 15,
@@ -906,7 +887,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Adamancipator" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

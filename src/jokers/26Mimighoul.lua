@@ -25,12 +25,11 @@ local mimi_should_flip = function(card, context)
 end
 
 -- Mimighoul Archfiend
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "mimi_archfiend",
     atlas = 'mimi',
     pos = { x = 0, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -48,7 +47,6 @@ SMODS.Joker({
         { "opp_joy_mimi_archfiend",                                   name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Mimighoul" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -91,7 +89,6 @@ JoyousSpring.OpponentCard {
     key = "mimi_archfiend",
     atlas = 'mimi_opp',
     pos = { x = 0, y = 1 },
-    set_sprites = JoyousSpring.set_back_sprite,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, 0, card.ability.extra.h_size } }
     end,
@@ -147,12 +144,11 @@ JoyousSpring.OpponentCard {
 }
 
 -- Mimighoul Armor
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "mimi_armor",
     atlas = 'mimi',
     pos = { x = 1, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -163,7 +159,6 @@ SMODS.Joker({
         { "opp_joy_mimi_armor",                                       name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Mimighoul" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -206,7 +201,6 @@ JoyousSpring.OpponentCard {
     key = "mimi_armor",
     atlas = 'mimi_opp',
     pos = { x = 0, y = 2 },
-    set_sprites = JoyousSpring.set_back_sprite,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.chips, 0 } }
     end,
@@ -251,12 +245,11 @@ JoyousSpring.OpponentCard {
 }
 
 -- Mimighoul Cerberus
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "mimi_cerberus",
     atlas = 'mimi',
     pos = { x = 2, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -267,7 +260,6 @@ SMODS.Joker({
         { "opp_joy_mimi_cerberus",                                    name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Mimighoul" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -309,7 +301,6 @@ JoyousSpring.OpponentCard {
     key = "mimi_cerberus",
     atlas = 'mimi_opp',
     pos = { x = 0, y = 3 },
-    set_sprites = JoyousSpring.set_back_sprite,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult } }
     end,
@@ -353,12 +344,11 @@ JoyousSpring.OpponentCard {
 }
 
 -- Mimighoul Dragon
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "mimi_dragon",
     atlas = 'mimi',
     pos = { x = 3, y = 0 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -369,7 +359,6 @@ SMODS.Joker({
         { "opp_joy_mimi_dragon",                                      name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Mimighoul" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -413,7 +402,6 @@ JoyousSpring.OpponentCard {
     key = "mimi_dragon",
     atlas = 'mimi_opp',
     pos = { x = 0, y = 4 },
-    set_sprites = JoyousSpring.set_back_sprite,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, 0 } }
     end,
@@ -463,12 +451,11 @@ JoyousSpring.OpponentCard {
 }
 
 -- Mimighoul Fairy
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "mimi_fairy",
     atlas = 'mimi',
     pos = { x = 0, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -479,7 +466,6 @@ SMODS.Joker({
         { "opp_joy_mimi_fairy",                                       name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Mimighoul" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -521,7 +507,6 @@ JoyousSpring.OpponentCard {
     key = "mimi_fairy",
     atlas = 'mimi_opp',
     pos = { x = 0, y = 6 },
-    set_sprites = JoyousSpring.set_back_sprite,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, 0 } }
     end,
@@ -565,12 +550,11 @@ JoyousSpring.OpponentCard {
 }
 
 -- Mimighoul Flower
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "mimi_flower",
     atlas = 'mimi',
     pos = { x = 1, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -581,7 +565,6 @@ SMODS.Joker({
         { "opp_joy_mimi_flower",                                      name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Mimighoul" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -618,7 +601,6 @@ JoyousSpring.OpponentCard {
     key = "mimi_flower",
     atlas = 'mimi_opp',
     pos = { x = 0, y = 7 },
-    set_sprites = JoyousSpring.set_back_sprite,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
@@ -660,12 +642,11 @@ JoyousSpring.OpponentCard {
 }
 
 -- Mimighoul Slime
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "mimi_slime",
     atlas = 'mimi',
     pos = { x = 3, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 9,
@@ -676,7 +657,6 @@ SMODS.Joker({
         { "opp_joy_mimi_slime",                                       name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Mimighoul" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -711,7 +691,6 @@ JoyousSpring.OpponentCard {
     key = "mimi_slime",
     atlas = 'mimi_opp',
     pos = { x = 0, y = 9 },
-    set_sprites = JoyousSpring.set_back_sprite,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
@@ -748,12 +727,11 @@ JoyousSpring.OpponentCard {
 }
 
 -- Mimighoul Master
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "mimi_master",
     atlas = 'mimi',
     pos = { x = 2, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -763,7 +741,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Mimighoul" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -844,12 +821,11 @@ SMODS.Joker({
 })
 
 -- Giant Mimighoul
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "mimi_giant",
     atlas = 'mimi',
     pos = { x = 1, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -859,7 +835,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Mimighoul" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -920,12 +895,11 @@ SMODS.Joker({
 })
 
 -- Mimighoul Throne
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "mimi_throne",
     atlas = 'mimi',
     pos = { x = 2, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 15,
@@ -935,7 +909,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Mimighoul" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -977,12 +950,11 @@ SMODS.Joker({
 })
 
 -- Mimighoul Dungeon
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "mimi_dungeon",
     atlas = 'mimi',
     pos = { x = 0, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 15,
@@ -992,7 +964,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Mimighoul" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

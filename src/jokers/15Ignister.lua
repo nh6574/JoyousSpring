@@ -7,12 +7,11 @@ SMODS.Atlas({
 })
 
 -- Achichi @Ignister
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ignis_achichi",
     atlas = 'ignis',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -25,7 +24,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -67,12 +65,11 @@ SMODS.Joker({
 })
 
 -- Pikari @Ignister
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ignis_pikari",
     atlas = 'ignis',
     pos = { x = 4, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -82,7 +79,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -128,12 +124,11 @@ SMODS.Joker({
 })
 
 -- Hiyari @Ignister
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ignis_hiyari",
     atlas = 'ignis',
     pos = { x = 3, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -147,7 +142,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -224,12 +218,11 @@ SMODS.Joker({
 })
 
 -- Bururu @Ignister
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ignis_bururu",
     atlas = 'ignis',
     pos = { x = 1, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -244,7 +237,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -277,12 +269,11 @@ SMODS.Joker({
 })
 
 -- Doshin @Ignister
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ignis_doshin",
     atlas = 'ignis',
     pos = { x = 4, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 2,
@@ -297,7 +288,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -335,12 +325,11 @@ SMODS.Joker({
 })
 
 -- Gatchiri @Ignister
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ignis_gatchiri",
     atlas = 'ignis',
     pos = { x = 1, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -353,7 +342,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -400,12 +388,11 @@ SMODS.Joker({
 })
 
 -- Gussari @Ignister
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ignis_gussari",
     atlas = 'ignis',
     pos = { x = 2, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -418,7 +405,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -472,12 +458,11 @@ SMODS.Joker({
 })
 
 -- Danmari @Ignister
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ignis_danmari",
     atlas = 'ignis',
     pos = { x = 2, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 4,
@@ -490,7 +475,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -525,12 +509,11 @@ SMODS.Joker({
 })
 
 -- Doyon @Ignister
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ignis_doyon",
     atlas = 'ignis',
     pos = { x = 0, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 4,
@@ -545,7 +528,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -577,12 +559,11 @@ SMODS.Joker({
 })
 
 -- Donyoribo @Ignister
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ignis_donyoribo",
     atlas = 'ignis',
     pos = { x = 3, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -595,7 +576,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -634,12 +614,11 @@ SMODS.Joker({
 })
 
 -- Backup @Ignister
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ignis_backup",
     atlas = 'ignis',
     pos = { x = 0, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -652,7 +631,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -689,12 +667,11 @@ SMODS.Joker({
 })
 
 -- Wizard @Ignister
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ignis_wizard",
     atlas = 'ignis',
     pos = { x = 2, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = false,
     cost = 5,
@@ -709,7 +686,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -746,12 +722,11 @@ SMODS.Joker({
 })
 
 -- Kurikurinku @Ignister
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ignis_kiruku",
     atlas = 'ignis',
     pos = { x = 1, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 12,
@@ -764,7 +739,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -789,12 +763,11 @@ SMODS.Joker({
 })
 
 -- Linkslayer @Ignister
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ignis_linkslayer",
     atlas = 'ignis',
     pos = { x = 3, y = 4 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -807,7 +780,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -828,12 +800,11 @@ SMODS.Joker({
 })
 
 -- Water Leviathan @Ignister
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ignis_leviathan",
     atlas = 'ignis',
     pos = { x = 4, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -848,7 +819,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -917,12 +887,11 @@ SMODS.Joker({
 })
 
 -- Earth Golem @Ignister
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ignis_golem",
     atlas = 'ignis',
     pos = { x = 0, y = 3 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -935,7 +904,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -990,12 +958,11 @@ SMODS.Joker({
 })
 
 -- Wind Pegasus @Ignister
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ignis_pegasus",
     atlas = 'ignis',
     pos = { x = 1, y = 3 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -1011,7 +978,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1078,12 +1044,11 @@ SMODS.Joker({
 })
 
 -- Light Dragon @Ignister
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ignis_dragon",
     atlas = 'ignis',
     pos = { x = 2, y = 3 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -1096,7 +1061,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1164,12 +1128,11 @@ SMODS.Joker({
 })
 
 -- Fire Phoenix @Ignister
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ignis_phoenix",
     atlas = 'ignis',
     pos = { x = 3, y = 3 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -1184,7 +1147,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1257,12 +1219,11 @@ SMODS.Joker({
 })
 
 -- Allied Code Talker @Ignister
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ignis_allied",
     atlas = 'ignis',
     pos = { x = 4, y = 3 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -1275,7 +1236,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1336,12 +1296,11 @@ SMODS.Joker({
 })
 
 -- Dark Infant @Ignister
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ignis_infant",
     atlas = 'ignis',
     pos = { x = 0, y = 4 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -1355,7 +1314,6 @@ SMODS.Joker({
         { "j_joy_ignis_ailand", name = "Creates" },
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1387,12 +1345,11 @@ SMODS.Joker({
 })
 
 -- Dark Templar @Ignister
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ignis_templar",
     atlas = 'ignis',
     pos = { x = 1, y = 4 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 15,
@@ -1406,7 +1363,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1452,12 +1408,11 @@ SMODS.Joker({
 })
 
 -- The Arrival Cyberse @Ignister
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ignis_arrival",
     atlas = 'ignis',
     pos = { x = 2, y = 4 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 20,
@@ -1510,7 +1465,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1634,12 +1588,11 @@ SMODS.Joker({
 })
 
 -- Ignister A.I.Land
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ignis_ailand",
     atlas = 'ignis',
     pos = { x = 3, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 12,
@@ -1654,7 +1607,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

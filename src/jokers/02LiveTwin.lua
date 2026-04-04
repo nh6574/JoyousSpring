@@ -7,12 +7,11 @@ SMODS.Atlas({
 })
 
 -- Live☆Twin Lil-la
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ltwin_lilla",
     atlas = 'LiveTwin',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 2,
@@ -23,7 +22,6 @@ SMODS.Joker({
         { "j_joy_ltwin_kisikil",                                                                             name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -72,12 +70,11 @@ SMODS.Joker({
 })
 
 -- Live☆Twin Ki-sikil
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ltwin_kisikil",
     atlas = 'LiveTwin',
     pos = { x = 1, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 2,
@@ -88,7 +85,6 @@ SMODS.Joker({
         { "j_joy_ltwin_lilla",                                                                               name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -137,19 +133,17 @@ SMODS.Joker({
 })
 
 -- Live☆Twin Lil-la Treat
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ltwin_lilla_treat",
     atlas = 'LiveTwin',
     pos = { x = 2, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.discards } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -183,12 +177,11 @@ SMODS.Joker({
 })
 
 -- Live☆Twin Lil-la Sweet
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ltwin_lilla_sweet",
     atlas = 'LiveTwin',
     pos = { x = 3, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -198,7 +191,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -229,12 +221,11 @@ SMODS.Joker({
 })
 
 -- Live☆Twin Ki-sikil Frost
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ltwin_kisikil_frost",
     atlas = 'LiveTwin',
     pos = { x = 0, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -244,7 +235,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -273,12 +263,11 @@ SMODS.Joker({
 })
 
 -- Evil★Twin Ki-sikil Deal
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "etwin_kisikil_deal",
     atlas = 'LiveTwin',
     pos = { x = 2, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 4,
@@ -291,7 +280,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -359,13 +347,12 @@ SMODS.Joker({
 })
 
 -- Evil★Twin Ki-sikil
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "etwin_kisikil",
     atlas = 'LiveTwin',
     pos = { x = 3, y = 1 },
     joy_alt_pos = { { x = 2, y = 2 } },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 5,
@@ -378,7 +365,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -453,13 +439,12 @@ SMODS.Joker({
 })
 
 -- Evil★Twin Lil-la
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "etwin_lilla",
     atlas = 'LiveTwin',
     pos = { x = 0, y = 2 },
     joy_alt_pos = { { x = 3, y = 2 } },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -472,7 +457,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -544,12 +528,11 @@ SMODS.Joker({
 })
 
 -- Evil★Twins Ki-sikil & Lil-la
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "etwin_kisikil_lilla",
     atlas = 'LiveTwin',
     pos = { x = 1, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 6,
@@ -569,7 +552,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -621,12 +603,11 @@ SMODS.Joker({
 })
 
 -- Evil★Twin's Trouble Sunny
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "etwin_sunny",
     atlas = 'LiveTwin',
     pos = { x = 1, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 8,
@@ -640,7 +621,6 @@ SMODS.Joker({
         { "j_joy_etwin_kisikil",                                                                             "j_joy_etwin_lilla",     name = "Revives" },
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -721,12 +701,11 @@ SMODS.Joker({
 })
 
 -- Live☆Twin Channel
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ltwin_channel",
     atlas = 'LiveTwin',
     pos = { x = 0, y = 3 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -740,7 +719,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

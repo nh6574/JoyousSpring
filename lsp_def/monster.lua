@@ -1,58 +1,65 @@
 ---@meta
 
----@class SMODS.Joker
----@field joy_get_weight? fun(self: SMODS.Joker|table, args: table):number? Only YGO monsters weighted rarity, if it returns nil then it uses the default rate for the rarity
+---@class JoyousSpring.Joker: SMODS.Joker
+---@field joy_get_weight? fun(self: JoyousSpring.Joker|table, args: table):number? Only YGO monsters weighted rarity, if it returns nil then it uses the default rate for the rarity
 ---@field joy_alt_pos? {x:number, y:number}[] Atlas position for alternative art
 ---@field joy_desc_cards? {[number]:string?, properties:material_properties[]?, name:string?}[] Definition of tabs for the related cards popup
 ---@field joy_no_shop? true True if it can't be found in the shop or boosters naturally
----@field use? fun(self: SMODS.Joker|table, card: Card|table, area: CardArea|table, copier?: table) Defines behaviour when this Joker is used. (Added by JoyousSpring)
----@field can_use? fun(self: SMODS.Joker|table, card: Card|table): boolean? Return `true` if the Joker is allowed to be used. (Added by JoyousSpring)
+---@field use? fun(self: JoyousSpring.Joker|table, card: Card|table, area: CardArea|table, copier?: table) Defines behaviour when this Joker is used. (Added by JoyousSpring)
+---@field can_use? fun(self: JoyousSpring.Joker|table, card: Card|table): boolean? Return `true` if the Joker is allowed to be used. (Added by JoyousSpring)
 ---@field joy_set_cost? fun(card:table|Card) Sets its own cost and sell cost inside Card:set_cost()
----@field joy_modify_cost? fun(self: SMODS.Joker|table, card:table|Card, other_card:table|Card) Like joy_set_cost but for another card
+---@field joy_modify_cost? fun(self: JoyousSpring.Joker|table, card:table|Card, other_card:table|Card) Like joy_set_cost but for another card
 ---@field joy_can_activate? fun(card:table|Card):boolean? Returns `true` if the activated ability can be used
----@field joy_can_detach? fun(self: SMODS.Joker|table, card:table|Card):boolean? Returns `true` if a card can be detached for the ability (no need to check for detach count)
----@field joy_create_card_for_shop? fun(self: SMODS.Joker|table, card:table|Card, other_card:table|Card, area:CardArea) Used to modify *other_card* when it's created for the shop
----@field joy_apply_to_jokers_added? fun(self: SMODS.Joker|table, card:table|Card, added_card:table|Card) Used to modify *added_card* when obtained
----@field joy_allow_facedown_ability? fun(self: SMODS.Joker|table, card:table|Card, other_card:table|Card):boolean? Determines if *other_card* can use abilities while face-down
----@field joy_prevent_flip? fun(self: SMODS.Joker|table, card:table|Card, other_card:table|Card):boolean? Determines if *other_card* should flip
----@field joy_prevent_trap_flip? fun(self: SMODS.Joker|table, card:table|Card, other_card:table|Card):boolean? Determines if the Trap *other_card* should flip at end of round
----@field joy_flip_effect_active? fun(self: SMODS.Joker|table, card:table|Card, other_card:table|Card):boolean? Determines if the FLIP ability of *other_card* should activate at the start of Blind
----@field joy_set_excavate_count? fun(self: SMODS.Joker|table, card:table|Card, context:CalcContext):integer? Determines how many cards to excavate in a certain context
----@field joy_bypass_room_check? fun(self:SMODS.Joker|table, card:table|Card, from_booster:boolean?):boolean? Determines if you can buy the card with no room
----@field joy_can_be_sent_to_graveyard? fun(self:SMODS.Joker|table, card:table|Card, choices:string[]):string[]? Used to filter cards that can be sent to the GY
----@field joy_set_hand_highlight_limit? fun(self:SMODS.Joker|table, card:table|Card):integer? Returns what the hand highlight limit should be (at minimum) after calling `JoyousSpring.calculate_hand_highlight_limit`
----@field joy_prevent_buy? fun(self:SMODS.Joker|table, card:table|Card, other_card:table|Card):boolean? Returns if *other_card* is prevented from being bought from the shop
----@field joy_get_attribute? fun(self:SMODS.Joker|table, card:table|Card, other_card:table|Card, original_attribute:attribute|true?):attribute|true? Returns what attribute *other_card* should be considered as. `"None"` for none, `true` for all.
----@field joy_get_monster_type? fun(self:SMODS.Joker|table, card:table|Card, other_card:table|Card, original_type:monster_type|true?):monster_type|true? Returns what monster type *other_card* should be considered as. `"None"` for none, `true` for all.
----@field joy_prevent_revive? fun(self: SMODS.Joker|table, card:table|Card, key:string):boolean? Determines if card with *key* should be able to be revived
----@field joy_prevent_banish? fun(self: SMODS.Joker|table, card:table|Card, other_card:Card|table, banish_until:string):boolean? Determines if *other_card* can be banished
----@field joy_prevent_drag? fun(self: SMODS.Joker|table, card:table|Card, other_card:Card|table, area:CardArea|table):boolean? Determines if *other_card* can be dragged
----@field joy_prevent_summon? fun(self: SMODS.Joker|table, card:table|Card, other_card:Card|table, card_list:Card[]|table?):boolean? Determines if *other_card* can be summoned
----@field joy_can_calculate_in_side? fun(self: SMODS.Joker|table, card:table|Card, func:string?):boolean? Determines if it can calculate and call other functions in the side deck
----@field joy_can_transfer_ability? fun(self:SMODS.Joker|table, other_card:Card|table, card:Card|table?):boolean? Determines if *self* transfers its ability to *other_card*. When transforming, `other_card.joy_transforming == self.key`
----@field joy_transfer_ability_calculate? fun(self:SMODS.Joker|table, other_card:Card|table, context:CalcContext, config:table):table? Similar to `calculate` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect
----@field joy_transfer_config? fun(self:SMODS.Joker|table, other_card:Card|table):table? Similar to `config`, it returns the initial config table for the transferred ability
----@field joy_transfer_loc_vars? fun(self: SMODS.Joker|table, info_queue: table, other_card: Card|table, config: table): table? Similar to `loc_vars` but for the transferred ability text
----@field joy_transfer_add_to_deck? fun(self:SMODS.Joker|table, other_card:Card|table, config:table, card:Card|table?, from_debuff:boolean, materials:table[]|Card[]?, was_material:boolean?) Similar to `add_to_deck` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect, `card` is the transfering material which only exists when transferred
----@field joy_transfer_remove_from_deck? fun(self:SMODS.Joker|table, other_card:Card|table, config:table, from_debuff:boolean) Similar to `remove_from_deck` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect
----@field joy_transfer_calc_dollar_bonus? fun(self:SMODS.Joker|table, other_card:Card|table, config:table):number? Similar to `calc_dollar_bonus` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect
----@field joy_transfer_flip_effect_active? fun(self:SMODS.Joker|table, ability_card:Card|table, config:table, other_card:Card|table):boolean? Similar to `joy_flip_effect_active` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
----@field joy_transfer_modify_cost? fun(self:SMODS.Joker|table, ability_card:Card|table, other_card:Card|table, config:table):boolean? Similar to `joy_modify_cost` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
----@field joy_transfer_prevent_flip? fun(self:SMODS.Joker|table, ability_card:Card|table, config:table, other_card:Card|table):boolean? Similar to `joy_prevent_flip` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
----@field joy_transfer_apply_to_jokers_added? fun(self:SMODS.Joker|table, ability_card:Card|table, config:table, added_card:Card|table):boolean? Similar to `joy_apply_to_jokers_added` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
----@field joy_transfer_set_hand_highlight_limit? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table):integer? Returns what the hand highlight limit should be (at minimum) after calling `JoyousSpring.calculate_hand_highlight_limit` but for transferred abilities
----@field joy_transfer_set_excavate_count? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, context:CalcContext):integer? Determines how many cards to excavate in a certain context but for transferred abilities
----@field joy_transfer_create_card_for_shop? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card, area:CardArea) Used to modify *other_card* when it's created for the shop but for transferred abilities
----@field joy_transfer_can_be_sent_to_graveyard? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, choices:string[]):string[]? Used to filter cards that can be sent to the GY but for transferred abilities
----@field joy_transfer_allow_facedown_ability? fun(self: SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card):boolean? Determines if *other_card* can use abilities while face-down but for transferred abilities
----@field joy_transfer_prevent_trap_flip? fun(self: SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card):boolean? Determines if the Trap *other_card* should flip at end of round but for transferred abilities
----@field joy_transfer_prevent_buy? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card):boolean? Returns if *other_card* is prevented from being bought from the shop but for transferred abilities
----@field joy_transfer_get_attribute? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card, original_attribute:attribute|true?):attribute|true? Returns what attribute *other_card* should be considered as. `"None"` for none, `true` for all but for transferred abilities
----@field joy_transfer_get_monster_type? fun(self:SMODS.Joker|table, ability_card:table|Card, config:table, other_card:table|Card, original_type:monster_type|true?):monster_type|true? Returns what monster type *other_card* should be considered as. `"None"` for none, `true` for all but for transferred abilities
----@field joy_transfer_prevent_revive? fun(self: SMODS.Joker|table, ability_card:table|Card, config:table, key:string):boolean? Determines if card with *key* should be able to be revived but for transferred abilities
----@field joy_transfer_prevent_banish? fun(self: SMODS.Joker|table, ability_card:table|Card, config:table, other_card:Card|table, banish_until:string):boolean? Determines if *other_card* can be banished but for transferred abilities
----@field joy_transfer_prevent_drag? fun(self: SMODS.Joker|table, ability_card:table|Card, config:table, other_card:Card|table, area:CardArea|table):boolean? Determines if *other_card* can be dragged but for transferred abilities
----@field joy_prevent_summon? fun(self: SMODS.Joker|table, ability_card:table|Card, config:table, other_card:Card|table, card_list:Card[]|table?):boolean? Determines if *other_card* can be summoned
+---@field joy_can_detach? fun(self: JoyousSpring.Joker|table, card:table|Card):boolean? Returns `true` if a card can be detached for the ability (no need to check for detach count)
+---@field joy_create_card_for_shop? fun(self: JoyousSpring.Joker|table, card:table|Card, other_card:table|Card, area:CardArea) Used to modify *other_card* when it's created for the shop
+---@field joy_apply_to_jokers_added? fun(self: JoyousSpring.Joker|table, card:table|Card, added_card:table|Card) Used to modify *added_card* when obtained
+---@field joy_allow_facedown_ability? fun(self: JoyousSpring.Joker|table, card:table|Card, other_card:table|Card):boolean? Determines if *other_card* can use abilities while face-down
+---@field joy_prevent_flip? fun(self: JoyousSpring.Joker|table, card:table|Card, other_card:table|Card):boolean? Determines if *other_card* should flip
+---@field joy_prevent_trap_flip? fun(self: JoyousSpring.Joker|table, card:table|Card, other_card:table|Card):boolean? Determines if the Trap *other_card* should flip at end of round
+---@field joy_flip_effect_active? fun(self: JoyousSpring.Joker|table, card:table|Card, other_card:table|Card):boolean? Determines if the FLIP ability of *other_card* should activate at the start of Blind
+---@field joy_set_excavate_count? fun(self: JoyousSpring.Joker|table, card:table|Card, context:CalcContext):integer? Determines how many cards to excavate in a certain context
+---@field joy_bypass_room_check? fun(self:JoyousSpring.Joker|table, card:table|Card, from_booster:boolean?):boolean? Determines if you can buy the card with no room
+---@field joy_can_be_sent_to_graveyard? fun(self:JoyousSpring.Joker|table, card:table|Card, choices:string[]):string[]? Used to filter cards that can be sent to the GY
+---@field joy_set_hand_highlight_limit? fun(self:JoyousSpring.Joker|table, card:table|Card):integer? Returns what the hand highlight limit should be (at minimum) after calling `JoyousSpring.calculate_hand_highlight_limit`
+---@field joy_prevent_buy? fun(self:JoyousSpring.Joker|table, card:table|Card, other_card:table|Card):boolean? Returns if *other_card* is prevented from being bought from the shop
+---@field joy_get_attribute? fun(self:JoyousSpring.Joker|table, card:table|Card, other_card:table|Card, original_attribute:attribute|true?):attribute|true? Returns what attribute *other_card* should be considered as. `"None"` for none, `true` for all.
+---@field joy_get_monster_type? fun(self:JoyousSpring.Joker|table, card:table|Card, other_card:table|Card, original_type:monster_type|true?):monster_type|true? Returns what monster type *other_card* should be considered as. `"None"` for none, `true` for all.
+---@field joy_prevent_revive? fun(self: JoyousSpring.Joker|table, card:table|Card, key:string):boolean? Determines if card with *key* should be able to be revived
+---@field joy_prevent_banish? fun(self: JoyousSpring.Joker|table, card:table|Card, other_card:Card|table, banish_until:string):boolean? Determines if *other_card* can be banished
+---@field joy_prevent_drag? fun(self: JoyousSpring.Joker|table, card:table|Card, other_card:Card|table, area:CardArea|table):boolean? Determines if *other_card* can be dragged
+---@field joy_prevent_summon? fun(self: JoyousSpring.Joker|table, card:table|Card, other_card:Card|table, card_list:Card[]|table?):boolean? Determines if *other_card* can be summoned
+---@field joy_can_calculate_in_side? fun(self: JoyousSpring.Joker|table, card:table|Card, func:string?):boolean? Determines if it can calculate and call other functions in the side deck
+---@field joy_can_transfer_ability? fun(self:JoyousSpring.Joker|table, other_card:Card|table, card:Card|table?):boolean? Determines if *self* transfers its ability to *other_card*. When transforming, `other_card.joy_transforming == self.key`
+---@field joy_transfer_ability_calculate? fun(self:JoyousSpring.Joker|table, other_card:Card|table, context:CalcContext, config:table):table? Similar to `calculate` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect
+---@field joy_transfer_config? fun(self:JoyousSpring.Joker|table, other_card:Card|table):table? Similar to `config`, it returns the initial config table for the transferred ability
+---@field joy_transfer_loc_vars? fun(self: JoyousSpring.Joker|table, info_queue: table, other_card: Card|table, config: table): table? Similar to `loc_vars` but for the transferred ability text
+---@field joy_transfer_add_to_deck? fun(self:JoyousSpring.Joker|table, other_card:Card|table, config:table, card:Card|table?, from_debuff:boolean, materials:table[]|Card[]?, was_material:boolean?) Similar to `add_to_deck` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect, `card` is the transfering material which only exists when transferred
+---@field joy_transfer_remove_from_deck? fun(self:JoyousSpring.Joker|table, other_card:Card|table, config:table, from_debuff:boolean) Similar to `remove_from_deck` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect
+---@field joy_transfer_calc_dollar_bonus? fun(self:JoyousSpring.Joker|table, other_card:Card|table, config:table):number? Similar to `calc_dollar_bonus` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect
+---@field joy_transfer_flip_effect_active? fun(self:JoyousSpring.Joker|table, ability_card:Card|table, config:table, other_card:Card|table):boolean? Similar to `joy_flip_effect_active` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
+---@field joy_transfer_modify_cost? fun(self:JoyousSpring.Joker|table, ability_card:Card|table, other_card:Card|table, config:table):boolean? Similar to `joy_modify_cost` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
+---@field joy_transfer_prevent_flip? fun(self:JoyousSpring.Joker|table, ability_card:Card|table, config:table, other_card:Card|table):boolean? Similar to `joy_prevent_flip` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
+---@field joy_transfer_apply_to_jokers_added? fun(self:JoyousSpring.Joker|table, ability_card:Card|table, config:table, added_card:Card|table):boolean? Similar to `joy_apply_to_jokers_added` but for transferred abilities. `self` is the center for the material and `ability_card` is the card with the effect
+---@field joy_transfer_set_hand_highlight_limit? fun(self:JoyousSpring.Joker|table, ability_card:table|Card, config:table):integer? Returns what the hand highlight limit should be (at minimum) after calling `JoyousSpring.calculate_hand_highlight_limit` but for transferred abilities
+---@field joy_transfer_set_excavate_count? fun(self:JoyousSpring.Joker|table, ability_card:table|Card, config:table, context:CalcContext):integer? Determines how many cards to excavate in a certain context but for transferred abilities
+---@field joy_transfer_create_card_for_shop? fun(self:JoyousSpring.Joker|table, ability_card:table|Card, config:table, other_card:table|Card, area:CardArea) Used to modify *other_card* when it's created for the shop but for transferred abilities
+---@field joy_transfer_can_be_sent_to_graveyard? fun(self:JoyousSpring.Joker|table, ability_card:table|Card, config:table, choices:string[]):string[]? Used to filter cards that can be sent to the GY but for transferred abilities
+---@field joy_transfer_allow_facedown_ability? fun(self: JoyousSpring.Joker|table, ability_card:table|Card, config:table, other_card:table|Card):boolean? Determines if *other_card* can use abilities while face-down but for transferred abilities
+---@field joy_transfer_prevent_trap_flip? fun(self: JoyousSpring.Joker|table, ability_card:table|Card, config:table, other_card:table|Card):boolean? Determines if the Trap *other_card* should flip at end of round but for transferred abilities
+---@field joy_transfer_prevent_buy? fun(self:JoyousSpring.Joker|table, ability_card:table|Card, config:table, other_card:table|Card):boolean? Returns if *other_card* is prevented from being bought from the shop but for transferred abilities
+---@field joy_transfer_get_attribute? fun(self:JoyousSpring.Joker|table, ability_card:table|Card, config:table, other_card:table|Card, original_attribute:attribute|true?):attribute|true? Returns what attribute *other_card* should be considered as. `"None"` for none, `true` for all but for transferred abilities
+---@field joy_transfer_get_monster_type? fun(self:JoyousSpring.Joker|table, ability_card:table|Card, config:table, other_card:table|Card, original_type:monster_type|true?):monster_type|true? Returns what monster type *other_card* should be considered as. `"None"` for none, `true` for all but for transferred abilities
+---@field joy_transfer_prevent_revive? fun(self: JoyousSpring.Joker|table, ability_card:table|Card, config:table, key:string):boolean? Determines if card with *key* should be able to be revived but for transferred abilities
+---@field joy_transfer_prevent_banish? fun(self: JoyousSpring.Joker|table, ability_card:table|Card, config:table, other_card:Card|table, banish_until:string):boolean? Determines if *other_card* can be banished but for transferred abilities
+---@field joy_transfer_prevent_drag? fun(self: JoyousSpring.Joker|table, ability_card:table|Card, config:table, other_card:Card|table, area:CardArea|table):boolean? Determines if *other_card* can be dragged but for transferred abilities
+---@field joy_prevent_summon? fun(self: JoyousSpring.Joker|table, ability_card:table|Card, config:table, other_card:Card|table, card_list:Card[]|table?):boolean? Determines if *other_card* can be summoned
+---@overload fun(self: JoyousSpring.Joker): JoyousSpring.Joker
+JoyousSpring.Joker = setmetatable({}, {
+    __call = function(self)
+        return self
+    end
+})
+
 
 ---@alias summon_type
 ---|'"NORMAL"'

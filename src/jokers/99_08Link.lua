@@ -1,13 +1,12 @@
 --- LINK FREE AGENTS
 
 -- Apollousa, Bow of the Goddess
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "apollousa",
     atlas = 'Misc01',
     pos = { x = 2, y = 1 },
     joy_alt_pos = { { x = 0, y = 2 } },
     rarity = 1,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 6,
@@ -19,7 +18,6 @@ SMODS.Joker({
             card.ability.extra.mult_loss * card.ability.extra.turns)
         return { vars = { card.ability.extra.mult_gain, card.ability.extra.mult_loss, mult } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -82,19 +80,17 @@ SMODS.Joker({
 })
 
 -- Beyond the Pendulum
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "beyond",
     atlas = 'Misc03',
     pos = { x = 0, y = 4 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.get_pendulum_count(), card.ability.extra.creates, card.ability.extra.consume, card.ability.extra.consumed } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -155,12 +151,11 @@ SMODS.Joker({
 })
 
 -- Exceed the Pendulum
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "exceed",
     atlas = 'Misc04',
     pos = { x = 6, y = 5 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 9,
@@ -170,7 +165,6 @@ SMODS.Joker({
         end
         return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * JoyousSpring.get_pendulum_count(), card.ability.extra.creates } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -229,19 +223,17 @@ SMODS.Joker({
 })
 
 -- Linkuriboh
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "linkuriboh",
     atlas = 'Misc03',
     pos = { x = 1, y = 4 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -272,12 +264,11 @@ SMODS.Joker({
 })
 
 -- Linguriboh
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "linguriboh",
     atlas = 'Misc03',
     pos = { x = 2, y = 4 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -287,7 +278,6 @@ SMODS.Joker({
         end
         return { vars = { card.ability.extra.h_size } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -328,13 +318,12 @@ SMODS.Joker({
 })
 
 -- I:P Masquerena
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ipmasq",
     atlas = 'Misc04',
     pos = { x = 7, y = 5 },
     joy_alt_pos = { { x = 3, y = 6 } },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -344,7 +333,6 @@ SMODS.Joker({
         end
         return { vars = {} }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -385,12 +373,11 @@ SMODS.Joker({
 })
 
 -- S:P Little Knight
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "spknight",
     atlas = 'Misc04',
     pos = { x = 0, y = 6 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -401,7 +388,6 @@ SMODS.Joker({
         end
         return { vars = { card.ability.extra.banishes } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -450,12 +436,11 @@ SMODS.Joker({
 })
 
 -- Progleo
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "progleo",
     atlas = 'Misc04',
     pos = { x = 1, y = 6 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -465,7 +450,6 @@ SMODS.Joker({
         end
         return { vars = { card.ability.extra.banishes } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -507,12 +491,11 @@ SMODS.Joker({
 })
 
 -- Rasterliger
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "raster",
     atlas = 'Misc04',
     pos = { x = 2, y = 6 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -522,7 +505,6 @@ SMODS.Joker({
         end
         return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.count_materials_in_graveyard({ { summon_type = "LINK" } }), card.ability.extra.percent * 100 } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

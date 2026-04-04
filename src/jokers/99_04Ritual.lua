@@ -2,19 +2,17 @@
 
 -- Sauravis, the Ancient and Ascended
 
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "sauravis",
     atlas = 'Misc01',
     pos = { x = 1, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult, 1 + (card.ability.extra.xmult * (G.GAME.joy_sauravis_uses or 0)) } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -83,19 +81,17 @@ SMODS.Joker({
 })
 
 -- Lycanthrope
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "lycanthrope",
     atlas = 'Misc04',
     pos = { x = 3, y = 3 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.count_all_materials({ { is_normal = true } }) } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

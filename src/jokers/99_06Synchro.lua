@@ -1,12 +1,11 @@
 --- SYNCHRO FREE AGENTS
 
 -- Firewall Saber Dragon
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "firewall_saber",
     atlas = 'Misc03',
     pos = { x = 0, y = 3 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -17,7 +16,6 @@ SMODS.Joker({
         end
         return { vars = { card.ability.extra.revives, card.ability.extra.creates } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -61,19 +59,17 @@ SMODS.Joker({
 })
 
 -- Phantasmal Lord Ultimitl Bishbaalkin
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "bishbaalkin",
     atlas = 'Misc04',
     pos = { x = 6, y = 3 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 12,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.count_materials_owned({ { exclude_debuffed = true } }) } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -141,12 +137,11 @@ JoyousSpring.token_pool["utchatzimime"] = {
 }
 
 -- Fish Lamp
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "fishlamp",
     atlas = 'Misc04',
     pos = { x = 5, y = 3 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -156,7 +151,6 @@ SMODS.Joker({
         end
         return { vars = { card.ability.extra.adds, card.ability.extra.creates } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -205,19 +199,17 @@ JoyousSpring.token_pool["lamp"] = {
 }
 
 -- Ancient Fairy Dragon
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "afd",
     atlas = 'Misc04',
     pos = { x = 4, y = 3 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.creates, card.ability.extra.destroys_and_creates, card.ability.extra.money } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

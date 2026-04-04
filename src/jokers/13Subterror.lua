@@ -7,12 +7,11 @@ SMODS.Atlas({
 })
 
 -- Subterror Fiendess
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "sub_fiendess",
     atlas = 'sub',
     pos = { x = 0, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -25,7 +24,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -92,12 +90,11 @@ SMODS.Joker({
 })
 
 -- Subterror Nemesis Defender
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "sub_defender",
     atlas = 'sub',
     pos = { x = 1, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 5,
@@ -107,7 +104,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -147,12 +143,11 @@ SMODS.Joker({
 })
 
 -- Subterror Nemesis Archer
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "sub_archer",
     atlas = 'sub',
     pos = { x = 2, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -162,7 +157,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -225,12 +219,11 @@ SMODS.Joker({
 })
 
 -- Subterror Nemesis Warrior
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "sub_warrior",
     atlas = 'sub',
     pos = { x = 3, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = false,
     cost = 6,
@@ -244,7 +237,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -315,12 +307,11 @@ SMODS.Joker({
 })
 
 -- Subterror Guru
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "sub_guru",
     atlas = 'sub',
     pos = { x = 0, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 10,
@@ -330,7 +321,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -443,12 +433,11 @@ SMODS.Joker({
 })
 
 -- Subterror Behemoth Stygokraken
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "sub_stygo",
     atlas = 'sub',
     pos = { x = 1, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 10,
@@ -458,7 +447,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -536,12 +524,11 @@ SMODS.Joker({
 })
 
 -- Subterror Behemoth Dragossuary
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "sub_drago",
     atlas = 'sub',
     pos = { x = 2, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 5,
@@ -551,7 +538,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -585,12 +571,11 @@ SMODS.Joker({
 })
 
 -- Subterror Behemoth Umastryx
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "sub_uma",
     atlas = 'sub',
     pos = { x = 3, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -603,7 +588,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -643,12 +627,11 @@ SMODS.Joker({
 })
 
 -- Subterror Behemoth Phospheroglacier
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "sub_phos",
     atlas = 'sub',
     pos = { x = 0, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 6,
@@ -658,7 +641,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -710,12 +692,11 @@ SMODS.Joker({
 })
 
 -- Subterror Behemoth Voltelluric
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "sub_volt",
     atlas = 'sub',
     pos = { x = 1, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 10,
@@ -728,7 +709,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -777,12 +757,11 @@ SMODS.Joker({
 })
 
 -- Subterror Behemoth Stalagmo
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "sub_stala",
     atlas = 'sub',
     pos = { x = 2, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 8,
@@ -792,7 +771,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -840,12 +818,11 @@ SMODS.Joker({
 })
 
 -- Subterror Behemoth Speleogeist
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "sub_speleo",
     atlas = 'sub',
     pos = { x = 3, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 9,
@@ -855,7 +832,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -915,12 +891,11 @@ SMODS.Joker({
 })
 
 -- Subterror Behemoth Ultramafus
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "sub_ultra",
     atlas = 'sub',
     pos = { x = 0, y = 3 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 9,
@@ -933,7 +908,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -986,12 +960,11 @@ SMODS.Joker({
 })
 
 -- Subterror Behemoth Fiendess
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "sub_befiendess",
     atlas = 'sub',
     pos = { x = 2, y = 3 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -1013,7 +986,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1126,12 +1098,11 @@ SMODS.Joker({
 })
 
 -- The Hidden City
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "sub_city",
     atlas = 'sub',
     pos = { x = 1, y = 3 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -1144,7 +1115,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

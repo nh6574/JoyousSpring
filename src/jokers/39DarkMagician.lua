@@ -7,12 +7,11 @@ SMODS.Atlas({
 })
 
 -- Dark Magician
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_dm",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -22,7 +21,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -33,12 +31,11 @@ SMODS.Joker({
 })
 
 -- Dark Magician Girl
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_dmg",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -48,7 +45,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -59,12 +55,11 @@ SMODS.Joker({
 })
 
 -- Apprentice Illusion Magician
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_apprentice",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -74,7 +69,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -85,12 +79,11 @@ SMODS.Joker({
 })
 
 -- Chronicle Magician
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_chromagician",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -100,7 +93,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -111,12 +103,11 @@ SMODS.Joker({
 })
 
 -- Chronicle Sorceress
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_sorceress",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -126,7 +117,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -137,12 +127,11 @@ SMODS.Joker({
 })
 
 -- Dark Magician Knight
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_knight",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -152,7 +141,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -163,12 +151,11 @@ SMODS.Joker({
 })
 
 -- Dark Magician of Chaos
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_chaos",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -178,7 +165,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -189,12 +175,11 @@ SMODS.Joker({
 })
 
 -- Magician of Dark Illusion
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_darkillusion",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -204,7 +189,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -215,12 +199,11 @@ SMODS.Joker({
 })
 
 -- Magician's Robe
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_robe",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -230,7 +213,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -241,12 +223,11 @@ SMODS.Joker({
 })
 
 -- Magician's Rod
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_rod",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -256,7 +237,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -267,12 +247,11 @@ SMODS.Joker({
 })
 
 -- Magician's Valkyria
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_valkyria",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -282,7 +261,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -293,12 +271,11 @@ SMODS.Joker({
 })
 
 -- Magicians' Souls
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_souls",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -308,7 +285,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -319,12 +295,11 @@ SMODS.Joker({
 })
 
 -- Magikuriboh
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_kuri",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -334,7 +309,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -345,12 +319,11 @@ SMODS.Joker({
 })
 
 -- Dimension Conjurer
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_conjurer",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -360,7 +333,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -371,12 +343,11 @@ SMODS.Joker({
 })
 
 -- Palladium Oracle Mahad
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_mahad",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -386,7 +357,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -397,12 +367,11 @@ SMODS.Joker({
 })
 
 -- Palladium Oracle Mana
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_mana",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -412,7 +381,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -423,12 +391,11 @@ SMODS.Joker({
 })
 
 -- Timaeus the United Dragon
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_timaeus",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -438,7 +405,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -449,12 +415,11 @@ SMODS.Joker({
 })
 
 -- Dark Eradicator Warlock
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_warlock",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -464,7 +429,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -475,12 +439,11 @@ SMODS.Joker({
 })
 
 -- Magician's Salvation
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_salvation",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -490,7 +453,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -501,12 +463,11 @@ SMODS.Joker({
 })
 
 -- Magician of Black Chaos
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_blackchaos",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -516,7 +477,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -528,12 +488,11 @@ SMODS.Joker({
 })
 
 -- Magician of Black Chaos MAX
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_blackchaosmax",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -543,7 +502,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -555,12 +513,11 @@ SMODS.Joker({
 })
 
 -- Magician of Chaos
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_chaosritual",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -570,7 +527,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -582,12 +538,11 @@ SMODS.Joker({
 })
 
 -- Illusion of Chaos
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_illusion",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -597,7 +552,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -609,12 +563,11 @@ SMODS.Joker({
 })
 
 -- Dark Cavalry
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_cavalry",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -624,7 +577,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -636,12 +588,11 @@ SMODS.Joker({
 })
 
 -- Dark Magician of Destruction
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_destruction",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -651,7 +602,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -663,12 +613,11 @@ SMODS.Joker({
 })
 
 -- Dark Magician the Dragon Knight
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_dragonknight",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -678,7 +627,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -690,12 +638,11 @@ SMODS.Joker({
 })
 
 -- Amulet Dragon
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_amulet",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -705,7 +652,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -717,12 +663,11 @@ SMODS.Joker({
 })
 
 -- Timaeus the United Magical Dragon
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_timaeusmagical",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -732,7 +677,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -744,12 +688,11 @@ SMODS.Joker({
 })
 
 -- The Dark Magicians
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_magicians",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -759,7 +702,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -771,12 +713,11 @@ SMODS.Joker({
 })
 
 -- Red-Eyes Dark Dragoon
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_dragoon",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -786,7 +727,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -798,12 +738,11 @@ SMODS.Joker({
 })
 
 -- Dark Magician Girl the Dragon Knight
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_dmgknight",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -813,7 +752,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -825,12 +763,11 @@ SMODS.Joker({
 })
 
 -- Ebon Illusion Magician
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_ebonillusion",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -840,7 +777,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -852,12 +788,11 @@ SMODS.Joker({
 })
 
 -- Ebon High Magician
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dm_ebonhigh",
     atlas = 'dm',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -867,7 +802,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

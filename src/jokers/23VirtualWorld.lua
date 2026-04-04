@@ -52,12 +52,11 @@ local vw_any_played = function(context)
 end
 
 -- Virtual World Mai-Hime - Lulu
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "vw_lulu",
     atlas = 'vw',
     pos = { x = 2, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -72,7 +71,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -151,12 +149,11 @@ SMODS.Joker({
 })
 
 -- Virtual World Hime - Nyannyan
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "vw_nyannyan",
     atlas = 'vw',
     pos = { x = 0, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -170,7 +167,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -284,12 +280,11 @@ SMODS.Joker({
 
 
 -- Virtual World Xiezhi - Jiji
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "vw_jiji",
     atlas = 'vw',
     pos = { x = 1, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -303,7 +298,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -398,12 +392,11 @@ SMODS.Joker({
 
 
 -- Virtual World Oto-Hime - Toutou
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "vw_toutou",
     atlas = 'vw',
     pos = { x = 3, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -417,7 +410,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -502,12 +494,11 @@ SMODS.Joker({
 
 
 -- Virtual World Kirin - Lili
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "vw_lili",
     atlas = 'vw',
     pos = { x = 1, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -526,7 +517,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -612,12 +602,11 @@ SMODS.Joker({
 
 
 -- Virtual World Roshi - Laolao
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "vw_laolao",
     atlas = 'vw',
     pos = { x = 0, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -637,7 +626,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -726,12 +714,11 @@ SMODS.Joker({
 
 
 -- Virtual World Dragon - Longlong
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "vw_longlong",
     atlas = 'vw',
     pos = { x = 0, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -756,7 +743,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -853,12 +839,11 @@ SMODS.Joker({
 
 
 -- Virtual World Shell - Jaja
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "vw_jaja",
     atlas = 'vw',
     pos = { x = 2, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -872,7 +857,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -949,12 +933,11 @@ SMODS.Joker({
 
 
 -- Virtual World Phoenix - Fanfan
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "vw_fanfan",
     atlas = 'vw',
     pos = { x = 1, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -967,7 +950,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1027,12 +1009,11 @@ SMODS.Joker({
 
 
 -- Virtual World Tiger - Fufu
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "vw_fufu",
     atlas = 'vw',
     pos = { x = 3, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -1046,7 +1027,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1126,12 +1106,11 @@ SMODS.Joker({
 
 
 -- Virtual World Beast - Jiujiu
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "vw_jiujiu",
     atlas = 'vw',
     pos = { x = 2, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -1144,7 +1123,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1217,12 +1195,11 @@ SMODS.Joker({
 
 
 -- Virtual World Kyubi - Shenshen
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "vw_shenshen",
     atlas = 'vw',
     pos = { x = 3, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -1236,7 +1213,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

@@ -22,12 +22,11 @@ local shaddoll_should_flip = function(card)
 end
 
 -- Shaddoll Beast
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "shaddoll_beast",
     atlas = 'shaddoll',
     pos = { x = 0, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -42,7 +41,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -105,12 +103,11 @@ SMODS.Joker({
 })
 
 -- Shaddoll Dragon
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "shaddoll_dragon",
     atlas = 'shaddoll',
     pos = { x = 1, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -125,7 +122,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -190,12 +186,11 @@ SMODS.Joker({
 })
 
 -- Shaddoll Falco
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "shaddoll_falco",
     atlas = 'shaddoll',
     pos = { x = 2, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -210,7 +205,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -259,12 +253,11 @@ SMODS.Joker({
 })
 
 -- Shaddoll Hedgehog
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "shaddoll_hedgehog",
     atlas = 'shaddoll',
     pos = { x = 3, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -279,7 +272,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -329,12 +321,11 @@ SMODS.Joker({
 })
 
 -- Shaddoll Hound
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "shaddoll_hound",
     atlas = 'shaddoll',
     pos = { x = 4, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -349,7 +340,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -386,12 +376,11 @@ SMODS.Joker({
 })
 
 -- Shaddoll Squamata
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "shaddoll_squamata",
     atlas = 'shaddoll',
     pos = { x = 0, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -406,7 +395,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -471,12 +459,11 @@ SMODS.Joker({
 })
 
 -- Shaddoll Core
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "shaddoll_core",
     atlas = 'shaddoll',
     pos = { x = 2, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -492,7 +479,6 @@ SMODS.Joker({
         { "j_joy_shaddoll_prison", name = "k_joy_creates" },
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -553,12 +539,11 @@ SMODS.Joker({
 })
 
 -- Naelshaddoll Ariel
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "shaddoll_ariel",
     atlas = 'shaddoll',
     pos = { x = 1, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -572,7 +557,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -621,12 +605,11 @@ SMODS.Joker({
 })
 
 -- Nehshaddoll Genius
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "shaddoll_genius",
     atlas = 'shaddoll',
     pos = { x = 2, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -639,7 +622,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -694,12 +676,11 @@ SMODS.Joker({
 })
 
 -- Qadshaddoll Keios
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "shaddoll_keios",
     atlas = 'shaddoll',
     pos = { x = 3, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -712,7 +693,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -761,12 +741,11 @@ SMODS.Joker({
 })
 
 -- Reeshaddoll Wendi
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "shaddoll_wendi",
     atlas = 'shaddoll',
     pos = { x = 4, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -780,7 +759,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -828,12 +806,11 @@ SMODS.Joker({
 })
 
 -- Helshaddoll Hollow
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "shaddoll_hollow",
     atlas = 'shaddoll',
     pos = { x = 0, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -847,7 +824,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -893,12 +869,11 @@ SMODS.Joker({
 })
 
 -- El Shaddoll Anoyatyllis
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "shaddoll_anoya",
     atlas = 'shaddoll',
     pos = { x = 3, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -915,7 +890,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -998,12 +972,11 @@ SMODS.Joker({
 })
 
 -- El Shaddoll Apkallone
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "shaddoll_apka",
     atlas = 'shaddoll',
     pos = { x = 4, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -1016,7 +989,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1118,13 +1090,12 @@ SMODS.Joker({
 })
 
 -- El Shaddoll Winda
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "shaddoll_winda",
     atlas = 'shaddoll',
     pos = { x = 4, y = 3 },
     joy_alt_pos = { { x = 2, y = 4 } },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 12,
@@ -1141,7 +1112,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1238,13 +1208,12 @@ SMODS.Joker({
 })
 
 -- El Shaddoll Construct
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "shaddoll_elconstruct",
     atlas = 'shaddoll',
     pos = { x = 0, y = 3 },
     joy_alt_pos = { { x = 1, y = 4 } },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -1257,7 +1226,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1322,12 +1290,11 @@ SMODS.Joker({
 })
 
 -- El Shaddoll Grysta
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "shaddoll_grysta",
     atlas = 'shaddoll',
     pos = { x = 1, y = 3 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 12,
@@ -1344,7 +1311,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1432,12 +1398,11 @@ SMODS.Joker({
 })
 
 -- El Shaddoll Shekhinaga
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "shaddoll_shekh",
     atlas = 'shaddoll',
     pos = { x = 2, y = 3 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 15,
@@ -1450,7 +1415,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1524,12 +1488,11 @@ SMODS.Joker({
 })
 
 -- El Shaddoll Wendigo
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "shaddoll_wendigo",
     atlas = 'shaddoll',
     pos = { x = 3, y = 3 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -1542,7 +1505,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1590,12 +1552,11 @@ SMODS.Joker({
 })
 
 -- Shaddoll Construct
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "shaddoll_construct",
     atlas = 'shaddoll',
     pos = { x = 0, y = 4 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -1608,7 +1569,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1661,12 +1621,11 @@ SMODS.Joker({
 })
 
 -- Curse of the Shadow Prison
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "shaddoll_prison",
     atlas = 'shaddoll',
     pos = { x = 1, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -1679,7 +1638,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

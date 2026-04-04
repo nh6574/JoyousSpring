@@ -7,12 +7,11 @@ SMODS.Atlas({
 })
 
 -- Dracotail Lukias
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dracotail_lukias",
     atlas = 'dracotail',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -22,7 +21,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dracotail" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -33,12 +31,11 @@ SMODS.Joker({
 })
 
 -- Dracotail Phryxul
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dracotail_phry",
     atlas = 'dracotail',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -48,7 +45,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dracotail" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -59,12 +55,11 @@ SMODS.Joker({
 })
 
 -- Dracotail Faimena
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dracotail_faimena",
     atlas = 'dracotail',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -74,7 +69,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dracotail" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -85,12 +79,11 @@ SMODS.Joker({
 })
 
 -- Dracotail Mululu
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dracotail_mululu",
     atlas = 'dracotail',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -100,7 +93,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dracotail" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -111,12 +103,11 @@ SMODS.Joker({
 })
 
 -- Dracotail Urgula
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dracotail_urgula",
     atlas = 'dracotail',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -126,7 +117,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dracotail" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -137,12 +127,11 @@ SMODS.Joker({
 })
 
 -- Dracotail Pan
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dracotail_pan",
     atlas = 'dracotail',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -152,7 +141,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dracotail" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -163,12 +151,11 @@ SMODS.Joker({
 })
 
 -- Dracotail Shaulas
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dracotail_shaulas",
     atlas = 'dracotail',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -178,7 +165,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dracotail" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -190,12 +176,11 @@ SMODS.Joker({
 })
 
 -- Dracotail Gulamel
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dracotail_gulamel",
     atlas = 'dracotail',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -205,7 +190,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dracotail" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -217,12 +201,11 @@ SMODS.Joker({
 })
 
 -- Dracotail Arthalion
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "dracotail_arthalion",
     atlas = 'dracotail',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -232,7 +215,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dracotail" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

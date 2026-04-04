@@ -7,12 +7,11 @@ SMODS.Atlas({
 })
 
 -- PSY-Frame Driver
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "psy_driver",
     atlas = 'PSYFrame',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 1,
@@ -25,7 +24,6 @@ SMODS.Joker({
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
         end
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -42,12 +40,11 @@ SMODS.Joker({
 })
 
 -- PSY-Framegear Alpha
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "psy_alpha",
     atlas = 'PSYFrame',
     pos = { x = 1, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 5,
@@ -60,7 +57,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "PSYFrame" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -137,12 +133,11 @@ SMODS.Joker({
 })
 
 -- PSY-Framegear Beta
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "psy_beta",
     atlas = 'PSYFrame',
     pos = { x = 2, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 5,
@@ -155,7 +150,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "PSYFrame" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -230,12 +224,11 @@ SMODS.Joker({
 })
 
 -- PSY-Framegear Gamma
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "psy_gamma",
     atlas = 'PSYFrame',
     pos = { x = 3, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 5,
@@ -248,7 +241,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "PSYFrame" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -309,12 +301,11 @@ SMODS.Joker({
 })
 
 -- PSY-Framegear Delta
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "psy_delta",
     atlas = 'PSYFrame',
     pos = { x = 0, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 5,
@@ -327,7 +318,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "PSYFrame" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -401,12 +391,11 @@ SMODS.Joker({
 })
 
 -- PSY-Framegear Epsilon
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "psy_epsilon",
     atlas = 'PSYFrame',
     pos = { x = 1, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 5,
@@ -419,7 +408,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "PSYFrame" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -493,12 +481,11 @@ SMODS.Joker({
 })
 
 -- PSY-Frame Multi-Threader
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "psy_multithreader",
     atlas = 'PSYFrame',
     pos = { x = 2, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -512,7 +499,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "PSYFrame" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -537,12 +523,11 @@ SMODS.Joker({
 })
 
 -- PSY-Framelord Zeta
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "psy_zeta",
     atlas = 'PSYFrame',
     pos = { x = 3, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -555,7 +540,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "PSYFrame" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -599,12 +583,11 @@ SMODS.Joker({
 })
 
 -- PSY-Framelord Omega
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "psy_omega",
     atlas = 'PSYFrame',
     pos = { x = 0, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -617,7 +600,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "PSYFrame" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -657,12 +639,11 @@ SMODS.Joker({
 })
 
 -- PSY-Framelord Lambda
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "psy_lambda",
     atlas = 'PSYFrame',
     pos = { x = 1, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -675,7 +656,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "PSYFrame" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -711,12 +691,11 @@ SMODS.Joker({
 })
 
 -- PSY-Frame Circuit
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "psy_circuit",
     atlas = 'PSYFrame',
     pos = { x = 2, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -726,7 +705,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "PSYFrame" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

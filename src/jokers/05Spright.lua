@@ -7,12 +7,11 @@ SMODS.Atlas({
 })
 
 -- Spright Blue
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "spright_blue",
     atlas = 'Spright',
     pos = { x = 0, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 8,
@@ -25,7 +24,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Spright" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -55,12 +53,11 @@ SMODS.Joker({
 })
 
 -- Spright Jet
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "spright_jet",
     atlas = 'Spright',
     pos = { x = 1, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 2,
@@ -70,7 +67,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Spright" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -98,12 +94,11 @@ SMODS.Joker({
 })
 
 -- Spright Carrot
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "spright_carrot",
     atlas = 'Spright',
     pos = { x = 2, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 6,
@@ -119,7 +114,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Spright" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -166,12 +160,11 @@ SMODS.Joker({
 })
 
 -- Spright Red
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "spright_red",
     atlas = 'Spright',
     pos = { x = 0, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 5,
@@ -187,7 +180,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Spright" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -231,12 +223,11 @@ SMODS.Joker({
 })
 
 -- Spright Pixies
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "spright_pixies",
     atlas = 'Spright',
     pos = { x = 1, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 5,
@@ -252,7 +243,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Spright" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -296,12 +286,11 @@ SMODS.Joker({
 })
 
 -- Spright Elf
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "spright_elf",
     atlas = 'Spright',
     pos = { x = 0, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 8,
@@ -314,7 +303,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Spright" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -351,12 +339,11 @@ SMODS.Joker({
 })
 
 -- Spright Sprind
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "spright_sprind",
     atlas = 'Spright',
     pos = { x = 1, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -367,7 +354,6 @@ SMODS.Joker({
         { "j_joy_spright_gigantic",                                name = "k_joy_adds" },
         { properties = { { monster_archetypes = { "Spright" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -473,12 +459,11 @@ SMODS.Joker({
 })
 
 -- Gigantic Spright
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "spright_gigantic",
     atlas = 'Spright',
     pos = { x = 2, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 15,
@@ -489,7 +474,6 @@ SMODS.Joker({
         end
         return { vars = { card.ability.extra.cards_to_create } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Spright" } } }, name = "k_joy_archetype" },
     },

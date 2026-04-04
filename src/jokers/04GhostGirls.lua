@@ -7,19 +7,17 @@ SMODS.Atlas({
 })
 
 -- Ghost Ogre & Snow Rabbit
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "yokai_ogre",
     atlas = 'GhostGirls',
     pos = { x = 0, y = 0 },
     rarity = 4,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 12,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.base_xmult, card.ability.extra.xmult } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -71,12 +69,11 @@ SMODS.Joker({
 
 
 -- Ghost Reaper & Winter Cherries
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "yokai_reaper",
     atlas = 'GhostGirls',
     pos = { x = 1, y = 0 },
     rarity = 4,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 12,
@@ -86,7 +83,6 @@ SMODS.Joker({
         end
         return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * JoyousSpring.count_materials_in_graveyard({ { is_extra_deck = true } }) } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -132,13 +128,12 @@ SMODS.Joker({
 
 
 -- Ash Blossom & Joyous Spring
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "yokai_ash",
     atlas = 'GhostGirls',
     pos = { x = 2, y = 0 },
     joy_alt_pos = { { x = 0, y = 2 } },
     rarity = 4,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 12,
@@ -147,7 +142,6 @@ SMODS.Joker({
             self.key)
         return { vars = { numerator, denominator, card.ability.extra.base_xmult, card.ability.extra.xmult } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -194,13 +188,12 @@ SMODS.Joker({
 })
 
 -- Ghost Belle & Haunted Mansion
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "yokai_belle",
     atlas = 'GhostGirls',
     pos = { x = 0, y = 1 },
     joy_alt_pos = { { x = 1, y = 2 } },
     rarity = 4,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 12,
@@ -210,7 +203,6 @@ SMODS.Joker({
         end
         return { vars = { card.ability.extra.base_xmult, card.ability.extra.xmult } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -259,19 +251,17 @@ SMODS.Joker({
 
 
 -- Ghost Sister & Spooky Dogwood
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "yokai_sister",
     atlas = 'GhostGirls',
     pos = { x = 1, y = 1 },
     rarity = 4,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 12,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.base_xmult, card.ability.extra.xmult } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -340,19 +330,17 @@ SMODS.Joker({
 
 
 -- Ghost Mourner & Moonlit Chill
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "yokai_mourner",
     atlas = 'GhostGirls',
     pos = { x = 2, y = 1 },
     rarity = 4,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 12,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.base_xmult, card.ability.extra.xmult } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

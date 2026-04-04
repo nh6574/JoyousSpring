@@ -17,12 +17,11 @@ local ba_die = function()
 end
 
 -- Alich, Malebranche of the Burning Abyss
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ba_alich",
     atlas = 'BA',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = false,
     cost = 4,
@@ -32,7 +31,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -68,12 +66,11 @@ SMODS.Joker({
 })
 
 -- Barbar, Malebranche of the Burning Abyss
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ba_barbar",
     atlas = 'BA',
     pos = { x = 1, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = false,
     cost = 4,
@@ -83,7 +80,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -124,12 +120,11 @@ SMODS.Joker({
 })
 
 -- Cagna, Malebranche of the Burning Abyss
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ba_cagna",
     atlas = 'BA',
     pos = { x = 2, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = false,
     cost = 4,
@@ -140,7 +135,6 @@ SMODS.Joker({
         { properties = { { monster_type = "Fiend" } }, name = "k_joy_mills" },
         { "j_joy_ba_beatrice",                         properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -182,12 +176,11 @@ SMODS.Joker({
 })
 
 -- Calcab, Malebranche of the Burning Abyss
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ba_calcab",
     atlas = 'BA',
     pos = { x = 3, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = false,
     cost = 4,
@@ -197,7 +190,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -228,12 +220,11 @@ SMODS.Joker({
 })
 
 -- Cir, Malebranche of the Burning Abyss
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ba_cir",
     atlas = 'BA',
     pos = { x = 4, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = false,
     cost = 4,
@@ -246,7 +237,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -290,12 +280,11 @@ SMODS.Joker({
 })
 
 -- Draghig, Malebranche of the Burning Abyss
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ba_draghig",
     atlas = 'BA',
     pos = { x = 0, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = false,
     cost = 4,
@@ -308,7 +297,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -355,12 +343,11 @@ SMODS.Joker({
 })
 
 -- Farfa, Malebranche of the Burning Abyss
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ba_farfa",
     atlas = 'BA',
     pos = { x = 1, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = false,
     cost = 4,
@@ -373,7 +360,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -403,12 +389,11 @@ SMODS.Joker({
 })
 
 -- Graff, Malebranche of the Burning Abyss
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ba_graff",
     atlas = 'BA',
     pos = { x = 2, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = false,
     cost = 4,
@@ -421,7 +406,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -468,12 +452,11 @@ SMODS.Joker({
 })
 
 -- Libic, Malebranche of the Burning Abyss
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ba_libic",
     atlas = 'BA',
     pos = { x = 3, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = false,
     cost = 3,
@@ -486,7 +469,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -511,12 +493,11 @@ SMODS.Joker({
 })
 
 -- Rubic, Malebranche of the Burning Abyss
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ba_rubic",
     atlas = 'BA',
     pos = { x = 4, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = false,
     cost = 3,
@@ -526,7 +507,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -553,12 +533,11 @@ SMODS.Joker({
 })
 
 -- Scarm, Malebranche of the Burning Abyss
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ba_scarm",
     atlas = 'BA',
     pos = { x = 0, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = false,
     cost = 3,
@@ -572,7 +551,6 @@ SMODS.Joker({
         { properties = { { is_main_deck = true, monster_type = "Fiend" } }, name = "k_joy_creates" },
         { "j_joy_ba_beatrice",                                              properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -599,12 +577,11 @@ SMODS.Joker({
 })
 
 -- Malacoda, Netherlord of the Burning Abyss
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ba_malacoda",
     atlas = 'BA',
     pos = { x = 1, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 8,
@@ -617,7 +594,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -667,12 +643,11 @@ SMODS.Joker({
 })
 
 -- Cherubini, Ebon Angel of the Burning Abyss
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ba_cherubini",
     atlas = 'BA',
     pos = { x = 1, y = 3 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 6,
@@ -682,7 +657,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -715,12 +689,11 @@ SMODS.Joker({
 })
 
 -- Dante, Traveler of the Burning Abyss
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ba_dante",
     atlas = 'BA',
     pos = { x = 4, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 8,
@@ -734,7 +707,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -787,12 +759,11 @@ SMODS.Joker({
 })
 
 -- Dante, Pilgrim of the Burning Abyss
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ba_pilgrim",
     atlas = 'BA',
     pos = { x = 2, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -802,7 +773,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -847,12 +817,11 @@ SMODS.Joker({
 })
 
 -- Virgil, Rock Star of the Burning Abyss
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ba_virgil",
     atlas = 'BA',
     pos = { x = 3, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -862,7 +831,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -891,12 +859,11 @@ SMODS.Joker({
 })
 
 -- Beatrice, Lady of the Eternal
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ba_beatrice",
     atlas = 'BA',
     pos = { x = 0, y = 3 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 10,
@@ -910,7 +877,6 @@ SMODS.Joker({
         { "j_joy_ba_dante",    "j_joy_ba_pilgrim",                                           name = "k_joy_adds" },
         { "j_joy_ba_beatrice", properties = { { monster_archetypes = { "BurningAbyss" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

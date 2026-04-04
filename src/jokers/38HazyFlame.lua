@@ -7,12 +7,11 @@ SMODS.Atlas({
 })
 
 -- Hazy Flame Sphynx
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "hazy_sphy",
     atlas = 'hazy',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -22,7 +21,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "HazyFlame" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -33,12 +31,11 @@ SMODS.Joker({
 })
 
 -- Hazy Flame Cerbereus
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "hazy_cerbe",
     atlas = 'hazy',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -48,7 +45,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "HazyFlame" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -59,12 +55,11 @@ SMODS.Joker({
 })
 
 -- Hazy Flame Griffin
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "hazy_grif",
     atlas = 'hazy',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -74,7 +69,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "HazyFlame" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -85,12 +79,11 @@ SMODS.Joker({
 })
 
 -- Hazy Flame Hydra
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "hazy_hydra",
     atlas = 'hazy',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -100,7 +93,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "HazyFlame" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -111,12 +103,11 @@ SMODS.Joker({
 })
 
 -- Hazy Flame Hyppogrif
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "hazy_hyppo",
     atlas = 'hazy',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -126,7 +117,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "HazyFlame" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -137,12 +127,11 @@ SMODS.Joker({
 })
 
 -- Hazy Flame Mantikor
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "hazy_manti",
     atlas = 'hazy',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -152,7 +141,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "HazyFlame" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -163,12 +151,11 @@ SMODS.Joker({
 })
 
 -- Hazy Flame Peryton
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "hazy_pery",
     atlas = 'hazy',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -178,7 +165,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "HazyFlame" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -189,12 +175,11 @@ SMODS.Joker({
 })
 
 -- Hazy Flame Basiltrice
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "hazy_basil",
     atlas = 'hazy',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -204,7 +189,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "HazyFlame" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

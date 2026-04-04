@@ -33,12 +33,11 @@ local cardian_is_hanafuda_month = function(card, months)
 end
 
 -- Flower Cardian Pine
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "cardian_pine",
     atlas = 'cardian',
     pos = { x = 3, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -61,7 +60,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -131,12 +129,11 @@ SMODS.Joker({
 })
 
 -- Flower Cardian Pine with Crane
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "cardian_crane",
     atlas = 'cardian',
     pos = { x = 2, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -150,7 +147,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -219,12 +215,11 @@ SMODS.Joker({
 })
 
 -- Flower Cardian Cherry Blossom
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "cardian_cherry",
     atlas = 'cardian',
     pos = { x = 1, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -242,7 +237,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -312,12 +306,11 @@ SMODS.Joker({
 })
 
 -- Flower Cardian Cherry Blossom with Curtain
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "cardian_curtain",
     atlas = 'cardian',
     pos = { x = 0, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -331,7 +324,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -400,12 +392,11 @@ SMODS.Joker({
 })
 
 -- Flower Cardian Peony with Butterfly
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "cardian_butterfly",
     atlas = 'cardian',
     pos = { x = 1, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -419,7 +410,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -490,12 +480,11 @@ SMODS.Joker({
 })
 
 -- Flower Cardian Clover with Boar
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "cardian_boar",
     atlas = 'cardian',
     pos = { x = 2, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -509,7 +498,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -579,12 +567,11 @@ SMODS.Joker({
 })
 
 -- Flower Cardian Zebra Grass
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "cardian_zebra",
     atlas = 'cardian',
     pos = { x = 2, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -602,7 +589,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -672,12 +658,11 @@ SMODS.Joker({
 })
 
 -- Flower Cardian Zebra Grass with Moon
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "cardian_moon",
     atlas = 'cardian',
     pos = { x = 1, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -691,7 +676,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -759,12 +743,11 @@ SMODS.Joker({
 })
 
 -- Flower Cardian Maple with Deer
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "cardian_deer",
     atlas = 'cardian',
     pos = { x = 3, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -778,7 +761,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -848,12 +830,11 @@ SMODS.Joker({
 })
 
 -- Flower Cardian Willow
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "cardian_willow",
     atlas = 'cardian',
     pos = { x = 0, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -871,7 +852,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -941,12 +921,11 @@ SMODS.Joker({
 })
 
 -- Flower Cardian Willow with Calligrapher
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "cardian_calligrapher",
     atlas = 'cardian',
     pos = { x = 4, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -961,7 +940,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1025,12 +1003,11 @@ SMODS.Joker({
 })
 
 -- Flower Cardian Paulownia
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "cardian_paulownia",
     atlas = 'cardian',
     pos = { x = 0, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -1048,7 +1025,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1118,12 +1094,11 @@ SMODS.Joker({
 })
 
 -- Flower Cardian Paulownia with Phoenix
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "cardian_phoenix",
     atlas = 'cardian',
     pos = { x = 4, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -1137,7 +1112,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1206,12 +1180,11 @@ SMODS.Joker({
 })
 
 -- Flower Cardian Boardefly
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "cardian_boardefly",
     atlas = 'cardian',
     pos = { x = 3, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -1225,7 +1198,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1277,12 +1249,11 @@ SMODS.Joker({
 })
 
 -- Flower Cardian Moonflowerviewing
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "cardian_moonflower",
     atlas = 'cardian',
     pos = { x = 1, y = 3 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -1296,7 +1267,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1341,12 +1311,11 @@ SMODS.Joker({
 })
 
 -- Flower Cardian Lightshower
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "cardian_lightshower",
     atlas = 'cardian',
     pos = { x = 0, y = 3 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -1359,7 +1328,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1415,12 +1383,11 @@ SMODS.Joker({
 })
 
 -- Flower Cardian Lightflare
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "cardian_lightflare",
     atlas = 'cardian',
     pos = { x = 4, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -1435,7 +1402,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

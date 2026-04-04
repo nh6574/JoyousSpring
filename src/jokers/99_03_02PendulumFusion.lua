@@ -1,19 +1,17 @@
 --- PENDULUM FUSION FREE AGENTS
 
 -- Patissciel Couverture
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "couverture",
     atlas = 'Misc03',
     pos = { x = 4, y = 3 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.creates, card.ability.extra.adds } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

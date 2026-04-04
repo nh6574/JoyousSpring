@@ -39,12 +39,11 @@ local get_all_flady_probabilities = function()
 end
 
 -- Fortune Lady Light
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "flady_light",
     atlas = 'flady',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -59,7 +58,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -135,12 +133,11 @@ SMODS.Joker({
 })
 
 -- Fortune Lady Fire
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "flady_fire",
     atlas = 'flady',
     pos = { x = 1, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -156,7 +153,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -232,12 +228,11 @@ SMODS.Joker({
 })
 
 -- Fortune Lady Wind
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "flady_wind",
     atlas = 'flady',
     pos = { x = 2, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 4,
@@ -249,7 +244,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -329,12 +323,11 @@ SMODS.Joker({
 })
 
 -- Fortune Lady Water
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "flady_water",
     atlas = 'flady',
     pos = { x = 3, y = 0 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -346,7 +339,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -433,12 +425,11 @@ SMODS.Joker({
 })
 
 -- Fortune Lady Dark
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "flady_dark",
     atlas = 'flady',
     pos = { x = 1, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -453,7 +444,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -544,12 +534,11 @@ SMODS.Joker({
 
 
 -- Fortune Lady Earth
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "flady_earth",
     atlas = 'flady',
     pos = { x = 0, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -564,7 +553,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -644,12 +632,11 @@ SMODS.Joker({
 })
 
 -- Fortune Lady Past
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "flady_past",
     atlas = 'flady',
     pos = { x = 2, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -664,7 +651,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -742,12 +728,11 @@ SMODS.Joker({
 })
 
 -- Fortune Lady Every
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "flady_every",
     atlas = 'flady',
     pos = { x = 1, y = 3 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 16,
@@ -782,7 +767,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -986,12 +970,11 @@ local ffairy_set_cost = function(card)
 end
 
 -- Fortune Fairy Hikari
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ffairy_hikari",
     atlas = 'flady',
     pos = { x = 3, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -1004,7 +987,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1058,12 +1040,11 @@ SMODS.Joker({
 })
 
 -- Fortune Fairy En
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ffairy_en",
     atlas = 'flady',
     pos = { x = 0, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -1075,7 +1056,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1136,12 +1116,11 @@ SMODS.Joker({
 })
 
 -- Fortune Fairy Hu
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ffairy_hu",
     atlas = 'flady',
     pos = { x = 1, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -1154,7 +1133,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1210,12 +1188,11 @@ SMODS.Joker({
 })
 
 -- Fortune Fairy Swee
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ffairy_swee",
     atlas = 'flady',
     pos = { x = 2, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -1228,7 +1205,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1288,12 +1264,11 @@ SMODS.Joker({
 })
 
 -- Fortune Fairy Ann
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ffairy_ann",
     atlas = 'flady',
     pos = { x = 0, y = 3 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -1308,7 +1283,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1360,12 +1334,11 @@ SMODS.Joker({
 })
 
 -- Fortune Fairy Chee
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "ffairy_chee",
     atlas = 'flady',
     pos = { x = 3, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
@@ -1375,7 +1348,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

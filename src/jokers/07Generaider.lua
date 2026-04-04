@@ -7,12 +7,11 @@ SMODS.Atlas({
 })
 
 -- Loptr, Shadow of the Generaider Bosses
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "generaider_loptr",
     atlas = 'Generaider',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = false,
     cost = 8,
@@ -23,7 +22,6 @@ SMODS.Joker({
         { "j_joy_generaider_boss_stage",                              name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Generaider" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -47,12 +45,11 @@ SMODS.Joker({
 })
 
 -- Vala, Seidhr of the Generaider Bosses
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "generaider_vala",
     atlas = 'Generaider',
     pos = { x = 1, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = false,
     cost = 5,
@@ -65,7 +62,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Generaider" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -113,12 +109,11 @@ SMODS.Joker({
 })
 
 -- Harr, Generaider Boss of Storms
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "generaider_harr",
     atlas = 'Generaider',
     pos = { x = 2, y = 0 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -133,7 +128,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Generaider" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -197,12 +191,11 @@ SMODS.Joker({
 })
 
 -- Nidhogg, Generaider Boss of Ice
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "generaider_nidhogg",
     atlas = 'Generaider',
     pos = { x = 3, y = 0 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 10,
@@ -217,7 +210,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Generaider" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -293,12 +285,11 @@ SMODS.Joker({
 })
 
 -- Frodi, Generaider Boss of Swords
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "generaider_frodi",
     atlas = 'Generaider',
     pos = { x = 0, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -313,7 +304,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Generaider" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -375,12 +365,11 @@ SMODS.Joker({
 })
 
 -- Utgarda, Generaider Boss of Delusion
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "generaider_utgarda",
     atlas = 'Generaider',
     pos = { x = 1, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -396,7 +385,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Generaider" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -442,12 +430,11 @@ SMODS.Joker({
 })
 
 -- Mardel, Generaider Boss of Light
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "generaider_mardel",
     atlas = 'Generaider',
     pos = { x = 2, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -462,7 +449,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Generaider" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -514,12 +500,11 @@ SMODS.Joker({
 })
 
 -- Dovelgus, Generaider Boss of Iron
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "generaider_dovelgus",
     atlas = 'Generaider',
     pos = { x = 3, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 10,
@@ -534,7 +519,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Generaider" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -617,12 +601,11 @@ SMODS.Joker({
 })
 
 -- Naglfar, Generaider Boss of Fire
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "generaider_naglfar",
     atlas = 'Generaider',
     pos = { x = 0, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -637,7 +620,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Generaider" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -684,12 +666,11 @@ SMODS.Joker({
 })
 
 -- Hela, Generaider Boss of Doom
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "generaider_hela",
     atlas = 'Generaider',
     pos = { x = 1, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -705,7 +686,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Generaider" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -757,12 +737,11 @@ SMODS.Joker({
 })
 
 -- Jormungandr, Generaider Boss of Eternity
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "generaider_jormungandr",
     atlas = 'Generaider',
     pos = { x = 3, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 8,
@@ -776,7 +755,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Generaider" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -829,12 +807,11 @@ SMODS.Joker({
 })
 
 -- Laevatein, Generaider Boss of Shadows
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "generaider_laevatein",
     atlas = 'Generaider',
     pos = { x = 0, y = 3 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 12,
@@ -849,7 +826,6 @@ SMODS.Joker({
         { "j_joy_generaider_jormungandr",                             name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Generaider" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -898,12 +874,11 @@ SMODS.Joker({
 })
 
 -- Generaider Boss Stage
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "generaider_boss_stage",
     atlas = 'Generaider',
     pos = { x = 2, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 15,
@@ -917,7 +892,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Generaider" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

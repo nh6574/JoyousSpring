@@ -1,19 +1,17 @@
 --- XYZ FREE AGENTS
 
 -- Divine Arsenal AA-ZEUS - Sky Thunder
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "zeus",
     atlas = 'Misc03',
     pos = { x = 1, y = 3 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 12,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.detach, card.ability.extra.percent * 100 } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -67,19 +65,17 @@ SMODS.Joker({
 })
 
 -- Super Starslayer TY-PHON - Sky Crisis
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "typhon",
     atlas = 'Misc03',
     pos = { x = 2, y = 3 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 12,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.detach, card.ability.extra.percent * 100 } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -149,12 +145,11 @@ SMODS.Joker({
 
 
 -- Number 67: Pair-a-Dice Smasher
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "67",
     atlas = 'Misc05',
     pos = { x = 2, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -166,7 +161,6 @@ SMODS.Joker({
             self.key)
         return { vars = { card.ability.extra.detach, card.ability.extra.from, card.ability.extra.to, numerator, denominator, card.ability.extra.attach } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -246,12 +240,11 @@ SMODS.Joker({
 })
 
 -- Number 85: Crazy Box
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "85",
     atlas = 'Misc05',
     pos = { x = 3, y = 2 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -263,7 +256,6 @@ SMODS.Joker({
             card.ability.extra.odds, self.key)
         return { vars = { card.ability.extra.detach, card.ability.extra.plus_h_size, card.ability.extra.minus_h_size, numerator, denominator, card.ability.extra.attach } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -384,12 +376,11 @@ SMODS.Joker({
 
 
 -- Code Igniter
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "igniter",
     atlas = 'Misc03',
     pos = { x = 3, y = 4 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -399,7 +390,6 @@ SMODS.Joker({
         end
         return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * JoyousSpring.get_summoned_count("RITUAL"), card.ability.extra.detach, card.ability.extra.adds } }
     end,
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

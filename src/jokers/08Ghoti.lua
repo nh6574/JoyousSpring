@@ -7,12 +7,11 @@ SMODS.Atlas({
 })
 
 -- Keaf, Murk of the Ghoti
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "fish_keaf",
     atlas = 'Ghoti',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 2,
@@ -26,7 +25,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -59,12 +57,11 @@ SMODS.Joker({
 })
 
 -- Paces, Light of the Ghoti
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "fish_paces",
     atlas = 'Ghoti',
     pos = { x = 1, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 4,
@@ -77,7 +74,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -115,12 +111,11 @@ SMODS.Joker({
 })
 
 -- Shif, Fairy of the Ghoti
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "fish_shif",
     atlas = 'Ghoti',
     pos = { x = 2, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 4,
@@ -133,7 +128,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -171,12 +165,11 @@ SMODS.Joker({
 })
 
 -- Zep, Ruby of the Ghoti
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "fish_zep",
     atlas = 'Ghoti',
     pos = { x = 3, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 2,
@@ -191,7 +184,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -223,12 +215,11 @@ SMODS.Joker({
 })
 
 -- Ixeep, Omen of the Ghoti
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "fish_ixeep",
     atlas = 'Ghoti',
     pos = { x = 0, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 4,
@@ -242,7 +233,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -271,12 +261,11 @@ SMODS.Joker({
 })
 
 -- Eanoc, Sentry of the Ghoti
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "fish_eanoc",
     atlas = 'Ghoti',
     pos = { x = 1, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 4,
@@ -289,7 +278,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -337,12 +325,11 @@ SMODS.Joker({
 })
 
 -- Psiics, Moonlight of the Ghoti
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "fish_psiics",
     atlas = 'Ghoti',
     pos = { x = 2, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -356,7 +343,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -390,12 +376,11 @@ SMODS.Joker({
 })
 
 -- Snopios, Shade of the Ghoti
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "fish_snopios",
     atlas = 'Ghoti',
     pos = { x = 3, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -409,7 +394,6 @@ SMODS.Joker({
         { "j_joy_fish_depths", name = "k_joy_adds" },
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -469,12 +453,11 @@ SMODS.Joker({
 })
 
 -- Arionpos, Serpent of the Ghoti
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "fish_arionpos",
     atlas = 'Ghoti',
     pos = { x = 0, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 9,
@@ -487,7 +470,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -543,12 +525,11 @@ SMODS.Joker({
 })
 
 -- Askaan, the Bicorned Ghoti
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "fish_askaan",
     atlas = 'Ghoti',
     pos = { x = 1, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -561,7 +542,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -616,12 +596,11 @@ SMODS.Joker({
 })
 
 -- Guoglim, Spear of the Ghoti
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "fish_guoglim",
     atlas = 'Ghoti',
     pos = { x = 2, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -635,7 +614,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -705,12 +683,11 @@ SMODS.Joker({
 })
 
 -- Ghoti of the Deep Beyond
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "fish_deepbeyond",
     atlas = 'Ghoti',
     pos = { x = 3, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 12,
@@ -723,7 +700,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -759,12 +735,11 @@ SMODS.Joker({
 })
 
 -- The Most Distant, Deepest Depths
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "fish_depths",
     atlas = 'Ghoti',
     pos = { x = 0, y = 3 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -778,7 +753,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { "j_joy_fish_depths", properties = { { monster_archetypes = { "Ghoti" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

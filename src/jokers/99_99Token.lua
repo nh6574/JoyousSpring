@@ -8,12 +8,11 @@ SMODS.Atlas({
 
 --#region Token
 
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "token",
     atlas = 'Token',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 1,

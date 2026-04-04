@@ -7,12 +7,11 @@ SMODS.Atlas({
 })
 
 -- Labrynth Cooclock
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "lab_clock",
     atlas = 'lab',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = false,
     cost = 3,
@@ -26,7 +25,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Labrynth" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -114,12 +112,11 @@ SMODS.Joker({
 })
 
 -- Labrynth Stovie Torbie
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "lab_stovie",
     atlas = 'lab',
     pos = { x = 1, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = false,
     cost = 3,
@@ -132,7 +129,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Labrynth" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -241,12 +237,11 @@ SMODS.Joker({
 })
 
 -- Labrynth Chandraglier
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "lab_changdra",
     atlas = 'lab',
     pos = { x = 2, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = false,
     cost = 3,
@@ -259,7 +254,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Labrynth" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -373,12 +367,11 @@ SMODS.Joker({
 })
 
 -- Ariane the Labrynth Servant
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "lab_ariane",
     atlas = 'lab',
     pos = { x = 3, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -388,7 +381,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Labrynth" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -465,12 +457,11 @@ SMODS.Joker({
 })
 
 -- Arianna the Labrynth Servant
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "lab_arianna",
     atlas = 'lab',
     pos = { x = 0, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -480,7 +471,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Labrynth" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -557,12 +547,11 @@ SMODS.Joker({
 })
 
 -- Arias the Labrynth Butler
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "lab_arias",
     atlas = 'lab',
     pos = { x = 1, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -572,7 +561,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Labrynth" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -641,12 +629,11 @@ SMODS.Joker({
 })
 
 -- Labrynth Archfiend
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "lab_archfiend",
     atlas = 'lab',
     pos = { x = 2, y = 1 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
@@ -656,7 +643,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Labrynth" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -740,12 +726,11 @@ SMODS.Joker({
 })
 
 -- Lovely Labrynth of the Silver Castle
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "lab_lovely",
     atlas = 'lab',
     pos = { x = 3, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -758,7 +743,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Labrynth" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -802,13 +786,12 @@ SMODS.Joker({
 })
 
 -- Lady Labrynth of the Silver Castle
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "lab_lady",
     atlas = 'lab',
     pos = { x = 0, y = 2 },
     joy_alt_pos = { { x = 2, y = 2 } },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 11,
@@ -818,7 +801,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Labrynth" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -864,12 +846,11 @@ SMODS.Joker({
 })
 
 -- Labrynth Labyrinth
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "lab_labyrinth",
     atlas = 'lab',
     pos = { x = 1, y = 2 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 8,
@@ -881,7 +862,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Labrynth" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

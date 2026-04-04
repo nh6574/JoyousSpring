@@ -7,12 +7,11 @@ SMODS.Atlas({
 })
 
 -- Centur-Ion Primera
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "centur_primera",
     atlas = 'centur',
     pos = { x = 0, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -22,7 +21,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "CenturIon" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -76,12 +74,11 @@ SMODS.current_mod.set_debuff = function(card)
 end
 
 -- Centur-Ion Atrii
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "centur_atrii",
     atlas = 'centur',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -91,7 +88,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "CenturIon" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -108,12 +104,11 @@ SMODS.Joker({
 })
 
 -- Centur-Ion Chimerea
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "centur_chimerea",
     atlas = 'centur',
     pos = { x = 1, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -123,7 +118,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "CenturIon" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -137,12 +131,11 @@ SMODS.Joker({
 })
 
 -- Centur-Ion Trudea
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "centur_trudea",
     atlas = 'centur',
     pos = { x = 1, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -152,7 +145,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "CenturIon" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -166,12 +158,11 @@ SMODS.Joker({
 })
 
 -- Centur-Ion Gargoyle II
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "centur_gargoyle",
     atlas = 'centur',
     pos = { x = 3, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -181,7 +172,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "CenturIon" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -196,12 +186,11 @@ SMODS.Joker({
 })
 
 -- Centur-Ion Emeth VI
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "centur_emeth",
     atlas = 'centur',
     pos = { x = 2, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -211,7 +200,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "CenturIon" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -225,12 +213,11 @@ SMODS.Joker({
 })
 
 -- Centur-Ion Primera Primus
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "centur_primus",
     atlas = 'centur',
     pos = { x = 0, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -240,7 +227,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "CenturIon" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -256,12 +242,11 @@ SMODS.Joker({
 })
 
 -- Centur-Ion Auxila
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "centur_auxila",
     atlas = 'centur',
     pos = { x = 1, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -271,7 +256,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "CenturIon" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -286,12 +270,11 @@ SMODS.Joker({
 })
 
 -- Centur-Ion Legatia
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "centur_legatia",
     atlas = 'centur',
     pos = { x = 3, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -301,7 +284,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "CenturIon" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -320,12 +302,11 @@ SMODS.Joker({
 })
 
 -- Stand Up Centur-Ion!
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "centur_standup",
     atlas = 'centur',
     pos = { x = 2, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -335,7 +316,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "CenturIon" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

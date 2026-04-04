@@ -7,12 +7,11 @@ SMODS.Atlas({
 })
 
 -- Hugin the Runick Wings
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "runick_hugin",
     atlas = 'Runick',
     pos = { x = 1, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -23,7 +22,6 @@ SMODS.Joker({
         { "j_joy_runick_fountain",                                name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Runick" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -65,12 +63,11 @@ SMODS.Joker({
 })
 
 -- Munin the Runick Wings
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "runick_munin",
     atlas = 'Runick',
     pos = { x = 2, y = 0 },
     rarity = 2,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 10,
@@ -80,7 +77,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Runick" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -148,12 +144,11 @@ SMODS.Joker({
 })
 
 -- Geri the Runick Fangs
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "runick_geri",
     atlas = 'Runick',
     pos = { x = 0, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 7,
@@ -164,7 +159,6 @@ SMODS.Joker({
         { "j_joy_runick_fountain",                                name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Runick" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -214,12 +208,11 @@ SMODS.Joker({
 })
 
 -- Freki the Runick Fangs
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "runick_freki",
     atlas = 'Runick',
     pos = { x = 1, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     cost = 7,
@@ -229,7 +222,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Runick" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -278,12 +270,11 @@ SMODS.Joker({
 })
 
 -- Sleipnir the Runick Mane
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "runick_sleipnir",
     atlas = 'Runick',
     pos = { x = 2, y = 1 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -296,7 +287,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Runick" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -341,12 +331,11 @@ SMODS.Joker({
 })
 
 -- Runick Fountain
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "runick_fountain",
     atlas = 'Runick',
     pos = { x = 0, y = 0 },
     rarity = 3,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 15,
@@ -356,7 +345,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Runick" } } }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

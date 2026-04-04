@@ -19,12 +19,11 @@ local bee_bypass_room_check = function(card, from_booster)
 end
 
 -- Battlewasp - Pin the Bullseye
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "wasp_pin",
     atlas = 'wasp',
     pos = { x = 2, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 2,
@@ -34,7 +33,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -76,12 +74,11 @@ SMODS.Joker({
 })
 
 -- Battlewasp - Dart the Hunter
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "wasp_dart",
     atlas = 'wasp',
     pos = { x = 1, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -91,7 +88,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -119,12 +115,11 @@ SMODS.Joker({
 })
 
 -- Battlewasp - Sting the Poison
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "wasp_sting",
     atlas = 'wasp',
     pos = { x = 0, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -134,7 +129,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -177,12 +171,11 @@ SMODS.Joker({
 })
 
 -- Battlewasp - Twinbow the Attacker
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "wasp_twinbow",
     atlas = 'wasp',
     pos = { x = 1, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -192,7 +185,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -216,12 +208,11 @@ SMODS.Joker({
 })
 
 -- Battlewasp - Arbalest the Rapidfire
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "wasp_arbalest",
     atlas = 'wasp',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -231,7 +222,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -251,12 +241,11 @@ SMODS.Joker({
 })
 
 -- Battlewasp - Rapier the Onslaught
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "wasp_rapier",
     atlas = 'wasp',
     pos = { x = 3, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -268,7 +257,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -304,12 +292,11 @@ SMODS.Joker({
 })
 
 -- Battlewasp - Azusa the Ghost Bow
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "wasp_azusa",
     atlas = 'wasp',
     pos = { x = 2, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -319,7 +306,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -370,12 +356,11 @@ SMODS.Joker({
 })
 
 -- Battlewasp - Halberd the Charge
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "wasp_halberd",
     atlas = 'wasp',
     pos = { x = 1, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -385,7 +370,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -440,12 +424,11 @@ SMODS.Joker({
 })
 
 -- Battlewasp - Sachi the Ceremonial Bow
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "wasp_sachi",
     atlas = 'wasp',
     pos = { x = 3, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -455,7 +438,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -515,12 +497,11 @@ SMODS.Joker({
 })
 
 -- Battlewasp - Hama the Conquering Bow
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "wasp_hama",
     atlas = 'wasp',
     pos = { x = 2, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -538,7 +519,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -605,12 +585,11 @@ SMODS.Joker({
 })
 
 -- Battlewasp - Ballista the Armageddon
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "wasp_ballista",
     atlas = 'wasp',
     pos = { x = 3, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,
@@ -620,7 +599,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -680,12 +658,11 @@ SMODS.Joker({
 })
 
 -- Battlewasp - Grand Partisan the Revolution
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "wasp_partisan",
     atlas = 'wasp',
     pos = { x = 0, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 15,
@@ -695,7 +672,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
