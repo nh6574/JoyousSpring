@@ -494,6 +494,7 @@ SMODS.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                is_all_materials = { LINK = true },
                 attribute = "DARK",
                 monster_type = "Cyberse",
                 monster_archetypes = { ["Ignister"] = true }
