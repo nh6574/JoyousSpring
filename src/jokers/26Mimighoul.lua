@@ -689,13 +689,6 @@ SMODS.Joker({
         },
     },
     calculate = function(self, card, context)
-        if JoyousSpring.can_use_abilities(card) then
-            if context.joker_main then
-                return {
-                    mult = card.ability.extra.mult * #JoyousSpring.opponent_area.cards
-                }
-            end
-        end
         if JoyousSpring.calculate_flip_effect(card, context) then
             SMODS.destroy_cards(card, nil, true)
             JoyousSpring.create_pseudorandom(
