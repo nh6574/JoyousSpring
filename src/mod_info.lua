@@ -539,28 +539,22 @@ local art_tab = function()
             for _, pos in ipairs(center.joy_alt_pos) do
                 options[#options + 1] = pos
             end
+            local name_node = {}
+            localize { type = 'name', set = "Joker", key = key, nodes = name_node, scale = 0.8, no_pop_in = true, no_bump = true }
+            name_node = desc_from_rows(name_node, true)
+            name_node.config.align = "cm"
             columns[#columns].nodes[#columns[#columns].nodes + 1] = {
                 n = G.UIT.R,
                 config = { align = "tm" },
                 nodes = {
                     {
                         n = G.UIT.C,
-                        config = { align = "tm" },
+                        config = { align = "tm", padding = -0.15 },
                         nodes = {
                             {
                                 n = G.UIT.R,
                                 config = { align = "tm" },
-                                nodes = {
-                                    {
-                                        n = G.UIT.T,
-                                        config = {
-                                            text = localize { type = "name_text", set = "Joker", key = key },
-                                            scale = 0.3,
-                                            colour = JoyousSpring.get_name_color(key, "Joker"),
-                                            shadow = true
-                                        }
-                                    },
-                                }
+                                nodes = { name_node }
                             },
                             {
                                 n = G.UIT.R,
