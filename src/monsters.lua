@@ -52,10 +52,10 @@ end
 local smods_attribute_list = {
     "joy_field_spell", "joy_spell", "joy_main_deck", "joy_extra_deck", "joy_effect", "joy_noneffect",
     "joy_special", "joy_nonspecial", "joy_normal", "joy_tuner", "joy_pendulum", "joy_trap",
-    "joy_flip", "joy_RITUAL", "joy_FUSION", "joy_SYNCHRO", "joy_XYZ", "joy_LINK",
+    "joy_flip", "joy_RITUAL", "joy_FUSION", "joy_SYNCHRO", "joy_XYZ", "joy_LINK", "joy_monster"
 }
 for _, key in ipairs(SMODS.merge_lists({ JoyousSpring.types_list, JoyousSpring.attributes_list })) do
-    smods_attribute_list[#smods_attribute_list + 1] = key
+    smods_attribute_list[#smods_attribute_list + 1] = "joy_" .. key
 end
 
 for _, key in ipairs(smods_attribute_list) do
@@ -70,6 +70,7 @@ local get_attributes_from_joy_table = function(center)
     ---@type joyous_spring
     local joy_table = (center.config.extra or {}).joyous_spring
     if not joy_table then return attributes end
+    attributes[#attributes + 1] = "joy_monster"
     for archetype, _ in pairs(joy_table.monster_archetypes) do -- this is not used for now because im too lazy to make an attribute for each
         attributes[#attributes + 1] = "joy_" .. archetype
     end
@@ -105,8 +106,32 @@ JoyousSpring.Joker = SMODS.Joker:extend {
     set_sprites = JoyousSpring.set_back_sprite,
     inject = function(self, i)
         self.attributes = SMODS.merge_lists({ self.attributes or {}, get_attributes_from_joy_table(self) })
+        self.weight = ({ 7, 2.5, 0.5, 0.1 })[self.rarity]
 
         SMODS.Joker.inject(self, i)
+    end,
+    get_weight = function(self, original_weight, args)
+        if G.GAME.joy_only_ygo_cards then
+            local rarity = ({ "Common", "Uncommon", "Rare", "Legendary" })[self.rarity]
+            local weight = original_weight
+            local mod = G.GAME[tostring(rarity):lower() .. "_mod"] or 1
+            if SMODS.Rarities[rarity] and type(SMODS.Rarities[rarity].get_weight) == "function" then
+                weight = SMODS.Rarities[rarity]:get_weight(SMODS.Rarities[rarity].default_weight,
+                    SMODS.ObjectTypes['Joker']) * 10
+                if rarity == "Legendary" and weight == 0 then
+                    local legend = args.rarity == "Legendary"
+                    for _, rar in ipairs(args.rarities or {}) do
+                        if rar == "Legendary" then
+                            legend = true
+                            break
+                        end
+                    end
+                    weight = (legend or args.append == "sou") and 10 or 0.1
+                end
+            end
+            return weight * mod
+        end
+        return 10
     end
 }
 

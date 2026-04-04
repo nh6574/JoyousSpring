@@ -6,6 +6,14 @@ SMODS.Atlas({
     py = 95
 })
 
+local ghost_in_pool = function(self, args)
+    if args and args.source == "sho" then
+        return not (G.GAME.used_jokers[self.key] and not SMODS.showman(self.key)),
+            { override_base_checks = true }
+    end
+    return true
+end
+
 -- Ghost Ogre & Snow Rabbit
 JoyousSpring.Joker({
     key = "yokai_ogre",
@@ -50,9 +58,7 @@ JoyousSpring.Joker({
             end
         end
     end,
-    joy_get_weight = function(self, args)
-        return 0.01
-    end,
+    in_pool = ghost_in_pool,
     joker_display_def = function(JokerDisplay)
         return {
             text = {
@@ -104,9 +110,7 @@ JoyousSpring.Joker({
             end
         end
     end,
-    joy_get_weight = function(self, args)
-        return 0.01
-    end,
+    in_pool = ghost_in_pool,
     joker_display_def = function(JokerDisplay)
         return {
             text = {
@@ -170,9 +174,7 @@ JoyousSpring.Joker({
             end
         end
     end,
-    joy_get_weight = function(self, args)
-        return 0.01
-    end,
+    in_pool = ghost_in_pool,
     joker_display_def = function(JokerDisplay)
         return {
             text = {
@@ -230,9 +232,7 @@ JoyousSpring.Joker({
             end
         end
     end,
-    joy_get_weight = function(self, args)
-        return 0.01
-    end,
+    in_pool = ghost_in_pool,
     joker_display_def = function(JokerDisplay)
         return {
             text = {
@@ -310,9 +310,7 @@ JoyousSpring.Joker({
             end
         end
     end,
-    joy_get_weight = function(self, args)
-        return 0.01
-    end,
+    in_pool = ghost_in_pool,
     joker_display_def = function(JokerDisplay)
         return {
             text = {
@@ -375,9 +373,7 @@ JoyousSpring.Joker({
             SMODS.debuff_card(added_card, true, "j_joy_yokai_mourner")
         end
     end,
-    joy_get_weight = function(self, args)
-        return 0.01
-    end,
+    in_pool = ghost_in_pool,
     joker_display_def = function(JokerDisplay)
         return {
             text = {

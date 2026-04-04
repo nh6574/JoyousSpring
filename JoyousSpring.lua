@@ -10,6 +10,10 @@ if debug then
     debug()
 end
 
+SMODS.current_mod.optional_features = {
+    object_weights = true
+}
+
 local filelist = {
     "utils",
     "globals",
