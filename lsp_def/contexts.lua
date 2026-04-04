@@ -1,0 +1,53 @@
+---@meta
+
+---@class CalcContext
+---@field joy_card Card|table? The individual card being checked.
+---@field joy_no_draw boolean? Called for Ash Blossom's effect.
+---@field joy_selecting_hand boolean? When the game enters the SELECTING_HAND state after playing. For instawins on Blinds.
+---@field joy_pre_setting_blind boolean? Before setting the Blind. For Blind negation effects (before cards are flipped by blind effects).
+---@field joy_blind Blind|table? The individual blind being checked.
+---@field joy_banished boolean? When a card is banished.
+---@field joy_banished_card Card|table? The individual card being banished.
+---@field joy_banished_area CardArea|table? Area the card is banished from.
+---@field joy_banish_until string? Timing when the banished card returns.
+---@field joy_returned boolean? When a card returns from banishment.
+---@field joy_returned_card Card|table? The individual card returning.
+---@field joy_returned_area CardArea|table? Area the card is returned to.
+---@field joy_returned_from CardArea|table? Area the card is returned from.
+---@field joy_tributed boolean? When a card is being tributed.
+---@field joy_source Card|Blind|table? Source of the effect.
+---@field joy_danger Card|table? Card destroyed by a Danger! effect.
+---@field joy_summon boolean? When a card is being summoned.
+---@field joy_transform_summon boolean? When a card is transformed and counting it as a summon.
+---@field joy_summon_materials Card[]|table? Summon materials for the summon.
+---@field joy_summon_type string? Summon type of the summon.
+---@field joy_sent_to_gy boolean? When a card is sent to the GY
+---@field joy_key string? Key for the card sent to the GY.
+---@field joy_from_field boolean? When a card is sent to the GY from the Joker area
+---@field joy_summoned boolean? When a summoned card is sent to the GY
+---@field joy_revived boolean? When a card is revived
+---@field joy_revived_card Card|table? The individual card being revived.
+---@field joy_detach boolean? When a card tries to detach a material.
+---@field joy_detaching_card Card|table? The individual card detaching.
+---@field joy_detached boolean? When a card detaches a material.
+---@field joy_detach_value integer? Amount of cards detached.
+---@field joy_excavated Card|table? The individual card being excavated.
+---@field joy_number integer? The index of the axcavated card.
+---@field joy_other_context CalcContext? Context where the effect was activated.
+---@field joy_flip_activated Card|table? The individual card activating its FLIP ability.
+---@field joy_card_flipped Card|table? The individual card being flipped.
+---@field joy_modify_probability boolean? When a probability (numerator) is modified permanently.
+---@field joy_increased boolean? When the probability modification increased the numerator.
+---@field joy_probability_roll boolean? When a probability is being rolled.
+---@field joy_result boolean? Current result of the probability.
+---@field joy_trigger_obj table? trigger_obj of the probability.
+---@field joy_identifier string? Identifier of the probability.
+---@field joy_activate_effect boolean? When an effect is being activated.
+---@field joy_activated_card Card|table? The individual card being activated.
+---@field joy_exit_effect_selection boolean? When the card selection screen is closed properly.
+---@field joy_selection Card[]|table? Cards selected in the selection screen.
+---@field joy_post_round_eval boolean? After round evaluation
+---@field joy_blind_changed true? When blind changes (either by being picked first or reroling)
+---@field joy_blind_type 'Small'|'Big'|'Boss'? Slot of Blind that changed
+---@field joy_old_blind string? old blind key
+---@field joy_new_blind string? new blind key
