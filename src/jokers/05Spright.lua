@@ -62,7 +62,7 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 2,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.mill } }
+        return { vars = { card.ability.extra.mills } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Spright" } } }, name = "k_joy_archetype" },
