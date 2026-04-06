@@ -357,20 +357,25 @@ JoyousSpring.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not from_debuff and not card.debuff then
-            local has_revived = false
-            if SMODS.pseudorandom_probability(card, card.config.center.key, card.ability.extra.numerator, card.ability.extra.odds) then
-                for i = 1, card.ability.extra.revives do
-                    local revived_card = JoyousSpring.revive_pseudorandom(
-                        { { rarity = 1, monster_archetypes = { "Dragonmaid" } } },
-                        'j_joy_dmaid_nurse',
-                        true
-                    )
-                    has_revived = (revived_card and true) or has_revived
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    local has_revived = false
+                    if SMODS.pseudorandom_probability(card, card.config.center.key, card.ability.extra.numerator, card.ability.extra.odds) then
+                        for i = 1, card.ability.extra.revives do
+                            local revived_card = JoyousSpring.revive_pseudorandom(
+                                { { rarity = 1, monster_archetypes = { "Dragonmaid" } } },
+                                'j_joy_dmaid_nurse',
+                                true
+                            )
+                            has_revived = (revived_card and true) or has_revived
+                        end
+                    end
+                    if has_revived then
+                        SMODS.calculate_effect({ message = localize("k_joy_revive") }, card)
+                    end
+                    return true
                 end
-            end
-            if has_revived then
-                SMODS.calculate_effect({ message = localize("k_joy_revive") }, card)
-            end
+            }))
         end
     end,
     joker_display_def = function(JokerDisplay)
@@ -694,24 +699,29 @@ JoyousSpring.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not from_debuff and not card.debuff then
-            local has_revived = false
-            if SMODS.pseudorandom_probability(card, card.config.center.key, card.ability.extra.numerator, card.ability.extra.odds) then
-                for i = 1, card.ability.extra.revives do
-                    local revived_card
-                    JoyousSpring.revive_pseudorandom(
-                        {
-                            { rarity = 2, monster_archetypes = { "Dragonmaid" } },
-                            { rarity = 3, monster_archetypes = { "Dragonmaid" } },
-                        },
-                        'j_joy_dmaid_cehrmba',
-                        true
-                    )
-                    has_revived = revived_card and true or has_revived
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    local has_revived = false
+                    if SMODS.pseudorandom_probability(card, card.config.center.key, card.ability.extra.numerator, card.ability.extra.odds) then
+                        for i = 1, card.ability.extra.revives do
+                            local revived_card
+                            JoyousSpring.revive_pseudorandom(
+                                {
+                                    { rarity = 2, monster_archetypes = { "Dragonmaid" } },
+                                    { rarity = 3, monster_archetypes = { "Dragonmaid" } },
+                                },
+                                'j_joy_dmaid_cehrmba',
+                                true
+                            )
+                            has_revived = revived_card and true or has_revived
+                        end
+                    end
+                    if has_revived then
+                        SMODS.calculate_effect({ message = localize("k_joy_revive") }, card)
+                    end
+                    return true
                 end
-            end
-            if has_revived then
-                SMODS.calculate_effect({ message = localize("k_joy_revive") }, card)
-            end
+            }))
         end
     end,
     in_pool = function(self, args)

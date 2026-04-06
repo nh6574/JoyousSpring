@@ -176,7 +176,7 @@ JoyousSpring.Joker({
                                 func = function()
                                     JoyousSpring.transform_card(card,
                                         memory_suits[pcard.base.suit] or "j_joy_purr_ehappiness", false,
-                                        "XYZ")
+                                        "XYZ", {})
                                     G.playing_card = (G.playing_card and G.playing_card + 1) or 1
                                     local card_copied = copy_card(pcard, nil, nil, G.playing_card)
                                     card_copied:add_to_deck()

@@ -550,9 +550,14 @@ JoyousSpring.Joker({
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff then
             for i = 1, card.ability.extra.revives do
-                JoyousSpring.revive_pseudorandom(
-                    { { monster_archetypes = { "Ignister" }, is_main_deck = true } },
-                    'j_joy_ignis_bururu', true, nil, JoyousSpring.get_card_limit(card) > 0 and 0 or -1)
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        JoyousSpring.revive_pseudorandom(
+                            { { monster_archetypes = { "Ignister" }, is_main_deck = true } },
+                            'j_joy_ignis_bururu', true)
+                        return true
+                    end
+                }))
             end
         end
     end

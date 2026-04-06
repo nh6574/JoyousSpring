@@ -430,12 +430,17 @@ JoyousSpring.Joker({
     add_to_deck = function(self, card, from_debuff)
         if not from_debuff and not card.debuff then
             for i = 1, card.ability.extra.revives do
-                JoyousSpring.revive_pseudorandom(
-                    { { monster_archetypes = { "Dogmatika" } },
-                        (next(SMODS.find_card("j_joy_dogma_relic")) and next(SMODS.find_card("j_joy_dogma_thunderbolt")) and { is_extra_deck = true } or nil) },
-                    'j_joy_dogma_ashiyan',
-                    true
-                )
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        JoyousSpring.revive_pseudorandom(
+                            { { monster_archetypes = { "Dogmatika" } },
+                                (next(SMODS.find_card("j_joy_dogma_relic")) and next(SMODS.find_card("j_joy_dogma_thunderbolt")) and { is_extra_deck = true } or nil) },
+                            'j_joy_dogma_ashiyan',
+                            true
+                        )
+                        return true
+                    end
+                }))
             end
         end
     end,

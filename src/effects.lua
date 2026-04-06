@@ -268,6 +268,7 @@ JoyousSpring.transform_card = function(card, other_key, keep_materials, summon_t
     local xyz_materials = joyous_spring_table.xyz_materials
     local material_effects = joyous_spring_table.material_effects
     local original_key = card.config.center.key
+    summon_materials = summon_materials or {}
     SMODS.calculate_context({
         joy_transform_summon = true,
         joy_card = card,
@@ -470,7 +471,7 @@ JoyousSpring.calculate_hand_highlight_limit = function()
                 default_return = -1,
                 return_func = function(new, original)
                     local new_limit = new or -1
-                    return original(new_limit > original) and new_limit or original
+                    return not original and new_limit or (new_limit > original) and new_limit or original
                 end
             })
 
