@@ -1178,7 +1178,7 @@ JoyousSpring.Joker({
             if context.individual and context.cardarea == G.play then
                 local current_mult = card.ability.extra.mult *
                     JoyousSpring.get_attribute_count(JoyousSpring.get_materials(card))
-                context.other_card.ability.perma_mult = (context.other_card.ability.perma_mult or 1) +
+                context.other_card.ability.perma_mult = (context.other_card.ability.perma_mult or 0) +
                     current_mult
                 return { message = localize('k_upgrade_ex'), colour = G.C.MULT }
             end
@@ -1206,7 +1206,7 @@ JoyousSpring.Joker({
             if context.individual and context.cardarea == G.play then
                 local current_mult = config.mult *
                     JoyousSpring.get_attribute_count(JoyousSpring.get_materials(other_card))
-                context.other_card.ability.perma_mult = (context.other_card.ability.perma_mult or 1) + current_mult
+                context.other_card.ability.perma_mult = (context.other_card.ability.perma_mult or 0) + current_mult
                 return { message = localize('k_upgrade_ex'), colour = G.C.MULT }
             end
         end
