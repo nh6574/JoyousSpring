@@ -16,7 +16,7 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.count_materials_owned({ { monster_type = "Spellcaster" } }) } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "WhiteForest" } }, }, name = "k_joy_archetype" },
@@ -28,6 +28,7 @@ JoyousSpring.Joker({
                 attribute = "LIGHT",
                 monster_archetypes = { ["WhiteForest"] = true }
             },
+            mult = 5
         },
     },
 })
@@ -42,7 +43,7 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.count_set_tributed("Consumable") } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "WhiteForest" } }, }, name = "k_joy_archetype" },
@@ -54,6 +55,7 @@ JoyousSpring.Joker({
                 attribute = "LIGHT",
                 monster_archetypes = { ["WhiteForest"] = true }
             },
+            mult = 3
         },
     },
 })
@@ -68,7 +70,7 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.mult, 0, card.ability.extra.xmult } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "WhiteForest" } }, }, name = "k_joy_archetype" },
@@ -81,6 +83,8 @@ JoyousSpring.Joker({
                 attribute = "LIGHT",
                 monster_archetypes = { ["WhiteForest"] = true }
             },
+            mult = 5,
+            xmult = 1.5
         },
     },
 })
@@ -95,7 +99,7 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.mult_flip, 0, card.ability.extra.mult_illusion, 0 } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "WhiteForest" } }, }, name = "k_joy_archetype" },
@@ -108,6 +112,8 @@ JoyousSpring.Joker({
                 attribute = "LIGHT",
                 monster_archetypes = { ["WhiteForest"] = true }
             },
+            mult_flip = 5,
+            mult_illusion = 10,
         },
     },
 })
@@ -150,7 +156,7 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.xmult, 1 } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "WhiteForest" } }, }, name = "k_joy_archetype" },
@@ -164,6 +170,7 @@ JoyousSpring.Joker({
                 attribute = "LIGHT",
                 monster_archetypes = { ["WhiteForest"] = true }
             },
+            xmult = 1
         },
     },
 })
@@ -178,7 +185,7 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.mult, 0 } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "WhiteForest" } }, }, name = "k_joy_archetype" },
@@ -192,6 +199,7 @@ JoyousSpring.Joker({
                 attribute = "LIGHT",
                 monster_archetypes = { ["WhiteForest"] = true }
             },
+            mult = 25
         },
     },
 })
@@ -206,7 +214,7 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.xmult, 1 } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "WhiteForest" } }, }, name = "k_joy_archetype" },
@@ -219,6 +227,7 @@ JoyousSpring.Joker({
                 attribute = "LIGHT",
                 monster_archetypes = { ["WhiteForest"] = true }
             },
+            xmult = 0.1
         },
     },
 })

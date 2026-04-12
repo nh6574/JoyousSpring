@@ -443,6 +443,11 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
                     table.insert(info_queue, 1,
                         { set = "Other", key = "joy_tooltip_field_spell_joker", vars = { scale = 0.5 } })
                 end
+                -- Add tooltip if it's an illusion
+                if is_monster and card.ability.extra.joyous_spring.monster_type == "Illusion" then
+                    table.insert(info_queue, 1,
+                        { set = "Other", key = "joy_tooltip_illusion_joker", vars = { scale = 0.5 } })
+                end
                 -- Add Special Joker tooltips
                 for _, type in ipairs({ "RITUAL", "FUSION", "SYNCHRO", "XYZ", "LINK" }) do
                     if JoyousSpring.is_summon_type(card, type) then

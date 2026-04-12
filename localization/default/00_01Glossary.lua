@@ -147,6 +147,14 @@ return {
                     "{s:0.9}Can't be revived"
                 },
             },
+            joy_tooltip_illusion_joker = {
+                name = "Illusion Joker",
+                text = {
+                    "{C:attention}Jokers{} with this {C:attention}original type{}",
+                    "{C:attention}banish{} when {C:attention}Blind{} is selected",
+                    "until end of round",
+                },
+            },
             joy_tooltip_banish = {
                 name = "Banish",
                 text = {

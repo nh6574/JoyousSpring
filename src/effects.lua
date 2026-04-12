@@ -216,6 +216,7 @@ JoyousSpring.count_as_tributed = function(card, for_ritual)
     if not G.GAME.joy_tributed_cards[card.config.center.key] then
         G.GAME.joy_tributed_cards[card.config.center.key] = {
             set = card.ability.set,
+            consumable = not not card.ability.consumeable,
             count = 0,
             for_ritual = 0
         }
@@ -223,6 +224,7 @@ JoyousSpring.count_as_tributed = function(card, for_ritual)
     if not G.GAME.current_round.joy_tributed_cards[card.config.center.key] then
         G.GAME.current_round.joy_tributed_cards[card.config.center.key] = {
             set = card.ability.set,
+            consumable = not not card.ability.consumeable,
             count = 0,
             for_ritual = 0
         }

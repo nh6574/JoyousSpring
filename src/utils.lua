@@ -402,8 +402,8 @@ JoyousSpring.get_set_tributed = function(set, this_run)
     local list = {}
     local tribute_table = this_run and G.GAME.joy_tributed_cards or G.GAME.current_round.joy_tributed_cards
 
-    for key, value in pairs(tribute_table) do
-        if not set or (set == value.set) then
+    for key, value in pairs(tribute_table or {}) do
+        if not set or (set == value.set) or (set == "Consumable" and value.consumable) then
             for i = 1, value.count do
                 table.insert(list, key)
             end

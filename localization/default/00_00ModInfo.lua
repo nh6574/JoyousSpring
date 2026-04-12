@@ -20,7 +20,7 @@ return {
 					"{C:attention}Korean:{} voidu",
 					" ",
 					"{C:joy_mod}Archetype Ideas:{}",
-					"{C:joy_link}@Ignister{}, {C:joy_xyz}Purrely: gyro/rina",
+					"{C:joy_link}@Ignister{}, {C:joy_xyz}Purrely{}: gyro/rina",
 					" ",
 					"Some ideas taken from these mods (click to see!):",
 					"{C:joy_effect,button:joy_aikoyori,u:joy_effect}Aikoyori's Shenanigans{}, {C:joy_effect,button:joy_starrail,u:joy_effect}Balatro: Star Rail{}, {C:joy_effect,button:joy_cartomancer,u:joy_effect}Cartomancer",
