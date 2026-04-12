@@ -424,6 +424,9 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
                 local summon_desc_nodes = full_UI_table.info[#full_UI_table.info]
                 summon_desc_nodes.name = localize('k_joy_summon_conditions')
                 localize { type = "joy_summon_conditions", set = self.set, key = self.key, nodes = summon_desc_nodes }
+                if JoyousSpring.is_summoned(card) then
+                    summon_desc_nodes.background_colour = lighten(G.C.UI.TEXT_INACTIVE, 0.8)
+                end
             end
 
             if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
