@@ -28,7 +28,7 @@
 ---@field joy_prevent_banish? fun(self: JoyousSpring.Joker|table, card:table|Card, other_card:Card|table, banish_until:string):boolean? Determines if *other_card* can be banished
 ---@field joy_prevent_drag? fun(self: JoyousSpring.Joker|table, card:table|Card, other_card:Card|table, area:CardArea|table):boolean? Determines if *other_card* can be dragged
 ---@field joy_prevent_summon? fun(self: JoyousSpring.Joker|table, card:table|Card, other_card:Card|table, card_list:Card[]|table?):boolean? Determines if *other_card* can be summoned
----@field joy_can_calculate_in_side? fun(self: JoyousSpring.Joker|table, card:table|Card, func:string?):boolean? Determines if it can calculate and call other functions in the side deck
+---@field joy_can_calculate_in_side? fun(self: JoyousSpring.Joker|table, card:table|Card, calc_func:string?):boolean? Determines if it can calculate and call other functions in the side deck
 ---@field joy_can_transfer_ability? fun(self:JoyousSpring.Joker|table, other_card:Card|table, card:Card|table?):boolean? Determines if *self* transfers its ability to *other_card*. When transforming, `other_card.joy_transforming == self.key`
 ---@field joy_transfer_ability_calculate? fun(self:JoyousSpring.Joker|table, other_card:Card|table, context:CalcContext, config:table):table? Similar to `calculate` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect
 ---@field joy_transfer_config? fun(self:JoyousSpring.Joker|table, other_card:Card|table):table? Similar to `config`, it returns the initial config table for the transferred ability

@@ -76,7 +76,7 @@ return {
                     },
                     {
                         "If this card is in the {C:joy_link}Side Deck{},",
-                        "Perishable cards give {X:mult,C:white}X#2#{} Mult"
+                        "{C:attention}Perishable{} cards give {X:mult,C:white}X#2#{} Mult"
                     },
                     {
                         "Creates {C:attention}1 Perishable{} {C:joy_effect}\"Centur-Ion Gargoyle II\"{} in the {C:joy_link}Side Deck{} and",
@@ -117,6 +117,11 @@ return {
                         "and another {C:joy_synchro}Synchro{} to add",
                         "{C:attention}2 Perishable{} {C:joy_normal}\"Centur-Ion\"{} to the {C:joy_spell}Extra Deck{}"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}1{} {C:joy_synchro}Tuner{} +",
+                    "{C:attention}1{} non-{C:joy_synchro}Tuner{}",
+                    "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
                 }
             },
             j_joy_centur_auxila = {
@@ -132,6 +137,11 @@ return {
                         "adds {C:attention}1{} {C:joy_normal}\"Centur-Ion\"{} to the {C:joy_spell}Extra Deck{}",
                         "when used as {C:attention}material{} for a {C:joy_synchro}Synchro{}"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}1{} {C:joy_synchro}Tuner{} +",
+                    "{C:attention}1{} non-{C:joy_synchro}Tuner{}",
+                    "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
                 }
             },
             j_joy_centur_legatia = {
@@ -140,24 +150,29 @@ return {
                     {
                         "Scores {C:joy_normal}\"Centur-Ion\"{} in the",
                         "{C:joy_link}Side Deck{} as if owned",
+                        "{C:inactive,s:0.85}(Extra Deck Jokers must be properly summoned){}"
                     },
                     {
                         "Returns to the {C:joy_spell}Extra Deck{} at end of round",
                         "and, if it does, allows the {C:joy_link}Side Deck{} to be skipped",
                         "this round even if slots are full"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}1{} {C:joy_synchro}Synchro{} {C:joy_synchro}Tuner{} +",
+                    "{C:attention}1{} {C:joy_synchro}Synchro{} non-{C:joy_synchro}Tuner{}",
                 }
             },
             j_joy_centur_standup = {
                 name = "{C:joy_spell}Stand Up Centur-Ion!",
                 text = {
                     {
-                        "Creates all cards used for the first summon each round",
+                        "Once per round, creates all cards used for the a summon",
                         "as {C:attention}Perishable{} in the {C:joy_link}Side Deck{}"
                     },
                     {
                         "If a card {C:attention}Perishes{},",
-                        "creates {C:attention}1{} {C:joy_normal}\"Centur-Ion\"{} in the {C:joy_link}Side Deck{}"
+                        "creates {C:attention}1 Perishable{} {C:joy_normal}\"Centur-Ion\"{} in the {C:joy_link}Side Deck{}"
                     }
                 }
             },

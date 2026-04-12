@@ -298,6 +298,7 @@ G.FUNCS.joy_toggle_side_deck = function(e)
                 JoyousSpring.extra_deck_area.states.collide.can = false
                 JoyousSpring.field_spell_area.states.collide.can = false
                 JoyousSpring.side_deck_area.states.collide.can = false
+                G.GAME.joy_skip_side = nil
                 G.STATE_COMPLETE = false
                 G.STATE = G.STATES.BLIND_SELECT
                 G.CONTROLLER.locks.joy_toggle_side_deck = nil
@@ -418,7 +419,8 @@ function Card:stop_drag()
 end
 
 G.FUNCS.joy_next_round_enable = function(e)
-    if JoyousSpring.side_deck_area.config.card_limit >= #JoyousSpring.side_deck_area.cards then
+    if JoyousSpring.side_deck_area.config.card_limit >= #JoyousSpring.side_deck_area.cards or
+        G.GAME.joy_skip_side then
         e.config.colour = G.C.RED
         e.config.button = 'joy_toggle_side_deck'
     else

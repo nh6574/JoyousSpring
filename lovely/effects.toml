@@ -163,3 +163,16 @@ match_indent = true
 payload = '''
 G.GAME.joy_excavated = nil
 '''
+
+# Perishable context
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+if self.area == G.jokers then self:remove_from_deck(true) end
+'''
+position = 'after'
+match_indent = true
+payload = '''
+SMODS.calculate_context{ joy_perish = true, joy_card = self }
+'''

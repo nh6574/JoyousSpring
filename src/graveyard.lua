@@ -254,8 +254,8 @@ end
 
 -- Allow sliced cards to activate in the sent to GY context
 local card_can_calculate_ref = Card.can_calculate
-function Card:can_calculate(ignore_debuff, ignore_sliced)
-    local ret = card_can_calculate_ref(self, ignore_debuff, ignore_sliced)
+function Card:can_calculate(ignore_debuff, ...)
+    local ret = card_can_calculate_ref(self, ignore_debuff, ...)
     if JoyousSpring.is_monster_card(self) and JoyousSpring.sent_to_gy_context then
         return (not self.debuff or ignore_debuff)
     end

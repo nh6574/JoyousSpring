@@ -178,11 +178,11 @@ SMODS.current_mod.calculate = function(self, context)
     end
 
     -- Add temporary hand size
-    if context.setting_blind and JoyousSpring.temporary_handsize then
-        G.hand:change_size(JoyousSpring.temporary_handsize)
+    if context.setting_blind and G.GAME.joy_temporary_handsize then
+        G.hand:change_size(G.GAME.joy_temporary_handsize)
         G.GAME.round_resets.temp_handsize = (G.GAME.round_resets.temp_handsize or 0) +
-            JoyousSpring.temporary_handsize
-        JoyousSpring.temporary_handsize = 0
+            G.GAME.joy_temporary_handsize
+        G.GAME.joy_temporary_handsize = 0
     end
 end
 
@@ -863,6 +863,26 @@ function Card:set_edition(edition, ...)
         return card_set_edition_ref(self, nil, ...)
     end
     return card_set_edition_ref(self, edition, ...)
+end
+
+local smods_find_card_ref = SMODS.find_card
+function SMODS.find_card(...)
+    JoyousSpring.findcard_sidedeck = true
+    local result = smods_find_card_ref(...)
+    JoyousSpring.findcard_sidedeck = nil
+    return result
+end
+
+-- Allow cards in the Side Deck to calculate certain effects
+local card_can_calculate_ref = Card.can_calculate
+function Card:can_calculate(...)
+    local ret = card_can_calculate_ref(self, ...)
+    if JoyousSpring.is_monster_card(self) and self.area and self.area == JoyousSpring.side_deck_area then
+        return (JoyousSpring.is_summon_type(self, "NORMAL") or JoyousSpring.is_summoned(self)) and
+            type(self.config.center.joy_can_calculate_in_side) == "function" and
+            self.config.center:joy_can_calculate_in_side(self, "calculate")
+    end
+    return ret
 end
 
 --#endregion

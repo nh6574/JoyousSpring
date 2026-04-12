@@ -11,6 +11,8 @@ JoyousSpring.add_to_extra_deck = function(card, args)
             key = card,
             edition = args.edition or nil,
             no_edition = args.no_edition or nil,
+            stickers = args.stickers,
+            force_stickers = args.stickers,
             skip_materialize = true,
         })
     end
@@ -27,9 +29,9 @@ end
 ---@param seed string|number?
 ---@param must_have_room boolean?
 ---@param not_owned boolean?
----@param edition table|string?
+---@param args table|string?
 ---@param ignore_in_pool boolean?
-JoyousSpring.add_to_extra_deck_pseudorandom = function(property_list, seed, must_have_room, not_owned, edition,
+JoyousSpring.add_to_extra_deck_pseudorandom = function(property_list, seed, must_have_room, not_owned, args,
                                                        ignore_in_pool)
     property_list = property_list or { {} }
     for _, property in ipairs(property_list) do
@@ -42,8 +44,7 @@ JoyousSpring.add_to_extra_deck_pseudorandom = function(property_list, seed, must
                     not ignore_in_pool and seed)
                 local key_to_add = pseudorandom_element(choices, seed or "JoyousSpring")
                 if key_to_add then
-                    JoyousSpring.add_to_extra_deck(key_to_add,
-                        { edition = edition or nil, no_edition = edition == false })
+                    JoyousSpring.add_to_extra_deck(key_to_add, args)
                 end
             end
             return true
@@ -66,6 +67,9 @@ JoyousSpring.return_to_extra_deck = function(card)
                         card:remove_from_deck()
                         card.ability.extra.joyous_spring.summoned = false
                         card.ability.extra.joyous_spring.xyz_materials = 0
+                        if card.ability.joy_extra_values then
+                            card.ability.joy_extra_values.sidedeck_from_field = nil
+                        end
                         card:set_cost()
                         JoyousSpring.extra_deck_area:emplace(card)
                         if JokerDisplay then

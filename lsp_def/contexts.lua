@@ -51,3 +51,4 @@
 ---@field joy_blind_type 'Small'|'Big'|'Boss'? Slot of Blind that changed
 ---@field joy_old_blind string? old blind key
 ---@field joy_new_blind string? new blind key
+---@field joy_perish true? When a card perishes

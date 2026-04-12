@@ -77,6 +77,9 @@ pattern = "-- TARGET: add your own CardAreas for joker evaluation"
 position = 'before'
 match_indent = true
 payload = '''
-if JoyousSpring and JoyousSpring.field_spell_area and JoyousSpring.field_spell_area.cards then table.insert(t, JoyousSpring.field_spell_area) end
-if JoyousSpring and JoyousSpring.opponent_area and JoyousSpring.opponent_area.cards then table.insert(t, JoyousSpring.opponent_area) end
+if JoyousSpring then
+    if (JoyousSpring.field_spell_area or {}).cards then table.insert(t, JoyousSpring.field_spell_area) end
+    if (JoyousSpring.opponent_area or {}).cards then table.insert(t, JoyousSpring.opponent_area) end
+    if not JoyousSpring.findcard_sidedeck and (JoyousSpring.side_deck_area or {}).cards then table.insert(t, JoyousSpring.side_deck_area) end
+end
 '''

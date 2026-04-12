@@ -37,7 +37,7 @@ if JoyousSpring then
 end
 '''
 
-# Add new ante calculate function to Blinds
+# Add ante calculate function to Blinds
 [[patches]]
 [patches.pattern]
 target = '=[SMODS _ "src/utils.lua"]'
@@ -45,7 +45,7 @@ pattern = "-- TARGET: add your own individual scoring targets"
 position = 'after'
 match_indent = true
 payload = '''
-if JoyousSpring and G.GAME.joy_active_blinds then
+if G.GAME.joy_active_blinds then
     local sorted_table = {}
     for key, blind_type in pairs(G.GAME.joy_active_blinds) do
         sorted_table[blind_type] = key

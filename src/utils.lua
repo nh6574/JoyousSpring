@@ -770,25 +770,6 @@ JoyousSpring.calculate_prototype_function = function(func, args, ...)
     return return_value
 end
 
----Calculates cards in the side deck
----@param context CalcContext
----@param calc_card Card|table?
----@return table?
-JoyousSpring.calculate_in_side_deck = function(context, calc_card)
-    local ret = {}
-    local old_blueprint = context.blueprint_card
-    context.blueprint_card = calc_card
-    for _, joker in ipairs(JoyousSpring.side_deck_area.cards) do
-        if type(joker.config.center.joy_can_calculate_in_side) == "function" and
-            joker.config.center:joy_can_calculate_in_side(joker, "calculate") then
-            local jret, _ = joker:calculate_joker(context)
-            ret[#ret + 1] = jret
-        end
-    end
-    context.blueprint_card = old_blueprint
-    return SMODS.merge_effects(ret)
-end
-
 --- Overflow compat
 
 JoyousSpring.destroy_cards = function(cards, ...)

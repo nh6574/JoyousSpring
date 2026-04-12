@@ -120,7 +120,7 @@ JoyousSpring.OpponentCard {
         if JoyousSpring.calculate_flip_effect(card, context) then
             SMODS.destroy_cards(card, nil, true)
             if card.joy_flipped_at_end then
-                JoyousSpring.temporary_handsize = (JoyousSpring.temporary_handsize or 0) + card.ability.extra.h_size
+                G.GAME.joy_temporary_handsize = (G.GAME.joy_temporary_handsize or 0) + card.ability.extra.h_size
                 card.joy_flipped_at_end = nil
             else
                 G.hand:change_size(card.ability.extra.h_size)
