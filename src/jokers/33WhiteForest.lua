@@ -24,6 +24,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Spellcaster",
+                attribute = "LIGHT",
                 monster_archetypes = { ["WhiteForest"] = true }
             },
         },
@@ -34,7 +36,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "wforest_elzette",
     atlas = 'wforest',
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 0 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -48,6 +50,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Spellcaster",
+                attribute = "LIGHT",
                 monster_archetypes = { ["WhiteForest"] = true }
             },
         },
@@ -58,7 +62,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "wforest_silvy",
     atlas = 'wforest',
-    pos = { x = 0, y = 0 },
+    pos = { x = 0, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -72,6 +76,9 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                is_tuner = true,
+                monster_type = "Spellcaster",
+                attribute = "LIGHT",
                 monster_archetypes = { ["WhiteForest"] = true }
             },
         },
@@ -82,7 +89,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "wforest_rucia",
     atlas = 'wforest',
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 0 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -96,6 +103,9 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                is_tuner = true,
+                monster_type = "Spellcaster",
+                attribute = "LIGHT",
                 monster_archetypes = { ["WhiteForest"] = true }
             },
         },
@@ -106,7 +116,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "wforest_poplar",
     atlas = 'wforest',
-    pos = { x = 0, y = 0 },
+    pos = { x = 0, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -120,7 +130,10 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                is_tuner = true,
                 summon_type = "SYNCHRO",
+                monster_type = "Illusion",
+                attribute = "LIGHT",
                 monster_archetypes = { ["WhiteForest"] = true }
             },
         },
@@ -131,7 +144,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "wforest_rciela",
     atlas = 'wforest',
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -145,7 +158,10 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                is_tuner = true,
                 summon_type = "SYNCHRO",
+                monster_type = "Spellcaster",
+                attribute = "LIGHT",
                 monster_archetypes = { ["WhiteForest"] = true }
             },
         },
@@ -156,7 +172,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "wforest_silvera",
     atlas = 'wforest',
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -170,7 +186,10 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                is_tuner = true,
                 summon_type = "SYNCHRO",
+                monster_type = "Spellcaster",
+                attribute = "LIGHT",
                 monster_archetypes = { ["WhiteForest"] = true }
             },
         },
@@ -181,7 +200,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "wforest_diabell",
     atlas = 'wforest',
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -196,6 +215,8 @@ JoyousSpring.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "SYNCHRO",
+                monster_type = "Illusion",
+                attribute = "LIGHT",
                 monster_archetypes = { ["WhiteForest"] = true }
             },
         },
@@ -206,7 +227,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "wforest_witch",
     atlas = 'wforest',
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -220,7 +241,7 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
-                is_field_spell     = true,
+                is_field_spell = true,
                 monster_archetypes = { ["WhiteForest"] = true }
             },
         },

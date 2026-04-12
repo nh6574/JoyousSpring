@@ -25,7 +25,9 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
-                monster_archetypes = { ["SkyStriker"] = true }
+                monster_type = "Warrior",
+                attribute = "DARK",
+                monster_archetypes = { ["SkyStriker"] = true, ["SkyStrikerAce"] = true }
             },
         },
     },
@@ -49,7 +51,9 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
-                monster_archetypes = { ["SkyStriker"] = true }
+                monster_type = "Warrior",
+                attribute = "LIGHT",
+                monster_archetypes = { ["SkyStriker"] = true, ["SkyStrikerAce"] = true }
             },
         },
     },
@@ -73,6 +77,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Machine",
+                attribute = "DARK",
                 monster_archetypes = { ["SkyStriker"] = true }
             },
         },
@@ -97,6 +103,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Machine",
+                attribute = "WIND",
                 monster_archetypes = { ["SkyStriker"] = true }
             },
         },
@@ -121,6 +129,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Machine",
+                attribute = "LIGHT",
                 monster_archetypes = { ["SkyStriker"] = true }
             },
         },
@@ -145,6 +155,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Machine",
+                attribute = "WATER",
                 monster_archetypes = { ["SkyStriker"] = true }
             },
         },
@@ -169,6 +181,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Machine",
+                attribute = "FIRE",
                 monster_archetypes = { ["SkyStriker"] = true }
             },
         },
@@ -193,31 +207,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
-                monster_archetypes = { ["SkyStriker"] = true }
-            },
-        },
-    },
-})
-
--- Sky Striker Airspace - Area Zero
-JoyousSpring.Joker({
-    key = "striker_areazero",
-    atlas = 'striker',
-    pos = { x = 3, y = 1 },
-    rarity = 1,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    joy_desc_cards = {
-        { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
-    },
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                is_field_spell = true,
+                monster_type = "Machine",
+                attribute = "EARTH",
                 monster_archetypes = { ["SkyStriker"] = true }
             },
         },
@@ -244,7 +235,9 @@ JoyousSpring.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "LINK",
-                monster_archetypes = { ["SkyStriker"] = true }
+                monster_type = "Machine",
+                attribute = "WIND",
+                monster_archetypes = { ["SkyStriker"] = true, ["SkyStrikerAce"] = true }
             },
         },
     },
@@ -270,7 +263,9 @@ JoyousSpring.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "LINK",
-                monster_archetypes = { ["SkyStriker"] = true }
+                monster_type = "Machine",
+                attribute = "FIRE",
+                monster_archetypes = { ["SkyStriker"] = true, ["SkyStrikerAce"] = true }
             },
         },
     },
@@ -296,7 +291,9 @@ JoyousSpring.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "LINK",
-                monster_archetypes = { ["SkyStriker"] = true }
+                monster_type = "Machine",
+                attribute = "WATER",
+                monster_archetypes = { ["SkyStriker"] = true, ["SkyStrikerAce"] = true }
             },
         },
     },
@@ -321,7 +318,9 @@ JoyousSpring.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "LINK",
-                monster_archetypes = { ["SkyStriker"] = true }
+                monster_type = "Machine",
+                attribute = "EARTH",
+                monster_archetypes = { ["SkyStriker"] = true, ["SkyStrikerAce"] = true }
             },
         },
     },
@@ -346,7 +345,9 @@ JoyousSpring.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "LINK",
-                monster_archetypes = { ["SkyStriker"] = true }
+                monster_type = "Machine",
+                attribute = "DARK",
+                monster_archetypes = { ["SkyStriker"] = true, ["SkyStrikerAce"] = true }
             },
         },
     },
@@ -371,7 +372,9 @@ JoyousSpring.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "LINK",
-                monster_archetypes = { ["SkyStriker"] = true }
+                monster_type = "Machine",
+                attribute = "DARK",
+                monster_archetypes = { ["SkyStriker"] = true, ["SkyStrikerAce"] = true }
             },
         },
     },
@@ -396,7 +399,9 @@ JoyousSpring.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "LINK",
-                monster_archetypes = { ["SkyStriker"] = true }
+                monster_type = "Machine",
+                attribute = "DARK",
+                monster_archetypes = { ["SkyStriker"] = true, ["SkyStrikerAce"] = true }
             },
         },
     },
@@ -421,7 +426,9 @@ JoyousSpring.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "LINK",
-                monster_archetypes = { ["SkyStriker"] = true }
+                monster_type = "Machine",
+                attribute = "DARK",
+                monster_archetypes = { ["SkyStriker"] = true, ["SkyStrikerAce"] = true }
             },
         },
     },
@@ -446,7 +453,9 @@ JoyousSpring.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "LINK",
-                monster_archetypes = { ["SkyStriker"] = true }
+                monster_type = "Machine",
+                attribute = "DARK",
+                monster_archetypes = { ["SkyStriker"] = true, ["SkyStrikerAce"] = true }
             },
         },
     },
@@ -471,7 +480,9 @@ JoyousSpring.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "LINK",
-                monster_archetypes = { ["SkyStriker"] = true }
+                monster_type = "Machine",
+                attribute = "LIGHT",
+                monster_archetypes = { ["SkyStriker"] = true, ["SkyStrikerAce"] = true }
             },
         },
     },
@@ -496,7 +507,9 @@ JoyousSpring.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "LINK",
-                monster_archetypes = { ["SkyStriker"] = true }
+                monster_type = "Machine",
+                attribute = "LIGHT",
+                monster_archetypes = { ["SkyStriker"] = true, ["SkyStrikerAce"] = true }
             },
         },
     },
@@ -521,6 +534,33 @@ JoyousSpring.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "LINK",
+                monster_type = "Machine",
+                attribute = "DARK",
+                monster_archetypes = { ["SkyStriker"] = true }
+            },
+        },
+    },
+})
+
+-- Sky Striker Airspace - Area Zero
+JoyousSpring.Joker({
+    key = "striker_areazero",
+    atlas = 'striker',
+    pos = { x = 3, y = 1 },
+    rarity = 1,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
+    },
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_field_spell = true,
                 monster_archetypes = { ["SkyStriker"] = true }
             },
         },

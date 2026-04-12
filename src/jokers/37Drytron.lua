@@ -24,6 +24,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Machine",
+                attribute = "LIGHT",
                 monster_archetypes = { ["Drytron"] = true }
             },
         },
@@ -34,7 +36,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dry_beta",
     atlas = 'dry',
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 0 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -48,6 +50,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Machine",
+                attribute = "LIGHT",
                 monster_archetypes = { ["Drytron"] = true }
             },
         },
@@ -58,7 +62,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dry_delta",
     atlas = 'dry',
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 0 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -72,6 +76,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Machine",
+                attribute = "LIGHT",
                 monster_archetypes = { ["Drytron"] = true }
             },
         },
@@ -82,7 +88,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dry_gamma",
     atlas = 'dry',
-    pos = { x = 0, y = 0 },
+    pos = { x = 3, y = 0 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -96,6 +102,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Machine",
+                attribute = "LIGHT",
                 monster_archetypes = { ["Drytron"] = true }
             },
         },
@@ -106,7 +114,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dry_zeta",
     atlas = 'dry',
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -120,6 +128,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Machine",
+                attribute = "LIGHT",
                 monster_archetypes = { ["Drytron"] = true }
             },
         },
@@ -130,7 +140,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dry_nu",
     atlas = 'dry',
-    pos = { x = 0, y = 0 },
+    pos = { x = 0, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -144,6 +154,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Machine",
+                attribute = "LIGHT",
                 monster_archetypes = { ["Drytron"] = true }
             },
         },
@@ -154,7 +166,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dry_mubeta",
     atlas = 'dry',
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -169,6 +181,8 @@ JoyousSpring.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "XYZ",
+                monster_type = "Machine",
+                attribute = "LIGHT",
                 monster_archetypes = { ["Drytron"] = true }
             },
         },
@@ -179,7 +193,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dry_meteo",
     atlas = 'dry',
-    pos = { x = 0, y = 0 },
+    pos = { x = 0, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -194,6 +208,8 @@ JoyousSpring.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "RITUAL",
+                monster_type = "Machine",
+                attribute = "LIGHT",
                 monster_archetypes = { ["Drytron"] = true }
             },
         },
@@ -204,7 +220,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dry_dadraco",
     atlas = 'dry',
-    pos = { x = 0, y = 0 },
+    pos = { x = 3, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -219,6 +235,8 @@ JoyousSpring.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "RITUAL",
+                monster_type = "Machine",
+                attribute = "LIGHT",
                 monster_archetypes = { ["Drytron"] = true }
             },
         },
@@ -229,7 +247,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dry_qua",
     atlas = 'dry',
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -244,6 +262,8 @@ JoyousSpring.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "RITUAL",
+                monster_type = "Machine",
+                attribute = "LIGHT",
                 monster_archetypes = { ["Drytron"] = true }
             },
         },
@@ -254,7 +274,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dry_fafnir",
     atlas = 'dry',
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,

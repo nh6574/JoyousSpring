@@ -10,7 +10,7 @@ SMODS.Atlas({
 JoyousSpring.Joker({
     key = "hazy_sphy",
     atlas = 'hazy',
-    pos = { x = 0, y = 0 },
+    pos = { x = 0, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -24,6 +24,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "BeastWarrior",
+                attribute = "FIRE",
                 monster_archetypes = { ["HazyFlame"] = true }
             },
         },
@@ -48,6 +50,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Beast",
+                attribute = "FIRE",
                 monster_archetypes = { ["HazyFlame"] = true }
             },
         },
@@ -58,7 +62,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "hazy_grif",
     atlas = 'hazy',
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 0 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -72,6 +76,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "WingedBeast",
+                attribute = "FIRE",
                 monster_archetypes = { ["HazyFlame"] = true }
             },
         },
@@ -82,7 +88,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "hazy_hydra",
     atlas = 'hazy',
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 0 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -96,6 +102,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Dinosaur",
+                attribute = "FIRE",
                 monster_archetypes = { ["HazyFlame"] = true }
             },
         },
@@ -106,7 +114,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "hazy_hyppo",
     atlas = 'hazy',
-    pos = { x = 0, y = 0 },
+    pos = { x = 0, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -120,6 +128,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Pyro",
+                attribute = "FIRE",
                 monster_archetypes = { ["HazyFlame"] = true }
             },
         },
@@ -130,7 +140,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "hazy_manti",
     atlas = 'hazy',
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -144,6 +154,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "WingedBeast",
+                attribute = "FIRE",
                 monster_archetypes = { ["HazyFlame"] = true }
             },
         },
@@ -154,7 +166,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "hazy_pery",
     atlas = 'hazy',
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -168,6 +180,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Pyro",
+                attribute = "FIRE",
                 monster_archetypes = { ["HazyFlame"] = true }
             },
         },
@@ -178,7 +192,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "hazy_basil",
     atlas = 'hazy',
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -193,6 +207,8 @@ JoyousSpring.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "XYZ",
+                monster_type = "Pyro",
+                attribute = "FIRE",
                 monster_archetypes = { ["HazyFlame"] = true }
             },
         },

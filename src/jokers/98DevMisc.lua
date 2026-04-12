@@ -9,8 +9,8 @@ SMODS.Atlas({
 -- Dogmatika Lawbringer
 JoyousSpring.Joker({
     key = "dogma_law",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    atlas = "Dogmatika",
+    pos = { x = 3, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -21,6 +21,9 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "LIGHT",
+                monster_type = "Spellcaster",
+                monster_archetypes = { ["Dogmatika"] = true },
             },
         },
     },
@@ -29,8 +32,8 @@ JoyousSpring.Joker({
 -- Solfachord Primoa
 JoyousSpring.Joker({
     key = "solfa_primoa",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    atlas = "solfa",
+    pos = { x = 1, y = 3 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -42,6 +45,9 @@ JoyousSpring.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 is_pendulum = true,
+                attribute = "EARTH",
+                monster_type = "Fairy",
+                monster_archetypes = { ["Solfachord"] = true }
             },
         },
     },
@@ -50,8 +56,8 @@ JoyousSpring.Joker({
 -- Solfachord Solfegia
 JoyousSpring.Joker({
     key = "solfa_solfegia",
-    atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    atlas = "solfa",
+    pos = { x = 0, y = 3 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -63,6 +69,9 @@ JoyousSpring.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 is_pendulum = true,
+                attribute = "LIGHT",
+                monster_type = "Fairy",
+                monster_archetypes = { ["Solfachord"] = true }
             },
         },
     },
@@ -83,6 +92,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Spellcaster"
             },
         },
     },
@@ -92,7 +103,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "droll",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 0 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -103,6 +114,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "WIND",
+                monster_type = "Spellcaster"
             },
         },
     },
@@ -112,7 +125,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "kurikara",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 0 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -123,6 +136,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "FIRE",
+                monster_type = "Fairy"
             },
         },
     },
@@ -132,7 +147,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "nibiru",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 3, y = 0 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -143,6 +158,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "LIGHT",
+                monster_type = "Rock"
             },
         },
     },
@@ -152,7 +169,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "theia",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -163,6 +180,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Rock"
             },
         },
     },
@@ -184,6 +203,9 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "EARTH",
+                monster_type = "Insect",
+                is_flip = true
             },
         },
     },
@@ -193,7 +215,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "parasiteparanoid",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 0, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -204,6 +226,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "EARTH",
+                monster_type = "Insect"
             },
         },
     },
@@ -213,8 +237,8 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "hades",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
-    rarity = 1,
+    pos = { x = 2, y = 1 },
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -224,6 +248,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Fiend"
             },
         },
     },
@@ -233,7 +259,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "helios",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 3, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -244,6 +270,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "LIGHT",
+                monster_type = "Pyro"
             },
         },
     },
@@ -253,7 +281,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "heliosduo",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 4, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -264,6 +292,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "LIGHT",
+                monster_type = "Pyro"
             },
         },
     },
@@ -273,7 +303,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "heliostrice",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 5, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -284,6 +314,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "LIGHT",
+                monster_type = "Pyro"
             },
         },
     },
@@ -293,7 +325,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "magicalundertaker",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 0, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -304,6 +336,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Spellcaster"
             },
         },
     },
@@ -313,7 +347,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "milleniummoon",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -324,6 +358,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "LIGHT",
+                monster_type = "Illusion"
             },
         },
     },
@@ -333,7 +369,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "mastertao",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -344,6 +380,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "EARTH",
+                monster_type = "Illusion"
             },
         },
     },
@@ -353,7 +391,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "maxxc",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 3, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -364,6 +402,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "EARTH",
+                monster_type = "Insect"
             },
         },
     },
@@ -373,7 +413,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "nightapprentice",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 4, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -384,6 +424,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Illusion"
             },
         },
     },
@@ -393,7 +435,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "nightmagician",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 5, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -404,6 +446,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Illusion"
             },
         },
     },
@@ -413,7 +457,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "shurilane",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 0, y = 3 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -424,6 +468,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "LIGHT",
+                monster_type = "Illusion"
             },
         },
     },
@@ -433,7 +479,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "taotao",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 3 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -444,6 +490,9 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                is_tuner = true,
+                attribute = "EARTH",
+                monster_type = "Illusion"
             },
         },
     },
@@ -453,7 +502,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "necrovalley",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 3 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -464,6 +513,7 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                is_field_spell = true
             },
         },
     },
@@ -473,7 +523,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "secretvillage",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 3, y = 3 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -484,6 +534,7 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                is_field_spell = true,
             },
         },
     },
@@ -493,7 +544,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "skullguardian",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 5, y = 3 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -504,6 +555,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "LIGHT",
+                monster_type = "Warrior",
                 summon_type = "RITUAL",
             },
         },
@@ -514,7 +567,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "saffira",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 4, y = 3 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -525,6 +578,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "LIGHT",
+                monster_type = "Dragon",
                 summon_type = "RITUAL",
             },
         },
@@ -535,7 +590,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "quintet",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 0, y = 4 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -546,6 +601,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Spellcaster",
                 summon_type = "FUSION",
             },
         },
@@ -556,7 +613,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "slacker",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 4, y = 4 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -567,6 +624,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "LIGHT",
+                monster_type = "Spellcaster",
                 summon_type = "XYZ",
             },
         },
@@ -577,7 +636,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "downerd",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 4 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -588,6 +647,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Spellcaster",
                 summon_type = "XYZ",
             },
         },
@@ -598,7 +659,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "alchemic",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 4 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -609,6 +670,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Spellcaster",
                 summon_type = "XYZ",
             },
         },
@@ -619,7 +682,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "phoboscobos",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 3, y = 4 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -630,6 +693,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Illusion",
                 summon_type = "XYZ",
             },
         },
@@ -640,7 +705,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "miracleraven",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 0, y = 5 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -651,6 +716,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Fiend",
                 is_pendulum = true,
                 summon_type = "RITUAL",
             },
@@ -662,7 +729,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "relinq_anima",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 5 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -673,6 +740,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Spellcaster",
                 summon_type = "LINK",
             },
         },
@@ -683,7 +752,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "wp",
     atlas = "Misc06",
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 5 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -694,6 +763,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Cyberse",
                 summon_type = "LINK",
             },
         },

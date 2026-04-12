@@ -10,7 +10,7 @@ SMODS.Atlas({
 JoyousSpring.Joker({
     key = "dracotail_lukias",
     atlas = 'dracotail',
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 0 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -24,6 +24,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Spellcaster",
+                attribute = "EARTH",
                 monster_archetypes = { ["Dracotail"] = true }
             },
         },
@@ -34,7 +36,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dracotail_phry",
     atlas = 'dracotail',
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -48,6 +50,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Spellcaster",
+                attribute = "LIGHT",
                 monster_archetypes = { ["Dracotail"] = true }
             },
         },
@@ -72,6 +76,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Spellcaster",
+                attribute = "WATER",
                 monster_archetypes = { ["Dracotail"] = true }
             },
         },
@@ -82,7 +88,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dracotail_mululu",
     atlas = 'dracotail',
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 0 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -96,6 +102,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Dragon",
+                attribute = "DARK",
                 monster_archetypes = { ["Dracotail"] = true }
             },
         },
@@ -106,7 +114,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dracotail_urgula",
     atlas = 'dracotail',
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -120,6 +128,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Dragon",
+                attribute = "FIRE",
                 monster_archetypes = { ["Dracotail"] = true }
             },
         },
@@ -130,7 +140,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dracotail_pan",
     atlas = 'dracotail',
-    pos = { x = 0, y = 0 },
+    pos = { x = 0, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -144,6 +154,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Dragon",
+                attribute = "WIND",
                 monster_archetypes = { ["Dracotail"] = true }
             },
         },
@@ -154,7 +166,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dracotail_shaulas",
     atlas = 'dracotail',
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -169,6 +181,8 @@ JoyousSpring.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "FUSION",
+                monster_type = "Dragon",
+                attribute = "LIGHT",
                 monster_archetypes = { ["Dracotail"] = true }
             },
         },
@@ -179,7 +193,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dracotail_gulamel",
     atlas = 'dracotail',
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -194,6 +208,8 @@ JoyousSpring.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "FUSION",
+                monster_type = "Spellcaster",
+                attribute = "WATER",
                 monster_archetypes = { ["Dracotail"] = true }
             },
         },
@@ -204,7 +220,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dracotail_arthalion",
     atlas = 'dracotail',
-    pos = { x = 0, y = 0 },
+    pos = { x = 0, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -219,6 +235,8 @@ JoyousSpring.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "FUSION",
+                monster_type = "Dragon",
+                attribute = "EARTH",
                 monster_archetypes = { ["Dracotail"] = true }
             },
         },

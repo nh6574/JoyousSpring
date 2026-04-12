@@ -5,7 +5,7 @@ return {
                 name = "{C:joy_normal}Dark Magician",
                 text = {
                     {
-                        "TBD"
+                        "{E:1}The ultimate wizard in terms of attack and defense.",
                     }
                 }
             },
@@ -13,7 +13,8 @@ return {
                 name = "{C:joy_effect}Dark Magician Girl",
                 text = {
                     {
-                        "TBD"
+                        "{C:mult}+3{} Mult for each {C:joy_normal}Spellcaster{} in the {C:attention}GY{}",
+                        "Increases by {C:mult}+3{} Mult for each {C:joy_normal}\"Dark Magician\"{} owned"
                     }
                 }
             },

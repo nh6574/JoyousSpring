@@ -6,7 +6,7 @@ SMODS.Atlas({
     py = 95
 })
 
--- Lo, of the Voiceless Voice
+-- Lo, the Prayers of the Voiceless Voice
 JoyousSpring.Joker({
     key = "voice_lo",
     atlas = 'voice',
@@ -24,17 +24,19 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Fairy",
+                attribute = "LIGHT",
                 monster_archetypes = { ["VoicelessVoice"] = true }
             },
         },
     },
 })
 
--- Saffira, of the Voiceless Voice
+-- Saffira, Dragon Queen of the Voiceless Voice
 JoyousSpring.Joker({
     key = "voice_saffira",
     atlas = 'voice',
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 0 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -48,17 +50,19 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Dragon",
+                attribute = "LIGHT",
                 monster_archetypes = { ["VoicelessVoice"] = true }
             },
         },
     },
 })
 
--- Sauravis, of the Voiceless Voice
+-- Sauravis, Dragon Sage of the Voiceless Voice
 JoyousSpring.Joker({
     key = "voice_sauravis",
     atlas = 'voice',
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 0 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -72,6 +76,8 @@ JoyousSpring.Joker({
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Dragon",
+                attribute = "LIGHT",
                 monster_archetypes = { ["VoicelessVoice"] = true }
             },
         },
@@ -82,7 +88,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "voice_divine",
     atlas = 'voice',
-    pos = { x = 0, y = 0 },
+    pos = { x = 0, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -97,6 +103,8 @@ JoyousSpring.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "RITUAL",
+                monster_type = "Dragon",
+                attribute = "LIGHT",
                 monster_archetypes = { ["VoicelessVoice"] = true }
             },
         },
@@ -107,7 +115,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "voice_skull",
     atlas = 'voice',
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -122,6 +130,8 @@ JoyousSpring.Joker({
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "RITUAL",
+                monster_type = "Warrior",
+                attribute = "LIGHT",
                 monster_archetypes = { ["VoicelessVoice"] = true }
             },
         },

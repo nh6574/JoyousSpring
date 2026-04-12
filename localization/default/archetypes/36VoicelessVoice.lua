@@ -2,7 +2,7 @@ return {
     descriptions = {
         Joker = {
             j_joy_voice_lo = {
-                name = "{C:joy_effect}Lo, of the Voiceless Voice",
+                name = "{C:joy_effect}Lo, the Prayers of the Voiceless Voice",
                 text = {
                     {
                         "TBD"
@@ -10,7 +10,7 @@ return {
                 }
             },
             j_joy_voice_saffira = {
-                name = "{C:joy_effect}Saffira, of the Voiceless Voice",
+                name = "{C:joy_effect}Saffira, Dragon Queen of the Voiceless Voice",
                 text = {
                     {
                         "TBD"
@@ -18,7 +18,7 @@ return {
                 }
             },
             j_joy_voice_sauravis = {
-                name = "{C:joy_effect}Sauravis, of the Voiceless Voice",
+                name = "{C:joy_effect}Sauravis, Dragon Sage of the Voiceless Voice",
                 text = {
                     {
                         "TBD"
