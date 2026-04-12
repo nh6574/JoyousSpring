@@ -7,12 +7,11 @@ SMODS.Atlas({
 })
 
 -- Time Thief Adjuster
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "thief_adjuster",
     atlas = 'thief',
     pos = { x = 0, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -22,7 +21,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "TimeThief" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -35,12 +33,11 @@ SMODS.Joker({
 })
 
 -- Time Thief Winder
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "thief_winder",
     atlas = 'thief',
     pos = { x = 2, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -50,7 +47,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "TimeThief" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -63,12 +59,11 @@ SMODS.Joker({
 })
 
 -- Time Thief Regulator
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "thief_regulator",
     atlas = 'thief',
     pos = { x = 0, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -78,7 +73,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "TimeThief" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -91,12 +85,11 @@ SMODS.Joker({
 })
 
 -- Time Thief Bezel Ship
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "thief_bezel",
     atlas = 'thief',
     pos = { x = 1, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -106,7 +99,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "TimeThief" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -119,12 +111,11 @@ SMODS.Joker({
 })
 
 -- Time Thief Temporwhal
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "thief_whal",
     atlas = 'thief',
     pos = { x = 1, y = 1 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -134,7 +125,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "TimeThief" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -147,12 +137,11 @@ SMODS.Joker({
 })
 
 -- Time Thief Chronocorder
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "thief_corder",
     atlas = 'thief',
     pos = { x = 2, y = 0 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -162,7 +151,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "TimeThief" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -175,12 +163,11 @@ SMODS.Joker({
 })
 
 -- Time Thief Perpetua
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "thief_perpetua",
     atlas = 'thief',
     pos = { x = 1, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -190,7 +177,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "TimeThief" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -204,12 +190,11 @@ SMODS.Joker({
 })
 
 -- Time Thief Redoer
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "thief_redoer",
     atlas = 'thief',
     pos = { x = 2, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -219,7 +204,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "TimeThief" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -233,12 +217,11 @@ SMODS.Joker({
 })
 
 -- Time Thief Double Barrel
-SMODS.Joker({
+JoyousSpring.Joker({
     key = "thief_double",
     atlas = 'thief',
     pos = { x = 0, y = 2 },
     rarity = 1,
-    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 5,
@@ -248,7 +231,6 @@ SMODS.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "TimeThief" } }, }, name = "k_joy_archetype" },
     },
-    set_sprites = JoyousSpring.set_back_sprite,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
