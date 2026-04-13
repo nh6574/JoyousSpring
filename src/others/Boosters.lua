@@ -538,6 +538,9 @@ for i, data in ipairs(joy_groups) do
         end,
         get_weight = function()
             return JoyousSpring.in_pack_selection and 1 or 0
+        end,
+        in_pool = function(self, args)
+            return true, { allow_duplicates = true }
         end
     })
 end
