@@ -687,7 +687,7 @@ JoyousSpring.calculate_prototype_function = function(func, args, ...)
     local return_value = args.default_return
 
     if not args.ignore_jokers then
-        for _, area in ipairs(SMODS.get_card_areas('jokers')) do
+        for _, area in ipairs(SMODS.get_card_areas('jokers', 'joy_no_side')) do
             for _, joker in ipairs(area.cards or {}) do
                 if (not joker.debuff or args.ignore_debuff) then
                     if type(joker.config.center[func]) == "function" then

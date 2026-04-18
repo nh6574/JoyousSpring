@@ -651,7 +651,7 @@ function Card:flip()
     if not JoyousSpring.cannot_flip(self) then
         card_flip_ref(self)
         local is_play_area = false
-        for _, area in ipairs(SMODS.get_card_areas('jokers')) do
+        for _, area in ipairs(SMODS.get_card_areas('jokers', 'joy_no_side')) do
             if self.area == area then
                 is_play_area = true
                 break
@@ -705,7 +705,7 @@ end
 ---@param to_denominator boolean?
 ---@param exclude_keys { string: boolean? }?
 JoyousSpring.modify_probability_jokers = function(add, mult, to_denominator, exclude_keys)
-    for _, area in ipairs(SMODS.get_card_areas('jokers')) do
+    for _, area in ipairs(SMODS.get_card_areas('jokers', 'joy_no_side')) do
         for _, card in ipairs(area.cards or {}) do
             if card.ability.set == "Joker" then
                 if not exclude_keys or not exclude_keys[card.config.center.key] then

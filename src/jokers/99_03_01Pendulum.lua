@@ -61,7 +61,7 @@ JoyousSpring.Joker({
         },
     },
     use = function(self, card, area, copier)
-        for _, jokerarea in ipairs(SMODS.get_card_areas('jokers')) do
+        for _, jokerarea in ipairs(SMODS.get_card_areas('jokers', 'joy_no_side')) do
             for _, joker in ipairs(jokerarea.cards or {}) do
                 if joker.ability.set == "Joker" and joker ~= card then
                     local amount = pseudorandom(card.config.center.key, 1, 6)

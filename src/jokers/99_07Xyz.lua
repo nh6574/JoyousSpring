@@ -202,7 +202,7 @@ JoyousSpring.Joker({
             end
             if context.joy_detach and context.joy_detaching_card == card then
                 JoyousSpring.ease_detach(card)
-                for _, jokerarea in ipairs(SMODS.get_card_areas('jokers')) do
+                for _, jokerarea in ipairs(SMODS.get_card_areas('jokers', 'joy_no_side')) do
                     for _, joker in ipairs(jokerarea.cards or {}) do
                         if joker.ability.set == "Joker" then
                             local amount = pseudorandom(card.config.center.key .. "_increase", 1, 6)

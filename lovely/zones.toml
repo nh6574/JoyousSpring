@@ -80,6 +80,6 @@ payload = '''
 if JoyousSpring then
     if (JoyousSpring.field_spell_area or {}).cards then table.insert(t, JoyousSpring.field_spell_area) end
     if (JoyousSpring.opponent_area or {}).cards then table.insert(t, JoyousSpring.opponent_area) end
-    if not JoyousSpring.findcard_sidedeck and (JoyousSpring.side_deck_area or {}).cards then table.insert(t, JoyousSpring.side_deck_area) end
+    if not JoyousSpring.findcard_sidedeck and _context ~= "joy_no_side" and (JoyousSpring.side_deck_area or {}).cards then table.insert(t, JoyousSpring.side_deck_area) end
 end
 '''
