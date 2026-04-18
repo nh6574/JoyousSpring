@@ -1040,7 +1040,13 @@ SMODS.PokerHand({
     mult = 4,
     l_chips = 15,
     l_mult = 2,
-    visible = false,
+    visible = function()
+        for _, joker in ipairs(SMODS.find_card("j_joy_purr_street")) do
+            if JoyousSpring.can_use_abilities(joker) then
+                return true
+            end
+        end
+    end,
     example = {
         { 'H_A', true },
         { 'D_J', true },
