@@ -284,7 +284,7 @@ function create_shop_card_ui(card, type, area)
         create_shop_card_ui_ref(card, type, area)
     end
 
-    if not JoyousSpring.config.disable_side_deck and card.ability.set == "Joker" then
+    if card.ability.set == "Joker" then
         local side = {
             n = G.UIT.ROOT,
             config = { id = 'joy_side_button', ref_table = card, minh = 1.1, padding = 0.1, align = 'cl', colour = G.C.RED, shadow = true, r = 0.08, minw = 1.1, func = 'joy_can_side', one_press = true, button = 'joy_to_side', hover = true, focus_args = { type = 'none' } },
@@ -428,7 +428,7 @@ function Card:highlight(is_highlighted)
         card_highlight_ref(self, is_highlighted)
     end
 
-    if not JoyousSpring.config.disable_side_deck and self.ability.set == "Joker" and self.area and self.area == G.pack_cards then
+    if self.ability.set == "Joker" and self.area and self.area == G.pack_cards then
         local side = {
             n = G.UIT.ROOT,
             config = { id = 'joy_side_button', ref_table = self, minh = 1.1, padding = 0.1, align = 'cl', colour = G.C.RED, shadow = true, r = 0.08, minw = 1.1, one_press = true, button = 'joy_to_side_from_booster', hover = true, focus_args = { type = 'none' } },
