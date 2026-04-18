@@ -194,7 +194,7 @@ return {
                     {
                         "An {C:joy_xyz}Xyz{} summoned using this card",
                         "as {C:attention}material{} gains the following ability:",
-                        "{s:0.9,C:mult}+#2#{s:0.9} Mult for each",
+                        "{s:0.9,C:mult}+#1#{s:0.9} Mult for each",
                         "{s:0.9,C:joy_xyz}Xyz{} {s:0.9,C:attention}material{}"
                     },
                 },

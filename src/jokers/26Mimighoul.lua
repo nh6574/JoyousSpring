@@ -90,7 +90,11 @@ JoyousSpring.OpponentCard {
     atlas = 'mimi_opp',
     pos = { x = 0, y = 1 },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.mult, 0, card.ability.extra.h_size } }
+        return {
+            vars = { card.ability.extra.mult, card.ability.extra.mult *
+            JoyousSpring.count_materials_owned({ { monster_archetypes = { "Mimighoul" } }, { facedown = true } }), card
+                .ability.extra.h_size }
+        }
     end,
     joy_desc_cards = {
         { "j_joy_mimi_archfiend",                                     name = "k_joy_creates" },
@@ -153,7 +157,11 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 3,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.chips, 0, card.ability.extra.creates } }
+        return {
+            vars = { card.ability.extra.chips, card.ability.extra.chips *
+            JoyousSpring.count_materials_owned({ { monster_archetypes = { "Mimighoul" } }, { facedown = true } }), card
+                .ability.extra.creates }
+        }
     end,
     joy_desc_cards = {
         { "opp_joy_mimi_armor",                                       name = "k_joy_creates" },
@@ -202,7 +210,10 @@ JoyousSpring.OpponentCard {
     atlas = 'mimi_opp',
     pos = { x = 0, y = 2 },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.chips, 0 } }
+        return {
+            vars = { card.ability.extra.chips, card.ability.extra.chips *
+            JoyousSpring.count_materials_owned({ { monster_archetypes = { "Mimighoul" } }, { facedown = true } }) }
+        }
     end,
     joy_desc_cards = {
         { "j_joy_mimi_armor",                                         name = "k_joy_creates" },
@@ -353,7 +364,7 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 8,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.mult, 0, card.ability.extra.creates } }
+        return { vars = { card.ability.extra.mult, (G.GAME.joy_mimi_dragon_destroy or 0) * card.ability.extra.mult, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         { "opp_joy_mimi_dragon",                                      name = "k_joy_creates" },
@@ -403,7 +414,7 @@ JoyousSpring.OpponentCard {
     atlas = 'mimi_opp',
     pos = { x = 0, y = 4 },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.mult, 0 } }
+        return { vars = { card.ability.extra.mult, (G.GAME.joy_mimi_dragon_destroy or 0) * card.ability.extra.mult } }
     end,
     joy_desc_cards = {
         { "j_joy_mimi_dragon",                                        name = "k_joy_creates" },
@@ -460,7 +471,7 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 6,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.mult, 0, card.ability.extra.creates } }
+        return { vars = { card.ability.extra.mult, card.ability.extra.mult * #((JoyousSpring.opponent_area or {}).cards or {}), card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         { "opp_joy_mimi_fairy",                                       name = "k_joy_creates" },
@@ -508,7 +519,7 @@ JoyousSpring.OpponentCard {
     atlas = 'mimi_opp',
     pos = { x = 0, y = 6 },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.mult, 0 } }
+        return { vars = { card.ability.extra.mult, card.ability.extra.mult * #((JoyousSpring.opponent_area or {}).cards or {}) } }
     end,
     joy_desc_cards = {
         { "j_joy_mimi_fairy",                                         name = "k_joy_creates" },
@@ -830,7 +841,11 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 7,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.attaches, card.ability.extra.detach, card.ability.extra.xmult, 1 } }
+        return {
+            vars = { card.ability.extra.attaches, card.ability.extra.detach, card.ability.extra.xmult, card.ability
+            .extra.xmult *
+            JoyousSpring.count_materials_owned({ { is_opponent = true, exclude_monster_archetypes = { "Mimighoul" } } }) }
+        }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Mimighoul" } }, }, name = "k_joy_archetype" },
