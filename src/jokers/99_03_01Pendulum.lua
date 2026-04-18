@@ -25,9 +25,14 @@ JoyousSpring.Joker({
     use = function(self, card, area, copier)
         local amount = G.consumeables.config.card_limit - #G.consumeables.cards
         for i = 1, amount do
-            SMODS.add_card({
-                key = 'c_earth'
-            })
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    SMODS.add_card({
+                        key = 'c_earth'
+                    })
+                    return true
+                end
+            }))
         end
     end,
     can_use = function(self, card)
@@ -220,7 +225,7 @@ JoyousSpring.Joker({
         local choices = JoyousSpring.get_materials_owned({ { is_pendulum = true } })
         local joker = pseudorandom_element(choices, 'j_joy_pandora')
         if joker then
-            local edition = SMODS.poll_edition { key = card.config.center.key, guaranteed = true, no_negative = true }
+            local edition = SMODS.poll_edition { key = card.config.center.key .. "_seal", guaranteed = true, no_negative = true }
             joker:set_edition(edition, true)
         end
     end,

@@ -911,7 +911,12 @@ JoyousSpring.Joker({
                 end
             end
             local enhancement = pseudorandom_element(cen_pool, 'spe_card')
-            SMODS.add_card { set = "Base", suit = "D", enhancement = enhancement }
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    SMODS.add_card { set = "Base", suit = "D", enhancement = enhancement, key_append = self.key }
+                    return true
+                end
+            }))
             return {
                 message = localize("k_joy_activated_ex")
             }

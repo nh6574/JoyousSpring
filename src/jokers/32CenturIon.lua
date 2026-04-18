@@ -44,7 +44,13 @@ JoyousSpring.Joker({
             end
         end
         if JoyousSpring.used_as_material(card, context) and JoyousSpring.is_summon_type(context.joy_card, "SYNCHRO") then
-            SMODS.add_card { key = "j_joy_centur_primera", area = JoyousSpring.side_deck_area, stickers = { 'perishable' }, force_stickers = { 'perishable' } }
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    SMODS.add_card { key = "j_joy_centur_primera", area = JoyousSpring.side_deck_area, stickers = { 'perishable' }, force_stickers = { 'perishable' } }
+                    return true
+                end
+            }))
+
             JoyousSpring.add_monster_tag_pseudorandom({ { is_extra_deck = true, monster_archetypes = { "CenturIon" } } },
                 self.key)
         end
@@ -113,7 +119,12 @@ JoyousSpring.Joker({
             end
         end
         if JoyousSpring.used_as_material(card, context) and JoyousSpring.is_summon_type(context.joy_card, "SYNCHRO") then
-            SMODS.add_card { key = "j_joy_centur_atrii", area = JoyousSpring.side_deck_area, stickers = { 'perishable' }, force_stickers = { 'perishable' } }
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    SMODS.add_card { key = "j_joy_centur_atrii", area = JoyousSpring.side_deck_area, stickers = { 'perishable' }, force_stickers = { 'perishable' } }
+                    return true
+                end
+            }))
             G.hand:change_size(card.ability.extra.h_size)
             G.GAME.round_resets.temp_handsize = (G.GAME.round_resets.temp_handsize or 0) +
                 card.ability.extra.h_size
@@ -160,7 +171,12 @@ JoyousSpring.Joker({
             end
         end
         if JoyousSpring.used_as_material(card, context) and JoyousSpring.is_summon_type(context.joy_card, "SYNCHRO") then
-            SMODS.add_card { key = "j_joy_centur_chimerea", area = JoyousSpring.side_deck_area, stickers = { 'perishable' }, force_stickers = { 'perishable' } }
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    SMODS.add_card { key = "j_joy_centur_chimerea", area = JoyousSpring.side_deck_area, stickers = { 'perishable' }, force_stickers = { 'perishable' } }
+                    return true
+                end
+            }))
             JoyousSpring.add_monster_tag_pseudorandom({ { is_main_deck = true, monster_archetypes = { "CenturIon" } } },
                 self.key)
         end
@@ -212,7 +228,12 @@ JoyousSpring.Joker({
             end
         end
         if JoyousSpring.used_as_material(card, context) and JoyousSpring.is_summon_type(context.joy_card, "SYNCHRO") then
-            SMODS.add_card { key = "j_joy_centur_trudea", area = JoyousSpring.side_deck_area, stickers = { 'perishable' }, force_stickers = { 'perishable' } }
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    SMODS.add_card { key = "j_joy_centur_trudea", area = JoyousSpring.side_deck_area, stickers = { 'perishable' }, force_stickers = { 'perishable' } }
+                    return true
+                end
+            }))
             JoyousSpring.add_monster_tag("j_joy_centur_standup")
         end
     end,
@@ -254,7 +275,12 @@ JoyousSpring.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.used_as_material(card, context) and JoyousSpring.is_summon_type(context.joy_card, "SYNCHRO") then
-            SMODS.add_card { key = "j_joy_centur_gargoyle", area = JoyousSpring.side_deck_area, stickers = { 'perishable' }, force_stickers = { 'perishable' } }
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    SMODS.add_card { key = "j_joy_centur_gargoyle", area = JoyousSpring.side_deck_area, stickers = { 'perishable' }, force_stickers = { 'perishable' } }
+                    return true
+                end
+            }))
             JoyousSpring.revive_pseudorandom({ { monster_archetypes = { "CenturIon" } } }, self.key, true)
         end
         if JoyousSpring.can_use_abilities(card) then
@@ -306,7 +332,12 @@ JoyousSpring.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.used_as_material(card, context) and JoyousSpring.is_summon_type(context.joy_card, "SYNCHRO") then
-            SMODS.add_card { key = "j_joy_centur_emeth", area = JoyousSpring.side_deck_area, stickers = { 'perishable' }, force_stickers = { 'perishable' } }
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    SMODS.add_card { key = "j_joy_centur_emeth", area = JoyousSpring.side_deck_area, stickers = { 'perishable' }, force_stickers = { 'perishable' } }
+                    return true
+                end
+            }))
             JoyousSpring.send_to_graveyard_pseudorandom({ { monster_archetypes = { "CenturIon" } } }, self.key, 2)
         end
         if JoyousSpring.can_use_abilities(card) then
@@ -467,7 +498,12 @@ JoyousSpring.Joker({
             local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "CenturIon" }, is_main_deck = true } })
             local choice, _ = pseudorandom_element(choices, self.key .. "_create")
             if choice then
-                SMODS.add_card { key = choice, area = JoyousSpring.side_deck_area, stickers = { 'perishable' }, force_stickers = { 'perishable' } }
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        SMODS.add_card { key = choice, area = JoyousSpring.side_deck_area, stickers = { 'perishable' }, force_stickers = { 'perishable' } }
+                        return true
+                    end
+                }))
             end
             JoyousSpring.add_to_extra_deck_pseudorandom({ { monster_archetypes = { "CenturIon" } } }, self.key)
         end
@@ -550,7 +586,12 @@ JoyousSpring.Joker({
                 card.ability.extra.active = true
                 for _, joker in ipairs(context.joy_summon_materials) do
                     local key = type(joker) == "string" and joker or joker.config.center.key
-                    SMODS.add_card { key = key, area = JoyousSpring.side_deck_area, stickers = { 'perishable' }, force_stickers = { 'perishable' } }
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card { key = key, area = JoyousSpring.side_deck_area, stickers = { 'perishable' }, force_stickers = { 'perishable' } }
+                            return true
+                        end
+                    }))
                 end
                 return {
                     message = localize("k_joy_add")
@@ -560,7 +601,12 @@ JoyousSpring.Joker({
                 local choices = JoyousSpring.get_materials_in_collection({ { monster_archetypes = { "CenturIon" }, is_main_deck = true } })
                 local choice, _ = pseudorandom_element(choices, self.key .. "_create")
                 if choice then
-                    SMODS.add_card { key = choice, area = JoyousSpring.side_deck_area, stickers = { 'perishable' }, force_stickers = { 'perishable' } }
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card { key = choice, area = JoyousSpring.side_deck_area, stickers = { 'perishable' }, force_stickers = { 'perishable' } }
+                            return true
+                        end
+                    }))
                     return {
                         message = localize("k_joy_add")
                     }

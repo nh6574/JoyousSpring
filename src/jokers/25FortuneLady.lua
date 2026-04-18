@@ -264,9 +264,14 @@ JoyousSpring.Joker({
                 local planet = JoyousSpring.get_played_planet(context.scoring_name)
                 if planet then
                     for i = 1, card.ability.extra.creates do
-                        SMODS.add_card({
-                            key = planet
-                        })
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                SMODS.add_card({
+                                    key = planet
+                                })
+                                return true
+                            end
+                        }))
                     end
                 end
                 return {

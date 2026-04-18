@@ -888,10 +888,16 @@ JoyousSpring.OpponentCard {
         if JoyousSpring.can_use_abilities(card) then
             if context.remove_playing_cards and not card.ability.extra.activated then
                 local pcard = context.removed[1]
-                local added_card = SMODS.add_card { set = "Base", enhancement = 'm_glass',
-                    rank = not SMODS.has_no_rank(pcard) and pcard.base.value or nil,
-                    suit = not SMODS.has_no_suit(pcard) and not SMODS.has_any_suit(pcard) and pcard.base.suit or nil }
-                JoyousSpring.modify_probability_numerator(added_card, 3)
+                local rank = not SMODS.has_no_rank(pcard) and pcard.base.value or nil
+                local suit = not SMODS.has_no_suit(pcard) and not SMODS.has_any_suit(pcard) and pcard.base.suit or nil
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        local added_card = SMODS.add_card { set = "Base", enhancement = 'm_glass',
+                            rank = rank, suit = suit, key_append = self.key }
+                        JoyousSpring.modify_probability_numerator(added_card, 3)
+                        return true
+                    end
+                }))
                 card.ability.extra.activated = true
             end
         end

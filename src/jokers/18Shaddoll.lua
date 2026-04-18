@@ -290,10 +290,15 @@ JoyousSpring.Joker({
         if JoyousSpring.calculate_flip_effect(card, context) then
             for i = 1, card.ability.extra.creates_tarot do
                 if #G.consumeables.cards < G.consumeables.config.card_limit then
-                    SMODS.add_card({
-                        set = 'Tarot',
-                        key_append = self.key .. "_tarot"
-                    })
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card({
+                                set = 'Tarot',
+                                key_append = self.key .. "_tarot"
+                            })
+                            return true
+                        end
+                    }))
                 end
             end
             for i = 1, card.ability.extra.revives do
@@ -307,10 +312,15 @@ JoyousSpring.Joker({
         if JoyousSpring.used_as_material(card, context) and JoyousSpring.is_summon_type(context.joy_card, "FUSION") then
             for i = 1, card.ability.extra.creates_spectral do
                 if #G.consumeables.cards < G.consumeables.config.card_limit then
-                    SMODS.add_card({
-                        set = 'Spectral',
-                        key_append = self.key .. "_spectral"
-                    })
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card({
+                                set = 'Spectral',
+                                key_append = self.key .. "_spectral"
+                            })
+                            return true
+                        end
+                    }))
                 end
             end
         end

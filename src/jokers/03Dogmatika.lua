@@ -215,7 +215,7 @@ JoyousSpring.Joker({
         end
         if context.joy_summon and not context.blueprint_card then
             if JoyousSpring.used_as_material(card, context) and JoyousSpring.is_summon_type(context.joy_card, "RITUAL") then
-                SMODS.add_card { key = "j_joy_dogma_thunderbolt", edition = "e_negative" }
+                JoyousSpring.create_summon { key = "j_joy_dogma_thunderbolt", edition = "e_negative" }
             end
         end
     end,

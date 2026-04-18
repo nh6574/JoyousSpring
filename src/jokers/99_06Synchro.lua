@@ -40,11 +40,16 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.used_as_material(card, context) and JoyousSpring.is_summon_type(context.joy_card, "LINK") then
             for i = 1, card.ability.extra.creates do
-                SMODS.add_card({
-                    set = "Spectral",
-                    edition = "e_negative",
-                    key_append = self.key .. "_spectral"
-                })
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        SMODS.add_card({
+                            set = "Spectral",
+                            edition = "e_negative",
+                            key_append = self.key .. "_spectral"
+                        })
+                        return true
+                    end
+                }))
             end
         end
     end,

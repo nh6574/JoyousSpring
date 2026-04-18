@@ -180,10 +180,15 @@ JoyousSpring.Joker({
             if context.selling_self then
                 for i = 1, card.ability.extra.cards_to_create do
                     if #G.consumeables.cards < G.consumeables.config.card_limit then
-                        SMODS.add_card({
-                            set = 'Tarot',
-                            key_append = self.key .. "_tarot"
-                        })
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                SMODS.add_card({
+                                    set = 'Tarot',
+                                    key_append = self.key .. "_tarot"
+                                })
+                                return true
+                            end
+                        }))
                     else
                         break
                     end
@@ -243,10 +248,15 @@ JoyousSpring.Joker({
             if context.selling_self then
                 for i = 1, card.ability.extra.cards_to_create do
                     if #G.consumeables.cards < G.consumeables.config.card_limit then
-                        SMODS.add_card({
-                            set = 'Tarot',
-                            key_append = self.key .. "_tarot"
-                        })
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                SMODS.add_card({
+                                    set = 'Tarot',
+                                    key_append = self.key .. "_tarot"
+                                })
+                                return true
+                            end
+                        }))
                     else
                         break
                     end
@@ -254,7 +264,12 @@ JoyousSpring.Joker({
             end
             if context.using_consumeable and G.GAME.blind.in_blind and context.consumeable.ability.set == 'Tarot' then
                 for i = 1, card.ability.extra.playing_cards_to_create do
-                    SMODS.add_card { set = "Playing Card", key_append = self.key .. "_card" }
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card { set = "Playing Card", key_append = self.key .. "_card" }
+                            return true
+                        end
+                    }))
                 end
             end
         end
@@ -311,11 +326,16 @@ JoyousSpring.Joker({
             if not context.blueprint_card and not context.retrigger_joker and
                 context.joy_returned and context.joy_returned_card == card then
                 for i = 1, card.ability.extra.cards_to_create do
-                    SMODS.add_card({
-                        set = 'Tarot',
-                        edition = "e_negative",
-                        key_append = self.key .. "_tarot"
-                    })
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card({
+                                set = 'Tarot',
+                                edition = "e_negative",
+                                key_append = self.key .. "_tarot"
+                            })
+                            return true
+                        end
+                    }))
                 end
             end
         end
@@ -373,10 +393,15 @@ JoyousSpring.Joker({
         if context.end_of_round and context.game_over == false and context.main_eval then
             for _, key in ipairs(card.ability.extra.tarots_used) do
                 if #G.consumeables.cards < G.consumeables.config.card_limit then
-                    SMODS.add_card({
-                        key = key,
-                        no_edition = true
-                    })
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card({
+                                key = key,
+                                no_edition = true
+                            })
+                            return true
+                        end
+                    }))
                 else
                     break
                 end

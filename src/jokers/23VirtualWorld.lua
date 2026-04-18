@@ -198,9 +198,14 @@ JoyousSpring.Joker({
                     local choices = { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon" }
                     for _ = 1, card.ability.extra.creates do
                         if #G.consumeables.cards < G.consumeables.config.card_limit then
-                            SMODS.add_card {
-                                key = pseudorandom_element(choices, 'j_joy_vw_nyannyan')
-                            }
+                            G.E_MANAGER:add_event(Event({
+                                func = function()
+                                    SMODS.add_card {
+                                        key = pseudorandom_element(choices, 'j_joy_vw_nyannyan'),
+                                    }
+                                    return true
+                                end
+                            }))
                         end
                     end
                 end
@@ -438,10 +443,15 @@ JoyousSpring.Joker({
                 if vw_played_hand("kauwloon", context) then
                     local choices = { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon" }
                     for _ = 1, card.ability.extra.creates do
-                        SMODS.add_card {
-                            key = pseudorandom_element(choices, 'j_joy_vw_nyannyan'),
-                            edition = "e_negative"
-                        }
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                SMODS.add_card {
+                                    key = pseudorandom_element(choices, 'j_joy_vw_nyannyan'),
+                                    edition = "e_negative"
+                                }
+                                return true
+                            end
+                        }))
                     end
                 end
                 if vw_played_hand("chuche", context) and not card.ability.extra.banish_activated then

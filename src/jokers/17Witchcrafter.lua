@@ -70,10 +70,15 @@ JoyousSpring.Joker({
         if not card.debuff and not from_debuff then
             for i = 1, card.ability.extra.creates_tarot do
                 if #G.consumeables.cards < G.consumeables.config.card_limit then
-                    SMODS.add_card({
-                        set = 'Tarot',
-                        key_append = self.key .. "_tarot"
-                    })
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card({
+                                set = 'Tarot',
+                                key_append = self.key .. "_tarot"
+                            })
+                            return true
+                        end
+                    }))
                 end
             end
         end
@@ -164,10 +169,15 @@ JoyousSpring.Joker({
         if not card.debuff and not from_debuff then
             for i = 1, card.ability.extra.creates_tarot do
                 if #G.consumeables.cards == 0 and #G.consumeables.cards < G.consumeables.config.card_limit then
-                    SMODS.add_card({
-                        set = 'Tarot',
-                        key_append = self.key .. "_tarot"
-                    })
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card({
+                                set = 'Tarot',
+                                key_append = self.key .. "_tarot"
+                            })
+                            return true
+                        end
+                    }))
                 end
             end
         end
@@ -236,10 +246,15 @@ JoyousSpring.Joker({
                     if card.ability.extra.consumables_used >= card.ability.extra.consumables then
                         for i = 1, card.ability.extra.creates_tarot do
                             if #G.consumeables.cards < G.consumeables.config.card_limit then
-                                SMODS.add_card({
-                                    set = 'Tarot',
-                                    key_append = self.key .. "_tarot"
-                                })
+                                G.E_MANAGER:add_event(Event({
+                                    func = function()
+                                        SMODS.add_card({
+                                            set = 'Tarot',
+                                            key_append = self.key .. "_tarot"
+                                        })
+                                        return true
+                                    end
+                                }))
                             end
                         end
                         card.ability.extra.activated = true
@@ -348,10 +363,15 @@ JoyousSpring.Joker({
                 if context.before and context.main_eval and G.GAME.current_round.hands_played == 0 then
                     for i = 1, card.ability.extra.creates_tarot do
                         if #G.consumeables.cards < G.consumeables.config.card_limit then
-                            SMODS.add_card({
-                                set = 'Tarot',
-                                key_append = self.key .. "_tarot"
-                            })
+                            G.E_MANAGER:add_event(Event({
+                                func = function()
+                                    SMODS.add_card({
+                                        set = 'Tarot',
+                                        key_append = self.key .. "_tarot"
+                                    })
+                                    return true
+                                end
+                            }))
                         end
                     end
                 end
@@ -543,11 +563,16 @@ JoyousSpring.Joker({
             end
             if context.after and G.GAME.current_round.hands_left == 0 then
                 for i = 1, card.ability.extra.creates_tarot do
-                    SMODS.add_card({
-                        set = 'Tarot',
-                        edition = "e_negative",
-                        key_append = self.key .. "_tarot"
-                    })
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card({
+                                set = 'Tarot',
+                                edition = "e_negative",
+                                key_append = self.key .. "_tarot"
+                            })
+                            return true
+                        end
+                    }))
                 end
             end
         end
@@ -625,10 +650,15 @@ JoyousSpring.Joker({
             local tarots = JoyousSpring.get_set_tributed("Tarot")
 
             for _, key in ipairs(tarots) do
-                SMODS.add_card({
-                    key = key,
-                    edition = "e_negative"
-                })
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        SMODS.add_card({
+                            key = key,
+                            edition = "e_negative"
+                        })
+                        return true
+                    end
+                }))
             end
         end
     end,

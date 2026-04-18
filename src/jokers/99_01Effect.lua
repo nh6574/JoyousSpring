@@ -493,7 +493,12 @@ JoyousSpring.Joker({
         end
         if JoyousSpring.calculate_flip_effect(card, context) then
             for i = 1, card.ability.extra.adds do
-                SMODS.add_card { set = "Base", enhancement = "m_lucky", edition = "e_negative", rank = 2, area = G.GAME.blind.in_blind and G.hand or G.deck }
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        SMODS.add_card { set = "Base", enhancement = "m_lucky", edition = "e_negative", rank = 2, area = G.GAME.blind.in_blind and G.hand or G.deck, key_append = self.key }
+                        return true
+                    end
+                }))
             end
         end
     end,
@@ -1245,9 +1250,14 @@ JoyousSpring.Joker({
                 if planet then
                     local amount = G.consumeables.config.card_limit - #G.consumeables.cards
                     for i = 1, amount do
-                        SMODS.add_card({
-                            key = planet
-                        })
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                SMODS.add_card({
+                                    key = planet
+                                })
+                                return true
+                            end
+                        }))
                     end
                 end
             end
@@ -1430,7 +1440,12 @@ JoyousSpring.Joker({
             end
             if JoyousSpring.used_as_material(card, context) then
                 for _ = 1, card.ability.extra.adds do
-                    SMODS.add_card { set = "Enhanced", suit = "Diamonds", area = G.deck, key_append = self.key .. "_card" }
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card { set = "Enhanced", suit = "Diamonds", area = G.deck, key_append = self.key .. "_card" }
+                            return true
+                        end
+                    }))
                 end
             end
         end
@@ -1466,7 +1481,12 @@ JoyousSpring.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if JoyousSpring.used_as_material(card, context) then
                 for _ = 1, card.ability.extra.adds do
-                    SMODS.add_card { set = "Base", suit = "Diamonds", seal = SMODS.poll_seal({ guaranteed = true }), area = G.deck, key_append = self.key }
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card { set = "Base", suit = "Diamonds", seal = SMODS.poll_seal({ guaranteed = true, key = self.key .. "_seal" }), area = G.deck, key_append = self.key }
+                            return true
+                        end
+                    }))
                 end
                 JoyousSpring.create_perma_debuffed_card("j_joy_revgolem", card.config.center.key, "e_negative")
             end
@@ -1517,7 +1537,12 @@ JoyousSpring.Joker({
                 card.ability.extra.activated = true
                 JoyousSpring.tribute(card, context.joy_selection)
                 for _ = 1, card.ability.extra.adds do
-                    SMODS.add_card { set = "Base", suit = "Diamonds", edition = SMODS.poll_edition { key = card.config.center.key, guaranteed = true, no_negative = true }, area = G.deck, key_append = self.key }
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card { set = "Base", suit = "Diamonds", edition = SMODS.poll_edition { key = card.config.center.key, guaranteed = true, no_negative = true }, area = G.deck, key_append = self.key }
+                            return true
+                        end
+                    }))
                 end
                 JoyousSpring.flip_all_cards(card, 'front', { G.jokers })
             end

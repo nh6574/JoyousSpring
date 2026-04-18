@@ -90,9 +90,14 @@ JoyousSpring.Joker({
     joy_transfer_ability_calculate = function(self, other_card, context, config)
         if JoyousSpring.can_use_abilities(other_card) then
             if context.end_of_round and context.game_over == false and context.main_eval then
-                SMODS.add_card { set = "Tarot", edition = 'e_negative', key_append = self.key .. "_tarot" }
-                SMODS.add_card { set = "Planet", edition = 'e_negative', key_append = self.key .. "_planet" }
-                SMODS.add_card { set = "Planet", edition = 'e_negative', key_append = self.key .. "_planet" }
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        SMODS.add_card { set = "Tarot", edition = 'e_negative', key_append = self.key .. "_tarot" }
+                        SMODS.add_card { set = "Planet", edition = 'e_negative', key_append = self.key .. "_planet" }
+                        SMODS.add_card { set = "Planet", edition = 'e_negative', key_append = self.key .. "_planet" }
+                        return true
+                    end
+                }))
             end
         end
     end,

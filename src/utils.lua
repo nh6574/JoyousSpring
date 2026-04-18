@@ -422,14 +422,22 @@ JoyousSpring.count_set_tributed = function(set, this_run)
 end
 
 ---Get the list of cards of a set in G.consumeables
----@param set? string Set the cards belong to (e.g. "Planet" or "Tarot")
+---@param sets? string|string[] Set the cards belong to (e.g. "Planet" or "Tarot")
 ---@return Card[]|table
-JoyousSpring.get_consumable_set = function(set)
+JoyousSpring.get_consumable_set = function(sets)
     local list = {}
+    sets = type(sets) == "string" and { sets } or sets
 
     if G.consumeables then
         for _, card in ipairs(G.consumeables.cards) do
-            if not set or (card.ability.set == set) then
+            if sets then
+                for _, set in ipairs(sets) do
+                    if card.ability.set == set then
+                        table.insert(list, card)
+                        break
+                    end
+                end
+            else
                 table.insert(list, card)
             end
         end
@@ -668,6 +676,15 @@ end
 ---@return integer
 JoyousSpring.get_card_limit = function(card)
     return card and card.ability and card.ability.card_limit or 0
+end
+
+---Returns the last used consumable, nil if none
+---@param set? string Gets from a specific set
+---@return string?
+JoyousSpring.get_last_used_consumable = function(set)
+    if not G.GAME.joy_last_used then return end
+    if not set then return G.GAME.joy_last_used["All"] end
+    return G.GAME.joy_last_used[set]
 end
 
 ---Runs **func** on all (supported) objects

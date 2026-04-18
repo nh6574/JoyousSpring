@@ -1033,9 +1033,14 @@ JoyousSpring.Joker({
             if context.using_consumeable and JoyousSpring.is_pendulum_monster(context.consumeable) then
                 for i = 1, card.ability.extra.creates do
                     if #G.consumeables.cards < G.consumeables.config.card_limit then
-                        SMODS.add_card({
-                            key = 'c_strength'
-                        })
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                SMODS.add_card({
+                                    key = 'c_strength'
+                                })
+                                return true
+                            end
+                        }))
                     end
                 end
             end

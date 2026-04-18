@@ -161,7 +161,12 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.end_of_round and context.game_over == false and context.main_eval then
-                SMODS.add_card { key = "c_joy_purr_friend" }
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        SMODS.add_card { key = "c_joy_purr_friend" }
+                        return true
+                    end
+                }))
                 card:juice_up()
             end
 
@@ -571,7 +576,12 @@ JoyousSpring.Joker({
             if context.end_of_round and context.game_over == false and context.main_eval then
                 local creates = JoyousSpring.count_materials_owned({ { monster_archetypes = { "Purrely" } } }, true)
                 for i = 1, creates do
-                    SMODS.add_card { key = "c_joy_purr_friend", edition = 'e_negative' }
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card { key = "c_joy_purr_friend", edition = 'e_negative' }
+                            return true
+                        end
+                    }))
                 end
                 if card.ability.extra.joyous_spring.xyz_materials <= 0 then
                     JoyousSpring.transform_card(card, "j_joy_purr_purrely")

@@ -554,7 +554,7 @@ JoyousSpring.Joker({
                 local choices = JoyousSpring.get_materials_owned({ { facedown = true, exclude_edition = true }, { monster_archetypes = { "Subterror" }, exclude_edition = true } })
                 local pick = pseudorandom_element(choices, 'j_joy_sub_drago')
                 if pick then
-                    local edition = SMODS.poll_edition { key = "j_joy_sub_drago", guaranteed = true } or 'e_foil'
+                    local edition = SMODS.poll_edition { key = "j_joy_sub_drago_edition", guaranteed = true } or 'e_foil'
                     pick:set_edition(edition)
                 end
             end

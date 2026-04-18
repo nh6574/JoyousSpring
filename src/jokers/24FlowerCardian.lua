@@ -32,6 +32,21 @@ local cardian_is_hanafuda_month = function(card, months)
     return false
 end
 
+local cardian_end_of_round = function(self, card, context)
+    if context.end_of_round and context.game_over == false and context.main_eval then
+        if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    SMODS.add_card({
+                        key = "c_joy_cardian_gathering"
+                    })
+                    return true
+                end
+            }))
+        end
+    end
+end
+
 -- Flower Cardian Pine
 JoyousSpring.Joker({
     key = "cardian_pine",
@@ -115,13 +130,7 @@ JoyousSpring.Joker({
                 card.joy_draw = nil
                 SMODS.draw_cards(card.ability.extra.draws)
             end
-            if context.end_of_round and context.game_over == false and context.main_eval then
-                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
-                    SMODS.add_card({
-                        key = "c_joy_cardian_gathering"
-                    })
-                end
-            end
+            cardian_end_of_round(self, card, context)
         end
     end,
     joy_set_excavate_count = cardian_excavate,
@@ -201,13 +210,7 @@ JoyousSpring.Joker({
                 card.joy_draw = nil
                 SMODS.draw_cards(card.ability.extra.draws)
             end
-            if context.end_of_round and context.game_over == false and context.main_eval then
-                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
-                    SMODS.add_card({
-                        key = "c_joy_cardian_gathering"
-                    })
-                end
-            end
+            cardian_end_of_round(self, card, context)
         end
     end,
     joy_set_excavate_count = cardian_excavate,
@@ -292,13 +295,7 @@ JoyousSpring.Joker({
                 card.joy_draw = nil
                 SMODS.draw_cards(card.ability.extra.draws)
             end
-            if context.end_of_round and context.game_over == false and context.main_eval then
-                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
-                    SMODS.add_card({
-                        key = "c_joy_cardian_gathering"
-                    })
-                end
-            end
+            cardian_end_of_round(self, card, context)
         end
     end,
     joy_set_excavate_count = cardian_excavate,
@@ -378,13 +375,7 @@ JoyousSpring.Joker({
                 card.joy_draw = nil
                 SMODS.draw_cards(card.ability.extra.draws)
             end
-            if context.end_of_round and context.game_over == false and context.main_eval then
-                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
-                    SMODS.add_card({
-                        key = "c_joy_cardian_gathering"
-                    })
-                end
-            end
+            cardian_end_of_round(self, card, context)
         end
     end,
     joy_set_excavate_count = cardian_excavate,
@@ -466,13 +457,7 @@ JoyousSpring.Joker({
                 card.joy_draw = nil
                 SMODS.draw_cards(card.ability.extra.draws)
             end
-            if context.end_of_round and context.game_over == false and context.main_eval then
-                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
-                    SMODS.add_card({
-                        key = "c_joy_cardian_gathering"
-                    })
-                end
-            end
+            cardian_end_of_round(self, card, context)
         end
     end,
     joy_set_excavate_count = cardian_excavate,
@@ -553,13 +538,7 @@ JoyousSpring.Joker({
                 card.joy_draw = nil
                 SMODS.draw_cards(card.ability.extra.draws)
             end
-            if context.end_of_round and context.game_over == false and context.main_eval then
-                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
-                    SMODS.add_card({
-                        key = "c_joy_cardian_gathering"
-                    })
-                end
-            end
+            cardian_end_of_round(self, card, context)
         end
     end,
     joy_set_excavate_count = cardian_excavate,
@@ -644,13 +623,7 @@ JoyousSpring.Joker({
                 card.joy_draw = nil
                 SMODS.draw_cards(card.ability.extra.draws)
             end
-            if context.end_of_round and context.game_over == false and context.main_eval then
-                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
-                    SMODS.add_card({
-                        key = "c_joy_cardian_gathering"
-                    })
-                end
-            end
+            cardian_end_of_round(self, card, context)
         end
     end,
     joy_set_excavate_count = cardian_excavate,
@@ -729,13 +702,7 @@ JoyousSpring.Joker({
                 end
                 card.ability.extra.hanafuda_count = 0
             end
-            if context.end_of_round and context.game_over == false and context.main_eval then
-                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
-                    SMODS.add_card({
-                        key = "c_joy_cardian_gathering"
-                    })
-                end
-            end
+            cardian_end_of_round(self, card, context)
         end
     end,
     joy_set_excavate_count = cardian_excavate,
@@ -816,13 +783,7 @@ JoyousSpring.Joker({
                 card.joy_draw = nil
                 SMODS.draw_cards(card.ability.extra.draws)
             end
-            if context.end_of_round and context.game_over == false and context.main_eval then
-                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
-                    SMODS.add_card({
-                        key = "c_joy_cardian_gathering"
-                    })
-                end
-            end
+            cardian_end_of_round(self, card, context)
         end
     end,
     joy_set_excavate_count = cardian_excavate,
@@ -907,13 +868,7 @@ JoyousSpring.Joker({
                 card.joy_draw = nil
                 SMODS.draw_cards(card.ability.extra.draws)
             end
-            if context.end_of_round and context.game_over == false and context.main_eval then
-                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
-                    SMODS.add_card({
-                        key = "c_joy_cardian_gathering"
-                    })
-                end
-            end
+            cardian_end_of_round(self, card, context)
         end
     end,
     joy_set_excavate_count = cardian_excavate,
@@ -989,13 +944,7 @@ JoyousSpring.Joker({
                 end
                 card.joy_hit = nil
             end
-            if context.end_of_round and context.game_over == false and context.main_eval then
-                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
-                    SMODS.add_card({
-                        key = "c_joy_cardian_gathering"
-                    })
-                end
-            end
+            cardian_end_of_round(self, card, context)
         end
     end,
     joy_set_excavate_count = cardian_excavate,
@@ -1080,13 +1029,7 @@ JoyousSpring.Joker({
                 card.joy_draw = nil
                 SMODS.draw_cards(card.ability.extra.draws)
             end
-            if context.end_of_round and context.game_over == false and context.main_eval then
-                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
-                    SMODS.add_card({
-                        key = "c_joy_cardian_gathering"
-                    })
-                end
-            end
+            cardian_end_of_round(self, card, context)
         end
     end,
     joy_set_excavate_count = cardian_excavate,
@@ -1166,13 +1109,7 @@ JoyousSpring.Joker({
                 card.joy_draw = nil
                 SMODS.draw_cards(card.ability.extra.draws)
             end
-            if context.end_of_round and context.game_over == false and context.main_eval then
-                if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 1 then
-                    SMODS.add_card({
-                        key = "c_joy_cardian_gathering"
-                    })
-                end
-            end
+            cardian_end_of_round(self, card, context)
         end
     end,
     joy_set_excavate_count = cardian_excavate,
@@ -1230,7 +1167,7 @@ JoyousSpring.Joker({
                     if JoyousSpring.get_hanafuda(pcard) and (next(SMODS.find_card("j_joy_cardian_lightflare")) or JoyousSpring.get_hanafuda(pcard).type == "animal") then
                         card.ability.extra.animals_scored = card.ability.extra.animals_scored + 1
                     end
-                    pcard:set_seal(SMODS.poll_seal({ guaranteed = true }))
+                    pcard:set_seal(SMODS.poll_seal({ key = self.key .. "_seal", guaranteed = true }))
                 end
             end
             if context.joy_post_round_eval then

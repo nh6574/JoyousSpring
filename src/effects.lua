@@ -114,9 +114,15 @@ SMODS.current_mod.calculate = function(self, context)
             1
     end
 
-    -- Global count for pendulum usage
-    if context.using_consumeable and JoyousSpring.is_pendulum_monster(context.consumeable) then
-        G.GAME.joy_pendulum_count = (G.GAME.joy_pendulum_count or 0) + 1
+    -- Globals for consumable usage
+    if context.using_consumeable then
+        G.GAME.joy_last_used = G.GAME.joy_last_used or {}
+        if JoyousSpring.is_pendulum_monster(context.consumeable) then
+            G.GAME.joy_pendulum_count = (G.GAME.joy_pendulum_count or 0) + 1
+            G.GAME.joy_last_used["PENDULUM"] = context.consumeable.config.center.key
+        end
+        G.GAME.joy_last_used[context.consumeable.ability.set] = context.consumeable.config.center.key
+        G.GAME.joy_last_used["All"] = context.consumeable.config.center.key
     end
 
     -- Reset check if card is flipped by blind

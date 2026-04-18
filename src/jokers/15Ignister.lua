@@ -97,10 +97,15 @@ JoyousSpring.Joker({
         if not card.debuff and not from_debuff then
             for i = 1, card.ability.extra.creates do
                 if #G.consumeables.cards < G.consumeables.config.card_limit then
-                    SMODS.add_card({
-                        set = 'Tarot',
-                        key_append = self.key .. "_tarot"
-                    })
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card({
+                                set = 'Tarot',
+                                key_append = self.key .. "_tarot"
+                            })
+                            return true
+                        end
+                    }))
                 end
             end
         end
@@ -1518,19 +1523,29 @@ JoyousSpring.Joker({
             if context.using_consumeable and context.main_eval and card.ability.extra.attributes["WIND"] then
                 if context.consumeable.ability.set == "Spectral" and
                     SMODS.pseudorandom_probability(card, card.config.center.key, 1, card.ability.extra.odds) then
-                    SMODS.add_card({
-                        key = context.consumeable.config.center.key,
-                        edition = "e_negative"
-                    })
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card({
+                                key = context.consumeable.config.center.key,
+                                edition = "e_negative"
+                            })
+                            return true
+                        end
+                    }))
                 end
             end
             if context.end_of_round and context.main_eval and context.game_over == false then
                 for i = 1, card.ability.extra.creates do
                     if #G.consumeables.cards < G.consumeables.config.card_limit then
-                        SMODS.add_card({
-                            set = 'Spectral',
-                            key_append = self.key .. "_spectral"
-                        })
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                SMODS.add_card({
+                                    set = 'Spectral',
+                                    key_append = self.key .. "_spectral"
+                                })
+                                return true
+                            end
+                        }))
                     end
                 end
             end
