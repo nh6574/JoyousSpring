@@ -390,7 +390,7 @@ return {
                     "{C:inactive}(Must have room)",
                     " ",
                     "{C:money}+$#5#{} when scored",
-                    "Increases by {C:money}$+#5#{}",
+                    "Increases by {C:money}+$#5#{}",
                     "for each other card",
                     "with a different suit",
                     " ",
