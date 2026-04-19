@@ -581,6 +581,19 @@ JoyousSpring.is_flip_active = function(card)
         card.ability.extra.joyous_spring.flip_active and true or false
 end
 
+---Checks if *card* is an Illusion Joker that should banish when blind is selected
+---@param card Card|table
+---@return boolean
+JoyousSpring.should_illusion_banish = function(card)
+    if not JoyousSpring.has_joyous_table(card) or card.ability.extra.joyous_spring.monster_type ~= "Illusion" then
+        return false
+    end
+
+    return not JoyousSpring.calculate_prototype_function("prevent_illusion_banish", {
+        return_if_true = true
+    }, card)
+end
+
 ---Checks if **card** fulfills **properties**
 ---@param card Card
 ---@param properties material_properties

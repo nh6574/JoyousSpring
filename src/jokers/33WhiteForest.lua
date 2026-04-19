@@ -36,18 +36,15 @@ local wforest_calculate = function(self, card, context, effects, exceptions)
             end
         end
         if context.joy_exit_effect_selection and context.joy_card == card and
-            #context.joy_selection == card.ability.extra.tributes and not card.ability.extra.active then
+            #context.joy_selection == 1 and not card.ability.extra.active then
             local tributed = context.joy_selection[1]
             local set = wforest_get_set(tributed)
-            local key = tributed.config.center.key
             if set then
-                JoyousSpring.tribute(card, context.joy_selection)
-
-                card.ability.extra.active = true
-
                 effects = effects or {}
                 if effects[set] then
                     effects[set]()
+                    JoyousSpring.tribute(card, context.joy_selection)
+                    card.ability.extra.active = true
                     return {
                         message = localize("k_joy_activated_ex")
                     }
@@ -61,17 +58,21 @@ local wforest_calculate = function(self, card, context, effects, exceptions)
 end
 
 local wforest_can_activate = function(card, exceptions)
-    return #wforest_get_tributes(exceptions) >= 1
+    return not card.ability.extra.active and #wforest_get_tributes(exceptions) >= 1
+end
+
+local wforest_find_diabell = function()
+    return SMODS.merge_lists { SMODS.find_card("j_joy_wforest_diabell"), JoyousSpring.get_banished_cards("j_joy_wforest_diabell") }
 end
 
 local wforest_count_spellcasters = function()
-    return G.jokers and next(SMODS.find_card("j_joy_wforest_diabell")) and
+    return G.jokers and wforest_find_diabell() and
         JoyousSpring.count_set_tributed("Tarot", true) > 50 and
         JoyousSpring.count_materials_in_graveyard({ { monster_type = "Spellcaster" } }) or 0
 end
 
 local wforest_count_illusion = function()
-    return G.jokers and next(SMODS.find_card("j_joy_wforest_diabell")) and
+    return G.jokers and wforest_find_diabell() and
         JoyousSpring.count_set_tributed("Joker", true, { is_field_spell = true }) > 20 and
         JoyousSpring.count_materials_in_graveyard({ { monster_type = "Illusion" } }) or 0
 end
@@ -84,15 +85,25 @@ local wforest_count_all_illusions_banished = function()
     return ((G.GAME.current_round.joy_cards_banished_by_type or {})["Illusion"] or 0) + wforest_count_illusion()
 end
 
+local wforest_add_booster_to_shop = function(seed)
+    local pack = get_pack(seed, "Spectral").key
+    if G.STATE == G.STATES.SHOP then
+        SMODS.add_booster_to_shop(pack)
+    else
+        G.GAME.joy_extra_packs = G.GAME.joy_extra_packs or {}
+        G.GAME.joy_extra_packs[#G.GAME.joy_extra_packs + 1] = pack
+    end
+end
+
 -- Astellar of the White Forest
 JoyousSpring.Joker({
     key = "wforest_astellar",
     atlas = 'wforest',
     pos = { x = 0, y = 0 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 8,
     loc_vars = function(self, info_queue, card)
         local last_used_planet = JoyousSpring.get_last_used_consumable("Planet")
         local last_used_name = last_used_planet and
@@ -190,10 +201,10 @@ JoyousSpring.Joker({
     key = "wforest_elzette",
     atlas = 'wforest',
     pos = { x = 1, y = 0 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 8,
     loc_vars = function(self, info_queue, card)
         local last_used_tarot = JoyousSpring.get_last_used_consumable("Tarot")
         local last_used_name = last_used_tarot and
@@ -282,14 +293,14 @@ JoyousSpring.Joker({
     key = "wforest_silvy",
     atlas = 'wforest',
     pos = { x = 0, y = 1 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 8,
     loc_vars = function(self, info_queue, card)
         local last_tributed = JoyousSpring.get_set_tributed("Consumable", true, true)
         local last_tributed_name = last_tributed and
-            localize { type = "name_text", set = "Planet", key = last_tributed } or
+            localize { type = "name_text", set = G.P_CENTERS[last_tributed].set, key = last_tributed } or
             localize("k_none")
         return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.get_flipped_count("Trap"), card.ability.extra.xmult, last_tributed_name } }
     end,
@@ -360,7 +371,7 @@ JoyousSpring.Joker({
                 end
             },
             {
-                exclude_planets = not JoyousSpring.get_last_used_consumable(),
+                exclude_planets = not JoyousSpring.get_set_tributed("Consumable", true, true),
                 exclude_spectrals = JoyousSpring.count_materials_in_graveyard(
                     { { monster_archetypes = { "WhiteForest" } } }, true) <= 0
             }
@@ -386,10 +397,10 @@ JoyousSpring.Joker({
     key = "wforest_rucia",
     atlas = 'wforest',
     pos = { x = 2, y = 0 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 8,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult_flip, card.ability.extra.mult_flip * JoyousSpring.get_flipped_count("Flip"), card.ability.extra.mult_illusion, card.ability.extra.mult_illusion * wforest_count_all_illusions_banished() } }
     end,
@@ -438,8 +449,7 @@ JoyousSpring.Joker({
                     card.ability.extra.active_mult_illusion = true
                 end,
                 Planet = function()
-                    G.GAME.joy_extra_packs = G.GAME.joy_extra_packs or {}
-                    G.GAME.joy_extra_packs[#G.GAME.joy_extra_packs + 1] = get_pack(self.key .. "_booster", "Spectral")
+                    wforest_add_booster_to_shop(self.key .. "_booster")
                 end,
                 Spectral = function()
                     JoyousSpring.add_to_extra_deck_pseudorandom({ { monster_archetypes = { "WhiteForest" } } },
@@ -467,10 +477,10 @@ JoyousSpring.Joker({
     key = "wforest_poplar",
     atlas = 'wforest',
     pos = { x = 0, y = 2 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 8,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
@@ -486,6 +496,23 @@ JoyousSpring.Joker({
                 attribute = "LIGHT",
                 monster_archetypes = { ["WhiteForest"] = true }
             },
+            summon_conditions = {
+                {
+                    type = "SYNCHRO",
+                    materials = {
+                        { is_tuner = true, monster_type = "Spellcaster", exclude_summon_types = { "XYZ", "LINK" } },
+                        { min = 1,         exclude_tuners = true,        exclude_summon_types = { "XYZ", "LINK" } },
+                    },
+                },
+                {
+                    type = "SYNCHRO",
+                    materials = {
+                        { is_tuner = true,              exclude_summon_types = { "XYZ", "LINK" } },
+                        { monster_type = "Spellcaster", exclude_tuners = true,                   exclude_summon_types = { "XYZ", "LINK" } },
+                        { optional = true,              exclude_tuners = true,                   exclude_summon_types = { "XYZ", "LINK" } },
+                    },
+                }
+            }
         },
     },
     calculate = function(self, card, context)
@@ -503,6 +530,7 @@ JoyousSpring.Joker({
                 end
             end
         end
+        JoyousSpring.calculate_illusion_banish(card, context)
     end,
     joy_can_transfer_ability = function(self, other_card, card)
         return JoyousSpring.is_summon_type(other_card, "SYNCHRO")
@@ -539,10 +567,10 @@ JoyousSpring.Joker({
     key = "wforest_rciela",
     atlas = 'wforest',
     pos = { x = 1, y = 2 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 10,
     loc_vars = function(self, info_queue, card)
         return {
             vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult *
@@ -559,7 +587,24 @@ JoyousSpring.Joker({
                 summon_type = "SYNCHRO",
                 monster_type = "Spellcaster",
                 attribute = "LIGHT",
-                monster_archetypes = { ["WhiteForest"] = true }
+                monster_archetypes = { ["WhiteForest"] = true },
+                summon_conditions = {
+                    {
+                        type = "SYNCHRO",
+                        materials = {
+                            { is_tuner = true, monster_type = "Spellcaster", exclude_summon_types = { "XYZ", "LINK" } },
+                            { min = 1,         exclude_tuners = true,        exclude_summon_types = { "XYZ", "LINK" } },
+                        },
+                    },
+                    {
+                        type = "SYNCHRO",
+                        materials = {
+                            { is_tuner = true,              exclude_summon_types = { "XYZ", "LINK" } },
+                            { monster_type = "Spellcaster", exclude_tuners = true,                   exclude_summon_types = { "XYZ", "LINK" } },
+                            { optional = true,              exclude_tuners = true,                   exclude_summon_types = { "XYZ", "LINK" } },
+                        },
+                    }
+                }
             },
             xmult = 1
         },
@@ -632,10 +677,10 @@ JoyousSpring.Joker({
     key = "wforest_silvera",
     atlas = 'wforest',
     pos = { x = 2, y = 2 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 10,
     loc_vars = function(self, info_queue, card)
         return {
             vars = { card.ability.extra.mult, card.ability.extra.mult * wforest_count_all_illusions_banished() }
@@ -651,7 +696,24 @@ JoyousSpring.Joker({
                 summon_type = "SYNCHRO",
                 monster_type = "Spellcaster",
                 attribute = "LIGHT",
-                monster_archetypes = { ["WhiteForest"] = true }
+                monster_archetypes = { ["WhiteForest"] = true },
+                summon_conditions = {
+                    {
+                        type = "SYNCHRO",
+                        materials = {
+                            { is_tuner = true, monster_type = "Spellcaster", exclude_summon_types = { "XYZ", "LINK" } },
+                            { min = 1,         exclude_tuners = true,        exclude_summon_types = { "XYZ", "LINK" } },
+                        },
+                    },
+                    {
+                        type = "SYNCHRO",
+                        materials = {
+                            { is_tuner = true,              exclude_summon_types = { "XYZ", "LINK" } },
+                            { monster_type = "Spellcaster", exclude_tuners = true,                   exclude_summon_types = { "XYZ", "LINK" } },
+                            { optional = true,              exclude_tuners = true,                   exclude_summon_types = { "XYZ", "LINK" } },
+                        },
+                    }
+                }
             },
             mult = 25
         },
@@ -718,16 +780,45 @@ JoyousSpring.Joker({
 })
 
 -- Diabell, Queen of the White Forest
-JoyousSpring.Joker({
+local diabell = JoyousSpring.Joker({
     key = "wforest_diabell",
     atlas = 'wforest',
     pos = { x = 2, y = 1 },
-    rarity = 1,
+    rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 15,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.xmult, 1 } }
+        local trap_count = JoyousSpring.count_set_tributed("Joker", true, { is_trap = true })
+        local tarot_count = JoyousSpring.count_set_tributed("Tarot", true)
+        local planet_count = JoyousSpring.count_set_tributed("Planet", true)
+        local spectral_count = JoyousSpring.count_set_tributed("Spectral", true)
+        local field_count = JoyousSpring.count_set_tributed("Joker", true, { is_field_spell = true })
+        return {
+            vars = {
+                trap_count,
+                tarot_count,
+                math.floor(planet_count / 5),
+                planet_count,
+                card.ability.extra.xmult,
+                1 + card.ability.extra.xmult * spectral_count,
+                field_count,
+                colours = {
+                    trap_count >= 20 and G.C.UI.TEXT_DARK or G.C.UI.TEXT_INACTIVE,
+                    trap_count >= 20 and G.C.FILTER or G.C.UI.TEXT_INACTIVE,
+                    trap_count >= 20 and G.C.JOY.TRAP or G.C.UI.TEXT_INACTIVE,
+                    trap_count >= 20 and G.C.JOY.EFFECT or G.C.UI.TEXT_INACTIVE,
+                    tarot_count >= 50 and G.C.UI.TEXT_DARK or G.C.UI.TEXT_INACTIVE,
+                    tarot_count >= 50 and G.C.FILTER or G.C.UI.TEXT_INACTIVE,
+                    tarot_count >= 50 and G.C.SECONDARY_SET.Tarot or G.C.UI.TEXT_INACTIVE,
+                    tarot_count >= 50 and G.C.JOY.NORMAL or G.C.UI.TEXT_INACTIVE,
+                    field_count >= 20 and G.C.UI.TEXT_DARK or G.C.UI.TEXT_INACTIVE,
+                    field_count >= 20 and G.C.FILTER or G.C.UI.TEXT_INACTIVE,
+                    field_count >= 20 and G.C.JOY.SPELL or G.C.UI.TEXT_INACTIVE,
+                    field_count >= 20 and G.C.JOY.NORMAL or G.C.UI.TEXT_INACTIVE,
+                }
+            }
+        }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "WhiteForest" } }, }, name = "k_joy_archetype" },
@@ -738,7 +829,24 @@ JoyousSpring.Joker({
                 summon_type = "SYNCHRO",
                 monster_type = "Illusion",
                 attribute = "LIGHT",
-                monster_archetypes = { ["WhiteForest"] = true }
+                monster_archetypes = { ["WhiteForest"] = true },
+                summon_conditions = {
+                    {
+                        type = "SYNCHRO",
+                        materials = {
+                            { is_tuner = true, monster_type = "Spellcaster", summon_type = "SYNCHRO" },
+                            { min = 1,         exclude_tuners = true,        exclude_summon_types = { "XYZ", "LINK" } },
+                        },
+                    },
+                    {
+                        type = "SYNCHRO",
+                        materials = {
+                            { is_tuner = true,              exclude_summon_types = { "XYZ", "LINK" } },
+                            { monster_type = "Spellcaster", exclude_tuners = true,                   summon_type = "SYNCHRO" },
+                            { optional = true,              exclude_tuners = true,                   exclude_summon_types = { "XYZ", "LINK" } },
+                        },
+                    }
+                }
             },
             xmult = 0.1
         },
@@ -751,6 +859,7 @@ JoyousSpring.Joker({
                 }
             end
         end
+        JoyousSpring.calculate_illusion_banish(card, context)
     end,
     joy_prevent_trap_flip = function(self, card, other_card)
         return other_card.facing == 'front' and JoyousSpring.count_set_tributed("Joker", true, { is_trap = true }) >= 20
@@ -761,11 +870,38 @@ JoyousSpring.Joker({
     end,
 })
 
+JoyousSpring.calculate_effects[#JoyousSpring.calculate_effects + 1] = {
+    key = "wforest_diabell",
+    center = diabell,
+    is_active = function(self, func)
+        return not not next(wforest_find_diabell())
+    end,
+    calculate = function(self, context)
+        if context.main_scoring then
+            local ret = {}
+            local xmult = 1 + self.center.config.extra.xmult * JoyousSpring.count_set_tributed("Spectral", true)
+            for i = 1, #JoyousSpring.get_banished_cards("j_joy_wforest_diabell") do
+                ret[#ret + 1] = {
+                    xmult = xmult
+                }
+            end
+            return SMODS.merge_effects(ret)
+        end
+    end,
+    joy_prevent_trap_flip = function(self, other_card)
+        return other_card.facing == 'front' and JoyousSpring.count_set_tributed("Joker", true, { is_trap = true }) >= 20
+    end,
+    joy_flip_effect_active = function(self, other_card)
+        return JoyousSpring.is_trap_monster(other_card) and
+            JoyousSpring.count_set_tributed("Joker", true, { is_trap = true }) >= 20
+    end,
+}
+
 local level_up_hand_ref = level_up_hand
 function level_up_hand(card, hand, instant, amount, statustext, ...)
-    if card and card.ability.set == "Planet" and next(SMODS.find_card("j_joy_wforest_diabell")) then
+    if card and card.ability.set == "Planet" and wforest_find_diabell() then
         amount = (amount or 1) +
-            (math.floor(JoyousSpring.count_set_tributed("Planet", true) / 5) * SMODS.find_card("j_joy_wforest_diabell"))
+            (math.floor(JoyousSpring.count_set_tributed("Planet", true) / 5) * #wforest_find_diabell())
     end
     return level_up_hand_ref(card, hand, instant, amount, statustext, ...)
 end
@@ -811,8 +947,7 @@ JoyousSpring.Joker({
             end
         end
         if context.joy_tributed_self then
-            G.GAME.joy_extra_packs = G.GAME.joy_extra_packs or {}
-            G.GAME.joy_extra_packs[#G.GAME.joy_extra_packs + 1] = get_pack(self.key .. "_booster", "Spectral")
+            wforest_add_booster_to_shop(self.key .. "_booster")
             G.E_MANAGER:add_event(Event({
                 func = function()
                     JoyousSpring.add_monster_tag("j_joy_wforest_witch")
@@ -826,8 +961,6 @@ JoyousSpring.Joker({
             JoyousSpring.count_materials_owned({ { monster_type = "Spellcaster" } }, nil, true) > 0
     end,
 })
-
-
 
 JoyousSpring.collection_pool[#JoyousSpring.collection_pool + 1] = {
     keys = { "wforest" },

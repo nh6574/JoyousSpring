@@ -2,6 +2,8 @@
 
 --#region Effect utils
 
+JoyousSpring.calculate_effects = {}
+
 local SMODS_calculate_context_ref = SMODS.calculate_context
 function SMODS.calculate_context(context, return_table, no_resolve)
     JoyousSpring.calculate_context(context)
@@ -206,6 +208,17 @@ SMODS.current_mod.calculate = function(self, context)
             G.GAME.joy_temporary_handsize
         G.GAME.joy_temporary_handsize = 0
     end
+
+    -- Arbitrary calculations from cards
+
+    local returns = {}
+    for _, effect in ipairs(JoyousSpring.calculate_effects) do
+        if not effect.is_active or effect:is_active("calculate") then
+            local ret = effect:calculate(context)
+            returns[#returns + 1] = ret
+        end
+    end
+    return SMODS.merge_effects(returns)
 end
 
 local game_init_game_object_ref = Game.init_game_object
@@ -620,6 +633,19 @@ JoyousSpring.calculate_flip_effect = function(card, context)
         end
     end
     return false
+end
+
+---Calculate flips effect activation
+---@param card Card|table
+---@param context CalcContext|table
+JoyousSpring.calculate_illusion_banish = function(card, context)
+    if context.joy_pre_setting_blind then
+        if JoyousSpring.can_use_abilities(card) and JoyousSpring.should_illusion_banish(card) then
+            if JoyousSpring.banish(card, "end_of_round") then
+                SMODS.calculate_effect({ message = localize("k_joy_banished") }, card)
+            end
+        end
+    end
 end
 
 --#endregion
@@ -1324,6 +1350,12 @@ JoyousSpring.create_overlay_effect_selection = function(card, card_list, min, ma
                     added_joker.joy_opponent_pos = i
                 end
             end
+        elseif joker.area == JoyousSpring.field_spell_area then
+            for i, og_joker in ipairs(JoyousSpring.field_spell_area.cards) do
+                if og_joker == joker then
+                    added_joker.joy_field_spell_pos = i
+                end
+            end
         elseif joker.ability.set == 'Joker' then
             for i, og_joker in ipairs(G.jokers.cards) do
                 if og_joker == joker then
@@ -1397,6 +1429,9 @@ G.FUNCS.joy_exit_select_effect = function(e)
             end
             if material.joy_g_jokers_pos then
                 table.insert(material_list, G.jokers.cards[material.joy_g_jokers_pos])
+            end
+            if material.joy_field_spell_pos then
+                table.insert(material_list, JoyousSpring.field_spell_area.cards[material.joy_field_spell_pos])
             end
             if material.joy_g_consumeables_pos then
                 table.insert(material_list, G.consumeables.cards[material.joy_g_consumeables_pos])

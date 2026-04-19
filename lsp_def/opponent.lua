@@ -24,6 +24,7 @@
 ---@field joy_prevent_flip? fun(self: JoyousSpring.OpponentCard|table, card:table|Card, other_card:table|Card):boolean? Determines if *other_card* should flip
 ---@field joy_prevent_trap_flip? fun(self: JoyousSpring.OpponentCard|table, card:table|Card, other_card:table|Card):boolean? Determines if the Trap *other_card* should flip at end of round
 ---@field joy_flip_effect_active? fun(self: JoyousSpring.OpponentCard|table, card:table|Card, other_card:table|Card):boolean? Determines if the FLIP ability of *other_card* should activate at the start of Blind
+---@field prevent_illusion_banish? fun(self: JoyousSpring.OpponentCard|table, card:table|Card, other_card:table|Card):boolean? Determines if the Illusion Joker *other_card* should banish at the start of Blind
 ---@field joy_set_excavate_count? fun(self: JoyousSpring.OpponentCard|table, card:table|Card, context:CalcContext):integer? Determines how many cards to excavate in a certain context
 ---@field joy_can_be_sent_to_graveyard? fun(self:JoyousSpring.OpponentCard|table, card:table|Card, choices:string[]):string[]? Used to filter cards that can be sent to the GY
 ---@field joy_set_hand_highlight_limit? fun(self:JoyousSpring.OpponentCard|table, card:table|Card):integer? Returns what the hand highlight limit should be (at minimum) after calling `JoyousSpring.calculate_hand_highlight_limit`

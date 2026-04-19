@@ -414,7 +414,7 @@ JoyousSpring.get_set_tributed = function(set, this_run, last, properties)
         end
     end
 
-    return last and list[#list] or list
+    return not last and list or list[#list]
 end
 
 ---Counts the cards tributed this round
@@ -423,7 +423,7 @@ end
 ---@param properties? material_properties
 ---@return integer
 JoyousSpring.count_set_tributed = function(set, this_run, properties)
-    return #JoyousSpring.get_set_tributed(set, this_run, properties)
+    return #JoyousSpring.get_set_tributed(set, this_run, nil, properties)
 end
 
 ---Get the list of cards of a set in G.consumeables
@@ -782,6 +782,22 @@ JoyousSpring.calculate_prototype_function = function(func, args, ...)
                     obj_return = prototype[func](prototype, nil, ...)
                 else
                     obj_return = prototype[func](prototype, nil, return_value, ...)
+                end
+                return_value = return_func(obj_return, return_value)
+                if args.return_if_true and return_value then return return_value end
+            end
+        end
+    end
+
+    if not args.ignore_independent then
+        for _, effect in ipairs(JoyousSpring.calculate_effects) do
+            if (not effect.is_active or effect:is_active(func)) and
+                type(effect[func]) == "function" then
+                local obj_return
+                if not args.pass_return then
+                    obj_return = effect[func](effect, ...)
+                else
+                    obj_return = effect[func](effect, return_value, ...)
                 end
                 return_value = return_func(obj_return, return_value)
                 if args.return_if_true and return_value then return return_value end

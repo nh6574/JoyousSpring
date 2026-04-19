@@ -96,6 +96,12 @@ return {
                     "Creates all cards tributed by its {C:attention}materials{}",
                     "when summoned as debuffed and {C:dark_edition}Negative{}"
                 },
+                joy_summon_conditions = {
+                    "{C:attention}1{} {C:joy_synchro}Tuner{} +",
+                    "{C:attention}1+{} non-{C:joy_synchro}Tuners{}",
+                    "including a {C:joy_normal}Spellcaster{}",
+                    "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})"
+                }
             },
             j_joy_wforest_rciela = {
                 name = "{C:joy_synchro}Rciela, Sinister Soul of the White Forest",
@@ -113,6 +119,12 @@ return {
                         "{C:joy_spell}Field Spell{}: Creates all consumables tributed this round",
                         "as debuffed and {C:dark_edition}Negative{}"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}1{} {C:joy_synchro}Tuner{} +",
+                    "{C:attention}1+{} non-{C:joy_synchro}Tuners{}",
+                    "including a {C:joy_normal}Spellcaster{}",
+                    "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})"
                 }
             },
             j_joy_wforest_silvera = {
@@ -130,6 +142,12 @@ return {
                         "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)",
                         "{C:joy_spell}Field Spell{}: Creates {C:attention}2{} {C:dark_edition}Negative{} {C:joy_spell}\"Witch of the White Forest\"{}",
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}1{} {C:joy_synchro}Tuner{} +",
+                    "{C:attention}1+{} non-{C:joy_synchro}Tuners{}",
+                    "including a {C:joy_normal}Spellcaster{}",
+                    "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})"
                 }
             },
             j_joy_wforest_diabell = {
@@ -140,16 +158,23 @@ return {
                         "cards tributed this run:",
                         "{C:inactive}(Even if banished){}",
                         " ",
-                        "{C:attention}20{}+ {C:joy_trap}Traps{}: {C:joy_trap}Traps{} don't {C:attention}flip{} face-down on their own",
-                        "and their {C:joy_effect}FLIP{} abilities activate when {C:attention}Blind{} is selected",
-                        "{C:attention}50{}+ {C:tarot}Tarot{}: {C:joy_normal}Spellcasters{} in the {C:attention}GY{} count",
-                        "as owned for {C:joy_normal}\"White Forest\"{} abilities",
+                        "{V:2}20{V:1}+ {V:3}Traps{V:1}: {V:3}Traps{V:1} don't {V:2}flip{V:1} face-down on their own",
+                        "{V:1}and their {V:4}FLIP{V:1} abilities activate when {V:2}Blind{V:1} is selected {C:inactive}(#1#/20){}",
+                        "{V:6}50{V:5}+ {V:7}Tarot{V:5}: {V:8}Spellcasters{V:5} in the {V:6}GY{V:5} count",
+                        "{V:5}as owned for {V:8}\"White Forest\"{V:5} abilities {C:inactive}(#2#/50){}",
                         "{C:planet}Planet{}: {C:planet}Planets{} level up an extra time for each {C:attention}5 tributed{}",
-                        "{C:spectral}Spectral{}: Gains {X:mult,C:white}X#1#{} Mult for each",
-                        "{C:inactive}(Currently {C:inactive}{X:mult,C:white}X#2#{}{C:inactive} Mult)",
-                        "{C:attention}20{}+ {C:joy_spell}Field Spells{}: {C:joy_normal}Illusion{} in the {C:attention}GY{} count",
-                        "as banished this round for {C:joy_normal}\"White Forest\"{} abilities",
+                        "{C:inactive}(Currently {C:inactive}{C:attention}+#3#{}{C:inactive} levels) (#4#)",
+                        "{C:spectral}Spectral{}: Gains {X:mult,C:white}X#5#{} Mult for each",
+                        "{C:inactive}(Currently {C:inactive}{X:mult,C:white}X#6#{}{C:inactive} Mult)",
+                        "{V:10}20{V:9}+ {V:11}Field Spells{V:9}: {V:12}Illusion{V:9} in the {V:10}GY{V:9} count",
+                        "{V:9}as banished this round for {V:12}\"White Forest\"{V:9} abilities {C:inactive}(#7#/20){}",
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}1{} {C:joy_synchro}Tuner{} +",
+                    "{C:attention}1+{} non-{C:joy_synchro}Tuners{}",
+                    "including a {C:joy_synchro}Synchro{} {C:joy_normal}Spellcaster{}",
+                    "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})"
                 }
             },
             j_joy_wforest_witch = {
@@ -160,10 +185,10 @@ return {
                         "{C:attention}1{} {C:joy_spell}\"Witch of the White Forest\"",
                         "to the shop when {C:attention}tributed{}"
                     },
-                    {
-                        "Cards in {C:spectral}Spectral Packs{} can be",
-                        "saved to the consumable area"
-                    },
+                    -- { -- TODO: add
+                    --     "Cards in {C:spectral}Spectral Packs{} can be",
+                    --     "saved to the consumable area"
+                    -- },
                     {
                         "Once, you can {C:attention}tribute 1{} {C:joy_normal}Spellcaster{}",
                         "to create {C:attention}1{} {C:joy_normal}Main Deck \"White Forest\"{}",

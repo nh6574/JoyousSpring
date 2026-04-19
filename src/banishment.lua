@@ -11,6 +11,7 @@
 ---@param banish_until banish_time?
 ---@param func function?
 ---@param immediate boolean?
+---@return boolean? If it wasn't stopped from banishing
 JoyousSpring.banish = function(card, banish_until, func, immediate)
     if not card or card.getting_sliced or card.destroyed then return end
     local prevent_banish = JoyousSpring.calculate_prototype_function("prevent_banish", {
@@ -81,6 +82,7 @@ JoyousSpring.banish = function(card, banish_until, func, immediate)
             end,
         }))
     end
+    return true
 end
 
 ---Returns a card from banishment (doesn't need room)
@@ -152,6 +154,18 @@ JoyousSpring.get_banished_areas = function()
     if JoyousSpring.banish_end_of_ante_area then areas[#areas + 1] = JoyousSpring.banish_end_of_ante_area end
     if JoyousSpring.banish_end_of_round_area then areas[#areas + 1] = JoyousSpring.banish_end_of_round_area end
     return areas
+end
+
+JoyousSpring.get_banished_cards = function(key, ignore_debuff)
+    local cards = {}
+    for _, area in ipairs(JoyousSpring.get_banished_areas()) do
+        for _, card in ipairs(area.cards) do
+            if (not key or key == card.config.center.key) and (not ignore_debuff or not card.debuff) then
+                cards[#cards + 1] = card
+            end
+        end
+    end
+    return cards
 end
 
 JoyousSpring.create_banishment_area_tabs = function(area)
