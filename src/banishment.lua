@@ -123,18 +123,24 @@ JoyousSpring.is_banished = function(card)
 end
 
 JoyousSpring.count_as_banished = function(card)
-    G.GAME.joy_cards_banished = G.GAME.joy_cards_banished and
-        (G.GAME.joy_cards_banished + 1) or 1
+    G.GAME.joy_cards_banished = (G.GAME.joy_cards_banished or 0) + 1
+    G.GAME.current_round.joy_cards_banished = (G.GAME.current_round.joy_cards_banished or 0) + 1
     G.GAME.joy_cards_banished_by_type = G.GAME.joy_cards_banished_by_type or {}
+    G.GAME.current_round.joy_cards_banished_by_type = G.GAME.current_round.joy_cards_banished_by_type or {}
     G.GAME.joy_cards_banished_by_attribute = G.GAME.joy_cards_banished_by_attribute or {}
+    G.GAME.current_round.joy_cards_banished_by_attribute = G.GAME.current_round.joy_cards_banished_by_attribute or {}
     for _, key in ipairs(JoyousSpring.types_list) do
         if JoyousSpring.is_monster_type(card, key) then
             G.GAME.joy_cards_banished_by_type[key] = (G.GAME.joy_cards_banished_by_type[key] or 0) + 1
+            G.GAME.current_round.joy_cards_banished_by_type[key] =
+                (G.GAME.current_round.joy_cards_banished_by_type[key] or 0) + 1
         end
     end
     for _, key in ipairs(JoyousSpring.attributes_list) do
         if JoyousSpring.is_attribute(card, key) then
             G.GAME.joy_cards_banished_by_attribute[key] = (G.GAME.joy_cards_banished_by_attribute[key] or 0) + 1
+            G.GAME.current_round.joy_cards_banished_by_attribute[key] =
+                (G.GAME.current_round.joy_cards_banished_by_attribute[key] or 0) + 1
         end
     end
 end

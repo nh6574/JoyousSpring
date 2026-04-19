@@ -13,7 +13,7 @@ return {
                         "{C:tarot}Tarot{}: {C:mult}+#1#{} Mult this round for each {C:joy_normal}Spellcaster{}",
                         "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)",
                         "{C:planet}Planet{}: Creates the last used {C:planet}Planet{}",
-                        "{C:inactive}(Currently {C:planet}None{C:inactive})",
+                        "{C:inactive}(Currently {C:planet}#3#{C:inactive})",
                         "{C:spectral}Spectral{}: Creates {C:attention}1{} {C:joy_normal}Main Deck \"White Forest\"{}",
                         "{C:joy_spell}Field Spell{}: Creates {C:attention}2{} {C:joy_normal}Main Deck \"White Forest\"{}",
                         "when used as {C:attention}material{} for a {C:joy_synchro}Synchro{} this round"
@@ -32,7 +32,7 @@ return {
                         "for each consumable {C:attention}tributed{} this round",
                         "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)",
                         "{C:planet}Planet{}: Creates the last used {C:tarot}Tarot{}",
-                        "{C:inactive}(Currently {C:tarot}None{C:inactive})",
+                        "{C:inactive}(Currently {C:tarot}#3#{C:inactive})",
                         "{C:spectral}Spectral{}: Adds {C:attention}2{} {C:joy_normal}\"White Forest\"{} to the shop",
                         "{C:joy_spell}Field Spell{}: Adds {C:attention}1{} {C:joy_normal}\"White Forest\"{} to the {C:joy_spell}Extra Deck{}",
                         "when used as {C:attention}material{} for a {C:joy_synchro}Synchro{} this round"
@@ -51,7 +51,7 @@ return {
                         "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)",
                         "{C:tarot}Tarot{}: {C:joy_normal}Spellcasters{} each give {X:mult,C:white}X#3#{} Mult this round",
                         "{C:planet}Planet{}: Creates the last {C:attention}tributed{} consumable",
-                        "{C:inactive}(Currently {C:attention}None{C:inactive})",
+                        "{C:inactive}(Currently {C:attention}#4#{C:inactive})",
                         "{C:spectral}Spectral{}: {C:attention}Revives 1{} {C:joy_normal}\"White Forest\"{}",
                         "{C:joy_spell}Field Spell{}: Creates {C:attention}1{} {C:dark_edition}Negative{} {C:joy_effect}\"Silvy of the White Forest\"",
                         "when used as {C:attention}material{} for a {C:joy_synchro}Synchro{} this round"
@@ -125,7 +125,7 @@ return {
                         "{C:joy_trap}Trap{}: Creates {C:attention}1{} {C:dark_edition}Negative{} {C:joy_trap}Trap{}",
                         "{C:tarot}Tarot{}: {C:attention}Revives 1{} {C:joy_normal}\"White Forest\"{}",
                         "{C:planet}Planet{}: Creates {C:attention}1{} {C:spectral}Spectral{}",
-                        "{C:spectral}Spectral{}: {C:joy_normal}Spellcasters{} each give an {C:mult}+#1#{} Mult",
+                        "{C:spectral}Spectral{}: {C:joy_normal}Spellcasters{} each give {C:mult}+#1#{} Mult",
                         "for each {C:joy_normal}Illusion{} {C:attention}banished{} this round",
                         "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)",
                         "{C:joy_spell}Field Spell{}: Creates {C:attention}2{} {C:dark_edition}Negative{} {C:joy_spell}\"Witch of the White Forest\"{}",
@@ -142,11 +142,13 @@ return {
                         " ",
                         "{C:attention}20{}+ {C:joy_trap}Traps{}: {C:joy_trap}Traps{} don't {C:attention}flip{} face-down on their own",
                         "and their {C:joy_effect}FLIP{} abilities activate when {C:attention}Blind{} is selected",
-                        "{C:attention}50{}+ {C:tarot}Tarot{}: {C:joy_normal}Spellcasters{} in the {C:attention}GY{} count as owned for {C:joy_normal}\"White Forest\"{} abilities",
+                        "{C:attention}50{}+ {C:tarot}Tarot{}: {C:joy_normal}Spellcasters{} in the {C:attention}GY{} count",
+                        "as owned for {C:joy_normal}\"White Forest\"{} abilities",
                         "{C:planet}Planet{}: {C:planet}Planets{} level up an extra time for each {C:attention}5 tributed{}",
                         "{C:spectral}Spectral{}: Gains {X:mult,C:white}X#1#{} Mult for each",
                         "{C:inactive}(Currently {C:inactive}{X:mult,C:white}X#2#{}{C:inactive} Mult)",
-                        "{C:attention}20{}+ {C:joy_spell}Field Spells{}: {C:joy_normal}Illusion{} in the {C:attention}GY{} count as banished for {C:joy_normal}\"White Forest\"{} abilities",
+                        "{C:attention}20{}+ {C:joy_spell}Field Spells{}: {C:joy_normal}Illusion{} in the {C:attention}GY{} count",
+                        "as banished this round for {C:joy_normal}\"White Forest\"{} abilities",
                     }
                 }
             },
@@ -154,7 +156,7 @@ return {
                 name = "{C:joy_spell}Witch of the White Forest",
                 text = {
                     {
-                        "Adds {C:attention}1{} {C:spectral}Spectral{} and",
+                        "Adds {C:attention}1{} {C:spectral}Spectral Pack{} and",
                         "{C:attention}1{} {C:joy_spell}\"Witch of the White Forest\"",
                         "to the shop when {C:attention}tributed{}"
                     },

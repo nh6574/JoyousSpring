@@ -110,8 +110,14 @@ SMODS.current_mod.calculate = function(self, context)
         if JoyousSpring.is_playing_card(context.joy_card_flipped) then
             G.GAME.joy_flipped_count["Playing Card"] = (G.GAME.joy_flipped_count["Playing Card"] or 0) + 1
         end
-        G.GAME.joy_flipped_count[context.joy_card_flipped.ability.set] = (G.GAME.joy_flipped_count[context.joy_card_flipped.ability.set] or 0) +
-            1
+        if JoyousSpring.is_trap_monster(context.joy_card_flipped) then
+            G.GAME.joy_flipped_count["Trap"] = (G.GAME.joy_flipped_count["Trap"] or 0) + 1
+        end
+        if JoyousSpring.is_flip_monster(context.joy_card_flipped) then
+            G.GAME.joy_flipped_count["Flip"] = (G.GAME.joy_flipped_count["Flip"] or 0) + 1
+        end
+        G.GAME.joy_flipped_count[context.joy_card_flipped.ability.set] =
+            (G.GAME.joy_flipped_count[context.joy_card_flipped.ability.set] or 0) + 1
     end
 
     -- Globals for consumable usage
@@ -132,9 +138,19 @@ SMODS.current_mod.calculate = function(self, context)
         end
     end
 
-    -- Add extra pack for Extra YGO Booster config
-    if context.starting_shop and JoyousSpring.config.extra_ygo_booster then
-        SMODS.add_booster_to_shop("p_joy_selection_pack")
+    -- Add extra packs
+    if context.starting_shop then
+        -- (Somewhat) Experimental selection pack
+        if JoyousSpring.config.extra_ygo_booster then
+            SMODS.add_booster_to_shop("p_joy_selection_pack")
+        end
+
+        -- Add extra packs to the shop
+        if G.GAME.joy_extra_packs then
+            while #G.GAME.joy_extra_packs > 0 do
+                SMODS.add_booster_to_shop(table.remove(G.GAME.joy_extra_packs, 1))
+            end
+        end
     end
 
     -- Global probability hit counter
@@ -205,6 +221,9 @@ function SMODS.current_mod.reset_game_globals(run_start)
         G.GAME.joy_only_ygo_cards = JoyousSpring.config.only_ygo_cards
     end
     G.GAME.current_round.joy_tributed_cards = {}
+    G.GAME.current_round.joy_cards_banished = 0
+    G.GAME.current_round.joy_cards_banished_by_type = {}
+    G.GAME.current_round.joy_cards_banished_by_attribute = {}
     G.GAME.joy_purr_memory_apply = false
     G.GAME.joy_purr_friend_apply = false
 end
@@ -256,7 +275,14 @@ JoyousSpring.tribute = function(card, card_list, for_ritual)
 
     for _, material in ipairs(card_list) do
         JoyousSpring.count_as_tributed(material, for_ritual)
+        local eval, post = eval_card(material,
+            { joy_tributed_self = material, joy_source = card, joy_for_ritual = for_ritual })
+        SMODS.trigger_effects({ eval, post }, material)
         JoyousSpring.destroy_cards(material, nil, true)
+        card.ability.joy_tributed = card.ability.joy_tributed or {}
+        if not JoyousSpring.is_playing_card(material) then
+            card.ability.joy_tributed[#card.ability.joy_tributed + 1] = material.config.center.key
+        end
         SMODS.calculate_context({ joy_tributed = true, joy_card = material, joy_source = card })
     end
 end

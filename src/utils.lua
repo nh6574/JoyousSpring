@@ -397,28 +397,33 @@ end
 ---Get the cards tributed this round
 ---@param set? string Set the cards belong to (e.g. "Joker" or "Tarot")
 ---@param this_run? boolean Checks for the entire run instead
----@return table
-JoyousSpring.get_set_tributed = function(set, this_run)
+---@param last? boolean Gets only the last one
+---@param properties? material_properties
+---@return table|string?
+JoyousSpring.get_set_tributed = function(set, this_run, last, properties)
     local list = {}
     local tribute_table = this_run and G.GAME.joy_tributed_cards or G.GAME.current_round.joy_tributed_cards
 
     for key, value in pairs(tribute_table or {}) do
         if not set or (set == value.set) or (set == "Consumable" and value.consumable) then
-            for i = 1, value.count do
-                table.insert(list, key)
+            if not properties or JoyousSpring.is_material_center(key, properties) then
+                for i = 1, value.count do
+                    table.insert(list, key)
+                end
             end
         end
     end
 
-    return list
+    return last and list[#list] or list
 end
 
 ---Counts the cards tributed this round
 ---@param set? string Set the cards belong to (e.g. "Joker" or "Tarot")
 ---@param this_run? boolean Checks for the entire run instead
+---@param properties? material_properties
 ---@return integer
-JoyousSpring.count_set_tributed = function(set, this_run)
-    return #JoyousSpring.get_set_tributed(set, this_run)
+JoyousSpring.count_set_tributed = function(set, this_run, properties)
+    return #JoyousSpring.get_set_tributed(set, this_run, properties)
 end
 
 ---Get the list of cards of a set in G.consumeables
