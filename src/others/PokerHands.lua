@@ -128,6 +128,7 @@ SMODS.Consumable {
 -- I'm the only one using these so I'm not going to bother making the parts properly.
 
 local cardian_is_visible = function(self)
+    if not G.GAME then return end
     if G.GAME.hands[self.key].visible then
         return true
     end
@@ -1040,7 +1041,8 @@ SMODS.PokerHand({
     mult = 4,
     l_chips = 15,
     l_mult = 2,
-    visible = function()
+    visible = function() -- TODO: replace with false once the info queue is added
+        if not G.jokers then return end
         for _, joker in ipairs(SMODS.find_card("j_joy_purr_street")) do
             if JoyousSpring.can_use_abilities(joker) then
                 return true
