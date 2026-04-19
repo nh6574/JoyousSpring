@@ -277,6 +277,16 @@ end
 
 --#region Summon calculations
 
+local get_side_deck_cards = function()
+    local cards = {}
+    for _, joker in ipairs(JoyousSpring.side_deck_area.cards) do
+        if not JoyousSpring.is_field_spell(joker) then
+            cards[#cards + 1] = joker
+        end
+    end
+    return JoyousSpring.side_deck_area.cards
+end
+
 local function get_combinations(list, condition, max_size)
     local result = {}
     local n = #list
@@ -552,7 +562,7 @@ JoyousSpring.get_all_summon_material_combos = function(card, card_list)
     else
         card_table = card_list or
             G.STATE == G.STATES.JOY_SIDE_DECK and
-            SMODS.merge_lists({ G.jokers.cards, JoyousSpring.side_deck_area.cards }) or
+            SMODS.merge_lists({ G.jokers.cards, get_side_deck_cards() }) or
             G.jokers.cards
         if card.area and card.area == JoyousSpring.side_deck_area then
             local remove_self_pos
@@ -637,7 +647,7 @@ JoyousSpring.can_summon = function(card, card_list)
             JoyousSpring.get_card_limit(card) > 0 or
             (#G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit)
     else
-        local card_table = card_list or SMODS.merge_lists({ G.jokers.cards, JoyousSpring.side_deck_area.cards })
+        local card_table = card_list or SMODS.merge_lists({ G.jokers.cards, get_side_deck_cards() })
         local conditions = card.ability.extra.joyous_spring.summon_conditions
 
         for _, condition in ipairs(conditions) do
