@@ -266,7 +266,7 @@ return {
                         "{C:inactive}(Must have room)"
                     },
                     {
-                        "Adds a {C:attention}Sleepy Seal{} to up to",
+                        "Adds a {C:attention}Sleepy Seal{} to",
                         "up to {C:attention}5{} selected {C:clubs}Clubs{} in hand"
                     },
                     {
@@ -320,7 +320,7 @@ return {
                         "{C:inactive}(Must have room)"
                     },
                     {
-                        "Adds a {C:attention}Delicious Seal{} to up to",
+                        "Adds a {C:attention}Delicious Seal{} to",
                         "up to {C:attention}5{} selected {C:spades}Spades{} in hand"
                     },
                     {

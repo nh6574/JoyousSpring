@@ -167,7 +167,7 @@ return {
                 name = "{C:joy_spell}Stand Up Centur-Ion!",
                 text = {
                     {
-                        "Once per round, creates all cards used for the a summon",
+                        "Once per round, creates all cards used for a summon",
                         "as {C:attention}Perishable{} in the {C:joy_link}Side Deck{}"
                     },
                     {

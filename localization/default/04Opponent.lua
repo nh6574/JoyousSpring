@@ -21,7 +21,8 @@ return {
                 name = "{C:joy_effect}Kurikara Divincarnate",
                 text = {
                     "{C:attention}Tributes{} a {C:attention}Joker{} with",
-                    "the highest rarity at random", "and {C:attention}revives{} a {C:attention}Joker{} of the",
+                    "the highest rarity at random",
+                    "and {C:attention}revives{} a {C:attention}Joker{} of the",
                     "same rarity but different name",
                     "if possible at end of ante"
                 }
