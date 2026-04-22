@@ -1318,7 +1318,7 @@ JoyousSpring.create_overlay_effect_selection = function(card, card_list, min, ma
     JoyousSpring.summon_effect_area = CardArea(
         0,
         0,
-        G.CARD_W * 4.95,
+        G.CARD_W * 4.95 * (#card_list > 10 and 1.5 or #card_list > 15 and 2 or #card_list > 20 and 25 or 1),
         G.CARD_H,
         {
             type = 'summon_materials',

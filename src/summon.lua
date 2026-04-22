@@ -1051,7 +1051,7 @@ JoyousSpring.create_UIBox_select_summon_materials = function(card, is_quick)
     local name = {}
     localize { type = "name", key = card.config.center.key, set = card.config.center.set, nodes = name }
     local conditions = {}
-    localize { type = "joy_summon_conditions", set = card.config.center.set, key = card.config.center.key, nodes = conditions }
+    localize { type = "joy_summon_conditions", set = card.config.center.set, key = card.config.center.key, nodes = conditions, vars = card.config.center.joy_summon_loc_vars and (card.config.center:joy_summon_loc_vars(card) or {}).vars or {} }
     return {
         n = G.UIT.ROOT,
         config = {
@@ -1146,7 +1146,8 @@ JoyousSpring.create_overlay_select_summon_materials = function(card, card_list)
         JoyousSpring.summon_material_area = CardArea(
             0,
             0,
-            G.CARD_W * 4.95,
+            G.CARD_W * 4.95 *
+            (#material_list > 10 and 1.5 or #material_list > 15 and 2 or #material_list > 20 and 25 or 1),
             G.CARD_H,
             {
                 type = 'summon_materials',
