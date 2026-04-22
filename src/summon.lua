@@ -1046,6 +1046,11 @@ JoyousSpring.create_UIBox_select_summon_materials = function(card, is_quick)
         }
         table.insert(ui_nodes, 2, quick_node)
     end
+
+    local name = {}
+    localize { type = "name", key = card.config.center.key, set = card.config.center.set, nodes = name }
+    local conditions = {}
+    localize { type = "joy_summon_conditions", set = card.config.center.set, key = card.config.center.key, nodes = conditions }
     return {
         n = G.UIT.ROOT,
         config = {
@@ -1054,9 +1059,45 @@ JoyousSpring.create_UIBox_select_summon_materials = function(card, is_quick)
             minh = G.ROOM.T.h * 5,
             padding = 0.1,
             r = 0.1,
-            colour = { colour[1], colour[2], colour[3], 0.7 }
+            colour = { colour[1], colour[2], colour[3], 0.7 },
         },
         nodes = {
+            {
+                n = G.UIT.R,
+                config = { align = "cm", minw = 1, colour = G.C.CLEAR, emboss = 0.1 },
+                nodes = {
+                    {
+                        n = G.UIT.C,
+                        config = { align = "cm", colour = G.C.CLEAR },
+                        nodes = {
+                            {
+                                n = G.UIT.R,
+                                config = { padding = 0.05, r = 0.12, colour = lighten(G.C.JOKER_GREY, 0.5), emboss = 0.07 },
+                                nodes = {
+                                    {
+                                        n = G.UIT.R,
+                                        config = { align = "cm", padding = 0.07, r = 0.1, colour = adjust_alpha(darken(G.C.BLACK, 0.1), 0.8) },
+                                        nodes = {
+                                            desc_from_rows(name, true),
+                                            desc_from_rows(conditions)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        n = G.UIT.C,
+                        config = { align = "cm", r = 0.2, padding = 0.05, minw = 1, colour = G.C.CLEAR },
+                        nodes = {
+                            {
+                                n = G.UIT.O,
+                                config = { object = Card(0, 0, G.CARD_W / 1.2, G.CARD_H / 1.2, nil, card.config.center) }
+                            }
+                        }
+                    },
+                }
+            },
             {
                 n = G.UIT.R,
                 config = {
@@ -1154,8 +1195,9 @@ JoyousSpring.create_overlay_select_summon_materials = function(card, card_list)
         end
 
         G.FUNCS.overlay_menu({
-            definition = JoyousSpring.create_UIBox_select_summon_materials(card, is_quick)
+            definition = JoyousSpring.create_UIBox_select_summon_materials(card, is_quick),
         })
+        G.OVERLAY_MENU.alignment.offset.y = -0.75
     end
 end
 
