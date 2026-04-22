@@ -5,24 +5,28 @@
 ---@param property_list material_properties[]
 ---@return table
 JoyousSpring.filter_weighted_pool_by_material = function(pool, property_list)
-    local new_pool = {}
+    local all_unavailable = true
     for _, card_data in ipairs(pool) do
-        if card_data.key == "UNAVAILABLE" then
-            new_pool[#new_pool + 1] = card_data
-        else
-            if not property_list or #property_list == 0 then
-                table.insert(new_pool, card_data)
-            else
-                for _, property in ipairs(property_list) do
-                    if JoyousSpring.is_material_center(card_data.key, property) then
-                        table.insert(new_pool, card_data)
-                        break
-                    end
+        if card_data.key ~= "UNAVAILABLE" and property_list and #property_list > 0 then
+            local is_material = false
+            for _, property in ipairs(property_list) do
+                if JoyousSpring.is_material_center(card_data.key, property) then
+                    is_material = true
+                    break
                 end
             end
+            if not is_material then
+                card_data.key = 'UNAVAILABLE'
+            end
+        end
+        if card_data.key ~= "UNAVAILABLE" then
+            all_unavailable = false
         end
     end
-    return new_pool
+    if all_unavailable then
+        pool[#pool + 1] = { key = "j_joy_fish_paces", type = 'Joker' }
+    end
+    return pool
 end
 
 local smods_create_poll_pool_ref = SMODS.create_poll_pool

@@ -649,6 +649,208 @@ SMODS.Keybind({
     end
 })
 
+local arthalion_tab = function(t)
+    t.area_table = {}
+
+    t.area_table[#t.area_table + 1] = CardArea(
+        0,
+        0,
+        G.CARD_W * 8.95,
+        G.CARD_H,
+        {
+            card_limit = 10,
+            type = 'title',
+            highlight_limit = 0,
+        }
+    )
+    local values = t.area_cards.extra_values
+
+    for _, enhancement in ipairs(values.enhancements) do
+        local added_card = Card(0, 0, G.CARD_W, G.CARD_H, G.P_CARDS.empty, G.P_CENTERS[enhancement])
+        added_card.joy_arthalion = enhancement
+        t.area_table[#t.area_table]:emplace(added_card)
+    end
+
+    t.area_table[#t.area_table + 1] = CardArea(
+        0,
+        0,
+        G.CARD_W * 8.95,
+        G.CARD_H,
+        {
+            card_limit = 10,
+            type = 'title',
+            highlight_limit = 0,
+        }
+    )
+
+    for _, edition in ipairs(values.editions) do
+        local added_card = Card(0, 0, G.CARD_W, G.CARD_H, G.P_CARDS.empty, G.P_CENTERS['c_base'])
+        added_card:set_edition(edition, nil, true)
+        added_card.joy_arthalion = edition
+        t.area_table[#t.area_table]:emplace(added_card)
+    end
+
+    for _, seal in ipairs(values.seals) do
+        local added_card = Card(0, 0, G.CARD_W, G.CARD_H, G.P_CARDS.empty, G.P_CENTERS['c_base'])
+        added_card:set_seal(seal, true)
+        added_card.joy_arthalion = seal:lower() .. "_seal"
+        t.area_table[#t.area_table]:emplace(added_card)
+    end
+
+    local nodes = {}
+
+    for _, area in ipairs(t.area_table) do
+        nodes[#nodes + 1] =
+        {
+            n = G.UIT.R,
+            nodes = { {
+                n = G.UIT.O,
+                config = {
+                    object = area
+                }
+            } }
+        }
+    end
+
+    return {
+        n = G.UIT.ROOT,
+        config = {
+            align = "cm",
+            padding = 0.05,
+            colour = G.C.CLEAR,
+        },
+        nodes = {
+            {
+                n = G.UIT.C,
+                config = {
+                    align = "cm",
+                    r = 0.1,
+                    padding = 0.1,
+                    minh = 5,
+                    minw = 7,
+                    colour = G.C.BLACK
+                },
+                nodes = nodes
+            }
+        }
+    }
+end
+
+JoyousSpring.arthalion_description = function(center, card, desc_nodes, info_queue)
+    local loc = G.localization.descriptions.Joker.j_joy_dracotail_arthalion.joy_extra_effects[card.joy_arthalion or ""]
+
+    if not card.joy_arthalion or not desc_nodes or not loc then return end
+
+    loc = loc.text_description
+    desc_nodes = EMPTY(desc_nodes)
+    for _, line in ipairs(loc) do
+        desc_nodes[#desc_nodes + 1] = SMODS.localize_box(loc_parse_string(line),
+            { vars = G.P_CENTERS.j_joy_dracotail_arthalion:joy_effect_loc_vars(card.joy_arthalion) })
+    end
+end
+
+local related_tab = function(t)
+    if t.area_table then
+        for _, area in ipairs(t.area_table) do
+            area:remove()
+        end
+    end
+
+    if t.area_cards.extra == "j_joy_dracotail_arthalion" then
+        return arthalion_tab(t)
+    end
+
+    t.area_table = {}
+    t.area_table[#t.area_table + 1] = CardArea(
+        0,
+        0,
+        G.CARD_W * 8.95,
+        G.CARD_H,
+        {
+            card_limit = 10,
+            type = 'title',
+            highlight_limit = 0,
+        }
+    )
+
+    local keys = {}
+
+    for _, key in ipairs(t.area_cards) do
+        table.insert(keys, key)
+    end
+    if t.area_cards.properties then
+        local keys_to_add = JoyousSpring.get_materials_in_collection(t.area_cards.properties)
+        for _, key in ipairs(keys_to_add) do
+            table.insert(keys, key)
+        end
+    end
+    table.sort(keys, function(a, b) return JoyousSpring.card_order[a] < JoyousSpring.card_order[b] end)
+    local count = 0
+    for j, key in ipairs(keys) do
+        if count > 20 then
+            t.area_table[#t.area_table + 1] = CardArea(
+                0,
+                0,
+                G.CARD_W * 8.95,
+                G.CARD_H,
+                {
+                    card_limit = 10,
+                    type = 'title',
+                    highlight_limit = 0,
+                }
+            )
+            count = 0
+        end
+        local old_used_jokers = G.GAME.used_jokers[key]
+        local added_card = SMODS.create_card({
+            key = key,
+            no_edition = true,
+            area = t.area_table[#t.area_table]
+        })
+        G.GAME.used_jokers[key] = old_used_jokers
+        t.area_table[#t.area_table]:emplace(added_card)
+        count = count + 1
+    end
+
+    local nodes = {}
+
+    for _, area in ipairs(t.area_table) do
+        nodes[#nodes + 1] =
+        {
+            n = G.UIT.R,
+            nodes = { {
+                n = G.UIT.O,
+                config = {
+                    object = area
+                }
+            } }
+        }
+    end
+
+    return {
+        n = G.UIT.ROOT,
+        config = {
+            align = "cm",
+            padding = 0.05,
+            colour = G.C.CLEAR,
+        },
+        nodes = {
+            {
+                n = G.UIT.C,
+                config = {
+                    align = "cm",
+                    r = 0.1,
+                    padding = 0.1,
+                    minh = 5,
+                    minw = 7,
+                    colour = G.C.BLACK
+                },
+                nodes = nodes
+            }
+        }
+    }
+end
+
 ---Creates overlay to see cards mentioned in the text
 ---@param card table|Card|string
 JoyousSpring.create_overlay_see_related = function(card)
@@ -675,103 +877,7 @@ JoyousSpring.create_overlay_see_related = function(card)
         local area_tab = {
             label = localize(area_cards.name) ~= "ERROR" and localize(area_cards.name) or localize("k_joy_related"),
             chosen = i == 1,
-            tab_definition_function = function(t)
-                if t.area_table then
-                    for _, area in ipairs(t.area_table) do
-                        area:remove()
-                    end
-                end
-
-                t.area_table = {}
-                t.area_table[#t.area_table + 1] = CardArea(
-                    0,
-                    0,
-                    G.CARD_W * 8.95,
-                    G.CARD_H,
-                    {
-                        card_limit = 10,
-                        type = 'title',
-                        highlight_limit = 0,
-                    }
-                )
-
-                local keys = {}
-
-                for _, key in ipairs(t.area_cards) do
-                    table.insert(keys, key)
-                end
-                if t.area_cards.properties then
-                    local keys_to_add = JoyousSpring.get_materials_in_collection(t.area_cards.properties)
-                    for _, key in ipairs(keys_to_add) do
-                        table.insert(keys, key)
-                    end
-                end
-                table.sort(keys, function(a, b) return JoyousSpring.card_order[a] < JoyousSpring.card_order[b] end)
-                local count = 0
-                for j, key in ipairs(keys) do
-                    if count > 20 then
-                        t.area_table[#t.area_table + 1] = CardArea(
-                            0,
-                            0,
-                            G.CARD_W * 8.95,
-                            G.CARD_H,
-                            {
-                                card_limit = 10,
-                                type = 'title',
-                                highlight_limit = 0,
-                            }
-                        )
-                        count = 0
-                    end
-                    local old_used_jokers = G.GAME.used_jokers[key]
-                    local added_card = SMODS.create_card({
-                        key = key,
-                        no_edition = true,
-                        area = t.area_table[#t.area_table]
-                    })
-                    G.GAME.used_jokers[key] = old_used_jokers
-                    t.area_table[#t.area_table]:emplace(added_card)
-                    count = count + 1
-                end
-
-                local nodes = {}
-
-                for _, area in ipairs(t.area_table) do
-                    nodes[#nodes + 1] =
-                    {
-                        n = G.UIT.R,
-                        nodes = { {
-                            n = G.UIT.O,
-                            config = {
-                                object = area
-                            }
-                        } }
-                    }
-                end
-
-                return {
-                    n = G.UIT.ROOT,
-                    config = {
-                        align = "cm",
-                        padding = 0.05,
-                        colour = G.C.CLEAR,
-                    },
-                    nodes = {
-                        {
-                            n = G.UIT.C,
-                            config = {
-                                align = "cm",
-                                r = 0.1,
-                                padding = 0.1,
-                                minh = 5,
-                                minw = 7,
-                                colour = G.C.BLACK
-                            },
-                            nodes = nodes
-                        }
-                    }
-                }
-            end,
+            tab_definition_function = related_tab,
             tab_definition_function_args = { area_table = JoyousSpring.related_area, area_cards = area_cards }
         }
         table.insert(tabs, area_tab)

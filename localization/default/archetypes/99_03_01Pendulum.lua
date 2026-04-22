@@ -37,7 +37,7 @@ return {
                 },
                 text = {
                     {
-                        "{C:mult}+#2#{} Mult for every destroyed playing card this run",
+                        "{C:mult}+#2#{} Mult for each playing card destroyed this run",
                         "{C:inactive}(Currently{} {C:mult}+#3#{} {C:inactive}Mult){}",
                     },
                 },

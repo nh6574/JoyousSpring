@@ -101,7 +101,7 @@ JoyousSpring.Joker({
                 monster_type = "Fiend",
                 monster_archetypes = { ["Archfiend"] = true }
             },
-            mult = 5,
+            mult = 10,
             max = 2
         },
     },

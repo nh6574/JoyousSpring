@@ -226,9 +226,16 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return {
+            vars = {},
+            key = (not card.area or card.area ~= G.jokers) and "j_joy_dracotail_arthalion_notsummoned" or nil
+        }
+    end,
+    joy_effect_loc_vars = function(self, key)
+        return self.joy_extra_config[key] or {}
     end,
     joy_desc_cards = {
+        { extra = "j_joy_dracotail_arthalion",                        extra_values = { enhancements = { "m_bonus", "m_mult", "m_wild", "m_glass", "m_steel", "m_stone", "m_gold", "m_lucky", "m_joy_hanafuda" }, editions = { "e_foil", "e_holo", "e_polychrome" }, seals = { "Red", "Blue", "Gold", "Purple", "joy_purr_memory" } }, name = "k_joy_arthalion_effects" },
         { properties = { { monster_archetypes = { "Dracotail" } }, }, name = "k_joy_archetype" },
     },
     config = {
@@ -241,6 +248,25 @@ JoyousSpring.Joker({
             },
         },
     },
+    joy_extra_config = { -- magic numbers
+        m_bonus = { 60 },
+        m_mult = { 8 },
+        m_wild = {},
+        m_glass = { 4, 1 },
+        m_steel = { 4, 1 },
+        m_stone = { 150 },
+        m_gold = { 6 },
+        m_lucky = {},
+        m_joy_hanafuda = { 1 },
+        e_foil = { 100 },
+        e_holo = { 20 },
+        e_polychrome = { 2.25 },
+        red_seal = { 1 },
+        blue_seal = { 1 },
+        gold_seal = { 6 },
+        purple_seal = { 1 },
+        joy_purr_memory_seal = { 1 }
+    }
 })
 
 JoyousSpring.collection_pool[#JoyousSpring.collection_pool + 1] = {
