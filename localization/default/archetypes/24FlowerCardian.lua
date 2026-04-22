@@ -289,7 +289,7 @@ return {
                     "{C:attention}1{} {C:joy_synchro}Tuner{} +",
                     "{C:attention}1{} non-{C:joy_synchro}Tuner{}",
                     "after playing {C:attention}5 {C:joy_link}Animal",
-                    "{C:attention}Hanafuda{} cards this run",
+                    "{C:attention}Hanafuda{} cards this run {C:inactive}(#1#/5)",
                     "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
                     "Doesn't need room",
                 }
@@ -313,7 +313,7 @@ return {
                 joy_summon_conditions = {
                     "{C:attention}1{} {C:joy_synchro}Tuner{} + {C:attention}1{} non-{C:joy_synchro}Tuner{}",
                     "after playing {C:attention}3 {C:joy_mod}Chrysanthemum with Sake{}",
-                    "this run",
+                    "this run  {C:inactive}(#1#/3)",
                     "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
                     "Doesn't need room",
                 }
@@ -338,7 +338,7 @@ return {
                 joy_summon_conditions = {
                     "{C:attention}1{} {C:joy_synchro}Tuner{} +",
                     "{C:attention}1{} non-{C:joy_synchro}Tuner{}",
-                    "after playing {C:attention}3 {C:joy_link}Light",
+                    "after playing {C:attention}3 {C:joy_link}Light {C:inactive}(#1#/3)",
                     "{C:attention}Hanafuda{} cards this run",
                     "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
                     "Doesn't need room",
@@ -365,7 +365,7 @@ return {
                 joy_summon_conditions = {
                     "{C:attention}1{} {C:joy_synchro}Tuner{} +",
                     "{C:attention}1{} non-{C:joy_synchro}Tuner{}",
-                    "after playing {C:attention}5 {C:joy_link}Light",
+                    "after playing {C:attention}5 {C:joy_link}Light {C:inactive}(#1#/5)",
                     "{C:attention}Hanafuda{} cards this run",
                     "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
                     "Doesn't need room",

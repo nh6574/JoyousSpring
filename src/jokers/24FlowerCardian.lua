@@ -1132,6 +1132,9 @@ JoyousSpring.Joker({
         end
         return { vars = { card.ability.extra.banish } }
     end,
+    joy_summon_loc_vars = function(self, card)
+        return { vars = { math.min(5, G.GAME.joy_hanafuda_type_played and G.GAME.joy_hanafuda_type_played["animal"] or 0) } }
+    end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
@@ -1201,6 +1204,9 @@ JoyousSpring.Joker({
         end
         return { vars = { card.ability.extra.draws } }
     end,
+    joy_summon_loc_vars = function(self, card)
+        return { vars = { math.min(3, G.GAME.joy_hanafuda_played and G.GAME.joy_hanafuda_played["Chrysanthemum with Sake"] or 0) } }
+    end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
@@ -1261,6 +1267,9 @@ JoyousSpring.Joker({
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_koikoihand" }
         end
         return { vars = { card.ability.extra.xmult, card.ability.extra.scored_xmult, card.ability.extra.turns } }
+    end,
+    joy_summon_loc_vars = function(self, card)
+        return { vars = { math.min(3, G.GAME.joy_hanafuda_type_played and G.GAME.joy_hanafuda_type_played["light"] or 0) } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
@@ -1335,6 +1344,9 @@ JoyousSpring.Joker({
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
         end
         return { vars = { card.ability.extra.mult, card.ability.extra.current_mult, card.ability.extra.revives } }
+    end,
+    joy_summon_loc_vars = function(self, card)
+        return { vars = { math.min(5, G.GAME.joy_hanafuda_type_played and G.GAME.joy_hanafuda_type_played["light"] or 0) } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },

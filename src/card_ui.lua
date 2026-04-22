@@ -423,7 +423,7 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
                 full_UI_table.info[#full_UI_table.info + 1] = {}
                 local summon_desc_nodes = full_UI_table.info[#full_UI_table.info]
                 summon_desc_nodes.name = localize('k_joy_summon_conditions')
-                localize { type = "joy_summon_conditions", set = self.set, key = self.key, nodes = summon_desc_nodes }
+                localize { type = "joy_summon_conditions", set = self.set, key = self.key, nodes = summon_desc_nodes, vars = self.joy_summon_loc_vars and (self:joy_summon_loc_vars(card) or {}).vars or {} }
                 if JoyousSpring.is_summoned(card) then
                     summon_desc_nodes.background_colour = lighten(G.C.UI.TEXT_INACTIVE, 0.8)
                 end
