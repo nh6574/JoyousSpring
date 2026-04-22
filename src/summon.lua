@@ -883,7 +883,8 @@ JoyousSpring.create_UIBox_select_summon_materials = function(card, is_quick)
                     n = G.UIT.O,
                     config = {
                         object = DynaText({
-                            string = { localize("k_joy_select_materials") },
+                            string = { summon_type == "RITUAL" and localize("k_joy_select_tributes") or
+                            localize("k_joy_select_materials") },
                             colours = { G.C.UI.TEXT_LIGHT },
                             bump = true,
                             silent = true,

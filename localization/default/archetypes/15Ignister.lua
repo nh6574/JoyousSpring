@@ -212,7 +212,7 @@ return {
                     "{C:inactive}(Currently {C:chips}+#2# {C:inactive}Chips)",
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2+ {C:joy_normal}Cyberse{}"
+                    "{C:joy_ritual}Tribute {C:attention}2+ {C:joy_normal}Cyberse{}"
                 }
             },
             j_joy_ignis_golem = {

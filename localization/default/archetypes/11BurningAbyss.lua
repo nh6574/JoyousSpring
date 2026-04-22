@@ -165,7 +165,7 @@ return {
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2 Jokers{},",
+                    "{C:joy_ritual}Tribute {C:attention}2 Jokers{},",
                     "including a {C:joy_normal}Fiend{}",
                 }
             },

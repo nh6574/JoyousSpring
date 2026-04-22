@@ -117,7 +117,7 @@ return {
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2 Jokers{},",
+                    "{C:joy_ritual}Tribute {C:attention}2 Jokers{},",
                     "including a {C:joy_normal}\"Dogmatika\"{}"
                 }
             },
@@ -135,7 +135,7 @@ return {
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2 Jokers{},",
+                    "{C:joy_ritual}Tribute {C:attention}2 Jokers{},",
                     "including a {C:joy_normal}\"Dogmatika\"{}"
                 }
             },
@@ -154,7 +154,7 @@ return {
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2{} {C:joy_normal}\"Dogmatika\"{}"
+                    "{C:joy_ritual}Tribute {C:attention}2{} {C:joy_normal}\"Dogmatika\"{}"
                 }
             },
             j_joy_dogma_nation = {
