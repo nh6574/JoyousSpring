@@ -13,7 +13,7 @@ pattern = "c1:add_to_deck()"
 position = 'at'
 match_indent = true
 payload = '''
-if JoyousSpring and not (JoyousSpring.is_extra_deck_monster(c1) or JoyousSpring.is_field_spell(c1)) then
+if not JoyousSpring or not (JoyousSpring.is_extra_deck_monster(c1) or JoyousSpring.is_field_spell(c1)) then
     c1:add_to_deck()
 end
 if c1.children.joy_side_button then c1.children.joy_side_button:remove() end
