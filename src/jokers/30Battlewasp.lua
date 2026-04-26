@@ -321,9 +321,9 @@ JoyousSpring.Joker({
                             { is_tuner = true,         exclude_summon_types = { "XYZ", "LINK" } },
                             { monster_type = "Insect", exclude_tuners = true,                   exclude_summon_types = { "XYZ", "LINK" } },
                         },
-                    },
-                    restrictions = {
-                        no_room = true
+                        restrictions = {
+                            no_room = true
+                        }
                     }
                 }
             },
@@ -384,9 +384,9 @@ JoyousSpring.Joker({
                             { is_tuner = true,       monster_type = "Insect",                 exclude_summon_types = { "XYZ", "LINK" } },
                             { exclude_tuners = true, exclude_summon_types = { "XYZ", "LINK" } },
                         },
-                    },
-                    restrictions = {
-                        no_room = true
+                        restrictions = {
+                            no_room = true
+                        }
                     }
                 }
             },
@@ -452,9 +452,9 @@ JoyousSpring.Joker({
                             { is_tuner = true,       monster_type = "Insect",                 exclude_summon_types = { "XYZ", "LINK" } },
                             { exclude_tuners = true, exclude_summon_types = { "XYZ", "LINK" } },
                         },
-                    },
-                    restrictions = {
-                        no_room = true
+                        restrictions = {
+                            no_room = true
+                        }
                     }
                 }
             },
@@ -533,9 +533,9 @@ JoyousSpring.Joker({
                             { is_tuner = true,         monster_type = "Insect", exclude_summon_types = { "XYZ", "LINK" } },
                             { summon_type = "SYNCHRO", exclude_tuners = true },
                         },
-                    },
-                    restrictions = {
-                        no_room = true
+                        restrictions = {
+                            no_room = true
+                        }
                     }
                 }
             },
@@ -614,9 +614,9 @@ JoyousSpring.Joker({
                             { exclude_tuners = true,   exclude_summon_types = { "XYZ", "LINK" } },
                             { summon_type = "SYNCHRO", exclude_tuners = true },
                         },
-                    },
-                    restrictions = {
-                        no_room = true
+                        restrictions = {
+                            no_room = true
+                        }
                     }
                 }
             },
@@ -687,9 +687,9 @@ JoyousSpring.Joker({
                             { summon_type = "SYNCHRO", exclude_tuners = true },
                             { min = 2,                 exclude_tuners = true,   exclude_summon_types = { "XYZ", "LINK" } },
                         },
-                    },
-                    restrictions = {
-                        no_room = true
+                        restrictions = {
+                            no_room = true
+                        }
                     }
                 }
             },
