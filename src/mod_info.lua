@@ -216,6 +216,10 @@ function G.FUNCS.joy_cryptid(e)
     love.system.openURL("https://github.com/SpectralPack/Cryptid")
 end
 
+function G.FUNCS.joy_elle(e)
+    love.system.openURL("https://github.com/ellestuff/ellejokers")
+end
+
 function G.FUNCS.joy_lobcorp(e)
     love.system.openURL("https://github.com/Mysthaps/LobotomyCorp")
 end
