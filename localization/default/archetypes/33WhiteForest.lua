@@ -162,7 +162,7 @@ return {
                         "{V:1}and their {V:4}FLIP{V:1} abilities activate when {V:2}Blind{V:1} is selected {C:inactive}(#1#/20){}",
                         "{V:6}50{V:5}+ {V:7}Tarot{V:5}: {V:8}Spellcasters{V:5} in the {V:6}GY{V:5} count",
                         "{V:5}as owned for {V:8}\"White Forest\"{V:5} abilities {C:inactive}(#2#/50){}",
-                        "{C:planet}Planet{}: {C:planet}Planets{} level up an extra time for each {C:attention}5 tributed{}",
+                        "{C:planet}Planet{}: {C:planet}Planet{} cards level up an extra time for each {C:attention}5 tributed{}",
                         "{C:inactive}(Currently {C:inactive}{C:attention}+#3#{}{C:inactive} levels) (#4#)",
                         "{C:spectral}Spectral{}: Gains {X:mult,C:white}X#5#{} Mult for each",
                         "{C:inactive}(Currently {C:inactive}{X:mult,C:white}X#6#{}{C:inactive} Mult)",

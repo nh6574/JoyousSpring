@@ -6,7 +6,8 @@ return {
                 text = {
                     {
                         "You can {C:attention}tribute #1#{} other {C:attention}Joker",
-                        "to {C:attention}transform{} this card into an {C:joy_normal}\"Invoked\"",
+                        "to {C:attention}transform{} this card into",
+                        "an appropriate {C:joy_normal}\"Invoked\"",
                         "{C:inactive}(This is treated as a Fusion summon)",
                     },
                     {

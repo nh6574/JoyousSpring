@@ -48,6 +48,7 @@ return {
             k_joy_trap = "Trap",
             k_joy_fieldspell = "Field Spell",
             k_joy_None = "None",
+            k_joy_always_treated = "Always treated as a {C:joy_normal}#1#",
         }
     }
 }

@@ -93,7 +93,7 @@ return {
                     },
                     {
                         "{C:attention}Qinglong{}: Once per round, adds {C:attention}#2#{}",
-                        "{C:joy_normal}\"Virtual World\"{} {C:planet}Planets{} to the shop"
+                        "{C:joy_normal}\"Virtual World\"{} {C:planet}Planet{} cards to the shop"
                     },
                     {
                         "{C:attention}Chuche{}: {C:attention}Banish{} this card at end of round",

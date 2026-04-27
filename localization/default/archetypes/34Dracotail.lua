@@ -13,13 +13,33 @@ return {
                     {
                         "If {C:attention}first hand{} of round",
                         "has exactly {C:attention}3{} cards,",
-                        "destroys them and adds a {C:attention}Jumbo Standard Pack{} to the shop"
+                        "destroys them and adds",
+                        "a {C:attention}Jumbo Standard Pack{} to the shop"
                     }
                 },
                 joy_transfer_ability = {
                     "Creates {C:attention}1{} {C:joy_normal}Main Deck \"Dracotail\"{}",
                     "after {C:attention}#1#{} playing cards are destroyed",
                     "{C:inactive}(Must have room) (#2#/#1#)",
+                }
+            },
+            j_joy_dracotail_faimena = {
+                name = "{C:joy_effect}Dracotail Faimena",
+                text = {
+                    {
+                        "Adds a {C:joy_normal}\"Dracotail\"{} to the {C:joy_spell}Extra Deck{}",
+                        "after {C:attention}#1#{} playing cards are destroyed {C:inactive}(#2#/#1#)",
+                        "A {C:joy_fusion}Fusion{} summoned using this card as {C:attention}material{} gains this ability",
+                    },
+                    {
+                        "If {C:attention}second hand{} of round",
+                        "has exactly {C:attention}3{} cards,",
+                        "destroys them and gives {C:attention}2 Standard Tags{}"
+                    }
+                },
+                joy_transfer_ability = {
+                    "Adds a {C:joy_normal}\"Dracotail\"{} to the {C:joy_spell}Extra Deck{}",
+                    "after {C:attention}#1#{} playing cards are destroyed {C:inactive}(#2#/#1#)",
                 }
             },
             j_joy_dracotail_phry = {
@@ -32,7 +52,7 @@ return {
                         "A {C:joy_fusion}Fusion{} summoned using this card as {C:attention}material{} gains this ability",
                     },
                     {
-                        "If {C:attention}first hand{} of round",
+                        "If {C:attention}third hand{} of round",
                         "has exactly {C:attention}3{} cards,",
                         "destroys them and adds {C:attention}5{} random",
                         "unmodified playing cards to the deck",
@@ -42,25 +62,6 @@ return {
                 joy_transfer_ability = {
                     "{C:attention}Revives 1{} {C:joy_normal}\"Dracotail\"{}",
                     "{C:inactive}(Except \"Dracotail Phryxul\" or \"Dracotail Arthalion\"){}",
-                    "after {C:attention}#1#{} playing cards are destroyed {C:inactive}(#2#/#1#)",
-                }
-            },
-            j_joy_dracotail_faimena = {
-                name = "{C:joy_effect}Dracotail Faimena",
-                text = {
-                    {
-                        "Adds a {C:joy_normal}\"Dracotail\"{} to the {C:joy_spell}Extra Deck{}",
-                        "after {C:attention}#1#{} playing cards are destroyed {C:inactive}(#2#/#1#)",
-                        "A {C:joy_fusion}Fusion{} summoned using this card as {C:attention}material{} gains this ability",
-                    },
-                    {
-                        "If {C:attention}first hand{} of round",
-                        "has exactly {C:attention}3{} cards,",
-                        "destroys them and gives {C:attention}2 Standard Tags{}"
-                    }
-                },
-                joy_transfer_ability = {
-                    "Adds a {C:joy_normal}\"Dracotail\"{} to the {C:joy_spell}Extra Deck{}",
                     "after {C:attention}#1#{} playing cards are destroyed {C:inactive}(#2#/#1#)",
                 }
             },
@@ -208,10 +209,14 @@ return {
                     },
                     m_wild = {
                         text_description = {
-                            " "
+                            "{C:attention}Revives #1#{}",
+                            "{C:joy_normal}Main Deck \"Dracotail\"",
+                            "at end of round for each"
                         },
                         text = {
-                            " "
+                            "{C:attention}Revives #1#{}",
+                            "{C:joy_normal}Main Deck \"Dracotail\"",
+                            "at end of round"
                         }
                     },
                     m_glass = {

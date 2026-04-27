@@ -349,27 +349,46 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
         if self.set == "Joker" or self.set == "joy_Opponent" then
             local counters = JoyousSpring.get_counter_ui(card)
             -- Add type information under names
+            local name_extra_nodes = {
+                {
+                    n = G.UIT.R,
+                    config = { align = "cm" },
+                    nodes = full_UI_table.name
+                },
+                {
+                    n = G.UIT.R,
+                    config = { align = "cm" },
+                    nodes = JoyousSpring.get_type_ui(card)
+                }
+            }
+
+            if counters then
+                name_extra_nodes[#name_extra_nodes + 1] = {
+                    n = G.UIT.R,
+                    config = { align = "cm" },
+                    nodes = counters
+                }
+            end
+
+            if self.joy_treated_as then
+                local treated_text = G.localization.misc.dictionary.k_joy_always_treated
+                local treated_as = type(self.joy_treated_as) == "table" and self.joy_treated_as or
+                    { self.joy_treated_as }
+                for _, archetype_loc in ipairs(treated_as) do
+                    name_extra_nodes[#name_extra_nodes + 1] = {
+                        n = G.UIT.R,
+                        config = { align = "cm" },
+                        nodes = SMODS.localize_box(loc_parse_string(treated_text),
+                            { vars = { localize(archetype_loc) }, text_colour = lighten(G.C.UI.TEXT_INACTIVE, 0.4), scale = 0.9 })
+                    }
+                end
+            end
+
             full_UI_table.name = {
                 {
                     n = G.UIT.C,
                     config = { align = "cm", padding = 0.05 },
-                    nodes = {
-                        {
-                            n = G.UIT.R,
-                            config = { align = "cm" },
-                            nodes = full_UI_table.name
-                        },
-                        {
-                            n = G.UIT.R,
-                            config = { align = "cm" },
-                            nodes = JoyousSpring.get_type_ui(card)
-                        },
-                        counters and {
-                            n = G.UIT.R,
-                            config = { align = "cm" },
-                            nodes = counters
-                        } or nil
-                    }
+                    nodes = name_extra_nodes
                 }
             }
 

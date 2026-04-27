@@ -3,6 +3,7 @@
 ---@class JoyousSpring.Joker: SMODS.Joker
 ---@field joy_get_weight? fun(self: JoyousSpring.Joker|table, args: table):number? Only YGO monsters weighted rarity, if it returns nil then it uses the default rate for the rarity
 ---@field joy_alt_pos? {x:number, y:number}[] Atlas position for alternative art
+---@field joy_treated_as? string|string[] Localization string(s) for when a card is treated as another archetype
 ---@field joy_desc_cards? {[number]:string?, properties:material_properties[]?, name:string?}[] Definition of tabs for the related cards popup
 ---@field joy_no_shop? true True if it can't be found in the shop or boosters naturally
 ---@field use? fun(self: JoyousSpring.Joker|table, card: Card|table, area: CardArea|table, copier?: table) Defines behaviour when this Joker is used. (Added by JoyousSpring)

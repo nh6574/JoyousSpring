@@ -31,12 +31,12 @@ return {
                         "An {C:joy_xyz}Xyz{} summoned using this card",
                         "as {C:attention}material{} gains the following ability:",
                         "{s:0.9}Creates {s:0.9,C:attention}1{} {s:0.9,C:dark_edition}Negative{} {s:0.9,C:tarot}Tarot{s:0.9} and",
-                        "{s:0.9,C:attention}2{} {s:0.9,C:dark_edition}Negative{} {s:0.9,C:planet}Planets{} {s:0.9}at end of round"
+                        "{s:0.9,C:attention}2{} {s:0.9,C:dark_edition}Negative{} {s:0.9,C:planet}Planet{s:0.9} cards {s:0.9}at end of round"
                     },
                 },
                 joy_transfer_ability = {
                     "Creates {C:attention}1{} {C:dark_edition}Negative{} {C:tarot}Tarot{} and",
-                    "{C:attention}2{} {C:dark_edition}Negative{} {C:planet}Planets{} at end of round"
+                    "{C:attention}2{} {C:dark_edition}Negative{} {C:planet}Planet{} cards at end of round"
                 },
             },
             j_joy_zoo_snake = {

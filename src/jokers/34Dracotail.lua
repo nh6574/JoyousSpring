@@ -16,7 +16,7 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.cards, card.ability.extra.count } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dracotail" } }, }, name = "k_joy_archetype" },
@@ -28,6 +28,8 @@ JoyousSpring.Joker({
                 attribute = "EARTH",
                 monster_archetypes = { ["Dracotail"] = true }
             },
+            cards = 5,
+            count = 0
         },
     },
 })
@@ -42,7 +44,7 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.cards, card.ability.extra.count } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dracotail" } }, }, name = "k_joy_archetype" },
@@ -54,6 +56,8 @@ JoyousSpring.Joker({
                 attribute = "LIGHT",
                 monster_archetypes = { ["Dracotail"] = true }
             },
+            cards = 5,
+            count = 0
         },
     },
 })
@@ -68,7 +72,7 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.cards, card.ability.extra.count } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dracotail" } }, }, name = "k_joy_archetype" },
@@ -80,6 +84,8 @@ JoyousSpring.Joker({
                 attribute = "WATER",
                 monster_archetypes = { ["Dracotail"] = true }
             },
+            cards = 5,
+            count = 0
         },
     },
 })
@@ -120,7 +126,7 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.mult, card.ability.extra.mult * (G.GAME.joy_cards_destroyed or 0), card.ability.extra.adds } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dracotail" } }, }, name = "k_joy_archetype" },
@@ -132,6 +138,8 @@ JoyousSpring.Joker({
                 attribute = "FIRE",
                 monster_archetypes = { ["Dracotail"] = true }
             },
+            mult = 2,
+            adds = 3
         },
     },
 })
@@ -146,7 +154,7 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.chips, card.ability.extra.chips * (G.GAME.joy_cards_destroyed or 0), card.ability.extra.adds } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dracotail" } }, }, name = "k_joy_archetype" },
@@ -158,6 +166,8 @@ JoyousSpring.Joker({
                 attribute = "WIND",
                 monster_archetypes = { ["Dracotail"] = true }
             },
+            chips = 20,
+            adds = 3
         },
     },
 })
@@ -172,7 +182,7 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.money } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dracotail" } }, }, name = "k_joy_archetype" },
@@ -185,6 +195,7 @@ JoyousSpring.Joker({
                 attribute = "LIGHT",
                 monster_archetypes = { ["Dracotail"] = true }
             },
+            money = 1
         },
     },
 })

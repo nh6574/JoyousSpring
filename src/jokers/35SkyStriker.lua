@@ -62,6 +62,7 @@ JoyousSpring.Joker({
 -- Surgical Striker - H.A.M.P.
 JoyousSpring.Joker({
     key = "striker_hamp",
+    joy_treated_as = "k_joy_archetype_striker",
     atlas = 'striker',
     pos = { x = 3, y = 0 },
     rarity = 1,
@@ -88,6 +89,7 @@ JoyousSpring.Joker({
 -- Aileron
 JoyousSpring.Joker({
     key = "striker_aileron",
+    joy_treated_as = "k_joy_archetype_striker",
     atlas = 'striker',
     pos = { x = 4, y = 0 },
     rarity = 1,
@@ -114,6 +116,7 @@ JoyousSpring.Joker({
 -- Pillar of the Future - Cyanos
 JoyousSpring.Joker({
     key = "striker_cyanos",
+    joy_treated_as = "k_joy_archetype_striker",
     atlas = 'striker',
     pos = { x = 5, y = 0 },
     rarity = 1,
@@ -140,6 +143,7 @@ JoyousSpring.Joker({
 -- Sage of Benevolence - Ciela
 JoyousSpring.Joker({
     key = "striker_ciela",
+    joy_treated_as = "k_joy_archetype_striker",
     atlas = 'striker',
     pos = { x = 0, y = 1 },
     rarity = 1,
@@ -166,6 +170,7 @@ JoyousSpring.Joker({
 -- Sage of Strength - Akash
 JoyousSpring.Joker({
     key = "striker_akash",
+    joy_treated_as = "k_joy_archetype_striker",
     atlas = 'striker',
     pos = { x = 1, y = 1 },
     rarity = 1,
@@ -192,6 +197,7 @@ JoyousSpring.Joker({
 -- Sage of Wisdom - Himmel
 JoyousSpring.Joker({
     key = "striker_himmel",
+    joy_treated_as = "k_joy_archetype_striker",
     atlas = 'striker',
     pos = { x = 2, y = 1 },
     rarity = 1,
@@ -491,6 +497,7 @@ JoyousSpring.Joker({
 -- Combined Maneuver - Engage Zero!
 JoyousSpring.Joker({
     key = "striker_combined",
+    joy_treated_as = "k_joy_archetype_striker_ace",
     atlas = 'striker',
     pos = { x = 5, y = 1 },
     rarity = 1,
@@ -518,6 +525,7 @@ JoyousSpring.Joker({
 -- Surgical Striker - S.P.E.C.T.R.A
 JoyousSpring.Joker({
     key = "striker_spectra",
+    joy_treated_as = "k_joy_archetype_striker_ace",
     atlas = 'striker',
     pos = { x = 1, y = 4 },
     rarity = 1,
