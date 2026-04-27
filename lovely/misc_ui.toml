@@ -143,3 +143,19 @@ end
 '''
 match_indent = true
 times = 1
+
+# Replace main menu colours
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''
+{name = 'colour_1', ref_table = G.C, ref_value = 'RED'},
+{name = 'colour_2', ref_table = G.C, ref_value = 'BLUE'},
+'''
+position = "at"
+payload = '''
+JoyousSpring and not JoyousSpring.config.disable_main_menu and { name = "colour_1",   ref_table = G.C.JOY,  ref_value = "EFFECT" } or {name = 'colour_1', ref_table = G.C, ref_value = 'RED'},
+JoyousSpring and not JoyousSpring.config.disable_main_menu and { name = "colour_2",   ref_table = G.C,      ref_value = "BLACK" } or {name = 'colour_2', ref_table = G.C, ref_value = 'BLUE'},
+'''
+match_indent = true
+times = 1
