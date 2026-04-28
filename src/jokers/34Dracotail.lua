@@ -34,34 +34,6 @@ JoyousSpring.Joker({
     },
 })
 
--- Dracotail Phryxul
-JoyousSpring.Joker({
-    key = "dracotail_phry",
-    atlas = 'dracotail',
-    pos = { x = 1, y = 1 },
-    rarity = 1,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.cards, card.ability.extra.count } }
-    end,
-    joy_desc_cards = {
-        { properties = { { monster_archetypes = { "Dracotail" } }, }, name = "k_joy_archetype" },
-    },
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                monster_type = "Spellcaster",
-                attribute = "LIGHT",
-                monster_archetypes = { ["Dracotail"] = true }
-            },
-            cards = 5,
-            count = 0
-        },
-    },
-})
-
 -- Dracotail Faimena
 JoyousSpring.Joker({
     key = "dracotail_faimena",
@@ -82,6 +54,34 @@ JoyousSpring.Joker({
             joyous_spring = JoyousSpring.init_joy_table {
                 monster_type = "Spellcaster",
                 attribute = "WATER",
+                monster_archetypes = { ["Dracotail"] = true }
+            },
+            cards = 5,
+            count = 0
+        },
+    },
+})
+
+-- Dracotail Phryxul
+JoyousSpring.Joker({
+    key = "dracotail_phry",
+    atlas = 'dracotail',
+    pos = { x = 1, y = 1 },
+    rarity = 1,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.cards, card.ability.extra.count } }
+    end,
+    joy_desc_cards = {
+        { properties = { { monster_archetypes = { "Dracotail" } }, }, name = "k_joy_archetype" },
+    },
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Spellcaster",
+                attribute = "LIGHT",
                 monster_archetypes = { ["Dracotail"] = true }
             },
             cards = 5,

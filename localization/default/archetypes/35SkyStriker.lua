@@ -1,6 +1,14 @@
 return {
     descriptions = {
         Joker = {
+            j_joy_token_striker = {
+                name = "{C:joy_token}Sky Striker Ace Token",
+                text = {
+                    {
+                        "This card can be used as any {C:joy_token}Token{}",
+                    },
+                },
+            },
             j_joy_striker_raye = {
                 name = "{C:joy_effect}Sky Striker Ace - Raye",
                 text = {
@@ -172,12 +180,13 @@ return {
                         "{C:inactive}(Currently {C:chips}+#2#{} {C:inactive}Chips)",
                     },
                     {
-                        "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{} not summoned this round",
+                        "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "{C:inactive}(not summoned this round, if possible){}",
                         "to the {C:joy_spell}Extra Deck{} when summoned",
                     },
                     {
                         "If {C:attention}3 or more{} {C:planet}Planet{} cards",
-                        "were {C:attention}tributed{} this round {C:inactive}(#2#/3){}:",
+                        "were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
                         "this round, creates {C:attention}1{} {C:planet}Planet{}",
                         "for each poker hand discarded",
                         "{C:inactive}(Must have room)"
@@ -185,7 +194,7 @@ return {
                 },
                 joy_summon_conditions = {
                     "{C:attention}1{} non-{C:joy_wind}WIND{} {C:joy_normal}\"Sky Striker Ace\"{}",
-                    "OR {C:attention}Tribute Earth{}",
+                    "OR {C:attention}Tribute {C:planet}Earth{}",
                     "with {C:joy_effect}\"Sky Striker Ace - Raye\"{}",
                     "{C:inactive}(Can only summon once per round){}"
                 }
@@ -194,88 +203,307 @@ return {
                 name = "{C:joy_link}Sky Striker Ace - Kagari",
                 text = {
                     {
-                        "TBD"
+                        "{C:mult}+#1#{} Mult for each {C:planet}Planet",
+                        "{C:attention}tributed{} this round",
+                        "{C:inactive}(Currently {C:mult}+#2#{} {C:inactive}Mult)",
+                    },
+                    {
+                        "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "{C:inactive}(not summoned this round, if possible){}",
+                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                    },
+                    {
+                        "If {C:attention}3 or more{} {C:planet}Planet{} cards",
+                        "were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
+                        "creates all {C:attention}tributed{}",
+                        "{C:planet}Planet{} cards as {C:dark_edition}Negative{}",
+                        "when summoned"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}1{} non-{C:joy_fire}FIRE{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                    "OR {C:attention}Tribute {C:planet}Mars{}",
+                    "with {C:joy_effect}\"Sky Striker Ace - Raye\"{}",
+                    "{C:inactive}(Can only summon once per round){}"
                 }
             },
             j_joy_striker_shizuku = {
                 name = "{C:joy_link}Sky Striker Ace - Shizuku",
                 text = {
                     {
-                        "TBD"
+                        "{C:money}+$#1#{} at end of round",
+                        "for each {C:planet}Planet {C:attention}tributed{} this round",
+                        "{C:inactive}(Currently {C:money}+$#2#{C:inactive})",
+                    },
+                    {
+                        "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "{C:inactive}(not summoned this round, if possible){}",
+                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                    },
+                    {
+                        "If {C:attention}3 or more{} {C:planet}Planet{} cards",
+                        "were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
+                        "creates a {C:dark_edition}Negative{} {C:planet}Planet{}",
+                        "associated with each {C:joy_normal}\"Sky Striker Ace\"",
+                        "summoned this round at end of round",
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}1{} non-{C:joy_water}Water{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                    "OR {C:attention}Tribute {C:planet}Neptune{}",
+                    "with {C:joy_effect}\"Sky Striker Ace - Raye\"{}",
+                    "{C:inactive}(Can only summon once per round){}"
                 }
             },
             j_joy_striker_kaina = {
                 name = "{C:joy_link}Sky Striker Ace - Kaina",
                 text = {
                     {
-                        "TBD"
+                        "Makes all owned {C:planet}Planet{} cards",
+                        "{C:dark_edition}Negative{} when summoned"
+                    },
+                    {
+                        "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "{C:inactive}(not summoned this round, if possible){}",
+                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                    },
+                    {
+                        "If {C:attention}3 or more{} {C:planet}Planet{} cards",
+                        "were {C:attention}tributed{} this round {C:inactive}(#1#/3){}:",
+                        "{C:attention}levels up{} the hand of each different",
+                        "{C:planet}Planet{} {C:attention}tributed{} this round",
+                        "when summoned"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}1{} non-{C:joy_earth}Earth{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                    "OR {C:attention}Tribute {C:planet}Venus{}",
+                    "with {C:joy_effect}\"Sky Striker Ace - Raye\"{}",
+                    "{C:inactive}(Can only summon once per round){}"
                 }
             },
             j_joy_striker_amatsu = {
                 name = "{C:joy_link}Prototype Sky Striker Ace - Amatsu",
                 text = {
                     {
-                        "TBD"
+                        "You can {C:attention}tribute{} a {C:joy_normal}\"Sky Striker Ace\"{} {C:joy_link}Link{}",
+                        "to create {C:attention}#1#{} {C:dark_edition}Negative{} {C:planet}Planet{} cards"
+                    },
+                    {
+                        "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "{C:inactive}(not summoned this round, if possible){}",
+                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                    },
+                    {
+                        "If {C:attention}3 or more{} {C:planet}Planet{} cards",
+                        "were {C:attention}tributed{} this round {C:inactive}(#2#/3){}:",
+                        "{C:attention}revives 1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "when summoned"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                    "OR {C:attention}Tribute {C:planet}Pluto{}",
+                    "with {C:joy_effect}\"Sky Striker Ace - Raye\"{}",
+                    "{C:inactive}(Can only summon once per round){}"
                 }
             },
             j_joy_striker_zeke = {
                 name = "{C:joy_link}Sky Striker Ace - Zeke",
                 text = {
                     {
-                        "TBD"
+                        "{C:attention}Banishes{} all {C:attention}consumables{}",
+                        "except {C:planet}Planet{} cards when summoned,",
+                        "and if it did, creates {C:attention}1{} {C:dark_edition}Negative{}",
+                        "{C:joy_token}\"Sky Striker Ace Token\"{}"
+                    },
+                    {
+                        "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "{C:inactive}(not summoned this round, if possible){}",
+                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                    },
+                    {
+                        "If {C:attention}3 or more{} {C:planet}Planet{} cards",
+                        "were {C:attention}tributed{} this round {C:inactive}(#1#/3){}:",
+                        "{C:attention}banishes{} all {C:joy_normal}\"Sky Striker\"{}",
+                        "at end of round until {C:attention}Blind{} is selected"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}2{} {C:attention}Jokers{},",
+                    "including a {C:joy_normal}\"Sky Striker Ace\"{}",
+                    "OR {C:attention}Tribute {C:planet}Jupiter{}",
+                    "with {C:joy_effect}\"Sky Striker Ace - Raye\"{}",
+                    "{C:inactive}(Can only summon once per round){}"
                 }
             },
             j_joy_striker_azalea = {
                 name = "{C:joy_link}Sky Striker Ace - Azalea",
                 text = {
                     {
-                        "TBD"
+                        "{C:attention}+#1#{} hand size this round",
+                        "for every {C:planet}Planet{} {C:attention}tributed{} this round",
+                        "{C:inactive}(Currently {C:attention}+#2#{}{C:inactive})"
+                    },
+                    {
+                        "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "{C:inactive}(not summoned this round, if possible){}",
+                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                    },
+                    {
+                        "You can {C:attention}tribute 1{} {C:tarot}Tarot{}",
+                        "to {C:attention}transform{} this card into",
+                        "{C:joy_link}\"Sky Striker Ace - Azalea Temperance\"{}",
+                        "{C:inactive}(This is treated as a Link summon){}"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}2{} {C:joy_light}LIGHT{} and/or",
+                    "{C:joy_dark}DARK{} {C:attention}Jokers{}",
+                    "OR {C:attention}Tribute {C:planet}Uranus{}",
+                    "with {C:joy_effect}\"Sky Striker Ace - Raye\"{}",
+                    "{C:inactive}(Can only summon once per round){}"
                 }
             },
             j_joy_striker_azaleatemp = {
                 name = "{C:joy_link}Sky Striker Ace - Azalea Temperance",
                 text = {
                     {
-                        "TBD"
+                        "This card's sell value increases by",
+                        "{C:money}+$#1#{} for each {C:tarot}High Priestess{}",
+                        "used this run when summoned",
+                        "{C:inactive}(Currently {C:money}+$#2#{}{C:inactive})"
+                    },
+                    {
+                        "Creates as many {C:tarot}High Priestess{}",
+                        "as possible at end of round"
+                    },
+                    {
+                        "If {C:attention}3 or more{} {C:planet}Planet{} cards",
+                        "were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
+                        "for the rest of the round,",
+                        "{C:tarot}Tarot{} cards {C:attention}tributed{}",
+                        "count as {C:planet}Planet{} cards",
+                        "for {C:joy_normal}\"Sky Striker\"{} abilities"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}2{} {C:attention}Jokers{},",
+                    "including a {C:joy_link}Link{}",
+                    "{C:inactive}(Can only summon once per round){}"
                 }
             },
             j_joy_striker_camellia = {
                 name = "{C:joy_link}Sky Striker Ace - Camellia",
                 text = {
                     {
-                        "TBD"
+                        "Creates as many {C:planet}Planet{} cards",
+                        "for your most played hand as possible",
+                        "when {C:attention}Blind{} is selected"
+                    },
+                    {
+                        "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "{C:inactive}(not summoned this round, if possible){}",
+                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                    },
+                    {
+                        "You can {C:attention}tribute 1{} {C:spectral}Spectral{}",
+                        "to create {C:attention}#1#{} {C:dark_edition}Negative{}",
+                        "{C:planet}Planet{} cards and a {C:joy_normal}\"Sky Striker\"{}",
+                        "in the {C:joy_trap}Opponent{}'s area"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}2{} {C:joy_effect}Effect{} {C:attention}Jokers{}",
+                    "OR {C:attention}Tribute {C:planet}Saturn{}",
+                    "with {C:joy_effect}\"Sky Striker Ace - Raye\"{}",
+                    "{C:inactive}(Can only summon once per round){}"
                 }
             },
             j_joy_striker_zero = {
                 name = "{C:joy_link}Sky Striker Ace = Zero",
                 text = {
                     {
-                        "TBD"
+                        "Gains {X:mult,C:white}X#1#{} Mult for each",
+                        "hand level over {C:attention}1{}",
+                        "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
+                    },
+                    {
+                        "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "{C:inactive}(not summoned this round, if possible){}",
+                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                    },
+                    {
+                        "If {C:attention}3 or more{} {C:planet}Planet{} cards",
+                        "were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
+                        "creates {C:attention}1{} {C:joy_effect}\"Sky Striker Ace - Roze\"{}",
+                        "when summoned"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}2{} {C:joy_normal}\"Sky Striker Ace\"{},",
+                    "OR {C:attention}Tribute {C:planet}Mercury{}",
+                    "with {C:joy_effect}\"Sky Striker Ace - Raye\"{}",
+                    "{C:inactive}(Can only summon once per round){}"
                 }
             },
             j_joy_striker_combined = {
                 name = "{C:joy_link}Combined Maneuver - Engage Zero!",
                 text = {
                     {
-                        "TBD"
+                        "{C:mult}+#1#{} Mult for each",
+                        "{C:joy_normal}\"Sky Striker\"{} in the {C:attention}GY{}",
+                        "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
+                    },
+                    {
+                        "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "{C:inactive}(not summoned this round, if possible){}",
+                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                    },
+                    {
+                        "Sends {C:attention}#1#{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "to the {C:attention}GY{} when {C:attention}Blind{} is selected"
+                    },
+                    {
+                        "If {C:attention}3 or more{} {C:planet}Planet{} cards",
+                        "were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
+                        "sell this card to {C:attention}revive 1{}",
+                        "{C:joy_effect}\"Sky Striker Ace - Raye\"{}"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}2{} {C:joy_light}LIGHT{} and/or",
+                    "{C:joy_dark}DARK{} {C:attention}Jokers{}",
+                    "OR {C:attention}Tribute{} a {C:attention}modded{} {C:planet}Planet{}",
+                    "with {C:joy_effect}\"Sky Striker Ace - Raye\"{}",
+                    "{C:inactive}(Can only summon once per round){}"
                 }
             },
             j_joy_striker_spectra = {
                 name = "{C:joy_link}Surgical Striker - S.P.E.C.T.R.A",
                 text = {
                     {
-                        "TBD"
+                        "{X:mult,C:white}X#1#{} Mult if played hand",
+                        "contains a {C:attention}Five of a Kind{},",
+                        "{C:attention}Flush House{} or {C:attention}Flush Five{}"
+                    },
+                    {
+                        "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "{C:inactive}(not summoned this round, if possible){}",
+                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                    },
+                    {
+                        "You can {C:attention}tribute{} all {C:planet}Planet{} cards {C:inactive}(min. 3){}",
+                        "to reduce {C:attention}Blind{}'s requirement by {C:red}%#2#{}"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}2{} {C:attention}Jokers{},",
+                    "including a {C:joy_link}Link{}",
+                    "OR {C:attention}Tribute a {C:planet}Planet X{}",
+                    "{C:planet}Ceres{} or {C:planet}Eris{}",
+                    "with {C:joy_effect}\"Sky Striker Ace - Raye\"{}",
+                    "{C:inactive}(Can only summon once per round){}"
                 }
             },
         },
