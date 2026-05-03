@@ -17,6 +17,7 @@ JoyousSpring.OpponentCard = SMODS.Center:extend {
     config = {},
     pos = { x = 0, y = 0 },
     display_size = { w = 34, h = 34 },
+    set_sprites = JoyousSpring.set_back_sprite,
     pre_inject_class = function(self)
         G.P_CENTER_POOLS[self.set] = {}
     end,

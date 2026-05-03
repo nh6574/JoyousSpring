@@ -58,45 +58,40 @@ SMODS.Gradient({
     cycle = 7.5,
 })
 
+loc_colour()
+G.E_MANAGER:add_event(Event({
+    func = function()
+        return true
+    end
+}))
 G.C.JOY.PENDULUM = SMODS.Gradients.joy_PENDULUM_NORMAL
 G.C.JOY.PENDULUM_EFFECT = SMODS.Gradients.joy_PENDULUM_EFFECT
 G.C.JOY.PENDULUM_RITUAL = SMODS.Gradients.joy_PENDULUM_RITUAL
 G.C.JOY.PENDULUM_FUSION = SMODS.Gradients.joy_PENDULUM_FUSION
 G.C.JOY.PENDULUM_SYNCHRO = SMODS.Gradients.joy_PENDULUM_SYNCHRO
 G.C.JOY.PENDULUM_XYZ = SMODS.Gradients.joy_PENDULUM_XYZ
-
--- Hooks
-
-local loc_colour_ref = loc_colour
-function loc_colour(_c, _default)
-    if not G.ARGS.LOC_COLOURS then
-        loc_colour_ref()
-    end
-    G.ARGS.LOC_COLOURS.joy_mod = G.C.JOY.MOD
-    G.ARGS.LOC_COLOURS.joy_normal = G.C.JOY.NORMAL
-    G.ARGS.LOC_COLOURS.joy_effect = G.C.JOY.EFFECT
-    G.ARGS.LOC_COLOURS.joy_spell = G.C.JOY.SPELL
-    G.ARGS.LOC_COLOURS.joy_pendulum = G.C.JOY.PENDULUM
-    G.ARGS.LOC_COLOURS.joy_pendulum_normal = G.C.JOY.PENDULUM
-    G.ARGS.LOC_COLOURS.joy_pendulum_effect = G.C.JOY.PENDULUM_EFFECT
-    G.ARGS.LOC_COLOURS.joy_pendulum_ritual = G.C.JOY.PENDULUM_RITUAL
-    G.ARGS.LOC_COLOURS.joy_pendulum_fusion = G.C.JOY.PENDULUM_FUSION
-    G.ARGS.LOC_COLOURS.joy_pendulum_synchro = G.C.JOY.PENDULUM_SYNCHRO
-    G.ARGS.LOC_COLOURS.joy_pendulum_xyz = G.C.JOY.PENDULUM_XYZ
-    G.ARGS.LOC_COLOURS.joy_trap = G.C.JOY.TRAP
-    G.ARGS.LOC_COLOURS.joy_ritual = G.C.JOY.RITUAL
-    G.ARGS.LOC_COLOURS.joy_fusion = G.C.JOY.FUSION
-    G.ARGS.LOC_COLOURS.joy_synchro = G.C.JOY.SYNCHRO
-    G.ARGS.LOC_COLOURS.joy_xyz = G.C.JOY.XYZ
-    G.ARGS.LOC_COLOURS.joy_link = G.C.JOY.LINK
-    G.ARGS.LOC_COLOURS.joy_token = G.C.JOY.TOKEN
-    G.ARGS.LOC_COLOURS.joy_light = G.C.JOY.LIGHT
-    G.ARGS.LOC_COLOURS.joy_dark = G.C.JOY.DARK
-    G.ARGS.LOC_COLOURS.joy_water = G.C.JOY.WATER
-    G.ARGS.LOC_COLOURS.joy_fire = G.C.JOY.FIRE
-    G.ARGS.LOC_COLOURS.joy_earth = G.C.JOY.EARTH
-    G.ARGS.LOC_COLOURS.joy_wind = G.C.JOY.WIND
-    G.ARGS.LOC_COLOURS.joy_divine = G.C.JOY.DIVINE
-
-    return loc_colour_ref(_c, _default)
-end
+G.ARGS.LOC_COLOURS.joy_mod = G.C.JOY.MOD
+G.ARGS.LOC_COLOURS.joy_normal = G.C.JOY.NORMAL
+G.ARGS.LOC_COLOURS.joy_effect = G.C.JOY.EFFECT
+G.ARGS.LOC_COLOURS.joy_spell = G.C.JOY.SPELL
+G.ARGS.LOC_COLOURS.joy_pendulum = G.C.JOY.PENDULUM
+G.ARGS.LOC_COLOURS.joy_pendulum_normal = G.C.JOY.PENDULUM
+G.ARGS.LOC_COLOURS.joy_pendulum_effect = G.C.JOY.PENDULUM_EFFECT
+G.ARGS.LOC_COLOURS.joy_pendulum_ritual = G.C.JOY.PENDULUM_RITUAL
+G.ARGS.LOC_COLOURS.joy_pendulum_fusion = G.C.JOY.PENDULUM_FUSION
+G.ARGS.LOC_COLOURS.joy_pendulum_synchro = G.C.JOY.PENDULUM_SYNCHRO
+G.ARGS.LOC_COLOURS.joy_pendulum_xyz = G.C.JOY.PENDULUM_XYZ
+G.ARGS.LOC_COLOURS.joy_trap = G.C.JOY.TRAP
+G.ARGS.LOC_COLOURS.joy_ritual = G.C.JOY.RITUAL
+G.ARGS.LOC_COLOURS.joy_fusion = G.C.JOY.FUSION
+G.ARGS.LOC_COLOURS.joy_synchro = G.C.JOY.SYNCHRO
+G.ARGS.LOC_COLOURS.joy_xyz = G.C.JOY.XYZ
+G.ARGS.LOC_COLOURS.joy_link = G.C.JOY.LINK
+G.ARGS.LOC_COLOURS.joy_token = G.C.JOY.TOKEN
+G.ARGS.LOC_COLOURS.joy_light = G.C.JOY.LIGHT
+G.ARGS.LOC_COLOURS.joy_dark = G.C.JOY.DARK
+G.ARGS.LOC_COLOURS.joy_water = G.C.JOY.WATER
+G.ARGS.LOC_COLOURS.joy_fire = G.C.JOY.FIRE
+G.ARGS.LOC_COLOURS.joy_earth = G.C.JOY.EARTH
+G.ARGS.LOC_COLOURS.joy_wind = G.C.JOY.WIND
+G.ARGS.LOC_COLOURS.joy_divine = G.C.JOY.DIVINE

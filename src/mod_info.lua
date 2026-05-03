@@ -88,8 +88,9 @@ SMODS.current_mod.custom_ui = function(modNodes)
         },
     }
 
-    local othermods = {
-        {
+    local make_mod_column = function(mod, colour)
+        local mod_key = "joy_" .. mod
+        return {
             n = G.UIT.C,
             config = {
                 padding = 0.2,
@@ -97,49 +98,26 @@ SMODS.current_mod.custom_ui = function(modNodes)
             },
             nodes = {
                 UIBox_button({
-                    colour = G.C.RED,
+                    colour = colour,
                     minw = 2.6,
                     minh = 0.45,
                     scale = 0.35,
-                    button = "joy_jokerdisplay",
-                    label = { localize('k_joy_jokerdisplay') }
+                    button = mod_key,
+                    label = { localize('k_' .. mod_key) }
                 })
             }
-        },
-        {
-            n = G.UIT.C,
-            config = {
-                padding = 0.2,
-                align = "cm",
-            },
-            nodes = {
-                UIBox_button({
-                    colour = HEX("1E7A0A"),
-                    minw = 2.6,
-                    minh = 0.45,
-                    scale = 0.35,
-                    button = "joy_repertorium",
-                    label = { localize('k_joy_repertorium') }
-                })
-            }
-        },
-        {
-            n = G.UIT.C,
-            config = {
-                padding = 0.2,
-                align = "cm",
-            },
-            nodes = {
-                UIBox_button({
-                    colour = HEX("ECB474"),
-                    minw = 2.6,
-                    minh = 0.45,
-                    scale = 0.35,
-                    button = "joy_hotpotato",
-                    label = { localize('k_joy_hotpotato') }
-                })
-            }
-        },
+        }
+    end
+
+    local othermods1 = {
+        make_mod_column("jokerdisplay", G.C.RED),
+        make_mod_column("repertorium", HEX("1E7A0A")),
+        make_mod_column("vanillaremade", G.C.BLUE)
+    }
+
+    local othermods2 = {
+        make_mod_column("hotpotato", HEX("ECB474")),
+        make_mod_column("wormhole", darken(HEX("73fdff"), 0.3)),
     }
 
     modNodes[#modNodes + 1] = {
@@ -171,11 +149,21 @@ SMODS.current_mod.custom_ui = function(modNodes)
                     {
                         n = G.UIT.R,
                         config = { align = "cm", padding = -0.3, no_fill = true },
-                        nodes = othermods
+                        nodes = othermods1
                     },
                 }
             },
-
+            {
+                n = G.UIT.R,
+                config = { align = "cm", padding = 0.1, no_fill = true },
+                nodes = {
+                    {
+                        n = G.UIT.R,
+                        config = { align = "cm", padding = -0.3, no_fill = true },
+                        nodes = othermods2
+                    },
+                }
+            },
         }
     }
 end
@@ -196,8 +184,16 @@ function G.FUNCS.joy_repertorium(e)
     love.system.openURL("https://github.com/nh6574/Repertorium")
 end
 
+function G.FUNCS.joy_vanillaremade(e)
+    love.system.openURL("https://github.com/nh6574/VanillaRemade")
+end
+
 function G.FUNCS.joy_hotpotato(e)
     love.system.openURL("https://github.com/Balatro-Potato-Patch/Hot-Potato/")
+end
+
+function G.FUNCS.joy_wormhole(e)
+    love.system.openURL("https://github.com/Balatro-Potato-Patch/Wormhole/")
 end
 
 function G.FUNCS.joy_aikoyori(e)
