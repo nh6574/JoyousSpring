@@ -667,7 +667,7 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 15,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.xmult, 1 } }
+        return { vars = { card.ability.extra.xmult,  1 + card.ability.extra.xmult * ((G.GAME.joy_cards_banished_by_type or {})["Insect"] or 0) } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
@@ -700,7 +700,7 @@ JoyousSpring.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if context.joker_main then
                 return {
-                    mult = card.ability.extra.mult * ((G.GAME.joy_cards_banished_by_type or {})["Insect"] or 0)
+                    xmult = 1 + card.ability.extra.xmult * ((G.GAME.joy_cards_banished_by_type or {})["Insect"] or 0)
                 }
             end
         end
