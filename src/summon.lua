@@ -131,15 +131,17 @@ JoyousSpring.perform_summon = function(card, card_list, summon_type)
             summon_type
     })
     for _, material in ipairs(card_list) do
-        local eval, post = material:calculate_joker(
-            {
-                joy_summon = true,
-                joy_card = card,
-                joy_summon_materials = summon_materials,
-                joy_material_self = true,
-                joy_summon_type = summon_type,
-            })
-        SMODS.trigger_effects({ eval, post }, material)
+        if type(material) ~= "string" then -- I don't think this is ever true but just in case
+            local eval, post = material:calculate_joker(
+                {
+                    joy_summon = true,
+                    joy_card = card,
+                    joy_summon_materials = summon_materials,
+                    joy_material_self = true,
+                    joy_summon_type = summon_type,
+                })
+            SMODS.trigger_effects({ eval, post }, material)
+        end
     end
     card.ability.extra.joyous_spring.summon_materials = {}
     local transfer = summon_type == "XYZ" and JoyousSpring.transfer_materials_with_combo(card, card_list) or false
