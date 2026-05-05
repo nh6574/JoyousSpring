@@ -37,10 +37,12 @@ local draw_counter = function(card, key, ref_table, ref_value, x_off, y_off)
     x_off = x_off or 0
     y_off = y_off or 0
 
-    love.graphics.push()
-    love.graphics.origin()
+    local update_cache = not canvas.cached_text or canvas.cached_value ~= ref_table[ref_value]
 
-    if not canvas.cached_text or canvas.cached_value ~= ref_table[ref_value] then
+    if update_cache then
+        love.graphics.push()
+        love.graphics.origin()
+
         canvas.cached_value = ref_table[ref_value]
 
         canvas.cached_text = love.graphics.newText(G.FONTS[1].FONT,
@@ -48,38 +50,38 @@ local draw_counter = function(card, key, ref_table, ref_value, x_off, y_off)
 
         canvas.cached_shadow = love.graphics.newText(G.FONTS[1].FONT,
             { { 0, 0, 0, 1 }, canvas.cached_value })
-    end
 
-    local scale = canvas.canvasScale
+        local scale = canvas.canvasScale
 
-    local gx = (59 + x_off) * scale
-    local gy = (9 + y_off) * scale
-    local cx = (60 + x_off) * scale
-    local cy = (8 + y_off) * scale
+        local gx = (59 + x_off) * scale
+        local gy = (9 + y_off) * scale
+        local cx = (60 + x_off) * scale
+        local cy = (8 + y_off) * scale
 
-    canvas.canvas:renderTo(function()
-        love.graphics.clear(0, 0, 0, 0)
+        canvas.canvas:renderTo(function()
+            love.graphics.clear(0, 0, 0, 0)
 
-        love.graphics.draw(graphic, gx, gy, 0, 2.25, 2.25, 32, 32)
+            love.graphics.draw(graphic, gx, gy, 0, 2.25, 2.25, 32, 32)
 
-        if canvas.cached_text then
-            local tw = canvas.cached_text:getWidth() / 2
-            local th = canvas.cached_text:getHeight() / 2
+            if canvas.cached_text then
+                local tw = canvas.cached_text:getWidth() / 2
+                local th = canvas.cached_text:getHeight() / 2
 
-            local offsets = {
-                { 10, 0 }, { -10, 0 }, { 0, 10 }, { 0, -10 }
-            }
+                local offsets = {
+                    { 10, 0 }, { -10, 0 }, { 0, 10 }, { 0, -10 }
+                }
 
-            for i = 1, 4 do
-                local o = offsets[i]
-                love.graphics.draw(canvas.cached_shadow, cx + o[1], cy + o[2], 0, 0.75, 0.75, tw, th)
+                for i = 1, 4 do
+                    local o = offsets[i]
+                    love.graphics.draw(canvas.cached_shadow, cx + o[1], cy + o[2], 0, 0.75, 0.75, tw, th)
+                end
+
+                love.graphics.draw(canvas.cached_text, cx, cy, 0, 0.75, 0.75, tw, th)
             end
+        end)
 
-            love.graphics.draw(canvas.cached_text, cx, cy, 0, 0.75, 0.75, tw, th)
-        end
-    end)
-
-    love.graphics.pop()
+        love.graphics.pop()
+    end
     canvas.role.draw_major = card
     canvas:draw_shader('dissolve', nil, nil, nil, card.children.center)
 end

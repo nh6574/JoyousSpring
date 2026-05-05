@@ -10,7 +10,17 @@ SMODS.current_mod.menu_cards = function()
     if not JoyousSpring.config.disable_main_menu then
         return {
             key = "j_joy_yokai_ash",
-            no_edition = true
+            no_edition = true,
+            func = function()
+                for _, card in ipairs(G.title_top.cards) do
+                    if (((card.config or {}).center or {}).original_mod or {}).id == "JoyousSpring" then
+                        card.click = function(self)
+                            SMODS.LAST_SELECTED_MOD_TAB = nil
+                            G.FUNCS.openModUI_JoyousSpring()
+                        end
+                    end
+                end
+            end
         }
     end
 end
@@ -218,6 +228,10 @@ end
 
 function G.FUNCS.joy_lobcorp(e)
     love.system.openURL("https://github.com/Mysthaps/LobotomyCorp")
+end
+
+function G.FUNCS.joy_maximus(e)
+    love.system.openURL("https://github.com/the-Astra/Maximus")
 end
 
 function G.FUNCS.joy_ortalab(e)
