@@ -212,7 +212,7 @@ JoyousSpring.get_type_ui = function(card)
         table.insert(ret, tuner)
     end
 
-    if not trap_text or card.config.center.set ~= "joy_Opponent" then
+    if not trap_text or (card.config and card.config.center.set ~= "joy_Opponent") then
         local effect = {
             n = G.UIT.O,
             config = {
@@ -287,7 +287,7 @@ JoyousSpring.get_type_ui = function(card)
 end
 
 JoyousSpring.get_counter_ui = function(card)
-    if not JoyousSpring.config.disable_counters then return end
+    if not JoyousSpring.config.disable_counters or not card.config then return end
     local counter_cards = {
         j_joy_shaddoll_prison = true
     }
