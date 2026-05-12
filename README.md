@@ -74,4 +74,4 @@ If you have any issues feel free to contact me on [Bluesky](https://bsky.app/pro
 
 And here's my [ko-fi link](https://ko-fi.com/nh6574) if you feel especially grateful.
 
-Also check out my Quality of Life mod [JokerDisplay](https://github.com/nh6574/JokerDisplay)!
+Also check out my Quality of Life mods [JokerDisplay](https://github.com/nh6574/JokerDisplay) and [PlayLog](https://github.com/nh6574/PlayLog)! 
