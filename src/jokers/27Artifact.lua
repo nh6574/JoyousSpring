@@ -38,7 +38,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.xmult, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
-        { "opp_joy_mimi_archfiend",                                  name = "k_joy_creates" },
+        { "opp_joy_artifact_achil",                                  name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
     config = {
