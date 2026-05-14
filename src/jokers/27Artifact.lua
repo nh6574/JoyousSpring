@@ -545,7 +545,8 @@ JoyousSpring.OpponentCard {
     },
     add_to_deck = function(self, card, from_debuff)
         local choices = JoyousSpring.get_materials_in_graveyard(
-            { { monster_archetypes = { "Artifact" }, is_main_deck = true } }, nil, true)
+            { { monster_archetypes = { "Artifact" }, is_main_deck = true, exclude_keys = { "j_joy_artifact_fail" } } },
+            nil, true)
         local key = pseudorandom_element(choices, card.config.center.key)
         if key then
             key = "opp_" .. key:sub(3)
