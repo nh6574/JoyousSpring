@@ -119,7 +119,7 @@ JoyousSpring.Joker = SMODS.Joker:extend {
                 weight = SMODS.Rarities[rarity]:get_weight(SMODS.Rarities[rarity].default_weight,
                     SMODS.ObjectTypes['Joker']) * 10
                 if rarity == "Legendary" and weight == 0 then
-                    local legend = args.rarity == "Legendary"
+                    local legend = args.rarity == "Legendary" or args.rarity == 4
                     for _, rar in ipairs(args.rarities or {}) do
                         if rar == "Legendary" then
                             legend = true
@@ -175,7 +175,7 @@ JoyousSpring.is_monster_archetype = function(card, archetype)
         card.ability.extra.joyous_spring.monster_archetypes[archetype] and true or false
 end
 
---TODO: Allow multi-types/attributes
+--TODO: Allow multi-types/attributes (without hooking)
 
 ---Checks if *card* belongs to *monster_type*
 ---@param card Card|table
@@ -375,13 +375,6 @@ JoyousSpring.is_tuner_monster = function(card)
     if (JoyousSpring.get_extra_values(card) or {}).is_tuner then return true end
 
     return JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.is_tuner or false
-end
-
----Checks if *card* is a Non-Tuner Joker
----@param card Card|table
----@return boolean
-JoyousSpring.is_nontuner_monster = function(card)
-    return not JoyousSpring.is_tuner_monster(card)
 end
 
 ---Checks if *card* is a Field Spell Joker
@@ -594,90 +587,97 @@ JoyousSpring.should_illusion_banish = function(card)
     }, card)
 end
 
+---Determines if card can be used as material in general. Does not check for specific properties
+---@param card Card|table
+---@param properties material_properties Checks for properties.can_use_eternal
+---@param summon_type summon_type
+---@return boolean?
+JoyousSpring.can_be_used_as_material = function(card, properties, summon_type)
+    local can_be_used
+    if card.config.center.joy_can_be_used_as_material then
+        can_be_used = card.config.center:joy_can_be_used_as_material(card, properties, summon_type)
+    end
+    return can_be_used or (can_be_used == nil and (not card.ability.eternal or properties.can_use_eternal))
+end
+
 ---Checks if **card** fulfills **properties**
----@param card Card
+---@param card Card|table
 ---@param properties material_properties
----@param summon_type string? Optional to check if the card is a wildcard for that type of summon
+---@param summon_type summon_type? Optional to check if the card is a wildcard for that type of summon
 ---@return boolean
 JoyousSpring.is_material = function(card, properties, summon_type)
-    if summon_type and card.ability.eternal then
+    local for_summon = not not summon_type
+
+    if for_summon and not JoyousSpring.can_be_used_as_material(card, properties, summon_type) then
         return false
     end
-    if not properties.allow_opponent and not properties.is_opponent then
-        if card.ability.set == "joy_Opponent" then
-            return false
-        end
-    end
-    if properties.is_opponent then
-        if card.ability.set ~= "joy_Opponent" then
-            return false
-        end
-    end
-    if card.ability.set == "joy_Opponent" then
-        if properties.is_blind_card then
-            if not card.config.center.joy_blind_key then
-                return false
-            end
-        end
-        if properties.exclude_blind_cards then
-            if card.config.center.joy_blind_key then
-                return false
-            end
-        end
-    end
-    if not next(properties) then
-        return true
-    end
-    if properties.has_edition then
-        if not card:get_edition() then
-            return false
-        end
-    end
-    if properties.exclude_edition then
-        if card:get_edition() then
-            return false
-        end
-    end
+
     if properties.func and JoyousSpring.material_functions[properties.func] then
         if not JoyousSpring.material_functions[properties.func](card, properties.func_vars) then
             return false
         end
     end
-    if summon_type and JoyousSpring.is_all_materials(card, summon_type) then
-        return true
-    end
-    if properties.key then
-        if card.config.center_key ~= properties.key then
+
+    local set = card.ability.set
+    local key = card.config.center_key
+
+    if set == "joy_Opponent" then
+        local can_be_opponent = properties.allow_opponent or properties.is_opponent
+        if not can_be_opponent then
             return false
         end
+        if properties.is_blind_card and not card.config.center.joy_blind_key then
+            return false
+        end
+        if properties.exclude_blind_cards and card.config.center.joy_blind_key then
+            return false
+        end
+    elseif properties.is_opponent then
+        return false
+    end
+
+    if not next(properties) then
+        return true
+    end
+
+    if properties.has_edition and not card:get_edition() then
+        return false
+    end
+    if properties.exclude_edition and card:get_edition() then
+        return false
+    end
+
+    if for_summon and JoyousSpring.is_all_materials(card, summon_type) then
+        return true
+    end
+
+    if properties.key and key ~= properties.key then
+        return false
     end
     if properties.exclude_keys then
-        for _, key in ipairs(properties.exclude_keys) do
-            if card.config.center_key == key then
+        for _, exclude_key in ipairs(properties.exclude_keys) do
+            if card.config.center_key == exclude_key then
                 return false
             end
         end
     end
-    if properties.is_token then
-        if card.config.center_key ~= "j_joy_token" then
-            return false
-        end
+
+    if properties.is_token and key ~= "j_joy_token" then
+        return false
     end
-    if properties.exclude_tokens then
-        if card.config.center_key == "j_joy_token" then
-            return false
-        end
+    if properties.exclude_tokens and key == "j_joy_token" then
+        return false
     end
+
     if card.facing == 'back' and summon_type ~= "FUSION" then
         return properties.facedown or false
     end
     if properties.facedown and card.facing ~= 'back' then
         return false
     end
-    if properties.rarity then
-        if not card:is_rarity(properties.rarity) then
-            return false
-        end
+
+    if properties.rarity and not card:is_rarity(properties.rarity) then
+        return false
     end
     if properties.exclude_rarities then
         for _, rarity in ipairs(properties.exclude_rarities) do
@@ -686,33 +686,32 @@ JoyousSpring.is_material = function(card, properties, summon_type)
             end
         end
     end
-    if properties.is_debuffed then
-        if not card.debuff then
-            return false
-        end
+
+    if properties.is_debuffed and not card.debuff then
+        return false
     end
-    if properties.exclude_debuffed then
-        if card.debuff then
-            return false
-        end
+    if properties.exclude_debuffed and card.debuff then
+        return false
     end
-    if properties.is_joker then
-        if JoyousSpring.is_monster_card(card) then
-            return false
-        end
+
+    if properties.is_joker and JoyousSpring.is_monster_card(card) then
+        return false
     end
-    if properties.is_monster then
-        if not JoyousSpring.is_monster_card(card) then
-            return false
-        end
+    if properties.is_monster and not JoyousSpring.is_monster_card(card) then
+        return false
     end
+
     if not JoyousSpring.is_monster_card(card) and not JoyousSpring.get_extra_values(card) then
-        return not (properties.monster_type or properties.monster_attribute or properties.monster_archetypes or properties.is_pendulum or properties.summon_type or properties.is_effect or properties.is_non_effect or properties.is_normal or properties.is_extra_deck or properties.is_main_deck or properties.is_summoned or properties.is_tuner or properties.is_trap or properties.cannot_flip)
+        local requires_monster_properties = properties.monster_type or properties.monster_attribute or
+            properties.monster_archetypes or properties.is_pendulum or properties.summon_type or properties.is_effect or
+            properties.is_non_effect or properties.is_normal or properties.is_extra_deck or properties.is_main_deck or
+            properties.is_summoned or properties.is_tuner or properties.is_trap or properties.cannot_flip or
+            properties.is_field_spell
+        return not requires_monster_properties
     end
-    if properties.monster_type then
-        if not JoyousSpring.is_monster_type(card, properties.monster_type) then
-            return false
-        end
+
+    if properties.monster_type and not JoyousSpring.is_monster_type(card, properties.monster_type) then
+        return false
     end
     if properties.exclude_monster_types then
         for _, monster_type in ipairs(properties.exclude_monster_types) do
@@ -721,10 +720,9 @@ JoyousSpring.is_material = function(card, properties, summon_type)
             end
         end
     end
-    if properties.monster_attribute then
-        if not JoyousSpring.is_attribute(card, properties.monster_attribute) then
-            return false
-        end
+
+    if properties.monster_attribute and not JoyousSpring.is_attribute(card, properties.monster_attribute) then
+        return false
     end
     if properties.exclude_monster_attributes then
         for _, monster_attribute in ipairs(properties.exclude_monster_attributes) do
@@ -733,6 +731,7 @@ JoyousSpring.is_material = function(card, properties, summon_type)
             end
         end
     end
+
     if properties.monster_archetypes then
         for _, monster_archetype in ipairs(properties.monster_archetypes) do
             if not JoyousSpring.is_monster_archetype(card, monster_archetype) then
@@ -747,122 +746,91 @@ JoyousSpring.is_material = function(card, properties, summon_type)
             end
         end
     end
-    if properties.is_pendulum then
-        if not JoyousSpring.is_pendulum_monster(card) then
-            return false
-        end
+
+    if properties.is_pendulum and not JoyousSpring.is_pendulum_monster(card) then
+        return false
     end
-    if properties.exclude_pendulum then
-        if JoyousSpring.is_pendulum_monster(card) then
-            return false
-        end
+    if properties.exclude_pendulum and JoyousSpring.is_pendulum_monster(card) then
+        return false
     end
-    if properties.is_extra_deck then
-        if not JoyousSpring.is_extra_deck_monster(card) then
-            return false
-        end
+
+    if properties.is_extra_deck and not JoyousSpring.is_extra_deck_monster(card) then
+        return false
     end
-    if properties.exclude_extra_deck then
-        if JoyousSpring.is_extra_deck_monster(card) then
-            return false
-        end
+    if properties.exclude_extra_deck and JoyousSpring.is_extra_deck_monster(card) then
+        return false
     end
-    if properties.is_main_deck then
-        if not JoyousSpring.is_main_deck_monster(card) then
-            return false
-        end
+
+    if properties.is_main_deck and not JoyousSpring.is_main_deck_monster(card) then
+        return false
     end
-    if properties.exclude_main_deck then
-        if JoyousSpring.is_main_deck_monster(card) then
-            return false
-        end
+    if properties.exclude_main_deck and JoyousSpring.is_main_deck_monster(card) then
+        return false
     end
-    if properties.summon_type then
-        if not JoyousSpring.is_summon_type(card, properties.summon_type) then
-            return false
-        end
+
+    if properties.summon_type and not JoyousSpring.is_summon_type(card, properties.summon_type) then
+        return false
     end
     if properties.exclude_summon_types then
-        for _, summon_type in ipairs(properties.exclude_summon_types) do
-            if JoyousSpring.is_summon_type(card, summon_type) then
+        for _, exclude_summon_type in ipairs(properties.exclude_summon_types) do
+            if JoyousSpring.is_summon_type(card, exclude_summon_type) then
                 return false
             end
         end
     end
-    if properties.is_effect then
-        if not JoyousSpring.is_effect_monster(card) then
-            return false
-        end
+
+    if properties.is_effect and not JoyousSpring.is_effect_monster(card) then
+        return false
     end
-    if properties.is_non_effect then
-        if not JoyousSpring.is_noneffect_monster(card) then
-            return false
-        end
+    if properties.is_non_effect and not JoyousSpring.is_noneffect_monster(card) then
+        return false
     end
-    if properties.is_normal then
-        if not JoyousSpring.is_normal_monster(card) then
-            return false
-        end
+    if properties.is_normal and not JoyousSpring.is_normal_monster(card) then
+        return false
     end
-    if properties.is_summoned then
-        if not JoyousSpring.is_summoned(card) then
-            return false
-        end
+
+    if properties.is_summoned and not JoyousSpring.is_summoned(card) then
+        return false
     end
-    if properties.exclude_summoned then
-        if JoyousSpring.is_summoned(card) then
-            return false
-        end
+    if properties.exclude_summoned and JoyousSpring.is_summoned(card) then
+        return false
     end
-    if properties.is_tuner then
-        if JoyousSpring.is_nontuner_monster(card) then
-            return false
-        end
+
+    if properties.is_tuner and not JoyousSpring.is_tuner_monster(card) then
+        return false
     end
-    if properties.exclude_tuners then
-        if JoyousSpring.is_tuner_monster(card) then
-            return false
-        end
+    if properties.exclude_tuners and JoyousSpring.is_tuner_monster(card) then
+        return false
     end
-    if properties.is_trap then
-        if not JoyousSpring.is_trap_monster(card) then
-            return false
-        end
+
+    if properties.is_trap and not JoyousSpring.is_trap_monster(card) then
+        return false
     end
-    if properties.exclude_traps then
-        if JoyousSpring.is_trap_monster(card) then
-            return false
-        end
+    if properties.exclude_traps and JoyousSpring.is_trap_monster(card) then
+        return false
     end
-    if properties.is_flip then
-        if not JoyousSpring.is_flip_monster(card) then
-            return false
-        end
+
+    if properties.is_flip and not JoyousSpring.is_flip_monster(card) then
+        return false
     end
-    if properties.exclude_flips then
-        if JoyousSpring.is_flip_monster(card) then
-            return false
-        end
+    if properties.exclude_flips and JoyousSpring.is_flip_monster(card) then
+        return false
     end
-    if properties.is_field_spell then
-        if not JoyousSpring.is_field_spell(card) then
-            return false
-        end
+
+    if properties.is_field_spell and not JoyousSpring.is_field_spell(card) then
+        return false
     end
-    if properties.exclude_field_spell then
-        if JoyousSpring.is_field_spell(card) then
-            return false
-        end
+    if properties.exclude_field_spell and JoyousSpring.is_field_spell(card) then
+        return false
     end
-    if properties.cannot_flip then
-        if not JoyousSpring.cannot_flip(card) and not JoyousSpring.is_summon_type(card, "LINK") and card.config.center_key ~= "j_joy_token" then
-            return false
-        end
+
+    if properties.cannot_flip and not JoyousSpring.cannot_flip(card) and
+        not JoyousSpring.is_summon_type(card, "LINK") and key ~= "j_joy_token" then
+        return false
     end
-    if properties.can_flip then
-        if JoyousSpring.cannot_flip(card) or JoyousSpring.is_summon_type(card, "LINK") or card.config.center_key == "j_joy_token" then
-            return false
-        end
+    if properties.can_flip and (JoyousSpring.cannot_flip(card) or
+            JoyousSpring.is_summon_type(card, "LINK") or card.config.center_key == "j_joy_token") then
+        return false
     end
     return true
 end
@@ -875,64 +843,59 @@ JoyousSpring.is_material_center = function(card_key, properties)
     local card_center = G.P_CENTERS[card_key]
     if not card_center then return false end
 
-    if properties.func then
-        if not properties.func(card_center, properties.func_vars) then
+    if properties.func and JoyousSpring.material_functions[properties.func] then
+        if not JoyousSpring.material_functions[properties.func](card, properties.func_vars) then
             return false
         end
     end
-    if not properties.allow_opponent and not properties.is_opponent then
-        if card_center.set == "joy_Opponent" then
+
+    local requires_card_property = properties.is_debuffed or properties.can_flip or properties.cannot_flip or
+        properties.is_summoned or properties.facedown or properties.has_edition
+    if requires_card_property then
+        return false
+    end
+
+    local set = card_center.set
+
+    if set == "joy_Opponent" then
+        local can_be_opponent = properties.allow_opponent or properties.is_opponent
+        if not can_be_opponent then
             return false
         end
-    end
-    if properties.is_opponent then
-        if card_center.set ~= "joy_Opponent" then
+        if properties.is_blind_card and not card_center.joy_blind_key then
             return false
         end
-    end
-    if card_center.set == "joy_Opponent" then
-        if properties.is_blind_card then
-            if not card_center.joy_blind_key then
-                return false
-            end
-        end
-        if properties.exclude_blind_cards then
-            if card_center.joy_blind_key then
-                return false
-            end
-        end
-    end
-    if properties.from_shop then
-        if card_center.joy_no_shop then
+        if properties.exclude_blind_cards and card_center.joy_blind_key then
             return false
         end
+    elseif properties.is_opponent then
+        return false
     end
-    if properties.key then
-        if card_key ~= properties.key then
-            return false
-        end
+
+    if properties.from_shop and card_center.joy_no_shop then
+        return false
+    end
+
+    if properties.key and card_key ~= properties.key then
+        return false
     end
     if properties.exclude_keys then
-        for _, key in ipairs(properties.exclude_keys) do
-            if card_key == key then
+        for _, exclude_key in ipairs(properties.exclude_keys) do
+            if card_key == exclude_key then
                 return false
             end
         end
     end
-    if properties.is_token then
-        if card_key ~= "j_joy_token" then
-            return false
-        end
+
+    if properties.is_token and card_key ~= "j_joy_token" then
+        return false
     end
-    if properties.exclude_tokens then
-        if card_key == "j_joy_token" then
-            return false
-        end
+    if properties.exclude_tokens and card_key == "j_joy_token" then
+        return false
     end
-    if properties.rarity then
-        if card_center.rarity ~= properties.rarity then
-            return false
-        end
+
+    if properties.rarity and card_center.rarity ~= properties.rarity then
+        return false
     end
     if properties.exclude_rarities then
         for _, rarity in ipairs(properties.exclude_rarities) do
@@ -941,221 +904,135 @@ JoyousSpring.is_material_center = function(card_key, properties)
             end
         end
     end
-    if properties.is_debuffed then
-        return false
-    end
+
     local monster_card_properties = card_center.config and card_center.config.extra and
         type(card_center.config.extra) == "table" and
         card_center.config.extra.joyous_spring
-    local extra_values = card_center.config and card_center.config.joy_extra_values or {}
+    local extra_values = SMODS.shallow_copy(card_center.config and card_center.config.joy_extra_values or {})
     local has_extra_values = not not next(extra_values)
 
-    if properties.is_joker then
-        if monster_card_properties or extra_values.is_monster then
-            return false
-        end
-    end
-    if properties.is_monster then
-        if not monster_card_properties and not extra_values.is_monster then
-            return false
-        end
-    end
-    if properties.monster_type or properties.monster_attribute or properties.monster_archetypes or properties.is_pendulum or properties.summon_type or properties.is_effect or properties.is_non_effect or properties.is_normal or properties.is_tuner or properties.is_trap or properties.is_flip then
-        if not has_extra_values and not monster_card_properties then
-            return false
-        end
-    end
-    if properties.exclude_monster_types or properties.exclude_monster_attributes or properties.exclude_monster_archetypes or properties.exclude_pendulum or properties.exclude_summon_types or properties.exclude_tuners or properties.exclude_traps or properties.exclude_flips then
-        if not has_extra_values and not monster_card_properties then
-            return true
-        end
-    end
-    if not has_extra_values and not monster_card_properties then
+    if properties.is_joker and (monster_card_properties or extra_values.is_monster) then
         return false
     end
-    if properties.monster_type then
-        if has_extra_values and extra_values.monster_type then
-            if extra_values.monster_type ~= properties.monster_type then
-                return false
-            end
-        else
-            if not monster_card_properties then
-                return false
-            end
-            if monster_card_properties.monster_type ~= properties.monster_type then
-                return false
-            end
-        end
+    if properties.is_monster and not monster_card_properties and not extra_values.is_monster then
+        return false
+    end
+
+    local requires_monster_properties = properties.monster_type or properties.monster_attribute or
+        properties.monster_archetypes or properties.is_pendulum or properties.summon_type or properties.is_effect or
+        properties.is_non_effect or properties.is_normal or properties.is_tuner or properties.is_trap or
+        properties.is_flip
+    if not has_extra_values and not monster_card_properties then
+        return not requires_monster_properties
+    end
+
+    local joyous_spring = SMODS.merge_defaults(extra_values, SMODS.shallow_copy(monster_card_properties or {})) or {}
+    if properties.monster_type and joyous_spring.monster_type ~= properties.monster_type then
+        return false
     end
     if properties.exclude_monster_types then
         for _, monster_type in ipairs(properties.exclude_monster_types) do
-            if has_extra_values and extra_values.monster_type then
-                if extra_values.monster_type == monster_type then
-                    return false
-                end
-            else
-                if monster_card_properties and monster_card_properties.monster_type == monster_type then
-                    return false
-                end
-            end
-        end
-    end
-    if properties.monster_attribute then
-        if has_extra_values and extra_values.monster_attribute then
-            if extra_values.attribute ~= properties.monster_attribute then
+            if joyous_spring.monster_type == monster_type then
                 return false
             end
-        else
-            if not monster_card_properties then
-                return false
-            end
-            if monster_card_properties.attribute ~= properties.monster_attribute then
-                return false
-            end
-        end
-    end
-    if properties.exclude_monster_attributes then
-        for _, monster_attribute in ipairs(properties.exclude_monster_attributes) do
-            if has_extra_values and extra_values.monster_attribute then
-                if extra_values.attribute == monster_attribute then
-                    return false
-                end
-            else
-                if monster_card_properties and monster_card_properties.attribute == monster_attribute then
-                    return false
-                end
-            end
-        end
-    end
-    if properties.monster_archetypes then
-        if not monster_card_properties then
-            return false
-        end
-        for _, monster_archetype in ipairs(properties.monster_archetypes) do
-            if not monster_card_properties.monster_archetypes[monster_archetype] then
-                return false
-            end
-        end
-    end
-    if properties.exclude_monster_archetypes then
-        for _, monster_archetype in ipairs(properties.exclude_monster_archetypes) do
-            if monster_card_properties and monster_card_properties.monster_archetypes[monster_archetype] then
-                return false
-            end
-        end
-    end
-    if properties.is_pendulum then
-        if not monster_card_properties then
-            return false
-        end
-        if not monster_card_properties.is_pendulum then
-            return false
-        end
-    end
-    if properties.exclude_pendulum then
-        if monster_card_properties and monster_card_properties.is_pendulum then
-            return false
-        end
-    end
-    if properties.is_extra_deck then
-        if (monster_card_properties or {}).is_main_deck or (monster_card_properties or {}).is_field_spell or extra_values.is_field_spell then
-            return false
-        end
-    end
-    if properties.exclude_main_deck then
-        if monster_card_properties and monster_card_properties.is_main_deck then
-            return false
-        end
-    end
-    if properties.exclude_extra_deck then
-        if not (monster_card_properties or {}).is_main_deck and not (monster_card_properties or {}).is_field_spell and not extra_values.is_field_spell then
-            return false
-        end
-    end
-    if properties.is_main_deck then
-        if not monster_card_properties then
-            return false
-        end
-        if not monster_card_properties.is_main_deck then
-            return false
         end
     end
 
-    if properties.is_field_spell then
-        if not (monster_card_properties or {}).is_field_spell and not extra_values.is_field_spell then
-            return false
-        end
+    if properties.monster_attribute and joyous_spring.attribute ~= properties.monster_attribute then
+        return false
     end
-    if properties.exclude_field_spell then
-        if (monster_card_properties or {}).is_field_spell or extra_values.is_field_spell then
-            return false
-        end
-    end
-    if properties.summon_type then
-        if not monster_card_properties then
-            return false
-        end
-        if monster_card_properties.summon_type ~= properties.summon_type then
-            return false
-        end
-    end
-    if properties.exclude_summon_types then
-        for _, summon_type in ipairs(properties.exclude_summon_types) do
-            if monster_card_properties and monster_card_properties.summon_type == summon_type then
+    if properties.exclude_monster_attributes then
+        for _, monster_attribute in ipairs(properties.exclude_monster_attributes) do
+            if joyous_spring.attribute == monster_attribute then
                 return false
             end
         end
     end
-    if properties.is_effect then
-        if not (monster_card_properties or {}).is_effect and not extra_values.is_effect then
-            return false
+
+    if properties.monster_archetypes then
+        if not joyous_spring.monster_archetypes then return false end
+        for _, monster_archetype in ipairs(properties.monster_archetypes) do
+            if not joyous_spring.monster_archetypes[monster_archetype] then
+                return false
+            end
         end
     end
-    if properties.is_non_effect then
-        if monster_card_properties and (monster_card_properties.is_effect or monster_card_properties.is_field_spell) or (extra_values.is_effect or extra_values.is_field_spell) then
-            return false
+    if properties.exclude_monster_archetypes and joyous_spring.monster_archetypes then
+        for _, monster_archetype in ipairs(properties.exclude_monster_archetypes) do
+            if joyous_spring.monster_archetypes[monster_archetype] then
+                return false
+            end
         end
     end
-    if properties.is_normal then
-        if monster_card_properties and (monster_card_properties.is_effect or not monster_card_properties.is_main_deck or monster_card_properties.is_field_spell) or (extra_values.is_effect or extra_values.is_field_spell) then
-            return false
+
+    if properties.is_pendulum and not joyous_spring.is_pendulum then
+        return false
+    end
+    if properties.exclude_pendulum and joyous_spring.is_pendulum then
+        return false
+    end
+
+    if properties.is_main_deck and not joyous_spring.is_main_deck then
+        return false
+    end
+    if properties.exclude_main_deck and joyous_spring.is_main_deck then
+        return false
+    end
+
+    if properties.is_extra_deck and (joyous_spring.is_main_deck or joyous_spring.is_field_spell) then
+        return false
+    end
+    if properties.exclude_extra_deck and not (joyous_spring.is_main_deck or joyous_spring.is_field_spell) then
+        return false
+    end
+
+    if properties.is_field_spell and not joyous_spring.is_field_spell then
+        return false
+    end
+    if properties.exclude_field_spell and joyous_spring.is_field_spell then
+        return false
+    end
+
+    if properties.summon_type and joyous_spring.summon_type ~= properties.summon_type then
+        return false
+    end
+    if properties.exclude_summon_types then
+        for _, summon_type in ipairs(properties.exclude_summon_types) do
+            if joyous_spring.summon_type == summon_type then
+                return false
+            end
         end
     end
-    if properties.is_tuner then
-        if not (monster_card_properties or {}).is_tuner and not extra_values.is_tuner then
-            return false
-        end
+
+    if properties.is_effect and not joyous_spring.is_effect then
+        return false
     end
-    if properties.exclude_tuners then
-        if monster_card_properties and monster_card_properties.is_tuner or extra_values.is_tuner then
-            return false
-        end
+    if properties.is_non_effect and (joyous_spring.is_effect or joyous_spring.is_field_spell) then
+        return false
     end
-    if properties.is_trap then
-        if not monster_card_properties then
-            return false
-        end
-        if not monster_card_properties.is_trap then
-            return false
-        end
+    if properties.is_normal and (joyous_spring.is_effect or not joyous_spring.is_main_deck or joyous_spring.is_field_spell) then
+        return false
     end
-    if properties.exclude_traps then
-        if monster_card_properties and monster_card_properties.is_trap then
-            return false
-        end
+
+    if properties.is_tuner and not joyous_spring.is_tuner then
+        return false
     end
-    if properties.is_flip then
-        if not monster_card_properties then
-            return false
-        end
-        if not monster_card_properties.is_flip then
-            return false
-        end
+    if properties.exclude_tuners and joyous_spring.is_tuner then
+        return false
     end
-    if properties.exclude_flips then
-        if monster_card_properties and monster_card_properties.is_flip then
-            return false
-        end
+
+    if properties.is_trap and not joyous_spring.is_trap then
+        return false
+    end
+    if properties.exclude_traps and joyous_spring.is_trap then
+        return false
+    end
+
+    if properties.is_flip and not joyous_spring.is_flip then
+        return false
+    end
+    if properties.exclude_flips and joyous_spring.is_flip then
+        return false
     end
     return true
 end
