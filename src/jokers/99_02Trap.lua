@@ -351,11 +351,9 @@ JoyousSpring.Joker({
     eternal_compat = false,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
-        end
         return { vars = { card.ability.extra.xmult } }
     end,
+    joy_glossary = { "tribute" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -477,6 +475,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * JoyousSpring.get_summoned_count() } }
     end,
+    joy_glossary = { "summon" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -531,6 +530,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult } }
     end,
+    joy_glossary = { "link" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

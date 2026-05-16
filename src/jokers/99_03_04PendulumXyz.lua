@@ -10,11 +10,9 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-        end
         return { vars = { card.ability.extra.attach, card.ability.extra.detach, card.ability.extra.revives } }
     end,
+    joy_glossary = { "xyz_material", "revive" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

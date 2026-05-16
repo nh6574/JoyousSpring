@@ -10,12 +10,9 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 8,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return { vars = { card.ability.extra.revives, card.ability.extra.creates } }
     end,
+    joy_glossary = { "revive", "enter", "material", "link" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -75,6 +72,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.count_materials_owned({ { exclude_debuffed = true } }) } }
     end,
+    joy_glossary = { "token" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -151,11 +149,9 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 6,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return { vars = { card.ability.extra.adds, card.ability.extra.creates } }
     end,
+    joy_glossary = { "extradeck", "material", "token" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -215,6 +211,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.creates, card.ability.extra.destroys_and_creates, card.ability.extra.money } }
     end,
+    joy_glossary = { "tuner", "enter", "fieldspell" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
