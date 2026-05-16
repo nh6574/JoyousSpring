@@ -120,10 +120,11 @@ SMODS.current_mod.custom_ui = function(modNodes)
     local othermods1 = {
         make_mod_column("jokerdisplay", G.C.RED),
         make_mod_column("repertorium", HEX("1E7A0A")),
-        make_mod_column("vanillaremade", G.C.BLUE)
+        make_mod_column("playlog", HEX("178BAC")),
     }
 
     local othermods2 = {
+        make_mod_column("vanillaremade", G.C.BLUE),
         make_mod_column("hotpotato", HEX("ECB474")),
         make_mod_column("wormhole", darken(HEX("73fdff"), 0.3)),
     }
@@ -190,6 +191,10 @@ end
 
 function G.FUNCS.joy_repertorium(e)
     love.system.openURL("https://github.com/nh6574/Repertorium")
+end
+
+function G.FUNCS.joy_playlog(e)
+    love.system.openURL("https://github.com/nh6574/PlayLog")
 end
 
 function G.FUNCS.joy_vanillaremade(e)

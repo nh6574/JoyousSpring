@@ -42,6 +42,7 @@ return {
 			k_joy_othermods = "Other mods I've worked on:",
 			k_joy_jokerdisplay = "JokerDisplay",
 			k_joy_repertorium = "N's Repertorium",
+			k_joy_playlog = "PlayLog",
 			k_joy_vanillaremade = "VanillaRemade",
 			k_joy_hotpotato = "Hot Potato",
 			k_joy_wormhole = "Wormhole",
