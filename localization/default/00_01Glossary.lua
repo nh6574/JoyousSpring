@@ -118,7 +118,7 @@ return {
                 name = "[{C:joy_spell}Field Spell{} Joker]",
                 text = {
                     "Placed in the {C:joy_spell}Field Spell{} area",
-                    "Can't be {C:attention}revived{}"
+                    "Can't be {C:attention}revived{} and don't count as {C:attention}Jokers{} owned for abilities {C:inactive}(unless specified){}"
                 },
             },
             token = {
