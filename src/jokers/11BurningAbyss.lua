@@ -396,9 +396,6 @@ JoyousSpring.Joker({
     eternal_compat = false,
     cost = 4,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_special" }
-        end
         return { vars = { card.ability.extra.mult, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
@@ -540,9 +537,6 @@ JoyousSpring.Joker({
     eternal_compat = false,
     cost = 3,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_main_deck_joker" }
-        end
         return { vars = { card.ability.extra.creates } }
     end,
     joy_desc_cards = {

@@ -4,7 +4,6 @@ return {
             k_joy_main_config = "Main",
             k_joy_art_config = "Art",
             k_joy_enable_alts = "Enable Alt Arts",
-            k_joy_disable_tooltips = "Disable glossary tooltips",
             k_joy_disable_booster_tag = "Disable Booster Tag from appearing naturally",
             k_joy_disable_main_menu = "Disable Main Menu modifications",
             k_joy_only_ygo_cards = "Only Monster Cards appear (Recommended)",

@@ -1122,9 +1122,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
-        end
         return { vars = { card.ability.extra.tributes, card.ability.extra.creates, card.ability.extra.xmult, 1 + card.ability.extra.xmult * JoyousSpring.get_summoned_count("FUSION") } }
     end,
     joy_desc_cards = {

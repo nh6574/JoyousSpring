@@ -4,7 +4,6 @@ return {
             k_joy_main_config = "常规",
             k_joy_art_config = "异画",
             k_joy_enable_alts = "开启异画功能",
-            k_joy_disable_tooltips = "禁用术语表提示",
             k_joy_disable_booster_tag = "禁止补充包标签自然出现",
             k_joy_disable_main_menu = "禁用主菜单标题及背景的修改",
             k_joy_only_ygo_cards = "仅出现怪兽牌",

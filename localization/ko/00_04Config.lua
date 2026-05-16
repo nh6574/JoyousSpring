@@ -4,7 +4,6 @@ return {
 			k_joy_main_config = "메인",
 			k_joy_art_config = "일러스트",
 			k_joy_enable_alts = "대체 일러스트 활성화",
-			k_joy_disable_tooltips = "용어 툴팁 비활성화",
 			k_joy_disable_booster_tag = "부스터팩 태그 비활성화",
 			k_joy_disable_main_menu = "메인 메뉴 변경 비활성화",
 			k_joy_only_ygo_cards = "몬스터 카드만 등장",

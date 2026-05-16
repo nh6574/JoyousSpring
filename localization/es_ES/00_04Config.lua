@@ -1,7 +1,6 @@
 return {
     misc = {
         dictionary = {
-            k_joy_disable_tooltips = "Deshabilitar tooltip de glosario",
             k_joy_disable_booster_tag = "Deshabilitar que la Etiqueta de paquete aparezca naturalmente",
             k_joy_disable_main_menu = "Deshabilitar modificaciones al menú principal",
             k_joy_only_ygo_cards = "Solo aparecen cartas de Monstruo",

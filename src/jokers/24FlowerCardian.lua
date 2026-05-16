@@ -1086,9 +1086,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_koikoihand" }
-        end
         return { vars = { card.ability.extra.banish } }
     end,
     joy_summon_loc_vars = function(self, card)
@@ -1158,9 +1155,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_koikoihand" }
-        end
         return { vars = { card.ability.extra.draws } }
     end,
     joy_summon_loc_vars = function(self, card)
@@ -1223,9 +1217,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_koikoihand" }
-        end
         return { vars = { card.ability.extra.xmult, card.ability.extra.scored_xmult, card.ability.extra.turns } }
     end,
     joy_summon_loc_vars = function(self, card)
@@ -1298,9 +1289,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_koikoihand" }
-        end
         return { vars = { card.ability.extra.mult, card.ability.extra.current_mult, card.ability.extra.revives } }
     end,
     joy_summon_loc_vars = function(self, card)

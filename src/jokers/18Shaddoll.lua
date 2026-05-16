@@ -530,10 +530,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return { vars = { card.ability.extra.banishes } }
     end,
     joy_desc_cards = {
@@ -1264,9 +1260,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 12,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return {
             vars = { tostring(card.ability.extra.xchips), 1 + card.ability.extra.xchips *
             JoyousSpring.count_materials_in_graveyard({ { monster_archetypes = { "Shaddoll" } } }), card.ability

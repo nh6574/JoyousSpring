@@ -597,11 +597,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 1,
     joy_no_shop = true,
-    loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
-        end
-    end,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1014,9 +1009,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 6,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_extra_deck_joker" }
-        end
         return { vars = { card.ability.extra.turns, card.ability.extra.xmult } }
     end,
     joy_glossary = { "extradeck_joker", "enter" },
@@ -1769,9 +1761,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.count_materials_in_graveyard({ { monster_attribute = "WIND" } }), card.ability.extra.attach } }
     end,
     joy_glossary = { "graveyard", "attach", "xyz_material", "xyz" },
