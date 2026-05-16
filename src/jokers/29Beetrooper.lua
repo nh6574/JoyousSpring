@@ -33,6 +33,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Beetrooper" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "enter" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -87,6 +88,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Beetrooper" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "graveyard", "tribute" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -156,6 +158,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Beetrooper" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "maindeck", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -196,6 +199,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Beetrooper" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "revive", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -246,6 +250,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Beetrooper" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "graveyard", "extradeck", "send", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -290,6 +295,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Beetrooper" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "graveyard", "banish", "maindeck", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -351,6 +357,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Beetrooper" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "send", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -402,6 +409,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Beetrooper" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "effect", "token" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -476,6 +484,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Beetrooper" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "maindeck", "banish", "graveyard" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -528,6 +537,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Beetrooper" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "revive" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

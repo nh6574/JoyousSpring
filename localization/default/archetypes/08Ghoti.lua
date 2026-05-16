@@ -76,7 +76,7 @@ return {
                 text = {
                     {
                         "{C:attention}Banishes{} at the end of round",
-                        "until {C:attention}Boss Blind{} is selected and revives {C:attention}#1#{}",
+                        "until {C:attention}Boss Blind{} is selected and {C:attention}revives{} {C:attention}#1#{}",
                         "{C:joy_synchro}Tuner{} {C:attention}Joker{} as {C:dark_edition}Negative{}",
                     },
                 },
@@ -147,7 +147,7 @@ return {
                     },
                     {
                         "{C:attention}Revives{} as many different {C:joy_normal}Fish{}",
-                        "{C:attention}Jokers{} as possible when summoned",
+                        "{C:attention}Jokers{} as possible when {C:attention}entering play{}",
                     },
                     {
                         "{C:attention}Banishes{} at the end of round",

@@ -52,6 +52,7 @@ local count_suits_in_hand = function(hand)
 end
 
 local get_memory_seal = function(card)
+    card = card or {}
     if card.seal == "joy_purr_memory" and not SMODS.has_no_suit(card) then
         return suits_to_type[card.base.suit]
     end
@@ -97,6 +98,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "excavate", "transform", "xyz" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -148,6 +150,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "excavate", "transform", "xyz" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -172,7 +175,7 @@ JoyousSpring.Joker({
 
             if context.joy_excavated and not card.ability.extra.activated and context.joy_other_context.setting_blind then
                 if context.joy_excavated.seal == "joy_purr_memory" and not SMODS.has_no_suit(context.joy_excavated) and memory_suits[context.joy_excavated.base.suit] then
-                    local pcard = context.joy_excavated
+                    local pcard = context.joy_excavated or {}
                     card.ability.extra.activated = true
                     return {
                         message = localize("k_joy_hit"),
@@ -246,6 +249,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "maindeck", "transform" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -319,6 +323,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "excavate", "transform" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -391,6 +396,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "transform" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -468,6 +474,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish", "transform" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -534,6 +541,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "transform" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -615,6 +623,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "transform" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -682,11 +691,13 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
+        --TODO: Add hand description tooltip
         return { vars = { card.ability.extra.attaches, card.ability.extra.requires } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "attach", "transform" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

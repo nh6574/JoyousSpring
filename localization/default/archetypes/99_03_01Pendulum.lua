@@ -101,7 +101,7 @@ return {
                 },
                 text = {
                     {
-                        "{C:attention}Revives #2#{} {C:joy_pendulum}Pendulum{} when obtained",
+                        "{C:attention}Revives #2#{} {C:joy_pendulum}Pendulum{} when {C:attention}entering play{}",
                     },
                     {
                         "Cannot be {C:attention}revived{}",

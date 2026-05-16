@@ -16,15 +16,12 @@ JoyousSpring.Joker({
     eternal_compat = false,
     cost = 3,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-        end
         return { vars = { card.ability.extra.flips, card.ability.extra.bonus_mult, card.ability.extra.revives } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Labrynth" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "revive" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -121,14 +118,12 @@ JoyousSpring.Joker({
     eternal_compat = false,
     cost = 3,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
-        end
         return { vars = { card.ability.extra.flips, card.ability.extra.bonus_chips, card.ability.extra.money } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Labrynth" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -246,14 +241,12 @@ JoyousSpring.Joker({
     eternal_compat = false,
     cost = 3,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
-        end
         return { vars = { card.ability.extra.flips, card.ability.extra.bonus_dollars, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Labrynth" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -643,6 +636,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Labrynth" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "graveyard" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -801,6 +795,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Labrynth" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "trap" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

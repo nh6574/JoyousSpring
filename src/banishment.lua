@@ -35,6 +35,7 @@ JoyousSpring.banish = function(card, banish_until, func, immediate)
                 banish_until
         })
         card.area:remove_card(card)
+        card:remove_from_deck(true)
         time_to_banish:emplace(card)
         JoyousSpring.count_as_banished(card)
 
@@ -91,6 +92,7 @@ JoyousSpring.return_from_banish = function(card)
     local from = card.area
     local area
     from:remove_card(card)
+    card:add_to_deck(true)
     if card.ability.set == 'Joker' then
         if JoyousSpring.is_field_spell(card) then
             JoyousSpring.field_spell_area:emplace(card)

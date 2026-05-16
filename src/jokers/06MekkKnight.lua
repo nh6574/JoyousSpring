@@ -19,11 +19,6 @@ JoyousSpring.Joker({
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
     joy_no_shop = true,
-    loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
-        end
-    end,
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -54,6 +49,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "column" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -123,6 +119,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "column" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -208,6 +205,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "column" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -280,6 +278,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "column" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -336,6 +335,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "column" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -425,6 +425,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "column" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -527,15 +528,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 6,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_main_deck_joker" }
-        end
         return { vars = { card.ability.extra.cards_to_create } }
     end,
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish", "maindeck" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -579,6 +577,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "column" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -672,6 +671,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "column", "maindeck" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -727,6 +727,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -807,6 +808,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_mekkleg_scars", properties = { { monster_archetypes = { "MekkKnight" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "graveyard" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

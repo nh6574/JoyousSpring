@@ -5,6 +5,7 @@
 ---@field joy_alt_pos? {x:number, y:number}[] Atlas position for alternative art
 ---@field joy_treated_as? string|string[] Localization string(s) for when a card is treated as another archetype
 ---@field joy_desc_cards? {[number]:string?, properties:material_properties[]?, name:string?}[] Definition of tabs for the related cards popup
+---@field joy_glossary? joy_glossary[] Glossary entries to display for this card
 ---@field joy_no_shop? true True if it can't be found in the shop or boosters naturally
 ---@field use? fun(self: JoyousSpring.Joker|table, card: Card|table, area: CardArea|table, copier?: table) Defines behaviour when this Joker is used. (Added by JoyousSpring)
 ---@field can_use? fun(self: JoyousSpring.Joker|table, card: Card|table): boolean? Return `true` if the Joker is allowed to be used. (Added by JoyousSpring)
@@ -30,6 +31,7 @@
 ---@field joy_prevent_banish? fun(self: JoyousSpring.Joker|table, card:table|Card, other_card:Card|table, banish_until:string):boolean? Determines if *other_card* can be banished
 ---@field joy_prevent_drag? fun(self: JoyousSpring.Joker|table, card:table|Card, other_card:Card|table, area:CardArea|table):boolean? Determines if *other_card* can be dragged
 ---@field joy_prevent_summon? fun(self: JoyousSpring.Joker|table, card:table|Card, other_card:Card|table, card_list:Card[]|table?):boolean? Determines if *other_card* can be summoned
+---@field joy_can_be_used_as_material? fun(self: JoyousSpring.Joker|table, card:table|Card, properties:material_properties, summon_type:summon_type):boolean? Determines if the joker can be used as material, if the return is true it will bypass eternal, if the return is nil it will not, if the return is false it will be blocked regardless.
 ---@field joy_can_calculate_in_side? fun(self: JoyousSpring.Joker|table, card:table|Card, calc_func:string?):boolean? Determines if it can calculate and call other functions in the side deck
 ---@field joy_can_transfer_ability? fun(self:JoyousSpring.Joker|table, other_card:Card|table, card:Card|table?):boolean? Determines if *self* transfers its ability to *other_card*. When transforming, `other_card.joy_transforming == self.key`
 ---@field joy_transfer_ability_calculate? fun(self:JoyousSpring.Joker|table, other_card:Card|table, context:CalcContext, config:table):table? Similar to `calculate` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect
@@ -55,7 +57,7 @@
 ---@field joy_transfer_prevent_revive? fun(self: JoyousSpring.Joker|table, ability_card:table|Card, config:table, key:string):boolean? Determines if card with *key* should be able to be revived but for transferred abilities
 ---@field joy_transfer_prevent_banish? fun(self: JoyousSpring.Joker|table, ability_card:table|Card, config:table, other_card:Card|table, banish_until:string):boolean? Determines if *other_card* can be banished but for transferred abilities
 ---@field joy_transfer_prevent_drag? fun(self: JoyousSpring.Joker|table, ability_card:table|Card, config:table, other_card:Card|table, area:CardArea|table):boolean? Determines if *other_card* can be dragged but for transferred abilities
----@field joy_prevent_summon? fun(self: JoyousSpring.Joker|table, ability_card:table|Card, config:table, other_card:Card|table, card_list:Card[]|table?):boolean? Determines if *other_card* can be summoned
+---@field joy_transfer_prevent_summon? fun(self: JoyousSpring.Joker|table, ability_card:table|Card, config:table, other_card:Card|table, card_list:Card[]|table?):boolean? Determines if *other_card* can be summoned
 ---@overload fun(self: JoyousSpring.Joker): JoyousSpring.Joker
 JoyousSpring.Joker = setmetatable({}, {
     __call = function(self)
@@ -165,6 +167,7 @@ JoyousSpring.Joker = setmetatable({}, {
 ---@field allow_opponent boolean?
 ---@field is_blind_card boolean?
 ---@field exclude_blind_cards boolean?
+---@field can_use_eternal boolean?
 
 ---@class material_restrictions
 ---@field different_names boolean?
@@ -218,3 +221,48 @@ JoyousSpring.Joker = setmetatable({}, {
 ---@field numerator_mult? number
 ---@field denominator_const? integer
 ---@field denominator_mult? number
+
+---@alias joy_glossary
+---| 'monster'
+---| 'normal'
+---| 'effect'
+---| 'maindeck'
+---| 'pendulum'
+---| 'fieldspell'
+---| 'token'
+---| 'graveyard'
+---| 'revive'
+---| 'send'
+---| 'extradeck'
+---| 'extradeck_joker'
+---| 'special'
+---| 'summon'
+---| 'material'
+---| 'transfer'
+---| 'ritual'
+---| 'fusion'
+---| 'synchro'
+---| 'xyz'
+---| 'link'
+---| 'tuner'
+---| 'xyz_material'
+---| 'detach'
+---| 'attach'
+---| 'counter'
+---| 'facedown'
+---| 'flip'
+---| 'trap'
+---| 'banish'
+---| 'illusion_joker'
+---| 'activated'
+---| 'tribute'
+---| 'transform'
+---| 'excavate'
+---| 'column'
+---| 'opponent'
+---| 'blinds'
+---| 'blind_card'
+---| 'sidedeck'
+---| 'enter'
+---| 'modifier'
+---| 'no_shop'

@@ -15,7 +15,7 @@ return {
                 name = "{C:joy_effect}PSY-Framegear Alpha",
                 text = {
                     {
-                        "Creates {C:attention}#1#{} {C:joy_normal}\"PSY-Frame Driver\"{} when obtained",
+                        "Creates {C:attention}#1#{} {C:joy_normal}\"PSY-Frame Driver\"{} when {C:attention}entering play{}",
                         "{C:inactive}(Must have room){}",
                     },
                     {
@@ -29,7 +29,7 @@ return {
                 name = "{C:joy_effect}PSY-Framegear Beta",
                 text = {
                     {
-                        "Creates {C:attention}#1#{} {C:joy_normal}\"PSY-Frame Driver\"{} when obtained",
+                        "Creates {C:attention}#1#{} {C:joy_normal}\"PSY-Frame Driver\"{} when {C:attention}entering play{}",
                         "{C:inactive}(Must have room){}",
                     },
                     {
@@ -44,7 +44,7 @@ return {
                 name = "{C:joy_effect}PSY-Framegear Gamma",
                 text = {
                     {
-                        "Creates {C:attention}#1#{} {C:joy_normal}\"PSY-Frame Driver\"{} when obtained",
+                        "Creates {C:attention}#1#{} {C:joy_normal}\"PSY-Frame Driver\"{} when {C:attention}entering play{}",
                         "{C:inactive}(Must have room){}",
                     },
                     {
@@ -58,7 +58,7 @@ return {
                 name = "{C:joy_effect}PSY-Framegear Delta",
                 text = {
                     {
-                        "Creates {C:attention}#1#{} {C:joy_normal}\"PSY-Frame Driver\"{} when obtained",
+                        "Creates {C:attention}#1#{} {C:joy_normal}\"PSY-Frame Driver\"{} when {C:attention}entering play{}",
                         "{C:inactive}(Must have room){}",
                     },
                     {
@@ -73,7 +73,7 @@ return {
                 name = "{C:joy_effect}PSY-Framegear Epsilon",
                 text = {
                     {
-                        "Creates {C:attention}#1#{} {C:joy_normal}\"PSY-Frame Driver\"{} when obtained",
+                        "Creates {C:attention}#1#{} {C:joy_normal}\"PSY-Frame Driver\"{} when {C:attention}entering play{}",
                         "{C:inactive}(Must have room){}",
                     },
                     {
@@ -152,11 +152,11 @@ return {
                 name = "{C:joy_spell}PSY-Frame Circuit",
                 text = {
                     {
-                        "{C:money}+$#1#{} each time a {C:joy_synchro}Synchro{} is summoned",
+                        "{C:money}+$#1#{} each time a {C:joy_synchro}Synchro{} is {C:attention}summoned",
                     },
                     {
                         "{C:joy_normal}Psychic{} {C:joy_synchro}Synchros{}",
-                        "become {C:dark_edition}Negative{} when summoned",
+                        "become {C:dark_edition}Negative{} when {C:attention}summoned",
                     },
                 }
             },

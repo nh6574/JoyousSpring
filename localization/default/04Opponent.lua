@@ -38,8 +38,8 @@ return {
             opp_joy_theia = {
                 name = "{C:joy_effect}Theia, the Primal Being",
                 text = {
-                    "{C:attention}Tributes{} {C:red}Rare {C:attention}Jokers{} obtained",
-                    "if you own another {C:red}Rare {C:attention}Joker{}",
+                    "{C:attention}Tributes{} {C:red}Rare {C:attention}Jokers{} that",
+                    "{C:attention}enter play{} if you own another {C:red}Rare {C:attention}Joker{}",
                 }
             },
             opp_joy_parasiteparacide = {
@@ -190,7 +190,7 @@ return {
                 name = "{C:joy_spell}Ultimate Slayer",
                 text = {
                     "Only {V:1}#1#{} {C:attention}Jokers{}",
-                    "can be summoned"
+                    "can be {C:attention}summoned"
                 }
             },
             --#endregion
@@ -198,7 +198,7 @@ return {
             opp_joy_chaindisappearance = {
                 name = "{C:joy_trap}Chain Disappearance",
                 text = {
-                    "Each time a {C:attention}Joker{} is summoned",
+                    "Each time a {C:attention}Joker{} is {C:attention}summoned",
                     "{C:attention}banishes{} all others that share its {C:attention}Type",
                     "or {C:attention}Attribute{} until end of round"
                 }

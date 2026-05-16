@@ -7,7 +7,7 @@ return {
                     {
                         "{C:chips}+#1#{} Chips for each {C:joy_normal}\"Danger!\"{}",
                         "destruction ability triggered this run,",
-                        "gains {C:chips}+#2#{} Chips when {C:attention}Blind{} is selected,",
+                        "gains {C:chips}+#2#{} Chips when {C:attention}Blind{} is selected",
                         "{C:inactive}(Currently {C:chips}+#3# {C:inactive}Chips)",
                     },
                     {

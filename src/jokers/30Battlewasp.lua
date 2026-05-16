@@ -33,6 +33,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "enter" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -88,6 +89,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "maindeck", "material", "synchro" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -129,6 +131,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "extradeck", "enter" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -185,6 +188,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "material", "synchro" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -222,6 +226,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "revive", "enter", "material", "synchro" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -257,6 +262,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "material", "synchro" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -306,6 +312,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -370,6 +377,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -438,6 +446,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -519,6 +528,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "material", "synchro" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -599,6 +609,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "material", "banish" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -667,11 +678,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 15,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.xmult,  1 + card.ability.extra.xmult * ((G.GAME.joy_cards_banished_by_type or {})["Insect"] or 0) } }
+        return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * ((G.GAME.joy_cards_banished_by_type or {})["Insect"] or 0) } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Battlewasp" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "material", "extradeck", "synchro" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

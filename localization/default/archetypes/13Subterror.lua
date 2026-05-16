@@ -73,7 +73,7 @@ return {
                         "{C:joy_effect}FLIP{}: Each face-down card gives {X:mult,C:white}X#1#{} Mult this round",
                     },
                     {
-                        "{C:attention}Flips{} face-down when obtained",
+                        "{C:attention}Flips{} face-down when {C:attention}entering play{}",
                         "{C:attention}Flips{} when {C:attention}Boss Blind{} is defeated",
                         "{s:0.9,C:inactive}(Even if face-down)",
                     },
@@ -86,7 +86,7 @@ return {
                         "{C:joy_effect}FLIP{}: Gives a {C:joy_normal}\"Subterror\"{} or face-down {C:attention}Joker{} a random edition",
                     },
                     {
-                        "{C:attention}Flips{} face-down when obtained",
+                        "{C:attention}Flips{} face-down when {C:attention}entering play{}",
                         "{C:attention}Flips{} when {C:attention}Boss Blind{} is defeated",
                         "{s:0.9,C:inactive}(Even if face-down)",
                     },
@@ -100,7 +100,7 @@ return {
                         "until {C:attention}Blind{} is selected",
                     },
                     {
-                        "{C:attention}Flips{} face-down when obtained",
+                        "{C:attention}Flips{} face-down when {C:attention}entering play{}",
                         "{C:attention}Flips{} when {C:attention}Boss Blind{} is defeated",
                         "{s:0.9,C:inactive}(Even if face-down)",
                     },
@@ -117,7 +117,7 @@ return {
                         "{C:joy_effect}FLIP{}: Sends {C:attention}#3#{} {C:joy_normal}\"Subterror\"{} to the {C:attention}GY{}",
                     },
                     {
-                        "{C:attention}Flips{} face-down when obtained",
+                        "{C:attention}Flips{} face-down when {C:attention}entering play{}",
                         "{C:attention}Flips{} when {C:attention}Boss Blind{} is defeated",
                         "{s:0.9,C:inactive}(Even if face-down)",
                     },
@@ -134,7 +134,7 @@ return {
                         "{C:joy_effect}FLIP{}: {C:attention}Flips{} all cards in hand face-down (and shuffles them)",
                     },
                     {
-                        "{C:attention}Flips{} face-down when obtained",
+                        "{C:attention}Flips{} face-down when {C:attention}entering play{}",
                         "{C:attention}Flips{} when {C:attention}Boss Blind{} is selected",
                         "{s:0.9,C:inactive}(Even if face-down)",
                     },
@@ -147,7 +147,7 @@ return {
                         "{C:joy_effect}FLIP{}: Draws {C:attention}#1#{} cards face-down",
                     },
                     {
-                        "{C:attention}Flips{} face-down when obtained",
+                        "{C:attention}Flips{} face-down when {C:attention}entering play{}",
                         "{C:attention}Flips{} when {C:attention}Boss Blind{} is selected",
                         "{s:0.9,C:inactive}(Even if face-down)",
                     },
@@ -165,7 +165,7 @@ return {
                         "{C:joy_effect}FLIP{}: {C:attention}Flips{} all other {C:attention}Jokers{} face-up",
                     },
                     {
-                        "{C:attention}Flips{} face-down when obtained",
+                        "{C:attention}Flips{} face-down when {C:attention}entering play{}",
                         "{C:attention}Flips{} when {C:attention}Boss Blind{} is defeated",
                         "{s:0.9,C:inactive}(Even if face-down)",
                     },
@@ -182,7 +182,7 @@ return {
                         "{C:joy_effect}FLIP{}: {C:attention}Flips{} all other {C:attention}Jokers{} face-down",
                     },
                     {
-                        "{C:attention}Flips{} face-down when obtained",
+                        "{C:attention}Flips{} face-down when {C:attention}entering play{}",
                         "{C:attention}Flips{} when {C:attention}Boss Blind{} is defeated",
                         "{s:0.9,C:inactive}(Even if face-down)",
                     },

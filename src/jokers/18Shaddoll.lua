@@ -31,16 +31,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 3,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_main_deck_joker" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return { vars = { card.ability.extra.h_size, card.ability.extra.revives, card.ability.extra.mills, card.ability.extra.turns } }
     end,
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "revive", "send", "material", "fusion" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -112,16 +108,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 3,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_main_deck_joker" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return { vars = { card.ability.extra.hands, card.ability.extra.revives, card.ability.extra.mills, card.ability.extra.turns } }
     end,
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "revive", "send", "material", "fusion" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -195,16 +187,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 3,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_main_deck_joker" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return { vars = { card.ability.extra.revives_flip, card.ability.extra.revives, card.ability.extra.mills, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "revive", "send", "material", "fusion" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -262,16 +250,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 3,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_main_deck_joker" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return { vars = { card.ability.extra.creates_tarot, card.ability.extra.revives, card.ability.extra.mills, card.ability.extra.creates_spectral } }
     end,
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "revive", "send", "material", "fusion" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -340,16 +324,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 6,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_main_deck_joker" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return { vars = { card.ability.extra.money, card.ability.extra.revives, card.ability.extra.mills } }
     end,
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "revive", "send", "material", "fusion" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -395,16 +375,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 3,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_main_deck_joker" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return { vars = { card.ability.extra.discards, card.ability.extra.revives, card.ability.extra.mills, card.ability.extra.turns } }
     end,
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "revive", "send", "material", "fusion" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -478,17 +454,13 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_main_deck_joker" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return { vars = { card.ability.extra.xmult, card.ability.extra.revives, card.ability.extra.mills, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", name = "k_joy_creates" },
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "revive", "send", "material", "fusion" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -567,6 +539,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish", "material", "fusion" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -624,14 +597,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return { vars = { card.ability.extra.flips } }
     end,
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "material", "fusion" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -695,14 +666,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return { vars = { card.ability.extra.adds, card.ability.extra.mult } }
     end,
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "extradeck", "material", "fusion" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -760,15 +729,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_main_deck_joker" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return { vars = { card.ability.extra.creates, card.ability.extra.revives } }
     end,
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "maindeck", "material", "fusion" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -825,15 +791,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_main_deck_joker" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return { vars = { card.ability.extra.mills, card.ability.extra.mills_transfer } }
     end,
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "send", "material", "fusion" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -888,9 +851,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return {
             vars = { card.ability.extra.chips, card.ability.extra.chips *
             JoyousSpring.count_materials_in_graveyard({ { monster_archetypes = { "Shaddoll" } } }), card.ability.extra
@@ -900,6 +860,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "graveyard", "extradeck", "material", "fusion" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -991,14 +952,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 8,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return { vars = { card.ability.extra.adds } }
     end,
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "extradeck", "material", "fusion" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1110,9 +1069,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 12,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         local empty_spaces = G.jokers and math.max(0, G.jokers.config.card_limit - #G.jokers.cards + G.GAME.joker_buffer) or
             0
         local mult_count = empty_spaces +
@@ -1122,6 +1078,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "extradeck", "material", "fusion" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1228,14 +1185,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 8,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return { vars = { card.ability.extra.mills, card.ability.extra.adds } }
     end,
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "send", "extradeck", "material", "fusion" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1321,6 +1276,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "graveyard", "extradeck", "material", "fusion" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1417,14 +1373,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 15,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return { vars = { card.ability.extra.adds } }
     end,
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "extradeck", "material", "fusion" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1507,14 +1461,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 8,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return { vars = { card.ability.extra.adds } }
     end,
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "flip", "extradeck", "material", "fusion" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1571,14 +1523,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 6,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return { vars = { card.ability.extra.adds } }
     end,
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "extradeck", "material", "fusion" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1640,14 +1590,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 7,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-        end
         return { vars = { card.ability.extra.add_counter, card.ability.extra.counters, card.ability.extra.chips, card.ability.extra.chips * card.ability.extra.counters, card.ability.extra.remove, card.ability.extra.revives } }
     end,
     joy_desc_cards = {
         { "j_joy_shaddoll_prison", properties = { { monster_archetypes = { "Shaddoll" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "send", "revive", "fusion" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

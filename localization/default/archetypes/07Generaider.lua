@@ -24,7 +24,7 @@ return {
                 text = {
                     {
                         "Sends {C:attention}#1#{} {C:red}Rare{} {C:joy_normal}Main Deck \"Generaider\"{}",
-                        "to the {C:attention}GY{} when obtained",
+                        "to the {C:attention}GY{} when {C:attention}entering play{}",
                     },
                     {
                         "Destroys itself when {C:attention}Boss Blind{} is defeated to",
@@ -121,7 +121,7 @@ return {
                 name = "{C:joy_xyz}Jormungandr, Generaider Boss of Eternity",
                 text = {
                     {
-                        "{C:mult}+#1#{} Mult for each {C:joy_xyz}Xyz material{}",
+                        "{C:mult}+#1#{} Mult for each {C:joy_xyz}Xyz {C:attention}material{}",
                         "{C:inactive}(Currently{} {C:mult}+#2#{} {C:inactive}Mult){}",
                     },
                     {

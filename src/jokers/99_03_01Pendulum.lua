@@ -150,11 +150,9 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 15,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-        end
         return { vars = { card.ability.extra.revives, card.ability.extra.mills } }
     end,
+    joy_glossary = { "revive", "send" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -204,6 +202,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.hands } }
     end,
+    joy_glossary = { "extradeck" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -247,6 +246,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.draws, card.ability.extra.h_size } }
     end,
+    joy_glossary = { "extradeck" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -358,11 +358,9 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 6,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-        end
         return { vars = { card.ability.extra.revive_consume, card.ability.extra.revives } }
     end,
+    joy_glossary = { "revive", "enter" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -473,11 +471,9 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 6,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-        end
         return { vars = { card.ability.extra.revives } }
     end,
+    joy_glossary = { "revive" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -608,6 +604,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.chips, card.ability.extra.mult, card.ability.extra.current_chips, card.ability.extra.current_mult } }
     end,
+    joy_glossary = { "monster" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -703,6 +700,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.money, card.ability.extra.current_money, math.max(1, card.ability.extra.xmult - JoyousSpring.get_joker_column(card)), JoyousSpring.get_joker_column(card) } }
     end,
+    joy_glossary = { "column" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

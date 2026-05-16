@@ -49,7 +49,7 @@ return {
                         "to each shop",
                     },
                     {
-                        "When obtained, creates {C:attention}1{} {C:joy_effect}\"Sky Striker Ace - Raye\"",
+                        "When {C:attention}entering play{}, creates {C:attention}1{} {C:joy_effect}\"Sky Striker Ace - Raye\"",
                         "if not owned, or adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
                         "to the {C:joy_spell}Extra Deck{} otherwise",
                         "{C:inactive}(Must have room)"
@@ -119,7 +119,7 @@ return {
                 text = {
                     {
                         "Creates {C:attention}#1#{} {C:dark_edition}Negative{} {C:planet}Planet{} cards",
-                        "when obtained"
+                        "when {C:attention}entering play{}"
                     },
                     {
                         "You can destroy this card to create {C:attention}1{}",
@@ -132,7 +132,7 @@ return {
                 text = {
                     {
                         "Creates {C:attention}#1#{} {C:dark_edition}Negative{} {C:planet}Planet{} cards",
-                        "when obtained"
+                        "when {C:attention}entering play{}"
                     },
                     {
                         "You can destroy this card to create {C:attention}1{}",
@@ -145,7 +145,7 @@ return {
                 text = {
                     {
                         "Creates {C:attention}#1#{} {C:dark_edition}Negative{} {C:planet}Planet{} cards",
-                        "when obtained"
+                        "when {C:attention}entering play{}"
                     },
                     {
                         "You can destroy this card to create {C:attention}1{}",
@@ -182,7 +182,7 @@ return {
                     {
                         "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
                         "{C:inactive}(not summoned this round, if possible){}",
-                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                        "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
                         "If {C:attention}3 or more{} {C:planet}Planet{} cards",
@@ -210,14 +210,14 @@ return {
                     {
                         "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
                         "{C:inactive}(not summoned this round, if possible){}",
-                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                        "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
                         "If {C:attention}3 or more{} {C:planet}Planet{} cards",
                         "were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
                         "creates all {C:attention}tributed{}",
                         "{C:planet}Planet{} cards as {C:dark_edition}Negative{}",
-                        "when summoned"
+                        "when {C:attention}entering play{}"
                     }
                 },
                 joy_summon_conditions = {
@@ -238,7 +238,7 @@ return {
                     {
                         "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
                         "{C:inactive}(not summoned this round, if possible){}",
-                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                        "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
                         "If {C:attention}3 or more{} {C:planet}Planet{} cards",
@@ -260,19 +260,19 @@ return {
                 text = {
                     {
                         "Makes all owned {C:planet}Planet{} cards",
-                        "{C:dark_edition}Negative{} when summoned"
+                        "{C:dark_edition}Negative{} when {C:attention}entering play{}"
                     },
                     {
                         "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
                         "{C:inactive}(not summoned this round, if possible){}",
-                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                        "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
                         "If {C:attention}3 or more{} {C:planet}Planet{} cards",
                         "were {C:attention}tributed{} this round {C:inactive}(#1#/3){}:",
                         "{C:attention}levels up{} the hand of each different",
                         "{C:planet}Planet{} {C:attention}tributed{} this round",
-                        "when summoned"
+                        "when {C:attention}entering play{}"
                     }
                 },
                 joy_summon_conditions = {
@@ -292,13 +292,13 @@ return {
                     {
                         "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
                         "{C:inactive}(not summoned this round, if possible){}",
-                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                        "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
                         "If {C:attention}3 or more{} {C:planet}Planet{} cards",
                         "were {C:attention}tributed{} this round {C:inactive}(#2#/3){}:",
                         "{C:attention}revives 1{} {C:joy_normal}\"Sky Striker Ace\"{}",
-                        "when summoned"
+                        "when {C:attention}entering play{}"
                     }
                 },
                 joy_summon_conditions = {
@@ -313,14 +313,14 @@ return {
                 text = {
                     {
                         "{C:attention}Banishes{} all {C:attention}consumables{}",
-                        "except {C:planet}Planet{} cards when summoned,",
+                        "except {C:planet}Planet{} cards when {C:attention}entering play{},",
                         "and if it did, creates {C:attention}1{} {C:dark_edition}Negative{}",
                         "{C:joy_token}\"Sky Striker Ace Token\"{}"
                     },
                     {
                         "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
                         "{C:inactive}(not summoned this round, if possible){}",
-                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                        "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
                         "If {C:attention}3 or more{} {C:planet}Planet{} cards",
@@ -348,7 +348,7 @@ return {
                     {
                         "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
                         "{C:inactive}(not summoned this round, if possible){}",
-                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                        "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
                         "You can {C:attention}tribute 1{} {C:tarot}Tarot{}",
@@ -371,7 +371,7 @@ return {
                     {
                         "This card's sell value increases by",
                         "{C:money}+$#1#{} for each {C:tarot}High Priestess{}",
-                        "used this run when summoned",
+                        "used this run when {C:attention}entering play{}",
                         "{C:inactive}(Currently {C:money}+$#2#{}{C:inactive})"
                     },
                     {
@@ -404,7 +404,7 @@ return {
                     {
                         "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
                         "{C:inactive}(not summoned this round, if possible){}",
-                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                        "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
                         "You can {C:attention}tribute 1{} {C:spectral}Spectral{}",
@@ -431,13 +431,13 @@ return {
                     {
                         "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
                         "{C:inactive}(not summoned this round, if possible){}",
-                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                        "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
                         "If {C:attention}3 or more{} {C:planet}Planet{} cards",
                         "were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
                         "creates {C:attention}1{} {C:joy_effect}\"Sky Striker Ace - Roze\"{}",
-                        "when summoned"
+                        "when {C:attention}entering play{}"
                     }
                 },
                 joy_summon_conditions = {
@@ -458,7 +458,7 @@ return {
                     {
                         "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
                         "{C:inactive}(not summoned this round, if possible){}",
-                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                        "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
                         "Sends {C:attention}#1#{} {C:joy_normal}\"Sky Striker Ace\"{}",
@@ -490,7 +490,7 @@ return {
                     {
                         "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
                         "{C:inactive}(not summoned this round, if possible){}",
-                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                        "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
                         "You can {C:attention}tribute{} all {C:planet}Planet{} cards {C:inactive}(min. 3){}",

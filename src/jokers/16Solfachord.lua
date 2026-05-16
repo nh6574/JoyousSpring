@@ -288,6 +288,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Solfachord" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "extradeck" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -560,14 +561,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 8,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-        end
         return { vars = { card.ability.extra.change, card.ability.extra.repetitions, card.ability.extra.revives, card.ability.extra.scored, card.ability.extra.currently_scored } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Solfachord" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "revive" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -669,14 +668,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 9,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
-        end
         return { vars = { card.ability.extra.change, card.ability.extra.xchips, 1 + card.ability.extra.xchips * solfa_count(), card.ability.extra.banishes } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Solfachord" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -778,6 +775,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Solfachord" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "graveyard" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -867,6 +865,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Solfachord" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "pendulum" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -928,6 +927,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Solfachord" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "pendulum" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -998,14 +998,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 12,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-        end
         return { vars = { card.ability.extra.revives, card.ability.extra.creates, card.ability.extra.solfa_owned } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Solfachord" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "revive", "pendulum" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

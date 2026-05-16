@@ -447,6 +447,10 @@ G.FUNCS.joy_can_side = function(e)
         e.config.colour = G.C.RED
         e.config.button = 'joy_to_side'
     end
+    if JoyousSpring.prevent_buy(card) then
+        e.config.colour = G.C.UI.BACKGROUND_INACTIVE
+        e.config.button = nil
+    end
 end
 
 G.FUNCS.joy_to_side = function(e)

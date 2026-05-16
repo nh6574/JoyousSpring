@@ -268,7 +268,8 @@ JoyousSpring.create_graveyard_tab = function()
         gy_count = gy_count + 1
     end
     JoyousSpring.graveyard_area = {}
-    local num_graveyard_areas = math.min(4, math.floor(gy_count / 25) + 1)
+    local per_row = 10
+    local num_graveyard_areas = math.floor(gy_count / per_row) + 1
     for i = 1, num_graveyard_areas do
         JoyousSpring.graveyard_area[i] = CardArea(
             G.ROOM.T.x + 0.2 * G.ROOM.T.w / 2,
@@ -276,7 +277,7 @@ JoyousSpring.create_graveyard_tab = function()
             6.5 * G.CARD_W,
             0.6 * G.CARD_H,
             {
-                card_limit = (num_graveyard_areas == i and gy_count - 25 * (i - 1)) or 25,
+                card_limit = per_row,
                 type = 'title',
                 highlight_limit = 0,
                 card_w = G.CARD_W * 0.7,
@@ -298,14 +299,14 @@ JoyousSpring.create_graveyard_tab = function()
         if count > 0 then
             local old_used_jokers = G.GAME.used_jokers[key]
             local added_card = SMODS.create_card({
-                area = JoyousSpring.graveyard_area[math.min(4, math.floor(i / 25) + 1)],
+                area = JoyousSpring.graveyard_area[math.floor(i / per_row) + 1],
                 key = key,
                 no_edition = true,
                 skip_materialize = true,
             })
             -- I create the cards just before making the overlay_menu so I need to set user_jokers to what it was before because it updates
             G.GAME.used_jokers[key] = old_used_jokers
-            JoyousSpring.graveyard_area[math.min(4, math.floor(i / 25) + 1)]:emplace(added_card)
+            JoyousSpring.graveyard_area[math.floor(i / per_row) + 1]:emplace(added_card)
             -- copied from Cartomancer
             if not added_card.children.stack_display and (count > 1 or
                     (JoyousSpring.is_extra_deck_monster(added_card)) and count ~= summonable) then
@@ -326,14 +327,14 @@ JoyousSpring.create_graveyard_tab = function()
                         },
                         nodes = {
                             {
-                                n = G.UIT.R, -- node type
+                                n = G.UIT.R,
                                 config = {
                                     align = 'cm',
                                     colour = G.C.CLEAR
                                 },
                                 nodes = {
                                     {
-                                        n = G.UIT.T, -- node type
+                                        n = G.UIT.T,
                                         config = {
                                             text = 'X',
                                             scale = 0.45,
@@ -341,7 +342,7 @@ JoyousSpring.create_graveyard_tab = function()
                                         },
                                     },
                                     {
-                                        n = G.UIT.T, -- node type
+                                        n = G.UIT.T,
                                         config = {
                                             text = count,
                                             scale = 0.45,
@@ -351,14 +352,14 @@ JoyousSpring.create_graveyard_tab = function()
                                 }
                             },
                             JoyousSpring.is_extra_deck_monster(added_card) and {
-                                n = G.UIT.R, -- node type
+                                n = G.UIT.R,
                                 config = {
                                     align = 'cm',
                                     colour = G.C.CLEAR
                                 },
                                 nodes = {
                                     {
-                                        n = G.UIT.T, -- node type
+                                        n = G.UIT.T,
                                         config = {
                                             text = 'X',
                                             scale = 0.45,
@@ -366,7 +367,7 @@ JoyousSpring.create_graveyard_tab = function()
                                         },
                                     },
                                     {
-                                        n = G.UIT.T, -- node type
+                                        n = G.UIT.T,
                                         config = {
                                             text = summonable,
                                             scale = 0.45,
@@ -391,115 +392,118 @@ JoyousSpring.create_graveyard_tab = function()
         end
     end
 
-    local gy_nodes = {
-        {
-            n = G.UIT.C,
-            config = { align = 'cm' },
+    local gy_rows = {}
+    for _, area in ipairs(JoyousSpring.graveyard_area) do
+        gy_rows[#gy_rows + 1] = {
+            n = G.UIT.R,
+            config = {
+                align = "cm",
+                padding = 0.07,
+                no_fill = true,
+                scale = 1
+            },
             nodes = {
                 {
-                    n = G.UIT.R,
+                    n = G.UIT.O,
                     config = {
-                        align = "cm",
-                        padding = 0.2,
-                        minw = 7
-                    },
-                    nodes = {
-                        {
-                            n = G.UIT.R,
-                            config = {
-                                r = 0.1,
-                                minw = 7,
-                                minh = 5,
-                                align = "cm",
-                                padding = 1,
-                                colour = G.C.BLACK
-                            },
-                            nodes = {
-                                {
-                                    n = G.UIT.C,
-                                    config = {
-                                        align = "cm",
-                                        padding = 0.07,
-                                        no_fill = true,
-                                        scale = 1
-                                    },
-                                    nodes = {
-                                        num_graveyard_areas > 0 and {
-                                            n = G.UIT.R,
-                                            config = {
-                                                align = "cm",
-                                                padding = 0.07,
-                                                no_fill = true,
-                                                scale = 1
-                                            },
-                                            nodes = {
-                                                {
-                                                    n = G.UIT.O,
-                                                    config = {
-                                                        object = JoyousSpring.graveyard_area[1]
-                                                    }
+                        object = area
+                    }
+                },
+            }
+        }
+    end
+
+    local scrollbox = SMODS.UIScrollBox({
+        content = {
+            definition = {
+                n = G.UIT.ROOT,
+                config = { r = 0.1, minw = 8, align = "tm", padding = 0.2, colour = G.C.BLACK },
+                nodes = {
+                    {
+                        n = G.UIT.C,
+                        config = { align = 'cm' },
+                        nodes = {
+                            {
+                                n = G.UIT.R,
+                                config = {
+                                    align = "cm",
+                                    padding = 0.2,
+                                    minw = 7
+                                },
+                                nodes = {
+                                    {
+                                        n = G.UIT.R,
+                                        config = {
+                                            r = 0.1,
+                                            minw = 7,
+                                            minh = 5,
+                                            align = "cm",
+                                            padding = 1,
+                                            colour = G.C.BLACK
+                                        },
+                                        nodes = {
+                                            {
+                                                n = G.UIT.C,
+                                                config = {
+                                                    align = "cm",
+                                                    padding = 0.07,
+                                                    scale = 1
                                                 },
+                                                nodes = gy_rows
                                             }
-                                        } or nil,
-                                        num_graveyard_areas > 1 and {
-                                            n = G.UIT.R,
-                                            config = {
-                                                align = "cm",
-                                                padding = 0.07,
-                                                no_fill = true,
-                                                scale = 1
-                                            },
-                                            nodes = {
-                                                {
-                                                    n = G.UIT.O,
-                                                    config = {
-                                                        object = JoyousSpring.graveyard_area[2]
-                                                    }
-                                                },
-                                            }
-                                        } or nil,
-                                        num_graveyard_areas > 2 and {
-                                            n = G.UIT.R,
-                                            config = {
-                                                align = "cm",
-                                                padding = 0.07,
-                                                no_fill = true,
-                                                scale = 1
-                                            },
-                                            nodes = {
-                                                {
-                                                    n = G.UIT.O,
-                                                    config = {
-                                                        object = JoyousSpring.graveyard_area[3]
-                                                    }
-                                                },
-                                            }
-                                        } or nil,
-                                        num_graveyard_areas > 3 and {
-                                            n = G.UIT.R,
-                                            config = {
-                                                align = "cm",
-                                                padding = 0.07,
-                                                no_fill = true,
-                                                scale = 1
-                                            },
-                                            nodes = {
-                                                {
-                                                    n = G.UIT.O,
-                                                    config = {
-                                                        object = JoyousSpring.graveyard_area[4]
-                                                    }
-                                                },
-                                            }
-                                        } or nil,
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                 }
-            }
-        }
+            },
+            config = { align = "cm" },
+        },
+        overflow = {
+            node_config = {
+                maxh = 8,
+                r = 0.1,
+            },
+        },
+    })
+
+    local scroll_nodes = {
+        n = G.UIT.R,
+        config = { padding = 0.1, align = "cm", minh = 5, minw = 7, },
+        nodes = {
+            {
+                n = G.UIT.C,
+                config = { align = "cm" },
+                nodes = {
+                    {
+                        n = G.UIT.O,
+                        config = {
+                            align = "cm",
+                            object = scrollbox,
+                        },
+                    },
+                },
+            },
+            {
+                n = G.UIT.C,
+                config = { align = "cm" },
+                nodes = {
+                    SMODS.GUI.scrollbar({
+                        h = 7,
+                        w = 0.2,
+                        max = 1,
+                        min = 0,
+                        colour = darken(G.C.JOY.MOD, 0.2),
+                        bg_colour = { 0, 0, 0, 0.15 },
+                        scroll_collision_obj = scrollbox,
+                        knob_h = 0.6,
+                        scroll_mult = 1.2,
+                    }),
+                },
+            },
+        },
     }
 
     return {
@@ -509,21 +513,49 @@ JoyousSpring.create_graveyard_tab = function()
             padding = 0.05,
             colour = G.C.CLEAR,
         },
-        nodes = gy_nodes
+        nodes = {
+            {
+                n = G.UIT.R,
+                config = { padding = 0, maxh = 0.4, align = "cm", colour = G.C.CLEAR },
+                nodes = {
+                    {
+                        n = G.UIT.C,
+                        config = { padding = 0, align = "cm" },
+                        nodes = {
+                            {
+                                n = G.UIT.T,
+                                config = { text = "X", colour = G.C.JOY.SPELL, scale = 0.35 }
+                            },
+                            {
+                                n = G.UIT.T,
+                                config = { text = " = " .. localize("k_joy_properly_summoned"), colour = G.C.UI.TEXT_LIGHT, scale = 0.35 }
+                            },
+                        }
+                    },
+                }
+            },
+            scroll_nodes
+        }
     }
 end
+
+local colour = G.C.JOY.XYZ
+local bg_colour = { G.C.JOY.MOD[1], G.C.JOY.MOD[2], G.C.JOY.MOD[3], 0.6 }
+local back_colour = darken(G.C.JOY.MOD, 0.3)
 
 JoyousSpring.create_overlay_graveyard = function(open_banishment)
     G.FUNCS.overlay_menu({
         definition = create_UIBox_generic_options({
-            back_colour = G.C.JOY.TRAP,
+            back_colour = back_colour,
+            colour = colour,
+            bg_colour = bg_colour,
             contents = {
                 {
                     n = G.UIT.R,
                     nodes = {
                         create_tabs({
                             snap_to_nav = true,
-                            colour = G.C.JOY.TRAP,
+                            colour = darken(G.C.JOY.MOD, 0.2),
                             tabs = {
                                 {
                                     label = localize('k_joy_graveyard'),

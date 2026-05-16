@@ -43,7 +43,7 @@ return {
                 name = "{C:joy_effect}Mimighoul Cerberus",
                 text = {
                     {
-                        "{C:spell}Field Spells{} give {X:mult,C:white}X#1#{} Mult"
+                        "{C:joy_spell}Field Spells{} give {X:mult,C:white}X#1#{} Mult"
                     },
                     {
                         "{C:attention}Flips{} at end of round {C:inactive}(even if face-down)",
@@ -255,7 +255,7 @@ return {
                 name = "{C:joy_effect}Mimighoul Cerberus",
                 text = {
                     {
-                        "{C:spell}Field Spells{} give {X:mult,C:white}X#1#{} Mult"
+                        "{C:joy_spell}Field Spells{} give {X:mult,C:white}X#1#{} Mult"
                     },
                     {
                         "Destroys itself when {C:attention}Blind{} is selected",

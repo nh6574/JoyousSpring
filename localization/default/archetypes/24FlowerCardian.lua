@@ -280,7 +280,7 @@ return {
                     },
                     {
                         "If last hand of round was a {C:attention}Koi-koi{} hand,",
-                        "banish {C:attention}#1# Joker{} at end of round",
+                        "{C:attention}banish {C:attention}#1# Joker{} at end of round",
                         "until {C:attention}Blind{} is selected",
                         "for each {C:joy_link}Animal {C:attention}Hanafuda{} card scored that hand"
                     }

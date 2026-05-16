@@ -1,7 +1,5 @@
 --- MOD CONFIG
 
-loc_colour()
-
 SMODS.current_mod.description_loc_vars = function()
     return { background_colour = G.C.CLEAR, text_colour = G.C.WHITE, scale = 1.2 }
 end
@@ -122,10 +120,11 @@ SMODS.current_mod.custom_ui = function(modNodes)
     local othermods1 = {
         make_mod_column("jokerdisplay", G.C.RED),
         make_mod_column("repertorium", HEX("1E7A0A")),
-        make_mod_column("vanillaremade", G.C.BLUE)
+        make_mod_column("playlog", HEX("178BAC")),
     }
 
     local othermods2 = {
+        make_mod_column("vanillaremade", G.C.BLUE),
         make_mod_column("hotpotato", HEX("ECB474")),
         make_mod_column("wormhole", darken(HEX("73fdff"), 0.3)),
     }
@@ -192,6 +191,10 @@ end
 
 function G.FUNCS.joy_repertorium(e)
     love.system.openURL("https://github.com/nh6574/Repertorium")
+end
+
+function G.FUNCS.joy_playlog(e)
+    love.system.openURL("https://github.com/nh6574/PlayLog")
 end
 
 function G.FUNCS.joy_vanillaremade(e)
@@ -274,84 +277,11 @@ SMODS.current_mod.extra_tabs = function()
                 }
             end
         },
-        -- TODO: Remake these
-        -- {
-        --     label = localize("k_joy_glossary"),
-        --     tab_definition_function = function()
-        --         local modNodes = {}
-
-        --         for _, key in ipairs({ "joy_glossary_monster", "joy_glossary_gy", "joy_glossary_revive", "joy_glossary_banish", "joy_glossary_transform", "joy_glossary_facedown", "joy_glossary_maindeck", "joy_glossary_pendulum", "joy_glossary_fieldspell" }) do
-        --             modNodes[#modNodes + 1] = {}
-        --             local loc_vars = { scale = 1.2 }
-        --             localize { type = 'descriptions', key = key, set = 'Other', nodes = modNodes[#modNodes], vars = loc_vars.vars, scale = loc_vars.scale, text_colour = loc_vars.text_colour, shadow = loc_vars.shadow }
-        --             modNodes[#modNodes] = desc_from_rows(modNodes[#modNodes])
-        --             modNodes[#modNodes].config.colour = loc_vars.background_colour or modNodes[#modNodes].config.colour
-        --         end
-
-        --         return {
-        --             n = G.UIT.ROOT,
-        --             config = {
-        --                 emboss = 0.05,
-        --                 minh = 6,
-        --                 r = 0.1,
-        --                 minw = 6,
-        --                 align = "tm",
-        --                 padding = 0.2,
-        --                 colour = G.C.BLACK
-        --             },
-        --             nodes = modNodes
-        --         }
-        --     end
-        -- },
-        -- {
-        --     label = localize("k_joy_summon_glosary"),
-        --     tab_definition_function = function()
-        --         local modNodes = {}
-
-        --         for _, key in ipairs({ "joy_glossary_extradeck", "joy_glossary_material", "joy_glossary_detach", "joy_glossary_ritual" }) do
-        --             modNodes[#modNodes + 1] = {}
-        --             local loc_vars = { scale = 1.2 }
-        --             localize { type = 'descriptions', key = key, set = 'Other', nodes = modNodes[#modNodes], vars = loc_vars.vars, scale = loc_vars.scale, text_colour = loc_vars.text_colour, shadow = loc_vars.shadow }
-        --             modNodes[#modNodes] = desc_from_rows(modNodes[#modNodes])
-        --             modNodes[#modNodes].config.colour = loc_vars.background_colour or modNodes[#modNodes].config.colour
-        --         end
-
-        --         G.joy_glossary_area = CardArea(
-        --             G.ROOM.T.x + 0.2 * G.ROOM.T.w / 2, G.ROOM.T.h,
-        --             4.25 * G.CARD_W,
-        --             0.95 * G.CARD_H,
-        --             { card_limit = 5, type = 'title', highlight_limit = 0, collection = true }
-        --         )
-
-        --         for i, key in ipairs({ "j_joy_garura", "j_joy_psy_omega", "j_joy_spright_gigantic", "j_joy_apollousa", "j_joy_sauravis" }) do
-        --             local card = Card(G.joy_desc_area.T.x + G.joy_desc_area.T.w / 2, G.joy_desc_area.T.y,
-        --                 G.CARD_W, G.CARD_H, G.P_CARDS.empty,
-        --                 G.P_CENTERS[key])
-
-        --             G.joy_glossary_area:emplace(card)
-        --         end
-        --         modNodes[#modNodes + 1] = {
-        --             n = G.UIT.R,
-        --             config = { align = "cm", padding = 0.07, no_fill = true },
-        --             nodes = {
-        --                 { n = G.UIT.O, config = { object = G.joy_glossary_area } }
-        --             }
-        --         }
-        --         return {
-        --             n = G.UIT.ROOT,
-        --             config = {
-        --                 emboss = 0.05,
-        --                 minh = 6,
-        --                 r = 0.1,
-        --                 minw = 6,
-        --                 align = "tm",
-        --                 padding = 0.2,
-        --                 colour = G.C.BLACK
-        --             },
-        --             nodes = modNodes
-        --         }
-        --     end
-        -- },
+        {
+            label = localize("k_joy_glossary"),
+            tab_definition_function = glossary_tab,
+            tab_definition_function_args = { joy_glossary = true }
+        }
     }
 end
 
@@ -638,7 +568,6 @@ local art_tab = function()
                 n = G.UIT.R,
                 config = { padding = 0.1, align = "cm" },
                 nodes = {
-
                     {
                         n = G.UIT.C,
                         config = { align = "cm" },

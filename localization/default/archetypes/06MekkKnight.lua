@@ -94,7 +94,7 @@ return {
                 text = {
                     {
                         "Scored card in adjacent {C:attention}columns{}",
-                        "gives {X:mult,C:white}X#1#{} Mult if there's a",
+                        "give {X:mult,C:white}X#1#{} Mult if there's a",
                         "{C:joy_normal}\"Mekk-Knight\"{} in that {C:attention}column{}",
                         "{C:inactive}(Currently in columns{} {C:attention}#2#{} {C:inactive}and{} {C:attention}#3#{}{C:inactive}){}",
                     },
@@ -129,7 +129,7 @@ return {
                         "Destroys itself after a number",
                         "of {C:attention}Blinds{} is defeated",
                         "equal to the {C:attention}materials{} used",
-                        "for its summon {C:inactive}(#1#/#2#){}",
+                        "for its {C:attention}summon {C:inactive}(#1#/#2#){}",
                     },
                 },
                 joy_summon_conditions = {

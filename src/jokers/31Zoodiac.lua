@@ -35,6 +35,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Zoodiac" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "xyz", "enter", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -74,6 +75,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Zoodiac" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "xyz", "enter", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -118,6 +120,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Zoodiac" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "xyz", "enter", "material", "banish" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -155,6 +158,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Zoodiac" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "xyz", "enter", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -203,6 +207,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Zoodiac" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "xyz", "enter", "material", 'revive' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -240,6 +245,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Zoodiac" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "xyz", "enter", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -284,6 +290,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Zoodiac" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "maindeck", "enter", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -367,6 +374,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Zoodiac" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "revive", "enter", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -445,6 +453,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Zoodiac" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "attach", "graveyard", "enter", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -524,6 +533,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Zoodiac" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "extradeck", "enter", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -592,6 +602,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Zoodiac" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "opponent", "enter", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -700,6 +711,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Zoodiac" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "enter", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

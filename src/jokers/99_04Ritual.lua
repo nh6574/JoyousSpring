@@ -92,6 +92,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.count_all_materials({ { is_normal = true } }) } }
     end,
+    joy_glossary = { "normal", "graveyard" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

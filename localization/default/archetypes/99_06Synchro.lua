@@ -5,7 +5,7 @@ return {
                 name = "{C:joy_synchro}Firewall Saber Dragon",
                 text = {
                     {
-                        "{C:attention}Revives #1#{} {C:joy_spell}Extra Deck{} {C:joy_normal}Cyberse{} as {C:dark_edition}Negative{} when summoned",
+                        "{C:attention}Revives #1#{} {C:joy_spell}Extra Deck{} {C:joy_normal}Cyberse{} as {C:dark_edition}Negative{} when {C:attention}entering play{}",
                     },
                     {
                         "Creates {C:attention}#2#{} {C:dark_edition}Negative{} {C:spectral}Spectral{} when used as {C:attention}material{} for a {C:joy_link}Link",
@@ -51,7 +51,6 @@ return {
                         "Adds {C:attention}#1#{} {C:joy_normal}Fish{} {C:joy_synchro}Synchro{} to the {C:joy_spell}Extra Deck{}",
                         "when used as {C:attention}material{} and creates up to {C:attention}#2#{}",
                         "{C:joy_token}\"Lamp Tokens\"{} that can be treated as any {C:attention}material{} for a {C:joy_synchro}Synchro",
-                        "{C:inactive}(Must have room)",
                     },
                     {
                         "Treated as any {C:attention}material{} for a {C:joy_synchro}Synchro",
@@ -78,7 +77,7 @@ return {
                 name = "{C:joy_synchro}Ancient Fairy Dragon",
                 text = {
                     {
-                        "Creates {C:attention}#1#{} {C:joy_synchro}Tuner{} when summoned",
+                        "Creates {C:attention}#1#{} {C:joy_synchro}Tuner{} when {C:attention}entering play{}",
                         "{C:inactive}(Must have room)",
                     },
                     {

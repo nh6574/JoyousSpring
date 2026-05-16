@@ -16,14 +16,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 6,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-        end
         return { vars = { card.ability.extra.revives } }
     end,
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "revive", "facedown" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -104,6 +102,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "facedown" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -157,6 +156,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "facedown" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -228,15 +228,12 @@ JoyousSpring.Joker({
     eternal_compat = false,
     cost = 6,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-        end
         return { vars = { card.ability.extra.revives, card.ability.extra.mills } }
     end,
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "revive" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -321,6 +318,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "facedown" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -447,6 +445,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "facedown", "enter" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -538,6 +537,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "facedown", "enter" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -580,14 +580,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 7,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
-        end
         return { vars = { card.ability.extra.banishes } }
     end,
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish", "facedown", "enter" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -641,6 +639,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "graveyard", "send", "facedown", "enter" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -709,6 +708,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "facedown", "enter" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -771,6 +771,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "facedown", "enter" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -832,6 +833,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "facedown", "enter" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -908,6 +910,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "facedown", "enter" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -969,9 +972,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         local mult_count = 0
         local materials = JoyousSpring.get_materials(card)
         for _, material in ipairs(materials) do
@@ -986,6 +986,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "facedown", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1107,14 +1108,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 6,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_monster" }
-        end
         return { vars = { card.ability.extra.money } }
     end,
     joy_desc_cards = {
         { "j_joy_sub_city", properties = { { monster_archetypes = { "Subterror" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "facedown", "monster" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

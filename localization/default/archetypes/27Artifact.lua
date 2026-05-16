@@ -214,7 +214,7 @@ return {
                         "creates {C:attention}#1#{} {C:joy_normal}Main Deck \"Artifact\"{}"
                     },
                     {
-                        "{C:joy_normal}\"Artifact\"{} can activate their abilities even if there",
+                        "{C:joy_normal}\"Artifact\"{} can activate their abilities",
                         "ignoring their conditions"
                     }
                 },
@@ -230,7 +230,7 @@ return {
                 text = {
                     {
                         "Cards can't be debuffed",
-                        "by {C:joy_mod}Card{} {C:attention}Blinds{}",
+                        "by {C:joy_mod}JoyousSpring{} {C:attention}Blinds{}",
                         "or {C:attention}Blind{} {C:joy_trap}Opponent{} cards"
                     }
                 }
@@ -240,7 +240,7 @@ return {
                 text = {
                     {
                         "Cards can't be destroyed",
-                        "by {C:joy_mod}Card{} {C:attention}Blinds{}",
+                        "by {C:joy_mod}JoyousSpring{} {C:attention}Blinds{}",
                         "or {C:attention}Blind{} {C:joy_trap}Opponent{} cards"
                     }
                 }
@@ -282,7 +282,7 @@ return {
                     {
                         "Creates {C:attention}#1#{} {C:joy_normal}\"Artifact\"{}",
                         "in this area with the same name",
-                        "as a card in your {C:attention}GY{} when obtained",
+                        "as a card in your {C:attention}GY{} when {C:attention}entering play{}",
                         "{C:inactive}(Except \"Artifact Failnaught\"){}"
                     }
                 }
@@ -303,7 +303,7 @@ return {
                 text = {
                     {
                         "Cards can't be {C:attention}banished{}",
-                        "by {C:joy_mod}Card{} {C:attention}Blinds{}",
+                        "by {C:joy_mod}JoyousSpring{} {C:attention}Blinds{}",
                         "or {C:attention}Blind{} {C:joy_trap}Opponent{} cards"
                     }
                 }
@@ -332,7 +332,7 @@ return {
                 name = "{C:joy_effect}Artifact Scythe",
                 text = {
                     {
-                        "{C:joy_mod}Card{} {C:attention}Blinds{}",
+                        "{C:joy_mod}JoyousSpring{} {C:attention}Blinds{}",
                         "or {C:attention}Blind{} {C:joy_trap}Opponent{} cards",
                         "can't prevent {C:attention}summoning{} or buying"
                     }
@@ -343,7 +343,7 @@ return {
                 text = {
                     {
                         "Cards can't be {C:attention}flipped{}",
-                        "by {C:joy_mod}Card{} {C:attention}Blinds{}",
+                        "by {C:joy_mod}JoyousSpring{} {C:attention}Blinds{}",
                         "or {C:attention}Blind{} {C:joy_trap}Opponent{} cards"
                     }
                 }

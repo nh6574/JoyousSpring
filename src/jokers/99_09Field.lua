@@ -47,6 +47,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.adds } }
     end,
+    joy_glossary = { "fusion", "extradeck" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -77,11 +78,9 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 7,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return { vars = { card.ability.extra.mult, card.ability.extra.current_mult, card.ability.extra.money } }
     end,
+    joy_glossary = { "xyz", "xyz_material", "detach" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -131,12 +130,9 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return { vars = { card.ability.extra.tributes, card.ability.extra.attach } }
     end,
+    joy_glossary = { "xyz", "xyz_material", "attach", "tribute" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -196,6 +192,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { JoyousSpring.get_summoned_count(nil, true), card.ability.extra.to_summon } }
     end,
+    joy_glossary = { "summon" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -224,6 +221,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.h_size } }
     end,
+    joy_glossary = { "summon" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -267,11 +265,9 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 8,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
-        end
         return { vars = { card.ability.extra.banishes, card.ability.extra.increases } }
     end,
+    joy_glossary = { "banish", "maindeck" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -311,6 +307,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult } }
     end,
+    joy_glossary = { "facedown" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

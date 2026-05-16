@@ -82,7 +82,7 @@ return {
                 name = "{C:joy_effect}Dogmatika Ashiyan",
                 text = {
                     {
-                        "{C:attention}Revives #1#{} {C:joy_normal}\"Dogmatika\"{} when obtained",
+                        "{C:attention}Revives #1#{} {C:joy_normal}\"Dogmatika\"{} when {C:attention}entering play{}",
                     },
                     {
                         "Adds {C:attention}#2#{} {C:joy_ritual}Ritual{} {C:joy_normal}\"Dogmatika\"{}",
@@ -97,7 +97,7 @@ return {
                 name = "{C:joy_effect}Dogmatika Nexus",
                 text = {
                     {
-                        "{C:attention}Duplicates #1#{} random {{C:joy_spell}Extra Deck{} {C:attention}Jokers{}",
+                        "{C:attention}Copies #1#{} random {{C:joy_spell}Extra Deck{} {C:attention}Jokers{}",
                         "at end of round",
                         "{C:inactive}(The copy will be debuffed and{} {C:dark_edition}Negative{}{C:inactive}){}",
                     },

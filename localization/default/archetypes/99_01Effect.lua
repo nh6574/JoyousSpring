@@ -41,7 +41,7 @@ return {
                 text = {
                     {
                         "Creates {C:attention}#1#{} {C:dark_edition}Negative{} {C:joy_normal}Main Deck{}",
-                        "{C:blue}Common{} or {C:green}Uncommon{} {C:joy_normal}Fiend{} when obtained",
+                        "{C:blue}Common{} or {C:green}Uncommon{} {C:joy_normal}Fiend{} when {C:attention}entering play{}",
                     },
                 }
             },
@@ -216,7 +216,7 @@ return {
                 text = {
                     {
                         "{C:attention}Revives #1#{} non-{C:joy_synchro}Tuner{} as {C:dark_edition}Negative{} and debuffed",
-                        "and adds {C:attention}#2#{} {C:joy_synchro}Synchro{} to the shop when obtained",
+                        "and adds {C:attention}#2#{} {C:joy_synchro}Synchro{} to the shop when {C:attention}entering play{}",
                     },
                 }
             },
@@ -238,7 +238,7 @@ return {
                 text = {
                     {
                         "Debuffs and turns {C:attention}#1#{} random",
-                        "{C:joy_spell}Extra Deck{} {C:attention}Joker{} {C:dark_edition}Negative{} when obtained",
+                        "{C:joy_spell}Extra Deck{} {C:attention}Joker{} {C:dark_edition}Negative{} when {C:attention}entering play{}",
                     },
                     {
                         "Each debuffed {C:joy_spell}Extra Deck{} {C:attention}Joker{}",
@@ -250,7 +250,7 @@ return {
                 name = "{C:joy_effect}Beautunaful Princess",
                 text = {
                     {
-                        "Creates {C:attention}#1#{} {C:joy_normal}Fish{} when obtained and",
+                        "Creates {C:attention}#1#{} {C:joy_normal}Fish{} when {C:attention}entering play{} and",
                         "when it returns from {C:attention}banishment{}",
                         "{C:inactive}(Must have room)",
                     },
@@ -277,7 +277,7 @@ return {
                         "when used as {C:attention}material{} for a {C:joy_synchro}Synchro{}",
                     },
                     {
-                        "Free if you own a non-{C:joy_effect}Effect{} {C:attention}Joker{}",
+                        "Free if you own a {C:joy_normal}Normal{} {C:attention}Joker{}",
                     },
                 }
             },

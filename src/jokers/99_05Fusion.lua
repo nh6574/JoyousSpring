@@ -10,12 +10,7 @@ JoyousSpring.Joker({
     blueprint_compat = false,
     eternal_compat = true,
     cost = 3,
-    loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
-        return {}
-    end,
+    joy_glossary = { "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -52,11 +47,9 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 6,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return { vars = { card.ability.extra.h_size, card.ability.extra.h_size_gain } }
     end,
+    joy_glossary = { "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

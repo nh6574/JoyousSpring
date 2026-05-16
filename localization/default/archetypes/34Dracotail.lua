@@ -130,7 +130,7 @@ return {
                 name = "{C:joy_fusion}Dracotail Shaulas",
                 text = {
                     {
-                        "When obtained, gives {C:money}+$#1#{}",
+                        "When {C:attention}entering play{}, gives {C:money}+$#1#{}",
                         "for each playing card destroyed this run",
                         "and adds a {C:joy_normal}\"Dracotail\"{} to the {C:joy_spell}Extra Deck{}",
                         "{C:inactive}(Must have room)"
@@ -157,7 +157,7 @@ return {
                 name = "{C:joy_fusion}Dracotail Gulamel",
                 text = {
                     {
-                        "When obtained, destroys a card in deck",
+                        "When {C:attention}entering play{}, destroys a card in deck",
                         "for each playing card destroyed this run",
                         "and adds a {C:joy_normal}\"Dracotail\"{} to the {C:joy_spell}Extra Deck{}",
                         "{C:inactive}(Must have room)"
@@ -181,7 +181,7 @@ return {
                 text = {
                     {
                         "Adds a {C:joy_normal}\"Dracotail\"{} to the {C:joy_spell}Extra Deck{}",
-                        "when obtained",
+                        "when {C:attention}entering play{}",
                         "{C:inactive}(Must have room)"
                     },
                     {
@@ -368,7 +368,7 @@ return {
                 text = {
                     {
                         "Adds a {C:joy_normal}\"Dracotail\"{} to the {C:joy_spell}Extra Deck{}",
-                        "when obtained",
+                        "when {C:attention}entering play{}",
                         "{C:inactive}(Must have room)"
                     },
                     {

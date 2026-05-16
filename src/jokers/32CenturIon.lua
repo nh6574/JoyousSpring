@@ -21,6 +21,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "CenturIon" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "sidedeck", "extradeck", "synchro", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -95,6 +96,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "CenturIon" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "sidedeck", "synchro", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -150,6 +152,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "CenturIon" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "sidedeck", "maindeck", "synchro", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -207,6 +210,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "CenturIon" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "sidedeck", "synchro", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -262,6 +266,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "CenturIon" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "sidedeck", "revive", "synchro", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -320,6 +325,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "CenturIon" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "sidedeck", "graveyard", "send", "synchro", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -379,6 +385,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "CenturIon" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "synchro", "summon", "tribute", "extradeck" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -462,6 +469,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "CenturIon" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "sidedeck", "maindeck", "extradeck", "synchro", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -528,6 +536,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "CenturIon" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "sidedeck", "extradeck" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -572,6 +581,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "CenturIon" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "sidedeck" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
