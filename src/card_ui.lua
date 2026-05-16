@@ -343,8 +343,6 @@ end
 ---@param specific_vars table
 ---@param full_UI_table table
 JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
-    --SMODS.Center.generate_ui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
-
     if desc_nodes == full_UI_table.main then
         if self.set == "Joker" or self.set == "joy_Opponent" then
             local counters = JoyousSpring.get_counter_ui(card)
@@ -401,9 +399,6 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
                     loc_vars = self:loc_vars({}, card) or {}
                 end
                 localize { type = "joy_consumable", set = self.set, key = self.key, nodes = full_UI_table.joy_consumable, vars = loc_vars.vars or {} }
-                if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-                    table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_pendulum_joker" })
-                end
             end
 
             local is_monster = type(card.ability.extra) == "table" and card.ability.extra.joyous_spring
@@ -449,30 +444,14 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
             end
 
             if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-                -- Add tooltip if it's a flip
-                if JoyousSpring.is_flip_monster(card) then
-                    table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_flip" })
-                end
                 -- Add tooltip if it's a trap
                 if JoyousSpring.is_trap_monster(card) then
                     table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_trap" })
-                end
-                -- Add tooltip if it's a field spell
-                if JoyousSpring.is_field_spell(card) then
-                    table.insert(info_queue, 1,
-                        { set = "Other", key = "joy_tooltip_field_spell_joker", vars = { scale = 0.5 } })
                 end
                 -- Add tooltip if it's an illusion
                 if is_monster and card.ability.extra.joyous_spring.monster_type == "Illusion" then
                     table.insert(info_queue, 1,
                         { set = "Other", key = "joy_tooltip_illusion_joker", vars = { scale = 0.5 } })
-                end
-                -- Add Special Joker tooltips
-                for _, type in ipairs({ "RITUAL", "FUSION", "SYNCHRO", "XYZ", "LINK" }) do
-                    if JoyousSpring.is_summon_type(card, type) then
-                        table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_" .. type:lower() .. "_joker" })
-                        break
-                    end
                 end
             end
 
@@ -629,6 +608,20 @@ SMODS.Keybind({
 })
 
 SMODS.Keybind({
+    key_pressed = "g",
+    action = function(self)
+        local selected = G and G.CONTROLLER and
+            (G.CONTROLLER.focused.target or G.CONTROLLER.hovering.target)
+
+        if not selected or type(selected) ~= "table" or not ((selected.config or {}).center or {}).joy_glossary then
+            return
+        end
+
+        JoyousSpring.create_overlay_see_related(selected, true)
+    end
+})
+
+SMODS.Keybind({
     key_pressed = "t",
     action = function(self)
         local selected = G and G.CONTROLLER and
@@ -667,6 +660,164 @@ SMODS.Keybind({
         selected:set_sprites(selected.config.center)
     end
 })
+
+local TABS_MINH, TABS_MINW = 8, 12.5
+
+local create_glossary_row = function(key)
+    if not G.localization.misc.joyous_spring[key] then return end
+
+    local text_nodes = {}
+
+    for _, text_row in ipairs(G.localization.misc.joyous_spring[key].text) do
+        text_nodes[#text_nodes + 1] = {
+            n = G.UIT.R,
+            config = { align = "cm" },
+            nodes = SMODS.localize_box(loc_parse_string(text_row),
+                { text_colour = G.C.UI.TEXT_LIGHT, scale = 1.1 })
+        }
+    end
+
+    local name_node = {
+        {
+            n = G.UIT.R,
+            config = { align = "cm" },
+            nodes = SMODS.localize_box(loc_parse_string(G.localization.misc.joyous_spring[key].name),
+                { text_colour = G.C.FILTER, scale = 1.4 })
+        }
+    }
+
+    return {
+        n = G.UIT.R,
+        config = { align = "cm", padding = 0.07, minw = 10, r = 0.2, colour = darken(G.C.JOY.XYZ, 0.7) },
+        nodes = {
+            {
+                n = G.UIT.C,
+                config = { align = "cm", padding = 0.2 },
+                nodes = {
+                    {
+                        n = G.UIT.R,
+                        config = { align = "cm" },
+                        nodes = {
+                            {
+                                n = G.UIT.C,
+                                config = { align = "cm" },
+                                nodes = name_node
+                            }
+                        }
+                    },
+                    {
+                        n = G.UIT.R,
+                        config = { align = "cm" },
+                        nodes = {
+                            {
+                                n = G.UIT.C,
+                                config = { align = "cm", padding = 0.05 },
+                                nodes = text_nodes
+                            }
+                        }
+                    },
+                }
+            }
+        }
+    }
+end
+
+glossary_tab = function(t)
+    local card_center = t.center or {}
+    if not t.joy_glossary and not (card_center or {}).joy_glossary then return end
+
+    local glossary_rows = {}
+
+    for _, glossary_key in ipairs(card_center.joy_glossary or t.joy_glossary) do
+        local row = create_glossary_row(glossary_key)
+        if row then glossary_rows[#glossary_rows + 1] = row end
+    end
+
+    local scrollbox = SMODS.UIScrollBox({
+        content = {
+            definition = {
+                n = G.UIT.ROOT,
+                config = { r = 0.1, minw = 10, align = "tm", padding = 0.2, colour = G.C.BLACK },
+                nodes = {
+                    {
+                        n = G.UIT.C,
+                        config = { padding = 0.1 },
+                        nodes = glossary_rows
+                    },
+                }
+            },
+            config = { align = "cm" },
+        },
+        overflow = {
+            node_config = {
+                maxh = 7,
+                r = 0.1,
+            },
+        },
+    })
+
+    local glossary_nodes = {
+        n = G.UIT.R,
+        config = { padding = 0.1, align = "cm", minh = 5, minw = 7, },
+        nodes = {
+            {
+                n = G.UIT.C,
+                config = { align = "cm" },
+                nodes = {
+                    {
+                        n = G.UIT.O,
+                        config = {
+                            align = "cm",
+                            object = scrollbox,
+                        },
+                    },
+                },
+            },
+            {
+                n = G.UIT.C,
+                config = { align = "cm" },
+                nodes = {
+                    SMODS.GUI.scrollbar({
+                        h = TABS_MINH - 1,
+                        w = 0.2,
+                        max = 1,
+                        min = 0,
+                        colour = darken(G.C.JOY.MOD, 0.2),
+                        bg_colour = { 0, 0, 0, 0.15 },
+                        scroll_collision_obj = scrollbox,
+                        knob_h = 0.6,
+                        scroll_mult = 1.2,
+                    }),
+                },
+            },
+        },
+    }
+
+    return {
+        n = G.UIT.ROOT,
+        config = {
+            align = "cm",
+            padding = 0.05,
+            colour = G.C.CLEAR,
+        },
+        nodes = {
+            {
+                n = G.UIT.C,
+                config = {
+                    align = "cm",
+                    r = 0.1,
+                    padding = 0.1,
+                    minh = TABS_MINH,
+                    minw = TABS_MINW,
+                    colour = G.C.BLACK
+                },
+                nodes = {
+                    glossary_nodes
+                }
+            },
+        }
+    }
+end
 
 local arthalion_tab = function(t)
     t.area_table = {}
@@ -745,8 +896,8 @@ local arthalion_tab = function(t)
                     align = "cm",
                     r = 0.1,
                     padding = 0.1,
-                    minh = 5,
-                    minw = 7,
+                    minh = TABS_MINH,
+                    minw = TABS_MINW,
                     colour = G.C.BLACK
                 },
                 nodes = nodes
@@ -783,10 +934,10 @@ local related_tab = function(t)
     t.area_table[#t.area_table + 1] = CardArea(
         0,
         0,
-        G.CARD_W * 8.95,
+        G.CARD_W * 4.95,
         G.CARD_H,
         {
-            card_limit = 10,
+            card_limit = 7,
             type = 'title',
             highlight_limit = 0,
         }
@@ -806,14 +957,14 @@ local related_tab = function(t)
     table.sort(keys, function(a, b) return JoyousSpring.card_order[a] < JoyousSpring.card_order[b] end)
     local count = 0
     for j, key in ipairs(keys) do
-        if count > 20 then
+        if count > 6 then
             t.area_table[#t.area_table + 1] = CardArea(
                 0,
                 0,
-                G.CARD_W * 8.95,
+                G.CARD_W * 4.95,
                 G.CARD_H,
                 {
-                    card_limit = 10,
+                    card_limit = 7,
                     type = 'title',
                     highlight_limit = 0,
                 }
@@ -846,6 +997,66 @@ local related_tab = function(t)
         }
     end
 
+    local scrollbox = SMODS.UIScrollBox({
+        content = {
+            definition = {
+                n = G.UIT.ROOT,
+                config = { r = 0.1, minw = 8, align = "tm", padding = 0.2, colour = G.C.BLACK },
+                nodes = {
+                    {
+                        n = G.UIT.C,
+                        config = { padding = 0.2 },
+                        nodes = nodes
+                    },
+                }
+            },
+            config = { align = "cm" },
+        },
+        overflow = {
+            node_config = {
+                maxh = 7,
+                r = 0.1,
+            },
+        },
+    })
+
+    local scroll_nodes = {
+        n = G.UIT.R,
+        config = { padding = 0.1, align = "cm", minh = 5, minw = 7, },
+        nodes = {
+            {
+                n = G.UIT.C,
+                config = { align = "cm" },
+                nodes = {
+                    {
+                        n = G.UIT.O,
+                        config = {
+                            align = "cm",
+                            object = scrollbox,
+                        },
+                    },
+                },
+            },
+            {
+                n = G.UIT.C,
+                config = { align = "cm" },
+                nodes = {
+                    SMODS.GUI.scrollbar({
+                        h = TABS_MINH - 1,
+                        w = 0.2,
+                        max = 1,
+                        min = 0,
+                        colour = darken(G.C.JOY.MOD, 0.2),
+                        bg_colour = { 0, 0, 0, 0.15 },
+                        scroll_collision_obj = scrollbox,
+                        knob_h = 0.6,
+                        scroll_mult = 1.2,
+                    }),
+                },
+            },
+        },
+    }
+
     return {
         n = G.UIT.ROOT,
         config = {
@@ -860,11 +1071,13 @@ local related_tab = function(t)
                     align = "cm",
                     r = 0.1,
                     padding = 0.1,
-                    minh = 5,
-                    minw = 7,
+                    minh = TABS_MINH,
+                    minw = TABS_MINW,
                     colour = G.C.BLACK
                 },
-                nodes = nodes
+                nodes = {
+                    scroll_nodes,
+                }
             }
         }
     }
@@ -872,7 +1085,8 @@ end
 
 ---Creates overlay to see cards mentioned in the text
 ---@param card table|Card|string
-JoyousSpring.create_overlay_see_related = function(card)
+---@param from_glossary boolean?
+JoyousSpring.create_overlay_see_related = function(card, from_glossary)
     if not card then return end
     local card_center
     if type(card) == "string" then
@@ -892,27 +1106,42 @@ JoyousSpring.create_overlay_see_related = function(card)
     JoyousSpring.related_area = {}
     local tabs = {}
 
+    if card_center.joy_glossary then
+        tabs[#tabs + 1] = {
+            label = localize("k_joy_glossary"),
+            chosen = from_glossary,
+            tab_definition_function = glossary_tab,
+            tab_definition_function_args = { center = card_center }
+        }
+    end
+
     for i, area_cards in ipairs(card_center.joy_desc_cards) do
         local area_tab = {
             label = localize(area_cards.name) ~= "ERROR" and localize(area_cards.name) or localize("k_joy_related"),
-            chosen = i == 1,
+            chosen = not from_glossary and i == 1,
             tab_definition_function = related_tab,
             tab_definition_function_args = { area_table = JoyousSpring.related_area, area_cards = area_cards }
         }
         table.insert(tabs, area_tab)
     end
 
+    local colour = G.C.JOY.XYZ
+    local bg_colour = { G.C.JOY.MOD[1], G.C.JOY.MOD[2], G.C.JOY.MOD[3], 0.6 }
+    local back_colour = darken(G.C.JOY.MOD, 0.3)
+
     if #tabs > 0 then
         G.FUNCS.overlay_menu({
             definition = create_UIBox_generic_options({
-                back_colour = G.C.JOY.TRAP,
+                back_colour = back_colour,
+                colour = colour,
+                bg_colour = bg_colour,
                 contents = {
                     {
                         n = G.UIT.R,
                         nodes = {
                             create_tabs({
                                 snap_to_nav = true,
-                                colour = G.C.JOY.TRAP,
+                                colour = darken(G.C.JOY.MOD, 0.2),
                                 tabs = tabs
                             }),
                         }

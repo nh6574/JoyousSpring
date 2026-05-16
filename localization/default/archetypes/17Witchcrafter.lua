@@ -6,7 +6,7 @@ return {
                 text = {
                     {
                         "Creates {C:attention}#1#{} {C:tarot}Tarot",
-                        "when obtained",
+                        "when {C:attention}entering play{}",
                         "{C:inactive}(Must have room){}",
                     },
                     {
@@ -21,7 +21,7 @@ return {
                 text = {
                     {
                         "Creates {C:attention}#1#{} {C:tarot}Tarot",
-                        "when obtained if Consumable area is empty",
+                        "when {C:attention}entering play{} if Consumable area is empty",
                         "{C:inactive}(Must have room){}",
                     },
                     {
@@ -95,7 +95,7 @@ return {
                 text = {
                     {
                         "{C:money}+$#1#{} for each for each {C:tarot}Tarot",
-                        "{C:attention}tributed{} this round when obtained",
+                        "{C:attention}tributed{} this round when {C:attention}entering play{}",
                     },
                     {
                         "Creates {C:attention}#2#{} {C:dark_edition}Negative {C:tarot}Tarot{}",
@@ -113,7 +113,7 @@ return {
                 text = {
                     {
                         "Creates all {C:tarot}Tarot{} {C:attention}tributed{} this round",
-                        "as {C:dark_edition}Negative{} when obtained",
+                        "as {C:dark_edition}Negative{} when {C:attention}entering play{}",
                     },
                     {
                         "{X:mult,C:white}X#1#{} Mult for each {C:tarot}Tarot",

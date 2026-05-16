@@ -15,7 +15,7 @@ return {
                 name = "{C:joy_effect}PSY-Framegear Alpha",
                 text = {
                     {
-                        "Creates {C:attention}#1#{} {C:joy_normal}\"PSY-Frame Driver\"{} when obtained",
+                        "Creates {C:attention}#1#{} {C:joy_normal}\"PSY-Frame Driver\"{} when {C:attention}entering play{}",
                         "{C:inactive}(Must have room){}",
                     },
                     {
@@ -29,7 +29,7 @@ return {
                 name = "{C:joy_effect}PSY-Framegear Beta",
                 text = {
                     {
-                        "Creates {C:attention}#1#{} {C:joy_normal}\"PSY-Frame Driver\"{} when obtained",
+                        "Creates {C:attention}#1#{} {C:joy_normal}\"PSY-Frame Driver\"{} when {C:attention}entering play{}",
                         "{C:inactive}(Must have room){}",
                     },
                     {
@@ -44,7 +44,7 @@ return {
                 name = "{C:joy_effect}PSY-Framegear Gamma",
                 text = {
                     {
-                        "Creates {C:attention}#1#{} {C:joy_normal}\"PSY-Frame Driver\"{} when obtained",
+                        "Creates {C:attention}#1#{} {C:joy_normal}\"PSY-Frame Driver\"{} when {C:attention}entering play{}",
                         "{C:inactive}(Must have room){}",
                     },
                     {
@@ -58,7 +58,7 @@ return {
                 name = "{C:joy_effect}PSY-Framegear Delta",
                 text = {
                     {
-                        "Creates {C:attention}#1#{} {C:joy_normal}\"PSY-Frame Driver\"{} when obtained",
+                        "Creates {C:attention}#1#{} {C:joy_normal}\"PSY-Frame Driver\"{} when {C:attention}entering play{}",
                         "{C:inactive}(Must have room){}",
                     },
                     {
@@ -73,7 +73,7 @@ return {
                 name = "{C:joy_effect}PSY-Framegear Epsilon",
                 text = {
                     {
-                        "Creates {C:attention}#1#{} {C:joy_normal}\"PSY-Frame Driver\"{} when obtained",
+                        "Creates {C:attention}#1#{} {C:joy_normal}\"PSY-Frame Driver\"{} when {C:attention}entering play{}",
                         "{C:inactive}(Must have room){}",
                     },
                     {

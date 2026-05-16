@@ -9,7 +9,7 @@ return {
                     },
                     {
                         "Creates {C:attention}#2#{} {C:joy_effect}\"Live{C:joy_effect,f:joy_font}☆{}{C:joy_effect}Twin Ki-sikil\"{}",
-                        "when obtained, if not owned",
+                        "when {C:attention}entering play{}, if not owned",
                         "{C:inactive}(Must have room){}",
                     },
                 },
@@ -22,7 +22,7 @@ return {
                     },
                     {
                         "Creates {C:attention}#2#{} {C:joy_effect}\"Live{C:joy_effect,f:joy_font}☆{}{C:joy_effect}Twin Lil-la\"{}",
-                        "when obtained, if not owned",
+                        "when {C:attention}entering play{}, if not owned",
                         "{C:inactive}(Must have room){}",
                     },
                 },
@@ -89,7 +89,7 @@ return {
                     },
                     {
                         "Permanently gain {C:attention}+#2#{} hand size if you",
-                        "own a {C:joy_normal}\"Lil-la\"{} when summoned",
+                        "own a {C:joy_normal}\"Lil-la\"{} when {C:attention}entering play{}",
                     },
                     {
                         "{C:attention}Revives #3#{} {C:joy_link}\"Evil{C:joy_link,f:joy_font}★{}{C:joy_link}Twin Lil-la\"{} (or {C:attention}#3#{}",
@@ -108,7 +108,7 @@ return {
                         "{C:chips}+#1#{} Chips",
                     },
                     {
-                        "{C:money}+$#2#{} if you own a {C:joy_normal}\"Ki-sikil\"{} when summoned",
+                        "{C:money}+$#2#{} if you own a {C:joy_normal}\"Ki-sikil\"{} when {C:attention}entering play{}",
                     },
                     {
                         "{C:attention}Revives #3#{} {C:joy_link}\"Evil{C:joy_link,f:joy_font}★{}{C:joy_link}Twin Ki-sikil\"{} (or {C:attention}#3#{}",

@@ -6,7 +6,7 @@ return {
                 text = {
                     {
                         "Adds {C:attention}1{} {C:joy_normal}\"Zoodiac\"{} {C:joy_xyz}Xyz{} to the shop",
-                        "when obtained"
+                        "when {C:attention}entering play{}"
                     },
                     {
                         "An {C:joy_xyz}Xyz{} summoned using this card",
@@ -25,7 +25,7 @@ return {
                 text = {
                     {
                         "Adds {C:attention}1{} {C:joy_normal}\"Zoodiac\"{} {C:joy_xyz}Xyz{} to the shop",
-                        "when obtained"
+                        "when {C:attention}entering play{}"
                     },
                     {
                         "An {C:joy_xyz}Xyz{} summoned using this card",
@@ -44,7 +44,7 @@ return {
                 text = {
                     {
                         "Adds {C:attention}1{} {C:joy_normal}\"Zoodiac\"{} {C:joy_xyz}Xyz{} to the shop",
-                        "when obtained"
+                        "when {C:attention}entering play{}"
                     },
                     {
                         "An {C:joy_xyz}Xyz{} summoned using this card",
@@ -63,7 +63,7 @@ return {
                 text = {
                     {
                         "Adds {C:attention}1{} {C:joy_normal}\"Zoodiac\"{} {C:joy_xyz}Xyz{} to the shop",
-                        "when obtained"
+                        "when {C:attention}entering play{}"
                     },
                     {
                         "An {C:joy_xyz}Xyz{} summoned using this card",
@@ -82,7 +82,7 @@ return {
                 text = {
                     {
                         "Adds {C:attention}1{} {C:joy_normal}\"Zoodiac\"{} {C:joy_xyz}Xyz{} to the shop",
-                        "when obtained"
+                        "when {C:attention}entering play{}"
                     },
                     {
                         "An {C:joy_xyz}Xyz{} summoned using this card",
@@ -101,7 +101,7 @@ return {
                 text = {
                     {
                         "Adds {C:attention}1{} {C:joy_normal}\"Zoodiac\"{} {C:joy_xyz}Xyz{} to the shop",
-                        "when obtained"
+                        "when {C:attention}entering play{}"
                     },
                     {
                         "An {C:joy_xyz}Xyz{} summoned using this card",

@@ -17,7 +17,7 @@ return {
                     },
                     {
                         "Creates as many {C:joy_effect}\"Beetrooper Scout Buggy\"",
-                        "as possible when obtained {C:inactive}(Except by \"Beetrooper Scout Buggy\"){}",
+                        "as possible when {C:attention}entering play{} {C:inactive}(Except by \"Beetrooper Scout Buggy\"){}",
                         "{C:inactive}(Must have room)"
                     },
                     {

@@ -107,6 +107,17 @@ JoyousSpring.Joker = SMODS.Joker:extend {
     inject = function(self, i)
         self.attributes = SMODS.merge_lists({ self.attributes or {}, get_attributes_from_joy_table(self) })
         self.weight = ({ 7, 2.5, 0.5, 0.1 })[self.rarity]
+        if self.joy_glossary then
+            local joy_glossary = {}
+            local glossary_hash = {}
+
+            for _, g in ipairs(self.joy_glossary) do
+                if not glossary_hash[g] then
+                    joy_glossary[#joy_glossary + 1] = g
+                end
+                glossary_hash[g] = true
+            end
+        end
 
         SMODS.Joker.inject(self, i)
     end,

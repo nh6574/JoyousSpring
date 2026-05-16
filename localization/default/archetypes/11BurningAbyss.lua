@@ -80,7 +80,7 @@ return {
                     },
                     {
                         "Creates {C:attention}#2#{} non-{C:joy_spell}Special{} {C:joy_normal}\"Burning Abyss\"{}",
-                        "when obtained",
+                        "when {C:attention}entering play{}",
                         "{C:inactive}(Must have room){}",
                     },
                     {
@@ -110,7 +110,7 @@ return {
                     },
                     {
                         "Creates {C:attention}#2#{} non-{C:joy_spell}Special{} {C:joy_normal}\"Burning Abyss\"{}",
-                        "when obtained",
+                        "when {C:attention}entering play{}",
                         "{C:inactive}(Must have room){}",
                     },
                     {
@@ -225,7 +225,7 @@ return {
                 name = "{C:joy_synchro}Virgil, Rock Star of the Burning Abyss",
                 text = {
                     {
-                        "Permanently gain {C:attention}+#1#{} hand size when summoned",
+                        "Permanently gain {C:attention}+#1#{} hand size when {C:attention}entering play{}",
                     },
                     {
                         "{C:joy_normal}\"Burning Abyss\"{} don't get destroyed by their own effects",

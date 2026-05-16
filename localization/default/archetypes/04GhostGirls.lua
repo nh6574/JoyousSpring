@@ -63,8 +63,9 @@ return {
                 name = "{C:joy_effect}Ghost Mourner & Moonlit Chill",
                 text = {
                     {
-                        "Permanently debuffs every obtained",
-                        "{C:blue}Common{} and {C:green}Uncommon{} {C:attention}Joker{}",
+                        "Permanently debuffs every {C:blue}Common{}",
+                        "and {C:green}Uncommon{} {C:attention}Joker{}",
+                        "that {C:attention}enters play{}"
                     },
                     {
                         "Gains {X:mult,C:white}X#1#{} Mult for each debuffed card sold",

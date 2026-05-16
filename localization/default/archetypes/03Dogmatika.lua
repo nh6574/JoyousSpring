@@ -82,7 +82,7 @@ return {
                 name = "{C:joy_effect}Dogmatika Ashiyan",
                 text = {
                     {
-                        "{C:attention}Revives #1#{} {C:joy_normal}\"Dogmatika\"{} when obtained",
+                        "{C:attention}Revives #1#{} {C:joy_normal}\"Dogmatika\"{} when {C:attention}entering play{}",
                     },
                     {
                         "Adds {C:attention}#2#{} {C:joy_ritual}Ritual{} {C:joy_normal}\"Dogmatika\"{}",

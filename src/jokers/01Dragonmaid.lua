@@ -16,15 +16,13 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 6,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
-        end
         return { vars = { card.ability.extra.base_rerolls, card.ability.extra.rerolls } }
     end,
     joy_desc_cards = {
         { "j_joy_dmaid_tinkhec",                                      name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "transform" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

@@ -6,7 +6,7 @@ return {
                 text = {
                     {
                         "{C:attention}#1#{} free {C:green}Reroll{} for each",
-                        "{C:joy_normal}\"Dragonmaid\"{} when obtained",
+                        "{C:joy_normal}\"Dragonmaid\"{} when {C:attention}entering play{}",
                     },
                     {
                         "{C:attention}Transforms{} into {C:joy_effect}\"Dragonmaid Tinkhec\"",
@@ -31,7 +31,7 @@ return {
                 name = "{C:joy_effect}Parlor Dragonmaid",
                 text = {
                     {
-                        "{C:attention}#1# Booster Tag{} when obtained",
+                        "{C:attention}#1# Booster Tag{} when {C:attention}entering play{}",
                         "if you own {C:attention}#2#{} {C:joy_normal}\"Dragonmaids\"{},",
                         "gaining an extra for every {C:attention}#3#{} more",
                         "and send {C:attention}#4#{} {C:joy_normal}\"Dragonmaid\"{} to the {C:attention}GY{}",
@@ -60,7 +60,7 @@ return {
                 text = {
                     {
                         "{C:green}#1# in #2#{} chance to {C:attention}revive #3#{}",
-                        "{C:blue}Common{} {C:joy_normal}\"Dragonmaid\"{} when obtained",
+                        "{C:blue}Common{} {C:joy_normal}\"Dragonmaid\"{} when {C:attention}entering play{}",
                     },
                     {
                         "{C:attention}Transforms{} into {C:joy_effect}\"Dragonmaid Ernus\"",
@@ -87,7 +87,7 @@ return {
                 text = {
                     {
                         "Sends {C:attention}#1#{} {C:joy_normal}Main Deck{} {C:joy_normal}\"Dragonmaid\"{}",
-                        "to the {C:attention}GY{} when obtained",
+                        "to the {C:attention}GY{} when {C:attention}entering play{}",
                     },
                     {
                         "{C:attention}Transforms{} into {C:joy_effect}\"Dragonmaid Nudyarl\"",
@@ -113,7 +113,7 @@ return {
                 name = "{C:joy_effect}Chamber Dragonmaid",
                 text = {
                     {
-                        "{C:attention}#1# Voucher Tag{} when obtained",
+                        "{C:attention}#1# Voucher Tag{} when {C:attention}entering play{}",
                         "if you own {C:attention}#2#{} {C:joy_normal}\"Dragonmaids\"{},",
                         "gaining an extra for every {C:attention}#3#{} more",
                         "and send {C:attention}#4#{} {C:joy_normal}\"Dragonmaid\"{} to the {C:attention}GY{}",
@@ -130,7 +130,7 @@ return {
                     {
                         "{C:green}#1# in #2#{} chance to {C:attention}revive #3#{}",
                         "{C:green}Uncommon{} or {C:red}Rare{} {C:joy_normal}\"Dragonmaid\"{}",
-                        "when obtained",
+                        "when {C:attention}entering play{}",
                     },
                     {
                         "{C:attention}Transforms{} into {C:joy_effect}\"Chamber Dragonmaid\"",
@@ -143,7 +143,7 @@ return {
                 text = {
                     {
                         "Adds {C:joy_fusion}\"House Dragonmaid\"{} to the",
-                        "{C:joy_spell}Extra Deck{} when summoned",
+                        "{C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                         "{C:inactive}(Must have room){}",
                     },
                     {

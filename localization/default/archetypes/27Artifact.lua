@@ -282,7 +282,7 @@ return {
                     {
                         "Creates {C:attention}#1#{} {C:joy_normal}\"Artifact\"{}",
                         "in this area with the same name",
-                        "as a card in your {C:attention}GY{} when obtained",
+                        "as a card in your {C:attention}GY{} when {C:attention}entering play{}",
                         "{C:inactive}(Except \"Artifact Failnaught\"){}"
                     }
                 }

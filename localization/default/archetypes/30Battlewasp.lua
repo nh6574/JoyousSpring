@@ -10,7 +10,7 @@ return {
                     },
                     {
                         "Creates {C:attention}1{} {C:joy_effect}\"Battlewasp - Pin the Bullseye\"",
-                        "when obtained {C:inactive}(Except by \"Battlewasp - Pin the Bullseye\"){}",
+                        "when {C:attention}entering play{} {C:inactive}(Except by \"Battlewasp - Pin the Bullseye\"){}",
                     },
                     {
                         "Free and can be obtained from the shop even if you don't have room",
@@ -43,7 +43,7 @@ return {
                     },
                     {
                         "Adds {C:attention}1{} {C:joy_normal}\"Battlewasp\"{}",
-                        "to the {C:joy_spell}Extra Deck{} when obtained",
+                        "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                         "{C:inactive}(Must have room)"
                     },
                     {
@@ -73,7 +73,7 @@ return {
                 text = {
                     {
                         "{C:attention}Revives 1{} {C:joy_normal}Insect{}",
-                        "when obtained",
+                        "when {C:attention}entering play{}",
                     },
                     {
                         "Treated as any {C:attention}material{} for a {C:joy_synchro}Synchro",

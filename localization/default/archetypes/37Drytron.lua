@@ -17,7 +17,7 @@ return {
                     },
                     {
                         "Free but must {C:attention}tribute{} a {C:attention}Joker{}",
-                        "to be obtained from the shop or boosters"
+                        "to {C:attention}enter play{}"
                     }
                 }
             },
@@ -36,7 +36,7 @@ return {
                     },
                     {
                         "Free but must {C:attention}tribute{} a {C:attention}Joker{}",
-                        "to be obtained from the shop or boosters"
+                        "to {C:attention}enter play{}"
                     }
                 }
             },
@@ -56,7 +56,7 @@ return {
                     },
                     {
                         "Free but must {C:attention}tribute{} a {C:attention}Joker{}",
-                        "to be obtained from the shop or boosters"
+                        "to {C:attention}enter play{}"
                     }
                 }
             },
@@ -76,7 +76,7 @@ return {
                     },
                     {
                         "Free but must {C:attention}tribute{} a {C:attention}Joker{}",
-                        "to be obtained from the shop or boosters"
+                        "to {C:attention}enter play{}"
                     }
                 }
             },
@@ -95,7 +95,7 @@ return {
                     },
                     {
                         "Free but must {C:attention}tribute{} a {C:attention}Joker{}",
-                        "to be obtained from the shop or boosters"
+                        "to {C:attention}enter play{}"
                     }
                 }
             },
@@ -114,7 +114,7 @@ return {
                     },
                     {
                         "Free but must {C:attention}tribute{} a {C:attention}Joker{}",
-                        "to be obtained from the shop or boosters"
+                        "to {C:attention}enter play{}"
                     }
                 }
             },

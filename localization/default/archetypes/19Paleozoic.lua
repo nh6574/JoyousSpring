@@ -109,7 +109,7 @@ return {
                 name = "{C:joy_link}Paleozoic Cambroraster",
                 text = {
                     {
-                        "Adds {C:attention}#1#{} {C:joy_xyz}Xyz{} {C:joy_normal}\"Paleozoic\"{} to the {C:joy_spell}Extra Deck{} when summoned",
+                        "Adds {C:attention}#1#{} {C:joy_xyz}Xyz{} {C:joy_normal}\"Paleozoic\"{} to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
                         "{C:joy_normal}\"Paleozoic\"{} {C:attention}revive{} other cards as {C:dark_edition}Negative",

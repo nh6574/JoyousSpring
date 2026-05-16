@@ -10,7 +10,7 @@ return {
                     {
                         "Creates {C:attention}#2#{} {C:joy_spell}\"Runick Fountain\"",
                         "and adds {C:attention}#3#{} {C:joy_normal}\"Runick\"{}",
-                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                        "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                         "{C:inactive}(Must have room){}",
                     },
                 },
@@ -26,7 +26,7 @@ return {
                     },
                     {
                         "Adds {C:attention}#2#{} {C:joy_normal}\"Runick\"{}",
-                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                        "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                         "{C:inactive}(Must have room){}",
                     },
                     {
@@ -44,7 +44,7 @@ return {
                 text = {
                     {
                         "Creates {C:attention}#1#{} {C:joy_spell}\"Runick Fountain\"",
-                        "when summoned if there's any in the {C:attention}GY{}",
+                        "when {C:attention}entering play{} if there's any in the {C:attention}GY{}",
                         "and adds {C:attention}#2#{} {C:joy_normal}\"Runick\"{} to the {C:joy_spell}Extra Deck{}",
                         "{C:inactive}(Must have room){}",
                     },
@@ -63,7 +63,7 @@ return {
                 text = {
                     {
                         "Adds {C:attention}#1#{} {C:joy_normal}\"Runick\"{}",
-                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                        "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                         "{C:inactive}(Must have room){}",
                     },
                     {
@@ -85,7 +85,7 @@ return {
                 text = {
                     {
                         "Adds {C:attention}#1#{} {C:joy_normal}\"Runick\"{}",
-                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                        "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                         "{C:inactive}(Must have room){}",
                     },
                     {

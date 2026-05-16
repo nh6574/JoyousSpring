@@ -9,7 +9,7 @@ return {
                     },
                     {
                         "Creates {C:attention}#2#{} {C:blue}Common{} {C:joy_normal}Main Deck",
-                        "{C:joy_normal}\"@Ignister\"{} when obtained",
+                        "{C:joy_normal}\"@Ignister\"{} when {C:attention}entering play{}",
                         "{C:inactive}(Must have room){}",
                     },
                 }
@@ -22,7 +22,7 @@ return {
                     },
                     {
                         "Creates {C:attention}#2#{} random {C:tarot}Tarot",
-                        "when obtained",
+                        "when {C:attention}entering play{}",
                         "{C:inactive}(Must have room){}",
                     },
                 }
@@ -47,7 +47,7 @@ return {
                 name = "{C:joy_effect}Bururu @Ignister",
                 text = {
                     {
-                        "Sends {C:attention}#1#{} {C:joy_normal}\"@Ignister\"{} to the {C:attention}GY{} when obtained",
+                        "Sends {C:attention}#1#{} {C:joy_normal}\"@Ignister\"{} to the {C:attention}GY{} when {C:attention}entering play{}",
                     },
                     {
                         "{C:attention}Revives #2#{} {C:joy_normal}Main Deck \"@Ignister\"{} as {C:dark_edition}Negative",
@@ -128,7 +128,7 @@ return {
                 name = "{C:joy_effect}Doyon @Ignister",
                 text = {
                     {
-                        "{C:attention}Revives #1#{} {C:joy_normal}Main Deck \"@Ignister\"{} when obtained",
+                        "{C:attention}Revives #1#{} {C:joy_normal}Main Deck \"@Ignister\"{} when {C:attention}entering play{}",
                     },
                     {
                         "Adds {C:attention}#2#{} not obtained {C:joy_normal}\"@Ignister\"{} to the {C:joy_spell}Extra Deck",
@@ -152,7 +152,7 @@ return {
                 name = "{C:joy_effect}Backup @Ignister",
                 text = {
                     {
-                        "Adds {C:dark_edition}Negative{} to {C:attention}#1#{} other random {C:joy_normal}Cyberse{} when obtained",
+                        "Adds {C:dark_edition}Negative{} to {C:attention}#1#{} other random {C:joy_normal}Cyberse{} when {C:attention}entering play{}",
                     },
                     {
                         "Adds {C:dark_edition}Negative{} to a {C:joy_normal}Cyberse{} summoned",
@@ -197,7 +197,7 @@ return {
                 text = {
                     {
                         "Adds {C:attention}#1#{} not obtained {C:joy_normal}\"@Ignister\"",
-                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                        "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
                         "Scored cards in played hand gain {C:chips}+#2#{} Chips",
@@ -220,7 +220,7 @@ return {
                 text = {
                     {
                         "Adds {C:attention}#1#{} not obtained {C:joy_normal}\"@Ignister\"",
-                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                        "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
                         "{C:attention}+#2# Joker{} slot for each {C:attention}Attribute{} used for its summon",
@@ -241,7 +241,7 @@ return {
                 text = {
                     {
                         "Adds {C:attention}#1#{} not obtained {C:joy_normal}\"@Ignister\"",
-                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                        "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
                         "{C:green}#2# in #3#{} chance to retrigger playing cards",
@@ -264,7 +264,7 @@ return {
                 text = {
                     {
                         "Adds {C:attention}#1#{} not obtained {C:joy_normal}\"@Ignister\"",
-                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                        "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
                         "Scored cards in played hand gain a permanent {C:money}+$#2#{}",
@@ -291,7 +291,7 @@ return {
                 text = {
                     {
                         "Adds {C:attention}#1#{} not obtained {C:joy_normal}\"@Ignister\"",
-                        "to the {C:joy_spell}Extra Deck{} when summoned",
+                        "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
                         "Creates {C:attention}#2#{} {C:dark_edition}Negative{} Debuffed {C:joy_link}\"Fire Phoenix @Ignister\"{}",
@@ -321,7 +321,7 @@ return {
                         "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)",
                     },
                     {
-                        "{C:attention}Revives #3#{} {C:joy_link}Links{} when summoned",
+                        "{C:attention}Revives #3#{} {C:joy_link}Links{} when {C:attention}entering play{}",
                     },
                 },
                 joy_summon_conditions = {
@@ -332,7 +332,7 @@ return {
                 name = "{C:joy_link}Dark Infant @Ignister",
                 text = {
                     {
-                        "Creates {C:attention}#1#{} {C:joy_spell}\"Ignister A.I.Land\"{} when summoned",
+                        "Creates {C:attention}#1#{} {C:joy_spell}\"Ignister A.I.Land\"{} when {C:attention}entering play{}",
                         "{C:inactive}(Must have room){}",
                     },
                     {
@@ -349,7 +349,7 @@ return {
                 text = {
                     {
                         "{C:attention}Revives{} as many {C:joy_normal}\"@Ignister\"{} as possible",
-                        "with different names as {C:dark_edition}Negative{} and debuffed when summoned",
+                        "with different names as {C:dark_edition}Negative{} and debuffed when {C:attention}entering play{}",
                     },
                     {
                         "{C:attention}Revives #1#{} {C:joy_normal}Main Deck Cyberse{} when used as {C:attention}material{} for a {C:joy_normal}Cyberse{}",

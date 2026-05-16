@@ -5,7 +5,7 @@ return {
             bl_joy_dimensionshifter = {
                 name = "{C:joy_effect}Dimension Shifter",
                 text = {
-                    "All {C:attention}Jokers{} obtained",
+                    "{C:attention}Jokers{} that {C:attention}enter play",
                     "this ante are",
                     "banished until",
                     "end of ante"
@@ -213,7 +213,7 @@ return {
                 name = "{C:joy_trap}Chain Disappearance",
                 text = {
                     "Each time a {C:attention}Joker",
-                    "is summoned this ante",
+                    "is {C:attention}summoned{} this ante",
                     "{C:attention}banishes{} all others",
                     "that share its {C:attention}Type",
                     "or {C:attention}Attribute{}",

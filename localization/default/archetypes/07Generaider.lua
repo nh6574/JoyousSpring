@@ -24,7 +24,7 @@ return {
                 text = {
                     {
                         "Sends {C:attention}#1#{} {C:red}Rare{} {C:joy_normal}Main Deck \"Generaider\"{}",
-                        "to the {C:attention}GY{} when obtained",
+                        "to the {C:attention}GY{} when {C:attention}entering play{}",
                     },
                     {
                         "Destroys itself when {C:attention}Boss Blind{} is defeated to",
