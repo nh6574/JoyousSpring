@@ -117,7 +117,8 @@ return {
             fieldspell = {
                 name = "[{C:joy_spell}Field Spell{} Joker]",
                 text = {
-                    "Placed in the {C:joy_spell}Field Spell{} area"
+                    "Placed in the {C:joy_spell}Field Spell{} area",
+                    "Can't be {C:attention}revived{}"
                 },
             },
             token = {
