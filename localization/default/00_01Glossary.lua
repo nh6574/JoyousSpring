@@ -29,7 +29,7 @@ return {
                 text = {
                     "Press {C:attention}a{} to switch",
                     "between artworks",
-                    "{C:inactive,s:0.8}(For only this card)"
+                    "{C:inactive,s:0.8}(For this card only)"
                 },
             },
             joy_tooltip_transferred = {
@@ -38,6 +38,15 @@ return {
                     "Press {C:attention}t{} to switch",
                     "between main ability",
                     "and transferred abilities"
+                },
+            },
+            joy_tooltip_pendulum_joker = {
+                name = "Pendulum Joker",
+                text = {
+                    "Can be used as a consumable",
+                    "{s:0.15} ",
+                    "{s:0.9,C:inactive}({s:0.9,C:joy_spell}Special{s:0.9} {s:0.9,C:inactive}Jokers must be",
+                    "{s:0.9,C:inactive}properly summoned first)"
                 },
             },
             joy_tooltip_illusion_joker = {
@@ -69,118 +78,10 @@ return {
             k_joy_glossary = "Glossary",
         },
         joyous_spring = {
-            modifier = {
-                name = "[Modifier]",
-                text = {
-                    "{C:attention}Editions{}, {C:attention}Enhancements{},",
-                    "{C:attention}Seals{} or {C:attention}Stickers{}"
-                }
-            },
-            transform = {
-                name = "[Transform]",
-                text = {
-                    "Changes a {C:attention}Joker{} into another",
-                    "Keeps any modifiers",
-                }
-            },
-            facedown = {
-                name = "[Face-down]",
-                text = {
-                    "{C:attention}Flipped {C:joy_normal}Monster{} {C:attention}Jokers{} can't use their abilities {C:inactive}(unless specified)",
-                    "and count as blank {C:attention}Jokers{} for abilities and {C:attention}summons{} {C:inactive}(except Ritual and Fusion){}",
-                    " ",
-                    "{C:joy_link}Links{} can't be face-down",
-                    "{C:attention}Editions{} still apply"
-                }
-            },
             monster = {
                 name = "[{C:joy_normal}Monster{} Joker]",
                 text = {
                     "{C:attention}Jokers{} from {C:joy_mod}JoyousSpring{}",
-                    "{C:inactive}(Includes Field Spells){}"
-                }
-            },
-            graveyard = {
-                name = "[Graveyard]",
-                text = {
-                    "Abbreviated as {C:attention}GY{}",
-                    "When a {C:joy_normal}Monster{} {C:attention}Joker{} is sold, destroyed",
-                    "or used for a {C:attention}Summon{} they go to the {C:attention}Graveyard{}",
-                    "and lose any modifiers"
-                },
-            },
-            revive = {
-                name = "[Revive]",
-                text = {
-                    "Create and removes a random card from the {C:attention}GY{} that meets the specified conditions",
-                    "Must have room and might have a random edition, unless specified",
-                    " ",
-                    "{C:joy_spell}Special{} {C:attention}Jokers{} that were not properly {C:attention}summoned{} can't be revived",
-                    "{C:attention}Revived Jokers{} have a sell value of {C:money}$1"
-                },
-            },
-            banish = {
-                name = "[Banish]",
-                text = {
-                    "Card temporarily disappears until specified time",
-                    "They can return even if you don't have room, unless specified",
-                    " ",
-                    "{C:attention}Banished{} cards return before all other abilities activate",
-                },
-            },
-            tribute = {
-                name = "[Tribute]",
-                text = {
-                    "Abilities may {C:attention}tribute{} cards and destroy them",
-                    "These act like any other destroyed card but may be relevant to other abilities"
-                },
-            },
-            excavate = {
-                name = "[Excavate]",
-                text = {
-                    "Reveals the top cards of the deck up to the maximum number listed on a card",
-                    "Each card may {C:attention}check{} the top {C:attention}X{} cards excavated",
-                    "or excavate until they hit a specific card",
-                    " ",
-                    "If not specified, this occurs when {C:attention}Blind{} is selected",
-                }
-            },
-            sidedeck = {
-                name = "[{C:joy_link}Side Deck{}]",
-                text = {
-                    "Allows saving {C:attention}Jokers{} between rounds",
-                    "Cards may be bought directly to the {C:joy_link}Side Deck{} if it has room",
-                    "Drag {C:attention}Jokers{} during the {C:joy_link}Side Deck{} stage",
-                    "to move them between areas or use them as {C:attention}materials{} for {C:attention}summons{}",
-                    " ",
-                    "Note: This is a WIP feature, in the full release cards in the Side Deck",
-                    "may be checked and sold at any time"
-                }
-            },
-            blinds = {
-                name = "[{C:joy_mod}JoyousSpring{} Blinds]",
-                text = {
-                    "{C:attention}Blinds{} from this mod have special properties",
-                    "Some {C:attention}Blinds{} might have ante-wide abilities and",
-                    "losing to any of these {C:attention}Blinds{}",
-                    "(including {C:attention}Small{} or {C:blue}Big{} {C:attention}Blinds{} if it has ante-wide abilities)",
-                    "will create a special card in the {C:joy_trap}Opponent{} area instead of causing a game over",
-                    "This will only happen once per {C:attention}Blind{} and it will be debuffed",
-                }
-            },
-            blind_card = {
-                name = "[Blind card]",
-                text = {
-                    "Special {C:joy_trap}Opponent{} card associated with a {C:attention}Blind{}",
-                }
-            },
-            opponent = {
-                name = "[{C:joy_trap}Opponent{} card]",
-                text = {
-                    "Placed in the {C:joy_trap}Opponent{} area",
-                    "If the area goes over capacity the oldest non-{C:dark_edition}Negative{} card",
-                    "will be destroyed",
-                    "These cards don't count as owned for abilities"
                 }
             },
             normal = {
@@ -195,15 +96,28 @@ return {
             effect = {
                 name = "[{C:joy_effect}Effect{} Joker]",
                 text = {
-                    "{C:attention}Jokers{} with abilities",
-                    "Most {C:joy_normal}Monster{} {C:attention}Jokers{} fall under this category",
+                    "{C:joy_normal}Monster{} {C:attention}Jokers{} with abilities",
+                    "Most fall under this category",
                 },
             },
             maindeck = {
                 name = "[{C:joy_normal}Main Deck{} Joker]",
                 text = {
-                    "{C:joy_normal}Normal{}, non-{C:joy_spell}Extra Deck{} {C:joy_effect}Effect{},",
-                    "and {C:joy_ritual}Ritual{} {C:attention}Jokers{}",
+                    "{C:joy_normal}Normal{}, non-{C:joy_spell}Extra Deck{} {C:joy_effect}Effect{}, and {C:joy_ritual}Ritual{} {C:attention}Jokers{}",
+                },
+            },
+            pendulum = {
+                name = "[{C:joy_pendulum}Pendulum{} Joker]",
+                text = {
+                    "{C:attention}Jokers{} that can also be used as consumables",
+                    " ",
+                    "{C:joy_spell}Special{} {C:attention}Jokers{} must be properly {C:attention}summoned{} first"
+                },
+            },
+            fieldspell = {
+                name = "[{C:joy_spell}Field Spell{} Joker]",
+                text = {
+                    "Placed in the {C:joy_spell}Field Spell{} area"
                 },
             },
             token = {
@@ -215,59 +129,41 @@ return {
                     "{C:joy_token}Tokens{} don't go to the {C:attention}Graveyard{}"
                 },
             },
-            pendulum = {
-                name = "[{C:joy_pendulum}Pendulum{} Joker]",
+
+            graveyard = {
+                name = "[Graveyard]",
                 text = {
-                    "{C:attention}Jokers{} that can also be used as consumables",
+                    "Abbreviated as {C:attention}GY{}",
+                    "When a {C:joy_normal}Monster{} {C:attention}Joker{} is sold, destroyed",
+                    "or used for a {C:attention}summon{} they go to the {C:attention}Graveyard{}",
+                    "and lose any modifiers"
+                },
+            },
+            revive = {
+                name = "[Revive]",
+                text = {
+                    "Creates and removes a {C:red}random{} card from the {C:attention}GY{} that meets the specified conditions",
+                    "Must have room and might have a random edition {C:inactive}(unless specified){}",
                     " ",
-                    "{C:joy_spell}Special{} {C:attention}Jokers{} must be {C:attention}properly summoned{} first"
+                    "{C:joy_spell}Special{} {C:attention}Jokers{} that were not properly {C:attention}summoned{} can't be revived",
+                    "{C:attention}Revived Jokers{} have a sell value of {C:money}$1"
                 },
             },
-            flip = {
-                name = "[{C:joy_effect}Flip{} Joker]",
+            send = {
+                name = "[Send to the GY]",
                 text = {
-                    "{C:joy_effect}Flip{} {C:attention}Joker{} have {C:joy_effect}FLIP{} abilities",
-                    "that triggers when it's {C:attention}flipped{} face-up",
-                    "lasts until the next end of round {C:inactive}(unless specified)",
-                    "All {C:joy_effect}FLIP{} abilities are once per round",
+                    "Adds {C:red}random{} cards to the {C:attention}GY{} that meet the specified conditions",
+                },
+            },
+
+            extradeck = {
+                name = "[{C:joy_spell}Extra Deck{}]",
+                text = {
+                    "Stores {C:joy_spell}Extra Deck{} {C:attention}Jokers{}",
+                    "Cards in this area don't count as {C:attention}owned{}",
                     " ",
-                    "Note: Cards are flipped by abilities and not manually"
-                },
-            },
-            illusion_joker = {
-                name = "[{C:joy_normal}Illusion{} Joker]",
-                text = {
-                    "{C:attention}Jokers{} with this {C:attention}original type{}",
-                    "{C:attention}banish{} when {C:attention}Blind{} is selected until end of round",
-                },
-            },
-            trap = {
-                name = "[{C:joy_trap}Trap{} Joker]",
-                text = {
-                    "{C:attention}Flips{} when it enters play and at every end of round",
-                },
-            },
-            no_shop = {
-                name = "[Can't be purchased]",
-                text = {
-                    "This card can't be obtained from the shop",
-                    "or non-{C:attention}Monster{} abilities",
-                },
-            },
-            fieldspell = {
-                name = "[{C:joy_spell}Field Spell{} Joker]",
-                text = {
-                    "Placed in the {C:joy_spell}Field Spell{} area"
-                },
-            },
-            special = {
-                name = "[{C:joy_spell}Special{} Joker]",
-                text = {
-                    "{C:attention}Jokers{} that must first be {C:attention}summoned{} by",
-                    "destroying cards listed on their summoning requirements",
-                    "May also enter play from abilities but won't count as properly {C:attention}summoned{}",
-                    " ",
-                    "This includes {C:joy_ritual}Ritual{}, {C:joy_fusion}Fusion{}, {C:joy_synchro}Synchro{}, {C:joy_xyz}Xyz{} and {C:joy_link}Link{} {C:attention}Jokers{}",
+                    "Card may be returned to the {C:joy_spell}Extra Deck{} from the {C:attention}Joker{} slots",
+                    "in which case they must be {C:attention}summoned{} again before entering play"
                 },
             },
             extradeck_joker = {
@@ -280,14 +176,14 @@ return {
                     "{C:attention}Summoned{} Jokers have a sell value equal to their cost"
                 },
             },
-            extradeck = {
-                name = "[{C:joy_spell}Extra Deck{}]",
+            special = {
+                name = "[{C:joy_spell}Special{} Joker]",
                 text = {
-                    "Stores {C:joy_spell}Extra Deck{} {C:attention}Jokers{}",
-                    "Cards in this area don't count as {C:attention}owned{}",
+                    "{C:attention}Jokers{} that must first be {C:attention}summoned{} by",
+                    "destroying cards listed on their summoning requirements",
+                    "May also enter play from abilities but won't count as properly {C:attention}summoned{}",
                     " ",
-                    "Card may be returned to the {C:joy_spell}Extra Deck{} from the {C:attention}Joker{} slots",
-                    "in which case they must be {C:attention}summoned{} again before entering play"
+                    "This includes {C:joy_ritual}Ritual{}, {C:joy_fusion}Fusion{}, {C:joy_synchro}Synchro{}, {C:joy_xyz}Xyz{} and {C:joy_link}Link{} {C:attention}Jokers{}",
                 },
             },
             summon = {
@@ -296,37 +192,87 @@ return {
                     "To enter play, {C:joy_spell}Special{} {C:attention}Jokers{} may be {C:attention}summoned{} by destroying cards",
                     "listed on their summoning requirements",
                     "{C:attention}Jokers{} that enter play this way are said to be properly {C:attention}summoned{}",
-                    "To {C:attention}summon{} a card you must have room after the {C:attention}materials{} have been destroyed,",
-                    "unless specified"
-                },
-            },
-            transfer = {
-                name = "[Transferred abilities]",
-                text = {
-                    "Some cards may make {C:attention}Joker{} gain extra abilities,",
-                    "usually when used as {C:attention}material{}",
-                    "If a {C:attention}Joker{} with a transferred ability is used for a {C:attention}summon{}",
-                    "it will {C:red}not{} transfer these abiltiies, unless specified",
-                    " ",
-                    "Press {C:attention}t{} while hovering a {C:attention}Joker{} to see its transferred abilities"
-                },
-            },
-            enter = {
-                name = "[Enter play]",
-                text = {
-                    "A {C:attention}Joker{} added to the {C:attention}Joker{} slots",
-                    "or the {C:joy_spell}Field Spell{} area for the first time is said to have entered play",
-                    "as well as {C:joy_trap}Opponent{} cards added to the {C:joy_trap}Opponent{} area for the first time",
-                    " ",
-                    "This includes buying non-{C:joy_spell}Special{} {C:attention}Jokers{}, {C:attention}summoning{} {C:joy_spell}Special{} {C:attention}Jokers{},",
-                    "moving a card from the {C:joy_link}Side Deck{} for the first time, {C:attention}reviving{} a card or",
-                    "{C:attention}transforming{} into a card",
+                    "To {C:attention}summon{} a card you must have room",
+                    "after the {C:attention}materials{} have been destroyed {C:inactive}(unless specified){}",
                 },
             },
             material = {
                 name = "[Material]",
                 text = {
-                    "Cards used to summon a {C:attention}Joker{}",
+                    "Cards used to {C:attention}summon{} a {C:attention}Joker{}",
+                },
+            },
+            all_materials = {
+                name = "[Any material]",
+                text = {
+                    "Cards with this property can replace any material required for a {C:attention}summon{}",
+                    " ",
+                    "Only one card with this property can be used each {C:attention}summon{}"
+                },
+            },
+            transfer = {
+                name = "[Transferred abilities]",
+                text = {
+                    "Some cards may make {C:attention}Joker{} gain extra abilities, usually when used as {C:attention}material{}",
+                    "If a {C:attention}Joker{} with a transferred ability is used for a {C:attention}summon{}",
+                    "it will {C:red}not{} transfer these abiltiies {C:inactive}(unless specified){}",
+                    " ",
+                    "Press {C:attention}t{} while hovering a {C:attention}Joker{} to see its transferred abilities"
+                },
+            },
+
+            ritual = {
+                name = "[{C:joy_ritual}Ritual{} Jokers]",
+                text = {
+                    "{C:joy_spell}Special{} {C:attention}Jokers{} that don't go in the {C:joy_spell}Extra Deck{}",
+                    "but are instead {C:attention}summoned{} directly from the shop",
+                    "Can't be bought but may be added to the {C:joy_link}Side Deck{} for free",
+                    " ",
+                    "{C:attention}Materials{} used for a {C:joy_ritual}Ritual{} count as {C:attention}tributed{}",
+                    "and their properties will be checked even if face-down"
+                },
+            },
+            fusion = {
+                name = "[{C:joy_fusion}Fusion{} Joker]",
+                text = {
+                    "{C:joy_spell}Special{} {C:attention}Jokers{} that must first be {C:attention}summoned{} from the {C:joy_spell}Extra Deck{}",
+                    " ",
+                    "{C:attention}Materials{} used for a {C:joy_fusion}Fusion{}",
+                    "will have their properties checked even if face-down"
+                },
+            },
+            synchro = {
+                name = "[{C:joy_synchro}Synchro{} Joker]",
+                text = {
+                    "{C:joy_spell}Special{} {C:attention}Jokers{} that must first be {C:attention}summoned{} from the {C:joy_spell}Extra Deck{}",
+                    " ",
+                    "{C:joy_synchro}Tuners{} are often required as {C:attention}material{}",
+                    "{C:joy_xyz}Xyz{} and {C:joy_link}Links{} can't be used as {C:attention}materials{} {C:inactive}(unless specified){}"
+                },
+            },
+            xyz = {
+                name = "[{C:joy_xyz}Xyz{} Joker]",
+                text = {
+                    "{C:joy_spell}Special{} {C:attention}Jokers{} that must first be {C:attention}summoned{} from the {C:joy_spell}Extra Deck{}",
+                    " ",
+                    "They start with {C:joy_xyz}Xyz{} {C:attention}materials{} equal to the number of {C:attention}materials{} used for the {C:attention}summon",
+                    "{C:joy_xyz}Xyz{}, {C:joy_link}Links{} and {C:joy_token}Tokens{} can't be used as {C:attention}materials{} {C:inactive}(unless specified){}",
+                    "If specified, {C:joy_xyz}Xyz{} used to summon other {C:joy_xyz}Xyz{} may transfer their {C:joy_xyz}Xyz{} {C:attention}materials{}",
+                },
+            },
+            link = {
+                name = "[{C:joy_link}Link{} Joker]",
+                text = {
+                    "{C:joy_spell}Special{} {C:attention}Jokers{} that must first be {C:attention}summoned{} from the {C:joy_spell}Extra Deck{}",
+                    " ",
+                    "{C:joy_link}Links{} can't be {C:attention}flipped{} face-down"
+                },
+            },
+
+            tuner = {
+                name = "[{C:joy_synchro}Tuner{} Joker]",
+                text = {
+                    "Used as {C:attention}material{} for {C:joy_synchro}Synchro{} {C:attention}summons{}",
                 },
             },
             xyz_material = {
@@ -351,59 +297,171 @@ return {
                     "Add {C:joy_xyz}Xyz{} {C:attention}materials{} to a card",
                     " ",
                     "{C:joy_xyz}Xyz{} {C:attention}materials{} might be added directly by an ability",
-                    "or the may {C:attention}attach{} another card, in which case that card is removed",
+                    "or they may {C:attention}attach{} another card, in which case that card is removed",
                     "from that location but doesn't count as a {C:attention}summon material{} and doesn't {C:attention}transfers{} abilities"
                 },
             },
-            ritual = {
-                name = "[{C:joy_ritual}Ritual{} Jokers]",
+            counter = {
+                name = "[Counters]",
                 text = {
-                    "{C:joy_spell}Special{} {C:attention}Jokers{} that don't go in the {C:joy_spell}Extra Deck{}",
-                    "but are instead {C:attention}summoned{} directly from the shop instead",
-                    "Can't be bought but may be added to the {C:joy_link}Side Deck{} for free",
-                    " ",
-                    "{C:attention}Materials{} used for a {C:joy_ritual}Ritual{} count as {C:attention}tributed{}",
-                    "and their properties will be checked even if face-down"
+                    "Some cards might have counters that are placed on the card",
+                    "and used by abilities"
                 },
             },
-            fusion = {
-                name = "[{C:joy_fusion}Fusion{} Joker]",
+
+            facedown = {
+                name = "[Face-down]",
                 text = {
-                    "{C:joy_spell}Special{} {C:attention}Jokers{} that must first be {C:attention}summoned{}",
-                    "from the {C:joy_spell}Extra Deck{}",
+                    "{C:attention}Flipped {C:joy_normal}Monster{} {C:attention}Jokers{} can't use their abilities {C:inactive}(unless specified)",
+                    "and count as blank {C:attention}Jokers{} for abilities and {C:attention}summons{} {C:inactive}(except Ritual and Fusion){}",
                     " ",
-                    "{C:attention}Materials{} used for a {C:joy_fusion}Fusion{}",
-                    "will have their properties checked even if face-down"
+                    "{C:joy_link}Links{} can't be face-down",
+                    "{C:attention}Editions{} still apply"
+                }
+            },
+            flip = {
+                name = "[{C:joy_effect}Flip{} Joker]",
+                text = {
+                    "{C:joy_effect}Flip{} {C:attention}Joker{} have {C:joy_effect}FLIP{} abilities that triggers when it's {C:attention}flipped{} face-up",
+                    "and lasts until the next end of round {C:inactive}(unless specified){}",
+                    "All {C:joy_effect}FLIP{} abilities are once per round",
+                    " ",
+                    "{C:red}Note{}: Cards are flipped by abilities and not manually"
                 },
             },
-            synchro = {
-                name = "[{C:joy_synchro}Synchro{} Joker]",
+            trap = {
+                name = "[{C:joy_trap}Trap{} Joker]",
                 text = {
-                    "{C:joy_spell}Special{} {C:attention}Jokers{} that must first be {C:attention}summoned{}",
-                    "from the {C:joy_spell}Extra Deck{}",
-                    " ",
-                    "{C:joy_synchro}Tuners{} are often required as {C:attention}material{}",
-                    "{C:joy_xyz}Xyz{} and {C:joy_link}Links{} can't be used as {C:attention}materials{}, unless specified"
+                    "{C:attention}Flips{} when it enters play and at every end of round",
                 },
             },
-            xyz = {
-                name = "[{C:joy_xyz}Xyz{} Joker]",
+
+            banish = {
+                name = "[Banish]",
                 text = {
-                    "{C:joy_spell}Special{} {C:attention}Jokers{} that must first be {C:attention}summoned{}",
-                    "from the {C:joy_spell}Extra Deck{}",
+                    "Card leaves the area and temporarily goes into {C:attention}banishment{} until a specified time",
+                    "They can return even if you don't have room {C:inactive}(unless specified){}",
                     " ",
-                    "They start with {C:joy_xyz}Xyz{} {C:attention}materials{} equal to the number of {C:attention}materials{} used for the {C:attention}summon",
-                    "{C:joy_xyz}Xyz{}, {C:joy_link}Links{} and {C:joy_token}Tokens{} can't be used as {C:attention}materials{}, unless specified",
-                    "If specified, {C:joy_xyz}Xyz{} used to summon other {C:joy_xyz}Xyz{} may transfer their {C:joy_xyz}Xyz{} {C:attention}materials{}",
+                    "{C:attention}Banished{} cards return before all other abilities activate",
                 },
             },
-            link = {
-                name = "[{C:joy_link}Link{} Joker]",
+            illusion_joker = {
+                name = "[{C:joy_normal}Illusion{} Joker]",
                 text = {
-                    "{C:joy_spell}Special{} {C:attention}Jokers{} that must first be {C:attention}summoned{}",
-                    "from the {C:joy_spell}Extra Deck{}",
+                    "{C:attention}Jokers{} with this {C:attention}original type{}",
+                    "{C:attention}banish{} when {C:attention}Blind{} is selected until end of round",
+                },
+            },
+
+            activated = {
+                name = "[Activated abilities]",
+                text = {
+                    "Cards that say \"You can\" have abiltiies that may be activated once the conditions are met",
+                    "\"{C:joy_xyz}Detach{} {C:attention}X{}\" abilities are also considered activated",
                     " ",
-                    "{C:joy_link}Links{} can't be {C:attention}flipped{} face-down"
+                    "To activate an ability click on the button under the {C:green}sell{} button"
+                },
+            },
+            tribute = {
+                name = "[Tribute]",
+                text = {
+                    "Abilities may {C:attention}tribute{} cards and destroy them",
+                    "These act like any other destroyed card but may be relevant to other abilities"
+                },
+            },
+            transform = {
+                name = "[Transform]",
+                text = {
+                    "Changes a {C:attention}Joker{} into another",
+                    "Keeps any modifiers",
+                }
+            },
+            excavate = {
+                name = "[Excavate]",
+                text = {
+                    "Reveals the top cards of the deck up to the maximum number listed on a card",
+                    "Each card may {C:attention}check{} the top {C:attention}X{} cards excavated",
+                    "or excavate until they hit a specific card",
+                    " ",
+                    "If not specified, this occurs when {C:attention}Blind{} is selected",
+                }
+            },
+            column = {
+                name = "[Column]",
+                text = {
+                    "Cards in play areas are in different {C:attention}columns{} according to the slot they occupy",
+                    "with the leftmost slot being {C:attention}column 1{}",
+                    " ",
+                    "Cards are said to be in the same {C:attention}columns{}",
+                    "if they occupy the same slot relative to their area",
+                    "(i.e. the leftmost played card and the leftmost {C:attention}Joker{} are both in the same {C:attention}column 1{})"
+                }
+            },
+
+            opponent = {
+                name = "[{C:joy_trap}Opponent{} card]",
+                text = {
+                    "Placed in the {C:joy_trap}Opponent{} area",
+                    "If the area goes over capacity the oldest non-{C:dark_edition}Negative{} card will be destroyed",
+                    "These cards don't count as owned for abilities"
+                }
+            },
+            blinds = {
+                name = "[{C:joy_mod}JoyousSpring{} Blinds]",
+                text = {
+                    "{C:attention}Blinds{} from this mod have special properties",
+                    "Some {C:attention}Blinds{} might have ante-wide abilities",
+                    " ",
+                    "Losing to any of these {C:attention}Blinds{}",
+                    "(including previous {C:attention}Blinds{} that ante if it has ante-wide abilities)",
+                    "will create a special card in the {C:joy_trap}Opponent{} area instead of causing a {C:red}game over",
+                    "This will only happen once per {C:attention}Blind{}, aften then the {C:attention}Blind{} becomes debuffed",
+                }
+            },
+            blind_card = {
+                name = "[Blind card]",
+                text = {
+                    "Special {C:joy_trap}Opponent{} card associated with a {C:attention}Blind{}",
+                }
+            },
+
+            sidedeck = {
+                name = "[{C:joy_link}Side Deck{}]",
+                text = {
+                    "Allows saving {C:attention}Jokers{} between rounds",
+                    "Cards may be bought directly to the {C:joy_link}Side Deck{} if it has room",
+                    " ",
+                    "Drag {C:attention}Jokers{} during the {C:joy_link}Side Deck{} stage",
+                    "to move them between areas or use them as {C:attention}materials{} for {C:attention}summons{}",
+                    " ",
+                    "Preview version note: This is a WIP feature, in the full release cards in the Side Deck",
+                    "may be checked and sold at any time"
+                }
+            },
+
+            enter = {
+                name = "[Enter play]",
+                text = {
+                    "A {C:attention}Joker{} added to the {C:attention}Joker{} slots",
+                    "or the {C:joy_spell}Field Spell{} area for the first time is said to have entered play",
+                    "Also applies to {C:joy_trap}Opponent{} cards added to the {C:joy_trap}Opponent{} area for the first time",
+                    " ",
+                    "This includes buying non-{C:joy_spell}Special{} {C:attention}Jokers{}, {C:attention}summoning{} {C:joy_spell}Special{} {C:attention}Jokers{},",
+                    "moving a card from the {C:joy_link}Side Deck{} to an play area for the first time,",
+                    "{C:attention}reviving{} a card or {C:attention}transforming{} into a card",
+                },
+            },
+            modifier = {
+                name = "[Modifier]",
+                text = {
+                    "{C:attention}Editions{}, {C:attention}Enhancements{},",
+                    "{C:attention}Seals{} or {C:attention}Stickers{}"
+                }
+            },
+            no_shop = {
+                name = "[Can't be purchased]",
+                text = {
+                    "This card can't be obtained from the shop or non-{C:attention}Monster{} abilities",
                 },
             },
         }

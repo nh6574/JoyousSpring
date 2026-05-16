@@ -22,6 +22,7 @@ JoyousSpring.Joker({
         { "j_joy_ltwin_kisikil",                                                                             name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "enter" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -85,6 +86,7 @@ JoyousSpring.Joker({
         { "j_joy_ltwin_lilla",                                                                               name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "enter" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -272,14 +274,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 4,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_main_deck_joker" }
-        end
         return { vars = { card.ability.extra.mult, card.ability.extra.h_size, card.ability.extra.mills, card.ability.extra.adds } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "maindeck", "send", "graveyard", "extradeck", "material", "link" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -357,14 +357,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-        end
         return { vars = { card.ability.extra.mult, card.ability.extra.h_size, card.ability.extra.revives } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "enter", "revive" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -449,14 +447,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-        end
         return { vars = { card.ability.extra.chips, card.ability.extra.money, card.ability.extra.revives } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "enter", "revive" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -552,6 +548,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "graveyard", "revive" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -612,15 +609,13 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 8,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-        end
         return { vars = { card.ability.extra.chips, card.ability.extra.mult, card.ability.extra.revives } }
     end,
     joy_desc_cards = {
         { "j_joy_etwin_kisikil",                                                                             "j_joy_etwin_lilla",     name = "Revives" },
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "extradeck", "revive" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -710,15 +705,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-        end
         return { vars = { card.ability.extra.tributes, card.ability.extra.revives } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "revive" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

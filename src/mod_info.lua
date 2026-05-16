@@ -245,10 +245,6 @@ function G.FUNCS.joy_open_config(e)
 end
 
 SMODS.current_mod.extra_tabs = function()
-    local glossary = {}
-    for key, _ in pairs(G.localization.misc.joyous_spring) do
-        glossary[#glossary + 1] = key
-    end
     return {
         {
             label = localize("k_joy_credits"),
@@ -279,7 +275,7 @@ SMODS.current_mod.extra_tabs = function()
         {
             label = localize("k_joy_glossary"),
             tab_definition_function = glossary_tab,
-            tab_definition_function_args = { joy_glossary = glossary }
+            tab_definition_function_args = { joy_glossary = true }
         }
     }
 end

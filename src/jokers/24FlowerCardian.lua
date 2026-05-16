@@ -57,10 +57,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 3,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
-        end
         return {
             vars = {
                 card.ability.extra.mult,
@@ -75,6 +71,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "graveyard", "excavate", "banish" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -147,15 +144,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
-        end
         return { vars = { card.ability.extra.mult, card.ability.extra.excavates, card.ability.extra.draws, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "excavate", "banish" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -227,10 +221,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 3,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
-        end
         return {
             vars = { card.ability.extra.mult, card.ability.extra.mult *
             JoyousSpring.count_all_materials({ { monster_archetypes = { "FlowerCardian" } } }), card.ability.extra
@@ -240,6 +230,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "graveyard", "excavate", "banish" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -312,15 +303,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
-        end
         return { vars = { card.ability.extra.mult, card.ability.extra.excavates, card.ability.extra.draws, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "excavate", "banish" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -392,15 +380,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 7,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
-        end
         return { vars = { card.ability.extra.xmult, card.ability.extra.excavates, card.ability.extra.draws, card.ability.extra.adds, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "extradeck", "excavate", "banish" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -474,15 +459,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 7,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
-        end
         return { vars = { card.ability.extra.xmult, card.ability.extra.excavates, card.ability.extra.draws, card.ability.extra.adds, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "extradeck", "excavate", "banish" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -555,10 +537,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 3,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
-        end
         return {
             vars = { card.ability.extra.money, card.ability.extra.money *
             JoyousSpring.count_all_materials({ { monster_archetypes = { "FlowerCardian" } } }), card.ability.extra
@@ -568,6 +546,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "graveyard", "excavate", "banish" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -640,15 +619,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
-        end
         return { vars = { card.ability.extra.excavates, card.ability.extra.draws, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "excavate", "banish" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -719,15 +695,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 7,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
-        end
         return { vars = { card.ability.extra.xmult, card.ability.extra.excavates, card.ability.extra.draws, card.ability.extra.adds, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "excavate", "banish" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -800,10 +773,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 3,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
-        end
         return {
             vars = { card.ability.extra.money, card.ability.extra.money *
             JoyousSpring.count_all_materials({ { monster_archetypes = { "FlowerCardian" } } }), card.ability.extra
@@ -813,6 +782,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "graveyard", "excavate", "banish" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -885,16 +855,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-        end
         return { vars = { card.ability.extra.excavates, card.ability.extra.revives, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "revive", "excavate", "banish" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -961,10 +927,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 3,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
-        end
         return {
             vars = { card.ability.extra.mult, card.ability.extra.mult *
             JoyousSpring.count_all_materials({ { monster_archetypes = { "FlowerCardian" } } }), card.ability.extra
@@ -974,6 +936,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "graveyard", "excavate", "banish" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1046,15 +1009,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
-        end
         return { vars = { card.ability.extra.mult, card.ability.extra.excavates, card.ability.extra.draws, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "excavate", "banish" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1128,7 +1088,6 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_koikoihand" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
         end
         return { vars = { card.ability.extra.banish } }
     end,
@@ -1138,6 +1097,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1200,7 +1160,6 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_koikoihand" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
         end
         return { vars = { card.ability.extra.draws } }
     end,
@@ -1210,6 +1169,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "material", "synchro" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1340,8 +1300,6 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_koikoihand" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_excavate" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
         end
         return { vars = { card.ability.extra.mult, card.ability.extra.current_mult, card.ability.extra.revives } }
     end,
@@ -1351,6 +1309,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FlowerCardian" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "excavate", "revive" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

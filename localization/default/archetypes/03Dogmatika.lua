@@ -97,7 +97,7 @@ return {
                 name = "{C:joy_effect}Dogmatika Nexus",
                 text = {
                     {
-                        "{C:attention}Duplicates #1#{} random {{C:joy_spell}Extra Deck{} {C:attention}Jokers{}",
+                        "{C:attention}Copies #1#{} random {{C:joy_spell}Extra Deck{} {C:attention}Jokers{}",
                         "at end of round",
                         "{C:inactive}(The copy will be debuffed and{} {C:dark_edition}Negative{}{C:inactive}){}",
                     },

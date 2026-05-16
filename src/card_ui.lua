@@ -399,6 +399,9 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
                     loc_vars = self:loc_vars({}, card) or {}
                 end
                 localize { type = "joy_consumable", set = self.set, key = self.key, nodes = full_UI_table.joy_consumable, vars = loc_vars.vars or {} }
+                if not card.fake_card and not card.debuff then
+                    table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_pendulum_joker" })
+                end
             end
 
             local is_monster = type(card.ability.extra) == "table" and card.ability.extra.joyous_spring
@@ -443,28 +446,43 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
                 end
             end
 
-            if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-                -- Add tooltip if it's a trap
-                if JoyousSpring.is_trap_monster(card) then
-                    table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_trap" })
-                end
-                -- Add tooltip if it's an illusion
-                if is_monster and card.ability.extra.joyous_spring.monster_type == "Illusion" then
-                    table.insert(info_queue, 1,
-                        { set = "Other", key = "joy_tooltip_illusion_joker", vars = { scale = 0.5 } })
+            -- Add tooltip if it can't be bought in the shop
+            if self.joy_no_shop and not card.fake_card then
+                if not card.fake_card then
+                    table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_no_shop" })
                 end
             end
 
             -- Add tooltip if it's face-down
-            if card.facing == 'back' and JoyousSpring.is_from_joyousspring(card) then
+            if card.facing == 'back' and JoyousSpring.is_from_joyousspring(card) and not card.fake_card then
                 if not card.fake_card then
                     table.insert(info_queue, 1, { set = "Other", key = "joy_face_down" })
                 end
+            end
+
+            -- Add tooltip if it's a trap
+            if JoyousSpring.is_trap_monster(card) and not card.fake_card and not card.debuffed then
+                table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_trap" })
+            end
+            -- Add tooltip if it's an illusion
+            if is_monster and card.ability.extra.joyous_spring.monster_type == "Illusion" and not card.fake_card and not card.debuffed then
+                table.insert(info_queue, 1,
+                    { set = "Other", key = "joy_tooltip_illusion_joker", vars = { scale = 0.5 } })
+            end
+
+            -- Add tooltip if it's face-down
+            if card.facing == 'back' and JoyousSpring.is_from_joyousspring(card) and not card.fake_card then
+                table.insert(info_queue, 1, { set = "Other", key = "joy_face_down" })
             end
             -- Add tooltip if it has alt arts
             if self.joy_alt_pos and not card.fake_card then
                 table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_alt_art" })
             end
+        end
+
+        -- Add tooltip if it has a glossary
+        if self.joy_glossary and not card.fake_card then
+            table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_glossary" })
         end
 
         -- Add tooltip if it has a related cards menu
@@ -661,9 +679,60 @@ SMODS.Keybind({
     end
 })
 
-local TABS_MINH, TABS_MINW = 8, 12.5
+local TABS_MINH, TABS_MINW = 8, 15.5
 
-local create_glossary_row = function(key)
+local glossary_order = {
+    "monster", "normal", "effect", "maindeck", "pendulum", "fieldspell", "token",
+    "graveyard", "revive", "send",
+    "extradeck", "extradeck_joker", "special", "summon", "material", "all_materials", "transfer",
+    "ritual", "fusion", "synchro", "xyz", "link",
+    "tuner", "xyz_material", "detach", "attach", "counter",
+    "facedown", "flip", "trap",
+    "banish", "illusion_joker",
+    "activated", "tribute", "transform", "excavate", "column",
+    "opponent", "blinds", "blind_card",
+    "sidedeck",
+    "enter", "modifier",
+} -- Excluded: no_shop
+
+local glossary_extra = {
+    effect = { "monster" },
+    maindeck = { "normal", "effect", "ritual" },
+    token = { "normal" },
+
+    graveyard = { "monster" },
+    revive = { "graveyard", "special" },
+    send = { "graveyard" },
+
+    extradeck = { "extradeck_joker", "summon" },
+    extradeck_joker = { "extradeck", "fusion", "synchro", "xyz", "link" },
+    special = { "summon", "ritual", "fusion", "synchro", "xyz", "link" },
+    summon = { "special", "material" },
+    material = { "summon" },
+    transfer = { "material", "summon" },
+
+    ritual = { "special", "material", "tribute", "sidedeck", "summon" },
+    fusion = { "special", "material", "summon", "extradeck" },
+    synchro = { "special", "material", "summon", "tuner", "extradeck" },
+    xyz = { "special", "material", "summon", "xyz_material", "extradeck" },
+    link = { "special", "material", "summon", "tuner", "extradeck" },
+
+    tuner = { "material", "summon", "synchro" },
+    xyz_material = { "xyz", "material", "summon", "counter" },
+    detach = { "xyz_material" },
+    attach = { "xyz_material" },
+
+    facedown = { "monster" },
+    flip = { "facedown" },
+    trap = { "facedown" },
+
+    illusion_joker = { "banish" },
+
+    blinds = { "opponent" },
+    blind_card = { "blinds", "opponent" }
+}
+
+local create_glossary_row = function(key, main)
     if not G.localization.misc.joyous_spring[key] then return end
 
     local text_nodes = {}
@@ -688,7 +757,7 @@ local create_glossary_row = function(key)
 
     return {
         n = G.UIT.R,
-        config = { align = "cm", padding = 0.07, minw = 10, r = 0.2, colour = darken(G.C.JOY.XYZ, 0.7) },
+        config = { align = "cm", padding = 0.07, minw = 12, r = 0.2, colour = darken(G.C.JOY.XYZ, 0.7), outline = main and 0.8 or 0, outline_colour = main and G.C.GOLD or G.C.CLEAR },
         nodes = {
             {
                 n = G.UIT.C,
@@ -727,11 +796,34 @@ glossary_tab = function(t)
     if not t.joy_glossary and not (card_center or {}).joy_glossary then return end
 
     local glossary_rows = {}
+    local glossary_hash = {}
 
-    for _, glossary_key in ipairs(card_center.joy_glossary or t.joy_glossary) do
-        local row = create_glossary_row(glossary_key)
-        if row then glossary_rows[#glossary_rows + 1] = row end
+    local glossary_extra_tooltips = {}
+    local glossary_extra_hash = {}
+
+    for _, glossary_key in ipairs(card_center.joy_glossary or (t.joy_glossary == true and glossary_order) or t.joy_glossary) do
+        if not glossary_hash[glossary_key] then
+            local row = create_glossary_row(glossary_key, true)
+            glossary_hash[glossary_key] = true
+            if glossary_extra[glossary_key] then
+                for _, tooltip_key in ipairs(glossary_extra[glossary_key]) do
+                    if not glossary_hash[tooltip_key] and not glossary_extra_hash[tooltip_key] then
+                        glossary_extra_tooltips[#glossary_extra_tooltips + 1] = tooltip_key
+                    end
+                    glossary_extra_hash[tooltip_key] = true
+                end
+            end
+            if row then glossary_rows[#glossary_rows + 1] = row end
+        end
     end
+    for _, glossary_key in ipairs(glossary_extra_tooltips) do
+        if not glossary_hash[glossary_key] then
+            local row = create_glossary_row(glossary_key)
+            glossary_hash[glossary_key] = true
+            if row then glossary_rows[#glossary_rows + 1] = row end
+        end
+    end
+
 
     local scrollbox = SMODS.UIScrollBox({
         content = {
@@ -1083,7 +1175,7 @@ local related_tab = function(t)
     }
 end
 
----Creates overlay to see cards mentioned in the text
+---Creates overlay to see cards mentioned in the text or the glossary
 ---@param card table|Card|string
 ---@param from_glossary boolean?
 JoyousSpring.create_overlay_see_related = function(card, from_glossary)
@@ -1095,7 +1187,7 @@ JoyousSpring.create_overlay_see_related = function(card, from_glossary)
         card_center = card.config.center
     end
 
-    if not card_center or not card_center.joy_desc_cards or not type(card_center.joy_desc_cards) == "table" then return end
+    if not card_center then return end
 
     if JoyousSpring.related_area then
         for _, area in ipairs(JoyousSpring.related_area) do
@@ -1115,14 +1207,16 @@ JoyousSpring.create_overlay_see_related = function(card, from_glossary)
         }
     end
 
-    for i, area_cards in ipairs(card_center.joy_desc_cards) do
-        local area_tab = {
-            label = localize(area_cards.name) ~= "ERROR" and localize(area_cards.name) or localize("k_joy_related"),
-            chosen = not from_glossary and i == 1,
-            tab_definition_function = related_tab,
-            tab_definition_function_args = { area_table = JoyousSpring.related_area, area_cards = area_cards }
-        }
-        table.insert(tabs, area_tab)
+    if card_center.joy_desc_cards then
+        for i, area_cards in ipairs(card_center.joy_desc_cards) do
+            local area_tab = {
+                label = localize(area_cards.name) ~= "ERROR" and localize(area_cards.name) or localize("k_joy_related"),
+                chosen = not from_glossary and i == 1,
+                tab_definition_function = related_tab,
+                tab_definition_function_args = { area_table = JoyousSpring.related_area, area_cards = area_cards }
+            }
+            table.insert(tabs, area_tab)
+        end
     end
 
     local colour = G.C.JOY.XYZ

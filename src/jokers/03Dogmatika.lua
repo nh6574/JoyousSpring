@@ -7,13 +7,13 @@ SMODS.Atlas({
 })
 
 local is_debuffed_extra_deck = function(card)
-    return not not (card.debuff and JoyousSpring.is_extra_deck_monster(card) or
+    return not not ((card or {}).debuff and JoyousSpring.is_extra_deck_monster(card) or
         (next(SMODS.find_card("j_joy_dogma_thunderbolt")) and JoyousSpring.is_monster_archetype(card, "Dogmatika")))
 end
 
 local is_dogmatika = function(card)
     return not not (JoyousSpring.is_monster_archetype(card, "Dogmatika") or
-        (next(SMODS.find_card("j_joy_dogma_thunderbolt")) and card.debuff and JoyousSpring.is_extra_deck_monster(card)))
+        (next(SMODS.find_card("j_joy_dogma_thunderbolt")) and (card or {}).debuff and JoyousSpring.is_extra_deck_monster(card)))
 end
 
 local get_debuffed_ed_count = function()
@@ -38,14 +38,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 7,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_extra_deck_joker" }
-        end
         return { vars = { card.ability.extra.base_xmult, card.ability.extra.xmult } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "extradeck_joker" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -102,6 +100,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "extradeck_joker" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -174,14 +173,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 8,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_extra_deck_joker" }
-        end
         return { vars = { card.ability.extra.xmult } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "extradeck_joker" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -249,14 +246,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 2,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_extra_deck_joker" }
-        end
         return { vars = { card.ability.extra.cards_to_create } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "extradeck_joker" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -293,14 +288,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 4,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_extra_deck_joker" }
-        end
         return { vars = { card.ability.extra.cards_to_create } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "maindeck", "extradeck_joker" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -339,14 +332,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 3,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_extra_deck_joker" }
-        end
         return { vars = { card.ability.extra.chips, card.ability.extra.extra_chips, card.ability.extra.chips + card.ability.extra.extra_chips * get_debuffed_ed_count() } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "extradeck_joker" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -397,15 +388,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 2,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_extra_deck_joker" }
-        end
         return { vars = { card.ability.extra.revives, card.ability.extra.adds } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "revive", "enter", "ritual", "extradeck_joker" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -461,14 +449,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 6,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_extra_deck_joker" }
-        end
         return { vars = { card.ability.extra.duplicates } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "extradeck_joker" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -511,9 +497,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_extra_deck_joker" }
-        end
         return {
             vars = {
                 card.ability.extra.base_h_size,
@@ -521,12 +504,12 @@ JoyousSpring.Joker({
                 math.floor(get_debuffed_ed_count() /
                     card.ability.extra.debuffed_ed_count)
             }
-
         }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "extradeck_joker", "graveyard" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -582,14 +565,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_extra_deck_joker" }
-        end
         return { vars = { card.ability.extra.mult, get_debuffed_ed_count() * card.ability.extra.mult } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "extradeck_joker" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -665,15 +646,13 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_extra_deck_joker" }
-        end
         local debuffed_ed_count = get_debuffed_ed_count()
         return { vars = { card.ability.extra.mills, card.ability.extra.xmult, 1 + debuffed_ed_count * card.ability.extra.xmult } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "send", "extradeck_joker", 'maindeck' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -743,16 +722,13 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 6,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_extra_deck_joker" }
-        end
         local debuffed_ed_count = get_debuffed_ed_count()
         return { vars = { card.ability.extra.money, card.ability.extra.money * debuffed_ed_count, card.ability.extra.tributes, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dogmatika" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "extradeck_joker", "tribute" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

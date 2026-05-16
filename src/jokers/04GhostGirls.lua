@@ -73,7 +73,6 @@ JoyousSpring.Joker({
     end
 })
 
-
 -- Ghost Reaper & Winter Cherries
 JoyousSpring.Joker({
     key = "yokai_reaper",
@@ -84,11 +83,9 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 12,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_extra_deck_joker" }
-        end
         return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * JoyousSpring.count_materials_in_graveyard({ { is_extra_deck = true } }) } }
     end,
+    joy_glossary = { "extradeck_joker", "graveyard" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -128,8 +125,6 @@ JoyousSpring.Joker({
         }
     end
 })
-
-
 
 -- Ash Blossom & Joyous Spring
 JoyousSpring.Joker({
@@ -200,11 +195,9 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 12,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-        end
         return { vars = { card.ability.extra.base_xmult, card.ability.extra.xmult } }
     end,
+    joy_glossary = { "revive" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -246,9 +239,6 @@ JoyousSpring.Joker({
         }
     end
 })
-
-
-
 
 -- Ghost Sister & Spooky Dogwood
 JoyousSpring.Joker({
@@ -325,8 +315,6 @@ JoyousSpring.Joker({
     end
 })
 
-
-
 -- Ghost Mourner & Moonlit Chill
 JoyousSpring.Joker({
     key = "yokai_mourner",
@@ -339,6 +327,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.base_xmult, card.ability.extra.xmult } }
     end,
+    joy_glossary = { "enter" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

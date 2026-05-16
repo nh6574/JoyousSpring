@@ -51,16 +51,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 8,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return { vars = { card.ability.extra.tributes, card.ability.extra.chips } }
     end,
     joy_desc_cards = {
         { "j_joy_invoked_meltdown", properties = { { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Invoked" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "transform", "material", "fusion" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -130,16 +126,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_material" }
-        end
         return { vars = { card.ability.extra.tributes, card.ability.extra.creates, card.ability.extra.mult } }
     end,
     joy_desc_cards = {
         { "j_joy_invoked_meltdown", properties = { { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Invoked" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "transform", "material", "fusion" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -231,16 +223,12 @@ JoyousSpring.Joker({
     cost = 8,
     joy_no_shop = true,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
-        end
         return { vars = { card.ability.extra.tributes, card.ability.extra.xmult, 1 + card.ability.extra.xmult * JoyousSpring.count_set_tributed("Joker", true), card.ability.extra.reduces } }
     end,
     joy_desc_cards = {
         { "j_joy_invoked_meltdown", properties = { { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Invoked" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "transform" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -398,16 +386,12 @@ JoyousSpring.Joker({
     cost = 8,
     joy_no_shop = true,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
-        end
         return { vars = { card.ability.extra.tributes, card.ability.extra.xmult, 1 + card.ability.extra.xmult * JoyousSpring.get_flipped_count("Joker"), card.ability.extra.flips } }
     end,
     joy_desc_cards = {
         { "j_joy_invoked_meltdown", properties = { { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Invoked" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "transform", "facedown" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -531,16 +515,12 @@ JoyousSpring.Joker({
     cost = 8,
     joy_no_shop = true,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
-        end
         return { vars = { card.ability.extra.tributes, card.ability.extra.percent * 100 } }
     end,
     joy_desc_cards = {
         { "j_joy_invoked_meltdown", properties = { { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Invoked" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "transform" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -635,16 +615,12 @@ JoyousSpring.Joker({
     cost = 8,
     joy_no_shop = true,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
-        end
         return { vars = { card.ability.extra.tributes, card.ability.extra.xmult } }
     end,
     joy_desc_cards = {
         { "j_joy_invoked_meltdown", properties = { { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Invoked" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "transform" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -738,16 +714,12 @@ JoyousSpring.Joker({
     cost = 8,
     joy_no_shop = true,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
-        end
         return { vars = { card.ability.extra.tributes, card.ability.extra.mult } }
     end,
     joy_desc_cards = {
         { "j_joy_invoked_meltdown", properties = { { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Invoked" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "transform" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -839,16 +811,12 @@ JoyousSpring.Joker({
     cost = 8,
     joy_no_shop = true,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
-        end
         return { vars = { card.ability.extra.tributes, card.ability.extra.sell, card.ability.extra.sold } }
     end,
     joy_desc_cards = {
         { "j_joy_invoked_meltdown", properties = { { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Invoked" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "transform" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -952,16 +920,12 @@ JoyousSpring.Joker({
     cost = 10,
     joy_no_shop = true,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
-        end
         return { vars = { card.ability.extra.tributes, card.ability.extra.xmult, 1 + card.ability.extra.xmult * JoyousSpring.count_materials_in_graveyard({ { summon_type = "FUSION" } }), card.ability.extra.mills } }
     end,
     joy_desc_cards = {
         { "j_joy_invoked_meltdown", properties = { { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Invoked" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "transform", "graveyard", "send" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1084,16 +1048,12 @@ JoyousSpring.Joker({
     cost = 12,
     joy_no_shop = true,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_tribute" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
-        end
         return { vars = { card.ability.extra.tributes } }
     end,
     joy_desc_cards = {
         { "j_joy_invoked_meltdown", properties = { { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Invoked" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "transform", "graveyard", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1170,6 +1130,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_invoked_meltdown", properties = { { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Invoked" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "fusion", "summon" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

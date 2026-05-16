@@ -93,7 +93,7 @@ return {
                 name = "{C:joy_effect}Farfa, Malebranche of the Burning Abyss",
                 text = {
                     {
-                        "{C:attention}Banishes{} {C:attention}#1#{} other Joker when obtained",
+                        "{C:attention}Banishes{} {C:attention}#1#{} other Joker when {C:attention}entering play{}",
                         "until end of round",
                     },
                     {

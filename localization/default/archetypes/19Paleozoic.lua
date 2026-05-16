@@ -130,7 +130,7 @@ return {
                         "{C:inactive}(Currently {X:mult,C:white}X#3#{} {C:inactive}Mult)",
                     },
                     {
-                        "Attach {C:attention}#4# {C:joy_xyz}material{} to this card when a {C:joy_trap}Trap{} is flipped face-up",
+                        "Attach {C:attention}#4# {C:attention}material{} to this card when a {C:joy_trap}Trap{} is flipped face-up",
                     },
                     {
                         "Can't be debuffed",

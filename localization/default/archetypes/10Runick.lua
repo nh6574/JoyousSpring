@@ -49,7 +49,7 @@ return {
                         "{C:inactive}(Must have room){}",
                     },
                     {
-                        "Sell this summoned card to create up to",
+                        "Sell this {C:attention}summoned{} card to create up to",
                         "{C:attention}#3#{} {C:tarot}Tarot{} cards",
                         "{C:inactive}(Must have room)",
                     },
@@ -71,7 +71,7 @@ return {
                         "when a {C:tarot}Tarot{} card is used during a {C:attention}Blind{}",
                     },
                     {
-                        "Sell this summoned card to create up to",
+                        "Sell this {C:attention}summoned{} card to create up to",
                         "{C:attention}#3#{} {C:tarot}Tarot{} cards",
                         "{C:inactive}(Must have room)",
                     },

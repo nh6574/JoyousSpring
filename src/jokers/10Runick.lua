@@ -22,6 +22,7 @@ JoyousSpring.Joker({
         { "j_joy_runick_fountain",                                name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Runick" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "enter", "extradeck" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -77,6 +78,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Runick" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "enter", "extradeck" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -159,6 +161,7 @@ JoyousSpring.Joker({
         { "j_joy_runick_fountain",                                name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Runick" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "enter", "extradeck", "summon" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -227,6 +230,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Runick" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "enter", "extradeck" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -294,14 +298,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
-        end
         return { vars = { card.ability.extra.adds, card.ability.extra.cards_to_create } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Runick" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "enter", "extradeck", "banish" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

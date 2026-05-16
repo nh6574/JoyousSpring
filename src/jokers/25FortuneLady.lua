@@ -48,9 +48,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
-        end
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
             card.ability.extra.odds, self.key)
         return { vars = { numerator, denominator, card.ability.extra.banishes, card.ability.extra.money, card.ability.extra.money * math.min(numerator, denominator), card.ability.extra.increases } }
@@ -58,6 +55,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -439,9 +437,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 6,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-        end
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
             card.ability.extra.odds, self.key)
         return { vars = { numerator, denominator, card.ability.extra.revives, card.ability.extra.mult, card.ability.extra.mult * math.min(numerator, denominator), card.ability.extra.increases } }
@@ -449,6 +444,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "revive" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -548,9 +544,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_main_deck_joker" }
-        end
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
             card.ability.extra.odds, self.key)
         return { vars = { numerator, denominator, card.ability.extra.creates, card.ability.extra.xmult, 1 + card.ability.extra.xmult * card.ability.extra.increased, card.ability.extra.increases } }
@@ -558,6 +551,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "maindeck" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -646,9 +640,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 6,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
-        end
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
             card.ability.extra.odds, self.key)
         return { vars = { numerator, denominator, card.ability.extra.xmult, 1 + card.ability.extra.xmult * math.min(numerator, denominator), card.ability.extra.increases } }
@@ -656,6 +647,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -742,10 +734,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 16,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-        end
         local numerators, denominators = {}, {}
         for i = 1, 6 do
             numerators[#numerators + 1], denominators[#denominators + 1] = SMODS.get_probability_vars(card,
@@ -772,6 +760,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish", "revive" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -984,14 +973,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 3,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_main_deck_joker" }
-        end
         return { vars = { card.ability.extra.money, card.ability.extra.creates, card.ability.extra.succeed, card.ability.extra.successes } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "maindeck" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1130,14 +1117,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 3,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
-        end
         return { vars = { card.ability.extra.chips, card.ability.extra.chips * (G.GAME.joy_probability_success or 0) } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1202,14 +1187,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 3,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
-        end
         return { vars = { card.ability.extra.chips, card.ability.extra.chips * (G.GAME.joy_probability_success or 0), card.ability.extra.banishes } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1278,9 +1261,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 3,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_banish" }
-        end
         local numerator, denominator = SMODS.get_probability_vars(card, 1,
             card.ability.extra.odds, self.key)
         return { vars = { card.ability.extra.money, card.ability.extra.mills, numerator, denominator } }
@@ -1288,6 +1268,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "send", "banish" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

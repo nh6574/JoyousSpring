@@ -175,8 +175,7 @@ return {
                     },
                     {
                         "Disables all {C:attention}Blind{} effects this ante",
-                        "after {C:attention}#2#{} cards are sold this round",
-                        "{C:inactive}(#3#/#2#)",
+                        "after {C:attention}#2#{} cards are sold this round {C:inactive}(#3#/#2#)",
                     },
                 },
                 joy_summon_conditions = {
@@ -186,8 +185,7 @@ return {
                 },
                 joy_transfer_ability = {
                     "Disables all {C:attention}Blind{} effects this ante",
-                    "after {C:attention}#2#{} cards are sold this round",
-                    "{C:inactive}(#2#/#1#)"
+                    "after {C:attention}#2#{} cards are sold this round {C:inactive}(#2#/#1#)"
                 }
             },
             j_joy_invoked_augo = {

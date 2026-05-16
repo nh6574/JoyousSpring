@@ -27,7 +27,7 @@ return {
                         "{C:joy_normal}Zombie{} owned or in the {C:attention}GY{}",
                     },
                     {
-                        "Retriggers all scored cards with an enhancement once",
+                        "Retriggers all scored cards with an {C:attention}enhancement{} once",
                         "including cards held in hand if an {C:joy_normal}\"Eldlich\"{} is owned",
                     },
                     {
@@ -43,7 +43,7 @@ return {
                         "{C:joy_normal}Zombie{} owned or in the {C:attention}GY{}",
                     },
                     {
-                        "Retriggers all scored cards with an enhancement once",
+                        "Retriggers all scored cards with an {C:attention}enhancement{} once",
                         "including cards held in hand if an {C:joy_normal}\"Eldlich\"{} is owned",
                     },
                     {
@@ -59,7 +59,7 @@ return {
                         "{C:joy_normal}Zombie{} owned or in the {C:attention}GY{}",
                     },
                     {
-                        "Retriggers all scored cards with an enhancement once",
+                        "Retriggers all scored cards with an {C:attention}enhancement{} once",
                         "including cards held in hand if an {C:joy_normal}\"Eldlich\"{} is owned",
                     },
                     {
@@ -76,7 +76,7 @@ return {
                         "{C:joy_normal}Zombie{} owned or in the {C:attention}GY{}",
                     },
                     {
-                        "Retriggers all scored cards with an enhancement once",
+                        "Retriggers all scored cards with an {C:attention}enhancement{} once",
                         "including cards held in hand if an {C:joy_normal}\"Eldlich\"{} is owned",
                     },
                     {

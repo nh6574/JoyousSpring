@@ -64,8 +64,7 @@ return {
                 text = {
                     {
                         "Permanently debuffs every {C:blue}Common{}",
-                        "and {C:green}Uncommon{} {C:attention}Joker{}",
-                        "that {C:attention}enters play{}"
+                        "and {C:green}Uncommon{} {C:attention}Joker{} that {C:attention}enters play{}"
                     },
                     {
                         "Gains {X:mult,C:white}X#1#{} Mult for each debuffed card sold",

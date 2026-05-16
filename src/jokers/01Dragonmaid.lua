@@ -22,7 +22,7 @@ JoyousSpring.Joker({
         { "j_joy_dmaid_tinkhec",                                      name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
-    joy_glossary = { "transform" },
+    joy_glossary = { "transform", "enter" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -71,16 +71,13 @@ JoyousSpring.Joker({
     cost = 6,
     joy_no_shop = true,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
-        end
         return { vars = { card.ability.extra.mult } }
     end,
     joy_desc_cards = {
         { "j_joy_dmaid_kitchen",                                      name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "transform", "no_shop" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -157,9 +154,6 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         if not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = G.P_TAGS.tag_joy_booster
-            if not JoyousSpring.config.disable_tooltips then
-                info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
-            end
         end
         return {
             vars = { card.ability.extra.tags_to_add, card.ability.extra.dragonmaid_count,
@@ -170,6 +164,7 @@ JoyousSpring.Joker({
         { "j_joy_dmaid_lorpar",                                       name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "transform", "enter", "graveyard", "send" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -233,16 +228,13 @@ JoyousSpring.Joker({
     cost = 4,
     joy_no_shop = true,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
-        end
         return { vars = { card.ability.extra.xmult } }
     end,
     joy_desc_cards = {
         { "j_joy_dmaid_parlor",                                       name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "transform", "no_shop" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -320,10 +312,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 3,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
-        end
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
             card.ability.extra.odds,
             self.key)
@@ -333,6 +321,7 @@ JoyousSpring.Joker({
         { "j_joy_dmaid_ernus",                                        name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "transform", "enter", "revive" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -407,16 +396,13 @@ JoyousSpring.Joker({
     cost = 3,
     joy_no_shop = true,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
-        end
         return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.count_materials_in_graveyard({ { monster_archetypes = { "Dragonmaid" } } }) } }
     end,
     joy_desc_cards = {
         { "j_joy_dmaid_nurse",                                        name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "transform", "no_shop", "graveyard" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -471,16 +457,13 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 5,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_main_deck_joker" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
-        end
         return { vars = { card.ability.extra.mills } }
     end,
     joy_desc_cards = {
         { "j_joy_dmaid_nudyarl",                                      name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "transform", "enter", "graveyard", "send", "maindeck" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -520,16 +503,13 @@ JoyousSpring.Joker({
     cost = 5,
     joy_no_shop = true,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
-        end
         return { vars = { card.ability.extra.chips, card.ability.extra.chips * JoyousSpring.count_materials_in_graveyard({ { monster_archetypes = { "Dragonmaid" } } }) } }
     end,
     joy_desc_cards = {
         { "j_joy_dmaid_laundry",                                      name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "transform", "no_shop", "graveyard" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -574,7 +554,7 @@ JoyousSpring.Joker({
     end
 })
 
--- Cehrmba Dragonmaid
+-- Chamber Dragonmaid
 JoyousSpring.Joker({
     key = "dmaid_chamber",
     atlas = 'Dragonmaid',
@@ -586,9 +566,6 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         if not card.fake_card and not card.debuff then
             info_queue[#info_queue + 1] = G.P_TAGS.tag_voucher
-            if not JoyousSpring.config.disable_tooltips then
-                info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
-            end
         end
         return {
             vars = { card.ability.extra.tags_to_add, card.ability.extra.dragonmaid_count,
@@ -599,6 +576,7 @@ JoyousSpring.Joker({
         { "j_joy_dmaid_cehrmba",                                      name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "transform", "enter", "graveyard", "send" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -661,11 +639,6 @@ JoyousSpring.Joker({
     cost = 2,
     joy_no_shop = true,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_revive" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
-        end
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
             card.ability.extra.odds,
             self.key)
@@ -675,6 +648,7 @@ JoyousSpring.Joker({
         { "j_joy_dmaid_chamber",                                      name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "transform", "enter", "revive", "no_shop" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -755,9 +729,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 9,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
-        end
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.numerator,
             card.ability.extra.odds,
             self.key)
@@ -767,6 +738,7 @@ JoyousSpring.Joker({
         { "j_joy_dmaid_house",                                        name = "k_joy_adds" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "transform", "enter", "extradeck" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -839,9 +811,6 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 9,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
-        end
         return {
             vars = {
                 card.ability.extra.xmult,
@@ -856,6 +825,7 @@ JoyousSpring.Joker({
         { "j_joy_dmaid_sheou",                                        name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "transform", "graveyard" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -932,16 +902,13 @@ JoyousSpring.Joker({
     cost = 9,
     joy_no_shop = true,
     loc_vars = function(self, info_queue, card)
-        if not JoyousSpring.config.disable_tooltips and not card.fake_card and not card.debuff then
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_no_shop" }
-            info_queue[#info_queue + 1] = { set = "Other", key = "joy_tooltip_transform" }
-        end
         return { vars = { card.ability.extra.cards_to_create } }
     end,
     joy_desc_cards = {
         { "j_joy_dmaid_house",                                        name = "k_joy_transforms_into" },
         { properties = { { monster_archetypes = { "Dragonmaid" } } }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "transform", "graveyard" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

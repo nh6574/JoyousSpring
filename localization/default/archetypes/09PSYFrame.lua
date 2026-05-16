@@ -152,11 +152,11 @@ return {
                 name = "{C:joy_spell}PSY-Frame Circuit",
                 text = {
                     {
-                        "{C:money}+$#1#{} each time a {C:joy_synchro}Synchro{} is summoned",
+                        "{C:money}+$#1#{} each time a {C:joy_synchro}Synchro{} is {C:attention}summoned",
                     },
                     {
                         "{C:joy_normal}Psychic{} {C:joy_synchro}Synchros{}",
-                        "become {C:dark_edition}Negative{} when summoned",
+                        "become {C:dark_edition}Negative{} when {C:attention}summoned",
                     },
                 }
             },

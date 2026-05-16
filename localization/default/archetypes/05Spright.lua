@@ -85,15 +85,14 @@ return {
                 name = "{C:joy_link}Spright Sprind",
                 text = {
                     {
-                        "If summoned using a {C:joy_normal}\"Spright\"{} as {C:attention}material{},",
+                        "If {C:attention}summoned{} using a {C:joy_normal}\"Spright\"{} as {C:attention}material{},",
                         "other {C:green}Uncommon{} {C:attention}Jokers{} become {C:dark_edition}Negative{}",
-                        "and the rest are debuffed.",
+                        "and the rest are debuffed",
                     },
                     {
                         "Adds {C:joy_xyz}\"Gigantic Spright\"{} to the",
-                        "{C:joy_spell}Extra Deck{} after {C:attention}#1# materials{} are {C:joy_xyz}detached{}",
-                        "{C:inactive}(Must have room){}",
-                        "{C:inactive}(#2#/#1#){}",
+                        "{C:joy_spell}Extra Deck{} after {C:attention}#1# {C:joy_xyz}Xyz{} {C:attention}materials{} are {C:joy_xyz}detached{}",
+                        "{C:inactive}(Must have room) (#2#/#1#){}",
                     },
                 },
                 joy_summon_conditions = {

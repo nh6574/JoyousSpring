@@ -121,7 +121,7 @@ return {
                 name = "{C:joy_xyz}Jormungandr, Generaider Boss of Eternity",
                 text = {
                     {
-                        "{C:mult}+#1#{} Mult for each {C:joy_xyz}Xyz material{}",
+                        "{C:mult}+#1#{} Mult for each {C:joy_xyz}Xyz {C:attention}material{}",
                         "{C:inactive}(Currently{} {C:mult}+#2#{} {C:inactive}Mult){}",
                     },
                     {

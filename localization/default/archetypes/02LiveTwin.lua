@@ -156,7 +156,7 @@ return {
                 text = {
                     {
                         "During a {C:attention}Blind{}, you can {C:attention}tribute #1#{}",
-                        "{C:joy_normal}\"Ki-sikil\"{} or {C:joy_normal}\"Lil-la\"{} {C:joy_link}Link{} to",
+                        "{C:joy_normal}\"Ki-sikil\"{} or {C:joy_normal}\"Lil-la\"{} {C:joy_link}Links{} to",
                         "{C:attention}double{} current chips scored",
                     },
                     {

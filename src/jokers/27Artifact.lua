@@ -41,6 +41,7 @@ JoyousSpring.Joker({
         { "opp_joy_artifact_achil",                                  name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "opponent" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -97,6 +98,7 @@ JoyousSpring.OpponentCard {
         { "j_joy_artifact_achil",                                    name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "blinds", "blind_card" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -124,6 +126,7 @@ JoyousSpring.Joker({
         { "opp_joy_artifact_aegis",                                  name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "opponent" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -175,6 +178,7 @@ JoyousSpring.OpponentCard {
         { "j_joy_artifact_aegis",                                    name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "blinds", "blind_card" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -202,6 +206,7 @@ JoyousSpring.Joker({
         { "opp_joy_artifact_beaga",                                  name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "opponent" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -261,6 +266,7 @@ JoyousSpring.OpponentCard {
         { "j_joy_artifact_beaga",                                    name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "maindeck" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -297,6 +303,7 @@ JoyousSpring.Joker({
         { "opp_joy_artifact_cadu",                                   name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "opponent" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -392,6 +399,7 @@ JoyousSpring.Joker({
         { "opp_joy_artifact_chak",                                   name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "fieldspell", "graveyard", "opponent" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -445,6 +453,7 @@ JoyousSpring.OpponentCard {
         { "j_joy_artifact_chak",                                     name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "fieldspell" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -484,6 +493,7 @@ JoyousSpring.Joker({
         { "opp_joy_artifact_fail",                                   name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "graveyard", "opponent" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -533,6 +543,7 @@ JoyousSpring.OpponentCard {
         { "j_joy_artifact_fail",                                     name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "graveyard", "enter" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -576,6 +587,7 @@ JoyousSpring.Joker({
         { "opp_joy_artifact_labrys",                                 name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "opponent" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -627,6 +639,7 @@ JoyousSpring.OpponentCard {
         { "j_joy_artifact_labrys",                                   name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "maindeck" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -658,6 +671,7 @@ JoyousSpring.Joker({
         { "opp_joy_artifact_lancea",                                 name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish", "opponent" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -706,6 +720,7 @@ JoyousSpring.OpponentCard {
         { "j_joy_artifact_lancea",                                   name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish", "blinds", "blind_card" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -736,6 +751,7 @@ JoyousSpring.Joker({
         { "opp_joy_artifact_mjol",                                   name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "revive", "opponent" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -784,6 +800,7 @@ JoyousSpring.OpponentCard {
         { "j_joy_artifact_mjol",                                     name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "revive" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -824,6 +841,7 @@ JoyousSpring.Joker({
         { "opp_joy_artifact_morall",                                 name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "opponent" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -927,6 +945,7 @@ JoyousSpring.Joker({
         { "opp_joy_artifact_scythe",                                 name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "summon", "opponent" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -984,6 +1003,7 @@ JoyousSpring.OpponentCard {
         { "j_joy_artifact_scythe",                                   name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "summon", "blinds", "blind_card" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1011,6 +1031,7 @@ JoyousSpring.Joker({
         { "opp_joy_artifact_vajra",                                  name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "opponent" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1060,6 +1081,7 @@ JoyousSpring.OpponentCard {
         { "j_joy_artifact_vajra",                                    name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "facedown", "blinds", "blind_card" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1086,6 +1108,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "attach", "opponent" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1151,6 +1174,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Artifact" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "opponent", "maindeck" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

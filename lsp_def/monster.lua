@@ -5,6 +5,7 @@
 ---@field joy_alt_pos? {x:number, y:number}[] Atlas position for alternative art
 ---@field joy_treated_as? string|string[] Localization string(s) for when a card is treated as another archetype
 ---@field joy_desc_cards? {[number]:string?, properties:material_properties[]?, name:string?}[] Definition of tabs for the related cards popup
+---@field joy_glossary? joy_glossary[] Glossary entries to display for this card
 ---@field joy_no_shop? true True if it can't be found in the shop or boosters naturally
 ---@field use? fun(self: JoyousSpring.Joker|table, card: Card|table, area: CardArea|table, copier?: table) Defines behaviour when this Joker is used. (Added by JoyousSpring)
 ---@field can_use? fun(self: JoyousSpring.Joker|table, card: Card|table): boolean? Return `true` if the Joker is allowed to be used. (Added by JoyousSpring)
@@ -220,3 +221,48 @@ JoyousSpring.Joker = setmetatable({}, {
 ---@field numerator_mult? number
 ---@field denominator_const? integer
 ---@field denominator_mult? number
+
+---@alias joy_glossary
+---| 'monster'
+---| 'normal'
+---| 'effect'
+---| 'maindeck'
+---| 'pendulum'
+---| 'fieldspell'
+---| 'token'
+---| 'graveyard'
+---| 'revive'
+---| 'send'
+---| 'extradeck'
+---| 'extradeck_joker'
+---| 'special'
+---| 'summon'
+---| 'material'
+---| 'transfer'
+---| 'ritual'
+---| 'fusion'
+---| 'synchro'
+---| 'xyz'
+---| 'link'
+---| 'tuner'
+---| 'xyz_material'
+---| 'detach'
+---| 'attach'
+---| 'counter'
+---| 'facedown'
+---| 'flip'
+---| 'trap'
+---| 'banish'
+---| 'illusion_joker'
+---| 'activated'
+---| 'tribute'
+---| 'transform'
+---| 'excavate'
+---| 'column'
+---| 'opponent'
+---| 'blinds'
+---| 'blind_card'
+---| 'sidedeck'
+---| 'enter'
+---| 'modifier'
+---| 'no_shop'

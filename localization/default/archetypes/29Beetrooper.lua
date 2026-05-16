@@ -140,7 +140,7 @@ return {
                         "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
                     },
                     {
-                        "Once per round, you can tribute {C:attention}1{} {C:joy_effect}Effect{} {C:joy_normal}Insect{}",
+                        "Once per round, you can {C:attention}tribute {C:attention}1{} {C:joy_effect}Effect{} {C:joy_normal}Insect{}",
                         "to create as many {C:joy_token}\"Beetrooper Token\"{} as possible",
                         "{C:inactive}(Must have room)"
                     }

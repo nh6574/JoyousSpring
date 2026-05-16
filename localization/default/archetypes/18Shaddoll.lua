@@ -419,7 +419,7 @@ return {
                 text = {
                     {
                         "Each time a {C:joy_normal}\"Shaddoll\"{}, {C:joy_normal}Spellcaster{}",
-                        "or {C:joy_effect}Flip{} {C:attention}Joker is sent to the {C:attention}GY{},",
+                        "or {C:joy_effect}Flip{} {C:attention}Joker{} is sent to the {C:attention}GY{},",
                         "add {C:attention}#1#{} {C:joy_token}Spellstone Counter{} to this card",
                     },
                     {

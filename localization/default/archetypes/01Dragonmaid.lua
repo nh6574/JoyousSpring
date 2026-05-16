@@ -34,7 +34,7 @@ return {
                         "{C:attention}#1# Booster Tag{} when {C:attention}entering play{}",
                         "if you own {C:attention}#2#{} {C:joy_normal}\"Dragonmaids\"{},",
                         "gaining an extra for every {C:attention}#3#{} more",
-                        "and send {C:attention}#4#{} {C:joy_normal}\"Dragonmaid\"{} to the {C:attention}GY{}",
+                        "and sends {C:attention}#4#{} {C:joy_normal}\"Dragonmaid\"{} to the {C:attention}GY{}",
                     },
                     {
                         "{C:attention}Transforms{} into {C:joy_effect}\"Dragonmaid Lorpar\"",
@@ -116,7 +116,7 @@ return {
                         "{C:attention}#1# Voucher Tag{} when {C:attention}entering play{}",
                         "if you own {C:attention}#2#{} {C:joy_normal}\"Dragonmaids\"{},",
                         "gaining an extra for every {C:attention}#3#{} more",
-                        "and send {C:attention}#4#{} {C:joy_normal}\"Dragonmaid\"{} to the {C:attention}GY{}",
+                        "and sends {C:attention}#4#{} {C:joy_normal}\"Dragonmaid\"{} to the {C:attention}GY{}",
                     },
                     {
                         "{C:attention}Transforms{} into {C:joy_effect}\"Dragonmaid Cehrmba\"",

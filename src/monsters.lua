@@ -107,10 +107,12 @@ JoyousSpring.Joker = SMODS.Joker:extend {
     inject = function(self, i)
         self.attributes = SMODS.merge_lists({ self.attributes or {}, get_attributes_from_joy_table(self) })
         self.weight = ({ 7, 2.5, 0.5, 0.1 })[self.rarity]
-        if self.joy_glossary then
-            local joy_glossary = {}
-            local glossary_hash = {}
 
+        SMODS.Joker.inject(self, i)
+
+        local joy_glossary = {}
+        local glossary_hash = {}
+        if self.joy_glossary then
             for _, g in ipairs(self.joy_glossary) do
                 if not glossary_hash[g] then
                     joy_glossary[#joy_glossary + 1] = g
@@ -118,8 +120,40 @@ JoyousSpring.Joker = SMODS.Joker:extend {
                 glossary_hash[g] = true
             end
         end
-
-        SMODS.Joker.inject(self, i)
+        ---@type joyous_spring
+        local joyous_spring = self.config.extra.joyous_spring
+        if (self.joy_can_activate or self.joy_can_detach) and not glossary_hash["activated"] then
+            joy_glossary[#joy_glossary + 1] = "activated"
+            if self.joy_can_detach and not glossary_hash["detach"] then
+                joy_glossary[#joy_glossary + 1] = "detach"
+            end
+        end
+        if self.joy_can_transfer_ability and not glossary_hash["transfer"] then
+            joy_glossary[#joy_glossary + 1] = "transfer"
+        end
+        if joyous_spring.is_pendulum and not glossary_hash["pendulum"] then
+            joy_glossary[#joy_glossary + 1] = "pendulum"
+        end
+        if joyous_spring.summon_type and joyous_spring.summon_type ~= "NORMAL" and not glossary_hash[joyous_spring.summon_type:lower()] then
+            joy_glossary[#joy_glossary + 1] = joyous_spring.summon_type:lower()
+        end
+        if joyous_spring.is_flip and not glossary_hash["flip"] then joy_glossary[#joy_glossary + 1] = "flip" end
+        if joyous_spring.is_trap and not glossary_hash["trap"] then joy_glossary[#joy_glossary + 1] = "trap" end
+        if joyous_spring.is_tuner and not glossary_hash["tuner"] then joy_glossary[#joy_glossary + 1] = "tuner" end
+        if joyous_spring.is_field_spell and not glossary_hash["fieldspell"] then
+            joy_glossary[#joy_glossary + 1] = "fieldspell"
+        end
+        if not joyous_spring.is_effect and not joyous_spring.is_field_spell then
+            if joyous_spring.token_name and not glossary_hash["token"] then joy_glossary[#joy_glossary + 1] = "token" end
+            if not glossary_hash["normal"] then joy_glossary[#joy_glossary + 1] = "normal" end
+        end
+        if next(joyous_spring.is_all_materials or {}) and not glossary_hash["all_materials"] then
+            joy_glossary[#joy_glossary + 1] = "all_materials"
+        end
+        if self.joy_no_shop and not glossary_hash["no_shop"] then
+            joy_glossary[#joy_glossary + 1] = "no_shop"
+        end
+        self.joy_glossary = next(joy_glossary) and joy_glossary or nil
     end,
     get_weight = function(self, original_weight, args)
         if G.GAME.joy_only_ygo_cards then
