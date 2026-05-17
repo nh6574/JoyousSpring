@@ -35,8 +35,11 @@ JoyousSpring.Joker({
         },
     },
     calculate = function(self, card, context)
-        if context.setting_blind then
-            delay(100)
+        if JoyousSpring.can_use_abilities(card) then
+            if not context.blueprint_card and not context.retrigger_joker and
+                context.setting_blind and context.main_eval then
+                JoyousSpring.transform_card(card, "j_joy_dmaid_tinkhec")
+            end
         end
     end,
     add_to_deck = function(self, card, from_debuff)
