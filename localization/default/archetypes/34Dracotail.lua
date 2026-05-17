@@ -237,7 +237,7 @@ return {
                         },
                         text = {
                             "{X:mult,C:white}X#1#{} Mult",
-                            "and retriggers random scoring cards",
+                            "and retriggers scoring cards",
                             "held in hand up to {C:attention}#2#{} time(s)"
                         }
                     },
@@ -310,7 +310,7 @@ return {
                         },
                         text = {
                             "Retriggers each scored card",
-                            "in played hand {C:attention}#1#{} times"
+                            "in played hand {C:attention}#1#{} time(s)"
                         }
                     },
                     blue_seal = {
@@ -334,16 +334,13 @@ return {
                     },
                     purple_seal = {
                         text_description = {
-                            "For each, creates {C:attention}#1#{} random {C:dark_edition}Negative{} {C:tarot}Tarot{}",
-                            "that applies an {C:attention}Enhancement{}",
-                            "or {C:dark_edition}Negative{} {C:spectral}Spectral{} that applies a {C:attention}Seal{}",
+                            "For each, creates {C:attention}#1#{} {C:dark_edition}Negative{} {C:attention}Enhancement{} {C:tarot}Tarot{}",
+                            "or {C:dark_edition}Negative{} {C:attention}Seal{} {C:spectral}Spectral{}",
                             "when the hand is played"
                         },
                         text = {
-                            "Creates {C:attention}#1#{} random {C:dark_edition}Negative{} {C:tarot}Tarot{}",
-                            "that applies an {C:attention}Enhancement{}",
-                            "or {C:dark_edition}Negative{} {C:spectral}Spectral{} that applies a {C:attention}Seal{}",
-                            "when the hand is played"
+                            "Creates {C:attention}#1#{} {C:dark_edition}Negative{} {C:attention}Enhancement{} {C:tarot}Tarot{}",
+                            "or {C:dark_edition}Negative{} {C:attention}Seal{} {C:spectral}Spectral{}",
                         }
                     },
                     joy_purr_memory_seal = {

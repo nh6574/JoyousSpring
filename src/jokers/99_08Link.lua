@@ -346,7 +346,7 @@ JoyousSpring.Joker({
             if context.setting_blind and context.main_eval then
                 local choices = JoyousSpring.get_materials_in_collection({ { summon_type = "LINK", exclude_keys = { "j_joy_ipmasq" } } })
                 local key_to_transform = pseudorandom_element(choices, 'j_joy_ipmasq') or "j_joy_spknight"
-                JoyousSpring.transform_card(card, key_to_transform, false, "Link", { "j_joy_ipmasq" })
+                JoyousSpring.transform_card(card, key_to_transform, false, "LINK", { "j_joy_ipmasq" })
             end
         end
     end,

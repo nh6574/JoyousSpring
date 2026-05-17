@@ -258,10 +258,10 @@ JoyousSpring.Joker({
     key = "dracotail_mululu",
     atlas = 'dracotail',
     pos = { x = 2, y = 0 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 9,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
@@ -278,6 +278,43 @@ JoyousSpring.Joker({
             },
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.after then
+                local key_to_transform = #context.scoring_hand == 2 and
+                    pseudorandom_element({ "j_joy_dracotail_gulamel", "j_joy_dracotail_shaulas" }, self.key) or
+                    "j_joy_dracotail_arthalion"
+                local playing_card_materials = SMODS.shallow_copy(context.scoring_hand)
+                local cards_used = {}
+                for _, pcard in ipairs(playing_card_materials) do
+                    cards_used[pcard.config.center_key] = (cards_used[pcard.config.center_key] or 0) + 1
+                    if pcard.seal then
+                        cards_used[pcard.seal:lower() .. "_seal"] = (cards_used[pcard.seal:lower() .. "_seal"] or 0) +
+                            1
+                    end
+                    if pcard.edition then
+                        cards_used[pcard.edition.key] = (cards_used[pcard.edition.key] or 0) + 1
+                    end
+                    cards_used[pcard.base.value] = (cards_used[pcard.base.value] or 0) + 1
+                    cards_used[pcard.base.suit] = (cards_used[pcard.base.suit] or 0) + 1
+                end
+                JoyousSpring.destroy_cards(playing_card_materials)
+
+                JoyousSpring.transform_card(card, key_to_transform, false, "FUSION", { "j_joy_dracotail_mululu" },
+                    cards_used)
+            end
+        end
+    end,
+    joy_can_transfer_ability = function(self, other_card, card)
+        return other_card.joy_transforming == "j_joy_dracotail_mululu"
+    end,
+    joy_transfer_ability_calculate = function(self, other_card, context, config)
+        if JoyousSpring.can_use_abilities(other_card) then
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                JoyousSpring.transform_card(other_card, "j_joy_dracotail_mululu")
+            end
+        end
+    end,
 })
 
 -- Dracotail Urgula
@@ -285,10 +322,10 @@ JoyousSpring.Joker({
     key = "dracotail_urgula",
     atlas = 'dracotail',
     pos = { x = 2, y = 1 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 7,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, card.ability.extra.mult * (G.GAME.joy_cards_destroyed or 0), card.ability.extra.adds } }
     end,
@@ -353,10 +390,10 @@ JoyousSpring.Joker({
     key = "dracotail_pan",
     atlas = 'dracotail',
     pos = { x = 0, y = 1 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 7,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.chips, card.ability.extra.chips * (G.GAME.joy_cards_destroyed or 0), card.ability.extra.adds } }
     end,
@@ -421,10 +458,10 @@ JoyousSpring.Joker({
     key = "dracotail_shaulas",
     atlas = 'dracotail',
     pos = { x = 2, y = 2 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 8,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.money } }
     end,
@@ -482,10 +519,10 @@ JoyousSpring.Joker({
     key = "dracotail_gulamel",
     atlas = 'dracotail',
     pos = { x = 1, y = 2 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 8,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.destroys } }
     end,
@@ -554,18 +591,109 @@ JoyousSpring.Joker({
     key = "dracotail_arthalion",
     atlas = 'dracotail',
     pos = { x = 0, y = 2 },
-    rarity = 1,
+    rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 10,
+    generate_ui = function(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
+        JoyousSpring.Joker.generate_ui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
+
+        if card and not card.debuff and card.ability.extra.has_ability then
+            local cards_used = card.ability.extra.cards_used or {}
+            full_UI_table.joy_multi_box = full_UI_table.joy_multi_box or {}
+
+            local order = {
+                "m_bonus", "m_mult", "m_wild", "m_glass", "m_steel", "m_stone", "m_gold", "m_lucky", "m_joy_hanafuda",
+                "e_foil", "e_holo", "e_polychrome",
+                "red_seal", "blue_seal", "gold_seal", "purple_seal", "joy_purr_memory_seal",
+            }
+            local types = {
+                m_bonus = "Enhanced",
+                m_mult = "Enhanced",
+                m_wild = "Enhanced",
+                m_glass = "Enhanced",
+                m_steel = "Enhanced",
+                m_stone = "Enhanced",
+                m_gold = "Enhanced",
+                m_lucky = "Enhanced",
+                m_joy_hanafuda = "Enhanced",
+                e_foil = "Edition",
+                e_holo = "Edition",
+                e_polychrome = "Edition",
+                red_seal = "Other",
+                blue_seal = "Other",
+                gold_seal = "Other",
+                purple_seal = "Other",
+                joy_purr_memory_seal = "Other",
+            }
+            local columns = { {}, {}, {}, {} }
+            local i = 1
+            for _, key in ipairs(order) do
+                if cards_used[key] then
+                    local amount = cards_used[key]
+                    local set = types[key]
+                    local name_node = {}
+                    local node = {}
+
+                    if G.localization.descriptions.Joker.j_joy_dracotail_arthalion.joy_extra_effects[key] then
+                        localize { type = 'name', set = set, key = key, nodes = name_node, vars = {}, scale = 0.5 }
+                        local loc = G.localization.descriptions.Joker.j_joy_dracotail_arthalion.joy_extra_effects[key]
+                            .text
+                        for _, line in ipairs(loc) do
+                            node[#node + 1] = SMODS.localize_box(loc_parse_string(line),
+                                {
+                                    vars = self:joy_effect_loc_vars(key, amount),
+                                    scale = 0.8
+                                })
+                        end
+                    end
+                    name_node.joy_box_minh = 0.3
+                    node.joy_box_minh = 0.7
+                    node.joy_box_minw = 4
+                    name_node.background_colour = G.C.CLEAR
+                    local column = ({ [0] = 4, [1] = 1, [2] = 2, [3] = 3 })[i % 4]
+                    columns[column][#columns[column] + 1] = desc_from_rows(name_node)
+                    columns[column][#columns[column] + 1] = desc_from_rows(node)
+                    i = i + 1
+                end
+            end
+
+            full_UI_table.joy_multi_box[#full_UI_table.joy_multi_box + 1] = next(columns[1]) and {
+                n = G.UIT.R,
+                nodes = {
+                    {
+                        n = G.UIT.C,
+                        nodes = columns[1]
+                    },
+                    next(columns[2]) and {
+                        n = G.UIT.C,
+                        nodes = columns[2]
+                    } or nil,
+                    next(columns[2]) and {
+                        n = G.UIT.C,
+                        nodes = columns[3]
+                    } or nil,
+                    next(columns[2]) and {
+                        n = G.UIT.C,
+                        nodes = columns[4]
+                    } or nil,
+                }
+            } or nil
+        end
+    end,
     loc_vars = function(self, info_queue, card)
         return {
             vars = {},
             key = not card.ability.extra.has_ability and "j_joy_dracotail_arthalion_notsummoned" or nil
         }
     end,
-    joy_effect_loc_vars = function(self, key)
-        return self.joy_extra_config[key] or {}
+    joy_effect_loc_vars = function(self, key, amount)
+        local config = self.joy_extra_config[key]
+        if not config then return {} end
+        if key == "m_lucky" then
+            return { (config[1] or 0) ^ amount }
+        end
+        return { (config[1] or 0) * amount, (config[2] or 0) * amount }
     end,
     joy_desc_cards = {
         { extra = "j_joy_dracotail_arthalion",                        extra_values = { enhancements = { "m_bonus", "m_mult", "m_wild", "m_glass", "m_steel", "m_stone", "m_gold", "m_lucky", "m_joy_hanafuda" }, editions = { "e_foil", "e_holo", "e_polychrome" }, seals = { "Red", "Blue", "Gold", "Purple", "joy_purr_memory" } }, name = "k_joy_arthalion_effects" },
@@ -606,7 +734,7 @@ JoyousSpring.Joker({
         m_steel = { 4, 1 },
         m_stone = { 150 },
         m_gold = { 6 },
-        m_lucky = {},
+        m_lucky = { 2 },
         m_joy_hanafuda = { 1 },
         e_foil = { 100 },
         e_holo = { 20 },

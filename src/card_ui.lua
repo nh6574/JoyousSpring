@@ -503,7 +503,7 @@ end
 
 local desc_from_rows_ref = desc_from_rows
 function desc_from_rows(desc_nodes, empty, maxw)
-    local ret = desc_from_rows_ref(desc_nodes, empty, maxw)
+    local ret
 
     if desc_nodes.joy_box_minh then
         ret = {}
@@ -513,11 +513,13 @@ function desc_from_rows(desc_nodes, empty, maxw)
         end
         ret = {
             n = G.UIT.R,
-            config = { align = "cm", colour = desc_nodes.background_colour or empty and G.C.CLEAR or G.C.UI.BACKGROUND_WHITE, r = 0.1, padding = -0.03, minw = 2, minh = desc_nodes.joy_box_minh, emboss = not empty and 0.05 or nil, filler = true, main_box_flag = desc_nodes.main_box_flag and true or nil },
+            config = { align = "cm", colour = desc_nodes.background_colour or empty and G.C.CLEAR or G.C.UI.BACKGROUND_WHITE, r = 0.1, padding = -0.03, minw = desc_nodes.joy_box_minw or 2, minh = desc_nodes.joy_box_minh, emboss = not empty and 0.05 or nil, filler = true, main_box_flag = desc_nodes.main_box_flag and true or nil },
             nodes = {
                 { n = G.UIT.R, config = { align = "cm", padding = -0.03 }, nodes = t }
             }
         }
+    else
+        ret = desc_from_rows_ref(desc_nodes, empty, maxw)
     end
 
     return ret
