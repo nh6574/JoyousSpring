@@ -74,10 +74,12 @@ SMODS.current_mod.calculate = function(self, context)
     if context.remove_playing_cards then
         G.GAME.joy_cards_destroyed = G.GAME.joy_cards_destroyed and
             (G.GAME.joy_cards_destroyed + #context.removed) or #context.removed
+        G.GAME.joy_cards_destroyed_round_info = G.GAME.joy_cards_destroyed_round_info or {}
         for _, pcard in ipairs(context.removed) do
             if pcard.glass_trigger then
                 G.GAME.joy_glass_shattered = (G.GAME.joy_glass_shattered or 0) + 1
             end
+            G.GAME.joy_cards_destroyed_round_info[#G.GAME.joy_cards_destroyed_round_info + 1] = pcard:save()
         end
     end
 
@@ -167,10 +169,17 @@ SMODS.current_mod.calculate = function(self, context)
     -- Reset counts
     if context.end_of_round and context.game_over == false then
         G.GAME.joy_summoned_count_round = {}
+        G.GAME.joy_cards_destroyed_round_info = {}
 
         for _, joker in ipairs(G.jokers.cards) do
             if JoyousSpring.is_monster_card(joker) and JoyousSpring.has_joyous_table(joker) then
                 joker.ability.extra.joyous_spring.detached_count_round = 0
+            end
+        end
+
+        for _, pcard in ipairs(G.playing_cards) do
+            if pcard.ability.joy_temporary then
+                pcard:remove()
             end
         end
     end

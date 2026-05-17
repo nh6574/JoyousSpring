@@ -56,7 +56,6 @@ return {
                         "has exactly {C:attention}3{} cards,",
                         "destroys them and adds {C:attention}5{} random",
                         "unmodified playing cards to the deck",
-                        "{C:inactive}(Must have room)"
                     }
                 },
                 joy_transfer_ability = {
@@ -137,6 +136,7 @@ return {
                     },
                     {
                         "A {C:joy_fusion}Fusion{} summoned using this card",
+                        "as {C:attention}material{} gains the following ability:",
                         "{s:0.9}When summoned, adds a copy of each playing card destroyed",
                         "{s:0.9}this round to the deck as {s:0.9,C:dark_edition}Negative{}",
                         "{s:0.9}but they are removed at end of round",
@@ -157,13 +157,13 @@ return {
                 name = "{C:joy_fusion}Dracotail Gulamel",
                 text = {
                     {
-                        "When {C:attention}entering play{}, destroys a card in deck",
-                        "for each playing card destroyed this run",
+                        "When {C:attention}entering play{}, destroys {C:attention}#1#{} cards in deck",
                         "and adds a {C:joy_normal}\"Dracotail\"{} to the {C:joy_spell}Extra Deck{}",
                         "{C:inactive}(Must have room)"
                     },
                     {
                         "A {C:joy_fusion}Fusion{} summoned using this card",
+                        "as {C:attention}material{} gains the following ability:",
                         "{s:0.9}Gives {s:0.9,C:attention}2 Standard Tags{s:0.9} when summoned",
                     },
                 },
@@ -232,7 +232,7 @@ return {
                     m_steel = {
                         text_description = {
                             "{X:mult,C:white}X#1#{} Mult",
-                            "and retriggers random scoring cards",
+                            "and retriggers scoring cards",
                             "held in hand up to {C:attention}#2#{} time for each"
                         },
                         text = {
@@ -337,11 +337,13 @@ return {
                             "For each, creates {C:attention}#1#{} random {C:dark_edition}Negative{} {C:tarot}Tarot{}",
                             "that applies an {C:attention}Enhancement{}",
                             "or {C:dark_edition}Negative{} {C:spectral}Spectral{} that applies a {C:attention}Seal{}",
+                            "when the hand is played"
                         },
                         text = {
                             "Creates {C:attention}#1#{} random {C:dark_edition}Negative{} {C:tarot}Tarot{}",
                             "that applies an {C:attention}Enhancement{}",
                             "or {C:dark_edition}Negative{} {C:spectral}Spectral{} that applies a {C:attention}Seal{}",
+                            "when the hand is played"
                         }
                     },
                     joy_purr_memory_seal = {
