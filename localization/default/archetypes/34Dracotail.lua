@@ -71,11 +71,8 @@ return {
                         "After a hand is played, {C:attention}transforms{} into",
                         "a random {C:joy_normal}\"Dracotail\"{} using this card",
                         "and the scored cards in played hand as material",
-                        "{C:inactive}(This is treated as a Fusion){}"
-                    },
-                    {
-                        "A {C:joy_fusion}Fusion{} summoned using this card",
-                        "as {C:attention}material{} gains the following ability:",
+                        "{C:inactive}(This is treated as a Fusion){}",
+                        "A {C:joy_fusion}Fusion{} summoned this way gains the following ability:",
                         "{s:0.9,C:attention}Transforms{s:0.9} into {s:0.9,C:joy_effect}\"Dracotail Mululu\"{s:0.9} at end of round",
                     },
                 },
