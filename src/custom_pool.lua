@@ -68,6 +68,7 @@ function SMODS.create_card(t)
     end
     t.key = key or t.key
     if not t.area and JoyousSpring.field_spell_area and JoyousSpring.is_material_center(t.key or "", { is_field_spell = true }) then
+        print("huh?")
         t.area = JoyousSpring.field_spell_area
     end
 

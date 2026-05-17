@@ -292,7 +292,8 @@ end
 ---@param card Card|Blind|table Source of the tributing
 ---@param card_list Card[]|table Cards to tribute
 ---@param for_ritual boolean? For a Ritual Summon
-JoyousSpring.tribute = function(card, card_list, for_ritual)
+---@param dissolve_colours table?
+JoyousSpring.tribute = function(card, card_list, for_ritual, dissolve_colours)
     if not card_list then return end
 
     for _, material in ipairs(card_list) do
@@ -305,7 +306,7 @@ JoyousSpring.tribute = function(card, card_list, for_ritual)
                 joy_for_ritual = for_ritual
             })
         SMODS.trigger_effects({ eval, post }, material)
-        JoyousSpring.destroy_cards(material, nil, true)
+        JoyousSpring.destroy_cards(material, nil, true, nil, dissolve_colours)
         if card.ability then
             card.ability.joy_tributed = card.ability.joy_tributed or {}
             if not JoyousSpring.is_playing_card(material) then
@@ -327,7 +328,8 @@ end
 ---@param keep_materials boolean?
 ---@param summon_type summon_type?
 ---@param summon_materials Card[]|string[]?
-JoyousSpring.transform_card = function(card, other_key, keep_materials, summon_type, summon_materials)
+---@param playing_cards_used table?
+JoyousSpring.transform_card = function(card, other_key, keep_materials, summon_type, summon_materials, playing_cards_used)
     local joyous_spring_table = card.ability.extra.joyous_spring
     local revived = joyous_spring_table.revived
     local is_free = joyous_spring_table.is_free
@@ -412,6 +414,7 @@ JoyousSpring.transform_card = function(card, other_key, keep_materials, summon_t
                     table.insert(joyous_spring_table.material_effects, material)
                 end
             end
+            card.ability.extra.cards_used = playing_cards_used or nil
 
             card:set_cost()
             return true

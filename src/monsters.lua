@@ -28,6 +28,7 @@ JoyousSpring.init_joy_table = function(params)
         is_all_materials = params.is_all_materials or {},
         summon_conditions = params.summon_conditions or {},
         summon_consumeable_conditions = params.summon_consumeable_conditions or nil,
+        summon_playing_card_conditions = params.summon_playing_card_conditions or nil,
         summoned = false,
         summon_materials = {},
         material_effects = {},
@@ -966,7 +967,7 @@ JoyousSpring.is_material_center = function(card_key, properties)
     local requires_monster_properties = properties.monster_type or properties.monster_attribute or
         properties.monster_archetypes or properties.is_pendulum or properties.summon_type or properties.is_effect or
         properties.is_non_effect or properties.is_normal or properties.is_tuner or properties.is_trap or
-        properties.is_flip
+        properties.is_flip or properties.is_field_spell
     if not has_extra_values and not monster_card_properties then
         return not requires_monster_properties
     end

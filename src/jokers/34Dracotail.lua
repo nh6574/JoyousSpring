@@ -81,7 +81,7 @@ JoyousSpring.Joker({
         }
     end,
     joy_transfer_loc_vars = function(self, info_queue, other_card, config)
-        return { config.cards, config.count }
+        return { vars = { config.cards, config.count } }
     end,
 })
 
@@ -161,7 +161,7 @@ JoyousSpring.Joker({
         }
     end,
     joy_transfer_loc_vars = function(self, info_queue, other_card, config)
-        return { config.cards, config.count }
+        return { vars = { config.cards, config.count } }
     end,
 })
 
@@ -180,7 +180,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "Dracotail" } }, }, name = "k_joy_archetype" },
     },
-    joy_glossary = { "revive", "material", "fusion", "modifier" },
+    joy_glossary = { "revive", "material", "fusion" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -215,7 +215,8 @@ JoyousSpring.Joker({
                     for i = 1, 2 do
                         G.E_MANAGER:add_event(Event({
                             func = function()
-                                SMODS.add_card { set = "Base", key_append = self.key .. "_pcard", area = G.deck }
+                                SMODS.add_card { set = "Base", key_append = self.key .. "_pcard", area = G.deck,
+                                    edition = SMODS.poll_edition { guaranteed = true, key = self.key .. "_edition" } }
                                 return true
                             end
                         }))
@@ -248,7 +249,7 @@ JoyousSpring.Joker({
         }
     end,
     joy_transfer_loc_vars = function(self, info_queue, other_card, config)
-        return { config.cards, config.count }
+        return { vars = { config.cards, config.count } }
     end,
 })
 
@@ -343,7 +344,7 @@ JoyousSpring.Joker({
         }
     end,
     joy_transfer_loc_vars = function(self, info_queue, other_card, config)
-        return { config.mult, config.mult * (G.GAME.joy_cards_destroyed or 0) }
+        return { vars = { config.mult, config.mult * (G.GAME.joy_cards_destroyed or 0) } }
     end,
 })
 
@@ -411,7 +412,7 @@ JoyousSpring.Joker({
         }
     end,
     joy_transfer_loc_vars = function(self, info_queue, other_card, config)
-        return { config.chips, config.chips * (G.GAME.joy_cards_destroyed or 0) }
+        return { vars = { config.chips, config.chips * (G.GAME.joy_cards_destroyed or 0) } }
     end,
 })
 
@@ -437,7 +438,17 @@ JoyousSpring.Joker({
                 summon_type = "FUSION",
                 monster_type = "Dragon",
                 attribute = "LIGHT",
-                monster_archetypes = { ["Dracotail"] = true }
+                monster_archetypes = { ["Dracotail"] = true },
+                summon_playing_card_conditions = { min = 2, max = 2 },
+                summon_conditions = {
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { monster_type = "Spellcaster" },
+                            { monster_type = "Dragon" },
+                        }
+                    }
+                }
             },
             money = 1
         },
@@ -457,7 +468,10 @@ JoyousSpring.Joker({
                 local created = SMODS.create_card { set = "Base", rank = '2', suit = 'Hearts' }
                 created:load(pcard_info)
                 created:set_edition("e_negative", true, true)
+                created.facing = 'front'
+                created.sprite_facing = 'front'
                 created.ability.joy_temporary = true
+                SMODS.add_to_deck(created, { area = G.GAME.blind.in_blind and G.hand or G.deck })
             end
         end
     end
@@ -485,7 +499,17 @@ JoyousSpring.Joker({
                 summon_type = "FUSION",
                 monster_type = "Spellcaster",
                 attribute = "WATER",
-                monster_archetypes = { ["Dracotail"] = true }
+                monster_archetypes = { ["Dracotail"] = true },
+                summon_playing_card_conditions = { min = 2, max = 2 },
+                summon_conditions = {
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { monster_type = "Spellcaster" },
+                            { monster_type = "Dragon" },
+                        }
+                    }
+                }
             },
             destroys = 5
         },
@@ -547,14 +571,30 @@ JoyousSpring.Joker({
         { extra = "j_joy_dracotail_arthalion",                        extra_values = { enhancements = { "m_bonus", "m_mult", "m_wild", "m_glass", "m_steel", "m_stone", "m_gold", "m_lucky", "m_joy_hanafuda" }, editions = { "e_foil", "e_holo", "e_polychrome" }, seals = { "Red", "Blue", "Gold", "Purple", "joy_purr_memory" } }, name = "k_joy_arthalion_effects" },
         { properties = { { monster_archetypes = { "Dracotail" } }, }, name = "k_joy_archetype" },
     },
-    joy_glossary = { "enter", "extradeck", "material" },
+    joy_glossary = { "enter", "extradeck", "material", "modifier" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 summon_type = "FUSION",
                 monster_type = "Dragon",
                 attribute = "EARTH",
-                monster_archetypes = { ["Dracotail"] = true }
+                monster_archetypes = { ["Dracotail"] = true },
+                summon_playing_card_conditions = { min = 1 },
+                summon_conditions = {
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { monster_archetypes = { "Dracotail" }, min = 1 },
+                        }
+                    },
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { monster_archetypes = { "Dracotail" }, min = 1 },
+                            { min = 1 },
+                        }
+                    }
+                }
             },
         },
     },
@@ -638,9 +678,10 @@ JoyousSpring.Joker({
                 if next(to_destroy) then SMODS.destroy_cards(to_destroy) end
             end
             if context.repetition then
+                local cards_used = card.ability.extra.cards_used or {}
                 local reps = context.cardarea == G.play and (cards_used.red_seal or 0) or
                     context.cardarea == G.hand and (cards_used.m_steel or 0) or nil
-                if reps then
+                if reps and reps > 0 then
                     return {
                         repetitions = reps
                     }

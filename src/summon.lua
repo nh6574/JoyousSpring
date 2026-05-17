@@ -122,11 +122,13 @@ end
 ---@param card Card Card to summon
 ---@param card_list Card[] Summon materials
 ---@param summon_type summon_type
-JoyousSpring.perform_summon = function(card, card_list, summon_type)
+---@param playing_card_materials Card[]?
+JoyousSpring.perform_summon = function(card, card_list, summon_type, playing_card_materials)
     SMODS.calculate_context({
         joy_summon = true,
         joy_card = card,
         joy_summon_materials = card_list,
+        joy_playing_card_materials = playing_card_materials,
         joy_summon_type =
             summon_type
     })
@@ -137,6 +139,7 @@ JoyousSpring.perform_summon = function(card, card_list, summon_type)
                     joy_summon = true,
                     joy_card = card,
                     joy_summon_materials = summon_materials,
+                    joy_playing_card_materials = playing_card_materials,
                     joy_material_self = true,
                     joy_summon_type = summon_type,
                 })
@@ -164,12 +167,31 @@ JoyousSpring.perform_summon = function(card, card_list, summon_type)
             card.ability.extra.joyous_spring.xyz_materials = card.ability.extra.joyous_spring.xyz_materials +
                 joker.ability.extra.joyous_spring.xyz_materials
         end
-        joker.getting_sliced = true
-        if summon_type == "RITUAL" then
-            JoyousSpring.tribute(card, { joker }, true)
-        else
-            joker:start_dissolve()
+    end
+
+    local dissolve_colours = { G.C.BLACK, G.C.JOY[summon_type], G.C.RED, G.C.GOLD, G.C.JOKER_GREY }
+
+    if summon_type == "RITUAL" then
+        JoyousSpring.tribute(card, card_list, true, dissolve_colours)
+    else
+        JoyousSpring.destroy_cards(card_list, true, true, nil, dissolve_colours)
+    end
+
+    if playing_card_materials then
+        for _, pcard in ipairs(playing_card_materials) do
+            card.ability.extra.cards_used = card.ability.extra.cards_used or {}
+            local cards_used = card.ability.extra.cards_used
+            cards_used[pcard.config.center_key] = (cards_used[pcard.config.center_key] or 0) + 1
+            if pcard.seal then
+                cards_used[pcard.seal:lower() .. "_seal"] = (cards_used[pcard.seal:lower() .. "_seal"] or 0) + 1
+            end
+            if pcard.edition then
+                cards_used[pcard.edition.key] = (cards_used[pcard.edition.key] or 0) + 1
+            end
+            cards_used[pcard.base.value] = (cards_used[pcard.base.value] or 0) + 1
+            cards_used[pcard.base.suit] = (cards_used[pcard.base.suit] or 0) + 1
         end
+        JoyousSpring.destroy_cards(playing_card_materials, true, true, nil, dissolve_colours)
     end
     card.ability.extra.joyous_spring.summoned = true
 
@@ -549,6 +571,7 @@ end
 ---@param card_list Card[]?
 ---@return table?
 ---@return boolean?
+---@return table?
 JoyousSpring.get_all_summon_material_combos = function(card, card_list)
     if not JoyousSpring.is_monster_card(card) or not JoyousSpring.has_joyous_table(card) or
         (not card.ability.extra.joyous_spring.summon_conditions and not card.ability.extra.joyous_spring.summon_consumeable_conditions) then
@@ -634,6 +657,10 @@ JoyousSpring.can_summon = function(card, card_list)
     end
     if not card.ability.extra.joyous_spring.summon_conditions and not card.ability.extra.joyous_spring.summon_consumeable_conditions then
         return true, true
+    end
+
+    if card.ability.extra.joyous_spring.summon_playing_card_conditions and (not next(G.hand.cards) or (card.ability.extra.joyous_spring.summon_playing_card_conditions.min or 0) > #G.hand.cards) then
+        return false, false
     end
 
     if JoyousSpring.calculate_prototype_function("prevent_summon", {
@@ -877,7 +904,7 @@ JoyousSpring.create_UIBox_select_summon_materials = function(card, is_quick)
             n = G.UIT.R,
             config = {
                 align = "cm",
-                padding = 0.05,
+                padding = 0.2,
                 minw = 7
             },
             nodes = {
@@ -914,9 +941,9 @@ JoyousSpring.create_UIBox_select_summon_materials = function(card, is_quick)
                     config = {
                         r = 0.1,
                         minw = 7,
-                        minh = 5,
+                        minh = JoyousSpring.playing_card_summon_material_area and 0 or 5,
                         align = "cm",
-                        padding = 1,
+                        padding = JoyousSpring.playing_card_summon_material_area and 0 or 1,
                         colour = G.C.BLACK
                     },
                     nodes = {
@@ -1034,6 +1061,48 @@ JoyousSpring.create_UIBox_select_summon_materials = function(card, is_quick)
             }
         },
     }
+
+    if JoyousSpring.playing_card_summon_material_area then
+        local pcard_node = {
+            n = G.UIT.R,
+            config = {
+                align = "cm",
+                padding = 0.2,
+                minw = 7
+            },
+            nodes = {
+                {
+                    n = G.UIT.R,
+                    config = {
+                        r = 0.1,
+                        align = "cm",
+                        padding = 0,
+                        colour = G.C.BLACK
+                    },
+                    nodes = {
+                        {
+                            n = G.UIT.R,
+                            config = {
+                                align = "cm",
+                                padding = 0.07,
+                                no_fill = true,
+                                scale = 1
+                            },
+                            nodes = {
+                                {
+                                    n = G.UIT.O,
+                                    config = {
+                                        object = JoyousSpring.playing_card_summon_material_area
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        table.insert(ui_nodes, 3, pcard_node)
+    end
 
     if is_quick then
         local quick_node = {
@@ -1198,6 +1267,40 @@ JoyousSpring.create_overlay_select_summon_materials = function(card, card_list)
             end
         end
 
+        local playing_card_conditions = card.ability.extra.joyous_spring.summon_playing_card_conditions
+        if playing_card_conditions and next(G.hand.cards) then
+            local min, max = playing_card_conditions.min or 0, playing_card_conditions.max or #G.hand.cards
+            JoyousSpring.playing_card_summon_material_area = CardArea(
+                0,
+                0,
+                G.CARD_W * 6,
+                G.CARD_H,
+                {
+                    type = 'summon_materials',
+                    highlight_limit = max,
+                    no_card_count = true
+                }
+            )
+
+            JoyousSpring.playing_card_summon_material_area.conditions = { min = min, max = max }
+
+            for _, pcard in ipairs(G.hand.cards) do
+                local added_card = copy_card(pcard)
+                JoyousSpring.playing_card_summon_material_area:emplace(added_card)
+                if pcard.facing == 'back' then
+                    added_card.facing = 'back'
+                    added_card.sprite_facing = 'back'
+                end
+                for i, og_card in ipairs(G.hand.cards) do
+                    if og_card == pcard then
+                        added_card.joy_g_hand_pos = i
+                    end
+                end
+            end
+        else
+            JoyousSpring.playing_card_summon_material_area = nil
+        end
+
         G.FUNCS.overlay_menu({
             definition = JoyousSpring.create_UIBox_select_summon_materials(card, is_quick),
         })
@@ -1222,6 +1325,13 @@ G.FUNCS.joy_can_select_material = function(e)
 
         local can_summon, has_space = JoyousSpring.can_summon_with_combo(card,
             JoyousSpring.summon_material_area.highlighted)
+        if can_summon and JoyousSpring.playing_card_summon_material_area then
+            local cond = JoyousSpring.playing_card_summon_material_area.conditions
+            local number = #JoyousSpring.playing_card_summon_material_area.highlighted
+            if cond.min > number or cond.max < number then
+                can_summon, has_space = false, true
+            end
+        end
         if can_summon then
             e.config.colour = colour
             e.config.button = 'joy_exit_select_material_menu'
@@ -1246,6 +1356,7 @@ G.FUNCS.joy_exit_select_material_menu = function(e)
 
     if card and JoyousSpring.summon_material_area and next(JoyousSpring.summon_material_area.highlighted) then
         local material_list = {}
+        local playing_card_materials = {}
         for _, material in ipairs(JoyousSpring.summon_material_area.highlighted) do
             if material.joy_g_jokers_pos then
                 table.insert(material_list, G.jokers.cards[material.joy_g_jokers_pos])
@@ -1257,7 +1368,14 @@ G.FUNCS.joy_exit_select_material_menu = function(e)
                 table.insert(material_list, JoyousSpring.side_deck_area.cards[material.joy_side_deck_pos])
             end
         end
-        JoyousSpring.perform_summon(card, material_list, summon_type)
+        if JoyousSpring.playing_card_summon_material_area then
+            for _, material in ipairs(JoyousSpring.playing_card_summon_material_area.highlighted) do
+                if material.joy_g_hand_pos then
+                    table.insert(playing_card_materials, G.hand.cards[material.joy_g_hand_pos])
+                end
+            end
+        end
+        JoyousSpring.perform_summon(card, material_list, summon_type, playing_card_materials)
         JoyousSpring.open_extra_deck(true, false)
     end
     G.FUNCS.exit_overlay_menu()
@@ -1283,6 +1401,9 @@ function Controller:queue_R_cursor_press(x, y)
     end
     if JoyousSpring.summon_effect_area and next(JoyousSpring.summon_effect_area.highlighted) then
         JoyousSpring.summon_effect_area:unhighlight_all()
+    end
+    if JoyousSpring.playing_card_summon_material_area and next(JoyousSpring.playing_card_summon_material_area.highlighted) then
+        JoyousSpring.playing_card_summon_material_area:unhighlight_all()
     end
 end
 

@@ -55,7 +55,7 @@ return {
                         "If {C:attention}third hand{} of round",
                         "has exactly {C:attention}3{} cards,",
                         "destroys them and adds {C:attention}5{} random",
-                        "unmodified playing cards to the deck",
+                        "playing cards with random {C:attention}Editions{} to the deck",
                     }
                 },
                 joy_transfer_ability = {
