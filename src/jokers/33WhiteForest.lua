@@ -936,6 +936,7 @@ JoyousSpring.Joker({
                 is_field_spell = true,
                 monster_archetypes = { ["WhiteForest"] = true }
             },
+            tributes = 1
         },
     },
     calculate = function(self, card, context)
