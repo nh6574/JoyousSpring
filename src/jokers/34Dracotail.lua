@@ -689,6 +689,7 @@ JoyousSpring.Joker({
     end,
     joy_effect_loc_vars = function(self, key, amount)
         local config = self.joy_extra_config[key]
+        amount = amount or 1
         if not config then return {} end
         if key == "m_lucky" then
             return { (config[1] or 0) ^ amount }
@@ -696,7 +697,7 @@ JoyousSpring.Joker({
         return { (config[1] or 0) * amount, (config[2] or 0) * amount }
     end,
     joy_desc_cards = {
-        { extra = "j_joy_dracotail_arthalion",                        extra_values = { enhancements = { "m_bonus", "m_mult", "m_wild", "m_glass", "m_steel", "m_stone", "m_gold", "m_lucky", "m_joy_hanafuda" }, editions = { "e_foil", "e_holo", "e_polychrome" }, seals = { "Red", "Blue", "Gold", "Purple", "joy_purr_memory" } }, name = "k_joy_arthalion_effects" },
+        { extra = "Playing Cards",                                    extra_values = { loc_key = "j_joy_dracotail_arthalion", enhancements = { "m_bonus", "m_mult", "m_wild", "m_glass", "m_steel", "m_stone", "m_gold", "m_lucky", "m_joy_hanafuda" }, editions = { "e_foil", "e_holo", "e_polychrome" }, seals = { "Red", "Blue", "Gold", "Purple", "joy_purr_memory" } }, name = "k_joy_arthalion_effects" },
         { properties = { { monster_archetypes = { "Dracotail" } }, }, name = "k_joy_archetype" },
     },
     joy_glossary = { "enter", "extradeck", "material", "modifier" },

@@ -913,7 +913,7 @@ glossary_tab = function(t)
     }
 end
 
-local arthalion_tab = function(t)
+local playing_card_material_tab = function(t)
     t.area_table = {}
 
     t.area_table[#t.area_table + 1] = CardArea(
@@ -928,10 +928,12 @@ local arthalion_tab = function(t)
         }
     )
     local values = t.area_cards.extra_values
+    local loc_key = values.loc_key
 
     for _, enhancement in ipairs(values.enhancements) do
         local added_card = Card(0, 0, G.CARD_W, G.CARD_H, G.P_CARDS.empty, G.P_CENTERS[enhancement])
-        added_card.joy_arthalion = enhancement
+        added_card.joy_pcard_key = enhancement
+        added_card.joy_pcard_loc_key = loc_key
         t.area_table[#t.area_table]:emplace(added_card)
     end
 
@@ -950,14 +952,16 @@ local arthalion_tab = function(t)
     for _, edition in ipairs(values.editions) do
         local added_card = Card(0, 0, G.CARD_W, G.CARD_H, G.P_CARDS.empty, G.P_CENTERS['c_base'])
         added_card:set_edition(edition, nil, true)
-        added_card.joy_arthalion = edition
+        added_card.joy_pcard_key = edition
+        added_card.joy_pcard_loc_key = loc_key
         t.area_table[#t.area_table]:emplace(added_card)
     end
 
     for _, seal in ipairs(values.seals) do
         local added_card = Card(0, 0, G.CARD_W, G.CARD_H, G.P_CARDS.empty, G.P_CENTERS['c_base'])
         added_card:set_seal(seal, true)
-        added_card.joy_arthalion = seal:lower() .. "_seal"
+        added_card.joy_pcard_key = seal:lower() .. "_seal"
+        added_card.joy_pcard_loc_key = loc_key
         t.area_table[#t.area_table]:emplace(added_card)
     end
 
@@ -1000,16 +1004,20 @@ local arthalion_tab = function(t)
     }
 end
 
-JoyousSpring.arthalion_description = function(center, card, desc_nodes, info_queue)
-    local loc = G.localization.descriptions.Joker.j_joy_dracotail_arthalion.joy_extra_effects[card.joy_arthalion or ""]
+JoyousSpring.playing_card_description = function(center, card, desc_nodes, info_queue)
+    local loc_key = card.joy_pcard_loc_key
 
-    if not card.joy_arthalion or not desc_nodes or not loc then return end
+    if not card.joy_pcard_key or not loc_key then return end
+
+    local loc = ((G.localization.descriptions.Joker[loc_key] or {}).joy_extra_effects or {})[card.joy_pcard_key or ""]
+
+    if not desc_nodes or not loc then return end
 
     loc = loc.text_description
     desc_nodes = EMPTY(desc_nodes)
     for _, line in ipairs(loc) do
         desc_nodes[#desc_nodes + 1] = SMODS.localize_box(loc_parse_string(line),
-            { vars = G.P_CENTERS.j_joy_dracotail_arthalion:joy_effect_loc_vars(card.joy_arthalion) })
+            { vars = G.P_CENTERS[loc_key]:joy_effect_loc_vars(card.joy_pcard_key) })
     end
 end
 
@@ -1020,8 +1028,8 @@ local related_tab = function(t)
         end
     end
 
-    if t.area_cards.extra == "j_joy_dracotail_arthalion" then
-        return arthalion_tab(t)
+    if t.area_cards.extra == "Playing Cards" then
+        return playing_card_material_tab(t)
     end
 
     t.area_table = {}
