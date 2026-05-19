@@ -640,11 +640,9 @@ end
 ---@return boolean?
 JoyousSpring.can_be_used_as_material = function(card, properties, summon_type)
     local can_be_used
-    print("??")
     if card.config.center.joy_can_be_used_as_material then
         can_be_used = card.config.center:joy_can_be_used_as_material(card, properties, summon_type)
     end
-    print(can_be_used, card.config.center.key)
     return can_be_used or
         (can_be_used == nil and (not card.ability.eternal or properties.can_use_eternal or properties.is_eternal))
 end
