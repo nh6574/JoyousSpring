@@ -25,6 +25,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "HazyFlame" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "excavate", "revive", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -91,6 +92,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "HazyFlame" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "extradeck_joker", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -133,6 +135,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "HazyFlame" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -173,6 +176,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "HazyFlame" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "extradeck", "xyz", "material", "xyz_material", "attach" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -223,6 +227,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "HazyFlame" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -285,6 +290,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "HazyFlame" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "revive", "maindeck", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -344,6 +350,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "HazyFlame" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "maindeck", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -404,6 +411,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "HazyFlame" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "xyz_material", "attach", "material", "tribute" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
