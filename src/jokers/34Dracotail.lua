@@ -285,19 +285,7 @@ JoyousSpring.Joker({
                     pseudorandom_element({ "j_joy_dracotail_gulamel", "j_joy_dracotail_shaulas" }, self.key) or
                     "j_joy_dracotail_arthalion"
                 local playing_card_materials = SMODS.shallow_copy(context.scoring_hand)
-                local cards_used = {}
-                for _, pcard in ipairs(playing_card_materials) do
-                    cards_used[pcard.config.center_key] = (cards_used[pcard.config.center_key] or 0) + 1
-                    if pcard.seal then
-                        cards_used[pcard.seal:lower() .. "_seal"] = (cards_used[pcard.seal:lower() .. "_seal"] or 0) +
-                            1
-                    end
-                    if pcard.edition then
-                        cards_used[pcard.edition.key] = (cards_used[pcard.edition.key] or 0) + 1
-                    end
-                    cards_used[pcard.base.value] = (cards_used[pcard.base.value] or 0) + 1
-                    cards_used[pcard.base.suit] = (cards_used[pcard.base.suit] or 0) + 1
-                end
+                local cards_used = JoyousSpring.playing_cards_used({}, playing_card_materials)
                 JoyousSpring.destroy_cards(playing_card_materials)
 
                 JoyousSpring.transform_card(card, key_to_transform, false, "FUSION", { "j_joy_dracotail_mululu" },

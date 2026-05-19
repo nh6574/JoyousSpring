@@ -218,22 +218,22 @@ return {
                     },
                     m_glass = {
                         text_description = {
-                            "{X:mult,C:white}X#1#{} Mult",
+                            "Extra {X:mult,C:white}X#1#{} Mult",
                             "and destroys a random card played for each"
                         },
                         text = {
-                            "{X:mult,C:white}X#1#{} Mult",
+                            "Extra {X:mult,C:white}X#1#{} Mult",
                             "and destroys {C:attention}#2#{} random card(s) played"
                         }
                     },
                     m_steel = {
                         text_description = {
-                            "{X:mult,C:white}X#1#{} Mult",
+                            "Extra {X:mult,C:white}X#1#{} Mult",
                             "and retriggers scoring cards",
                             "held in hand up to {C:attention}#2#{} time for each"
                         },
                         text = {
-                            "{X:mult,C:white}X#1#{} Mult",
+                            "Extra {X:mult,C:white}X#1#{} Mult",
                             "and retriggers scoring cards",
                             "held in hand up to {C:attention}#2#{} time(s)"
                         }
@@ -294,10 +294,10 @@ return {
                     },
                     e_polychrome = {
                         text_description = {
-                            "{X:mult,C:white}X#1#{} Mult for each"
+                            "Extra {X:mult,C:white}X#1#{} Mult for each"
                         },
                         text = {
-                            "{X:mult,C:white}X#1#{} Mult",
+                            "Extra {X:mult,C:white}X#1#{} Mult",
                         }
                     },
                     red_seal = {

@@ -692,6 +692,25 @@ JoyousSpring.get_last_used_consumable = function(set)
     return G.GAME.joy_last_used[set]
 end
 
+---Create the table of playing card information for summons/effects
+---@param playing_card_materials Card[]
+---@return table
+JoyousSpring.playing_cards_used = function(cards_used, playing_card_materials)
+    for _, pcard in ipairs(playing_card_materials) do
+        cards_used[pcard.config.center_key] = (cards_used[pcard.config.center_key] or 0) + 1
+        if pcard.seal then
+            cards_used[pcard.seal:lower() .. "_seal"] = (cards_used[pcard.seal:lower() .. "_seal"] or 0) +
+                1
+        end
+        if pcard.edition then
+            cards_used[pcard.edition.key] = (cards_used[pcard.edition.key] or 0) + 1
+        end
+        cards_used[pcard.base.value] = (cards_used[pcard.base.value] or 0) + 1
+        cards_used[pcard.base.suit] = (cards_used[pcard.base.suit] or 0) + 1
+    end
+    return cards_used
+end
+
 ---Runs **func** on all (supported) objects
 ---@param func string
 ---@param args {default_return:any, return_func:(fun(new:any, original:any):any), ignore_jokers:boolean, ignore_blinds:boolean,ignore_debuff:boolean, ignore_disabled_blind:boolean, pass_return:boolean, return_if_true:boolean}?

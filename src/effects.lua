@@ -600,7 +600,12 @@ JoyousSpring.excavate = function(amount, context)
                 return true
             end)
         }))
-        SMODS.calculate_context({ joy_excavated = original_cards[i], joy_number = i, joy_other_context = context or {} })
+        SMODS.calculate_context({
+            joy_excavated = original_cards[i],
+            joy_number = i,
+            joy_other_context = context or {},
+            joy_excavated_all = original_cards
+        })
         G.E_MANAGER:add_event(Event({
             trigger = "after",
             delay = 2,

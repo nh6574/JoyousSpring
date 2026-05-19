@@ -1017,7 +1017,10 @@ JoyousSpring.playing_card_description = function(center, card, desc_nodes, info_
     desc_nodes = EMPTY(desc_nodes)
     for _, line in ipairs(loc) do
         desc_nodes[#desc_nodes + 1] = SMODS.localize_box(loc_parse_string(line),
-            { vars = G.P_CENTERS[loc_key]:joy_effect_loc_vars(card.joy_pcard_key) })
+            {
+                vars = G.P_CENTERS[loc_key].joy_effect_loc_vars and
+                    G.P_CENTERS[loc_key]:joy_effect_loc_vars(card.joy_pcard_key, 1) or {}
+            })
     end
 end
 

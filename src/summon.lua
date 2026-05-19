@@ -178,19 +178,8 @@ JoyousSpring.perform_summon = function(card, card_list, summon_type, playing_car
     end
 
     if playing_card_materials then
-        for _, pcard in ipairs(playing_card_materials) do
-            card.ability.extra.cards_used = card.ability.extra.cards_used or {}
-            local cards_used = card.ability.extra.cards_used
-            cards_used[pcard.config.center_key] = (cards_used[pcard.config.center_key] or 0) + 1
-            if pcard.seal then
-                cards_used[pcard.seal:lower() .. "_seal"] = (cards_used[pcard.seal:lower() .. "_seal"] or 0) + 1
-            end
-            if pcard.edition then
-                cards_used[pcard.edition.key] = (cards_used[pcard.edition.key] or 0) + 1
-            end
-            cards_used[pcard.base.value] = (cards_used[pcard.base.value] or 0) + 1
-            cards_used[pcard.base.suit] = (cards_used[pcard.base.suit] or 0) + 1
-        end
+        card.ability.extra.cards_used = JoyousSpring.playing_cards_used(card.ability.extra.cards_used,
+            playing_card_materials)
         JoyousSpring.destroy_cards(playing_card_materials, true, true, nil, dissolve_colours)
     end
     card.ability.extra.joyous_spring.summoned = true

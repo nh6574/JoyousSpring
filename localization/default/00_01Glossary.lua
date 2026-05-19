@@ -455,8 +455,7 @@ return {
             modifier = {
                 name = "[Modifier]",
                 text = {
-                    "{C:attention}Editions{}, {C:attention}Enhancements{},",
-                    "{C:attention}Seals{} or {C:attention}Stickers{}"
+                    "{C:attention}Editions{}, {C:attention}Enhancements{} or {C:attention}Seals{}"
                 }
             },
             no_shop = {
