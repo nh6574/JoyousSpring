@@ -97,9 +97,11 @@ end
 
 ---Adds a tag that creates a joker with *card_key* to the shop
 ---@param card_key string
-JoyousSpring.add_monster_tag = function(card_key)
+---@param modifiers table?
+JoyousSpring.add_monster_tag = function(card_key, modifiers)
     local tag = Tag('tag_joy_monster')
     tag.ability.monster = card_key
+    tag.ability.modifiers = modifiers
     G.GAME.joy_last_monster_tag = card_key
     add_tag(tag)
 end
@@ -110,12 +112,12 @@ end
 ---@param not_owned boolean?
 ---@param ignore_in_pool boolean?
 ---@return string?
-JoyousSpring.add_monster_tag_pseudorandom = function(property_list, seed, not_owned, ignore_in_pool)
+JoyousSpring.add_monster_tag_pseudorandom = function(property_list, seed, not_owned, ignore_in_pool, modifiers)
     local choices = JoyousSpring.get_materials_in_collection(property_list, not_owned, not_owned,
         not ignore_in_pool and seed)
     local key_to_add = pseudorandom_element(choices, seed or "JoyousSpring")
     if key_to_add then
-        return JoyousSpring.add_monster_tag(key_to_add)
+        return JoyousSpring.add_monster_tag(key_to_add, modifiers)
     end
     return key_to_add
 end

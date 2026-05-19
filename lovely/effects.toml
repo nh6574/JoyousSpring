@@ -176,3 +176,48 @@ match_indent = true
 payload = '''
 SMODS.calculate_context{ joy_perish = true, joy_card = self }
 '''
+
+# Basiltrice Eternal shop
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''
+if (area == G.shop_jokers) or (area == G.pack_cards) then
+'''
+position = 'after'
+match_indent = true
+payload = '''
+local joy_basiltrice
+for _, joker in ipairs(SMODS.find_card("j_joy_hazy_basil")) do
+    if joker.ability.extra.joyous_spring.xyz_materials >= 20 then
+        joy_basiltrice = true
+        break
+    end
+end
+local joy_old_eternal = G.GAME.modifiers.enable_eternals_in_shop
+local joy_old_perishable = G.GAME.modifiers.enable_perishables_in_shop
+local joy_old_rental = G.GAME.modifiers.enable_rentals_in_shop
+if joy_basiltrice then
+    if not G.GAME.modifiers.enable_eternals_in_shop then
+        G.GAME.modifiers.enable_eternals_in_shop = true
+    else
+        G.GAME.modifiers.enable_perishables_in_shop = false
+        G.GAME.modifiers.enable_rentals_in_shop = false
+    end
+end
+'''
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''
+    card:set_rental(true)
+end
+'''
+position = 'after'
+match_indent = true
+payload = '''
+G.GAME.modifiers.enable_eternals_in_shop = joy_old_eternal
+G.GAME.modifiers.enable_perishables_in_shop = joy_old_perishable
+G.GAME.modifiers.enable_rentals_in_shop = joy_old_rental
+'''

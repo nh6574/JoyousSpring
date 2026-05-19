@@ -168,6 +168,8 @@ JoyousSpring.Joker = setmetatable({}, {
 ---@field is_blind_card boolean?
 ---@field exclude_blind_cards boolean?
 ---@field can_use_eternal boolean?
+---@field is_eternal boolean?
+---@field exclude_eternal boolean?
 
 ---@class material_restrictions
 ---@field different_names boolean?

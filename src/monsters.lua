@@ -640,10 +640,13 @@ end
 ---@return boolean?
 JoyousSpring.can_be_used_as_material = function(card, properties, summon_type)
     local can_be_used
+    print("??")
     if card.config.center.joy_can_be_used_as_material then
         can_be_used = card.config.center:joy_can_be_used_as_material(card, properties, summon_type)
     end
-    return can_be_used or (can_be_used == nil and (not card.ability.eternal or properties.can_use_eternal))
+    print(can_be_used, card.config.center.key)
+    return can_be_used or
+        (can_be_used == nil and (not card.ability.eternal or properties.can_use_eternal or properties.is_eternal))
 end
 
 ---Checks if **card** fulfills **properties**
@@ -684,6 +687,14 @@ JoyousSpring.is_material = function(card, properties, summon_type)
 
     if not next(properties) then
         return true
+    end
+
+    if properties.is_eternal and not card.ability.eternal then
+        return false
+    end
+
+    if properties.exclude_eternal and card.ability.eternal then
+        return false
     end
 
     if properties.has_edition and not card:get_edition() then
@@ -967,7 +978,7 @@ JoyousSpring.is_material_center = function(card_key, properties)
     local requires_monster_properties = properties.monster_type or properties.monster_attribute or
         properties.monster_archetypes or properties.is_pendulum or properties.summon_type or properties.is_effect or
         properties.is_non_effect or properties.is_normal or properties.is_tuner or properties.is_trap or
-        properties.is_flip or properties.is_field_spell
+        properties.is_flip or properties.is_field_spell or properties.is_extra_deck or properties.is_main_deck
     if not has_extra_values and not monster_card_properties then
         return not requires_monster_properties
     end

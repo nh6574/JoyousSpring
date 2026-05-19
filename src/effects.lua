@@ -286,6 +286,9 @@ JoyousSpring.count_as_tributed = function(card, for_ritual)
         G.GAME.current_round.joy_tributed_cards[card.config.center.key].for_ritual =
             G.GAME.current_round.joy_tributed_cards[card.config.center.key].for_ritual + 1
     end
+    if card.ability.eternal then
+        G.GAME.joy_tributed_cards_eternal = (G.GAME.joy_tributed_cards_eternal or 0) + 1
+    end
 end
 
 ---Tribute a card
@@ -306,7 +309,7 @@ JoyousSpring.tribute = function(card, card_list, for_ritual, dissolve_colours)
                 joy_for_ritual = for_ritual
             })
         SMODS.trigger_effects({ eval, post }, material)
-        JoyousSpring.destroy_cards(material, nil, true, nil, dissolve_colours)
+        JoyousSpring.destroy_cards(material, true, true, nil, dissolve_colours)
         if card.ability then
             card.ability.joy_tributed = card.ability.joy_tributed or {}
             if not JoyousSpring.is_playing_card(material) then

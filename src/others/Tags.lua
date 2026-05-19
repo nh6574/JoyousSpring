@@ -31,6 +31,7 @@ SMODS.Tag({
     key = "monster",
     atlas = "Tags",
     loc_vars = function(self, info_queue, tag)
+        --TODO: Make it display modifiers
         local center = G.P_CENTERS[tag.ability.monster]
         if center then
             info_queue[#info_queue + 1] = center
@@ -47,10 +48,10 @@ SMODS.Tag({
     end,
     apply = function(self, tag, context)
         if context.type == 'store_joker_create' then
-            local joy_forced_card = SMODS.create_card({
-                key = tag.ability.monster or "j_joy_token",
-                area = G.shop_jokers
-            })
+            local modifiers = tag.ability.modifiers or {}
+            modifiers.key = tag.ability.monster or "j_joy_token"
+            modifiers.area = G.shop_jokers
+            local joy_forced_card = SMODS.create_card(modifiers)
             create_shop_card_ui(joy_forced_card, 'Joker', G.shop_jokers)
             joy_forced_card.states.visible = false
             tag:yep('+', JoyousSpring.is_monster_card(joy_forced_card) and
