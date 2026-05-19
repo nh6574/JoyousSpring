@@ -75,7 +75,7 @@ return {
                     "{C:chips}+#1#{} Фишек",
                     "за каждого {C:joy_light}LIGHT{} {C:attention}Джокера{}",
                     "{C:attention}пожертвованного{} в этом раунде",
-                    "{C:inactive}(Сейчас {C:chips}+$#2#{}{C:inactive} Фишек)"
+                    "{C:inactive}(Сейчас {C:chips}+#2#{}{C:inactive} Фишек)"
                 }
             },
             j_joy_voice_divine = {
@@ -84,16 +84,16 @@ return {
                     {
                         "{C:attention}+#1#{} размер руки за каждого",
                         "{C:joy_effect}\"Ло, Молитвы Безголосого Голоса\"{}",
-                        "в {C:attention}GY{} в раунде, когда эта карта призвана",
+                        "в {C:attention}GY{} в раунде, когда эта карта {C:attention}вступает в игру{}",
                         "{C:inactive}(Сейчас {C:attention}+#2#{}{C:inactive})"
                     },
                     {
-                        "Открывает {C:attention}2 Ритуал Поддерживающих Секретных Пака{}",
+                        "Даёт {C:attention}Тег Секретного Пака Поддержки Ритуалов{}",
                         "в конце раунда"
                     }
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2{} {C:joy_light}LIGHT{} {C:attention}Джокера{}"
+                    "{C:joy_ritual}Жертвует {C:attention}2{} {C:joy_light}LIGHT{} {C:attention}Джокеров{}"
                 }
             },
             j_joy_voice_skull = {
@@ -103,7 +103,7 @@ return {
                         "{C:mult}+#1#{} Множителя",
                         "за каждого {C:joy_light}LIGHT{} {C:attention}Джокера{}",
                         "{C:attention}пожертвованного{} в этом раунде",
-                        "{C:inactive}(Сейчас {C:mult}+$#2#{}{C:inactive} Множителя)"
+                        "{C:inactive}(Сейчас {C:mult}+#2#{}{C:inactive} Множителя)"
                     },
                     {
                         "Получает {X:chips,C:white}X#3#{} Фишек за каждого",
@@ -113,7 +113,7 @@ return {
                     }
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2{} {C:joy_light}LIGHT{} {C:attention}Джокера{}"
+                    "{C:joy_ritual}Жертвует {C:attention}2{} {C:joy_light}LIGHT{} {C:attention}Джокеров{}"
                 }
             },
         }

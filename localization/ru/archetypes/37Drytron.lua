@@ -19,6 +19,9 @@ return {
                         "Бесплатно, но должен {C:attention}пожертвовать{} {C:attention}Джокера{}",
                         "чтобы {C:attention}войти в игру{}"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:joy_normal}Пожертвовать {C:attention}1{} {C:attention}Джокера{}"
                 }
             },
             j_joy_dry_beta = {
@@ -29,7 +32,7 @@ return {
                     },
                     {
                         "Если {C:attention}пожертвован{}, {C:money}+$#2#{} или",
-                        "{C:attention}+$#3#{} если {C:attention}пожертвован{} для {C:joy_ritual}Ритуала{}"
+                        "{C:money}+$#3#{} если {C:attention}пожертвован{} для {C:joy_ritual}Ритуала{}"
                     },
                     {
                         "Считается любым {C:attention}материалом{} для {C:joy_ritual}Ритуала{}",
@@ -38,6 +41,9 @@ return {
                         "Бесплатно, но должен {C:attention}пожертвовать{} {C:attention}Джокера{}",
                         "чтобы {C:attention}войти в игру{}"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:joy_normal}Пожертвовать {C:attention}1{} {C:attention}Джокера{}"
                 }
             },
             j_joy_dry_delta = {
@@ -58,6 +64,9 @@ return {
                         "Бесплатно, но должен {C:attention}пожертвовать{} {C:attention}Джокера{}",
                         "чтобы {C:attention}войти в игру{}"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:joy_normal}Пожертвовать {C:attention}1{} {C:attention}Джокера{}"
                 }
             },
             j_joy_dry_gamma = {
@@ -78,6 +87,9 @@ return {
                         "Бесплатно, но должен {C:attention}пожертвовать{} {C:attention}Джокера{}",
                         "чтобы {C:attention}войти в игру{}"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:joy_normal}Пожертвовать {C:attention}1{} {C:attention}Джокера{}"
                 }
             },
             j_joy_dry_zeta = {
@@ -89,6 +101,7 @@ return {
                     {
                         "Если {C:attention}пожертвован{}, создаёт {C:attention}1{} {C:joy_spell}\"Драйтрон Фафнир\"{}",
                         "и {C:spectral}Спектрал{} если {C:attention}пожертвован{} для {C:joy_ritual}Ритуала{}",
+                        "{C:inactive}(Должно быть место)"
                     },
                     {
                         "Считается любым {C:attention}материалом{} для {C:joy_ritual}Ритуала{}",
@@ -97,6 +110,9 @@ return {
                         "Бесплатно, но должен {C:attention}пожертвовать{} {C:attention}Джокера{}",
                         "чтобы {C:attention}войти в игру{}"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:joy_normal}Пожертвовать {C:attention}1{} {C:attention}Джокера{}"
                 }
             },
             j_joy_dry_nu = {
@@ -106,8 +122,9 @@ return {
                         "{X:mult,C:white}X#1#{} множителя"
                     },
                     {
-                        "Если {C:attention}пожертвован{}, создаёт {C:attention}1{} не-{C:joy_ritual}Ритуал{} {C:joy_normal}\"Драйтрон\"{}",
-                        "или {C:attention}2{} если {C:attention}пожертвован{} для {C:joy_ritual}Ритуала{}",
+                        "Если {C:attention}пожертвован{}, создаёт {C:attention}1{} не-{C:joy_ritual}Ритуал{}",
+                        "{C:joy_normal}\"Драйтрон\"{} из Главной колоды или {C:attention}2{}",
+                        "если {C:attention}пожертвован{} для {C:joy_ritual}Ритуала{}",
                     },
                     {
                         "Считается любым {C:attention}материалом{} для {C:joy_ritual}Ритуала{}",
@@ -116,6 +133,9 @@ return {
                         "Бесплатно, но должен {C:attention}пожертвовать{} {C:attention}Джокера{}",
                         "чтобы {C:attention}войти в игру{}"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:joy_normal}Пожертвовать {C:attention}1{} {C:attention}Джокера{}"
                 }
             },
             j_joy_dry_mubeta = {
@@ -142,7 +162,7 @@ return {
                     "{X:mult,C:white}X#1#{} Множителя"
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2+{} {C:blue}Обычных{} {C:attention}Джокера{}",
+                    "{C:attention}2+{} {C:green}Необычных{} {C:attention}Джокера{}",
                     "{s:0.9,C:inactive}(Кроме {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, {s:0.9,C:joy_link}Линков{}",
                     "{s:0.9,C:inactive}или {s:0.9,C:joy_token}Токенов{s:0.9,C:inactive})",
                 }
@@ -157,7 +177,7 @@ return {
                     }
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2+{} {C:joy_light}LIGHT{} {C:attention}Джокера{}"
+                    "{C:joy_ritual}Пожертвовать {C:attention}2+{} {C:joy_light}LIGHT{} {C:attention}Джокера{}"
                 }
             },
             j_joy_dry_dadraco = {
@@ -173,7 +193,7 @@ return {
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}4+{} {C:joy_light}LIGHT{} {C:attention}Джокера{}"
+                    "{C:joy_ritual}Пожертвовать {C:attention}4+{} {C:joy_light}LIGHT{} {C:attention}Джокера{}"
                 }
             },
             j_joy_dry_qua = {
@@ -185,13 +205,13 @@ return {
                         "{C:inactive}(Сейчас {X:mult,C:white}X#2#{}{C:inactive} Множителя)",
                     },
                     {
-                        "При {C:attention}жертвоприношении{}, {C:attention}воскрешает{} как можно больше",
+                        "Если {C:attention}пожертвован{}, {C:attention}воскрешает{} как можно больше",
                         "не-{C:joy_ritual}Ритуал{} {C:joy_normal}\"Драйтронов\"{} с разными именами",
                         "{C:inactive}(Кроме раунда, в котором был призван) (Не нужно место){}"
                     }
                 },
                 joy_summon_conditions = {
-                    "{C:attention}3+{} {C:joy_light}LIGHT{} {C:attention}Джокера{}"
+                    "{C:joy_ritual}Пожертвовать {C:attention}3+{} {C:joy_light}LIGHT{} {C:attention}Джокера{}"
                 }
             },
             j_joy_dry_fafnir = {
