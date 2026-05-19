@@ -378,7 +378,7 @@ function Card:stop_drag()
                         end
                     end
                 end
-            elseif JoyousSpring.is_summon_type(self, "RITUAL") then
+            elseif JoyousSpring.is_summon_type(self, "RITUAL") or JoyousSpring.does_tribute_in_shop(self) then
                 if area == JoyousSpring.side_deck_area or (area.config.card_limit + JoyousSpring.get_card_limit(self) > #area.cards) then
                     if area == JoyousSpring.side_deck_area then
                         self.ability.joy_extra_values = self.ability.joy_extra_values or {}
@@ -439,7 +439,7 @@ end
 
 G.FUNCS.joy_can_side = function(e)
     local card = e.config.ref_table
-    if not JoyousSpring.is_summon_type(card, "RITUAL") and
+    if not JoyousSpring.is_summon_type(card, "RITUAL") and not JoyousSpring.does_tribute_in_shop(card) and
         (to_big(card.cost) > to_big(G.GAME.dollars - G.GAME.bankrupt_at)) and (card.cost > 0) then
         e.config.colour = G.C.UI.BACKGROUND_INACTIVE
         e.config.button = nil
@@ -506,7 +506,7 @@ G.FUNCS.joy_to_side = function(e)
 
                 play_sound('card1')
                 inc_career_stat('c_shop_dollars_spent', card.cost)
-                if card.cost ~= 0 and not JoyousSpring.is_summon_type(card, "RITUAL") then
+                if card.cost ~= 0 and not JoyousSpring.is_summon_type(card, "RITUAL") and not JoyousSpring.does_tribute_in_shop(card) then
                     ease_dollars(-card.cost)
                 end
                 G.CONTROLLER:save_cardarea_focus('jokers')

@@ -16,11 +16,19 @@ return {
                     "to the shop"
                 },
             },
+            tag_joy_secret = {
+                name = "Seret Pack Tag",
+                text = {
+                    "Gives a free",
+                    "{C:joy_normal}#1#{}",
+                },
+            },
         },
     },
     misc = {
         dictionary = {
             k_joy_monster_tag_default = "a Monster Joker",
+            k_joy_secret_tag_default = "Secret Pack",
         }
     }
 }

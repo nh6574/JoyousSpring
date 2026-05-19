@@ -29,6 +29,7 @@ JoyousSpring.init_joy_table = function(params)
         summon_conditions = params.summon_conditions or {},
         summon_consumeable_conditions = params.summon_consumeable_conditions or nil,
         summon_playing_card_conditions = params.summon_playing_card_conditions or nil,
+        summon_from_shop = params.summon_from_shop or false,
         summoned = false,
         summon_materials = {},
         material_effects = {},
@@ -631,6 +632,14 @@ JoyousSpring.should_illusion_banish = function(card)
     return not JoyousSpring.calculate_prototype_function("prevent_illusion_banish", {
         return_if_true = true
     }, card)
+end
+
+---Checks if *card* tributes Jokers to be bought
+---@param card Card|table
+---@return boolean?
+JoyousSpring.does_tribute_in_shop = function(card)
+    return JoyousSpring.is_monster_card(card) and JoyousSpring.has_joyous_table(card) and
+        card.ability.extra.joyous_spring.summon_from_shop
 end
 
 ---Determines if card can be used as material in general. Does not check for specific properties

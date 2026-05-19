@@ -542,7 +542,7 @@ for i, data in ipairs(joy_groups) do
     })
 end
 
-JoyousSpring.shared_booster_sprite = {} -- I probably won't use soul sprites for this later so I'll remove this
+JoyousSpring.shared_booster_sprite = {}
 
 SMODS.DrawStep {
     key = 'joy_booster',

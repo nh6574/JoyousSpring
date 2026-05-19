@@ -19,6 +19,9 @@ return {
                         "Free but must {C:attention}tribute{} a {C:attention}Joker{}",
                         "to {C:attention}enter play{}"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:joy_normal}Tribute {C:attention}1{} {C:attention}Joker{}"
                 }
             },
             j_joy_dry_beta = {
@@ -29,7 +32,7 @@ return {
                     },
                     {
                         "If {C:attention}tributed{}, {C:money}+$#2#{} or",
-                        "{C:attention}+$#3#{} if {C:attention}tributed{} for a {C:joy_ritual}Ritual{}"
+                        "{C:money}+$#3#{} if {C:attention}tributed{} for a {C:joy_ritual}Ritual{}"
                     },
                     {
                         "Treated as any {C:attention}material{} for a {C:joy_ritual}Ritual",
@@ -38,6 +41,9 @@ return {
                         "Free but must {C:attention}tribute{} a {C:attention}Joker{}",
                         "to {C:attention}enter play{}"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:joy_normal}Tribute {C:attention}1{} {C:attention}Joker{}"
                 }
             },
             j_joy_dry_delta = {
@@ -58,6 +64,9 @@ return {
                         "Free but must {C:attention}tribute{} a {C:attention}Joker{}",
                         "to {C:attention}enter play{}"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:joy_normal}Tribute {C:attention}1{} {C:attention}Joker{}"
                 }
             },
             j_joy_dry_gamma = {
@@ -78,6 +87,9 @@ return {
                         "Free but must {C:attention}tribute{} a {C:attention}Joker{}",
                         "to {C:attention}enter play{}"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:joy_normal}Tribute {C:attention}1{} {C:attention}Joker{}"
                 }
             },
             j_joy_dry_zeta = {
@@ -89,6 +101,7 @@ return {
                     {
                         "If {C:attention}tributed{}, creates {C:attention}1{} {C:joy_spell}\"Drytron Fafnir\"{}",
                         "and a {C:spectral}Spectral{} if {C:attention}tributed{} for a {C:joy_ritual}Ritual{}",
+                        "{C:inactive}(Must have room)"
                     },
                     {
                         "Treated as any {C:attention}material{} for a {C:joy_ritual}Ritual",
@@ -97,6 +110,9 @@ return {
                         "Free but must {C:attention}tribute{} a {C:attention}Joker{}",
                         "to {C:attention}enter play{}"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:joy_normal}Tribute {C:attention}1{} {C:attention}Joker{}"
                 }
             },
             j_joy_dry_nu = {
@@ -106,8 +122,9 @@ return {
                         "{X:mult,C:white}X#1#{} mult"
                     },
                     {
-                        "If {C:attention}tributed{}, creates {C:attention}1{} non-{C:joy_ritual}Ritual{} {C:joy_normal}\"Drytron\"{}",
-                        "or {C:attention}2{} if {C:attention}tributed{} for a {C:joy_ritual}Ritual{}",
+                        "If {C:attention}tributed{}, creates {C:attention}1{} non-{C:joy_ritual}Ritual{}",
+                        "{C:joy_normal}Main Deck \"Drytron\"{} or {C:attention}2{}",
+                        "if {C:attention}tributed{} for a {C:joy_ritual}Ritual{}",
                     },
                     {
                         "Treated as any {C:attention}material{} for a {C:joy_ritual}Ritual",
@@ -116,6 +133,9 @@ return {
                         "Free but must {C:attention}tribute{} a {C:attention}Joker{}",
                         "to {C:attention}enter play{}"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:joy_normal}Tribute {C:attention}1{} {C:attention}Joker{}"
                 }
             },
             j_joy_dry_mubeta = {
@@ -133,7 +153,7 @@ return {
                     {
                         "A {C:joy_ritual}Ritual{} summoned using this card",
                         "as {C:attention}material{} gains the following ability:",
-                        "{s:0.9,X:mult,C:white}X#1#{s:0.9} Mult {s:0.9}for each {s:0.9,C:attention}material{}",
+                        "{s:0.9}Gains {s:0.9,X:mult,C:white}X#1#{s:0.9} Mult {s:0.9}for each {s:0.9,C:attention}material{}",
                         "{s:0.9,C:joy_xyz}\"Drytron Mu Beta Fafnir\"{s:0.9} had when used",
                         "{s:0.9}for its summon",
                     },
@@ -142,7 +162,7 @@ return {
                     "{X:mult,C:white}X#1#{} Mult"
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2+{} {C:blue}Common{} {C:attention}Jokers{}",
+                    "{C:attention}2+{} {C:green}Uncommon{} {C:attention}Jokers{}",
                     "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, {s:0.9,C:joy_link}Links{}",
                     "{s:0.9,C:inactive}or {s:0.9,C:joy_token}Tokens{s:0.9,C:inactive})",
                 }
@@ -151,13 +171,13 @@ return {
                 name = "{C:joy_ritual}Drytron Meteonis Draconids",
                 text = {
                     {
-                        "{X:mult,C:white}X#1#{} for each {C:joy_normal}\"Drytron\"{}",
+                        "Gains {X:mult,C:white}X#1#{} for each {C:joy_normal}\"Drytron\"{}",
                         "in the {C:attention}GY{}",
                         "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
                     }
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2+{} {C:joy_light}LIGHT{} {C:attention}Jokers{}"
+                    "{C:joy_ritual}Tribute {C:attention}2+{} {C:joy_light}LIGHT{} {C:attention}Jokers{}"
                 }
             },
             j_joy_dry_dadraco = {
@@ -173,7 +193,7 @@ return {
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}4+{} {C:joy_light}LIGHT{} {C:attention}Jokers{}"
+                    "{C:joy_ritual}Tribute {C:attention}4+{} {C:joy_light}LIGHT{} {C:attention}Jokers{}"
                 }
             },
             j_joy_dry_qua = {
@@ -181,17 +201,17 @@ return {
                 text = {
                     {
                         "{X:mult,C:white}X#1#{} for each {C:joy_normal}\"Drytron\"{}",
-                        "used for its summon",
+                        "used for its {C:attention}summon",
                         "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)",
                     },
                     {
                         "When {C:attention}tributed{}, {C:attention}revives{} as many",
                         "non-{C:joy_ritual}Ritual{} {C:joy_normal}\"Drytron\"{} with different names as possible",
-                        "{C:inactive}(Except the round it was summoned) (Doesn't need room){}"
+                        "{C:inactive}(Except the round it entered play) (Doesn't need room){}"
                     }
                 },
                 joy_summon_conditions = {
-                    "{C:attention}3+{} {C:joy_light}LIGHT{} {C:attention}Jokers{}"
+                    "{C:joy_ritual}Tribute {C:attention}3+{} {C:joy_light}LIGHT{} {C:attention}Jokers{}"
                 }
             },
             j_joy_dry_fafnir = {
@@ -202,7 +222,7 @@ return {
                         "or {C:attention}flipped{} face-down"
                     },
                     {
-                        "Once per round, creates all {C:joy_light}LIGHT{} {C:attention}Jokers{} used for a summon",
+                        "Once per round, creates all {C:joy_light}LIGHT{} {C:attention}Jokers{} used for a {C:attention}summon",
                         "of a {C:joy_ritual}Ritual{} in the {C:joy_link}Side Deck{}"
                     },
                 }

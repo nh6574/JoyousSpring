@@ -207,6 +207,7 @@ JoyousSpring.Joker = setmetatable({}, {
 ---@field summon_consumeable_conditions table?
 ---@field cannot_revive boolean?
 ---@field token_name string?
+---@field summon_from_shop boolean?
 
 ---@class joy_extra_value
 ---@field is_monster? boolean

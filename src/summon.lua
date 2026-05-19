@@ -171,8 +171,8 @@ JoyousSpring.perform_summon = function(card, card_list, summon_type, playing_car
 
     local dissolve_colours = { G.C.BLACK, G.C.JOY[summon_type], G.C.RED, G.C.GOLD, G.C.JOKER_GREY }
 
-    if summon_type == "RITUAL" then
-        JoyousSpring.tribute(card, card_list, true, dissolve_colours)
+    if summon_type == "RITUAL" or JoyousSpring.does_tribute_in_shop(card) then
+        JoyousSpring.tribute(card, card_list, not JoyousSpring.does_tribute_in_shop(card), dissolve_colours)
     else
         JoyousSpring.destroy_cards(card_list, true, true, nil, dissolve_colours)
     end
@@ -245,6 +245,11 @@ end
 ---@return Card|table?
 JoyousSpring.create_pseudorandom = function(property_list, seed, must_have_room, not_owned, edition, ignore_in_pool,
                                             modifiers)
+    if G.GAME.joy_only_ygo_cards then
+        for _, prop in ipairs(property_list or {}) do
+            prop.is_monster = true
+        end
+    end
     local choices = JoyousSpring.get_materials_in_collection(property_list, not_owned, nil, not ignore_in_pool and seed)
     local key_to_add = pseudorandom_element(choices, seed or "JoyousSpring")
     if key_to_add then

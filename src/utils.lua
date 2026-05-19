@@ -106,6 +106,27 @@ JoyousSpring.add_monster_tag = function(card_key, modifiers)
     add_tag(tag)
 end
 
+---Adds a tag that gives a secret pack
+---@param name string?
+JoyousSpring.add_secret_tag = function(name)
+    local card_key
+    if not name then
+        card_key = "p_joy_selection_pack"
+    else
+        for _, v in ipairs(G.P_CENTER_POOLS.Booster) do
+            if v.config.joy_secret and v.config.joy_secret.name == name then
+                card_key = v.key
+            end
+        end
+    end
+    if card_key then
+        local tag = Tag('tag_joy_secret')
+        tag.ability.booster = card_key
+        G.GAME.joy_last_secret_tag = card_key
+        add_tag(tag)
+    end
+end
+
 ---Create a random card tag with *property_list* properties
 ---@param property_list material_properties[]
 ---@param seed string|number?

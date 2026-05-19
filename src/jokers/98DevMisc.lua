@@ -540,52 +540,6 @@ JoyousSpring.Joker({
     },
 })
 
--- Skull Guardian
-JoyousSpring.Joker({
-    key = "skullguardian",
-    atlas = "Misc06",
-    pos = { x = 5, y = 3 },
-    rarity = 1,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                attribute = "LIGHT",
-                monster_type = "Warrior",
-                summon_type = "RITUAL",
-            },
-        },
-    },
-})
-
--- Saffira, Queen of Dragons
-JoyousSpring.Joker({
-    key = "saffira",
-    atlas = "Misc06",
-    pos = { x = 4, y = 3 },
-    rarity = 1,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                attribute = "LIGHT",
-                monster_type = "Dragon",
-                summon_type = "RITUAL",
-            },
-        },
-    },
-})
-
 -- Quintet Magician
 JoyousSpring.Joker({
     key = "quintet",

@@ -243,6 +243,7 @@ function SMODS.current_mod.reset_game_globals(run_start)
         G.GAME.joy_only_ygo_cards = JoyousSpring.config.only_ygo_cards
     end
     G.GAME.current_round.joy_tributed_cards = {}
+    G.GAME.current_round.joy_tributed_cards_LIGHT = 0
     G.GAME.current_round.joy_cards_banished = 0
     G.GAME.current_round.joy_cards_banished_by_type = {}
     G.GAME.current_round.joy_cards_banished_by_attribute = {}
@@ -286,6 +287,10 @@ JoyousSpring.count_as_tributed = function(card, for_ritual)
         G.GAME.current_round.joy_tributed_cards[card.config.center.key].for_ritual =
             G.GAME.current_round.joy_tributed_cards[card.config.center.key].for_ritual + 1
     end
+    if JoyousSpring.is_attribute(card, "LIGHT") then
+        G.GAME.joy_tributed_cards_LIGHT = (G.GAME.joy_tributed_cards_LIGHT or 0) + 1
+        G.GAME.current_round.joy_tributed_cards_LIGHT = (G.GAME.current_round.joy_tributed_cards_LIGHT or 0) + 1
+    end
     if card.ability.eternal then
         G.GAME.joy_tributed_cards_eternal = (G.GAME.joy_tributed_cards_eternal or 0) + 1
     end
@@ -321,6 +326,7 @@ JoyousSpring.tribute = function(card, card_list, for_ritual, dissolve_colours)
             joy_card = material,
             joy_source = card.ability and card or nil,
             joy_source_blind = not card.ability and card or nil,
+            joy_for_ritual = for_ritual
         })
     end
 end
