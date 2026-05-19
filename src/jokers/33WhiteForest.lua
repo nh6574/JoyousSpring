@@ -907,7 +907,7 @@ JoyousSpring.calculate_effects[#JoyousSpring.calculate_effects + 1] = {
 
 local level_up_hand_ref = level_up_hand
 function level_up_hand(card, hand, instant, amount, statustext, ...)
-    if card and card.ability.set == "Planet" and wforest_find_diabell() then
+    if card and card.ability and card.ability.set == "Planet" and wforest_find_diabell() then
         amount = (amount or 1) +
             (math.floor(JoyousSpring.count_set_tributed("Planet", true) / 5) * #wforest_find_diabell())
     end
