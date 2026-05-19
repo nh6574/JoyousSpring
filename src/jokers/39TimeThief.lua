@@ -41,6 +41,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "TimeThief" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "revive", "maindeck", "material", "attach", "xyz" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -102,6 +103,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "TimeThief" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "maindeck", "material", "attach", "xyz" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -163,6 +165,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "TimeThief" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "revive", "tribute", "material", "attach", "xyz", "excavate" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -272,6 +275,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "TimeThief" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "material", "attach", "xyz", "excavate" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -382,6 +386,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "TimeThief" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish", "tribute", "material", "attach", "xyz", "excavate" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -508,6 +513,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "TimeThief" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "blind_card", "tribute", "material", "attach", "xyz", "excavate" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -697,6 +703,7 @@ JoyousSpring.Joker({
         { extra = "Playing Cards",                                    extra_values = { loc_key = "j_joy_thief_perpetua", enhancements = { "m_bonus", "m_mult", "m_wild", "m_glass", "m_steel", "m_stone", "m_gold", "m_lucky", "m_joy_hanafuda" }, editions = { "e_foil", "e_holo", "e_polychrome" }, seals = { "Red", "Blue", "Gold", "Purple", "joy_purr_memory" } }, name = "k_joy_arthalion_effects" },
         { properties = { { monster_archetypes = { "TimeThief" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "modifier", "revive", "material", "attach" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -814,6 +821,7 @@ JoyousSpring.Joker({
         { extra = "Playing Cards",                                    extra_values = { loc_key = "j_joy_thief_redoer", enhancements = { "m_bonus", "m_mult", "m_wild", "m_glass", "m_steel", "m_stone", "m_gold", "m_lucky", "m_joy_hanafuda" }, editions = { "e_foil", "e_holo", "e_polychrome" }, seals = { "Red", "Blue", "Gold", "Purple", "joy_purr_memory" } }, name = "k_joy_arthalion_effects" },
         { properties = { { monster_archetypes = { "TimeThief" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "modifier", "banish", "material", "attach", "excavate" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -957,6 +965,7 @@ JoyousSpring.Joker({
         { extra = "Playing Cards",                                    extra_values = { loc_key = "j_joy_thief_double", enhancements = { "m_bonus", "m_mult", "m_wild", "m_glass", "m_steel", "m_stone", "m_gold", "m_lucky", "m_joy_hanafuda" }, editions = { "e_foil", "e_holo", "e_polychrome" }, seals = { "Red", "Blue", "Gold", "Purple", "joy_purr_memory" } }, name = "k_joy_arthalion_effects" },
         { properties = { { monster_archetypes = { "TimeThief" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "modifier", "material", "attach", "excavate" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
