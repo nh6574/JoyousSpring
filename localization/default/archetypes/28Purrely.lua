@@ -344,7 +344,7 @@ return {
             joy_purr_memory_seal = {
                 name = "Memory Seal",
                 text = {
-                    "Changes ability when scored depending on the suit:",
+                    "Changes ability depending on the suit:",
                     "{C:hearts}Hearts{}: {C:attention}Happy{}",
                     "{C:clubs}Clubs{}: {C:attention}Sleepy{}",
                     "{C:diamonds}Diamonds{}: {C:attention}Pretty{}",
