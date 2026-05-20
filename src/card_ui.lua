@@ -452,14 +452,6 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
                     table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_no_shop" })
                 end
             end
-
-            -- Add tooltip if it's face-down
-            if card.facing == 'back' and JoyousSpring.is_from_joyousspring(card) and not card.fake_card then
-                if not card.fake_card then
-                    table.insert(info_queue, 1, { set = "Other", key = "joy_face_down" })
-                end
-            end
-
             -- Add tooltip if it's a trap
             if JoyousSpring.is_trap_monster(card) and not card.fake_card and not card.debuffed then
                 table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_trap" })
