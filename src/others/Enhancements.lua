@@ -163,7 +163,7 @@ SMODS.Consumable {
     set = "Tarot",
     atlas = "cardian",
     discovered = true,
-    pos = { x = 3, y = 3 },
+    pos = { x = 2, y = 3 },
     config = { max_highlighted = 3, mod_conv = 'm_joy_hanafuda' },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]

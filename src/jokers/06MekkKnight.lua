@@ -566,7 +566,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "mekk_morningstar",
     atlas = 'MekkKnight',
-    pos = { x = 0, y = 2 },
+    pos = { x = 1, y = 2 },
     rarity = 2,
     blueprint_compat = true,
     eternal_compat = true,
@@ -657,7 +657,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "mekk_spectrum",
     atlas = 'MekkKnight',
-    pos = { x = 1, y = 2 },
+    pos = { x = 2, y = 2 },
     rarity = 3,
     blueprint_compat = true,
     eternal_compat = true,
@@ -713,7 +713,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "mekkcrus_avramax",
     atlas = 'MekkKnight',
-    pos = { x = 2, y = 2 },
+    pos = { x = 3, y = 2 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = false,
@@ -790,7 +790,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "mekkleg_scars",
     atlas = 'MekkKnight',
-    pos = { x = 3, y = 2 },
+    pos = { x = 0, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,

@@ -45,7 +45,7 @@ JoyousSpring.Joker({
     key = "invoked_aleister",
     atlas = 'invoked',
     pos = { x = 0, y = 0 },
-    joy_alt_pos = { { x = 0, y = 3 } },
+    joy_alt_pos = { { x = 1, y = 0 } },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -120,7 +120,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "invoked_madness",
     atlas = 'invoked',
-    pos = { x = 2, y = 2 },
+    pos = { x = 0, y = 3 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -216,7 +216,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "invoked_caliga",
     atlas = 'invoked',
-    pos = { x = 3, y = 0 },
+    pos = { x = 0, y = 1 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -379,7 +379,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "invoked_raidjin",
     atlas = 'invoked',
-    pos = { x = 1, y = 2 },
+    pos = { x = 3, y = 2 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -508,7 +508,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "invoked_cocytus",
     atlas = 'invoked',
-    pos = { x = 0, y = 1 },
+    pos = { x = 1, y = 1 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -608,7 +608,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "invoked_purgatorio",
     atlas = 'invoked',
-    pos = { x = 0, y = 2 },
+    pos = { x = 0, y = 1 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -707,7 +707,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "invoked_mage",
     atlas = 'invoked',
-    pos = { x = 2, y = 1 },
+    pos = { x = 3, y = 1 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -803,8 +803,8 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "invoked_mechaba",
     atlas = 'invoked',
-    pos = { x = 3, y = 1 },
-    joy_alt_pos = { { x = 3, y = 2 } },
+    pos = { x = 0, y = 2 },
+    joy_alt_pos = { { x = 1, y = 2 } },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -913,7 +913,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "invoked_augo",
     atlas = 'invoked',
-    pos = { x = 2, y = 0 },
+    pos = { x = 3, y = 0 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -1041,7 +1041,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "invoked_elysium",
     atlas = 'invoked',
-    pos = { x = 1, y = 1 },
+    pos = { x = 2, y = 1 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -1116,7 +1116,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "invoked_meltdown",
     atlas = 'invoked',
-    pos = { x = 1, y = 0 },
+    pos = { x = 2, y = 0 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,

@@ -131,7 +131,7 @@ JoyousSpring.Joker({
     key = "yokai_ash",
     atlas = 'GhostGirls',
     pos = { x = 2, y = 0 },
-    joy_alt_pos = { { x = 0, y = 2 } },
+    joy_alt_pos = { { x = 0, y = 1 } },
     rarity = 4,
     blueprint_compat = false,
     eternal_compat = true,
@@ -188,8 +188,8 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "yokai_belle",
     atlas = 'GhostGirls',
-    pos = { x = 0, y = 1 },
-    joy_alt_pos = { { x = 1, y = 2 } },
+    pos = { x = 1, y = 1 },
+    joy_alt_pos = { { x = 2, y = 1 } },
     rarity = 4,
     blueprint_compat = false,
     eternal_compat = true,
@@ -244,7 +244,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "yokai_sister",
     atlas = 'GhostGirls',
-    pos = { x = 1, y = 1 },
+    pos = { x = 0, y = 2 },
     rarity = 4,
     blueprint_compat = true,
     eternal_compat = true,
@@ -319,7 +319,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "yokai_mourner",
     atlas = 'GhostGirls',
-    pos = { x = 2, y = 1 },
+    pos = { x = 1, y = 2 },
     rarity = 4,
     blueprint_compat = false,
     eternal_compat = true,

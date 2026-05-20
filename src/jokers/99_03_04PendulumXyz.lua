@@ -3,7 +3,7 @@
 -- Daidaratant the Ooze Giant
 JoyousSpring.Joker({
     key = "ooze",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 5, y = 5 },
     rarity = 2,
     blueprint_compat = false,

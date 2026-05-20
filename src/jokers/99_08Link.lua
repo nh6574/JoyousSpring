@@ -4,8 +4,8 @@
 JoyousSpring.Joker({
     key = "apollousa",
     atlas = 'Misc01',
-    pos = { x = 2, y = 1 },
-    joy_alt_pos = { { x = 0, y = 2 } },
+    pos = { x = 6, y = 5 },
+    joy_alt_pos = { { x = 7, y = 5 } },
     rarity = 1,
     blueprint_compat = true,
     eternal_compat = true,
@@ -80,8 +80,8 @@ JoyousSpring.Joker({
 -- Beyond the Pendulum
 JoyousSpring.Joker({
     key = "beyond",
-    atlas = 'Misc03',
-    pos = { x = 0, y = 4 },
+    atlas = 'Misc01',
+    pos = { x = 0, y = 6 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -152,7 +152,7 @@ JoyousSpring.Joker({
 -- Exceed the Pendulum
 JoyousSpring.Joker({
     key = "exceed",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 6, y = 5 },
     rarity = 2,
     blueprint_compat = false,
@@ -222,8 +222,8 @@ JoyousSpring.Joker({
 -- Linkuriboh
 JoyousSpring.Joker({
     key = "linkuriboh",
-    atlas = 'Misc03',
-    pos = { x = 1, y = 4 },
+    atlas = 'Misc01',
+    pos = { x = 1, y = 6 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -263,8 +263,8 @@ JoyousSpring.Joker({
 -- Linguriboh
 JoyousSpring.Joker({
     key = "linguriboh",
-    atlas = 'Misc03',
-    pos = { x = 2, y = 4 },
+    atlas = 'Misc01',
+    pos = { x = 2, y = 6 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -315,9 +315,9 @@ JoyousSpring.Joker({
 -- I:P Masquerena
 JoyousSpring.Joker({
     key = "ipmasq",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 7, y = 5 },
-    joy_alt_pos = { { x = 3, y = 6 }, { x = 4, y = 6 } },
+    joy_alt_pos = { { x = 0, y = 6 }, { x = 1, y = 6 } },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -365,9 +365,9 @@ JoyousSpring.Joker({
 -- S:P Little Knight
 JoyousSpring.Joker({
     key = "spknight",
-    atlas = 'Misc04',
-    pos = { x = 0, y = 6 },
-    joy_alt_pos = { { x = 5, y = 6 } },
+    atlas = 'Misc02',
+    pos = { x = 2, y = 6 },
+    joy_alt_pos = { { x = 3, y = 6 } },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -426,8 +426,8 @@ JoyousSpring.Joker({
 -- Progleo
 JoyousSpring.Joker({
     key = "progleo",
-    atlas = 'Misc04',
-    pos = { x = 1, y = 6 },
+    atlas = 'Misc02',
+    pos = { x = 4, y = 6 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -479,8 +479,8 @@ JoyousSpring.Joker({
 -- Rasterliger
 JoyousSpring.Joker({
     key = "raster",
-    atlas = 'Misc04',
-    pos = { x = 2, y = 6 },
+    atlas = 'Misc02',
+    pos = { x = 5, y = 6 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,

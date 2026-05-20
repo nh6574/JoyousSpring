@@ -579,7 +579,7 @@ SMODS.Consumable {
     set = "Planet",
     atlas = "cardian",
     discovered = true,
-    pos = { x = 2, y = 3 },
+    pos = { x = 3, y = 3 },
     config = { joy_hand_types = {
         "joy_cardian_chaff",
         "joy_cardian_ribbons",

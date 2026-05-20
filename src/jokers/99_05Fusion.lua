@@ -5,7 +5,7 @@
 JoyousSpring.Joker({
     key = "mudragon",
     atlas = 'Misc01',
-    pos = { x = 2, y = 0 },
+    pos = { x = 2, y = 4 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -41,7 +41,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "garura",
     atlas = 'Misc01',
-    pos = { x = 0, y = 1 },
+    pos = { x = 3, y = 4 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,

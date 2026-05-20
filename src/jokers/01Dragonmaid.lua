@@ -306,7 +306,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dmaid_nurse",
     atlas = 'Dragonmaid',
-    pos = { x = 4, y = 0 },
+    pos = { x = 0, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -389,7 +389,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dmaid_ernus",
     atlas = 'Dragonmaid',
-    pos = { x = 0, y = 1 },
+    pos = { x = 1, y = 1 },
     rarity = 2,
     blueprint_compat = true,
     eternal_compat = true,
@@ -451,7 +451,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dmaid_laundry",
     atlas = 'Dragonmaid',
-    pos = { x = 1, y = 1 },
+    pos = { x = 2, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -496,7 +496,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dmaid_nudyarl",
     atlas = 'Dragonmaid',
-    pos = { x = 2, y = 1 },
+    pos = { x = 3, y = 1 },
     rarity = 2,
     blueprint_compat = true,
     eternal_compat = true,
@@ -558,7 +558,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dmaid_chamber",
     atlas = 'Dragonmaid',
-    pos = { x = 3, y = 1 },
+    pos = { x = 0, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -632,7 +632,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dmaid_cehrmba",
     atlas = 'Dragonmaid',
-    pos = { x = 4, y = 1 },
+    pos = { x = 1, y = 2 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -723,7 +723,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dmaid_lady",
     atlas = 'Dragonmaid',
-    pos = { x = 0, y = 2 },
+    pos = { x = 2, y = 2 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -804,8 +804,8 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dmaid_house",
     atlas = 'Dragonmaid',
-    pos = { x = 1, y = 2 },
-    joy_alt_pos = { { x = 3, y = 2 } },
+    pos = { x = 3, y = 2 },
+    joy_alt_pos = { { x = 0, y = 3 } },
     rarity = 3,
     blueprint_compat = true,
     eternal_compat = true,
@@ -895,7 +895,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dmaid_sheou",
     atlas = 'Dragonmaid',
-    pos = { x = 2, y = 2 },
+    pos = { x = 1, y = 3 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,

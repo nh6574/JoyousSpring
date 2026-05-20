@@ -741,7 +741,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "ignis_linkslayer",
     atlas = 'ignis',
-    pos = { x = 3, y = 4 },
+    pos = { x = 3, y = 2 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -776,7 +776,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "ignis_leviathan",
     atlas = 'ignis',
-    pos = { x = 4, y = 2 },
+    pos = { x = 0, y = 3 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -861,7 +861,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "ignis_golem",
     atlas = 'ignis',
-    pos = { x = 0, y = 3 },
+    pos = { x = 1, y = 3 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -930,7 +930,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "ignis_pegasus",
     atlas = 'ignis',
-    pos = { x = 1, y = 3 },
+    pos = { x = 2, y = 3 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -1014,7 +1014,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "ignis_dragon",
     atlas = 'ignis',
-    pos = { x = 2, y = 3 },
+    pos = { x = 3, y = 3 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -1096,7 +1096,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "ignis_phoenix",
     atlas = 'ignis',
-    pos = { x = 3, y = 3 },
+    pos = { x = 4, y = 3 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -1185,7 +1185,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "ignis_allied",
     atlas = 'ignis',
-    pos = { x = 4, y = 3 },
+    pos = { x = 0, y = 4 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -1260,7 +1260,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "ignis_infant",
     atlas = 'ignis',
-    pos = { x = 0, y = 4 },
+    pos = { x = 1, y = 4 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -1307,7 +1307,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "ignis_templar",
     atlas = 'ignis',
-    pos = { x = 1, y = 4 },
+    pos = { x = 2, y = 4 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -1367,7 +1367,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "ignis_arrival",
     atlas = 'ignis',
-    pos = { x = 2, y = 4 },
+    pos = { x = 3, y = 4 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -1555,7 +1555,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "ignis_ailand",
     atlas = 'ignis',
-    pos = { x = 3, y = 2 },
+    pos = { x = 4, y = 2 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,

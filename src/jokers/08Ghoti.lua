@@ -435,7 +435,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "fish_arionpos",
     atlas = 'Ghoti',
-    pos = { x = 0, y = 2 },
+    pos = { x = 1, y = 2 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -505,7 +505,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "fish_askaan",
     atlas = 'Ghoti',
-    pos = { x = 1, y = 2 },
+    pos = { x = 2, y = 2 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -574,7 +574,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "fish_guoglim",
     atlas = 'Ghoti',
-    pos = { x = 2, y = 2 },
+    pos = { x = 3, y = 2 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -658,7 +658,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "fish_deepbeyond",
     atlas = 'Ghoti',
-    pos = { x = 3, y = 2 },
+    pos = { x = 0, y = 3 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -705,7 +705,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "fish_depths",
     atlas = 'Ghoti',
-    pos = { x = 0, y = 3 },
+    pos = { x = 0, y = 2 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,

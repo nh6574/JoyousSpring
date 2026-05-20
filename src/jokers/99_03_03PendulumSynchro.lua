@@ -3,7 +3,7 @@
 -- Nirvana High Paladin
 JoyousSpring.Joker({
     key = "nirvana",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 4, y = 5 },
     rarity = 2,
     blueprint_compat = false,

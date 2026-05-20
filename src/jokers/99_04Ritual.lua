@@ -1,11 +1,10 @@
 --- RITUAL FREE AGENTS
 
 -- Sauravis, the Ancient and Ascended
-
 JoyousSpring.Joker({
     key = "sauravis",
     atlas = 'Misc01',
-    pos = { x = 1, y = 0 },
+    pos = { x = 1, y = 4 },
     rarity = 2,
     blueprint_compat = true,
     eternal_compat = true,
@@ -83,7 +82,7 @@ JoyousSpring.Joker({
 -- Lycanthrope
 JoyousSpring.Joker({
     key = "lycanthrope",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 3, y = 3 },
     rarity = 1,
     blueprint_compat = false,
@@ -145,7 +144,7 @@ JoyousSpring.Joker({
 -- Skull Guardian
 JoyousSpring.Joker({
     key = "skullguardian",
-    atlas = "Misc06",
+    atlas = "Misc03",
     pos = { x = 5, y = 3 },
     rarity = 1,
     blueprint_compat = false,
@@ -186,7 +185,7 @@ JoyousSpring.Joker({
 -- Saffira, Queen of Dragons
 JoyousSpring.Joker({
     key = "saffira",
-    atlas = "Misc06",
+    atlas = "Misc03",
     pos = { x = 4, y = 3 },
     rarity = 2,
     blueprint_compat = false,

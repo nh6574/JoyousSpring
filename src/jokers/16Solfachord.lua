@@ -92,7 +92,7 @@ end
 JoyousSpring.Joker({
     key = "solfa_cutia",
     atlas = 'solfa',
-    pos = { x = 1, y = 0 },
+    pos = { x = 2, y = 0 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -195,7 +195,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "solfa_dreamia",
     atlas = 'solfa',
-    pos = { x = 2, y = 0 },
+    pos = { x = 2, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -277,7 +277,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "solfa_eliteia",
     atlas = 'solfa',
-    pos = { x = 3, y = 0 },
+    pos = { x = 1, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -366,7 +366,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "solfa_fancia",
     atlas = 'solfa',
-    pos = { x = 0, y = 1 },
+    pos = { x = 3, y = 0 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -456,7 +456,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "solfa_gracia",
     atlas = 'solfa',
-    pos = { x = 1, y = 1 },
+    pos = { x = 3, y = 1 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -555,7 +555,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "solfa_angelia",
     atlas = 'solfa',
-    pos = { x = 2, y = 1 },
+    pos = { x = 0, y = 1 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -662,7 +662,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "solfa_beautia",
     atlas = 'solfa',
-    pos = { x = 3, y = 1 },
+    pos = { x = 0, y = 2 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -764,7 +764,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "solfa_coolia",
     atlas = 'solfa',
-    pos = { x = 0, y = 2 },
+    pos = { x = 1, y = 0 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -854,7 +854,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "solfa_musecia",
     atlas = 'solfa',
-    pos = { x = 2, y = 2 },
+    pos = { x = 0, y = 3 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -916,7 +916,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "solfa_grancoolia",
     atlas = 'solfa',
-    pos = { x = 1, y = 2 },
+    pos = { x = 3, y = 2 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,

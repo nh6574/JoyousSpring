@@ -3,8 +3,8 @@
 -- Firewall Saber Dragon
 JoyousSpring.Joker({
     key = "firewall_saber",
-    atlas = 'Misc03',
-    pos = { x = 0, y = 3 },
+    atlas = 'Misc01',
+    pos = { x = 4, y = 4 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -63,7 +63,7 @@ JoyousSpring.Joker({
 -- Phantasmal Lord Ultimitl Bishbaalkin
 JoyousSpring.Joker({
     key = "bishbaalkin",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 6, y = 3 },
     rarity = 2,
     blueprint_compat = false,
@@ -131,7 +131,7 @@ JoyousSpring.Joker({
 JoyousSpring.token_pool["utchatzimime"] = {
     order = 7,
     name = "j_joy_token_utchatzimime",
-    atlas = "joy_Misc04",
+    atlas = "joy_Misc02",
     sprite_pos = { x = 1, y = 4 },
     joyous_spring = {
         attribute = "DARK",
@@ -142,7 +142,7 @@ JoyousSpring.token_pool["utchatzimime"] = {
 -- Fish Lamp
 JoyousSpring.Joker({
     key = "fishlamp",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 5, y = 3 },
     rarity = 1,
     blueprint_compat = false,
@@ -190,7 +190,7 @@ JoyousSpring.Joker({
 JoyousSpring.token_pool["lamp"] = {
     order = 8,
     name = "j_joy_token_lamp",
-    atlas = "joy_Misc04",
+    atlas = "joy_Misc02",
     sprite_pos = { x = 7, y = 3 },
     joyous_spring = {
         attribute = "FIRE",
@@ -202,7 +202,7 @@ JoyousSpring.token_pool["lamp"] = {
 -- Ancient Fairy Dragon
 JoyousSpring.Joker({
     key = "afd",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 4, y = 3 },
     rarity = 3,
     blueprint_compat = false,

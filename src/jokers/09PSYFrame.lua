@@ -508,7 +508,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "psy_zeta",
     atlas = 'PSYFrame',
-    pos = { x = 3, y = 1 },
+    pos = { x = 0, y = 2 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -566,7 +566,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "psy_omega",
     atlas = 'PSYFrame',
-    pos = { x = 0, y = 2 },
+    pos = { x = 1, y = 2 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -617,7 +617,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "psy_lambda",
     atlas = 'PSYFrame',
-    pos = { x = 1, y = 2 },
+    pos = { x = 2, y = 2 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -667,7 +667,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "psy_circuit",
     atlas = 'PSYFrame',
-    pos = { x = 2, y = 2 },
+    pos = { x = 3, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,

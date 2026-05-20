@@ -3,7 +3,7 @@
 -- Chicken Game
 JoyousSpring.Joker({
     key = "chickengame",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 3, y = 2 },
     rarity = 2,
     blueprint_compat = false,
@@ -38,7 +38,7 @@ JoyousSpring.Joker({
 -- Fusion Gate
 JoyousSpring.Joker({
     key = "fusiongate",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 5, y = 2 },
     rarity = 2,
     blueprint_compat = false,
@@ -71,7 +71,7 @@ JoyousSpring.Joker({
 -- Xyz Territory
 JoyousSpring.Joker({
     key = "xyzterritory",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 2, y = 3 },
     rarity = 2,
     blueprint_compat = false,
@@ -123,7 +123,7 @@ JoyousSpring.Joker({
 -- Xyz Override
 JoyousSpring.Joker({
     key = "xyzoverride",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 1, y = 3 },
     rarity = 2,
     blueprint_compat = false,
@@ -183,7 +183,7 @@ JoyousSpring.Joker({
 -- Summon Breaker
 JoyousSpring.Joker({
     key = "summonbreaker",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 0, y = 3 },
     rarity = 2,
     blueprint_compat = false,
@@ -212,7 +212,7 @@ JoyousSpring.Joker({
 -- Extra Net
 JoyousSpring.Joker({
     key = "extranet",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 4, y = 2 },
     rarity = 1,
     blueprint_compat = false,
@@ -258,7 +258,7 @@ JoyousSpring.Joker({
 -- Future Visions
 JoyousSpring.Joker({
     key = "futurevisions",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 6, y = 2 },
     rarity = 2,
     blueprint_compat = false,
@@ -298,7 +298,7 @@ JoyousSpring.Joker({
 -- Magical Mid-Breaker Field
 JoyousSpring.Joker({
     key = "midbreaker",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 7, y = 2 },
     rarity = 2,
     blueprint_compat = false,
