@@ -79,7 +79,7 @@ return {
                         "Once per round, you can {C:attention}tribute 1{}",
                         "{C:joy_normal}\"S-Force\"{}, {C:joy_normal}\"Evil{C:joy_normal,f:joy_font}★{}{C:joy_normal}Twin\"{}, {C:joy_normal}\"PSY-Frame\"{}, {C:joy_normal}\"Time Thief\"{},",
                         "{C:joy_link}\"I:P Masquerena\"{}, {C:joy_link}\"S:P Little Knight\"{}, or {C:joy_link}\"W:P Fancy Ball\"{}",
-                        "to create {C:attention}#2#{} {C:joy_normal}\"S-Force\"{}",
+                        "to create an {C:joy_normal}\"S-Force\"{}",
                     }
                 }
             },
@@ -87,7 +87,7 @@ return {
                 name = "{C:joy_effect}S-Force Orrafist",
                 text = {
                     {
-                        "{C:chips}+$#1#{} times the {C:attention}rank{} of the card held in hand",
+                        "{C:money}+$#1#{} times the {C:attention}rank{} of the card held in hand",
                         "in the same {C:attention}column{} as this card when a hand is played, but both cards {C:attention}banish{}",
                         "after the hand is played until {C:attention}Boss Blind{} is selected"
                     },
@@ -117,14 +117,15 @@ return {
                 name = "{C:joy_effect}S-Force Gravitino",
                 text = {
                     {
-                        "Cards held in hand in the same {C:attention}column{} as an {C:joy_normal}\"S-Force\"{}",
-                        "give an extra {X:chips,C:white}X#1#{} Chips times their {C:attention}rank{}, but both cards {C:attention}banish{}",
+                        "Gives an extra {X:chips,C:white}X#1#{} Chips times the {C:attention}rank{}",
+                        "of cards held in hand in the same {C:attention}column{} as an {C:joy_normal}\"S-Force\"{},",
+                        "but both those cards and this one {C:attention}banish{}",
                         "after the hand is played until {C:attention}Boss Blind{} is selected"
                     },
                     {
                         "{C:attention}Banishes{} an {C:joy_normal}\"Evil{C:joy_normal,f:joy_font}★{}{C:joy_normal}Twin\"{}, {C:joy_normal}\"PSY-Frame\"{}, {C:joy_normal}\"Time Thief\"{},",
                         "{C:joy_link}\"I:P Masquerena\"{}, {C:joy_link}\"S:P Little Knight\"{}, or {C:joy_link}\"W:P Fancy Ball\"{}",
-                        "when this card {C:attention}banishes{}"
+                        "when this card {C:attention}banishes{} itself until {C:attention}Blind{} is selected"
                     }
                 }
             },
@@ -170,6 +171,9 @@ return {
                         "{C:joy_link}\"I:P Masquerena\"{}, {C:joy_link}\"S:P Little Knight\"{}, or {C:joy_link}\"W:P Fancy Ball\"{} in the {C:attention}GY{}",
                         "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
                     },
+                },
+                joy_summon_conditions = {
+                    "{C:attention}1{} non-{C:joy_link}Link{} {C:joy_normal}\"S-Force\"{}",
                 }
             },
             j_joy_sforce_nightslayer = {
@@ -185,6 +189,10 @@ return {
                         "to add an {C:joy_normal}\"S-Force\"{} to the {C:joy_spell}Extra Deck{}",
                         "{C:inactive}(Must have room){}"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}2{} {C:attention}Jokers{},",
+                    "including an {C:joy_normal}\"S-Force\"{}",
                 }
             },
             j_joy_sforce_justify = {
@@ -198,6 +206,10 @@ return {
                         "{C:attention}Banishes{} all {C:joy_normal}\"S-Force\"{} {C:joy_link}Links{}",
                         "at end of round until {C:attention}Blind{} is selected"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}3{} {C:attention}Jokers{},",
+                    "including an {C:joy_normal}\"S-Force\"{}",
                 }
             },
             j_joy_sforce_mystify = {
@@ -205,7 +217,8 @@ return {
                 text = {
                     {
                         "Gives an extra {X:chips,C:white}X#1#{} Chips",
-                        "for each {C:attention}banished{} Playing Card"
+                        "for each {C:attention}banished{} Playing Card",
+                        "{C:inactive}(Currently {X:chips,C:white}X#2#{}{C:inactive} Chips)"
                     },
                     {
                         "During the last hand of round, {C:joy_normal}\"S-Force\"{} abilities",
@@ -217,6 +230,10 @@ return {
                         "{C:joy_link}\"I:P Masquerena\"{}, {C:joy_link}\"S:P Little Knight\"{}, or {C:joy_link}\"W:P Fancy Ball\"{}",
                         "when {C:attention}Blind{} is selected"
                     }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}3{} {C:attention}Jokers{},",
+                    "including an {C:joy_normal}\"S-Force\"{}",
                 }
             },
             j_joy_sforce_bridgehead = {

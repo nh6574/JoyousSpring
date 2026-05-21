@@ -304,7 +304,7 @@ JoyousSpring.Joker({
                         end
                     end
                     if context.joy_excavated.thief_bezel then
-                        context.joy_excavated:set_edition(SMODS.poll_edition { guaranteed = true, key = self.key .. "_enhance" })
+                        context.joy_excavated:set_edition(SMODS.poll_edition { guaranteed = true, key = self.key .. "_enhance", no_negative = true })
                         context.joy_excavated.thief_bezel = nil
                         return {
                             message = localize("k_joy_hit")

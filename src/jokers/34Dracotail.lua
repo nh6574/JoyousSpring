@@ -216,7 +216,7 @@ JoyousSpring.Joker({
                         G.E_MANAGER:add_event(Event({
                             func = function()
                                 SMODS.add_card { set = "Base", key_append = self.key .. "_pcard", area = G.deck,
-                                    edition = SMODS.poll_edition { guaranteed = true, key = self.key .. "_edition" } }
+                                    edition = SMODS.poll_edition { guaranteed = true, key = self.key .. "_edition", no_negative = true } }
                                 return true
                             end
                         }))

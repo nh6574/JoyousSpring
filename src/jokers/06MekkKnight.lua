@@ -63,7 +63,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.individual and context.cardarea == G.play then
-                if next(SMODS.find_card("j_joy_mekk_spectrum")) or JoyousSpring.get_joker_column(card) == (JoyousSpring.index_of(context.full_hand, context.other_card)) then
+                if not SMODS.has_no_rank(context.other_card) and (next(SMODS.find_card("j_joy_mekk_spectrum")) or JoyousSpring.get_joker_column(card) == (JoyousSpring.index_of(context.full_hand, context.other_card))) then
                     return {
                         mult = context.other_card.base.nominal * card.ability.extra.mult
                     }
@@ -91,7 +91,7 @@ JoyousSpring.Joker({
                 local column = JoyousSpring.get_joker_column(card)
                 if text ~= 'Unknown' then
                     for _, scoring_card in pairs(scoring_hand) do
-                        if next(SMODS.find_card("j_joy_mekk_spectrum")) or column == (JoyousSpring.index_of(JokerDisplay.current_hand, scoring_card)) then
+                        if not SMODS.has_no_rank(scoring_card) and (next(SMODS.find_card("j_joy_mekk_spectrum")) or column == (JoyousSpring.index_of(JokerDisplay.current_hand, scoring_card))) then
                             mult = mult + scoring_card.base.nominal * card.ability.extra.mult
                         end
                     end
@@ -219,7 +219,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.individual and context.cardarea == G.play then
-                if next(SMODS.find_card("j_joy_mekk_spectrum")) or JoyousSpring.get_joker_column(card) == (JoyousSpring.index_of(context.full_hand, context.other_card)) then
+                if not SMODS.has_no_rank(context.other_card) and (next(SMODS.find_card("j_joy_mekk_spectrum")) or JoyousSpring.get_joker_column(card) == (JoyousSpring.index_of(context.full_hand, context.other_card))) then
                     return {
                         dollars = context.other_card.base.nominal * card.ability.extra.money
                     }
@@ -247,7 +247,7 @@ JoyousSpring.Joker({
                 local column = JoyousSpring.get_joker_column(card)
                 if text ~= 'Unknown' then
                     for _, scoring_card in pairs(scoring_hand) do
-                        if next(SMODS.find_card("j_joy_mekk_spectrum")) or column == (JoyousSpring.index_of(JokerDisplay.current_hand, scoring_card)) then
+                        if not SMODS.has_no_rank(scoring_card) and (next(SMODS.find_card("j_joy_mekk_spectrum")) or column == (JoyousSpring.index_of(JokerDisplay.current_hand, scoring_card))) then
                             money = money + scoring_card.base.nominal * card.ability.extra.money
                         end
                     end
@@ -292,7 +292,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.repetition and context.cardarea == G.play then
-                if next(SMODS.find_card("j_joy_mekk_spectrum")) or JoyousSpring.get_joker_column(card) == (JoyousSpring.index_of(context.full_hand, context.other_card)) then
+                if not SMODS.has_no_rank(context.other_card) and (next(SMODS.find_card("j_joy_mekk_spectrum")) or JoyousSpring.get_joker_column(card) == (JoyousSpring.index_of(context.full_hand, context.other_card))) then
                     if SMODS.pseudorandom_probability(card, card.config.center.key, JoyousSpring.count_materials_owned({ { monster_archetypes = { "MekkKnight" } } }), card.ability.extra.odds) then
                         return {
                             repetitions = ((context.other_card.base.nominal >= 1) and context.other_card.base.nominal or nil)
@@ -349,7 +349,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.individual and context.cardarea == G.play then
-                if next(SMODS.find_card("j_joy_mekk_spectrum")) or JoyousSpring.get_joker_column(card) == (JoyousSpring.index_of(context.full_hand, context.other_card)) then
+                if not SMODS.has_no_rank(context.other_card) and (next(SMODS.find_card("j_joy_mekk_spectrum")) or JoyousSpring.get_joker_column(card) == (JoyousSpring.index_of(context.full_hand, context.other_card))) then
                     return {
                         chips = context.other_card.base.nominal * card.ability.extra.chips
                     }
@@ -377,7 +377,7 @@ JoyousSpring.Joker({
                 local column = JoyousSpring.get_joker_column(card)
                 if text ~= 'Unknown' then
                     for _, scoring_card in pairs(scoring_hand) do
-                        if next(SMODS.find_card("j_joy_mekk_spectrum")) or column == (JoyousSpring.index_of(JokerDisplay.current_hand, scoring_card)) then
+                        if not SMODS.has_no_rank(scoring_card) and (next(SMODS.find_card("j_joy_mekk_spectrum")) or column == (JoyousSpring.index_of(JokerDisplay.current_hand, scoring_card))) then
                             chips = chips + scoring_card.base.nominal * card.ability.extra.chips
                         end
                     end
