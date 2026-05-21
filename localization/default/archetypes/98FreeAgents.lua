@@ -257,7 +257,7 @@ return {
                     }
                 }
             },
-            j_joy_wp = {
+            j_joy_wpball = {
                 name = "{C:joy_link}W:P Fancy Ball",
                 text = {
                     {

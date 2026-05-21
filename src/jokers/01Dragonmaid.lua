@@ -114,7 +114,7 @@ JoyousSpring.Joker({
         end
     end,
     in_pool = function(self, args)
-        return args and args.source and args.source == "JoyousSpring" or false
+        return args and args.from_joyous
     end,
     joker_display_def = function(JokerDisplay)
         return {
@@ -271,7 +271,7 @@ JoyousSpring.Joker({
         end
     end,
     in_pool = function(self, args)
-        return args and args.source and args.source == "JoyousSpring" or false
+        return args and args.from_joyous
     end,
     joker_display_def = function(JokerDisplay)
         return {
@@ -430,7 +430,7 @@ JoyousSpring.Joker({
         end
     end,
     in_pool = function(self, args)
-        return args and args.source and args.source == "JoyousSpring" or false
+        return args and args.from_joyous
     end,
     joker_display_def = function(JokerDisplay)
         return {
@@ -537,7 +537,7 @@ JoyousSpring.Joker({
         end
     end,
     in_pool = function(self, args)
-        return args and args.source and args.source == "JoyousSpring" or false
+        return args and args.from_joyous
     end,
     joker_display_def = function(JokerDisplay)
         return {
@@ -697,7 +697,7 @@ JoyousSpring.Joker({
         end
     end,
     in_pool = function(self, args)
-        return args and args.source and args.source == "JoyousSpring" or false
+        return args and args.from_joyous
     end,
     joker_display_def = function(JokerDisplay)
         return {
@@ -939,7 +939,7 @@ JoyousSpring.Joker({
         end
     end,
     in_pool = function(self, args)
-        return args and args.source and args.source == "JoyousSpring" or false
+        return args and args.from_joyous
     end,
 })
 

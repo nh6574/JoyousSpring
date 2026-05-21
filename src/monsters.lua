@@ -1250,7 +1250,7 @@ JoyousSpring.get_materials_in_collection = function(property_list, not_owned, no
             (not not_extra or not JoyousSpring.is_in_extra_deck(k)) then
             local in_pool = true
             if is_in_pool and v.in_pool and type(v.in_pool) == 'function' then
-                in_pool, _ = v:in_pool({ source = type(is_in_pool) == "string" and is_in_pool or "JoyousSpring" })
+                in_pool, _ = v:in_pool({ source = type(is_in_pool) == "string" and is_in_pool or "JoyousSpring", from_joyous = true })
             end
             if not is_in_pool or in_pool then
                 if not property_list or #property_list == 0 then

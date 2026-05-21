@@ -607,7 +607,7 @@ JoyousSpring.Joker({
         },
     },
     in_pool = function(self, args)
-        return args and args.source and args.source == "JoyousSpring" or false
+        return args and args.from_joyous
     end,
 })
 

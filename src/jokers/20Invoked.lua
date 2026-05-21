@@ -336,7 +336,7 @@ JoyousSpring.Joker({
         end
     end,
     in_pool = function(self, args)
-        return args and args.source and args.source == "JoyousSpring" or false
+        return args and args.from_joyous
     end,
     joy_can_transfer_ability = function(self, other_card, card)
         return other_card.config.center.key == "j_joy_invoked_elysium"
@@ -452,7 +452,7 @@ JoyousSpring.Joker({
         return false
     end,
     in_pool = function(self, args)
-        return args and args.source and args.source == "JoyousSpring" or false
+        return args and args.from_joyous
     end,
     joy_can_transfer_ability = function(self, other_card, card)
         return other_card.config.center.key == "j_joy_invoked_elysium"
@@ -578,7 +578,7 @@ JoyousSpring.Joker({
         end
     end,
     in_pool = function(self, args)
-        return args and args.source and args.source == "JoyousSpring" or false
+        return args and args.from_joyous
     end,
     joy_can_transfer_ability = function(self, other_card, card)
         return other_card.config.center.key == "j_joy_invoked_elysium"
@@ -670,7 +670,7 @@ JoyousSpring.Joker({
         return false
     end,
     in_pool = function(self, args)
-        return args and args.source and args.source == "JoyousSpring" or false
+        return args and args.from_joyous
     end,
     joy_can_transfer_ability = function(self, other_card, card)
         return other_card.config.center.key == "j_joy_invoked_elysium"
@@ -768,7 +768,7 @@ JoyousSpring.Joker({
         return false
     end,
     in_pool = function(self, args)
-        return args and args.source and args.source == "JoyousSpring" or false
+        return args and args.from_joyous
     end,
     joy_can_transfer_ability = function(self, other_card, card)
         return other_card.config.center.key == "j_joy_invoked_elysium"
@@ -876,7 +876,7 @@ JoyousSpring.Joker({
         return false
     end,
     in_pool = function(self, args)
-        return args and args.source and args.source == "JoyousSpring" or false
+        return args and args.from_joyous
     end,
     joy_can_transfer_ability = function(self, other_card, card)
         return other_card.config.center.key == "j_joy_invoked_elysium"
@@ -983,7 +983,7 @@ JoyousSpring.Joker({
         return false
     end,
     in_pool = function(self, args)
-        return args and args.source and args.source == "JoyousSpring" or false
+        return args and args.from_joyous
     end,
     joy_can_transfer_ability = function(self, other_card, card)
         return other_card.config.center.key == "j_joy_invoked_elysium"
@@ -1108,7 +1108,7 @@ JoyousSpring.Joker({
         return false
     end,
     in_pool = function(self, args)
-        return args and args.source and args.source == "JoyousSpring" or false
+        return args and args.from_joyous
     end,
 })
 

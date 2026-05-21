@@ -699,7 +699,7 @@ JoyousSpring.Joker({
 
 -- W:P Fancy Ball
 JoyousSpring.Joker({
-    key = "wp",
+    key = "wpball",
     atlas = "Misc03",
     pos = { x = 2, y = 5 },
     rarity = 1,
