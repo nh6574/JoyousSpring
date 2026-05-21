@@ -224,7 +224,7 @@ JoyousSpring.Joker({
         local choices = JoyousSpring.get_materials_owned({ { is_pendulum = true } })
         local joker = pseudorandom_element(choices, 'j_joy_pandora')
         if joker then
-            local edition = SMODS.poll_edition { key = card.config.center.key .. "_seal", guaranteed = true, no_negative = true }
+            local edition = SMODS.poll_edition { key = card.config.center.key .. "_edition", guaranteed = true, no_negative = true }
             joker:set_edition(edition, true)
         end
     end,

@@ -397,7 +397,7 @@ JoyousSpring.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if context.joy_post_round_eval then
+            if context.starting_shop then
                 local choices = {}
                 for _, joker in ipairs(G.jokers.cards) do
                     if joker ~= card then
@@ -418,6 +418,65 @@ JoyousSpring.Joker({
                     JoyousSpring.banish(card, ed_materials >= 2 and "blind_selected" or "boss_selected")
                     JoyousSpring.banish(chosen, ed_materials >= 2 and "blind_selected" or "boss_selected")
                 end
+            end
+        end
+    end,
+})
+
+-- W:P Fancy Ball
+JoyousSpring.Joker({
+    key = "wpball",
+    atlas = "Misc03",
+    pos = { x = 2, y = 5 },
+    rarity = 2,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 15,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Cyberse",
+                summon_type = "LINK",
+                summon_conditions = {
+                    {
+                        type = "LINK",
+                        materials = {
+                            { key = "j_joy_ipmasq" },
+                            { key = "j_joy_spknight" },
+                        },
+                    }
+                }
+            },
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joy_post_round_eval then
+                local choices = {}
+                for _, joker in ipairs(G.jokers.cards) do
+                    if joker ~= card and JoyousSpring.is_summon_type(joker, "LINK") then
+                        choices[#choices + 1] = joker.config.center_key
+                        JoyousSpring.banish(joker, "blind_selected")
+                    end
+                end
+                local chosen = pseudorandom_element(choices, self.key)
+                if chosen then
+                    JoyousSpring.transform_card(card, chosen, false, "LINK", { "j_joy_wpball", "j_joy_wpball" })
+                end
+            end
+        end
+    end,
+    joy_can_transfer_ability = function(self, other_card, card)
+        return other_card.joy_transforming == "j_joy_wpball"
+    end,
+    joy_transfer_ability_calculate = function(self, other_card, context, config)
+        if JoyousSpring.can_use_abilities(other_card) then
+            if context.ante_change and context.ante_end then
+                JoyousSpring.transform_card(other_card, "j_joy_wpball")
             end
         end
     end,

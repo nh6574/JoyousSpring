@@ -696,26 +696,3 @@ JoyousSpring.Joker({
         },
     },
 })
-
--- W:P Fancy Ball
-JoyousSpring.Joker({
-    key = "wpball",
-    atlas = "Misc03",
-    pos = { x = 2, y = 5 },
-    rarity = 1,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                attribute = "DARK",
-                monster_type = "Cyberse",
-                summon_type = "LINK",
-            },
-        },
-    },
-})

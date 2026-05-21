@@ -17,7 +17,7 @@ return {
                 },
             },
             tag_joy_secret = {
-                name = "Seret Pack Tag",
+                name = "Secret Pack Tag",
                 text = {
                     "Gives a free",
                     "{C:joy_normal}#1#{}",

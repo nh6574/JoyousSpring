@@ -180,7 +180,7 @@ JoyousSpring.Joker({
             end
         end
         if (JoyousSpring.used_as_material(card, context) and JoyousSpring.is_summon_type(context.joy_card, "FUSION")) or
-            (context.joy_transform_summon and context.joy_card == card) then
+            (context.joy_transform_summon and context.joy_card == card and context.joy_summon_type == "FUSION") then
             if #JoyousSpring.field_spell_area.cards < JoyousSpring.field_spell_area.config.card_limit then
                 JoyousSpring.add_to_extra_deck("j_joy_invoked_meltdown")
             end
