@@ -45,7 +45,7 @@ end
 local joker_src = SMODS.NFS.getDirectoryItems(SMODS.current_mod.path .. "src/jokers")
 for _, file in ipairs(joker_src) do
     local number = tonumber(file:sub(1, 2))
-    if JoyousSpring.dev_content or (number <= 34) or (number >= 36 and number <= 39) or (number == 99) then
+    if JoyousSpring.dev_content or (number <= 34) or (number >= 36 and number <= 39) or (number == 41) or (number == 99) then
         sendInfoMessage("Loading " .. file, "JoyousSpring")
         assert(SMODS.load_file("src/jokers/" .. file))()
     end
