@@ -96,13 +96,32 @@ return {
                 text = {
                     {
                         "{C:attention}Banishes{} itself and {C:attention}#1#{} other {C:attention}Joker{}",
-                        "at end of round until {C:attention}Boss Blind{} is selected",
+                        "at the start of the shop until {C:attention}Boss Blind{} is selected",
                         "OR until {C:attention}Blind{} is selected if summoned",
                         "using {C:attention}2{} {C:joy_spell}Extra Deck{} {C:attention}Jokers{} as {C:attention}material{}",
                     },
                 },
                 joy_summon_conditions = {
                     "{C:attention}2{} {C:joy_effect}Effect {C:attention}Jokers{}",
+                }
+            },
+            j_joy_wpball = {
+                name = "{C:joy_link}W:P Fancy Ball",
+                text = {
+                    {
+                        "{C:attention}Banishes{} all other {C:joy_link}Links{} at end of round until {C:attention}Boss Blind{} is selected",
+                        "then {C:attention}transforms{} into one of them at random",
+                        "{C:inactive}(This is treated as a Link summon with 3 materials){}",
+                        "A {C:joy_link}Link{} summoned this way gains the following ability:",
+                        "{s:0.9,C:attention}Transforms{s:0.9} into {s:0.9,C:joy_link}\"W:P Fancy Ball\"{s:0.9} at end of ante",
+                    },
+                },
+                joy_summon_conditions = {
+                    "{C:joy_link}\"I:P Masquerena\"{} +",
+                    "{C:joy_link}\"S:P Little Knight\"{}"
+                },
+                joy_transfer_ability = {
+                    "{C:attention}Transforms{} into {C:joy_link}\"W:P Fancy Ball\"{} at end of ante",
                 }
             },
             j_joy_progleo = {

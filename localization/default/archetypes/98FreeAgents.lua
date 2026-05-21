@@ -256,15 +256,7 @@ return {
                         "TBD"
                     }
                 }
-            },
-            j_joy_wp = {
-                name = "{C:joy_link}W:P Fancy Ball",
-                text = {
-                    {
-                        "TBD"
-                    }
-                }
-            },
+            }
         }
     },
 }
