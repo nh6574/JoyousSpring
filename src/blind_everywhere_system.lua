@@ -175,7 +175,8 @@ end
 JoyousSpring.update_blind_effects_area = function()
     if not G.joy_blind_effects_area or not G.joy_blind_effects_area.cards then return end
     local cards_in_area = {}
-    for _, card in ipairs(G.joy_blind_effects_area.cards) do
+    for i = #G.joy_blind_effects_area.cards, 1, -1 do
+        local card = G.joy_blind_effects_area.cards[i]
         local blind_key = card.config.center.joy_blind_key
         if not blind_key or not G.GAME.joy_active_blinds[blind_key]
             or SMODS.is_active_blind(blind_key, true) then
@@ -184,9 +185,10 @@ JoyousSpring.update_blind_effects_area = function()
             cards_in_area[blind_key] = true
         end
     end
+
     for key, _ in pairs(G.GAME.joy_active_blinds) do
         local prototype = G.P_BLINDS[key]
-        if not SMODS.is_active_blind(blind_key, true) and prototype and prototype.opponent_key and not cards_in_area[prototype.opponent_key] then
+        if prototype and prototype.opponent_key and not SMODS.is_active_blind(prototype.key, true) and not cards_in_area[prototype.key] then
             local created_card = SMODS.create_card { key = prototype.opponent_key, no_edition = true }
             G.joy_blind_effects_area:emplace(created_card)
         end
