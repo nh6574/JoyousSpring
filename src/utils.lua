@@ -710,6 +710,7 @@ end
 ---@param playing_card_materials Card[]
 ---@return table
 JoyousSpring.playing_cards_used = function(cards_used, playing_card_materials)
+    cards_used = cards_used or {}
     for _, pcard in ipairs(playing_card_materials) do
         cards_used[pcard.config.center_key] = (cards_used[pcard.config.center_key] or 0) + 1
         if pcard.seal then

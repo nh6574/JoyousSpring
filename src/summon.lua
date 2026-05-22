@@ -178,7 +178,7 @@ JoyousSpring.perform_summon = function(card, card_list, summon_type, playing_car
     end
 
     if playing_card_materials then
-        card.ability.extra.cards_used = JoyousSpring.playing_cards_used(card.ability.extra.cards_used,
+        card.ability.extra.cards_used = JoyousSpring.playing_cards_used(card.ability.extra.cards_used or {},
             playing_card_materials)
         JoyousSpring.destroy_cards(playing_card_materials, true, true, nil, dissolve_colours)
     end
