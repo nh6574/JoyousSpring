@@ -87,9 +87,8 @@ SMODS.Tag {
         if center then
             info_queue[#info_queue + 1] = center
         end
-        -- TODO: Do this properly once the boosters are done
-        local name = center and (center.config.joy_secret or {}).name and
-            (center.config.joy_secret.name .. " Secret Pack") or localize("k_joy_secret_tag_default")
+        local name = center and localize({ type = 'name_text', set = "Other", key = center.key }) or
+            localize("k_joy_secret_tag_default")
         center = center or {}
         return { vars = { name } }
     end,

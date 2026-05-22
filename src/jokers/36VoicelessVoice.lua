@@ -181,6 +181,7 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.p_secret_pack_joy_ritual
         return { vars = { card.ability.extra.h_size, card.ability.extra.h_size * JoyousSpring.count_materials_in_graveyard({ { key = "j_joy_voice_lo" } }) } }
     end,
     joy_desc_cards = {
@@ -210,7 +211,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.end_of_round and context.game_over == false and context.main_eval then
-                JoyousSpring.add_secret_tag("Ritual")
+                JoyousSpring.add_secret_tag("p_secret_pack_joy_ritual")
             end
         end
     end,

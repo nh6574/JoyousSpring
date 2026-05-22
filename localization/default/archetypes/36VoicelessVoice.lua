@@ -88,7 +88,7 @@ return {
                         "{C:inactive}(Currently {C:attention}+#2#{}{C:inactive})"
                     },
                     {
-                        "Gives a {C:attention}Ritual Support Secret Pack Tag{}",
+                        "Gives a {C:attention}Rite of Initiation Secret Pack Tag{}",
                         "at end of round"
                     }
                 },
