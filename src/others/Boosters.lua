@@ -323,6 +323,7 @@ JoyousSpring.secret_booster = SMODS.Booster:extend {
         end
         joy_desc_cards[1].properties = copy_table(data.properties)
         joy_desc_cards[1].name = "k_booster_related"
+        self.joy_desc_cards = joy_desc_cards
     end,
     create_card = function(self, card)
         local main_properties = self.joy_secret.properties
