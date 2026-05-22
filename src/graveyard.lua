@@ -581,7 +581,7 @@ G.FUNCS.joy_open_graveyard = function(e)
 end
 
 G.FUNCS.joy_show_graveyard = function(e)
-    if (JoyousSpring.graveyard and next(JoyousSpring.graveyard)) or
+    if G.GAME.joy_show_graveyard or (JoyousSpring.graveyard and next(JoyousSpring.graveyard)) or
         (JoyousSpring.banish_blind_selected_area and #JoyousSpring.banish_blind_selected_area.cards > 0) or
         (JoyousSpring.banish_end_of_round_area and #JoyousSpring.banish_end_of_round_area.cards > 0) or
         (JoyousSpring.banish_boss_selected_area and #JoyousSpring.banish_boss_selected_area.cards > 0) or

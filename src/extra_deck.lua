@@ -107,9 +107,12 @@ end
 JoyousSpring.open_extra_deck = function(forced, open, delay_close)
     if open and not JoyousSpring.extra_deck_open then
         JoyousSpring.extra_deck_open = true
+        if JoyousSpring.side_deck_open then
+            JoyousSpring.open_side_deck(true)
+        end
         JoyousSpring.extra_deck_forced = JoyousSpring.extra_deck_forced or forced and true
+
         G.E_MANAGER:add_event(Event({
-            blockable = false,
             func = function()
                 G.jokers.states.visible = false
                 G.consumeables.states.visible = false
@@ -118,6 +121,7 @@ JoyousSpring.open_extra_deck = function(forced, open, delay_close)
                 return true
             end
         }))
+        return true
     elseif not open and (not JoyousSpring.extra_deck_forced or forced) and JoyousSpring.extra_deck_open then
         JoyousSpring.extra_deck_open = false
         JoyousSpring.extra_deck_forced = false
@@ -138,8 +142,10 @@ JoyousSpring.open_extra_deck = function(forced, open, delay_close)
                     trigger = "after",
                     delay = 0.5,
                     func = function()
-                        G.consumeables.states.visible = true
-                        G.jokers.states.visible = true
+                        if not JoyousSpring.side_deck_open then
+                            G.consumeables.states.visible = true
+                            G.jokers.states.visible = true
+                        end
                         G.joy_extra_deck.alignment.offset.y = -5
                         G.joy_extra_deck.states.visible = false
                         JoyousSpring.extra_deck_area:unhighlight_all()

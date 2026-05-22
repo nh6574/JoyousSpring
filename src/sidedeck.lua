@@ -5,30 +5,55 @@
 JoyousSpring.State = {}
 JoyousSpring.State.SideDeck = {}
 
+G.FUNCS.joy_side_colour1 = function(e)
+    if G.STATE == G.STATES.JOY_SIDE_DECK then
+        e.config.colour = G.C.DYN_UI.MAIN
+    else
+        e.config.colour = G.C.CLEAR
+    end
+end
+
+G.FUNCS.joy_side_colour2 = function(e)
+    if G.STATE == G.STATES.JOY_SIDE_DECK then
+        e.config.colour = G.C.DYN_UI.DARK
+    else
+        e.config.colour = G.C.CLEAR
+    end
+end
+
+JoyousSpring.create_side_deck_uibox = function()
+    local box = JoyousSpring.side_deck_area_ui or UIBox {
+        definition =
+        { n = G.UIT.ROOT, config = { colour = G.C.DYN_UI.MAIN, emboss = 0.05, align = 'cm', r = 0.1, padding = 0.1, func = "joy_side_colour1" }, nodes = {
+            { n = G.UIT.R, config = { align = "cm", padding = 0.1, minw = 4.72, minh = 3.5, colour = G.C.DYN_UI.DARK, r = 0.1, func = "joy_side_colour2" }, nodes = {
+                { n = G.UIT.R, config = { align = "cm" }, nodes = {
+                    { n = G.UIT.O, config = { object = JoyousSpring.side_deck_area } }
+                } },
+            } },
+        } },
+        config = {
+            align = "cm",
+            offset = { x = 0, y = 0 },
+            instance_type = "CARDAREA"
+        }
+    }
+    return box
+end
+
 function JoyousSpring.State.SideDeck.update_side_deck(game, dt)
     if not G.STATE_COMPLETE then
         stop_use()
         ease_colour(G.C.DYN_UI.MAIN, G.C.JOY.EFFECT)
+        if JoyousSpring.side_deck_open then
+            JoyousSpring.open_side_deck(true)
+        end
         local side_deck_exists = not not JoyousSpring.side_deck
         JoyousSpring.side_deck = JoyousSpring.side_deck or UIBox {
             definition = JoyousSpring.State.SideDeck.create_side_deck(true),
             config = { align = 'tmi', offset = { x = 0, y = G.ROOM.T.y + 11 }, major = G.hand, bond = 'Weak' }
         }
-        JoyousSpring.side_deck_area_ui = JoyousSpring.side_deck_area_ui or UIBox {
-            definition =
-            { n = G.UIT.ROOT, config = { colour = G.C.DYN_UI.MAIN, emboss = 0.05, align = 'cm', r = 0.1, padding = 0.1 }, nodes = {
-                { n = G.UIT.R, config = { align = "cm", padding = 0.1, minw = 4.72, minh = 3.5, colour = G.C.DYN_UI.DARK, r = 0.1 }, nodes = {
-                    { n = G.UIT.R, config = { align = "cm" }, nodes = {
-                        { n = G.UIT.O, config = { object = JoyousSpring.side_deck_area } }
-                    } },
-                } },
-            } },
-            config = {
-                align = "cm",
-                offset = { x = 0, y = 0 },
-                instance_type = "CARDAREA"
-            }
-        }
+        JoyousSpring.side_deck_area_ui = JoyousSpring.create_side_deck_uibox()
+
         G.E_MANAGER:add_event(Event({
             func = function()
                 JoyousSpring.side_deck.alignment.offset.y = -5.3
@@ -195,82 +220,99 @@ function JoyousSpring.State.SideDeck.create_side_deck(during_siding)
     return t
 end
 
-function JoyousSpring.open_side_deck()
-    if G.STATE ~= G.STATES.JOY_SIDE_DECK then
-        if not JoyousSpring.side_deck then
-            JoyousSpring.side_deck = UIBox {
-                definition = JoyousSpring.State.SideDeck.create_side_deck(),
-                config = { align = 'tmi', offset = { x = 0, y = G.ROOM.T.y + 11 }, major = G.hand, bond = 'Weak' }
-            }
-            JoyousSpring.side_deck_area_ui = UIBox {
-                definition =
-                { n = G.UIT.ROOT, config = { colour = G.C.DYN_UI.MAIN, emboss = 0.05, align = 'cm', r = 0.1, padding = 0.1 }, nodes = {
-                    { n = G.UIT.R, config = { align = "cm", padding = 0.1, minw = 4.72, minh = 3.5, colour = G.C.DYN_UI.DARK, r = 0.1 }, nodes = {
-                        { n = G.UIT.R, config = { align = "cm" }, nodes = {
-                            { n = G.UIT.O, config = { object = JoyousSpring.side_deck_area } }
-                        } },
-                    } },
-                } },
-                config = {
-                    align = "cm",
-                    offset = { x = 0, y = 0 },
-                    instance_type = "CARDAREA"
-                }
-            }
+function JoyousSpring.open_side_deck(forced)
+    if G.STATE ~= G.STATES.JOY_SIDE_DECK or forced then
+        if not JoyousSpring.side_deck_open then
+            JoyousSpring.side_deck_area_ui = JoyousSpring.create_side_deck_uibox()
+            JoyousSpring.side_deck_open = true
+            JoyousSpring.open_extra_deck(true, false)
+            JoyousSpring.side_deck_area_ui.old_tx = JoyousSpring.side_deck_area_ui.T.x
+            JoyousSpring.side_deck_area_ui.old_ty = JoyousSpring.side_deck_area_ui.T.y
+            JoyousSpring.side_deck_area_ui.old_vtx = JoyousSpring.side_deck_area_ui.VT.x
+            JoyousSpring.side_deck_area_ui.old_vty = JoyousSpring.side_deck_area_ui.VT.y
+            JoyousSpring.side_deck_area_ui.VT.y = G.jokers.VT.y - 5
+            JoyousSpring.side_deck_area_ui.VT.x = G.jokers.VT.x + 1.8
+            JoyousSpring.side_deck_area_ui.T.y = G.jokers.T.y - 5
+            JoyousSpring.side_deck_area_ui.T.x = G.jokers.T.x + 1.8
             G.E_MANAGER:add_event(Event({
                 func = function()
-                    JoyousSpring.side_deck.alignment.offset.y = -5.3
-                    JoyousSpring.side_deck.alignment.offset.x = 0
+                    G.jokers.states.visible = false
+                    G.consumeables.states.visible = false
+                    return true
+                end
+            }))
+            G.E_MANAGER:add_event(Event({
+                trigger = "ease",
+                delay = 0.5,
+                ref_table = JoyousSpring.side_deck_area_ui.VT,
+                ref_value = "y",
+                ease_to = G.jokers.VT.y - 0.5,
+            }))
+            G.E_MANAGER:add_event(Event({
+                trigger = "ease",
+                delay = 0.5,
+                ref_table = JoyousSpring.side_deck_area_ui.T,
+                ref_value = "y",
+                ease_to = G.jokers.T.y - 0.5,
+            }))
+            return true
+        else
+            JoyousSpring.side_deck_open = false
+            G.E_MANAGER:add_event(Event({
+                blockable = false,
+                trigger = "after",
+                delay = 0.15,
+                func = function()
                     G.E_MANAGER:add_event(Event({
-                        trigger = 'after',
-                        delay = 0.2,
+                        trigger = "ease",
+                        delay = 0.5,
+                        ref_table = JoyousSpring.side_deck_area_ui.VT,
+                        ref_value = "y",
+                        ease_to = G.jokers.VT.y - 5,
+                    }))
+                    G.E_MANAGER:add_event(Event({
+                        trigger = "ease",
+                        delay = 0.5,
+                        ref_table = JoyousSpring.side_deck_area_ui.T,
+                        ref_value = "y",
+                        ease_to = G.jokers.T.y - 5,
+                    }))
+                    G.E_MANAGER:add_event(Event({
                         blockable = false,
+                        trigger = "after",
+                        delay = 0.5,
                         func = function()
-                            if math.abs(JoyousSpring.side_deck.T.y - JoyousSpring.side_deck.VT.y) < 3 then
-                                G.ROOM.jiggle = G.ROOM.jiggle + 3
-                                play_sound('cardFan2')
-                                return true
+                            if not JoyousSpring.extra_deck_open then
+                                G.consumeables.states.visible = true
+                                G.jokers.states.visible = true
                             end
+                            JoyousSpring.side_deck_area_ui.VT.y = JoyousSpring.side_deck_area_ui.old_vty
+                            JoyousSpring.side_deck_area_ui.VT.x = JoyousSpring.side_deck_area_ui.old_vtx
+                            JoyousSpring.side_deck_area_ui.T.y = JoyousSpring.side_deck_area_ui.old_ty
+                            JoyousSpring.side_deck_area_ui.T.x = JoyousSpring.side_deck_area_ui.old_tx
+                            JoyousSpring.side_deck_area:unhighlight_all()
+                            return true
                         end
                     }))
                     return true
                 end
             }))
-            G.E_MANAGER:add_event(Event({
-                blocking = false,
-                func = function()
-                    if not (JoyousSpring.side_deck and JoyousSpring.side_deck_area_ui) then
-                        return true
-                    end
-                    local column = JoyousSpring.side_deck:get_UIE_by_ID('joy_side_column')
-                    if column then
-                        JoyousSpring.side_deck_area_ui.VT.y = column.VT.y + 0.2
-                        JoyousSpring.side_deck_area_ui.VT.x = column.VT.x + column.VT.w / 2 -
-                            JoyousSpring.side_deck_area_ui.VT.w / 2
-                        JoyousSpring.side_deck_area_ui.T.y = column.T.y + 0.2
-                        JoyousSpring.side_deck_area_ui.T.x = column.T.x + column.T.w / 2 -
-                            JoyousSpring.side_deck_area_ui.T.w / 2
-                    end
-                end
-            }))
-        else
-            G.E_MANAGER:add_event(Event({
-                trigger = 'immediate',
-                func = function()
-                    JoyousSpring.side_deck.alignment.offset.y = G.ROOM.T.y + 29
-                    return true
-                end
-            }))
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.5,
-                func = function()
-                    JoyousSpring.side_deck:remove()
-                    JoyousSpring.side_deck = nil
-                    return true
-                end
-            }))
         end
+    end
+end
+
+G.FUNCS.joy_open_side_deck = function(e)
+    JoyousSpring.open_side_deck()
+end
+
+G.FUNCS.joy_show_side_deck = function(e)
+    if G.GAME.joy_show_side_deck or (JoyousSpring.side_deck_area and next(JoyousSpring.side_deck_area.cards or {})) then
+        G.GAME.joy_show_side_deck = true
+    end
+    if G.GAME.joy_show_side_deck then
+        e.states.visible = true
+    else
+        e.states.visible = false
     end
 end
 
@@ -322,10 +364,29 @@ function Game:start_run(args)
         0,
         5 * 1.02 * G.CARD_W,
         1.05 * G.CARD_H,
-        { card_limit = 5, type = 'joker', highlight_limit = 1 })
+        {
+            card_limit = 5,
+            type = 'joker',
+            highlight_limit = 1,
+            bg_colour = { G.C.JOY.LINK[1], G.C.JOY.LINK[2], G.C.JOY.LINK[3], 0.5 }
+        })
     JoyousSpring.side_deck_area = G.joy_side_deck
     JoyousSpring.side_deck_area.states.visible = false
-
+    G.E_MANAGER:add_event(Event({
+        func = function()
+            JoyousSpring.side_deck_area_ui = JoyousSpring.create_side_deck_uibox()
+            JoyousSpring.side_deck_area_ui.T.y = JoyousSpring.side_deck_area_ui.T.y - 5
+            JoyousSpring.side_deck_area_ui.VT.y = JoyousSpring.side_deck_area_ui.VT.y - 5
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    JoyousSpring.side_deck_area.states.visible = true
+                    JoyousSpring.side_deck_area_ui.states.collide.can = false
+                    return true
+                end
+            }))
+            return true
+        end
+    }))
 
     game_start_run_ref(self, args)
 end

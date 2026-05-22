@@ -758,6 +758,36 @@ function Game:start_run(args)
                         padding = 0.1,
                         r = 0.1,
                         hover = true,
+                        colour = G.C.JOY.LINK,
+                        shadow = true,
+                        button = "joy_open_side_deck",
+                        func = "joy_show_side_deck"
+                    },
+                    nodes = {
+                        {
+                            n = G.UIT.R,
+                            config = { align = "bcm", padding = 0 },
+                            nodes = {
+                                {
+                                    n = G.UIT.T,
+                                    config = {
+                                        text = localize('k_joy_side_deck'),
+                                        scale = 0.35,
+                                        colour = G.C.UI.TEXT_LIGHT
+                                    }
+                                }
+                            }
+                        },
+                    }
+                },
+                {
+                    n = G.UIT.C,
+                    config = {
+                        align = "tm",
+                        minw = 2,
+                        padding = 0.1,
+                        r = 0.1,
+                        hover = true,
                         colour = G.C.JOY.TRAP,
                         shadow = true,
                         button = "joy_open_graveyard",
@@ -814,7 +844,7 @@ function Game:start_run(args)
         },
         config = {
             align = "tr",
-            offset = { x = -4, y = 0 },
+            offset = { x = -6, y = 0 },
             major = G.ROOM_ATTACH,
             bond = 'Weak'
         }
