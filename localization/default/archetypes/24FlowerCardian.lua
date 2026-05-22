@@ -440,6 +440,14 @@ return {
                     "all random",
                     "{C:attention,T:m_joy_hanafuda}Hanafuda{} cards"
                 }
+            },
+            b_joy_test = {
+                name = "{C:joy_trap}Laundry Trap",
+                text = {
+                    "Start with",
+                    "all random",
+                    "{C:attention,T:m_joy_hanafuda}Hanafuda{} cards"
+                }
             }
         },
         Sleeve = {

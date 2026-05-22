@@ -31,7 +31,7 @@ return {
                     {
                         "Gains {X:mult,C:white}X#3#{} Mult each time",
                         "{C:joy_effect}\"Ash Blossom & Joyous Spring\"{}",
-                        "triggers the previous effect",
+                        "triggers the previous ability",
                         "{C:inactive}(Currently{} {X:mult,C:white}X#4#{} {C:inactive}Mult){}",
                     },
                 },
