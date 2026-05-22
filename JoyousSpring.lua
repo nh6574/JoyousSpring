@@ -18,7 +18,7 @@ local filelist = {
     "utils",
     "globals",
     "mod_info",
-    "states",
+    "sidedeck",
     "general_ui",
     "card_ui",
     "zones",

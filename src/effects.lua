@@ -218,8 +218,12 @@ SMODS.current_mod.calculate = function(self, context)
         G.GAME.joy_temporary_handsize = 0
     end
 
-    -- Arbitrary calculations from cards
+    -- Reset reroll global
+    if context.ending_shop then
+        G.GAME.joy_reroll_shop = nil
+    end
 
+    -- Arbitrary calculations from cards
     local returns = {}
     for _, effect in ipairs(JoyousSpring.calculate_effects) do
         if not effect.is_active or effect:is_active("calculate") then

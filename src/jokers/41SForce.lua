@@ -60,6 +60,7 @@ JoyousSpring.Joker({
         { properties = copy_table(sforce_rivals),                  name = "k_joy_related" },
         { properties = { { monster_archetypes = { "SForce" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish", "material", "link", "graveyard" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -104,6 +105,7 @@ JoyousSpring.Joker({
         { properties = copy_table(sforce_rivals),                  name = "k_joy_related" },
         { properties = { { monster_archetypes = { "SForce" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish", "material", "maindeck" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -169,6 +171,7 @@ JoyousSpring.Joker({
         { properties = copy_table(sforce_rivals),                  name = "k_joy_related" },
         { properties = { { monster_archetypes = { "SForce" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish", "column", "graveyard" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -224,6 +227,7 @@ JoyousSpring.Joker({
         { properties = copy_table(sforce_rivals),                  name = "k_joy_related" },
         { properties = { { monster_archetypes = { "SForce" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish", "column", "tribute" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -312,6 +316,7 @@ JoyousSpring.Joker({
         { properties = copy_table(sforce_rivals),                  name = "k_joy_related" },
         { properties = { { monster_archetypes = { "SForce" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish", "column", "tribute" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -394,6 +399,7 @@ JoyousSpring.Joker({
         { properties = copy_table(sforce_rivals),                  name = "k_joy_related" },
         { properties = { { monster_archetypes = { "SForce" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish", "column", "tribute" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -479,6 +485,7 @@ JoyousSpring.Joker({
         { properties = copy_table(sforce_rivals),                  name = "k_joy_related" },
         { properties = { { monster_archetypes = { "SForce" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish", "column" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -539,6 +546,7 @@ JoyousSpring.Joker({
         { properties = copy_table(sforce_rivals),                  name = "k_joy_related" },
         { properties = { { monster_archetypes = { "SForce" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish", "column" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -611,6 +619,7 @@ JoyousSpring.Joker({
         { properties = copy_table(sforce_rivals),                  name = "k_joy_related" },
         { properties = { { monster_archetypes = { "SForce" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish", "column", "tribute" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -685,6 +694,7 @@ JoyousSpring.Joker({
         { properties = copy_table(sforce_rivals),                  name = "k_joy_related" },
         { properties = { { monster_archetypes = { "SForce" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "revive", "column", "tribute" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -757,6 +767,7 @@ JoyousSpring.Joker({
         { properties = copy_table(sforce_rivals),                  name = "k_joy_related" },
         { properties = { { monster_archetypes = { "SForce" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish", "modifier", "graveyard" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -824,6 +835,7 @@ JoyousSpring.Joker({
         { properties = copy_table(sforce_rivals),                  name = "k_joy_related" },
         { properties = { { monster_archetypes = { "SForce" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish", "extradeck", "tribute" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -903,6 +915,7 @@ JoyousSpring.Joker({
         { properties = copy_table(sforce_rivals),                  name = "k_joy_related" },
         { properties = { { monster_archetypes = { "SForce" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish", "column", "link" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -973,6 +986,7 @@ JoyousSpring.Joker({
         { properties = copy_table(sforce_rivals),                  name = "k_joy_related" },
         { properties = { { monster_archetypes = { "SForce" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1036,6 +1050,7 @@ JoyousSpring.Joker({
         { properties = copy_table(sforce_rivals),                  name = "k_joy_related" },
         { properties = { { monster_archetypes = { "SForce" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "banish", "column" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

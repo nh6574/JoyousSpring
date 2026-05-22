@@ -43,7 +43,7 @@ JoyousSpring.Joker({
                     card.ability.extra.count = math.max(0, card.ability.extra.count - 5)
                 end
             end
-            if context.destroy_card and context.cardarea == G.play and
+            if context.destroy_card and (context.cardarea == G.play or context.cardarea == "unscored") and
                 G.GAME.current_round.hands_played == 0 and #context.full_hand == 3 then
                 card.active = true
                 return {
@@ -122,7 +122,7 @@ JoyousSpring.Joker({
                     card.ability.extra.count = math.max(0, card.ability.extra.count - 5)
                 end
             end
-            if context.destroy_card and context.cardarea == G.play and
+            if context.destroy_card and (context.cardarea == G.play or context.cardarea == "unscored") and
                 G.GAME.current_round.hands_played == 1 and #context.full_hand == 3 then
                 card.active = true
                 return {
@@ -203,7 +203,7 @@ JoyousSpring.Joker({
                     card.ability.extra.count = math.max(0, card.ability.extra.count - 5)
                 end
             end
-            if context.destroy_card and context.cardarea == G.play and
+            if context.destroy_card and (context.cardarea == G.play or context.cardarea == "unscored") and
                 G.GAME.current_round.hands_played == 2 and #context.full_hand == 3 then
                 card.active = true
                 return {
@@ -767,6 +767,9 @@ JoyousSpring.Joker({
                     }))
                 end
 
+                local dollars = (cards_used.m_gold or 0) * self.joy_extra_config.m_gold[1] +
+                    (cards_used.gold_seal or 0) * self.joy_extra_config.gold_seal[1]
+
                 return {
                     chips = (cards_used.m_bonus or 0) * self.joy_extra_config.m_bonus[1] +
                         (cards_used.m_stone or 0) * self.joy_extra_config.m_stone[1] +
@@ -777,8 +780,7 @@ JoyousSpring.Joker({
                         ((cards_used.m_glass or 0) * self.joy_extra_config.m_glass[1]) +
                         ((cards_used.m_steel or 0) * self.joy_extra_config.m_steel[1]) +
                         ((cards_used.e_polychrome or 0) * self.joy_extra_config.e_polychrome[1])),
-                    dollars = (cards_used.m_gold or 0) * self.joy_extra_config.m_gold[1] +
-                        (cards_used.gold_seal or 0) * self.joy_extra_config.gold_seal[1]
+                    dollars = dollars > 0 and dollars or nil
                 }
             end
             if context.after then
