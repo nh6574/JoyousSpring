@@ -94,7 +94,7 @@ function SMODS.poll_object(args)
     if G.GAME.joy_only_ygo_cards then
         args = args or {}
 
-        if args.append == "sho" and args.type == "Joker" then
+        if (args.append == "sho" or args.joy_monster_properties) and args.type == "Joker" then
             args.rarity = false
             args.attributes = { "joy_monster" }
         end
