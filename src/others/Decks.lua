@@ -13,6 +13,7 @@ SMODS.Back {
     discovered = true,
     pos = { x = 0, y = 0 },
     apply = function(self, back)
+        G.GAME.modifiers.joy_copy_GY = true
         G.E_MANAGER:add_event(Event({
             blockable = false,
             func = (function()
@@ -30,7 +31,14 @@ SMODS.Back {
     discovered = true,
     pos = { x = 1, y = 0 },
     apply = function(self, back)
-
+        G.GAME.modifiers.joy_revive_no_room = true
+        G.E_MANAGER:add_event(Event({
+            blockable = false,
+            func = (function()
+                JoyousSpring.add_to_extra_deck("j_joy_etwin_sunny", { no_edition = true })
+                return true
+            end)
+        }))
     end
 }
 
@@ -52,7 +60,16 @@ SMODS.Back {
     discovered = true,
     pos = { x = 3, y = 0 },
     apply = function(self, back)
-
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                local choice = pseudorandom_element(
+                    { "j_joy_yokai_ogre", "j_joy_yokai_reaper", "j_joy_yokai_belle", "j_joy_yokai_sister",
+                        "j_joy_yokai_mourner", "j_joy_yokai_ash" }, self.key)
+                SMODS.add_card { key = choice, no_edition = true }
+                SMODS.add_card { key = "c_strength" }
+                return true
+            end
+        }))
     end
 }
 
@@ -63,7 +80,7 @@ SMODS.Back {
     discovered = true,
     pos = { x = 4, y = 0 },
     apply = function(self, back)
-
+        G.GAME.modifiers.joy_only_rarity = 2
     end
 }
 
@@ -265,7 +282,7 @@ SMODS.Back {
     end
 }
 
--- Flower Cardian
+-- Flower Stacking
 SMODS.Back {
     key = "hanafuda",
     atlas = "hanafuda",

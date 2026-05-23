@@ -219,6 +219,7 @@ JoyousSpring.create_summon = function(add_params, must_have_room, card_limit_mod
                 card.states.visible = true
                 card:add_to_deck()
                 area:emplace(card)
+                card:start_materialize()
             else
                 card.getting_sliced = true
                 card:remove()

@@ -5,7 +5,7 @@ return {
                 name = "{C:joy_trap}Laundry Trap",
                 text = {
                     "Starts with",
-                    "{C:joy_effect}\"Laundry Dragonmaid\"{}",
+                    "{C:joy_effect,T:j_joy_dmaid_laundry}\"Laundry Dragonmaid\"{}",
                     " ",
                     "Sends a copy of each card",
                     "sent to the {C:attention}GY{}"
@@ -14,7 +14,11 @@ return {
             b_joy_etwin = {
                 name = "{C:joy_trap}Evil{C:joy_trap,f:joy_font}★{C:joy_trap}Twin Challenge",
                 text = {
-                    "TBD"
+                    "Starts with",
+                    "{C:joy_link}\"Evil{C:joy_link,f:joy_font}★{}{C:joy_link,T:j_joy_etwin_sunny}Twin's Trouble Sunny\"{}",
+                    "in the {C:joy_spell}Extra Deck{}",
+                    " ",
+                    "{C:attention}Reviving{} doesn't require room",
                 }
             },
             b_joy_dogma = {
@@ -26,13 +30,16 @@ return {
             b_joy_yokai = {
                 name = "{C:joy_trap}Haunted Shrine",
                 text = {
-                    "TBD"
+                    "Starts with a random",
+                    "{C:attention}Ghost Girl{}",
+                    "and a {C:tarot,T:c_strength}Strength{}"
                 }
             },
             b_joy_spright = {
                 name = "{C:joy_spell}Spright Starter",
                 text = {
-                    "TBD"
+                    "Only {C:green}Uncommon{} {C:attention}Jokers{}",
+                    "appear in the shop"
                 }
             },
             b_joy_mekk = {
@@ -50,7 +57,12 @@ return {
             b_joy_fish = {
                 name = "{C:joy_trap}Ghoti Chain",
                 text = {
-                    "TBD"
+                    "All {C:attention}Jokers banish",
+                    "at end of round",
+                    " ",
+                    "When {C:attention}Blind{} is selected,",
+                    "all cards return",
+                    "from {C:attention}banishment{}"
                 }
             },
             b_joy_psy = {
@@ -68,37 +80,68 @@ return {
             b_joy_ba = {
                 name = "{C:joy_trap}The Traveler and the Burning Abyss",
                 text = {
-                    "TBD"
+                    "{C:joy_normal}\"Burning Abyss\"{} don't get",
+                    "destroyed by",
+                    "their own effects",
+                    " ",
+                    "{C:joy_normal}Fiends{} appear more",
+                    "frequently in the shop"
                 }
             },
             b_joy_lab = {
                 name = "{C:joy_trap}Welcome Labrynth",
                 text = {
-                    "TBD"
+                    "Start with",
+                    "{C:joy_effect,T:j_joy_lab_ariane}\"Ariane the Labrynth Servant\"",
+                    "and",
+                    "{C:joy_effect,T:j_joy_lab_arianna}\"Arianna the Labrynth Servant\"",
+                    " ",
+                    "Cards drawn in",
+                    "the first hand of round",
+                    "have a {C:green}1 in 2{} chance",
+                    "to be face-down"
                 }
             },
             b_joy_sub = {
                 name = "{C:joy_trap}Subterror Final Battle",
                 text = {
-                    "TBD"
+                    "All {C:attention}Jokers{}",
+                    "are flipped face-down",
+                    "and then face-up",
+                    "when {C:attention}Blind{} is selected"
                 }
             },
             b_joy_eld = {
                 name = "{C:joy_trap}Eldlixir of Scarlet Sanguine",
                 text = {
-                    "TBD"
+                    "Starts with",
+                    "{C:joy_fusion,T:j_joy_eld_angel}\"Fallen Angel of the Golden Land\"{}",
+                    "in the {C:joy_spell}Extra Deck{}",
+                    " ",
+                    "{C:joy_trap}Traps{} and {C:joy_normal}Zombies{} appear more",
+                    "frequently in the shop"
                 }
             },
             b_joy_ignis = {
                 name = "{C:joy_spell}A.I. Meet You",
                 text = {
-                    "TBD"
+                    "{C:joy_link}Links{} don't require",
+                    "room to {C:attention}summon{}",
+                    " ",
+                    "{C:joy_normal}Cyberse{} appear more",
+                    "frequently in the shop"
                 }
             },
             b_joy_solfa = {
                 name = "{C:joy_spell}Solfachord Symphony",
                 text = {
-                    "TBD"
+                    "Starts with only",
+                    "{C:attention}26 even{} and {C:attention}26 odd{}",
+                    "ranks in the deck",
+                    " ",
+                    "Adds a {C:joy_pendulum}Pendulums{}",
+                    "to the shop when",
+                    "a {C:joy_pendulum}Pendulum{} is used"
                 }
             },
             b_joy_witch = {
@@ -116,37 +159,58 @@ return {
             b_joy_paleo = {
                 name = "{C:joy_spell}That Grass Looks Greener",
                 text = {
-                    "TBD"
+                    "Start with {C:attention}20{} random",
+                    "{C:joy_normal}\"Paleozoic\"{} in the {C:attention}GY{} and a",
+                    "{C:joy_link,T:j_joy_paleo_cambro}\"Paleozoic Cambroraster\"{}",
+                    "in the {C:joy_spell}Extra Deck{}",
                 }
             },
             b_joy_invoked = {
                 name = "{C:joy_spell}The Book of the Law",
                 text = {
-                    "TBD"
+                    "{C:attention}+1{} {C:joy_spell}Field Spell{} slots",
+                    " ",
+                    "Starts with",
+                    "{C:joy_spell,T:j_joy_invoked_meltdown}\"Magical Meltdown\"{}",
+                    "and {C:joy_spell,T:j_joy_fusiongate}\"Fusion Gate\""
                 }
             },
             b_joy_danger = {
                 name = "{C:joy_trap}You're in Danger!",
                 text = {
-                    "TBD"
+                    "Starts with an {C:attention}Eternal{}",
+                    "{C:joy_effect,T:j_joy_danger_big}\"Danger! Bigfoot!\"{}"
                 }
             },
             b_joy_adaman = {
                 name = "{C:joy_spell}Adamancipator Signs",
                 text = {
-                    "TBD"
+                    "Starts with",
+                    "{C:attention}26{} {C:diamonds}Diamonds{} and",
+                    "{C:attention}26{} {C:clubs}Clubs{} in deck",
+                    " ",
+                    "{C:attention}Excavates{} and checks",
+                    "the top card:",
+                    "{C:blue}+1{} Hands if it's an {C:diamonds}Diamond{}",
+                    "{C:blue}-1{} otherwise"
                 }
             },
             b_joy_vw = {
                 name = "{C:joy_spell}Emergency Teleport",
                 text = {
-                    "TBD"
+                    "Starts with numbered cards",
+                    "replaced by {C:attention}3s{}, {C:attention}6s{} and {C:attention}9s{}",
+                    " ",
+                    "Enables {C:attention}Virtual World{} hands",
+                    " ",
+                    "{C:joy_normal}Psychics{} appear more",
+                    "frequently in the shop"
                 }
             },
             b_joy_hanafuda = {
                 name = "{C:joy_spell}Flower Stacking",
                 text = {
-                    "Start with",
+                    "Starts with",
                     "all random",
                     "{C:attention,T:m_joy_hanafuda}Hanafuda{} cards"
                 }
@@ -154,37 +218,58 @@ return {
             b_joy_flady = {
                 name = "{C:joy_spell}Inherited Fortune",
                 text = {
-                    "TBD"
+                    "Starts with",
+                    "{C:joy_synchro,T:j_joy_flady_every}\"Fortune Lady Every\"{}",
+                    "in the {C:joy_spell}Extra Deck{}",
+                    " ",
+                    "Quadruples listed {C:green}probabilities{}"
                 }
             },
             b_joy_mimi = {
                 name = "{C:joy_spell}Mimighoul Charm",
                 text = {
-                    "TBD"
+                    "{C:money}+$2{} at end of round",
+                    "for each card in the",
+                    "{C:joy_trap}Opponent{}'s area",
+                    " ",
+                    "{C:attention}+5{} {C:joy_trap}Opponent{}'s area slots",
+                    " ",
+                    "Adds a random {C:joy_mod}Blind{} card",
+                    "to the {C:joy_trap}Opponent{}'s area",
+                    "at end of ante"
                 }
             },
             b_joy_artifact = {
                 name = "{C:joy_trap}Artifact Sanctum",
                 text = {
-                    "TBD"
+                    "Starts with {C:attention}5{} random",
+                    "{C:joy_normal}\"Artifact\"{} in the",
+                    "{C:joy_trap}Opponent{}'s area"
                 }
             },
             b_joy_purr = {
                 name = "{C:joy_trap}Purrely Sharely!?",
                 text = {
-                    "TBD"
+                    "All cards in deck start",
+                    "with a {C:attention}Memory Seal{}",
                 }
             },
             b_joy_bee = {
                 name = "{C:joy_spell}Beetrooper Formation",
                 text = {
-                    "TBD"
+                    "Starts with a random",
+                    "{C:joy_normal}Insect{} in the",
+                    "{C:joy_spell}Extra Deck{}",
+                    " ",
+                    "{C:joy_normal}Insects{} appear more",
+                    "frequently in the shop"
                 }
             },
             b_joy_wasp = {
                 name = "{C:joy_spell}Summoning Swarm",
                 text = {
-                    "TBD"
+                    "All {C:attention}Jokers{} are",
+                    "treated as {C:joy_normal}Insects{}",
                 }
             },
             b_joy_zoo = {
@@ -208,7 +293,11 @@ return {
             b_joy_dracotail = {
                 name = "{C:joy_spell}Rahu Dracotail",
                 text = {
-                    "TBD"
+                    "All cards in deck start",
+                    "with random {C:attention}modifiers{}",
+                    " ",
+                    "Starts with",
+                    "{C:joy_effect,T:j_joy_dracotail_mululu}Dracotail Mululu{}"
                 }
             },
             b_joy_striker = {
@@ -220,19 +309,26 @@ return {
             b_joy_voice = {
                 name = "{C:joy_spell}Blessing of the Voiceless Voice",
                 text = {
-                    "TBD"
+                    "Shop has an extra slot",
+                    "with a guaranteed {C:joy_ritual}Ritual{}"
                 }
             },
             b_joy_dry = {
                 name = "{C:joy_spell}Drytron Nova",
                 text = {
-                    "TBD"
+                    "Shop has an extra slot",
+                    "with a guaranteed {C:joy_normal}\"Drytron\"{}"
                 }
             },
             b_joy_hazy = {
                 name = "{C:joy_spell}Hazy Pillar",
                 text = {
-                    "TBD"
+                    "Starts with",
+                    "{C:joy_xyz,T:j_joy_hazy_basil}\"Hazy Flame Basiltrice\"{}",
+                    "in the {C:joy_spell}Extra Deck{}",
+                    " ",
+                    "{C:attention}Eternal{} {C:attention}Jokers{} appear",
+                    "frequently in the shop",
                 }
             },
             b_joy_thief = {
@@ -250,7 +346,9 @@ return {
             b_joy_sforce = {
                 name = "{C:joy_spell}S-Force Showdown",
                 text = {
-                    "TBD"
+                    "Only {C:joy_normal}\"S-Force\"{}",
+                    "related cards can appear",
+                    "in the shop"
                 }
             },
         },

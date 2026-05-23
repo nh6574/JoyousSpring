@@ -95,7 +95,7 @@ function SMODS.poll_object(args)
         args = args or {}
 
         if args.append == "sho" and args.type == "Joker" then
-            args.rarity = false
+            args.rarity = G.GAME.modifiers.joy_only_rarity or false
             args.attributes = { "joy_monster" }
         end
     end

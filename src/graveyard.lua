@@ -24,7 +24,8 @@ JoyousSpring.revive = function(key, must_have_room, edition, card_limit_modif, d
         if debuff_source then
             SMODS.debuff_card(added_card, true, debuff_source)
         end
-        JoyousSpring.create_summon(added_card, must_have_room, card_limit_modif, key)
+        JoyousSpring.create_summon(added_card, not G.GAME.modifiers.joy_revive_no_room and must_have_room or nil,
+            card_limit_modif, key)
 
         added_card.ability.extra.joyous_spring.summoned = JoyousSpring.is_extra_deck_monster(added_card) or false
         added_card.ability.extra.joyous_spring.revived = true
@@ -68,46 +69,54 @@ end
 
 ---Send card to GY
 ---@param card Card|table|string
-JoyousSpring.send_to_graveyard = function(card)
+---@param amount integer?
+JoyousSpring.send_to_graveyard = function(card, amount)
     if JoyousSpring.graveyard and not G.in_delete_run and G.jokers then
-        if type(card) == "string" then
-            local _, is_allowed = filter_cards_sent_to_gy({ card })
-            if not is_allowed then return end
-            local not_summoned = JoyousSpring.is_material_center(card, { exclude_summon_types = { "NORMAL" } })
-            local cannot_revive = type(G.P_CENTERS[card].config.extra) == "table" and
-                (G.P_CENTERS[card].config.extra.joyous_spring or {}).cannot_revive or not_summoned
-            SMODS.calculate_context({
-                joy_sent_to_gy = true,
-                joy_key = card,
-                joy_from_field = false,
-                joy_summoned =
-                    not not_summoned
-            })
-            if not JoyousSpring.graveyard[card] then JoyousSpring.graveyard[card] = { count = 0, summonable = 0 } end
-            JoyousSpring.graveyard[card].count = JoyousSpring.graveyard[card].count + 1
-            JoyousSpring.graveyard[card].summonable = JoyousSpring.graveyard[card].summonable +
-                (cannot_revive and 0 or 1)
-        elseif type(card) == "table" then
-            local _, is_allowed = filter_cards_sent_to_gy({ card.config.center.key })
-            if not is_allowed then return end
-            local not_summoned = not JoyousSpring.is_summon_type(card, "NORMAL") and not JoyousSpring.is_summoned(card)
-            local cannot_revive = JoyousSpring.has_joyous_table(card) and card.ability.extra.joyous_spring.cannot_revive or
-                not_summoned
-            JoyousSpring.sent_to_gy_context = true
-            SMODS.calculate_context({
-                joy_sent_to_gy = true,
-                joy_card = card,
-                joy_key = card.config.center.key,
-                joy_from_field = card.area and card.area == G.jokers or false,
-                joy_summoned = not
+        amount = (amount or 1) * (G.GAME.modifiers.joy_copy_GY and 2 or 1)
+        for i = 1, amount do
+            if type(card) == "string" then
+                local _, is_allowed = filter_cards_sent_to_gy({ card })
+                if not is_allowed then return end
+                local not_summoned = JoyousSpring.is_material_center(card, { exclude_summon_types = { "NORMAL" } })
+                local cannot_revive = type(G.P_CENTERS[card].config.extra) == "table" and
+                    (G.P_CENTERS[card].config.extra.joyous_spring or {}).cannot_revive or not_summoned
+                SMODS.calculate_context({
+                    joy_sent_to_gy = true,
+                    joy_key = card,
+                    joy_from_field = false,
+                    joy_summoned =
+                        not not_summoned
+                })
+                if not JoyousSpring.graveyard[card] then JoyousSpring.graveyard[card] = { count = 0, summonable = 0 } end
+                JoyousSpring.graveyard[card].count = JoyousSpring.graveyard[card].count + 1
+                JoyousSpring.graveyard[card].summonable = JoyousSpring.graveyard[card].summonable +
+                    (cannot_revive and 0 or 1)
+            elseif type(card) == "table" then
+                local _, is_allowed = filter_cards_sent_to_gy({ card.config.center.key })
+                if not is_allowed then return end
+                local not_summoned = not JoyousSpring.is_summon_type(card, "NORMAL") and
+                    not JoyousSpring.is_summoned(card)
+                local cannot_revive = JoyousSpring.has_joyous_table(card) and
+                    card.ability.extra.joyous_spring.cannot_revive or
                     not_summoned
-            })
-            JoyousSpring.sent_to_gy_context = nil
-            if not JoyousSpring.graveyard[card.config.center_key] then JoyousSpring.graveyard[card.config.center_key] = { count = 0, summonable = 0 } end
-            JoyousSpring.graveyard[card.config.center_key].count = JoyousSpring.graveyard[card.config.center_key].count +
-                1
-            JoyousSpring.graveyard[card.config.center_key].summonable = JoyousSpring.graveyard[card.config.center_key]
-                .summonable + (cannot_revive and 0 or 1)
+                JoyousSpring.sent_to_gy_context = true
+                SMODS.calculate_context({
+                    joy_sent_to_gy = true,
+                    joy_card = card,
+                    joy_key = card.config.center.key,
+                    joy_from_field = card.area and card.area == G.jokers or false,
+                    joy_summoned = not
+                        not_summoned
+                })
+                JoyousSpring.sent_to_gy_context = nil
+                if not JoyousSpring.graveyard[card.config.center_key] then JoyousSpring.graveyard[card.config.center_key] = { count = 0, summonable = 0 } end
+                JoyousSpring.graveyard[card.config.center_key].count = JoyousSpring.graveyard[card.config.center_key]
+                    .count +
+                    1
+                JoyousSpring.graveyard[card.config.center_key].summonable = JoyousSpring.graveyard
+                    [card.config.center_key]
+                    .summonable + (cannot_revive and 0 or 1)
+            end
         end
     end
 end
