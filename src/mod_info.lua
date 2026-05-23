@@ -24,8 +24,6 @@ SMODS.current_mod.menu_cards = function()
 end
 
 SMODS.current_mod.custom_ui = function(modNodes)
-    modNodes[1].nodes[1].config.colour = G.C.JOY.MOD
-
     G.joy_desc_area = CardArea(
         G.ROOM.T.x + 0.2 * G.ROOM.T.w / 2, G.ROOM.T.h,
         4.25 * G.CARD_W,
@@ -291,6 +289,7 @@ SMODS.current_mod.ui_config = {
     back_colour = darken(G.C.JOY.MOD, 0.3),
     tab_button_colour = darken(G.C.JOY.MOD, 0.2),
     collection_option_cycle_colour = darken(G.C.JOY.MOD, 0.2),
+    author_colour = G.C.JOY.MOD
 }
 
 local main_tab = function()
