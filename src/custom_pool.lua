@@ -68,7 +68,6 @@ function SMODS.create_card(t)
     end
     t.key = key or t.key
     if not t.area and JoyousSpring.field_spell_area and JoyousSpring.is_material_center(t.key or "", { is_field_spell = true }) then
-        print("huh?")
         t.area = JoyousSpring.field_spell_area
     end
 
@@ -95,8 +94,8 @@ function SMODS.poll_object(args)
     if G.GAME.joy_only_ygo_cards then
         args = args or {}
 
-        if args.append == "sho" and args.type == "Joker" then
-            args.rarity = false
+        if (args.append == "sho" or args.joy_monster_properties) and args.type == "Joker" then
+            args.rarity = args.append == "sho" and G.GAME.modifiers.joy_only_rarity or false
             args.attributes = { "joy_monster" }
         end
     end

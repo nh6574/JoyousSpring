@@ -28,6 +28,9 @@ pattern = "G.jokers:emplace(c1)"
 position = 'at'
 match_indent = true
 payload = '''
+if c1.children.joy_side_button then
+    c1.children.joy_side_button:remove(); c1.children.joy_side_button = nil
+end
 if JoyousSpring and (JoyousSpring.is_extra_deck_monster(c1) or JoyousSpring.is_field_spell(c1)) then
     JoyousSpring.add_to_extra_deck(c1)
     JoyousSpring.open_extra_deck(false, false, 1.85)
@@ -43,16 +46,23 @@ end
 [patches.pattern]
 target = "functions/button_callbacks.lua"
 pattern = "elseif card.ability.set == 'Joker' then"
-position = 'before'
+position = 'at'
 match_indent = true
 payload = '''
 elseif card.ability.set == 'Joker' and JoyousSpring and (JoyousSpring.is_extra_deck_monster(card) or JoyousSpring.is_field_spell(card)) then
+    if card.children.joy_side_button then
+        card.children.joy_side_button:remove(); card.children.joy_side_button = nil
+    end
     JoyousSpring.add_to_extra_deck(card)
     JoyousSpring.open_extra_deck(false, false, 1.85)
     play_sound('card1', 0.8, 0.6)
     play_sound('generic1')
     dont_dissolve = true
     delay_fac = 0.2
+elseif card.ability.set == 'Joker' then
+    if card.children.joy_side_button then
+        card.children.joy_side_button:remove(); card.children.joy_side_button = nil
+    end
 '''
 
 # Field Spells

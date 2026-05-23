@@ -1058,8 +1058,8 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "shaddoll_winda",
     atlas = 'shaddoll',
-    pos = { x = 4, y = 3 },
-    joy_alt_pos = { { x = 2, y = 4 } },
+    pos = { x = 0, y = 4 },
+    joy_alt_pos = { { x = 1, y = 4 } },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -1175,7 +1175,7 @@ JoyousSpring.Joker({
     key = "shaddoll_elconstruct",
     atlas = 'shaddoll',
     pos = { x = 0, y = 3 },
-    joy_alt_pos = { { x = 1, y = 4 } },
+    joy_alt_pos = { { x = 1, y = 3 } },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -1254,7 +1254,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "shaddoll_grysta",
     atlas = 'shaddoll',
-    pos = { x = 1, y = 3 },
+    pos = { x = 2, y = 3 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -1360,7 +1360,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "shaddoll_shekh",
     atlas = 'shaddoll',
-    pos = { x = 2, y = 3 },
+    pos = { x = 3, y = 3 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -1448,7 +1448,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "shaddoll_wendigo",
     atlas = 'shaddoll',
-    pos = { x = 3, y = 3 },
+    pos = { x = 4, y = 3 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -1510,7 +1510,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "shaddoll_construct",
     atlas = 'shaddoll',
-    pos = { x = 0, y = 4 },
+    pos = { x = 2, y = 4 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,

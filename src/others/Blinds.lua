@@ -303,8 +303,11 @@ JoyousSpring.Blind {
     boss_colour = G.C.JOY.EFFECT,
     has_ante_ability = true,
     calculate_ante = function(self, context)
-        if context.create_shop_card and can_affect_shop() and context.set == "Joker" and
-            SMODS.pseudorandom_probability(self, self.key, 1, 2, nil, true) then
+        if context.reroll_shop then
+            G.GAME.joy_reroll_shop = true
+        end
+        if context.create_shop_card and can_affect_shop() and context.set == "Joker" and G.GAME.joy_reroll_shop and
+            SMODS.pseudorandom_probability(self, self.key, 1, 10, nil, true) then
             return {
                 shop_create_flags = {
                     set = "joy_Opponent",

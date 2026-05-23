@@ -4,8 +4,8 @@
 JoyousSpring.Joker({
     key = "apollousa",
     atlas = 'Misc01',
-    pos = { x = 2, y = 1 },
-    joy_alt_pos = { { x = 0, y = 2 } },
+    pos = { x = 6, y = 5 },
+    joy_alt_pos = { { x = 7, y = 5 } },
     rarity = 1,
     blueprint_compat = true,
     eternal_compat = true,
@@ -80,8 +80,8 @@ JoyousSpring.Joker({
 -- Beyond the Pendulum
 JoyousSpring.Joker({
     key = "beyond",
-    atlas = 'Misc03',
-    pos = { x = 0, y = 4 },
+    atlas = 'Misc01',
+    pos = { x = 0, y = 6 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -152,7 +152,7 @@ JoyousSpring.Joker({
 -- Exceed the Pendulum
 JoyousSpring.Joker({
     key = "exceed",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 6, y = 5 },
     rarity = 2,
     blueprint_compat = false,
@@ -222,8 +222,8 @@ JoyousSpring.Joker({
 -- Linkuriboh
 JoyousSpring.Joker({
     key = "linkuriboh",
-    atlas = 'Misc03',
-    pos = { x = 1, y = 4 },
+    atlas = 'Misc01',
+    pos = { x = 1, y = 6 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -263,8 +263,8 @@ JoyousSpring.Joker({
 -- Linguriboh
 JoyousSpring.Joker({
     key = "linguriboh",
-    atlas = 'Misc03',
-    pos = { x = 2, y = 4 },
+    atlas = 'Misc01',
+    pos = { x = 2, y = 6 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -315,9 +315,9 @@ JoyousSpring.Joker({
 -- I:P Masquerena
 JoyousSpring.Joker({
     key = "ipmasq",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 7, y = 5 },
-    joy_alt_pos = { { x = 3, y = 6 }, { x = 4, y = 6 } },
+    joy_alt_pos = { { x = 0, y = 6 }, { x = 1, y = 6 } },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -346,7 +346,7 @@ JoyousSpring.Joker({
             if context.setting_blind and context.main_eval then
                 local choices = JoyousSpring.get_materials_in_collection({ { summon_type = "LINK", exclude_keys = { "j_joy_ipmasq" } } })
                 local key_to_transform = pseudorandom_element(choices, 'j_joy_ipmasq') or "j_joy_spknight"
-                JoyousSpring.transform_card(card, key_to_transform, false, "Link", { "j_joy_ipmasq" })
+                JoyousSpring.transform_card(card, key_to_transform, false, "LINK", { "j_joy_ipmasq" })
             end
         end
     end,
@@ -365,9 +365,9 @@ JoyousSpring.Joker({
 -- S:P Little Knight
 JoyousSpring.Joker({
     key = "spknight",
-    atlas = 'Misc04',
-    pos = { x = 0, y = 6 },
-    joy_alt_pos = { { x = 5, y = 6 } },
+    atlas = 'Misc02',
+    pos = { x = 2, y = 6 },
+    joy_alt_pos = { { x = 3, y = 6 } },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -397,7 +397,7 @@ JoyousSpring.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if context.joy_post_round_eval then
+            if context.starting_shop then
                 local choices = {}
                 for _, joker in ipairs(G.jokers.cards) do
                     if joker ~= card then
@@ -423,11 +423,70 @@ JoyousSpring.Joker({
     end,
 })
 
+-- W:P Fancy Ball
+JoyousSpring.Joker({
+    key = "wpball",
+    atlas = "Misc03",
+    pos = { x = 2, y = 5 },
+    rarity = 2,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 15,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Cyberse",
+                summon_type = "LINK",
+                summon_conditions = {
+                    {
+                        type = "LINK",
+                        materials = {
+                            { key = "j_joy_ipmasq" },
+                            { key = "j_joy_spknight" },
+                        },
+                    }
+                }
+            },
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joy_post_round_eval then
+                local choices = {}
+                for _, joker in ipairs(G.jokers.cards) do
+                    if joker ~= card and JoyousSpring.is_summon_type(joker, "LINK") then
+                        choices[#choices + 1] = joker.config.center_key
+                        JoyousSpring.banish(joker, "blind_selected")
+                    end
+                end
+                local chosen = pseudorandom_element(choices, self.key)
+                if chosen then
+                    JoyousSpring.transform_card(card, chosen, false, "LINK", { "j_joy_wpball", "j_joy_wpball" })
+                end
+            end
+        end
+    end,
+    joy_can_transfer_ability = function(self, other_card, card)
+        return other_card.joy_transforming == "j_joy_wpball"
+    end,
+    joy_transfer_ability_calculate = function(self, other_card, context, config)
+        if JoyousSpring.can_use_abilities(other_card) then
+            if context.ante_change and context.ante_end then
+                JoyousSpring.transform_card(other_card, "j_joy_wpball")
+            end
+        end
+    end,
+})
+
 -- Progleo
 JoyousSpring.Joker({
     key = "progleo",
-    atlas = 'Misc04',
-    pos = { x = 1, y = 6 },
+    atlas = 'Misc02',
+    pos = { x = 4, y = 6 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -479,8 +538,8 @@ JoyousSpring.Joker({
 -- Rasterliger
 JoyousSpring.Joker({
     key = "raster",
-    atlas = 'Misc04',
-    pos = { x = 2, y = 6 },
+    atlas = 'Misc02',
+    pos = { x = 5, y = 6 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,

@@ -257,7 +257,7 @@ SMODS.Booster({
 
 SMODS.Booster({
     key = "selection_pack",
-    atlas = "Booster",
+    atlas = "joy_Booster",
     pos = { x = 0, y = 1 },
     discovered = true,
     loc_vars = function(self, info_queue, card)
@@ -265,7 +265,8 @@ SMODS.Booster({
     end,
     config = {
         choose = 1,
-        extra = 4
+        extra = 4,
+        packs = {}
     },
     cost = 4,
     weight = 0,
@@ -274,7 +275,13 @@ SMODS.Booster({
     create_card = function(self, card)
         JoyousSpring.in_pack_selection = true
         local pack = get_pack("joy_selection_booster", "joy_secret")
+        local i = 1
+        while (not pack or card.ability.packs[pack.key]) do
+            pack = get_pack("joy_selection_booster_reroll" .. i, "joy_secret")
+            i = i + 1
+        end
         JoyousSpring.in_pack_selection = nil
+        card.ability.packs[pack.key] = true
         local booster = SMODS.create_card({
             key = (pack or { key = "p_joy_secret_pack_1" }).key,
             area = G.pack_cards,
@@ -284,78 +291,174 @@ SMODS.Booster({
         return booster
     end,
     ease_background_colour = function(self)
-        ease_colour(G.C.DYN_UI.MAIN, G.C.L_BLACK)
-        ease_background_colour({ new_colour = G.C.L_BLACK, special_colour = G.C.BLACK, contrast = 2 })
+        ease_colour(G.C.DYN_UI.MAIN, G.C.JOY.SPELL)
+        ease_background_colour({ new_colour = G.C.JOY.SPELL, special_colour = G.C.BLACK, contrast = 2 })
     end,
 })
 
--- TODO: do this properly
+JoyousSpring.secret_booster = SMODS.Booster:extend {
+    atlas = "joy_Booster",
+    pos = { x = 1, y = 1 },
+    discovered = true,
+    class_prefix = 'p_secret_pack',
+    config = {
+        choose = 1,
+        extra = 4,
+    },
+    joy_secret = {
+    },
+    cost = 4,
+    kind = "joy_secret",
+    group_key = "k_joy_booster_group",
+    generate_ui = function(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
+        SMODS.Booster.generate_ui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
+        JoyousSpring.generate_info_ui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
+    end,
+    inject = function(self, i)
+        SMODS.Booster.inject(self, i)
+        local data = self.joy_secret
+        local joy_desc_cards = { copy_table(data.extra_keys) or {} }
+        for _, property in ipairs(data.properties or {}) do
+            property.from_shop = true
+        end
+        joy_desc_cards[1].properties = copy_table(data.properties)
+        joy_desc_cards[1].name = "k_booster_related"
+        self.joy_desc_cards = joy_desc_cards
+    end,
+    create_card = function(self, card)
+        local main_properties = self.joy_secret.properties
+        local properties = {}
+        for _, key in ipairs(self.joy_secret.extra_keys or {}) do
+            properties[#properties + 1] = {
+                key = key,
+                exclude_extra_deck = G.GAME.modifiers["joy_no_extra_deck_jokers"] and true or nil
+            }
+        end
+        for _, main_property in ipairs(main_properties or {}) do
+            main_property.exclude_extra_deck = G.GAME.modifiers["joy_no_extra_deck_jokers"] and true or nil
+            properties[#properties + 1] = main_property
+        end
+        return {
+            set = "JoyousSpring",
+            area = G.pack_cards,
+            joy_monster_properties = properties,
+            skip_materialize = true
+        }
+    end,
+    ease_background_colour = function(self)
+        local choices = {
+            G.C.JOY.NORMAL,
+            G.C.JOY.EFFECT
+        }
+        local color = pseudorandom_element(choices, 'JoyousSpring_booster')
+        ease_colour(G.C.DYN_UI.MAIN, color or G.C.JOY.EFFECT)
+        ease_background_colour({ new_colour = color, special_colour = G.C.BLACK, contrast = 2 })
+    end,
+    get_weight = function()
+        return JoyousSpring.in_pack_selection and 1 or 0
+    end
+}
 
----@type {name:string, properties:material_properties[], extra_keys:string[], center:string}[]
-local joy_groups = {
-    {
-        name = "Fusion",
+JoyousSpring.secret_booster {
+    key = "fusion",
+    pos = { x = 0, y = 0 },
+    joy_secret = {
         properties = { { summon_type = "FUSION" } },
         extra_keys = { "j_joy_fusiongate", "j_joy_invoked_meltdown", "j_joy_invoked_aleister", "j_joy_invoked_madness", "j_joy_shaddoll_prison", "j_joy_shaddoll_construct", "j_joy_shaddoll_core" },
         center = "j_joy_garura"
-    },
-    {
-        name = "Ritual",
-        properties = { { summon_type = "RITUAL" }, { monster_archetypes = { "Dogmatika" } } },
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "ritual",
+    pos = { x = 0, y = 0 },
+    joy_secret = {
+        properties = { { summon_type = "RITUAL" }, { monster_archetypes = { "Dogmatika" } }, { monster_archetypes = { "Drytron" } }, { monster_archetypes = { "VoicelessVoice" } } },
         extra_keys = { "j_joy_igniter", "j_joy_miradora" },
         center = "j_joy_sauravis"
-    },
-    {
-        name = "Synchro",
-        properties = { { summon_type = "SYNCHRO" } },
-        extra_keys = {},
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "synchro",
+    pos = { x = 0, y = 0 },
+    joy_secret = {
+        properties = { { summon_type = "SYNCHRO" }, { monster_archetypes = { "CenturIon" } } },
+        extra_keys = { "j_joy_wasp_dart", "j_joy_wasp_twinbow", "j_joy_wasp_arbalest", "j_joy_wasp_rapier" },
         center = "j_joy_afd"
-    },
-    {
-        name = "Xyz",
-        properties = { { summon_type = "XYZ" } },
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "xyz",
+    pos = { x = 0, y = 0 },
+    joy_secret = {
+        properties = { { summon_type = "XYZ" }, { monster_archetypes = { "Zoodiac" } } },
         extra_keys = { "j_joy_elfuria", "j_joy_xyzterritory", "j_joy_xyzoverride" },
         center = "j_joy_zeus"
-    },
-    {
-        name = "Link",
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "link",
+    pos = { x = 0, y = 0 },
+    joy_secret = {
         properties = { { summon_type = "LINK" } },
         extra_keys = { "j_joy_ignis_gatchiri", "j_joy_ignis_gussari", "j_joy_ignis_danmari", "j_joy_ignis_linkslayer",
             "j_joy_formud", "j_joy_crukra" },
         center = "j_joy_apollousa"
-    },
-    {
-        name = "Pendulum",
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "pendulum",
+    joy_secret = {
         properties = { { is_pendulum = true } },
         extra_keys = {},
         center = "j_joy_moissa"
-    },
-    {
-        name = "Tuner",
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "tuner",
+    pos = { x = 0, y = 0 },
+    joy_secret = {
         properties = { { is_tuner = true } },
         extra_keys = {},
         center = "j_joy_ringowurm"
-    },
-    {
-        name = "Trap",
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "trap",
+    joy_secret = {
         properties = { { is_trap = true }, { monster_archetypes = { "Paleozoic" } }, { monster_archetypes = { "Eldlich" } } },
         extra_keys = { "j_joy_heavenlyprison", "j_joy_mask" },
         center = "j_joy_tiki_curse"
-    },
-    {
-        name = "Flip",
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "flip",
+    joy_secret = {
         properties = { { is_flip = true } },
         extra_keys = {},
         center = "j_joy_darkcat"
-    },
-    {
-        name = "Field Spell",
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "field_spell",
+    joy_secret = {
         properties = { { is_field_spell = true } },
-        extra_keys = { "j_joy_afd", "j_joy_mof" },
+        extra_keys = { "j_joy_afd", "j_joy_mof", "j_joy_mimi_cerberus", "j_joy_artifact_chak" },
         center = "j_joy_chickengame"
-    },
-    {
-        name = "Probability",
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "probability",
+    joy_secret = {
         properties = { { monster_archetypes = { "FortuneLady" } }, { monster_archetypes = { "FortuneFairy" } } },
         extra_keys = {
             "j_joy_mekk_green", "j_joy_lab_lovely", "j_joy_lab_labyrinth", "j_joy_ignis_pegasus",
@@ -363,77 +466,137 @@ local joy_groups = {
             "j_joy_67", "j_joy_futurevisions"
         },
         center = "j_joy_flady_every"
-    },
-    {
-        name = "Excavate",
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "excavate",
+    joy_secret = {
         properties = { { monster_archetypes = { "Adamancipator" } }, { monster_archetypes = { "FlowerCardian" } } },
-        extra_keys = { "j_joy_tackcrusader", "j_joy_doki", "j_joy_blockdragon", "j_joy_wannabee", "j_joy_merchant", "j_joy_revgolem" },
+        extra_keys = { "j_joy_tackcrusader", "j_joy_doki", "j_joy_blockdragon", "j_joy_wannabee", "j_joy_merchant", "j_joy_revgolem", "j_joy_purr_purrely", "j_joy_purr_purrelyly" },
         center = "j_joy_adaman_researcher"
-    },
-    {
-        name = "Transform and Generate",
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "generate",
+    joy_secret = {
         properties = { { monster_archetypes = { "Dragonmaid" } }, { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Generaider" } } },
-        extra_keys = { "j_joy_invoked_meltdown", "j_joy_ipmasq" },
+        extra_keys = { "j_joy_invoked_meltdown", "j_joy_ipmasq", "j_joy_dracotail_mululu" },
         center = "j_joy_ipmasq"
-    },
-    {
-        name = "Tarot Support",
-        properties = { { monster_archetypes = { "Runick" } }, { monster_archetypes = { "Witchcrafter" } } },
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "tarot",
+    joy_secret = {
+        properties = { { monster_archetypes = { "Runick" } }, { monster_archetypes = { "Witchcrafter" } }, { monster_archetypes = { "WhiteForest" } } },
         extra_keys = { "j_joy_psy_delta", "j_joy_ignis_pikari", "j_joy_solfa_harmonia", "j_joy_shaddoll_hedgehog" },
         center = "j_joy_witch_verre"
-    },
-    {
-        name = "Poker Hand Support",
-        properties = { { monster_archetypes = { "Eldlich" } }, { monster_archetypes = { "VirtualWorld" } }, { monster_archetypes = { "Solfachord" } } },
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "poker_hand",
+    joy_secret = {
+        properties = { { monster_archetypes = { "Eldlich" } }, { monster_archetypes = { "VirtualWorld" } }, { monster_archetypes = { "Solfachord" } }, { monster_archetypes = { "Purrely" } } },
         extra_keys = { "j_joy_psy_epsilon", "j_joy_flady_wind", "j_joy_stormshooter", "j_joy_foucault", "j_joy_elfobia",
             "j_joy_elfuria", "j_joy_lindbloom", "j_joy_genomix"
         },
         center = "j_joy_stormshooter"
-    },
-    {
-        name = "Flip Support",
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "playing_cards",
+    joy_secret = {
+        properties = { { monster_archetypes = { "Dracotail" } }, { monster_archetypes = { "TimeThief" } } },
+        extra_keys = { "j_joy_revgolem", "j_joy_tackcrusader", "j_joy_coupleofaces" },
+        center = "j_joy_dracotail_arthalion"
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "flipping",
+    joy_secret = {
         properties = { { monster_archetypes = { "Labyrinth" } }, { monster_archetypes = { "Subterror" } }, { monster_archetypes = { "Shaddoll" } } },
-        extra_keys = { "j_joy_sub_city", "j_joy_procession", "j_joy_tackcrusader", },
+        extra_keys = { "j_joy_sub_city", "j_joy_procession", "j_joy_tackcrusader", "j_joy_mimi_master", "j_joy_mimi_dungeon" },
         center = "j_joy_sub_city"
-    },
-    {
-        name = "Fiend Support",
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "fiend",
+    joy_secret = {
         properties = { { monster_archetypes = { "BurningAbyss" } }, { monster_type = "Fiend" }, },
         extra_keys = {},
         center = "j_joy_rhino"
-    },
-    {
-        name = "Cyberse Support",
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "cyberse",
+    joy_secret = {
         properties = { { monster_archetypes = { "Ignister" } }, { monster_type = "Cyberse" }, },
         extra_keys = { "j_joy_ignis_ailand" },
         center = "j_joy_backup"
-    },
-    {
-        name = "Banish Support",
-        properties = { { monster_archetypes = { "PSYFrame" } }, { monster_archetypes = { "Ghoti" } }, },
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "insect",
+    joy_secret = {
+        properties = { { monster_type = "Insect" }, },
+        extra_keys = {},
+        center = "j_joy_wasp_sting"
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "uncommon",
+    joy_secret = {
+        properties = { { rarity = 2, is_monster = true }, },
+        extra_keys = {},
+        center = "j_joy_spright_blue"
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "column",
+    joy_secret = {
+        properties = { { monster_archetypes = { "MekkKnight" } }, { monster_archetypes = { "SForce" } } },
+        extra_keys = { "j_joy_ghostbird", "j_joy_stormshooter", "j_joy_tiamaton", "j_joy_disablaster" },
+        center = "j_joy_mekk_blue"
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "banish",
+    joy_secret = {
+        properties = { { monster_archetypes = { "PSYFrame" } }, { monster_archetypes = { "Ghoti" } }, { monster_archetypes = { "SForce" } } },
         extra_keys = { "j_joy_fish_depths", "j_joy_mekk_purple", "j_joy_runick_sleipnir", "j_joy_ba_farfa",
             "j_joy_sub_uma", "j_joy_witch_potterie", "j_joy_shaddoll_ariel", "j_joy_paleo_dino", "j_joy_solfa_beautia",
             "j_joy_vw_nyannyan", "j_joy_flady_light", "j_joy_grenmaju", "j_joy_eater", "j_joy_beautunaful",
-            "j_joy_leaffish", "j_joy_stpolice", "j_joy_spknight", "j_joy_progleo", "j_joy_futurevisions"
+            "j_joy_leaffish", "j_joy_stpolice", "j_joy_spknight", "j_joy_progleo", "j_joy_futurevisions", "j_joy_artifact_lancea", "j_joy_wpball"
         },
         center = "j_joy_spknight"
-    },
-    {
-        name = "Digital and Psychic",
-        properties = { { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } }, { monster_archetypes = { "Spright" } }, { monster_archetypes = { "MekkKnight" } } },
-        extra_keys = { "j_joy_mekkleg_scars", },
-        center = "j_joy_mekk_green"
-    },
-    {
-        name = "Drawback and destruction",
-        properties = { { monster_archetypes = { "Danger" } } },
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "drawback",
+    joy_secret = {
+        properties = { { monster_archetypes = { "Danger" } }, { monster_archetypes = { "HazyFlame" } } },
         extra_keys = { "j_joy_boarder", "j_joy_ghostbird", "j_joy_tiamaton", "j_joy_eccentrick", "j_joy_bishbaalkin",
             "j_joy_yokai_ash", "j_joy_yokai_belle", "j_joy_yokai_ogre", "j_joy_yokai_reaper", "j_joy_yokai_sister",
-            "j_joy_yokai_mourner" },
+            "j_joy_yokai_mourner", "j_joy_artifact_aegis", "j_joy_dracotail_urgula", "j_joy_dracotail_pan" },
         center = "j_joy_boarder"
-    },
-    {
-        name = "Score Helper",
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "score",
+    joy_secret = {
         extra_keys = { "j_joy_dmaid_kitchen", "j_joy_dmaid_parlor", "j_joy_dmaid_nurse", "j_joy_dmaid_laundry",
             "j_joy_ltwin_lilla", "j_joy_ltwin_kisikil", "j_joy_etwin_kisikil", "j_joy_etwin_lilla",
             "j_joy_etwin_kisikil_lilla", "j_joy_etwin_sunny", "j_joy_dogma_ecclesia", "j_joy_dogma_fleur",
@@ -449,12 +612,15 @@ local joy_groups = {
             "j_joy_darkcat", "j_joy_dekoichi", "j_joy_searchlight", "j_joy_sternmystic", "j_joy_mof",
             "j_joy_lindbloom", "j_joy_quantumcat", "j_joy_tiki_curse", "j_joy_tiki_soul", "j_joy_apophis",
             "j_joy_zany", "j_joy_metrognome", "j_joy_bozu", "j_joy_disablaster", "j_joy_apollousa",
-            "j_joy_paleo_hallu", "j_joy_paleo_eldonia"
+            "j_joy_paleo_hallu", "j_joy_paleo_eldonia", "j_joy_mimi_archfiend", "j_joy_mimi_armor", "j_joy_artifact_cadu", "j_joy_hazy_grif", "j_joy_sforce_digamma", "j_joy_sforce_razor", "j_joy_sforce_dog", "j_joy_sforce_gravitino", "j_joy_sforce_platina", "j_joy_sforce_lapcewell"
         },
         center = "j_joy_fish_shif"
-    },
-    {
-        name = "Acorn Counter",
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "acorn",
+    joy_secret = {
         properties = { { monster_archetypes = { "Ghoti" } }, },
         extra_keys = {
             "j_joy_dmaid_lady", "j_joy_dmaid_house", "j_joy_etwin_sunny", "j_joy_ltwin_channel", "j_joy_lab_lady",
@@ -464,92 +630,39 @@ local joy_groups = {
             "j_joy_sub_city", "j_joy_shaddoll_apka", "j_joy_shaddoll_shekh", "j_joy_invoked_meltdown", "j_joy_apollousa",
             "j_joy_beyond", "j_joy_exceed", "j_joy_linguriboh", "j_joy_linkuriboh", "j_joy_ignis_kiruku", "j_joy_raster",
             "j_joy_xyzterritory", "j_joy_midbreaker", "j_joy_sauravis", "j_joy_generaider_loptr",
-            "j_joy_generaider_boss_stage"
+            "j_joy_generaider_boss_stage", "j_joy_sforce_orrafist"
         },
         center = "j_joy_linkuriboh"
-    },
+    }
 }
 
-for i, data in ipairs(joy_groups) do
-    local joy_desc_cards = { data.extra_keys }
-    for _, property in ipairs(data.properties or {}) do
-        property.from_shop = true
-    end
-    joy_desc_cards[1].properties = data.properties
-    joy_desc_cards[1].name = "k_booster_related"
+JoyousSpring.secret_booster {
+    key = "sforce",
+    joy_secret = {
+        properties = { { monster_archetypes = { "SForce" } }, { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } }, { monster_archetypes = { "TimeThief" } }, { monster_archetypes = { "PSYFrame" } } },
+        extra_keys = { "j_joy_ipmasq", "j_joy_spknight", "j_joy_wpball" },
+        center = "j_joy_sforce_justify"
+    }
+}
 
-    SMODS.Booster({
-        key = "secret_pack" .. i,
-        atlas = "Booster",
-        pos = { x = 1, y = 1 },
-        discovered = true,
-        loc_vars = function(self, info_queue, card)
-            return {
-                vars = { card.ability.choose, card.ability.extra, card.ability.joy_secret.name },
-                key =
-                "p_joy_secret_pack"
-            }
-        end,
-        config = {
-            choose = 1,
-            extra = 3,
-            joy_secret = {
-                name = data.name,
-                properties = data.properties,
-                extra_keys = data.extra_keys,
-                center = data.center
-            }
-        },
-        cost = 4,
-        kind = "joy_secret",
-        group_key = "k_joy_booster_group",
-        joy_desc_cards = joy_desc_cards,
-        generate_ui = function(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
-            SMODS.Booster.generate_ui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
-            JoyousSpring.generate_info_ui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
-        end,
-        create_card = function(self, card)
-            local main_properties = card.ability.joy_secret.properties
-            local properties = {}
-            for _, key in ipairs(card.ability.joy_secret.extra_keys) do
-                properties[#properties + 1] = {
-                    key = key,
-                    exclude_extra_deck = G.GAME.modifiers["joy_no_extra_deck_jokers"] and true or nil
-                }
-            end
-            for _, main_property in ipairs(main_properties or {}) do
-                main_property.exclude_extra_deck = G.GAME.modifiers["joy_no_extra_deck_jokers"] and true or nil
-                properties[#properties + 1] = main_property
-            end
-            return SMODS.create_card({
-                set = "JoyousSpring",
-                area = G.pack_cards,
-                joy_monster_properties = properties
-            })
-        end,
-        ease_background_colour = function(self)
-            local choices = {
-                G.C.JOY.NORMAL,
-                G.C.JOY.EFFECT
-            }
-            local color = pseudorandom_element(choices, 'JoyousSpring_booster')
-            ease_colour(G.C.DYN_UI.MAIN, color or G.C.JOY.EFFECT)
-            ease_background_colour({ new_colour = color, special_colour = G.C.BLACK, contrast = 2 })
-        end,
-        get_weight = function()
-            return JoyousSpring.in_pack_selection and 1 or 0
-        end
-    })
-end
+JoyousSpring.secret_booster {
+    key = "opponent",
+    joy_secret = {
+        properties = { { monster_archetypes = { "Mimighoul" } }, { monster_archetypes = { "Artifact" } }, },
+        extra_keys = {},
+        center = "j_joy_artifact_scythe"
+    }
+}
 
-JoyousSpring.shared_booster_sprite = {} -- I probably won't use soul sprites for this later so I'll remove this
+
+JoyousSpring.shared_booster_sprite = {}
 
 SMODS.DrawStep {
     key = 'joy_booster',
     order = 60,
     func = function(card)
-        if card.config.center.config.joy_secret then
-            local center_key = card.config.center.config.joy_secret.center
+        if card.config.center.joy_secret then
+            local center_key = card.config.center.joy_secret.center
             if not JoyousSpring.shared_booster_sprite[center_key] then
                 local center = G.P_CENTERS[center_key]
                 JoyousSpring.shared_booster_sprite[center_key] = Sprite(0, 0, G.CARD_W * 0.5, G.CARD_H * 0.5,

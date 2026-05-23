@@ -307,7 +307,7 @@ JoyousSpring.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if context.end_of_round and context.game_over == false and context.main_eval then
+            if context.joy_post_round_eval then
                 if JoyousSpring.count_materials_in_graveyard({ { monster_type = "Insect" } }) >= 3 then
                     JoyousSpring.remove_from_graveyard(3, self.key .. "_remove", nil, { { monster_type = "Insect" } })
                     JoyousSpring.banish(card, "blind_selected")

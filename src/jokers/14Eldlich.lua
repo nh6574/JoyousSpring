@@ -11,7 +11,7 @@ JoyousSpring.Joker({
     key = "eld_eldlich",
     atlas = 'eld',
     pos = { x = 0, y = 0 },
-    joy_alt_pos = { { x = 1, y = 2 } },
+    joy_alt_pos = { { x = 1, y = 0 } },
     rarity = 3,
     blueprint_compat = true,
     eternal_compat = true,
@@ -116,7 +116,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "eld_conq",
     atlas = 'eld',
-    pos = { x = 1, y = 0 },
+    pos = { x = 2, y = 0 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -212,7 +212,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "eld_guard",
     atlas = 'eld',
-    pos = { x = 0, y = 1 },
+    pos = { x = 1, y = 1 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -308,7 +308,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "eld_huaq",
     atlas = 'eld',
-    pos = { x = 2, y = 0 },
+    pos = { x = 0, y = 1 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -394,7 +394,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "eld_glorious",
     atlas = 'eld',
-    pos = { x = 1, y = 1 },
+    pos = { x = 2, y = 1 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -480,7 +480,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "eld_mad",
     atlas = 'eld',
-    pos = { x = 2, y = 1 },
+    pos = { x = 0, y = 2 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -569,13 +569,15 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "eld_angel",
     atlas = 'eld',
-    pos = { x = 0, y = 2 },
+    pos = { x = 1, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 6,
     loc_vars = function(self, info_queue, card)
-        info_queue[#info_queue + 1] = JoyousSpring.PokerHandDummies["phd_joy_eldlixir"]
+        if not card.fake_card then
+            info_queue[#info_queue + 1] = JoyousSpring.PokerHandDummies["phd_joy_eldlixir"]
+        end
         return { vars = { card.ability.extra.mills, card.ability.extra.revives } }
     end,
     joy_desc_cards = {

@@ -97,11 +97,25 @@ end
 
 ---Adds a tag that creates a joker with *card_key* to the shop
 ---@param card_key string
-JoyousSpring.add_monster_tag = function(card_key)
+---@param modifiers table?
+JoyousSpring.add_monster_tag = function(card_key, modifiers)
     local tag = Tag('tag_joy_monster')
     tag.ability.monster = card_key
+    tag.ability.modifiers = modifiers
     G.GAME.joy_last_monster_tag = card_key
     add_tag(tag)
+end
+
+---Adds a tag that gives a secret pack
+---@param card_key string?
+JoyousSpring.add_secret_tag = function(card_key)
+    card_key = card_key or "p_joy_selection_pack"
+    if card_key then
+        local tag = Tag('tag_joy_secret')
+        tag.ability.booster = card_key
+        G.GAME.joy_last_secret_tag = card_key
+        add_tag(tag)
+    end
 end
 
 ---Create a random card tag with *property_list* properties
@@ -110,12 +124,12 @@ end
 ---@param not_owned boolean?
 ---@param ignore_in_pool boolean?
 ---@return string?
-JoyousSpring.add_monster_tag_pseudorandom = function(property_list, seed, not_owned, ignore_in_pool)
+JoyousSpring.add_monster_tag_pseudorandom = function(property_list, seed, not_owned, ignore_in_pool, modifiers)
     local choices = JoyousSpring.get_materials_in_collection(property_list, not_owned, not_owned,
         not ignore_in_pool and seed)
     local key_to_add = pseudorandom_element(choices, seed or "JoyousSpring")
     if key_to_add then
-        return JoyousSpring.add_monster_tag(key_to_add)
+        return JoyousSpring.add_monster_tag(key_to_add, modifiers)
     end
     return key_to_add
 end
@@ -140,7 +154,7 @@ JoyousSpring.flip_random_card = function(source_card, card_list, facing, seed)
 end
 
 ---Flip all cards in all areas or in *area*
----@param source Card?
+---@param source Card|string?
 ---@param flip_direction 'front'|'back'?
 ---@param areas CardArea[]|table[]?
 JoyousSpring.flip_all_cards = function(source, flip_direction, areas)
@@ -155,7 +169,7 @@ JoyousSpring.flip_all_cards = function(source, flip_direction, areas)
             end
         end
         if flip_direction == 'back' and any_flipped then
-            area:shuffle(source and source.config.center.key or "JoyousSpring")
+            area:shuffle(source and (type(source) == "string" and source or source.config.center.key) or "JoyousSpring")
         end
     end
 end
@@ -692,6 +706,26 @@ JoyousSpring.get_last_used_consumable = function(set)
     return G.GAME.joy_last_used[set]
 end
 
+---Create the table of playing card information for summons/effects
+---@param playing_card_materials Card[]
+---@return table
+JoyousSpring.playing_cards_used = function(cards_used, playing_card_materials)
+    cards_used = cards_used or {}
+    for _, pcard in ipairs(playing_card_materials) do
+        cards_used[pcard.config.center_key] = (cards_used[pcard.config.center_key] or 0) + 1
+        if pcard.seal then
+            cards_used[pcard.seal:lower() .. "_seal"] = (cards_used[pcard.seal:lower() .. "_seal"] or 0) +
+                1
+        end
+        if pcard.edition then
+            cards_used[pcard.edition.key] = (cards_used[pcard.edition.key] or 0) + 1
+        end
+        cards_used[pcard.base.value] = (cards_used[pcard.base.value] or 0) + 1
+        cards_used[pcard.base.suit] = (cards_used[pcard.base.suit] or 0) + 1
+    end
+    return cards_used
+end
+
 ---Runs **func** on all (supported) objects
 ---@param func string
 ---@param args {default_return:any, return_func:(fun(new:any, original:any):any), ignore_jokers:boolean, ignore_blinds:boolean,ignore_debuff:boolean, ignore_disabled_blind:boolean, pass_return:boolean, return_if_true:boolean}?
@@ -786,6 +820,21 @@ JoyousSpring.calculate_prototype_function = function(func, args, ...)
                 return_value = return_func(obj_return, return_value)
                 if args.return_if_true and return_value then return return_value end
             end
+        end
+    end
+
+    if G.GAME.selected_back and not args.ignore_deck then
+        if type(G.GAME.selected_back.effect.center[func]) == "function" then
+            local obj_return
+            if not args.pass_return then
+                obj_return = G.GAME.selected_back.effect.center[func](G.GAME.selected_back.effect.center,
+                    G.GAME.selected_back, ...)
+            else
+                obj_return = G.GAME.selected_back.effect.center[func](G.GAME.selected_back.effect.center,
+                    G.GAME.selected_back, return_value, ...)
+            end
+            return_value = return_func(obj_return, return_value)
+            if args.return_if_true and return_value then return return_value end
         end
     end
 

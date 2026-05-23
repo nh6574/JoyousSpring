@@ -268,7 +268,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "etwin_kisikil_deal",
     atlas = 'LiveTwin',
-    pos = { x = 2, y = 1 },
+    pos = { x = 3, y = 1 },
     rarity = 1,
     blueprint_compat = true,
     eternal_compat = true,
@@ -350,8 +350,8 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "etwin_kisikil",
     atlas = 'LiveTwin',
-    pos = { x = 3, y = 1 },
-    joy_alt_pos = { { x = 2, y = 2 } },
+    pos = { x = 0, y = 2 },
+    joy_alt_pos = { { x = 3, y = 2 } },
     rarity = 2,
     blueprint_compat = true,
     eternal_compat = true,
@@ -440,8 +440,8 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "etwin_lilla",
     atlas = 'LiveTwin',
-    pos = { x = 0, y = 2 },
-    joy_alt_pos = { { x = 3, y = 2 } },
+    pos = { x = 1, y = 2 },
+    joy_alt_pos = { { x = 0, y = 3 } },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -603,7 +603,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "etwin_sunny",
     atlas = 'LiveTwin',
-    pos = { x = 1, y = 2 },
+    pos = { x = 2, y = 2 },
     rarity = 2,
     blueprint_compat = true,
     eternal_compat = true,
@@ -699,7 +699,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "ltwin_channel",
     atlas = 'LiveTwin',
-    pos = { x = 0, y = 3 },
+    pos = { x = 2, y = 1 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,

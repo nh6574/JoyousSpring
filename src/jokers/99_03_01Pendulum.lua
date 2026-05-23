@@ -3,7 +3,7 @@
 -- Foucault's Cannon
 JoyousSpring.Joker({
     key = "foucault",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 2, y = 4 },
     rarity = 1,
     blueprint_compat = false,
@@ -43,8 +43,8 @@ JoyousSpring.Joker({
 -- Hallohallo
 JoyousSpring.Joker({
     key = "hallo",
-    atlas = 'Misc05',
-    pos = { x = 0, y = 3 },
+    atlas = 'Misc01',
+    pos = { x = 2, y = 5 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -85,7 +85,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "eccentrick",
     atlas = 'Misc01',
-    pos = { x = 1, y = 1 },
+    pos = { x = 3, y = 5 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -143,8 +143,8 @@ JoyousSpring.Joker({
 -- PenduLuMoon
 JoyousSpring.Joker({
     key = "pendulumoon",
-    atlas = 'Misc03',
-    pos = { x = 3, y = 3 },
+    atlas = 'Misc01',
+    pos = { x = 4, y = 5 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -193,7 +193,7 @@ JoyousSpring.Joker({
 -- Pandora's Jewelry Box
 JoyousSpring.Joker({
     key = "pandora",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 7, y = 4 },
     rarity = 2,
     blueprint_compat = false,
@@ -224,7 +224,7 @@ JoyousSpring.Joker({
         local choices = JoyousSpring.get_materials_owned({ { is_pendulum = true } })
         local joker = pseudorandom_element(choices, 'j_joy_pandora')
         if joker then
-            local edition = SMODS.poll_edition { key = card.config.center.key .. "_seal", guaranteed = true, no_negative = true }
+            local edition = SMODS.poll_edition { key = card.config.center.key .. "_edition", guaranteed = true, no_negative = true }
             joker:set_edition(edition, true)
         end
     end,
@@ -237,7 +237,7 @@ JoyousSpring.Joker({
 -- Anchamoufrite
 JoyousSpring.Joker({
     key = "anchamoufrite",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 3, y = 4 },
     rarity = 2,
     blueprint_compat = false,
@@ -290,7 +290,7 @@ JoyousSpring.Joker({
 -- Zany Zebra
 JoyousSpring.Joker({
     key = "zany",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 3, y = 5 },
     rarity = 3,
     blueprint_compat = false,
@@ -351,7 +351,7 @@ JoyousSpring.Joker({
 -- Pendulumucho
 JoyousSpring.Joker({
     key = "pendulumucho",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 0, y = 5 },
     rarity = 2,
     blueprint_compat = false,
@@ -408,7 +408,7 @@ JoyousSpring.Joker({
 -- Moissa Knight, the Comet General
 JoyousSpring.Joker({
     key = "moissa",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 6, y = 4 },
     rarity = 1,
     blueprint_compat = false,
@@ -464,7 +464,7 @@ JoyousSpring.Joker({
 -- P.M. Captor
 JoyousSpring.Joker({
     key = "pmcaptor",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 1, y = 5 },
     rarity = 2,
     blueprint_compat = false,
@@ -526,7 +526,7 @@ JoyousSpring.Joker({
 -- Metrognome
 JoyousSpring.Joker({
     key = "metrognome",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 5, y = 4 },
     rarity = 2,
     blueprint_compat = false,
@@ -595,7 +595,7 @@ JoyousSpring.Joker({
 -- Rain Bozu
 JoyousSpring.Joker({
     key = "bozu",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 2, y = 5 },
     rarity = 2,
     blueprint_compat = false,
@@ -691,7 +691,7 @@ JoyousSpring.Joker({
 -- Disablaster the Negation Fortress
 JoyousSpring.Joker({
     key = "disablaster",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 4, y = 4 },
     rarity = 3,
     blueprint_compat = false,

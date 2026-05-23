@@ -17,8 +17,8 @@ if card and card.ability and (type(card.ability.extra) == "table" and
     card.ability.extra.joyous_spring or card.ability.joy_extra_values and next(card.ability.joy_extra_values)) then
     JoyousSpring.generate_info_ui(_c, info_queue, card, desc_nodes, specific_vars, full_UI_table)
 end
-if card and card.joy_arthalion then
-    JoyousSpring.arthalion_description(_c, card, desc_nodes, info_queue)
+if card and card.joy_pcard_key then
+    JoyousSpring.playing_card_description(_c, card, desc_nodes, info_queue)
     first_pass = nil
 end
 '''
@@ -83,6 +83,25 @@ else
                 break
             end
         end
+    end
+end
+'''
+
+# Extra multiboxes
+[[patches]]
+[patches.pattern]
+target = 'functions/UI_definitions.lua'
+match_indent = true
+position = 'before'
+pattern = '''
+for j=#multi_boxes, 1, -1 do -- add the extra boxes
+    table.insert(ret_val.nodes[1].nodes[1].nodes[1].nodes, i+1, multi_boxes[j])
+end
+'''
+payload = '''
+if not card.debuff and AUT.joy_multi_box and next(AUT.joy_multi_box) then
+    for j=#AUT.joy_multi_box, 1, -1 do
+        table.insert(ret_val.nodes[1].nodes[1].nodes[1].nodes, i+1, AUT.joy_multi_box[j])
     end
 end
 '''

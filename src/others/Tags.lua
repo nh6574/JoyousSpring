@@ -31,6 +31,7 @@ SMODS.Tag({
     key = "monster",
     atlas = "Tags",
     loc_vars = function(self, info_queue, tag)
+        --TODO: Make it display modifiers
         local center = G.P_CENTERS[tag.ability.monster]
         if center then
             info_queue[#info_queue + 1] = center
@@ -47,10 +48,10 @@ SMODS.Tag({
     end,
     apply = function(self, tag, context)
         if context.type == 'store_joker_create' then
-            local joy_forced_card = SMODS.create_card({
-                key = tag.ability.monster or "j_joy_token",
-                area = G.shop_jokers
-            })
+            local modifiers = tag.ability.modifiers or {}
+            modifiers.key = tag.ability.monster or "j_joy_token"
+            modifiers.area = G.shop_jokers
+            local joy_forced_card = SMODS.create_card(modifiers)
             create_shop_card_ui(joy_forced_card, 'Joker', G.shop_jokers)
             joy_forced_card.states.visible = false
             tag:yep('+', JoyousSpring.is_monster_card(joy_forced_card) and
@@ -74,3 +75,48 @@ SMODS.Tag({
         return false
     end,
 })
+
+-- Secret Booster Tag
+SMODS.Tag {
+    key = "secret",
+    atlas = "Tags",
+    pos = { x = 0, y = 0 }, -- TODO: Make art for it
+    discovered = true,
+    loc_vars = function(self, info_queue, tag)
+        local center = G.P_CENTERS[tag.ability.booster]
+        if center then
+            info_queue[#info_queue + 1] = center
+        end
+        local name = center and localize({ type = 'name_text', set = "Other", key = center.key }) or
+            localize("k_joy_secret_tag_default")
+        center = center or {}
+        return { vars = { name } }
+    end,
+    set_ability = function(self, tag)
+        tag.ability.booster = G.GAME.joy_last_secret_tag
+    end,
+    apply = function(self, tag, context)
+        if context.type == 'new_blind_choice' then
+            local lock = tag.ID
+            G.CONTROLLER.locks[lock] = true
+            tag:yep('+', G.C.JOY.EFFECT, function()
+                local booster = SMODS.create_card { key = tag.ability.booster or 'p_joy_selection_pack', area = G.play }
+                booster.T.x = G.play.T.x + G.play.T.w / 2 - G.CARD_W * 1.27 / 2
+                booster.T.y = G.play.T.y + G.play.T.h / 2 - G.CARD_H * 1.27 / 2
+                booster.T.w = G.CARD_W * 1.27
+                booster.T.h = G.CARD_H * 1.27
+                booster.cost = 0
+                booster.from_tag = true
+                G.FUNCS.use_card({ config = { ref_table = booster } })
+                booster:start_materialize()
+                G.CONTROLLER.locks[lock] = nil
+                return true
+            end)
+            tag.triggered = true
+            return true
+        end
+    end,
+    in_pool = function(self, args)
+        return false
+    end
+}

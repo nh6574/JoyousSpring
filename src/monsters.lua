@@ -29,6 +29,7 @@ JoyousSpring.init_joy_table = function(params)
         summon_conditions = params.summon_conditions or {},
         summon_consumeable_conditions = params.summon_consumeable_conditions or nil,
         summon_playing_card_conditions = params.summon_playing_card_conditions or nil,
+        summon_from_shop = params.summon_from_shop or false,
         summoned = false,
         summon_materials = {},
         material_effects = {},
@@ -100,6 +101,18 @@ local get_attributes_from_joy_table = function(center)
     return attributes
 end
 
+local get_weight_modifiers = function(key, append)
+    if not key or not G.GAME.modifiers.joy_modify_weight then return 1 end
+    local mod = 1
+    for _, modifier in ipairs(G.GAME.modifiers.joy_modify_weight) do
+        if (not modifier.append or modifier.append == append)
+            and JoyousSpring.is_material_center(key, modifier.properties) then
+            mod = mod * modifier.weight_mod
+        end
+    end
+    return mod
+end
+
 JoyousSpring.Joker = SMODS.Joker:extend {
     unlocked = true,
     discovered = true,
@@ -157,10 +170,12 @@ JoyousSpring.Joker = SMODS.Joker:extend {
         self.joy_glossary = next(joy_glossary) and joy_glossary or nil
     end,
     get_weight = function(self, original_weight, args)
+        local other_mod = get_weight_modifiers(self.key, (args or {}).append)
         if G.GAME.joy_only_ygo_cards then
             local rarity = ({ "Common", "Uncommon", "Rare", "Legendary" })[self.rarity]
             local weight = original_weight
             local mod = G.GAME[tostring(rarity):lower() .. "_mod"] or 1
+            local args = args or {}
             if SMODS.Rarities[rarity] and type(SMODS.Rarities[rarity].get_weight) == "function" then
                 weight = SMODS.Rarities[rarity]:get_weight(SMODS.Rarities[rarity].default_weight,
                     SMODS.ObjectTypes['Joker']) * 10
@@ -175,9 +190,9 @@ JoyousSpring.Joker = SMODS.Joker:extend {
                     weight = (legend or args.append == "sou") and 10 or 0.1
                 end
             end
-            return weight * mod
+            return weight * mod * other_mod
         end
-        return 10
+        return 10 * other_mod
     end
 }
 
@@ -633,6 +648,14 @@ JoyousSpring.should_illusion_banish = function(card)
     }, card)
 end
 
+---Checks if *card* tributes Jokers to be bought
+---@param card Card|table
+---@return boolean?
+JoyousSpring.does_tribute_in_shop = function(card)
+    return JoyousSpring.is_monster_card(card) and JoyousSpring.has_joyous_table(card) and
+        card.ability.extra.joyous_spring.summon_from_shop
+end
+
 ---Determines if card can be used as material in general. Does not check for specific properties
 ---@param card Card|table
 ---@param properties material_properties Checks for properties.can_use_eternal
@@ -643,7 +666,8 @@ JoyousSpring.can_be_used_as_material = function(card, properties, summon_type)
     if card.config.center.joy_can_be_used_as_material then
         can_be_used = card.config.center:joy_can_be_used_as_material(card, properties, summon_type)
     end
-    return can_be_used or (can_be_used == nil and (not card.ability.eternal or properties.can_use_eternal))
+    return can_be_used or
+        (can_be_used == nil and (not card.ability.eternal or properties.can_use_eternal or properties.is_eternal))
 end
 
 ---Checks if **card** fulfills **properties**
@@ -684,6 +708,14 @@ JoyousSpring.is_material = function(card, properties, summon_type)
 
     if not next(properties) then
         return true
+    end
+
+    if properties.is_eternal and not card.ability.eternal then
+        return false
+    end
+
+    if properties.exclude_eternal and card.ability.eternal then
+        return false
     end
 
     if properties.has_edition and not card:get_edition() then
@@ -967,7 +999,7 @@ JoyousSpring.is_material_center = function(card_key, properties)
     local requires_monster_properties = properties.monster_type or properties.monster_attribute or
         properties.monster_archetypes or properties.is_pendulum or properties.summon_type or properties.is_effect or
         properties.is_non_effect or properties.is_normal or properties.is_tuner or properties.is_trap or
-        properties.is_flip or properties.is_field_spell
+        properties.is_flip or properties.is_field_spell or properties.is_extra_deck or properties.is_main_deck
     if not has_extra_values and not monster_card_properties then
         return not requires_monster_properties
     end
@@ -1232,7 +1264,7 @@ JoyousSpring.get_materials_in_collection = function(property_list, not_owned, no
             (not not_extra or not JoyousSpring.is_in_extra_deck(k)) then
             local in_pool = true
             if is_in_pool and v.in_pool and type(v.in_pool) == 'function' then
-                in_pool, _ = v:in_pool({ source = type(is_in_pool) == "string" and is_in_pool or "JoyousSpring" })
+                in_pool, _ = v:in_pool({ source = type(is_in_pool) == "string" and is_in_pool or "JoyousSpring", from_joyous = true })
             end
             if not is_in_pool or in_pool then
                 if not property_list or #property_list == 0 then

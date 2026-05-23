@@ -197,23 +197,6 @@ return {
                     }
                 }
             },
-            -- Ritual
-            j_joy_skullguardian = {
-                name = "{C:joy_ritual}Skull Guardian",
-                text = {
-                    {
-                        "TBD"
-                    }
-                }
-            },
-            j_joy_saffira = {
-                name = "{C:joy_ritual}Saffira, Queen of Dragons",
-                text = {
-                    {
-                        "TBD"
-                    }
-                }
-            },
             -- Fusion
             j_joy_quintet = {
                 name = "{C:joy_fusion}Quintet Magician",
@@ -273,15 +256,7 @@ return {
                         "TBD"
                     }
                 }
-            },
-            j_joy_wp = {
-                name = "{C:joy_link}W:P Fancy Ball",
-                text = {
-                    {
-                        "TBD"
-                    }
-                }
-            },
+            }
         }
     },
 }

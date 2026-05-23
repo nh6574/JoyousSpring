@@ -355,7 +355,7 @@ JoyousSpring.Joker({
     end,
     joy_transfer_ability_calculate = function(self, other_card, context, config)
         if JoyousSpring.can_use_abilities(other_card) then
-            if context.end_of_round and context.game_over == false and context.main_eval then
+            if context.joy_post_round_eval then
                 JoyousSpring.banish(other_card, "blind_selected")
             end
         end
@@ -641,7 +641,7 @@ JoyousSpring.Joker({
                     mult = card.ability.extra.mult * ((G.GAME.joy_cards_banished_by_type or {})["Insect"] or 0)
                 }
             end
-            if context.end_of_round and context.game_over == false and context.main_eval then
+            if context.joy_post_round_eval then
                 for _, joker in ipairs(JoyousSpring.get_materials_owned({ { monster_archetypes = { "Battlewasp" } } })) do
                     JoyousSpring.banish(joker, "blind_selected")
                 end

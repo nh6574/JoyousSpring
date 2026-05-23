@@ -171,26 +171,15 @@ JoyousSpring.perform_summon = function(card, card_list, summon_type, playing_car
 
     local dissolve_colours = { G.C.BLACK, G.C.JOY[summon_type], G.C.RED, G.C.GOLD, G.C.JOKER_GREY }
 
-    if summon_type == "RITUAL" then
-        JoyousSpring.tribute(card, card_list, true, dissolve_colours)
+    if summon_type == "RITUAL" or JoyousSpring.does_tribute_in_shop(card) then
+        JoyousSpring.tribute(card, card_list, not JoyousSpring.does_tribute_in_shop(card), dissolve_colours)
     else
         JoyousSpring.destroy_cards(card_list, true, true, nil, dissolve_colours)
     end
 
     if playing_card_materials then
-        for _, pcard in ipairs(playing_card_materials) do
-            card.ability.extra.cards_used = card.ability.extra.cards_used or {}
-            local cards_used = card.ability.extra.cards_used
-            cards_used[pcard.config.center_key] = (cards_used[pcard.config.center_key] or 0) + 1
-            if pcard.seal then
-                cards_used[pcard.seal:lower() .. "_seal"] = (cards_used[pcard.seal:lower() .. "_seal"] or 0) + 1
-            end
-            if pcard.edition then
-                cards_used[pcard.edition.key] = (cards_used[pcard.edition.key] or 0) + 1
-            end
-            cards_used[pcard.base.value] = (cards_used[pcard.base.value] or 0) + 1
-            cards_used[pcard.base.suit] = (cards_used[pcard.base.suit] or 0) + 1
-        end
+        card.ability.extra.cards_used = JoyousSpring.playing_cards_used(card.ability.extra.cards_used or {},
+            playing_card_materials)
         JoyousSpring.destroy_cards(playing_card_materials, true, true, nil, dissolve_colours)
     end
     card.ability.extra.joyous_spring.summoned = true
@@ -230,6 +219,7 @@ JoyousSpring.create_summon = function(add_params, must_have_room, card_limit_mod
                 card.states.visible = true
                 card:add_to_deck()
                 area:emplace(card)
+                card:start_materialize()
             else
                 card.getting_sliced = true
                 card:remove()
@@ -252,15 +242,22 @@ end
 ---@param not_owned boolean?
 ---@param edition table|string?
 ---@param ignore_in_pool boolean?
+---@param modifiers table?
 ---@return Card|table?
-JoyousSpring.create_pseudorandom = function(property_list, seed, must_have_room, not_owned, edition, ignore_in_pool)
+JoyousSpring.create_pseudorandom = function(property_list, seed, must_have_room, not_owned, edition, ignore_in_pool,
+                                            modifiers)
+    if G.GAME.joy_only_ygo_cards then
+        for _, prop in ipairs(property_list or {}) do
+            prop.is_monster = true
+        end
+    end
     local choices = JoyousSpring.get_materials_in_collection(property_list, not_owned, nil, not ignore_in_pool and seed)
     local key_to_add = pseudorandom_element(choices, seed or "JoyousSpring")
     if key_to_add then
-        return JoyousSpring.create_summon({
-            key = key_to_add,
-            edition = edition
-        }, must_have_room)
+        modifiers = modifiers or {}
+        modifiers.key = key_to_add
+        modifiers.edition = edition
+        return JoyousSpring.create_summon(modifiers, must_have_room)
     end
 end
 
@@ -717,7 +714,9 @@ JoyousSpring.can_summon_with_combo = function(card, combo)
                     end
                 end
                 local restrictions = condition.restrictions or {}
-                return restrictions.no_room or JoyousSpring.get_card_limit(card) > 0 or
+                local summon_with_no_room = restrictions.no_room or
+                    (G.GAME.modifiers.joy_summon_no_room or {})[condition.type or ""]
+                return summon_with_no_room or JoyousSpring.get_card_limit(card) > 0 or
                     (#G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit + materials),
                     false
             end

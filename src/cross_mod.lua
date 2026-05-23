@@ -62,6 +62,66 @@ if TheFamily then
         order = 1,
     })
     TheFamily.create_tab({
+        key = "joy_side_deck_area",
+        group_key = "joyous_spring",
+        center = "j_joy_centur_primera",
+        type = "switch",
+        keep = true,
+        front_label = function(definition, card)
+            return {
+                text = "Side Deck Area",
+            }
+        end,
+        popup = function(definition, card)
+            return {
+                name = {
+                    {
+                        n = G.UIT.T,
+                        config = {
+                            text = "Side Deck Area",
+                            colour = G.C.WHITE,
+                            scale = 0.4,
+                        },
+                    },
+                },
+                description = {
+                    {
+                        {
+                            n = G.UIT.T,
+                            config = {
+                                text = "Open ",
+                                scale = 0.4,
+                                colour = G.C.BLACK,
+                            },
+                        },
+                        {
+                            n = G.UIT.T,
+                            config = {
+                                text = "Side Deck Area",
+                                scale = 0.4,
+                                colour = G.C.JOY.LINK,
+                            },
+                        },
+                    },
+                },
+            }
+        end,
+        can_highlight = function(definition, card)
+            return true
+        end,
+        highlight = function(definition, card)
+            JoyousSpring.open_side_deck()
+        end,
+        unhighlight = function(definition, card)
+            JoyousSpring.open_side_deck()
+        end,
+        update = function(definition, card, dt)
+            if not JoyousSpring.side_deck_open then
+                definition:close()
+            end
+        end
+    })
+    TheFamily.create_tab({
         key = "joy_field_area",
         group_key = "joyous_spring",
         center = "j_joy_runick_fountain",

@@ -168,6 +168,8 @@ JoyousSpring.Joker = setmetatable({}, {
 ---@field is_blind_card boolean?
 ---@field exclude_blind_cards boolean?
 ---@field can_use_eternal boolean?
+---@field is_eternal boolean?
+---@field exclude_eternal boolean?
 
 ---@class material_restrictions
 ---@field different_names boolean?
@@ -205,6 +207,7 @@ JoyousSpring.Joker = setmetatable({}, {
 ---@field summon_consumeable_conditions table?
 ---@field cannot_revive boolean?
 ---@field token_name string?
+---@field summon_from_shop boolean?
 
 ---@class joy_extra_value
 ---@field is_monster? boolean

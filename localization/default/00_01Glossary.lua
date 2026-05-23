@@ -434,9 +434,6 @@ return {
                     " ",
                     "Drag {C:attention}Jokers{} during the {C:joy_link}Side Deck{} stage",
                     "to move them between areas or use them as {C:attention}materials{} for {C:attention}summons{}",
-                    " ",
-                    "Preview version note: This is a WIP feature, in the full release cards in the Side Deck",
-                    "may be checked and sold at any time"
                 }
             },
 
@@ -455,8 +452,7 @@ return {
             modifier = {
                 name = "[Modifier]",
                 text = {
-                    "{C:attention}Editions{}, {C:attention}Enhancements{},",
-                    "{C:attention}Seals{} or {C:attention}Stickers{}"
+                    "{C:attention}Editions{}, {C:attention}Enhancements{} or {C:attention}Seals{}"
                 }
             },
             no_shop = {

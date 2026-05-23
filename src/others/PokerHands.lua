@@ -579,7 +579,7 @@ SMODS.Consumable {
     set = "Planet",
     atlas = "cardian",
     discovered = true,
-    pos = { x = 2, y = 3 },
+    pos = { x = 3, y = 3 },
     config = { joy_hand_types = {
         "joy_cardian_chaff",
         "joy_cardian_ribbons",
@@ -647,6 +647,8 @@ SMODS.Consumable {
 --#region VW
 
 local vw_is_hand_active = function()
+    if G.GAME.modifiers.joy_vw_hands then return true end
+
     local enablers = {
         "j_joy_vw_lulu",
         "j_joy_vw_nyannyan",

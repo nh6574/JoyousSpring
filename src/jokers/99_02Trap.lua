@@ -3,8 +3,8 @@
 -- Quantum Cat
 JoyousSpring.Joker({
     key = "quantumcat",
-    atlas = 'Misc03',
-    pos = { x = 3, y = 1 },
+    atlas = 'Misc01',
+    pos = { x = 2, y = 3 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -53,8 +53,8 @@ JoyousSpring.Joker({
 -- Statue of Anguish Pattern
 JoyousSpring.Joker({
     key = "anguish",
-    atlas = 'Misc03',
-    pos = { x = 4, y = 1 },
+    atlas = 'Misc01',
+    pos = { x = 3, y = 3 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -107,8 +107,8 @@ JoyousSpring.Joker({
 -- Tiki Curse
 JoyousSpring.Joker({
     key = "tiki_curse",
-    atlas = 'Misc03',
-    pos = { x = 0, y = 2 },
+    atlas = 'Misc01',
+    pos = { x = 4, y = 3 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -159,8 +159,8 @@ JoyousSpring.Joker({
 -- Tiki Soul
 JoyousSpring.Joker({
     key = "tiki_soul",
-    atlas = 'Misc03',
-    pos = { x = 1, y = 2 },
+    atlas = 'Misc01',
+    pos = { x = 5, y = 3 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -211,8 +211,8 @@ JoyousSpring.Joker({
 -- Zoma the Spirit
 JoyousSpring.Joker({
     key = "zoma",
-    atlas = 'Misc03',
-    pos = { x = 3, y = 2 },
+    atlas = 'Misc01',
+    pos = { x = 7, y = 3 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -270,8 +270,8 @@ JoyousSpring.Joker({
 -- Zoma the Earthbound Spirit
 JoyousSpring.Joker({
     key = "zoma_earthbound",
-    atlas = 'Misc03',
-    pos = { x = 4, y = 2 },
+    atlas = 'Misc01',
+    pos = { x = 0, y = 4 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -318,7 +318,7 @@ JoyousSpring.Joker({
         end
     end,
     in_pool = function(self, args)
-        return G.GAME.joy_zoma_sold or (args and args.source and args.source == "JoyousSpring" or false)
+        return G.GAME.joy_zoma_sold or (args and args.from_joyous)
     end,
     joker_display_def = function(JokerDisplay)
         ---@type JDJokerDefinition
@@ -344,8 +344,8 @@ JoyousSpring.Joker({
 -- You're Finished
 JoyousSpring.Joker({
     key = "finished",
-    atlas = 'Misc03',
-    pos = { x = 2, y = 2 },
+    atlas = 'Misc01',
+    pos = { x = 6, y = 3 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = false,
@@ -418,8 +418,8 @@ JoyousSpring.Joker({
 -- Embodiment of Apophis
 JoyousSpring.Joker({
     key = "apophis",
-    atlas = 'Misc03',
-    pos = { x = 2, y = 1 },
+    atlas = 'Misc01',
+    pos = { x = 1, y = 3 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -466,8 +466,8 @@ JoyousSpring.Joker({
 -- Angel Statue - Azurune
 JoyousSpring.Joker({
     key = "azurune",
-    atlas = 'Misc03',
-    pos = { x = 0, y = 1 },
+    atlas = 'Misc01',
+    pos = { x = 7, y = 2 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -521,8 +521,8 @@ JoyousSpring.Joker({
 -- Crusadia Krawler
 JoyousSpring.Joker({
     key = "crukra",
-    atlas = 'Misc03',
-    pos = { x = 1, y = 1 },
+    atlas = 'Misc01',
+    pos = { x = 0, y = 3 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,

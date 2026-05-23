@@ -32,7 +32,7 @@ JoyousSpring.Joker({
     key = "dogma_ecclesia",
     atlas = 'Dogmatika',
     pos = { x = 0, y = 0 },
-    joy_alt_pos = { { x = 3, y = 0 } },
+    joy_alt_pos = { { x = 1, y = 0 } },
     rarity = 2,
     blueprint_compat = true,
     eternal_compat = true,
@@ -89,7 +89,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dogma_fleur",
     atlas = 'Dogmatika',
-    pos = { x = 1, y = 0 },
+    pos = { x = 2, y = 0 },
     rarity = 2,
     blueprint_compat = true,
     eternal_compat = true,
@@ -167,7 +167,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dogma_thunderbolt",
     atlas = 'Dogmatika',
-    pos = { x = 4, y = 0 },
+    pos = { x = 1, y = 2 },
     rarity = 3,
     blueprint_compat = true,
     eternal_compat = true,
@@ -240,7 +240,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dogma_maximus",
     atlas = 'Dogmatika',
-    pos = { x = 2, y = 0 },
+    pos = { x = 3, y = 0 },
     rarity = 2,
     blueprint_compat = true,
     eternal_compat = true,
@@ -443,7 +443,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dogma_nexus",
     atlas = 'Dogmatika',
-    pos = { x = 0, y = 2 },
+    pos = { x = 3, y = 1 },
     rarity = 2,
     blueprint_compat = true,
     eternal_compat = true,
@@ -491,7 +491,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dogma_relic",
     atlas = 'Dogmatika',
-    pos = { x = 1, y = 2 },
+    pos = { x = 3, y = 2 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -559,7 +559,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dogma_knight",
     atlas = 'Dogmatika',
-    pos = { x = 2, y = 2 },
+    pos = { x = 0, y = 3 },
     rarity = 2,
     blueprint_compat = true,
     eternal_compat = true,
@@ -640,7 +640,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dogma_albazoa",
     atlas = 'Dogmatika',
-    pos = { x = 3, y = 2 },
+    pos = { x = 1, y = 3 },
     rarity = 3,
     blueprint_compat = true,
     eternal_compat = true,
@@ -716,7 +716,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dogma_nation",
     atlas = 'Dogmatika',
-    pos = { x = 4, y = 2 },
+    pos = { x = 2, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,

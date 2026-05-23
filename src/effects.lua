@@ -218,8 +218,12 @@ SMODS.current_mod.calculate = function(self, context)
         G.GAME.joy_temporary_handsize = 0
     end
 
-    -- Arbitrary calculations from cards
+    -- Reset reroll global
+    if context.ending_shop then
+        G.GAME.joy_reroll_shop = nil
+    end
 
+    -- Arbitrary calculations from cards
     local returns = {}
     for _, effect in ipairs(JoyousSpring.calculate_effects) do
         if not effect.is_active or effect:is_active("calculate") then
@@ -243,6 +247,7 @@ function SMODS.current_mod.reset_game_globals(run_start)
         G.GAME.joy_only_ygo_cards = JoyousSpring.config.only_ygo_cards
     end
     G.GAME.current_round.joy_tributed_cards = {}
+    G.GAME.current_round.joy_tributed_cards_LIGHT = 0
     G.GAME.current_round.joy_cards_banished = 0
     G.GAME.current_round.joy_cards_banished_by_type = {}
     G.GAME.current_round.joy_cards_banished_by_attribute = {}
@@ -286,6 +291,13 @@ JoyousSpring.count_as_tributed = function(card, for_ritual)
         G.GAME.current_round.joy_tributed_cards[card.config.center.key].for_ritual =
             G.GAME.current_round.joy_tributed_cards[card.config.center.key].for_ritual + 1
     end
+    if JoyousSpring.is_attribute(card, "LIGHT") then
+        G.GAME.joy_tributed_cards_LIGHT = (G.GAME.joy_tributed_cards_LIGHT or 0) + 1
+        G.GAME.current_round.joy_tributed_cards_LIGHT = (G.GAME.current_round.joy_tributed_cards_LIGHT or 0) + 1
+    end
+    if card.ability.eternal then
+        G.GAME.joy_tributed_cards_eternal = (G.GAME.joy_tributed_cards_eternal or 0) + 1
+    end
 end
 
 ---Tribute a card
@@ -306,7 +318,7 @@ JoyousSpring.tribute = function(card, card_list, for_ritual, dissolve_colours)
                 joy_for_ritual = for_ritual
             })
         SMODS.trigger_effects({ eval, post }, material)
-        JoyousSpring.destroy_cards(material, nil, true, nil, dissolve_colours)
+        JoyousSpring.destroy_cards(material, true, true, nil, dissolve_colours)
         if card.ability then
             card.ability.joy_tributed = card.ability.joy_tributed or {}
             if not JoyousSpring.is_playing_card(material) then
@@ -318,6 +330,7 @@ JoyousSpring.tribute = function(card, card_list, for_ritual, dissolve_colours)
             joy_card = material,
             joy_source = card.ability and card or nil,
             joy_source_blind = not card.ability and card or nil,
+            joy_for_ritual = for_ritual
         })
     end
 end
@@ -600,7 +613,12 @@ JoyousSpring.excavate = function(amount, context)
                 return true
             end)
         }))
-        SMODS.calculate_context({ joy_excavated = original_cards[i], joy_number = i, joy_other_context = context or {} })
+        SMODS.calculate_context({
+            joy_excavated = original_cards[i],
+            joy_number = i,
+            joy_other_context = context or {},
+            joy_excavated_all = original_cards
+        })
         G.E_MANAGER:add_event(Event({
             trigger = "after",
             delay = 2,

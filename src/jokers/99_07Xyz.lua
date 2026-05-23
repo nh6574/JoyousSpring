@@ -3,8 +3,8 @@
 -- Divine Arsenal AA-ZEUS - Sky Thunder
 JoyousSpring.Joker({
     key = "zeus",
-    atlas = 'Misc03',
-    pos = { x = 1, y = 3 },
+    atlas = 'Misc01',
+    pos = { x = 5, y = 4 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -67,8 +67,8 @@ JoyousSpring.Joker({
 -- Super Starslayer TY-PHON - Sky Crisis
 JoyousSpring.Joker({
     key = "typhon",
-    atlas = 'Misc03',
-    pos = { x = 2, y = 3 },
+    atlas = 'Misc01',
+    pos = { x = 6, y = 4 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -147,8 +147,8 @@ JoyousSpring.Joker({
 -- Number 67: Pair-a-Dice Smasher
 JoyousSpring.Joker({
     key = "67",
-    atlas = 'Misc05',
-    pos = { x = 2, y = 2 },
+    atlas = 'Misc01',
+    pos = { x = 0, y = 5 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -240,8 +240,8 @@ JoyousSpring.Joker({
 -- Number 85: Crazy Box
 JoyousSpring.Joker({
     key = "85",
-    atlas = 'Misc05',
-    pos = { x = 3, y = 2 },
+    atlas = 'Misc01',
+    pos = { x = 1, y = 5 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -374,8 +374,8 @@ JoyousSpring.Joker({
 -- Code Igniter
 JoyousSpring.Joker({
     key = "igniter",
-    atlas = 'Misc03',
-    pos = { x = 3, y = 4 },
+    atlas = 'Misc01',
+    pos = { x = 7, y = 4 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,

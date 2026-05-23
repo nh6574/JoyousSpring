@@ -75,7 +75,7 @@ return {
                     "{C:chips}+#1#{} Chips",
                     "for each {C:joy_light}LIGHT{} {C:attention}Joker{}",
                     "{C:attention}tributed{} this round",
-                    "{C:inactive}(Currently {C:chips}+$#2#{}{C:inactive} Chips)"
+                    "{C:inactive}(Currently {C:chips}+#2#{}{C:inactive} Chips)"
                 }
             },
             j_joy_voice_divine = {
@@ -84,16 +84,16 @@ return {
                     {
                         "{C:attention}+#1#{} hand size for each",
                         "{C:joy_effect}\"Lo, the Prayers of the Voiceless Voice\"{}",
-                        "in the {C:attention}GY{} the round this card is summoned",
+                        "in the {C:attention}GY{} the round this card {C:attention}enters play{}",
                         "{C:inactive}(Currently {C:attention}+#2#{}{C:inactive})"
                     },
                     {
-                        "Opens {C:attention}2 Ritual Support Secret Packs{}",
+                        "Gives a {C:attention}Rite of Initiation Secret Pack Tag{}",
                         "at end of round"
                     }
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2{} {C:joy_light}LIGHT{} {C:attention}Jokers{}"
+                    "{C:joy_ritual}Tribute {C:attention}2{} {C:joy_light}LIGHT{} {C:attention}Jokers{}"
                 }
             },
             j_joy_voice_skull = {
@@ -103,7 +103,7 @@ return {
                         "{C:mult}+#1#{} Mult",
                         "for each {C:joy_light}LIGHT{} {C:attention}Joker{}",
                         "{C:attention}tributed{} this round",
-                        "{C:inactive}(Currently {C:mult}+$#2#{}{C:inactive} Mult)"
+                        "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
                     },
                     {
                         "Gains {X:chips,C:white}X#3#{} Chips for each",
@@ -113,7 +113,7 @@ return {
                     }
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2{} {C:joy_light}LIGHT{} {C:attention}Jokers{}"
+                    "{C:joy_ritual}Tribute {C:attention}2{} {C:joy_light}LIGHT{} {C:attention}Jokers{}"
                 }
             },
         }

@@ -160,7 +160,7 @@ JoyousSpring.Joker({
         return #materials >= card.ability.extra.tributes
     end,
     in_pool = function(self, args)
-        return args and args.source and args.source == "JoyousSpring" or false
+        return args and args.from_joyous
     end,
     joker_display_def = function(JokerDisplay)
         ---@type JDJokerDefinition
@@ -263,7 +263,7 @@ JoyousSpring.Joker({
         return #materials >= card.ability.extra.tributes
     end,
     in_pool = function(self, args)
-        return args and args.source and args.source == "JoyousSpring" or false
+        return args and args.from_joyous
     end,
     joker_display_def = function(JokerDisplay)
         ---@type JDJokerDefinition
@@ -346,7 +346,7 @@ JoyousSpring.Joker({
         return next(materials) and true or false
     end,
     in_pool = function(self, args)
-        return args and args.source and args.source == "JoyousSpring" or false
+        return args and args.from_joyous
     end,
 })
 
@@ -407,7 +407,7 @@ JoyousSpring.Joker({
         return #materials >= card.ability.extra.tributes
     end,
     in_pool = function(self, args)
-        return args and args.source and args.source == "JoyousSpring" or false
+        return args and args.from_joyous
     end,
 })
 
@@ -474,7 +474,7 @@ JoyousSpring.Joker({
         return #materials >= card.ability.extra.tributes
     end,
     in_pool = function(self, args)
-        return args and args.source and args.source == "JoyousSpring" or false
+        return args and args.from_joyous
     end,
 })
 
@@ -559,7 +559,7 @@ JoyousSpring.Joker({
         return #materials >= card.ability.extra.tributes
     end,
     in_pool = function(self, args)
-        return args and args.source and args.source == "JoyousSpring" or false
+        return args and args.from_joyous
     end,
     joker_display_def = function(JokerDisplay)
         ---@type JDJokerDefinition
@@ -634,7 +634,7 @@ JoyousSpring.Joker({
         return #materials >= card.ability.extra.tributes
     end,
     in_pool = function(self, args)
-        return args and args.source and args.source == "JoyousSpring" or false
+        return args and args.from_joyous
     end,
 })
 
@@ -701,7 +701,7 @@ JoyousSpring.Joker({
         return #materials >= card.ability.extra.tributes
     end,
     in_pool = function(self, args)
-        return args and args.source and args.source == "JoyousSpring" or false
+        return args and args.from_joyous
     end,
 })
 

@@ -452,14 +452,6 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
                     table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_no_shop" })
                 end
             end
-
-            -- Add tooltip if it's face-down
-            if card.facing == 'back' and JoyousSpring.is_from_joyousspring(card) and not card.fake_card then
-                if not card.fake_card then
-                    table.insert(info_queue, 1, { set = "Other", key = "joy_face_down" })
-                end
-            end
-
             -- Add tooltip if it's a trap
             if JoyousSpring.is_trap_monster(card) and not card.fake_card and not card.debuffed then
                 table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_trap" })
@@ -503,7 +495,7 @@ end
 
 local desc_from_rows_ref = desc_from_rows
 function desc_from_rows(desc_nodes, empty, maxw)
-    local ret = desc_from_rows_ref(desc_nodes, empty, maxw)
+    local ret
 
     if desc_nodes.joy_box_minh then
         ret = {}
@@ -513,11 +505,13 @@ function desc_from_rows(desc_nodes, empty, maxw)
         end
         ret = {
             n = G.UIT.R,
-            config = { align = "cm", colour = desc_nodes.background_colour or empty and G.C.CLEAR or G.C.UI.BACKGROUND_WHITE, r = 0.1, padding = -0.03, minw = 2, minh = desc_nodes.joy_box_minh, emboss = not empty and 0.05 or nil, filler = true, main_box_flag = desc_nodes.main_box_flag and true or nil },
+            config = { align = "cm", colour = desc_nodes.background_colour or empty and G.C.CLEAR or G.C.UI.BACKGROUND_WHITE, r = 0.1, padding = -0.03, minw = desc_nodes.joy_box_minw or 2, minh = desc_nodes.joy_box_minh, emboss = not empty and 0.05 or nil, filler = true, main_box_flag = desc_nodes.main_box_flag and true or nil },
             nodes = {
                 { n = G.UIT.R, config = { align = "cm", padding = -0.03 }, nodes = t }
             }
         }
+    else
+        ret = desc_from_rows_ref(desc_nodes, empty, maxw)
     end
 
     return ret
@@ -911,7 +905,7 @@ glossary_tab = function(t)
     }
 end
 
-local arthalion_tab = function(t)
+local playing_card_material_tab = function(t)
     t.area_table = {}
 
     t.area_table[#t.area_table + 1] = CardArea(
@@ -926,10 +920,12 @@ local arthalion_tab = function(t)
         }
     )
     local values = t.area_cards.extra_values
+    local loc_key = values.loc_key
 
     for _, enhancement in ipairs(values.enhancements) do
         local added_card = Card(0, 0, G.CARD_W, G.CARD_H, G.P_CARDS.empty, G.P_CENTERS[enhancement])
-        added_card.joy_arthalion = enhancement
+        added_card.joy_pcard_key = enhancement
+        added_card.joy_pcard_loc_key = loc_key
         t.area_table[#t.area_table]:emplace(added_card)
     end
 
@@ -948,14 +944,16 @@ local arthalion_tab = function(t)
     for _, edition in ipairs(values.editions) do
         local added_card = Card(0, 0, G.CARD_W, G.CARD_H, G.P_CARDS.empty, G.P_CENTERS['c_base'])
         added_card:set_edition(edition, nil, true)
-        added_card.joy_arthalion = edition
+        added_card.joy_pcard_key = edition
+        added_card.joy_pcard_loc_key = loc_key
         t.area_table[#t.area_table]:emplace(added_card)
     end
 
     for _, seal in ipairs(values.seals) do
         local added_card = Card(0, 0, G.CARD_W, G.CARD_H, G.P_CARDS.empty, G.P_CENTERS['c_base'])
         added_card:set_seal(seal, true)
-        added_card.joy_arthalion = seal:lower() .. "_seal"
+        added_card.joy_pcard_key = seal:lower() .. "_seal"
+        added_card.joy_pcard_loc_key = loc_key
         t.area_table[#t.area_table]:emplace(added_card)
     end
 
@@ -998,16 +996,23 @@ local arthalion_tab = function(t)
     }
 end
 
-JoyousSpring.arthalion_description = function(center, card, desc_nodes, info_queue)
-    local loc = G.localization.descriptions.Joker.j_joy_dracotail_arthalion.joy_extra_effects[card.joy_arthalion or ""]
+JoyousSpring.playing_card_description = function(center, card, desc_nodes, info_queue)
+    local loc_key = card.joy_pcard_loc_key
 
-    if not card.joy_arthalion or not desc_nodes or not loc then return end
+    if not card.joy_pcard_key or not loc_key then return end
+
+    local loc = ((G.localization.descriptions.Joker[loc_key] or {}).joy_extra_effects or {})[card.joy_pcard_key or ""]
+
+    if not desc_nodes or not loc then return end
 
     loc = loc.text_description
     desc_nodes = EMPTY(desc_nodes)
     for _, line in ipairs(loc) do
         desc_nodes[#desc_nodes + 1] = SMODS.localize_box(loc_parse_string(line),
-            { vars = G.P_CENTERS.j_joy_dracotail_arthalion:joy_effect_loc_vars(card.joy_arthalion) })
+            {
+                vars = G.P_CENTERS[loc_key].joy_effect_loc_vars and
+                    G.P_CENTERS[loc_key]:joy_effect_loc_vars(card.joy_pcard_key, 1) or {}
+            })
     end
 end
 
@@ -1018,8 +1023,8 @@ local related_tab = function(t)
         end
     end
 
-    if t.area_cards.extra == "j_joy_dracotail_arthalion" then
-        return arthalion_tab(t)
+    if t.area_cards.extra == "Playing Cards" then
+        return playing_card_material_tab(t)
     end
 
     t.area_table = {}

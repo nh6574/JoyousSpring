@@ -71,11 +71,8 @@ return {
                         "After a hand is played, {C:attention}transforms{} into",
                         "a random {C:joy_normal}\"Dracotail\"{} using this card",
                         "and the scored cards in played hand as material",
-                        "{C:inactive}(This is treated as a Fusion){}"
-                    },
-                    {
-                        "A {C:joy_fusion}Fusion{} summoned using this card",
-                        "as {C:attention}material{} gains the following ability:",
+                        "{C:inactive}(This is treated as a Fusion){}",
+                        "A {C:joy_fusion}Fusion{} summoned this way gains the following ability:",
                         "{s:0.9,C:attention}Transforms{s:0.9} into {s:0.9,C:joy_effect}\"Dracotail Mululu\"{s:0.9} at end of round",
                     },
                 },
@@ -221,23 +218,23 @@ return {
                     },
                     m_glass = {
                         text_description = {
-                            "{X:mult,C:white}X#1#{} Mult",
+                            "Extra {X:mult,C:white}X#1#{} Mult",
                             "and destroys a random card played for each"
                         },
                         text = {
-                            "{X:mult,C:white}X#1#{} Mult",
+                            "Extra {X:mult,C:white}X#1#{} Mult",
                             "and destroys {C:attention}#2#{} random card(s) played"
                         }
                     },
                     m_steel = {
                         text_description = {
-                            "{X:mult,C:white}X#1#{} Mult",
+                            "Extra {X:mult,C:white}X#1#{} Mult",
                             "and retriggers scoring cards",
                             "held in hand up to {C:attention}#2#{} time for each"
                         },
                         text = {
-                            "{X:mult,C:white}X#1#{} Mult",
-                            "and retriggers random scoring cards",
+                            "Extra {X:mult,C:white}X#1#{} Mult",
+                            "and retriggers scoring cards",
                             "held in hand up to {C:attention}#2#{} time(s)"
                         }
                     },
@@ -297,10 +294,10 @@ return {
                     },
                     e_polychrome = {
                         text_description = {
-                            "{X:mult,C:white}X#1#{} Mult for each"
+                            "Extra {X:mult,C:white}X#1#{} Mult for each"
                         },
                         text = {
-                            "{X:mult,C:white}X#1#{} Mult",
+                            "Extra {X:mult,C:white}X#1#{} Mult",
                         }
                     },
                     red_seal = {
@@ -310,7 +307,7 @@ return {
                         },
                         text = {
                             "Retriggers each scored card",
-                            "in played hand {C:attention}#1#{} times"
+                            "in played hand {C:attention}#1#{} time(s)"
                         }
                     },
                     blue_seal = {
@@ -334,16 +331,13 @@ return {
                     },
                     purple_seal = {
                         text_description = {
-                            "For each, creates {C:attention}#1#{} random {C:dark_edition}Negative{} {C:tarot}Tarot{}",
-                            "that applies an {C:attention}Enhancement{}",
-                            "or {C:dark_edition}Negative{} {C:spectral}Spectral{} that applies a {C:attention}Seal{}",
+                            "For each, creates {C:attention}#1#{} {C:dark_edition}Negative{} {C:attention}Enhancement{} {C:tarot}Tarot{}",
+                            "or {C:dark_edition}Negative{} {C:attention}Seal{} {C:spectral}Spectral{}",
                             "when the hand is played"
                         },
                         text = {
-                            "Creates {C:attention}#1#{} random {C:dark_edition}Negative{} {C:tarot}Tarot{}",
-                            "that applies an {C:attention}Enhancement{}",
-                            "or {C:dark_edition}Negative{} {C:spectral}Spectral{} that applies a {C:attention}Seal{}",
-                            "when the hand is played"
+                            "Creates {C:attention}#1#{} {C:dark_edition}Negative{} {C:attention}Enhancement{} {C:tarot}Tarot{}",
+                            "or {C:dark_edition}Negative{} {C:attention}Seal{} {C:spectral}Spectral{}",
                         }
                     },
                     joy_purr_memory_seal = {

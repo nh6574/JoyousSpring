@@ -96,8 +96,8 @@ JoyousSpring.Joker({
 -- Gren Maju Da Eiza
 JoyousSpring.Joker({
     key = "grenmaju",
-    atlas = 'Misc02',
-    pos = { x = 0, y = 0 },
+    atlas = 'Misc01',
+    pos = { x = 1, y = 0 },
     rarity = 1,
     blueprint_compat = true,
     eternal_compat = true,
@@ -141,8 +141,8 @@ JoyousSpring.Joker({
 -- Fiendish Rhino Warrior
 JoyousSpring.Joker({
     key = "rhino",
-    atlas = 'Misc03',
-    pos = { x = 2, y = 0 },
+    atlas = 'Misc01',
+    pos = { x = 1, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -177,8 +177,8 @@ JoyousSpring.Joker({
 -- Tour Guide From the Underworld
 JoyousSpring.Joker({
     key = "tourguide",
-    atlas = 'Misc03',
-    pos = { x = 4, y = 0 },
+    atlas = 'Misc01',
+    pos = { x = 3, y = 1 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -213,8 +213,8 @@ JoyousSpring.Joker({
 -- Lord of the Heavenly Prison
 JoyousSpring.Joker({
     key = "heavenlyprison",
-    atlas = 'Misc03',
-    pos = { x = 3, y = 0 },
+    atlas = 'Misc01',
+    pos = { x = 2, y = 1 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -270,8 +270,8 @@ JoyousSpring.Joker({
 -- Backup Secretary
 JoyousSpring.Joker({
     key = "backup",
-    atlas = 'Misc03',
-    pos = { x = 0, y = 0 },
+    atlas = 'Misc01',
+    pos = { x = 7, y = 0 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -307,8 +307,8 @@ JoyousSpring.Joker({
 -- Cyberse Wizard
 JoyousSpring.Joker({
     key = "wizard",
-    atlas = 'Misc03',
-    pos = { x = 1, y = 0 },
+    atlas = 'Misc01',
+    pos = { x = 0, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -358,7 +358,7 @@ JoyousSpring.Joker({
 -- Formud Skipper
 JoyousSpring.Joker({
     key = "formud",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 7, y = 0 },
     rarity = 2,
     blueprint_compat = false,
@@ -391,7 +391,7 @@ JoyousSpring.Joker({
 -- Procession of the Tea Jar
 JoyousSpring.Joker({
     key = "procession",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 6, y = 1 },
     rarity = 1,
     blueprint_compat = false,
@@ -450,7 +450,7 @@ JoyousSpring.Joker({
 -- Dark Cat with White Tail
 JoyousSpring.Joker({
     key = "darkcat",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 3, y = 0 },
     rarity = 1,
     blueprint_compat = false,
@@ -503,7 +503,7 @@ JoyousSpring.Joker({
 -- Dekoichi the Battlechanted Locomotive
 JoyousSpring.Joker({
     key = "dekoichi",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 4, y = 0 },
     rarity = 1,
     blueprint_compat = false,
@@ -590,7 +590,7 @@ JoyousSpring.Joker({
 -- Bokoichi the Freightening Car
 JoyousSpring.Joker({
     key = "bokoichi",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 0, y = 0 },
     rarity = 1,
     blueprint_compat = false,
@@ -607,14 +607,14 @@ JoyousSpring.Joker({
         },
     },
     in_pool = function(self, args)
-        return args and args.source and args.source == "JoyousSpring" or false
+        return args and args.from_joyous
     end,
 })
 
 -- Desertapir
 JoyousSpring.Joker({
     key = "desertapir",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 5, y = 0 },
     rarity = 1,
     blueprint_compat = false,
@@ -670,7 +670,7 @@ JoyousSpring.Joker({
 -- Searchlightman
 JoyousSpring.Joker({
     key = "searchlight",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 0, y = 2 },
     rarity = 2,
     blueprint_compat = false,
@@ -733,7 +733,7 @@ JoyousSpring.Joker({
 -- The Stern Mystic
 JoyousSpring.Joker({
     key = "sternmystic",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 2, y = 2 },
     rarity = 2,
     blueprint_compat = false,
@@ -796,7 +796,7 @@ JoyousSpring.Joker({
 -- Magician of Faith
 JoyousSpring.Joker({
     key = "mof",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 4, y = 1 },
     rarity = 2,
     blueprint_compat = false,
@@ -854,7 +854,7 @@ JoyousSpring.Joker({
 -- Mask of Darkness
 JoyousSpring.Joker({
     key = "mask",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 5, y = 1 },
     rarity = 1,
     blueprint_compat = false,
@@ -907,7 +907,7 @@ JoyousSpring.Joker({
 -- Angraecum Umbrella
 JoyousSpring.Joker({
     key = "angraecum",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 1, y = 0 },
     rarity = 2,
     blueprint_compat = false,
@@ -945,7 +945,7 @@ JoyousSpring.Joker({
 -- Eater of Millions
 JoyousSpring.Joker({
     key = "eater",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 6, y = 0 },
     rarity = 2,
     blueprint_compat = false,
@@ -1002,7 +1002,7 @@ JoyousSpring.Joker({
 -- Heavenly Zephyr - Miradora
 JoyousSpring.Joker({
     key = "miradora",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 1, y = 1 },
     rarity = 2,
     blueprint_compat = false,
@@ -1058,7 +1058,7 @@ JoyousSpring.Joker({
 -- Beautunaful Princess
 JoyousSpring.Joker({
     key = "beautunaful",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 2, y = 0 },
     rarity = 1,
     blueprint_compat = false,
@@ -1102,7 +1102,7 @@ JoyousSpring.Joker({
 -- Lifeless Leaffish
 JoyousSpring.Joker({
     key = "leaffish",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 3, y = 1 },
     rarity = 1,
     blueprint_compat = false,
@@ -1142,7 +1142,7 @@ JoyousSpring.Joker({
 -- Ringowurm, the Dragon Guarding the Hundred Apples
 JoyousSpring.Joker({
     key = "ringowurm",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 7, y = 1 },
     rarity = 1,
     blueprint_compat = false,
@@ -1179,7 +1179,7 @@ JoyousSpring.Joker({
 JoyousSpring.token_pool["ringo"] = {
     order = 9,
     name = "j_joy_token_ringo",
-    atlas = "joy_Misc04",
+    atlas = "joy_Misc02",
     sprite_pos = { x = 0, y = 4 },
     joyous_spring = {
         attribute = "LIGHT",
@@ -1191,7 +1191,7 @@ JoyousSpring.token_pool["ringo"] = {
 -- Storm Shooter
 JoyousSpring.Joker({
     key = "stormshooter",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 1, y = 2 },
     rarity = 2,
     blueprint_compat = false,
@@ -1243,7 +1243,7 @@ JoyousSpring.Joker({
 -- Ghost Bird of Bewitchment
 JoyousSpring.Joker({
     key = "ghostbird",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 0, y = 1 },
     rarity = 2,
     blueprint_compat = false,
@@ -1320,7 +1320,7 @@ JoyousSpring.Joker({
 -- Iron Dragon Tiamaton
 JoyousSpring.Joker({
     key = "tiamaton",
-    atlas = 'Misc04',
+    atlas = 'Misc02',
     pos = { x = 2, y = 1 },
     rarity = 3,
     blueprint_compat = false,
@@ -1373,8 +1373,8 @@ JoyousSpring.Joker({
 -- Rock Band Xenoguitar
 JoyousSpring.Joker({
     key = "zenoguitar",
-    atlas = 'Misc02',
-    pos = { x = 1, y = 1 },
+    atlas = 'Misc01',
+    pos = { x = 5, y = 0 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = false,
@@ -1423,8 +1423,8 @@ JoyousSpring.Joker({
 -- Revival Golem
 JoyousSpring.Joker({
     key = "revgolem",
-    atlas = 'Misc02',
-    pos = { x = 0, y = 1 },
+    atlas = 'Misc01',
+    pos = { x = 4, y = 0 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -1463,8 +1463,8 @@ JoyousSpring.Joker({
 -- Tackle Crusader
 JoyousSpring.Joker({
     key = "tackcrusader",
-    atlas = 'Misc02',
-    pos = { x = 2, y = 1 },
+    atlas = 'Misc01',
+    pos = { x = 6, y = 0 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -1545,8 +1545,8 @@ JoyousSpring.Joker({
 -- Doki Doki
 JoyousSpring.Joker({
     key = "doki",
-    atlas = 'Misc02',
-    pos = { x = 2, y = 0 },
+    atlas = 'Misc01',
+    pos = { x = 3, y = 0 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -1622,8 +1622,8 @@ JoyousSpring.Joker({
 -- Block Dragon
 JoyousSpring.Joker({
     key = "blockdragon",
-    atlas = 'Misc02',
-    pos = { x = 1, y = 0 },
+    atlas = 'Misc01',
+    pos = { x = 2, y = 0 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -1690,8 +1690,8 @@ JoyousSpring.Joker({
 -- Ghost Fairy Elfobia
 JoyousSpring.Joker({
     key = "elfobia",
-    atlas = 'Misc05',
-    pos = { x = 3, y = 0 },
+    atlas = 'Misc01',
+    pos = { x = 0, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -1754,8 +1754,8 @@ JoyousSpring.Joker({
 -- Mystical Fairy Elfuria
 JoyousSpring.Joker({
     key = "elfuria",
-    atlas = 'Misc05',
-    pos = { x = 3, y = 1 },
+    atlas = 'Misc01',
+    pos = { x = 3, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -1820,8 +1820,8 @@ end
 -- Lindbloom
 JoyousSpring.Joker({
     key = "lindbloom",
-    atlas = 'Misc05',
-    pos = { x = 0, y = 1 },
+    atlas = 'Misc01',
+    pos = { x = 1, y = 2 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -1882,8 +1882,8 @@ JoyousSpring.Joker({
 -- Genomix Fighter
 JoyousSpring.Joker({
     key = "genomix",
-    atlas = 'Misc05',
-    pos = { x = 2, y = 0 },
+    atlas = 'Misc01',
+    pos = { x = 7, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -1936,8 +1936,8 @@ JoyousSpring.Joker({
 -- Maximum Six
 JoyousSpring.Joker({
     key = "maxsix",
-    atlas = 'Misc05',
-    pos = { x = 2, y = 1 },
+    atlas = 'Misc01',
+    pos = { x = 2, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -2012,8 +2012,8 @@ JoyousSpring.Joker({
 -- Space-Time Police
 JoyousSpring.Joker({
     key = "stpolice",
-    atlas = 'Misc05',
-    pos = { x = 0, y = 2 },
+    atlas = 'Misc01',
+    pos = { x = 4, y = 2 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -2059,8 +2059,8 @@ JoyousSpring.Joker({
 -- Wannabee!
 JoyousSpring.Joker({
     key = "wannabee",
-    atlas = 'Misc05',
-    pos = { x = 1, y = 2 },
+    atlas = 'Misc01',
+    pos = { x = 5, y = 2 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -2107,8 +2107,8 @@ JoyousSpring.Joker({
 -- Magical Merchant
 JoyousSpring.Joker({
     key = "merchant",
-    atlas = 'Misc05',
-    pos = { x = 1, y = 1 },
+    atlas = 'Misc01',
+    pos = { x = 6, y = 2 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -2193,8 +2193,8 @@ JoyousSpring.Joker({
 -- Catoblepas and the Witch of Fate
 JoyousSpring.Joker({
     key = "catoblepas",
-    atlas = 'Misc05',
-    pos = { x = 0, y = 0 },
+    atlas = 'Misc01',
+    pos = { x = 5, y = 1 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -2269,8 +2269,8 @@ JoyousSpring.Joker({
 -- Couple of Aces
 JoyousSpring.Joker({
     key = "coupleofaces",
-    atlas = 'Misc05',
-    pos = { x = 1, y = 0 },
+    atlas = 'Misc01',
+    pos = { x = 6, y = 1 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -2413,8 +2413,8 @@ JoyousSpring.Joker({
 -- Linkslayer
 JoyousSpring.Joker({
     key = "linkslayer",
-    atlas = 'Misc03',
-    pos = { x = 4, y = 4 },
+    atlas = 'Misc01',
+    pos = { x = 4, y = 1 },
     rarity = 1,
     blueprint_compat = true,
     eternal_compat = true,

@@ -30,7 +30,7 @@ JoyousSpring.Joker({
         },
     },
     in_pool = function(self, args)
-        return args and args.source and args.source == "JoyousSpring" or false
+        return args and args.from_joyous
     end,
 })
 
@@ -63,7 +63,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.individual and context.cardarea == G.play then
-                if next(SMODS.find_card("j_joy_mekk_spectrum")) or JoyousSpring.get_joker_column(card) == (JoyousSpring.index_of(context.full_hand, context.other_card)) then
+                if not SMODS.has_no_rank(context.other_card) and (next(SMODS.find_card("j_joy_mekk_spectrum")) or JoyousSpring.get_joker_column(card) == (JoyousSpring.index_of(context.full_hand, context.other_card))) then
                     return {
                         mult = context.other_card.base.nominal * card.ability.extra.mult
                     }
@@ -91,7 +91,7 @@ JoyousSpring.Joker({
                 local column = JoyousSpring.get_joker_column(card)
                 if text ~= 'Unknown' then
                     for _, scoring_card in pairs(scoring_hand) do
-                        if next(SMODS.find_card("j_joy_mekk_spectrum")) or column == (JoyousSpring.index_of(JokerDisplay.current_hand, scoring_card)) then
+                        if not SMODS.has_no_rank(scoring_card) and (next(SMODS.find_card("j_joy_mekk_spectrum")) or column == (JoyousSpring.index_of(JokerDisplay.current_hand, scoring_card))) then
                             mult = mult + scoring_card.base.nominal * card.ability.extra.mult
                         end
                     end
@@ -219,7 +219,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.individual and context.cardarea == G.play then
-                if next(SMODS.find_card("j_joy_mekk_spectrum")) or JoyousSpring.get_joker_column(card) == (JoyousSpring.index_of(context.full_hand, context.other_card)) then
+                if not SMODS.has_no_rank(context.other_card) and (next(SMODS.find_card("j_joy_mekk_spectrum")) or JoyousSpring.get_joker_column(card) == (JoyousSpring.index_of(context.full_hand, context.other_card))) then
                     return {
                         dollars = context.other_card.base.nominal * card.ability.extra.money
                     }
@@ -247,7 +247,7 @@ JoyousSpring.Joker({
                 local column = JoyousSpring.get_joker_column(card)
                 if text ~= 'Unknown' then
                     for _, scoring_card in pairs(scoring_hand) do
-                        if next(SMODS.find_card("j_joy_mekk_spectrum")) or column == (JoyousSpring.index_of(JokerDisplay.current_hand, scoring_card)) then
+                        if not SMODS.has_no_rank(scoring_card) and (next(SMODS.find_card("j_joy_mekk_spectrum")) or column == (JoyousSpring.index_of(JokerDisplay.current_hand, scoring_card))) then
                             money = money + scoring_card.base.nominal * card.ability.extra.money
                         end
                     end
@@ -292,7 +292,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.repetition and context.cardarea == G.play then
-                if next(SMODS.find_card("j_joy_mekk_spectrum")) or JoyousSpring.get_joker_column(card) == (JoyousSpring.index_of(context.full_hand, context.other_card)) then
+                if not SMODS.has_no_rank(context.other_card) and (next(SMODS.find_card("j_joy_mekk_spectrum")) or JoyousSpring.get_joker_column(card) == (JoyousSpring.index_of(context.full_hand, context.other_card))) then
                     if SMODS.pseudorandom_probability(card, card.config.center.key, JoyousSpring.count_materials_owned({ { monster_archetypes = { "MekkKnight" } } }), card.ability.extra.odds) then
                         return {
                             repetitions = ((context.other_card.base.nominal >= 1) and context.other_card.base.nominal or nil)
@@ -349,7 +349,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.individual and context.cardarea == G.play then
-                if next(SMODS.find_card("j_joy_mekk_spectrum")) or JoyousSpring.get_joker_column(card) == (JoyousSpring.index_of(context.full_hand, context.other_card)) then
+                if not SMODS.has_no_rank(context.other_card) and (next(SMODS.find_card("j_joy_mekk_spectrum")) or JoyousSpring.get_joker_column(card) == (JoyousSpring.index_of(context.full_hand, context.other_card))) then
                     return {
                         chips = context.other_card.base.nominal * card.ability.extra.chips
                     }
@@ -377,7 +377,7 @@ JoyousSpring.Joker({
                 local column = JoyousSpring.get_joker_column(card)
                 if text ~= 'Unknown' then
                     for _, scoring_card in pairs(scoring_hand) do
-                        if next(SMODS.find_card("j_joy_mekk_spectrum")) or column == (JoyousSpring.index_of(JokerDisplay.current_hand, scoring_card)) then
+                        if not SMODS.has_no_rank(scoring_card) and (next(SMODS.find_card("j_joy_mekk_spectrum")) or column == (JoyousSpring.index_of(JokerDisplay.current_hand, scoring_card))) then
                             chips = chips + scoring_card.base.nominal * card.ability.extra.chips
                         end
                     end
@@ -566,7 +566,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "mekk_morningstar",
     atlas = 'MekkKnight',
-    pos = { x = 0, y = 2 },
+    pos = { x = 1, y = 2 },
     rarity = 2,
     blueprint_compat = true,
     eternal_compat = true,
@@ -657,7 +657,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "mekk_spectrum",
     atlas = 'MekkKnight',
-    pos = { x = 1, y = 2 },
+    pos = { x = 2, y = 2 },
     rarity = 3,
     blueprint_compat = true,
     eternal_compat = true,
@@ -713,7 +713,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "mekkcrus_avramax",
     atlas = 'MekkKnight',
-    pos = { x = 2, y = 2 },
+    pos = { x = 3, y = 2 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = false,
@@ -790,7 +790,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "mekkleg_scars",
     atlas = 'MekkKnight',
-    pos = { x = 3, y = 2 },
+    pos = { x = 0, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,

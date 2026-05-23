@@ -50,7 +50,7 @@ JoyousSpring.create_sell_and_use_buttons = function(card, args)
 
                 {
                     n = G.UIT.C,
-                    config = { ref_table = card, align = "cr", maxw = 1.25, padding = 0.1, r = 0.08, minw = 1.25, minh = 0, hover = true, shadow = true, colour = args.can_summon and G.C.JOY[args.summon_type] or G.C.UI.BACKGROUND_INACTIVE, button = args.can_summon and 'joy_perform_summon' or nil, handy_insta_action = "use" },
+                    config = { ref_table = card, align = "cr", maxw = 1.25, padding = 0.1, r = 0.08, minw = 1.25, minh = 0, hover = true, shadow = true, colour = args.can_summon and (G.C.JOY[args.summon_type] or G.C.JOY.NORMAL) or G.C.UI.BACKGROUND_INACTIVE, button = args.can_summon and 'joy_perform_summon' or nil, handy_insta_action = "use" },
                     nodes = {
                         { n = G.UIT.B, config = { w = 0.1, h = 0.6 } },
                         { n = G.UIT.T, config = { text = localize('k_joy_summon'), colour = G.C.UI.TEXT_LIGHT, scale = 0.55, shadow = true } }
@@ -250,7 +250,7 @@ function create_shop_card_ui(card, type, area)
                 return true
             end)
         }))
-    elseif JoyousSpring.is_summon_type(card, "RITUAL") then
+    elseif JoyousSpring.is_summon_type(card, "RITUAL") or JoyousSpring.does_tribute_in_shop(card) then
         G.E_MANAGER:add_event(Event({
             trigger = 'after',
             delay = 0.43,
@@ -364,9 +364,9 @@ function Card:highlight(is_highlighted)
             self.children.use_button = UIBox {
                 definition = JoyousSpring.create_sell_and_use_buttons(self, {
                     sell = true,
-                    summon = not (self.ability.joy_extra_values or {}).sidedeck_from_field and JoyousSpring.is_summon_type(self, "RITUAL"),
+                    summon = not (self.ability.joy_extra_values or {}).sidedeck_from_field and (JoyousSpring.is_summon_type(self, "RITUAL") or JoyousSpring.does_tribute_in_shop(self)),
                     can_summon = not (self.ability.joy_extra_values or {}).sidedeck_from_field and JoyousSpring.can_summon(self),
-                    summon_type = not (self.ability.joy_extra_values or {}).sidedeck_from_field and JoyousSpring.is_summon_type(self, "RITUAL") and "RITUAL" or nil
+                    summon_type = not (self.ability.joy_extra_values or {}).sidedeck_from_field and (JoyousSpring.is_summon_type(self, "RITUAL" or JoyousSpring.does_tribute_in_shop(self))) and "RITUAL" or nil
                 }),
                 config = {
                     align = "cr",
@@ -398,7 +398,7 @@ function Card:highlight(is_highlighted)
             self.children.use_button:remove()
             self.children.use_button = nil
         end
-    elseif JoyousSpring.is_summon_type(self, "RITUAL") and self.area and self.area == G.pack_cards then
+    elseif (JoyousSpring.is_summon_type(self, "RITUAL") or JoyousSpring.does_tribute_in_shop(self)) and self.area and self.area == G.pack_cards then
         self.highlighted = is_highlighted
         local can_summon = JoyousSpring.can_summon(self)
         if self.highlighted then
@@ -758,6 +758,36 @@ function Game:start_run(args)
                         padding = 0.1,
                         r = 0.1,
                         hover = true,
+                        colour = G.C.JOY.LINK,
+                        shadow = true,
+                        button = "joy_open_side_deck",
+                        func = "joy_show_side_deck"
+                    },
+                    nodes = {
+                        {
+                            n = G.UIT.R,
+                            config = { align = "bcm", padding = 0 },
+                            nodes = {
+                                {
+                                    n = G.UIT.T,
+                                    config = {
+                                        text = localize('k_joy_side_deck'),
+                                        scale = 0.35,
+                                        colour = G.C.UI.TEXT_LIGHT
+                                    }
+                                }
+                            }
+                        },
+                    }
+                },
+                {
+                    n = G.UIT.C,
+                    config = {
+                        align = "tm",
+                        minw = 2,
+                        padding = 0.1,
+                        r = 0.1,
+                        hover = true,
                         colour = G.C.JOY.TRAP,
                         shadow = true,
                         button = "joy_open_graveyard",
@@ -814,7 +844,7 @@ function Game:start_run(args)
         },
         config = {
             align = "tr",
-            offset = { x = -4, y = 0 },
+            offset = { x = -6, y = 0 },
             major = G.ROOM_ATTACH,
             bond = 'Weak'
         }
@@ -845,7 +875,7 @@ JoyousSpring.card_focus_ui = function(card, base_background)
     local base_attach = base_background:get_UIE_by_ID('ATTACH_TO_ME')
     local card_width = card.T.w
     if not card.area then return base_background end
-    if not JoyousSpring.is_summon_type(card, "RITUAL") and card.area == G.shop_jokers then
+    if not (JoyousSpring.is_summon_type(card, "RITUAL") or JoyousSpring.does_tribute_in_shop(card)) and card.area == G.shop_jokers then
         local buy_and_use = nil
         if JoyousSpring.is_pendulum_monster(card) then
             base_attach.children.buy_and_use = G.UIDEF.card_focus_button {
@@ -865,12 +895,12 @@ JoyousSpring.card_focus_ui = function(card, base_background)
             func = 'joy_can_use', button = 'joy_use_card', card_width = card_width
         }
     end
-    if JoyousSpring.is_summon_type(card, "RITUAL") and (card.area == G.pack_cards or card.area == G.shop_jokers) and JoyousSpring.can_summon(card) then
+    if (JoyousSpring.is_summon_type(card, "RITUAL") or JoyousSpring.does_tribute_in_shop(card)) and (card.area == G.pack_cards or card.area == G.shop_jokers) and JoyousSpring.can_summon(card) then
         base_attach.children.use = G.UIDEF.card_focus_button {
             card = card, parent = base_attach, type = 'select', func = "joy_focus_summon", button = 'joy_perform_summon', card_width = card_width
         }
     end
-    if not JoyousSpring.is_summon_type(card, "RITUAL") and card.area == G.pack_cards then
+    if not (JoyousSpring.is_summon_type(card, "RITUAL") or JoyousSpring.does_tribute_in_shop(card)) and card.area == G.pack_cards then
         base_attach.children.use = G.UIDEF.card_focus_button {
             card = card, parent = base_attach, type = 'select',
             func = 'can_select_card', button = 'use_card', card_width = card_width

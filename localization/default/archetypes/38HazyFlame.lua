@@ -25,7 +25,7 @@ return {
                 text = {
                     {
                         "If {C:attention}tributed{}, creates a {C:dark_edition}Negative{}",
-                        "{C:attention}Eternal{} {C:joy_effect}\"Hazy Flame Cerbereus\"{}",
+                        "Debuffed {C:attention}Eternal{} {C:joy_effect}\"Hazy Flame Cerbereus\"{}",
                         "and adds {C:attention}1 Eternal{} {C:joy_spell}Extra Deck{} {C:attention}Joker{}",
                         "to the shop"
                     },
@@ -53,8 +53,9 @@ return {
                 text = {
                     {
                         "If {C:attention}Eternal{}, adds a {C:joy_xyz}\"Hazy Flame Basiltrice\"{}",
-                        "to the {C:joy_spell}Extra Deck{}",
+                        "to the {C:joy_spell}Extra Deck{} when {C:attention}Blind{} is selected",
                         "or another random {C:joy_xyz}Xyz{} if already there",
+                        "{C:inactive}(Must have room)"
                     },
                     {
                         "Can be used as {C:attention}material{}",
@@ -95,7 +96,8 @@ return {
                         "Once per round, you can {C:attention}tribute 1{}",
                         "{C:attention}Eternal Joker{} to {C:attention}revive 1{}",
                         "{C:joy_normal}Main Deck \"Hazy Flame\"{}",
-                        "or {C:joy_fire}FIRE{} if not"
+                        "or {C:joy_fire}FIRE{} if none",
+                        "{C:inactive}(Doesn't need room)"
                     },
                     {
                         "Can be used as {C:attention}material{}",
@@ -109,7 +111,7 @@ return {
                     {
                         "Once per round, you can {C:attention}tribute 1{}",
                         "{C:attention}Eternal Joker{} to create {C:attention}2{}",
-                        "{C:attention}Eternal {C:joy_normal}Main Deck \"Hazy Flame\"{}",
+                        "{C:joy_normal}Main Deck \"Hazy Flame\"{}",
                     },
                     {
                         "Can be used as {C:attention}material{}",
@@ -143,6 +145,7 @@ return {
                     "{C:attention}2+{} {C:attention}Eternal Jokers{}",
                     "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, {s:0.9,C:joy_link}Links{}",
                     "{s:0.9,C:inactive}or {s:0.9,C:joy_token}Tokens{s:0.9,C:inactive})",
+                    "Doesn't need room"
                 }
             },
         }

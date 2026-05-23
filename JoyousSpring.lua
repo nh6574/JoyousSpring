@@ -18,7 +18,7 @@ local filelist = {
     "utils",
     "globals",
     "mod_info",
-    "states",
+    "sidedeck",
     "general_ui",
     "card_ui",
     "zones",
@@ -44,7 +44,8 @@ end
 -- Jokers
 local joker_src = SMODS.NFS.getDirectoryItems(SMODS.current_mod.path .. "src/jokers")
 for _, file in ipairs(joker_src) do
-    if JoyousSpring.dev_content or (tonumber(file:sub(1, 2)) <= 33) or (tonumber(file:sub(1, 2)) == 99) then
+    local number = tonumber(file:sub(1, 2))
+    if JoyousSpring.dev_content or (number <= 34) or (number >= 36 and number <= 39) or (number == 41) or (number == 99) then
         sendInfoMessage("Loading " .. file, "JoyousSpring")
         assert(SMODS.load_file("src/jokers/" .. file))()
     end

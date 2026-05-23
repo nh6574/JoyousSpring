@@ -3,8 +3,8 @@
 -- Patissciel Couverture
 JoyousSpring.Joker({
     key = "couverture",
-    atlas = 'Misc03',
-    pos = { x = 4, y = 3 },
+    atlas = 'Misc01',
+    pos = { x = 5, y = 5 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
