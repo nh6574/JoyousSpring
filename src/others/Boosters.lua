@@ -297,7 +297,7 @@ SMODS.Booster({
 })
 
 JoyousSpring.secret_booster = SMODS.Booster:extend {
-    atlas = "Booster",
+    atlas = "joy_Booster",
     pos = { x = 1, y = 1 },
     discovered = true,
     class_prefix = 'p_secret_pack',
