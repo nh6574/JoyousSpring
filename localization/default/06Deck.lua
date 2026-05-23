@@ -32,7 +32,7 @@ return {
                 text = {
                     "Starts with a random",
                     "{C:attention}Ghost Girl{}",
-                    "and a {C:tarot,T:c_strength}Strength{}"
+                    "and {C:tarot,T:c_strength}Strength{}"
                 }
             },
             b_joy_spright = {
