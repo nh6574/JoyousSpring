@@ -272,6 +272,15 @@ function Game:start_run(args)
     if self.GAME.modifiers["joy_extra_deck_slots"] then
         JoyousSpring.extra_deck_area:change_size(-5 + self.GAME.modifiers["joy_extra_deck_slots"])
     end
+    if self.GAME.modifiers["joy_field_spell_slots"] then
+        JoyousSpring.field_spell_area:change_size(-1 + self.GAME.modifiers["joy_field_spell_slots"])
+    end
+    if self.GAME.modifiers["joy_opponent_slots"] then
+        JoyousSpring.opponent_area:change_size(-5 + self.GAME.modifiers["joy_opponent_slots"])
+    end
+    if self.GAME.modifiers["joy_side_deck_slots"] then
+        JoyousSpring.side_deck_area:change_size(-5 + self.GAME.modifiers["joy_side_deck_slots"])
+    end
 
     self.joy_extra_deck = UIBox {
         definition = JoyousSpring.create_UIBox_extra_deck(),

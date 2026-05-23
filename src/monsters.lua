@@ -101,6 +101,18 @@ local get_attributes_from_joy_table = function(center)
     return attributes
 end
 
+local get_weight_modifiers = function(key, append)
+    if not key or not G.GAME.modifiers.joy_modify_weight then return 1 end
+    local mod = 1
+    for _, modifier in ipairs(G.GAME.modifiers.joy_modify_weight) do
+        if (not modifier.append or modifier.append == append)
+            and JoyousSpring.is_material_center(key, modifier.properties) then
+            mod = mod * modifier.weight_mod
+        end
+    end
+    return mod
+end
+
 JoyousSpring.Joker = SMODS.Joker:extend {
     unlocked = true,
     discovered = true,
@@ -158,10 +170,12 @@ JoyousSpring.Joker = SMODS.Joker:extend {
         self.joy_glossary = next(joy_glossary) and joy_glossary or nil
     end,
     get_weight = function(self, original_weight, args)
+        local other_mod = get_weight_modifiers(self.key, (args or {}).append)
         if G.GAME.joy_only_ygo_cards then
             local rarity = ({ "Common", "Uncommon", "Rare", "Legendary" })[self.rarity]
             local weight = original_weight
             local mod = G.GAME[tostring(rarity):lower() .. "_mod"] or 1
+            local args = args or {}
             if SMODS.Rarities[rarity] and type(SMODS.Rarities[rarity].get_weight) == "function" then
                 weight = SMODS.Rarities[rarity]:get_weight(SMODS.Rarities[rarity].default_weight,
                     SMODS.ObjectTypes['Joker']) * 10
@@ -176,9 +190,9 @@ JoyousSpring.Joker = SMODS.Joker:extend {
                     weight = (legend or args.append == "sou") and 10 or 0.1
                 end
             end
-            return weight * mod
+            return weight * mod * other_mod
         end
-        return 10
+        return 10 * other_mod
     end
 }
 

@@ -714,7 +714,9 @@ JoyousSpring.can_summon_with_combo = function(card, combo)
                     end
                 end
                 local restrictions = condition.restrictions or {}
-                return restrictions.no_room or JoyousSpring.get_card_limit(card) > 0 or
+                local summon_with_no_room = restrictions.no_room or
+                    (G.GAME.modifiers.joy_summon_no_room or {})[condition.type or ""]
+                return summon_with_no_room or JoyousSpring.get_card_limit(card) > 0 or
                     (#G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit + materials),
                     false
             end

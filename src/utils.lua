@@ -154,7 +154,7 @@ JoyousSpring.flip_random_card = function(source_card, card_list, facing, seed)
 end
 
 ---Flip all cards in all areas or in *area*
----@param source Card?
+---@param source Card|string?
 ---@param flip_direction 'front'|'back'?
 ---@param areas CardArea[]|table[]?
 JoyousSpring.flip_all_cards = function(source, flip_direction, areas)
@@ -169,7 +169,7 @@ JoyousSpring.flip_all_cards = function(source, flip_direction, areas)
             end
         end
         if flip_direction == 'back' and any_flipped then
-            area:shuffle(source and source.config.center.key or "JoyousSpring")
+            area:shuffle(source and (type(source) == "string" and source or source.config.center.key) or "JoyousSpring")
         end
     end
 end
@@ -820,6 +820,21 @@ JoyousSpring.calculate_prototype_function = function(func, args, ...)
                 return_value = return_func(obj_return, return_value)
                 if args.return_if_true and return_value then return return_value end
             end
+        end
+    end
+
+    if G.GAME.selected_back and not args.ignore_deck then
+        if type(G.GAME.selected_back.effect.center[func]) == "function" then
+            local obj_return
+            if not args.pass_return then
+                obj_return = G.GAME.selected_back.effect.center[func](G.GAME.selected_back.effect.center,
+                    G.GAME.selected_back, ...)
+            else
+                obj_return = G.GAME.selected_back.effect.center[func](G.GAME.selected_back.effect.center,
+                    G.GAME.selected_back, return_value, ...)
+            end
+            return_value = return_func(obj_return, return_value)
+            if args.return_if_true and return_value then return return_value end
         end
     end
 

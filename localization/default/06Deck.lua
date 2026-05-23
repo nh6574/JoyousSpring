@@ -45,7 +45,13 @@ return {
             b_joy_mekk = {
                 name = "{C:joy_spell}World Legacy's Memory",
                 text = {
-                    "TBD"
+                    "Starts with",
+                    "{C:joy_link,T:j_joy_mekk_spectrum}\"Mekk-Knight Spectrum Supreme\"",
+                    "in the {C:joy_spell}Extra Deck{}",
+                    "and only {C:attention}3{} copies",
+                    "of each {C:attention}Ace{}",
+                    "and {C:attention}Face{} card",
+                    "in the deck"
                 }
             },
             b_joy_generaider = {
@@ -98,7 +104,7 @@ return {
                     " ",
                     "Cards drawn in",
                     "the first hand of round",
-                    "have a {C:green}1 in 2{} chance",
+                    "have a {C:green}#1# in #2#{} chance",
                     "to be face-down"
                 }
             },
@@ -135,7 +141,7 @@ return {
             b_joy_solfa = {
                 name = "{C:joy_spell}Solfachord Symphony",
                 text = {
-                    "Starts with only",
+                    "Starts with",
                     "{C:attention}26 even{} and {C:attention}26 odd{}",
                     "ranks in the deck",
                     " ",
@@ -147,19 +153,28 @@ return {
             b_joy_witch = {
                 name = "{C:joy_spell}Witchcrafter Bystreet",
                 text = {
-                    "TBD"
+                    "Starts with",
+                    "{C:tarot,T:v_tarot_merchant}Tarot Merchant{}",
+                    "{C:tarot,T:v_tarot_tycoon}Tarot Tycoon{} and",
+                    "{C:joy_fusion,T:j_joy_witch_vicemadame}\"Witchcrafter Vice-Madame\"{}",
+                    "in the {C:joy_spell}Extra Deck{}",
                 }
             },
             b_joy_shaddoll = {
                 name = "{C:joy_trap}Sinister Shadow Games",
                 text = {
-                    "TBD"
+                    "{C:joy_fusion}Fusions{} don't require",
+                    "room to {C:attention}summon{}",
+                    " ",
+                    "{C:joy_fusion}Fusion{} and {C:joy_effect}Flip{}",
+                    "{C:attention}Jokers{} appear more",
+                    "frequently in the shop"
                 }
             },
             b_joy_paleo = {
                 name = "{C:joy_spell}That Grass Looks Greener",
                 text = {
-                    "Start with {C:attention}20{} random",
+                    "Start with {C:attention}20{} random {C:joy_trap}Trap{}",
                     "{C:joy_normal}\"Paleozoic\"{} in the {C:attention}GY{} and a",
                     "{C:joy_link,T:j_joy_paleo_cambro}\"Paleozoic Cambroraster\"{}",
                     "in the {C:joy_spell}Extra Deck{}",
@@ -275,19 +290,36 @@ return {
             b_joy_zoo = {
                 name = "{C:joy_spell}Zoodiac Barrage",
                 text = {
-                    "TBD"
+                    "Start with",
+                    "{C:joy_spell,T:j_joy_xyzterritory}\"Xyz Territory\"{}",
+                    " ",
+                    "Attach a {C:attention}material{}",
+                    "to each {C:joy_xyz}Xyz{}",
+                    "when {C:attention}Blind{} is selected"
                 }
             },
             b_joy_centur = {
                 name = "{C:joy_trap}Centur-Ion True Awakening",
                 text = {
-                    "TBD"
+                    "{C:attention}+5{} {C:joy_link}Side Deck{} slots",
+                    " ",
+                    "{C:joy_synchro}Synchro{} and {C:joy_synchro}Tuner{}",
+                    "{C:attention}Jokers{} appear more",
+                    "frequently in the shop"
                 }
             },
             b_joy_wforest = {
                 name = "{C:joy_spell}Sinful Spoils of the White Forest",
                 text = {
-                    "TBD"
+                    "Starts with",
+                    "{C:attention,T:v_overstock_norm}Overstock{}",
+                    " ",
+                    "{C:spectral}Spectrals{} may appear",
+                    "in the shop",
+                    " ",
+                    "{C:joy_normal}Spellcaster{} and {C:joy_normal}Illusion{}",
+                    "{C:attention}Jokers{} appear more",
+                    "frequently in the shop"
                 }
             },
             b_joy_dracotail = {
@@ -327,14 +359,21 @@ return {
                     "{C:joy_xyz,T:j_joy_hazy_basil}\"Hazy Flame Basiltrice\"{}",
                     "in the {C:joy_spell}Extra Deck{}",
                     " ",
-                    "{C:attention}Eternal{} {C:attention}Jokers{} appear",
-                    "frequently in the shop",
+                    "{C:attention}Eternal{} {C:attention}Jokers{} may",
+                    "appear in the shop",
                 }
             },
             b_joy_thief = {
                 name = "{C:joy_trap}Time Thief Flyback",
                 text = {
-                    "TBD"
+                    "Creates an {C:attention}Enhancement{} {C:tarot}Tarot{},",
+                    "{C:attention}Edition{} {C:spectral}Spectral{} or",
+                    "{C:attention}Seal{} {C:spectral}Spectral{}",
+                    "when {C:attention}Blind{} is selected",
+                    "{C:inactive}(Must have room)",
+                    " ",
+                    "{C:joy_xyz}Xyz{} appear more",
+                    "frequently in the shop"
                 }
             },
             b_joy_dm = {
@@ -347,8 +386,8 @@ return {
                 name = "{C:joy_spell}S-Force Showdown",
                 text = {
                     "Only {C:joy_normal}\"S-Force\"{}",
-                    "related cards can appear",
-                    "in the shop"
+                    "related {C:joy_normal}Monster{} {C:attention}Jokers{}",
+                    "can appear in the shop"
                 }
             },
         },

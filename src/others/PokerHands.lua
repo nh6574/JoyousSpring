@@ -647,6 +647,8 @@ SMODS.Consumable {
 --#region VW
 
 local vw_is_hand_active = function()
+    if G.GAME.modifiers.joy_vw_hands then return true end
+
     local enablers = {
         "j_joy_vw_lulu",
         "j_joy_vw_nyannyan",
