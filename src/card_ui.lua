@@ -486,7 +486,7 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
         end
 
         -- Add tooltip if the card is in the sidedeck and hasn't been summoned
-        if not card.fake_card and card.area and card.area == JoyousSpring.side_deck_area and
+        if not card.fake_card and (card.area and card.area == JoyousSpring.side_deck_area or card.joy_side_deck_pos) and
             not (card.ability.joy_extra_values or {}).sidedeck_from_field and
             (JoyousSpring.is_extra_deck_monster(card) or JoyousSpring.is_summon_type(card, "RITUAL")) then
             table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_sidedecknotsummoned" })
