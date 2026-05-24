@@ -448,9 +448,7 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
 
             -- Add tooltip if it can't be bought in the shop
             if self.joy_no_shop and not card.fake_card then
-                if not card.fake_card then
-                    table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_no_shop" })
-                end
+                table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_no_shop" })
             end
             -- Add tooltip if it's a trap
             if JoyousSpring.is_trap_monster(card) and not card.fake_card and not card.debuffed then
@@ -480,6 +478,18 @@ JoyousSpring.generate_info_ui = function(self, info_queue, card, desc_nodes, spe
         -- Add tooltip if it has a related cards menu
         if self.joy_desc_cards and not card.fake_card then
             table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_related" })
+        end
+
+        -- Add tooltip if the card is in the sidedeck when summoning
+        if card.joy_side_deck_pos and not card.fake_card then
+            table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_sidedecksummon" })
+        end
+
+        -- Add tooltip if the card is in the sidedeck and hasn't been summoned
+        if not card.fake_card and card.area and card.area == JoyousSpring.side_deck_area and
+            not (card.ability.joy_extra_values or {}).sidedeck_from_field and
+            (JoyousSpring.is_extra_deck_monster(card) or JoyousSpring.is_summon_type(card, "RITUAL")) then
+            table.insert(info_queue, 1, { set = "Other", key = "joy_tooltip_sidedecknotsummoned" })
         end
     end
 end

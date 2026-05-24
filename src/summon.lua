@@ -301,11 +301,11 @@ end
 local get_side_deck_cards = function()
     local cards = {}
     for _, joker in ipairs(JoyousSpring.side_deck_area.cards) do
-        if not JoyousSpring.is_field_spell(joker) then
+        if not JoyousSpring.is_field_spell(joker) and ((not JoyousSpring.is_extra_deck_monster(joker) and not JoyousSpring.is_summon_type(joker, "RITUAL")) or (joker.ability.joy_extra_values or {}).sidedeck_from_field) then
             cards[#cards + 1] = joker
         end
     end
-    return JoyousSpring.side_deck_area.cards
+    return cards
 end
 
 local function get_combinations(list, condition, max_size)
