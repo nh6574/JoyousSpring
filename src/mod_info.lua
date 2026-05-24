@@ -701,7 +701,6 @@ create_UIBox_your_collection_jokers = function()
     return create_UIBox_your_collection_jokers_ref()
 end
 
-
 ---Modified from SMODS. Creates the UI for the Joker collection sorting by archetype in JoyousSpring.collection_pool
 ---@param _pool table
 ---@param rows table
@@ -831,6 +830,186 @@ JoyousSpring.card_collection_UIBox = function(_pool, rows, args)
 
     G.FUNCS.SMODS_card_collection_page { cycle_config = { current_option = 1 } }
 
+    local collection_ui = {
+        { n = G.UIT.R, config = { align = "cm", r = 0.1, colour = G.C.BLACK, emboss = 0.05 }, nodes = deck_tables },
+        {
+            n = G.UIT.R,
+            config = { align = "cm" },
+            nodes = {
+                create_option_cycle({
+                    id = "joy_collection_cycle",
+                    options = options,
+                    w = 5,
+                    cycle_shoulders = true,
+                    opt_callback =
+                    'SMODS_card_collection_page',
+                    current_option = 1,
+                    colour = darken(G.C.JOY.MOD, 0.2),
+                    no_pips = true,
+                    focus_args = { snap_to = true, nav = 'wide' },
+                    mid = SMODS.GUI.dropdown_select({
+                        id = "joy_collection_dropdown",
+                        options = options,
+                        ref_table = JoyousSpring,
+                        ref_value = "collection_dropdown",
+                        minw = 5,
+                        scale = 0.5,
+                        align = "cm",
+                        option_align = "cm",
+                        callback = "joy_card_collection_dropdown",
+                        colour = darken(G.C.JOY.MOD, 0.2),
+                        max_menu_h = 3,
+                        border_colour = G.C.JOY.XYZ,
+                        dropdown_bg_colour = darken(G.C.JOY.MOD, 0.2),
+                        selected_colour = G.C.JOY.MOD,
+                        close_on_select = true,
+                    }),
+                })
+            }
+        },
+    }
+
+    local text_wrap = function(text, length)
+        local ret = {}
+        local line = ""
+        local sanitized_line = ""
+        local original = {}
+        local sanitized = {}
+
+        for word in text:gmatch("%S+") do
+            original[#original + 1] = word
+            sanitized[#sanitized + 1] = string.gsub(word, "{.-}", "")
+        end
+
+        for i, word in ipairs(original) do
+            local new_line = sanitized_line .. " " .. sanitized[i]
+
+            if #new_line > length then
+                ret[#ret + 1] = line
+                line = word
+                sanitized_line = sanitized[i]
+            else
+                line = line .. " " .. word
+                sanitized_line = new_line
+            end
+        end
+
+        if ret[#ret] ~= line and line ~= "" then ret[#ret + 1] = line end
+        return ret
+    end
+
+    local create_archetype_loc_ui = function(archetype_prefix)
+        local name = localize("k_joy_archetype_" .. archetype_prefix)
+        local nodes = {
+            {
+                n = G.UIT.R,
+                config = { align = "cm", minw = 1 },
+                nodes = {
+                    {
+                        n = G.UIT.B,
+                        config = { w = 0.1, h = 0.1 }
+                    }
+                }
+            },
+            {
+                n = G.UIT.R,
+                config = { align = "tm", minw = 1 },
+                nodes = {
+                    {
+                        n = G.UIT.O,
+                        config = {
+                            object = DynaText({
+                                string = { name },
+                                colours = { G.C.UI.TEXT_LIGHT },
+                                bump = true,
+                                pop_in = 0,
+                                pop_in_rate = 4,
+                                maxw = 5,
+                                y_offset = -0.6,
+                                spacing = math.max(0, 0.32 * (17 - #name)),
+                                scale = (0.55 - 0.004 * #name) * 1.2
+                            })
+                        }
+                    }
+                }
+            },
+            {
+                n = G.UIT.R,
+                config = { align = "cm", minw = 1 },
+                nodes = {
+                    {
+                        n = G.UIT.B,
+                        config = { w = 0.1, h = 0.1 }
+                    }
+                }
+            }
+        }
+
+        local loc = G.localization.descriptions.JoyousSpring.Blurbs[archetype_prefix]
+        if loc then
+            local story = loc.story
+            local gameplay = loc.gameplay
+
+            for i, loctable in ipairs({ story or {}, gameplay or {} }) do
+                local title = i == 1 and "Story" or "Gameplay"
+                nodes[#nodes + 1] = {
+                    n = G.UIT.R,
+                    config = { align = "cm", minw = 1 },
+                    nodes = {
+                        {
+                            n = G.UIT.O,
+                            config = {
+                                object = DynaText({
+                                    string = { title },
+                                    colours = { G.C.UI.TEXT_LIGHT },
+                                    maxw = 5,
+                                    y_offset = -0.6,
+                                    spacing = math.max(0, 0.32 * (17 - #title)),
+                                    scale = (0.55 - 0.004 * #title) * 0.8
+                                })
+                            }
+                        }
+                    }
+                }
+                for loc_i, line in ipairs(loctable) do
+                    local sublines = text_wrap(line, 40)
+                    for _, subline in ipairs(sublines) do
+                        nodes[#nodes + 1] = {
+                            n = G.UIT.R,
+                            config = { align = "cm", minw = 1 },
+                            nodes = SMODS.localize_box(loc_parse_string(subline), { text_colour = G.C.UI.TEXT_LIGHT })
+                        }
+                    end
+                    if loc_i ~= #loctable then
+                        nodes[#nodes + 1] = {
+                            n = G.UIT.R,
+                            config = { align = "cm", minw = 1 },
+                            nodes = {
+                                {
+                                    n = G.UIT.B,
+                                    config = { w = 0.1, h = 0.2 }
+                                }
+                            }
+                        }
+                    end
+                end
+                if i == 1 and gameplay then
+                    nodes[#nodes + 1] = {
+                        n = G.UIT.R,
+                        config = { align = "cm", minw = 1 },
+                        nodes = {
+                            {
+                                n = G.UIT.B,
+                                config = { w = 0.1, h = 0.3 }
+                            }
+                        }
+                    }
+                end
+            end
+        end
+        return nodes
+    end
+
     local t = create_UIBox_generic_options({
         bg_colour = { G.C.JOY.MOD[1], G.C.JOY.MOD[2], G.C.JOY.MOD[3], 0.6 } or nil,
         colour = G.C.JOY.XYZ or nil,
@@ -839,43 +1018,18 @@ JoyousSpring.card_collection_UIBox = function(_pool, rows, args)
         snap_back = args.snap_back,
         infotip = args.infotip,
         contents = {
-            { n = G.UIT.R, config = { align = "cm", r = 0.1, colour = G.C.BLACK, emboss = 0.05 }, nodes = deck_tables },
             {
-                n = G.UIT.R,
-                config = { align = "cm" },
-                nodes = {
-                    create_option_cycle({
-                        id = "joy_collection_cycle",
-                        options = options,
-                        w = 5,
-                        cycle_shoulders = true,
-                        opt_callback =
-                        'SMODS_card_collection_page',
-                        current_option = 1,
-                        colour = darken(G.C.JOY.MOD, 0.2),
-                        no_pips = true,
-                        focus_args = { snap_to = true, nav = 'wide' },
-                        mid = SMODS.GUI.dropdown_select({
-                            id = "joy_collection_dropdown",
-                            options = options,
-                            ref_table = JoyousSpring,
-                            ref_value = "collection_dropdown",
-                            minw = 5,
-                            scale = 0.5,
-                            align = "cm",
-                            option_align = "cm",
-                            callback = "joy_card_collection_dropdown",
-                            colour = darken(G.C.JOY.MOD, 0.2),
-                            max_menu_h = 3,
-                            border_colour = G.C.JOY.XYZ,
-                            dropdown_bg_colour = darken(G.C.JOY.MOD, 0.2),
-                            selected_colour = G.C.JOY.MOD,
-                            close_on_select = true,
-                        }),
-                    })
-                }
+                n = G.UIT.C,
+                config = {},
+                nodes = collection_ui
+            },
+            {
+                n = G.UIT.C,
+                config = { align = "tm", minw = 4, r = 0.2, colour = G.C.BLACK, padding = 0.1 },
+                nodes = create_archetype_loc_ui("dmaid")
             },
         }
     })
+
     return t
 end

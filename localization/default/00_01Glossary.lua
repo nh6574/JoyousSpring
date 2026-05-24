@@ -460,7 +460,7 @@ return {
                     " ",
                     "This includes buying non-{C:joy_spell}Special{} {C:attention}Jokers{}, {C:attention}summoning{} {C:joy_spell}Special{} {C:attention}Jokers{},",
                     "moving a card from the {C:joy_link}Side Deck{} to an play area for the first time,",
-                    "{C:attention}reviving{} a card or {C:attention}transforming{} into a card",
+                    "creating or {C:attention}reviving{} a card, and {C:attention}transforming{} into a card",
                 },
             },
             modifier = {
