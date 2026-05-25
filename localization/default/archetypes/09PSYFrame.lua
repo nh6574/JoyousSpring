@@ -162,6 +162,15 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            psy = {
+                story = {
+                    "{C:gold}[From the \"S-Force\" storyline]{}",
+                },
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_psy = "PSY-Frame",

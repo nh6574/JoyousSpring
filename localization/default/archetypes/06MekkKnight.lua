@@ -160,6 +160,7 @@ return {
         Blurbs = {
             mekk = {
                 story = {
+                    "{C:gold}[From the \"World Legacy\" storyline]{}",
                     "{C:joy_normal}\"Mekk-Knights\"{}, the rulers of the realm of machines appeared glowing in the seven colors of the rainbow.",
                     "{C:joy_effect}\"Iblee\"{} tried to seize the sacred staff sealed inside the core of {C:joy_effect}\"Blue Sky\"{}. As the {C:joy_normal}\"Mekk-Knights\"{} knew the sacred staff was actually the 'Key' that controlled the fate of the stars and the very planet itself, {C:joy_effect}\"Blue Sky\"{} attempted to made {C:joy_normal}\"Auram\"{} his heir in this darkest hour. {C:joy_normal}\"Auram\"{} opened his heart to the {C:joy_normal}\"Mekk-Knight\"{} and inherited the power of the staff. Now in his hands, the 'Key' transformed into a pair of swords.",
                 },

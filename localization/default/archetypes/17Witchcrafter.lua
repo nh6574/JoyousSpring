@@ -164,6 +164,7 @@ return {
         Blurbs = {
             witch = {
                 story = {
+                    "{C:gold}[From the \"Great Magic War\" storyline]{}",
                     "In the magical city specializing in trade and commerce near {C:joy_spell}\"Endymion\"{}, the guild {C:joy_normal}\"Witchcrafter\"{}, who create various items and crafts by infusing them with magic by using each of their skills and specialties, have become the talk of the town. The ingenuity of their magical goods have even caught the eye of the {C:joy_normal}\"Master Magician\"{} himself.",
                 },
             }

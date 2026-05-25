@@ -121,6 +121,7 @@ return {
         Blurbs = {
             spright = {
                 story = {
+                    "{C:gold}[From the \"Abyss\" storyline]{}",
                     "In order to help out {C:joy_effect}\"Albaz\"{} and {C:joy_effect}\"Ecclesia\"{}, the {C:joy_normal}\"Springans\"{} have traveled all the way to the {C:attention}Iron Country{}. After a fierce battle, they finally made it to {C:joy_spell}\"Argyro {C:joy_spell}System\"{}, the boss of the {C:attention}Iron Country{}. All of a sudden a tremendous rumbling came from it that ignited volcanic lightning. There appeared the {C:joy_normal}\"Sprights\"{}, immortal energy lifeforms that were split-bodies of the {C:joy_spell}\"Argyro {C:joy_spell}System\"{}, and the administrators of the ark of the beasts, the {C:joy_spell}\"Discolosseum\".",
                 },
                 gameplay = {

@@ -171,6 +171,7 @@ return {
         Blurbs = {
             ltwin = {
                 story = {
+                    "{C:gold}[From the \"S-Force\" storyline]{}",
                     "To the public they're the popular streamer duo {C:joy_normal}\"Live{C:joy_normal,f:joy_font}☆{}{C:joy_normal}Twin\"{}... but their true identity is the beautiful cat burglar ladies {C:joy_normal}\"Evil{C:joy_normal,f:joy_font}★{}{C:joy_normal}Twin\"{}!",
                 },
                 gameplay = {
