@@ -429,6 +429,15 @@ return {
             }
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            purr = {
+                story = {
+                    "A fashionable town with colorful houses, cafes, and stores. In this pastel-colored town existed the {C:joy_normal}Purrelies{}, who lived with people and grew alongside boys and girls.",
+                },
+            }
+        }
+    },
     misc = {
         poker_hands = {
             joy_purr_yeap = "Purrelyeap!?"

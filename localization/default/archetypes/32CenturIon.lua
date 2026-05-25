@@ -178,6 +178,15 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            centur = {
+                story = {
+                    "The {C:attention}Centur-Ia Empire{}, thanks to the impact of a massive magical meteorite, grew in prosperity but also became threatened by the shadowy evil known as {C:attention}'Shade'{}. {C:joy_effect}\"Primera\"{}, a small girl whom people often bad-mouthed behind her back, and {C:joy_effect}\"Trudea\"{}, who tried to cheer her up: together, they proposed forming a team with {C:joy_effect}\"Emeth VI\"{}. {C:attention}«We'll aim for {C:attention}the top with this team! We'll become the {C:attention}strongest knights!»{} {C:joy_effect}\"Primera\"{} and {C:joy_effect}\"Trudea\"{} whole-heartedly believed in this goal.",
+                },
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_centur = "Centur-Ion",

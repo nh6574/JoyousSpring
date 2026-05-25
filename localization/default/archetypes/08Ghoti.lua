@@ -186,6 +186,15 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            fish = {
+                story = {
+                    "{C:joy_normal}\"Ghoti\"{} dwell in an alternate dimension that spans eternity. It is simultaneously the furthest end and the beginning.",
+                },
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_fish = "Ghoti",

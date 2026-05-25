@@ -254,6 +254,15 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            invoked = {
+                story = {
+                    "The genius sorcerer from days long ago: {C:joy_effect}\"Aleister\"{}. He mastered forbidden magic called {C:joy_spell}\"Invocation\"{} that allows him to call forth even spirits, conjurations, and gods from spheres and planes unknown, but his existence and all his research was erased from the annals of magic as {C:attention}\"La Maison\"{} was constructed. The truth is {C:joy_effect}\"Aleister\"{}, during an experiment, ended up partially merging with one of those gods or spirits. Currently he is being held in the deepest depths of {C:attention}\"La Maison\"{}, plugged into the facility, used as a magical power source. But once he finally stirs up, he will become the greatest threat...",
+                },
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_invoked = "Invoked",

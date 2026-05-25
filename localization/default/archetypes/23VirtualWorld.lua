@@ -351,6 +351,15 @@ return {
             }
         },
     },
+    JoyousSpring = {
+        Blurbs = {
+            vw = {
+                story = {
+                    "The giant digital metropolis, {C:joy_normal}\"Virtual World\"{} that exists in cyberspace. Its capital is {C:joy_spell}\"Kauwloon\"{}, where special algorithms are used to examine the flood of information and signals, as part of their responsibility for ensure correct and proper processing. Surrounding {C:joy_spell}\"Kauwloon\"{} are four giant gates positioned at the cardinal directions: North, East, South, West; which are used to investigate signals from everywhere. Also, deployed at each gate is a sacred guardian beast of a group called the 'Four Great Divine Dragons'.",
+                },
+            }
+        }
+    },
     misc = {
         poker_hands = {
             joy_vw_xuanwu = "Xuanwu",

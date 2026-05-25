@@ -173,6 +173,19 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            generaider = {
+                story = {
+                    "After defeating all of the nine {C:joy_normal}\"Generaiders\"{}, upon visiting the great stone chest, the masked magician removes his mask, giving a reverent bow. {C:attention}«I {C:attention}apologize for the long, ceaseless {C:attention}journey I have put you through. But {C:attention}thanks to your efforts, the seal upon {C:attention}the chest has been broken.»{}",
+                    "What lies beyond is an Extra Stage? What kind of {C:joy_normal}\"Generaiders\"{} await!?",
+                },
+                gameplay = {
+                    "Once you get access to the {C:joy_spell}Boss Stage{}, all the {C:joy_normal}Generaiders{} come into play. Make sure you use their abilities to their full potential!"
+                }
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_generaider = "Generaider",

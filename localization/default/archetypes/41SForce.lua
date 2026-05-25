@@ -255,6 +255,15 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            sforce = {
+                story = {
+                    "A secret society of higher scientific power called {C:joy_normal}\"S-Force\"{}. It is comprised of agents that work to prevent crimes and disasters. Their missions are said to span the entire space-time continuum, yet the extent of it is not revealed to the ancients.",
+                },
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_sforce = "S-Force",

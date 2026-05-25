@@ -201,6 +201,15 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            danger = {
+                story = {
+                    "There is a lone island, somewhere out in the wide ocean, that people say is the last untouched corner of this planet. Some think that it may be the land of legends lost to time. The waters around the island were always turbulent and the weather unpredictable, as if nature itself was trying to reject anyone who tried to step foot on it. Thus, humans have never been able to ascertain what the island even looked like in full, let alone the ecosystem within. But one day, a certain team was dispatched to explore the island in secret. What dangers had lied in wait for them as they ventured into the island?",
+                },
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_danger = "Danger!",

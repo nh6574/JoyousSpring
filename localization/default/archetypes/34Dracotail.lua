@@ -377,6 +377,15 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            dracotail = {
+                story = {
+                    "There existed a tribe of stargazers who dwelled in a secluded place: the {C:attention}Stardraco{}. They rarely left their village and did not interfere with the affairs of the mundane world, but when something that disturbed the peace of their village appeared, they used secret arts handed down from generation to generation to call dragons to valiantly aid them in battle.",
+                },
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_dracotail = "Dracotail",

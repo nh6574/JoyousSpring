@@ -22,7 +22,7 @@ function joy_load_localization(lang)
     end
 
     for _, file in ipairs(localization_files) do
-        for _, loc_type in ipairs({ "descriptions", "misc" }) do
+        for _, loc_type in ipairs({ "descriptions", "misc", "JoyousSpring" }) do
             if file[loc_type] then
                 if not localization[loc_type] then
                     localization[loc_type] = {}

@@ -538,6 +538,15 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            striker = {
+                story = {
+                    "{C:joy_spell}\"Sky Striker Mecha\"{}, developed using advanced technology, is designed to counter a certain powerful military empire. The girl entrusted with {C:joy_normal}\"Sky {C:joy_normal}Striker\"{}, the key to controlling these weapons, named {C:joy_effect}\"Raye\"{}, races across the battlefield in order to protect her homeland.",
+                },
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_striker = "Sky Striker",

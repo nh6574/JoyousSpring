@@ -118,6 +118,15 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            voice = {
+                story = {
+                    "A praying girl tasked with a mission, {C:joy_effect}\"Lo\"{}, and her silent protector, {C:joy_ritual}\"Skull {C:joy_ritual}Guardian\"{}. Helping each other, they've managed to overcome numerous hardships. And furthermore, their travels have been watched over by the the dragon gods.",
+                },
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_voice = "Voiceless Voice",

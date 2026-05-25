@@ -221,6 +221,15 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            sub = {
+                story = {
+                    "{C:joy_spell}\"The Hidden City\"{}: A subterranean world, and a capital city where many intellectual races cohabitate. There is no sun or sky here, yet there is an abundance of nature. No one knows the origin of this world and how this world came to be what it is. In this underground world that many call home, there are beings feared as {C:attention}\"calamities\"{} from ancient times. The wicked eight dragons called the {C:joy_normal}\"Subterror Behemoths\"{}. To the inhabitants of the subterrain, surviving and effectively hiding is a higher priority than finding food to eat. As long as these {C:attention}\"calamities\"{} exist, finding a safe haven is a difficult undertaking.",
+                },
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_sub = "Subterror",

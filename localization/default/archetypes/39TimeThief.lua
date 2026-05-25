@@ -401,6 +401,15 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            thief = {
+                story = {
+                    "{C:joy_xyz}\"Perpetua\"{}: a genius scientist who developed technology to cross through time and space. However, an organization that wanted to monopolize spacetime technology designed a plan to return to the past and kidnap her when she was a little girl. It was {C:joy_xyz}\"Redoer\"{}, a mysterious time-traveling man, who saved {C:joy_xyz}\"Perpetua\"{} from her predicament. Taking pride in her smarts since she was still a child, she developed all sorts of items from the information she obtained from {C:joy_xyz}\"Redoer\"{} as she remained on the run from the evil organization.",
+                },
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_thief = "Time Thief",

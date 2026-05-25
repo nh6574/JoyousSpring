@@ -195,16 +195,16 @@ return {
                 },
             },
         },
-        JoyousSpring = {
-            Blurbs = {
-                dmaid = {
-                    story = {
-                        "The {C:joy_normal}Dragonmaids{}: taking care of all the house chores for the sake of their master and the esteemed guests. Among their various roles, taking personal care of the master was a highly-renowned job."
-                    },
-                    gameplay = {
-                        "{C:joy_normal}\"Dragonmaid\"{} {C:attention}Jokers transform{} during a {C:attention}Blind{} to provide scoring based on {C:joy_normal}\"Dragonmaids\"{} owned and in the {C:attention}GY{} then revert back during the shop to provide economy or scaling.",
-                        "Try to use the extra economy to get as many {C:joy_normal}\"Dragonmaid\"{} in circulation as possible!"
-                    }
+    },
+    JoyousSpring = {
+        Blurbs = {
+            dmaid = {
+                story = {
+                    "The {C:joy_normal}Dragonmaids{}: taking care of all the house chores for the sake of their master and the esteemed guests. Among their various roles, taking personal care of the master was a highly-renowned job."
+                },
+                gameplay = {
+                    "{C:joy_normal}\"Dragonmaid\"{} {C:attention}Jokers transform{} during a {C:attention}Blind{} to provide scoring based on {C:joy_normal}\"Dragonmaids\"{} owned and in the {C:attention}GY{} then revert back during the shop to provide economy or scaling.",
+                    "Try to use the extra economy to get as many {C:joy_normal}\"Dragonmaid\"{} in circulation as possible!"
                 }
             }
         }
