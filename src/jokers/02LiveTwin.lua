@@ -44,20 +44,22 @@ JoyousSpring.Joker({
         end
     end,
     add_to_deck = function(self, card, from_debuff)
-        G.E_MANAGER:add_event(Event({
-            func = function()
-                if not card.joy_from_ltwin and not next(SMODS.find_card("j_joy_ltwin_kisikil", true)) and not card.debuff and not from_debuff then
-                    for i = 1, card.ability.extra.cards_to_create do
-                        local added_card = JoyousSpring.create_summon({
-                            key = "j_joy_ltwin_kisikil"
-                        }, true)
-                        added_card.joy_from_ltwin = true
-                        card:juice_up()
+        if not card.debuff and not from_debuff then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    if not card.joy_from_ltwin and not next(SMODS.find_card("j_joy_ltwin_kisikil", true)) and not card.debuff and not from_debuff then
+                        for i = 1, card.ability.extra.cards_to_create do
+                            local added_card = JoyousSpring.create_summon({
+                                key = "j_joy_ltwin_kisikil"
+                            }, true)
+                            added_card.joy_from_ltwin = true
+                            card:juice_up()
+                        end
                     end
+                    return true
                 end
-                return true
-            end
-        }))
+            }))
+        end
     end,
     joker_display_def = function(JokerDisplay)
         return {
@@ -108,20 +110,22 @@ JoyousSpring.Joker({
         end
     end,
     add_to_deck = function(self, card, from_debuff)
-        G.E_MANAGER:add_event(Event({
-            func = function()
-                if not card.joy_from_ltwin and not next(SMODS.find_card("j_joy_ltwin_lilla", true)) and not card.debuff and not from_debuff then
-                    for i = 1, card.ability.extra.cards_to_create do
-                        local added_card = JoyousSpring.create_summon({
-                            key = "j_joy_ltwin_lilla"
-                        }, true)
-                        card:juice_up()
-                        added_card.joy_from_ltwin = true
+        if not card.debuff and not from_debuff then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    if not card.joy_from_ltwin and not next(SMODS.find_card("j_joy_ltwin_lilla", true)) and not card.debuff and not from_debuff then
+                        for i = 1, card.ability.extra.cards_to_create do
+                            local added_card = JoyousSpring.create_summon({
+                                key = "j_joy_ltwin_lilla"
+                            }, true)
+                            card:juice_up()
+                            added_card.joy_from_ltwin = true
+                        end
                     end
+                    return true
                 end
-                return true
-            end
-        }))
+            }))
+        end
     end,
     joker_display_def = function(JokerDisplay)
         return {
