@@ -13,6 +13,30 @@ extern bool shadow;
 extern MY_HIGHP_OR_MEDIUMP vec4 burn_colour_1;
 extern MY_HIGHP_OR_MEDIUMP vec4 burn_colour_2;
 
+vec4 dissolve_mask(vec4 tex, vec2 texture_coords, vec2 uv);
+
+vec4 effect(vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords)
+{
+    vec4 tex=Texel(texture,texture_coords);
+	vec2 uv = (((texture_coords)*(image_details)) - texture_details.xy*texture_details.ba)/texture_details.ba;
+
+    float border =
+    step(min(min(uv.x, 1.0 - uv.x),
+             min(uv.y, 1.0 - uv.y)), 0.05);
+
+    tex.rgb = mix(tex.rgb, vec3(0.9, 0.9, 0.5), border);
+
+    tex.a = mix(
+        tex.a,
+        tex.a <= 0.1 ? 0.0 : sin(glow.y * 4.0),
+        border
+    );
+
+    return dissolve_mask(tex*colour, texture_coords, uv);
+}
+
+// Vanilla stuff
+
 vec4 dissolve_mask(vec4 tex, vec2 texture_coords, vec2 uv)
 {
     if (dissolve < 0.001) {
@@ -49,112 +73,6 @@ vec4 dissolve_mask(vec4 tex, vec2 texture_coords, vec2 uv)
     }
 
     return vec4(shadow ? vec3(0.,0.,0.) : tex.xyz, res > adjusted_dissolve ? (shadow ? tex.a*0.3: tex.a) : .0);
-}
-
-number hue(number s, number t, number h)
-{
-	number hs = mod(h, 1.)*6.;
-	if (hs < 1.) return (t-s) * hs + s;
-	if (hs < 3.) return t;
-	if (hs < 4.) return (t-s) * (4.-hs) + s;
-	return s;
-}
-
-vec4 RGB(vec4 c)
-{
-	if (c.y < 0.0001)
-		return vec4(vec3(c.z), c.a);
-
-	number t = (c.z < .5) ? c.y*c.z + c.z : -c.y*c.z + (c.y+c.z);
-	number s = 2.0 * c.z - t;
-	return vec4(hue(s,t,c.x + 1./3.), hue(s,t,c.x), hue(s,t,c.x - 1./3.), c.w);
-}
-
-vec4 HSL(vec4 c)
-{
-	number low = min(c.r, min(c.g, c.b));
-	number high = max(c.r, max(c.g, c.b));
-	number delta = high - low;
-	number sum = high+low;
-
-	vec4 hsl = vec4(.0, .0, .5 * sum, c.a);
-	if (delta == .0)
-		return hsl;
-
-	hsl.y = (hsl.z < .5) ? delta / sum : delta / (2.0 - sum);
-
-	if (high == c.r)
-		hsl.x = (c.g - c.b) / delta;
-	else if (high == c.g)
-		hsl.x = (c.b - c.r) / delta + 2.0;
-	else
-		hsl.x = (c.r - c.g) / delta + 4.0;
-
-	hsl.x = mod(hsl.x / 6., 1.);
-	return hsl;
-}
-
-// made the machine (chatgpt) make my work for me on this one
-vec4 effect(vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords)
-{
-    vec4 base = Texel(texture, texture_coords);
-    float spriteAlpha = base.a; // Get the alpha value of the sprite
-
-    vec2 uv = (((texture_coords) * image_details)
-              - texture_details.xy * texture_details.ba)
-              / texture_details.ba;
-    float offset = 1.0 / image_details.x;
-
-    float cornerRadius = 0.96;
-    float edgeSmooth  = 0.02;
-
-    float blurredGlow = 0.0;
-    for (float x = -5.0; x <= 5.0; x++) {
-        for (float y = -5.0; y <= 5.0; y++) {
-            // compute mask at sample point
-            vec2 sampleTC = texture_coords + vec2(x, y) * offset;
-            vec2 u = ((sampleTC * image_details)
-                     - texture_details.xy * texture_details.ba)
-                     / texture_details.ba;
-            vec2 cuv = u * 2.0 - 1.0;
-            float d = length(max(abs(cuv) - cornerRadius, 0.0));
-            float shapeMask = 1.0 - smoothstep(0.0, edgeSmooth, d);
-            // accumulate if inside the rounded shape
-            blurredGlow += step(0.01, shapeMask);
-        }
-    }
-    blurredGlow /= 121.0;
-
-    float edgeDistance = 0.0;
-    for (float x = -3.0; x <= 3.0; x++) {
-        for (float y = -3.0; y <= 3.0; y++) {
-            vec2 sampleTC = texture_coords + vec2(x, y) * offset;
-            vec2 u = ((sampleTC * image_details)
-                     - texture_details.xy * texture_details.ba)
-                     / texture_details.ba;
-            vec2 cuv = u * 2.0 - 1.0;
-            float d = length(max(abs(cuv) - cornerRadius, 0.0));
-            float shapeMask = 1.0 - smoothstep(0.0, edgeSmooth, d);
-            edgeDistance += 1.0 - shapeMask;
-        }
-    }
-    edgeDistance /= 49.0;
-    float innerGlow = smoothstep(0.02, 0.2, edgeDistance);
-    blurredGlow *= pow(innerGlow, 0.6);
-
-    float pulse = 1.0 + 0.5 * sin(3.0 * glow.y);
-    float glowIntensity = blurredGlow * pulse;
-
-    vec3 glowColor = vec3(1.0, 0.9, 0.3);
-    float combinedGlow = glowIntensity;
-    vec3 finalColor = glowColor * combinedGlow;
-    float finalAlpha = combinedGlow * 0.8;
-
-    return dissolve_mask(
-        vec4(finalColor, finalAlpha * spriteAlpha) * colour,
-        texture_coords,
-        uv
-    );
 }
 
 extern MY_HIGHP_OR_MEDIUMP vec2 mouse_screen_pos;
