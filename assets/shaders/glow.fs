@@ -14,7 +14,12 @@ extern MY_HIGHP_OR_MEDIUMP vec4 burn_colour_1;
 extern MY_HIGHP_OR_MEDIUMP vec4 burn_colour_2;
 
 vec4 dissolve_mask(vec4 tex, vec2 texture_coords, vec2 uv);
-
+/* Easing Sine InOut equation */
+/* Adapted from Robert Penner easing equations */
+#define PI				3.141592653589793
+float easeSineInOut(float t) {
+    return -0.5 * (cos(PI * t * 2.0) - 1.0);
+}
 vec4 effect(vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords)
 {
     vec4 tex=Texel(texture,texture_coords);
@@ -28,7 +33,7 @@ vec4 effect(vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords)
 
     tex.a = mix(
         tex.a,
-        tex.a <= 0.1 ? 0.0 : (sin(glow.y * 3.0) + 0.4),
+        tex.a <= 0.1 ? 0.0 : easeSineInOut(glow.y*0.5),
         border
     );
 
