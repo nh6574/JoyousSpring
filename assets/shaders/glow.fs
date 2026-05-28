@@ -29,13 +29,9 @@ vec4 effect(vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords)
     step(min(min(uv.x, 1.0 - uv.x),
              min(uv.y, 1.0 - uv.y)), 0.05);
 
-    tex.rgb = mix(tex.rgb, vec3(1.0, 0.8567152, 0.0), border);
+    tex.rgb = vec3(1.0, 0.8567152, 0.0);
 
-    tex.a = mix(
-        tex.a,
-        tex.a <= 0.1 ? 0.0 : easeSineInOut(glow.y*0.5),
-        border
-    );
+    tex.a *= border * (tex.a <= 0.1 ? 0.0 : easeSineInOut(glow.y * 0.5));
 
     return dissolve_mask(tex*colour, texture_coords, uv);
 }
