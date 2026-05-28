@@ -281,7 +281,7 @@ JoyousSpring.Joker({
         G.E_MANAGER:add_event(Event({
             func = function()
                 if G.shop_booster then
-                    for _, booster in ipairs(G.shop_booster.cards) do
+                    for _, booster in ipairs(G.shop_booster.cards or {}) do
                         booster:set_cost()
                     end
                 end
@@ -293,7 +293,7 @@ JoyousSpring.Joker({
         G.E_MANAGER:add_event(Event({
             func = function()
                 if G.shop_booster then
-                    for _, booster in ipairs(G.shop_booster.cards) do
+                    for _, booster in ipairs(G.shop_booster.cards or {}) do
                         booster:set_cost()
                     end
                 end
@@ -305,7 +305,7 @@ JoyousSpring.Joker({
         G.E_MANAGER:add_event(Event({
             func = function()
                 if G.shop_booster then
-                    for _, booster in ipairs(G.shop_booster.cards) do
+                    for _, booster in ipairs(G.shop_booster.cards or {}) do
                         booster:set_cost()
                     end
                 end
@@ -317,7 +317,7 @@ JoyousSpring.Joker({
         G.E_MANAGER:add_event(Event({
             func = function()
                 if G.shop_booster then
-                    for _, booster in ipairs(G.shop_booster.cards) do
+                    for _, booster in ipairs(G.shop_booster.cards or {}) do
                         booster:set_cost()
                     end
                 end
