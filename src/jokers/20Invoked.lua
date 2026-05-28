@@ -608,7 +608,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "invoked_purgatorio",
     atlas = 'invoked',
-    pos = { x = 0, y = 1 },
+    pos = { x = 2, y = 2 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
