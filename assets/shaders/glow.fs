@@ -24,11 +24,11 @@ vec4 effect(vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords)
     step(min(min(uv.x, 1.0 - uv.x),
              min(uv.y, 1.0 - uv.y)), 0.05);
 
-    tex.rgb = mix(tex.rgb, vec3(0.9, 0.9, 0.5), border);
+    tex.rgb = mix(tex.rgb, vec3(1.0, 0.8567152, 0.0), border);
 
     tex.a = mix(
         tex.a,
-        tex.a <= 0.1 ? 0.0 : sin(glow.y * 4.0),
+        tex.a <= 0.1 ? 0.0 : (sin(glow.y * 3.0) + 0.4),
         border
     );
 
