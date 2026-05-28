@@ -475,6 +475,8 @@ local art_tab = function()
             localize { type = 'name', set = "Joker", key = key, nodes = name_node, scale = 0.8, no_pop_in = true, no_bump = true }
             name_node = desc_from_rows(name_node, true)
             name_node.config.align = "cm"
+            local config_card = Card(0, 0, G.CARD_W / 2, G.CARD_H / 2, G.P_CARDS.empty, G.P_CENTERS[key])
+            config_card.joy_config = true
             columns[#columns].nodes[#columns[#columns].nodes + 1] = {
                 n = G.UIT.R,
                 config = { align = "tm" },
@@ -509,9 +511,7 @@ local art_tab = function()
                                                 {
                                                     n = G.UIT.O,
                                                     config = {
-                                                        object = Card(0, 0,
-                                                            G.CARD_W / 2, G.CARD_H / 2, G.P_CARDS.empty,
-                                                            G.P_CENTERS[key])
+                                                        object = config_card
                                                     }
                                                 },
                                             }
