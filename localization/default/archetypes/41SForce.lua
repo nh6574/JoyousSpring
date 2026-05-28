@@ -261,6 +261,9 @@ return {
                 story = {
                     "A secret society of higher scientific power called {C:joy_normal}\"S-Force\"{}. It is comprised of agents that work to prevent crimes and disasters. Their missions are said to span the entire space-time continuum, yet the extent of it is not revealed to the ancients.",
                 },
+                gameplay = {
+                    "Their card {C:attention}banishing{} abilities might seem detrimental, but they allow tight control over the cards you start with in {C:attention}Blinds{}! Be on the lookout for the criminals that roam the shops as they might be useful {C:attention}tribute{} fodder!"
+                }
             }
         }
     },

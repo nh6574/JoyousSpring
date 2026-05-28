@@ -261,6 +261,9 @@ return {
                     "{C:gold}[From the \"Great Magic War\" storyline]{}",
                     "The genius sorcerer from days long ago: {C:joy_effect}\"Aleister\"{}. He mastered forbidden magic called {C:joy_spell}\"Invocation\"{} that allows him to call forth even spirits, conjurations, and gods from spheres and planes unknown, but his existence and all his research was erased from the annals of magic as {C:attention}\"La Maison\"{} was constructed. The truth is {C:joy_effect}\"Aleister\"{}, during an experiment, ended up partially merging with one of those gods or spirits. Currently he is being held in the deepest depths of {C:attention}\"La Maison\"{}, plugged into the facility, used as a magical power source. But once he finally stirs up, he will become the greatest threat...",
                 },
+                gameplay = {
+                    "{C:joy_effect}Aleister{} offers versatility in exchange for some {C:attention}tributes{}. Check the {C:attention}summon conditions{} of the {C:joy_fusion}Fusions{} to see how to summon each one and then pick the appropiate one for the moment."
+                }
             }
         }
     },

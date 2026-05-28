@@ -205,6 +205,9 @@ return {
                     "{C:gold}[From the \"Sinful Spoils\" storyline]{}",
                     "A long time ago, far away from the human village there was a mysterious forest called the {C:joy_spell}\"White Forest\"{}. There were stories about how those that wandered into the forest and became exhausted recovered their strength and were able to make it back home. Or how youngsters that entered with the purpose of causing trouble were driven out by a wolf that spoke human tongues. Or how if a baby with no relatives was abandoned at the entrance of the forest, by the next day the baby would have vanished and a great circle of flowers would bloom there... The nearby villagers, fearing these rumors that could not be discerned as fact or fiction, began spreading tales about how there was a witch in the White Forest, so that people would stay away from it. And that the witch, named {C:joy_synchro}\"Diabell\"{}, and her four apprentice witches were living in this forest.",
                 },
+                gameplay = {
+                    "This theme is best coupled with other {C:attention}consumable{}-oriented archetypes! Don't worry to much about getting all of them, just one with the right {C:attention}tributes{} can be a powerful resource."
+                }
             }
         }
     },

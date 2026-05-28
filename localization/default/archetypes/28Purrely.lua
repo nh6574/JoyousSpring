@@ -435,6 +435,9 @@ return {
                 story = {
                     "A fashionable town with colorful houses, cafes, and stores. In this pastel-colored town existed the {C:joy_normal}Purrelies{}, who lived with people and grew alongside boys and girls.",
                 },
+                gameplay = {
+                    "Forget flushes and try playing as many suits in a hand as possible! These furry creatures pair up great with other themes that enable extra {C:attention}poker hands{}!"
+                }
             }
         }
     },

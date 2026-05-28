@@ -267,6 +267,15 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            ba = {
+                gameplay = {
+                    "{C:joy_normal}Burning Abyss{} {C:attention}Jokers{} don't get along with many others but they make up for it with huge low rarity scoring power!"
+                }
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_ba = "Burning Abyss",

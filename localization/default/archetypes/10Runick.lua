@@ -124,6 +124,9 @@ return {
                     "{C:gold}[From the \"Generaider\" storyline]{}",
                     "You have been summoned to this world, brought by a mysterious masked magician, who gives you the mission 'Defeat the {C:joy_normal}\"Generaiders\"{}, the kings who rule the Nine Realms', using the {C:joy_normal}\"Runick\"{} power of the gods themselves. The powers of the {C:joy_normal}\"Runicks\"{} grow by defeating the {C:joy_normal}\"Generaiders\"{}, unlocking various new ones. In the beginning, you should aim for weak monsters and polish your skills, learning how to wield your magical sword. Also, the {C:joy_normal}\"Runicks\"{} lose their radiance after repeated use, so they must be dipped into the {C:joy_spell}\"Fountain\"{} to regain their glow.",
                 },
+                gameplay = {
+                    "These {C:joy_fusion}Fusions{} are centered around generating advantage through {C:tarot}Tarot{} cards and some scoring. Try them out with other {C:attention}consumable{}-based strategies!"
+                }
             }
         }
     },

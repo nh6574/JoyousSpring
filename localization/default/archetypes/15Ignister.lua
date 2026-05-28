@@ -418,6 +418,16 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            ignis = {
+                gameplay = {
+                    "The {C:joy_normal}@Ignister{} center around {C:attention}summoning{} {C:joy_normal}Cyberse{} using different {C:attention}attributes{}. Try pairing them up with other {C:joy_normal}Cyberse Free {C:joy_normal}Agents{}!",
+                    "Try to discover {C:joy_link}The Arrival Cyberse {C:joy_link}@Ignister{}'s secret ability!"
+                }
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_ignis = "@Ignister",

@@ -441,6 +441,10 @@ return {
                     "{C:gold}[From the \"Duel Terminal\" storyline]{}",
                     "{C:joy_trap}\"Shaddoll Core\"{} gave birth to the {C:joy_normal}\"Shaddoll\"{}. Their true form are those who have lost their lives in the previous war and were supposed to return to the {C:joy_spell}\"Sacred Tree\"{} to be reborn again through the life energy of {C:joy_effect}\"Sophia\"{}. However, they were trapped by {C:joy_effect}\"Tierra\" and imprisoned inside the vacuum tubes of the {C:joy_normal}\"Infernoids\"{}. Over time, their life energy began to change from those of {C:joy_effect}\"Sophia\"{} to those of {C:joy_effect}\"Tierra\"{}, which caused the the system of the {C:joy_spell}\"Sacred Tree\"{} to treat them as bugs, spawning them to the world with only their bodies. In this form, they barely have a consciousness, but instead hold an innate desire to return to the {C:joy_spell}\"Sacred Tree\"{} so that they can be reborn correctly.",
                 },
+                gameplay = {
+                    "Try pairing these {C:attention}Jokers{} with other {C:attention}flip{}-supporting cards until you get the powerful {C:joy_fusion}Fusions{}. Then, use them as material to gain great advantage!",
+                    "{C:red}Tip{}: If you are overflowing with {C:joy_normal}Shaddolls{} you can save them in the {C:joy_link}Side {C:joy_link}Deck{} before the {C:attention}Blind{} begins."
+                }
             }
         }
     },

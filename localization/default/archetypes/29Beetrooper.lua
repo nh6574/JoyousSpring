@@ -194,6 +194,9 @@ return {
                 story = {
                     "There was once a group that commanded insects much like a rider does their steed, and acted in unison to expand their territory. Known as the {C:joy_normal}\"Beetroopers\"{}, they wield incredible military might and unique strategies. Among them, the standouts are naturally the three giant beetles boasting the greatest power, since the moment these giant beetles, led by {C:joy_fusion}\"Ultra Beetrooper {C:joy_fusion}Absolute Hercules\"{}, make their way into the fray, the battle may as well be over.",
                 },
+                gameplay = {
+                    "According to all known laws of aviation, there is no way a bee should be able to take {C:attention}Joker{} slots. Go all out and get as many {C:joy_normal}Insects{} as possible!"
+                }
             }
         }
     },

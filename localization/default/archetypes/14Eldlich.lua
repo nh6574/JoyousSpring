@@ -145,6 +145,9 @@ return {
                 story = {
                     "The magic stone of wisdom, {C:joy_trap}\"Eldlixir\"{}, was famed to bring 'unending power' to whomever obtained it. The stone that had led countless travelers to their doom ultimately found itself in the hands of one inhumanly strong-willed man. And so, {C:joy_effect}\"Eldlich the Golden Lord\"{}, a being unparalleled in his greed, and immortal ruler of the {C:joy_spell}\"Golden Land\"{}, was born.",
                 },
+                gameplay = {
+                    "The {C:joy_effect}Golden Lord{} enables a powerful loop of {C:attention}Gold{}-ehancing and {C:joy_trap}Trap{} creation. {C:joy_fusion}Fallen Angel{} can help get it faster!"
+                }
             }
         }
     },

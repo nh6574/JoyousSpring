@@ -150,6 +150,15 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            hazy = {
+                gameplay = {
+                    "{C:joy_normal}Hazy Flame{} centers around {C:attention}Eternal Jokers{}. You can use this theme to make your higher {C:attention}Stake{} runs just a little bit easier or to ward off any destruction that comes your way!"
+                }
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_hazy = "Hazy Flame",

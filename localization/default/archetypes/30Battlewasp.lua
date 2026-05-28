@@ -266,6 +266,16 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            wasp = {
+                gameplay = {
+                    "According to all known la- Oh, this is the same gimmick...",
+                    "They also support {C:joy_synchro}Synchro{} {C:attention}summons{}!"
+                }
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_wasp = "Battlewasp",

@@ -235,6 +235,9 @@ return {
                 story = {
                     "Autonomous dragonoid weapons that fly through the depths of outer space, powered by starlight. Each machine has a built-in condensed energy core, and how much power it has is based on how brightly it shines.",
                 },
+                gameplay = {
+                    "These {C:attention}tribute{}-based {C:attention}Jokers{} are obviously a great pair with other {C:joy_ritual}Ritual{}-oriented cards!"
+                }
             }
         }
     },

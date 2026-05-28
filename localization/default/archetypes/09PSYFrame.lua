@@ -168,6 +168,9 @@ return {
                 story = {
                     "{C:gold}[From the \"S-Force\" storyline]{}",
                 },
+                gameplay = {
+                    "This theme has big scoring capability in exchange for trading some extra slots. Mix them up with other strategies to up your scaling power!"
+                }
             }
         }
     },

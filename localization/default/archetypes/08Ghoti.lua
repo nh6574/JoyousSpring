@@ -192,6 +192,9 @@ return {
                 story = {
                     "{C:joy_normal}\"Ghoti\"{} dwell in an alternate dimension that spans eternity. It is simultaneously the furthest end and the beginning.",
                 },
+                gameplay = {
+                    "Ghotis specialize in {C:attention}banishing{}, so they pair well with many strategies as they free up {C:attention}Joker{} slots while in the shop. {C:joy_synchro}Deep Beyond{} is almost as good as an all-{C:dark_edition}Negative{} roster!"
+                }
             }
         }
     },
