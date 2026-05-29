@@ -247,6 +247,16 @@ function G.FUNCS.joy_open_config(e)
     G.FUNCS.openModUI_JoyousSpring({ config = { page = "config" } })
 end
 
+function G.FUNCS.joy_open_glossary(e)
+    G.FUNCS.openModUI_JoyousSpring({ config = { page = "JoyousSpring_2" } })
+end
+
+function G.FUNCS.joy_open_tutorial(e)
+    local key = e.config.ref_table.key
+    if not key then return end
+    JoyousSpring.INFO_MENU.open(key, true, nil, "joy_open_glossary")
+end
+
 SMODS.current_mod.extra_tabs = function()
     return {
         {
@@ -277,8 +287,8 @@ SMODS.current_mod.extra_tabs = function()
         },
         {
             label = localize("k_joy_glossary"),
-            tab_definition_function = glossary_tab,
-            tab_definition_function_args = { joy_glossary = true }
+            tab_definition_function = JoyousSpring.create_glossary_tab,
+            tab_definition_function_args = { joy_glossary = true, tutorials = true }
         }
     }
 end

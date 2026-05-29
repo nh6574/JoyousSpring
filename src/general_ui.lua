@@ -858,7 +858,17 @@ local game_main_menu_ref = Game.main_menu
 function Game:main_menu(change_context)
     local ret = game_main_menu_ref(self, change_context)
 
-    --JoyousSpring.INFO_MENU.open("welcome")
+    G.E_MANAGER:add_event(Event({
+        func = function()
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    JoyousSpring.INFO_MENU.open("welcome", nil, true)
+                    return true
+                end
+            }))
+            return true
+        end
+    }))
 
     return ret
 end

@@ -795,7 +795,7 @@ local create_glossary_row = function(key, main)
     }
 end
 
-glossary_tab = function(t)
+JoyousSpring.create_glossary_tab = function(t)
     local card_center = t.center or {}
     if not t.joy_glossary and not (card_center or {}).joy_glossary then return end
 
@@ -852,7 +852,59 @@ glossary_tab = function(t)
         },
     })
 
-    local glossary_nodes = {
+    local inside_nodes = {}
+
+    if t.tutorials then
+        local make_tutorial_button = function(key)
+            local name_node = {}
+            local loc = G.localization.descriptions.JoyousSpringTutorial[key]
+            localize { type = 'name', set = "JoyousSpringTutorial", loc_target = loc, nodes = name_node, scale = 0.7, text_colour = G.C.UI.TEXT_LIGHT, vars = {}, stylize = true }
+            name_node = desc_from_rows(name_node, true)
+            name_node.config.align = "cm"
+            return {
+                n = G.UIT.C,
+                config = { align = "cm", button = "joy_open_tutorial", ref_table = { key = key }, ref_value = "key", colour = G.C.JOY.XYZ, emboss = 0.1, r = 0.1 },
+                nodes = {
+                    name_node
+                },
+            }
+        end
+
+        inside_nodes[#inside_nodes + 1] = {
+            n = G.UIT.R,
+            config = { align = "cm" },
+            nodes = {
+                {
+                    n = G.UIT.C,
+                    config = { align = "cm" },
+                    nodes = {
+                        {
+                            n = G.UIT.R,
+                            config = { align = "cm", padding = 0.1 },
+                            nodes = {
+                                make_tutorial_button("welcome"),
+                                make_tutorial_button("card_attributes"),
+                                make_tutorial_button("extra_deck"),
+                                make_tutorial_button("graveyard"),
+                            },
+                        },
+                        {
+                            n = G.UIT.R,
+                            config = { align = "cm", padding = 0.1 },
+                            nodes = {
+                                make_tutorial_button("secret_pack"),
+                                make_tutorial_button("side_deck"),
+                                make_tutorial_button("blinds"),
+                            },
+                        }
+                    },
+                }
+            },
+        }
+    end
+
+
+    inside_nodes[#inside_nodes + 1] = {
         n = G.UIT.R,
         config = { padding = 0.1, align = "cm", minh = 5, minw = 7, },
         nodes = {
@@ -885,7 +937,7 @@ glossary_tab = function(t)
                         scroll_mult = 1.2,
                     }),
                 },
-            },
+            }
         },
     }
 
@@ -907,9 +959,7 @@ glossary_tab = function(t)
                     minw = TABS_MINW,
                     colour = G.C.BLACK
                 },
-                nodes = {
-                    glossary_nodes
-                }
+                nodes = inside_nodes
             },
         }
     }
@@ -1217,7 +1267,7 @@ JoyousSpring.create_overlay_see_related = function(card, from_glossary)
         tabs[#tabs + 1] = {
             label = localize("k_joy_glossary"),
             chosen = from_glossary,
-            tab_definition_function = glossary_tab,
+            tab_definition_function = JoyousSpring.create_glossary_tab,
             tab_definition_function_args = { center = card_center }
         }
     end

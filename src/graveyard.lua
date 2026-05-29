@@ -595,6 +595,9 @@ G.FUNCS.joy_show_graveyard = function(e)
         (JoyousSpring.banish_end_of_round_area and #JoyousSpring.banish_end_of_round_area.cards > 0) or
         (JoyousSpring.banish_boss_selected_area and #JoyousSpring.banish_boss_selected_area.cards > 0) or
         (JoyousSpring.banish_end_of_ante_area and #JoyousSpring.banish_end_of_ante_area.cards > 0) then
+        if not G.GAME.joy_show_graveyard then
+            JoyousSpring.INFO_MENU.open("graveyard", nil, true)
+        end
         G.GAME.joy_show_graveyard = true
     end
     if G.GAME.joy_show_graveyard then

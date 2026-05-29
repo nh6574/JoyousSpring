@@ -71,6 +71,10 @@ function JoyousSpring.State.SideDeck.update_side_deck(game, dt)
 
                             G.E_MANAGER:add_event(Event({
                                 func = function()
+                                    if not G.GAME.joy_enter_side then
+                                        G.GAME.joy_enter_side = true
+                                        JoyousSpring.INFO_MENU.open("side_deck", nil, true)
+                                    end
                                     save_run(); return true
                                 end
                             }))
@@ -344,6 +348,23 @@ G.FUNCS.joy_toggle_side_deck = function(e)
                 G.STATE_COMPLETE = false
                 G.STATE = G.STATES.BLIND_SELECT
                 G.CONTROLLER.locks.joy_toggle_side_deck = nil
+                if not G.GAME.joy_blind_tutorial then
+                    local blind_proto = G.P_BLINDS[G.GAME.round_resets.blind_choices.Boss]
+                    if blind_proto and (blind_proto.original_mod or {}).id == "JoyousSpring" then
+                        G.GAME.joy_blind_tutorial = true
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                G.E_MANAGER:add_event(Event({
+                                    func = function()
+                                        JoyousSpring.INFO_MENU.open("blinds", nil, true)
+                                        return true
+                                    end
+                                }))
+                                return true
+                            end
+                        }))
+                    end
+                end
                 return true
             end
         }))

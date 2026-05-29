@@ -291,6 +291,20 @@ SMODS.Booster({
         return booster
     end,
     ease_background_colour = function(self)
+        if not G.GAME.joy_enter_selection_pack then
+            G.GAME.joy_enter_selection_pack = true
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            JoyousSpring.INFO_MENU.open("secret_pack", nil, true)
+                            return true
+                        end
+                    }))
+                    return true
+                end
+            }))
+        end
         ease_colour(G.C.DYN_UI.MAIN, G.C.JOY.SPELL)
         ease_background_colour({ new_colour = G.C.JOY.SPELL, special_colour = G.C.BLACK, contrast = 2 })
     end,

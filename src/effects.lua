@@ -70,6 +70,15 @@ JoyousSpring.calculate_context = function(context)
 end
 
 SMODS.current_mod.calculate = function(self, context)
+    -- Tutorials
+    if context.card_added then
+        if not G.GAME.joy_obtained_joker and context.card.ability.set == "Joker" and
+            (context.card.config.center.original_mod or {}).id == "JoyousSpring" then
+            G.GAME.joy_obtained_joker = true
+            JoyousSpring.INFO_MENU.open("card_attributes", nil, true)
+        end
+    end
+
     -- Global counter for destroyed cards
     if context.remove_playing_cards then
         G.GAME.joy_cards_destroyed = G.GAME.joy_cards_destroyed and
