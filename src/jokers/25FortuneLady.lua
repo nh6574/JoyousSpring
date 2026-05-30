@@ -954,11 +954,11 @@ JoyousSpring.Joker({
 })
 
 local ffairy_bypass_room_check = function(card, from_booster)
-    return JoyousSpring.count_materials_owned({ { monster_archetypes = { "FortuneLady" } } }) > 0
+    return JoyousSpring.any_materials_owned({ { monster_archetypes = { "FortuneLady" } } })
 end
 
 local ffairy_set_cost = function(card)
-    if JoyousSpring.count_materials_owned({ { monster_archetypes = { "FortuneLady" } } }) > 0 then
+    if JoyousSpring.any_materials_owned({ { monster_archetypes = { "FortuneLady" } } }) then
         card.cost = 0
     end
 end

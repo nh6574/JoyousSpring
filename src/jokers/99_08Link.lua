@@ -578,7 +578,7 @@ JoyousSpring.Joker({
                         JoyousSpring.count_materials_in_graveyard({ { summon_type = "LINK" } })
                 }
             end
-            if context.joy_activate_effect and context.joy_activated_card == card and G.GAME.blind.in_blind then
+            if JoyousSpring.is_activated_context(card, context) and G.GAME.blind.in_blind then
                 local tributes = {}
                 for _, joker in ipairs(G.jokers.cards) do
                     if joker ~= card and not SMODS.is_eternal(joker, card) then
@@ -595,7 +595,7 @@ JoyousSpring.Joker({
         end
     end,
     joy_can_activate = function(card)
-        if not G.GAME.blind.in_blind or G.GAME.blind.chips <= to_big(0) then
+        if not G.GAME.blind.in_blind or G.GAME.blind.chips <= 0 then
             return false
         end
         for _, joker in ipairs(G.jokers.cards) do

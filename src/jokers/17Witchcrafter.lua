@@ -37,15 +37,14 @@ JoyousSpring.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) and not context.blueprint_card then
-            if context.joy_activate_effect and context.joy_activated_card == card then
+            if JoyousSpring.is_activated_context(card, context) then
                 local materials = JoyousSpring.get_consumable_set("Tarot")
                 if #materials >= card.ability.extra.tributes then
                     JoyousSpring.create_overlay_effect_selection(card, materials, card.ability.extra.tributes,
                         card.ability.extra.tributes)
                 end
             end
-            if context.joy_exit_effect_selection and context.joy_card == card and
-                #context.joy_selection == card.ability.extra.tributes then
+            if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
                 JoyousSpring.tribute(card, context.joy_selection)
                 JoyousSpring.tribute(card, { card })
 
@@ -115,15 +114,14 @@ JoyousSpring.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) and not context.blueprint_card then
-            if context.joy_activate_effect and context.joy_activated_card == card then
+            if JoyousSpring.is_activated_context(card, context) then
                 local materials = JoyousSpring.get_consumable_set("Tarot")
                 if #materials >= card.ability.extra.tributes then
                     JoyousSpring.create_overlay_effect_selection(card, materials, card.ability.extra.tributes,
                         card.ability.extra.tributes)
                 end
             end
-            if context.joy_exit_effect_selection and context.joy_card == card and
-                #context.joy_selection == card.ability.extra.tributes then
+            if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
                 JoyousSpring.tribute(card, context.joy_selection)
                 JoyousSpring.tribute(card, { card })
 
@@ -216,15 +214,14 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card then
+                if JoyousSpring.is_activated_context(card, context) then
                     local materials = JoyousSpring.get_consumable_set("Tarot")
                     if #materials >= card.ability.extra.tributes then
                         JoyousSpring.create_overlay_effect_selection(card, materials, card.ability.extra.tributes,
                             card.ability.extra.tributes)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection == card.ability.extra.tributes then
+                if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
                     JoyousSpring.tribute(card, context.joy_selection)
                     JoyousSpring.tribute(card, { card })
 
@@ -333,15 +330,14 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card then
+                if JoyousSpring.is_activated_context(card, context) then
                     local materials = JoyousSpring.get_consumable_set("Tarot")
                     if #materials >= card.ability.extra.tributes then
                         JoyousSpring.create_overlay_effect_selection(card, materials, card.ability.extra.tributes,
                             card.ability.extra.tributes)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection == card.ability.extra.tributes then
+                if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
                     JoyousSpring.tribute(card, context.joy_selection)
                     JoyousSpring.tribute(card, { card })
 
@@ -442,15 +438,14 @@ JoyousSpring.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) and not context.blueprint_card then
-            if context.joy_activate_effect and context.joy_activated_card == card then
+            if JoyousSpring.is_activated_context(card, context) then
                 local materials = JoyousSpring.get_consumable_set("Tarot")
                 if #materials >= card.ability.extra.tributes then
                     JoyousSpring.create_overlay_effect_selection(card, materials, card.ability.extra.tributes,
                         card.ability.extra.tributes)
                 end
             end
-            if context.joy_exit_effect_selection and context.joy_card == card and
-                #context.joy_selection == card.ability.extra.tributes then
+            if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
                 JoyousSpring.tribute(card, context.joy_selection)
                 JoyousSpring.tribute(card, { card })
 
@@ -530,15 +525,14 @@ JoyousSpring.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) and not context.blueprint_card then
-            if context.joy_activate_effect and context.joy_activated_card == card then
+            if JoyousSpring.is_activated_context(card, context) then
                 local materials = JoyousSpring.get_consumable_set("Tarot")
                 if #materials >= card.ability.extra.tributes then
                     JoyousSpring.create_overlay_effect_selection(card, materials, card.ability.extra.tributes,
                         card.ability.extra.tributes)
                 end
             end
-            if context.joy_exit_effect_selection and context.joy_card == card and
-                #context.joy_selection == card.ability.extra.tributes then
+            if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
                 JoyousSpring.tribute(card, context.joy_selection)
                 JoyousSpring.tribute(card, { card })
 
@@ -724,7 +718,7 @@ JoyousSpring.Joker({
         card.ability.extra.current_mult = card.ability.extra.mult * JoyousSpring.count_set_tributed("Tarot")
     end,
     joy_set_cost = function(card)
-        if JoyousSpring.count_materials_owned({ { monster_archetypes = { "Witchcrafter" } } }) > 0 then
+        if JoyousSpring.any_materials_owned({ { monster_archetypes = { "Witchcrafter" } } }) then
             card.cost = 0
         end
     end,

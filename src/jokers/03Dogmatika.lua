@@ -741,7 +741,7 @@ JoyousSpring.Joker({
         },
     },
     calculate = function(self, card, context)
-        if context.joy_activate_effect and context.joy_activated_card == card then
+        if JoyousSpring.is_activated_context(card, context) then
             local materials = JoyousSpring.get_materials_owned(
                 { { is_extra_deck = true }, (next(SMODS.find_card("j_joy_dogma_thunderbolt")) and { monster_archetypes = { "Dogmatika" } } or nil) },
                 false, true)
@@ -750,8 +750,7 @@ JoyousSpring.Joker({
                     card.ability.extra.tributes)
             end
         end
-        if context.joy_exit_effect_selection and context.joy_card == card and
-            #context.joy_selection == card.ability.extra.tributes then
+        if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
             local tribute_amount = card.ability.extra.tributes
             for _, joker in ipairs(context.joy_selection) do
                 tribute_amount = tribute_amount - JoyousSpring.get_card_limit(joker)
@@ -779,11 +778,10 @@ JoyousSpring.Joker({
         if not (#G.jokers.cards + G.GAME.joker_buffer - card.ability.extra.tributes < G.jokers.config.card_limit) then
             return false
         end
-        local materials = JoyousSpring.get_materials_owned(
+        return JoyousSpring.any_materials_owned(
             { { is_extra_deck = true },
                 (next(SMODS.find_card("j_joy_dogma_thunderbolt")) and { monster_archetypes = { "Dogmatika" } } or nil) },
-            false, true)
-        return #materials >= card.ability.extra.tributes
+            false, true, nil, card.ability.extra.tributes)
     end,
     joker_display_def = function(JokerDisplay)
         ---@type JDJokerDefinition

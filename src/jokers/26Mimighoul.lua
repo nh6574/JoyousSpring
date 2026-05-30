@@ -782,7 +782,7 @@ JoyousSpring.Joker({
                 }
             end
             if not context.blueprint_card then
-                if not (card.ability.extra.activated_opponent and card.ability.extra.activated_joker) and context.joy_activate_effect and context.joy_activated_card == card then
+                if not (card.ability.extra.activated_opponent and card.ability.extra.activated_joker) and JoyousSpring.is_activated_context(card, context) then
                     local materials = {}
                     JoyousSpring.get_materials_owned({ { facedown = true }, { can_flip = true } })
                     if not card.ability.extra.activated_opponent and not card.ability.extra.activated_joker then
@@ -800,8 +800,7 @@ JoyousSpring.Joker({
                             card.ability.extra.flips, localize("k_joy_select"))
                     end
                 end
-                if not card.ability.extra.activated and context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection == card.ability.extra.flips then
+                if not card.ability.extra.activated and JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.flips) then
                     for _, selected_card in ipairs(context.joy_selection) do
                         JoyousSpring.flip(selected_card, card)
                         if selected_card.ability.set == "Joker" then
@@ -831,14 +830,14 @@ JoyousSpring.Joker({
             return false
         end
         if not card.ability.extra.activated_opponent and not card.ability.extra.activated_joker then
-            return JoyousSpring.count_materials_owned({ { facedown = true, allow_opponent = true },
-                { can_flip = true, allow_opponent = true } }) > 0
+            return JoyousSpring.any_materials_owned({ { facedown = true, allow_opponent = true },
+                { can_flip = true, allow_opponent = true } })
         elseif not card.ability.extra.activated_opponent then
-            return JoyousSpring.count_materials_owned({ { facedown = true, is_opponent = true },
-                { can_flip = true, is_opponent = true } }) > 0
+            return JoyousSpring.any_materials_owned({ { facedown = true, is_opponent = true },
+                { can_flip = true, is_opponent = true } })
         end
-        return JoyousSpring.count_materials_owned({ { facedown = true },
-            { can_flip = true } }) > 0
+        return JoyousSpring.any_materials_owned({ { facedown = true },
+            { can_flip = true } })
     end,
 })
 

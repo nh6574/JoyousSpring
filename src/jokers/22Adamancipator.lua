@@ -91,7 +91,7 @@ JoyousSpring.Joker({
         card.ability.extra.excavated = 0
     end,
     joy_set_cost = function(card)
-        if JoyousSpring.count_materials_owned({ { monster_type = "Rock" } }) > 0 then
+        if JoyousSpring.any_materials_owned({ { monster_type = "Rock" } }) then
             card.cost = 0
         end
     end,
@@ -199,7 +199,7 @@ JoyousSpring.Joker({
         card.ability.extra.excavated = 0
     end,
     joy_set_cost = function(card)
-        if JoyousSpring.count_materials_owned({ { monster_type = "Rock" } }) > 0 then
+        if JoyousSpring.any_materials_owned({ { monster_type = "Rock" } }) then
             card.cost = 0
         end
     end,
@@ -307,7 +307,7 @@ JoyousSpring.Joker({
         card.ability.extra.excavated = 0
     end,
     joy_set_cost = function(card)
-        if JoyousSpring.count_materials_owned({ { monster_type = "Rock" } }) > 0 then
+        if JoyousSpring.any_materials_owned({ { monster_type = "Rock" } }) then
             card.cost = 0
         end
     end,

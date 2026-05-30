@@ -262,15 +262,14 @@ JoyousSpring.Joker({
                 card.joy_banish_card = nil
             end
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card then
+                if JoyousSpring.is_activated_context(card, context) then
                     local materials = JoyousSpring.get_materials_owned(
                         copy_table(sforce_targets), false, true)
                     if #materials >= 1 then
                         JoyousSpring.create_overlay_effect_selection(card, materials, 1, 1)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection == 1 then
+                if JoyousSpring.is_exit_selection_context(card, context) then
                     JoyousSpring.tribute(card, context.joy_selection)
                     card.ability.extra.active = true
 
@@ -294,9 +293,8 @@ JoyousSpring.Joker({
         if card.ability.extra.active then
             return false
         end
-        local materials = JoyousSpring.get_materials_owned(
+        return JoyousSpring.any_materials_owned(
             copy_table(sforce_targets), false, true)
-        return #materials >= 1
     end,
 })
 
@@ -350,15 +348,14 @@ JoyousSpring.Joker({
                 card.joy_banish_card = nil
             end
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card then
+                if JoyousSpring.is_activated_context(card, context) then
                     local materials = JoyousSpring.get_materials_owned(
                         copy_table(sforce_targets), false, true)
                     if #materials >= 1 then
                         JoyousSpring.create_overlay_effect_selection(card, materials, 1, 1)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection == 1 then
+                if JoyousSpring.is_exit_selection_context(card, context) then
                     JoyousSpring.tribute(card, context.joy_selection)
                     card.ability.extra.active = true
 
@@ -377,9 +374,8 @@ JoyousSpring.Joker({
         if card.ability.extra.active then
             return false
         end
-        local materials = JoyousSpring.get_materials_owned(
+        return JoyousSpring.any_materials_owned(
             copy_table(sforce_targets), false, true)
-        return #materials >= 1
     end,
 })
 
@@ -433,15 +429,14 @@ JoyousSpring.Joker({
                 card.joy_banish_card = nil
             end
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card then
+                if JoyousSpring.is_activated_context(card, context) then
                     local materials = JoyousSpring.get_materials_owned(
                         copy_table(sforce_targets), false, true)
                     if #materials >= 1 then
                         JoyousSpring.create_overlay_effect_selection(card, materials, 1, 1)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection == 1 then
+                if JoyousSpring.is_exit_selection_context(card, context) then
                     JoyousSpring.tribute(card, context.joy_selection)
                     card.ability.extra.active = true
 
@@ -463,9 +458,8 @@ JoyousSpring.Joker({
         if card.ability.extra.active then
             return false
         end
-        local materials = JoyousSpring.get_materials_owned(
+        return JoyousSpring.any_materials_owned(
             copy_table(sforce_targets), false, true)
-        return #materials >= 1
     end,
 })
 
@@ -521,12 +515,12 @@ JoyousSpring.Joker({
         end
     end,
     joy_set_cost = function(card)
-        if JoyousSpring.count_materials_owned(copy_table(sforce_targets)) > 0 then
+        if JoyousSpring.any_materials_owned(copy_table(sforce_targets)) then
             card.cost = 0
         end
     end,
     joy_bypass_room_check = function(self, card, from_booster)
-        return JoyousSpring.count_materials_owned(copy_table(sforce_targets)) > 0
+        return JoyousSpring.any_materials_owned(copy_table(sforce_targets))
     end
 })
 
@@ -640,15 +634,14 @@ JoyousSpring.Joker({
                 end
             end
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card then
+                if JoyousSpring.is_activated_context(card, context) then
                     local materials = JoyousSpring.get_materials_owned(
                         copy_table(sforce_targets), false, true)
                     if #materials >= 1 then
                         JoyousSpring.create_overlay_effect_selection(card, materials, 1, 1)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection == 1 then
+                if JoyousSpring.is_exit_selection_context(card, context) then
                     JoyousSpring.tribute(card, context.joy_selection)
                     card.ability.extra.active = true
 
@@ -672,9 +665,8 @@ JoyousSpring.Joker({
         if card.ability.extra.active then
             return false
         end
-        local materials = JoyousSpring.get_materials_owned(
+        return JoyousSpring.any_materials_owned(
             copy_table(sforce_targets), false, true)
-        return #materials >= 1
     end,
 })
 
@@ -715,15 +707,14 @@ JoyousSpring.Joker({
                 end
             end
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card then
+                if JoyousSpring.is_activated_context(card, context) then
                     local materials = JoyousSpring.get_materials_owned(
                         copy_table(sforce_targets), false, true)
                     if #materials >= 1 then
                         JoyousSpring.create_overlay_effect_selection(card, materials, 1, 1)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection == 1 then
+                if JoyousSpring.is_exit_selection_context(card, context) then
                     JoyousSpring.tribute(card, context.joy_selection)
                     card.ability.extra.active = true
 
@@ -742,9 +733,8 @@ JoyousSpring.Joker({
         if card.ability.extra.active then
             return false
         end
-        local materials = JoyousSpring.get_materials_owned(
+        return JoyousSpring.any_materials_owned(
             copy_table(sforce_targets), false, true)
-        return #materials >= 1
     end,
 })
 
@@ -866,15 +856,14 @@ JoyousSpring.Joker({
                 end
             end
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card then
+                if JoyousSpring.is_activated_context(card, context) then
                     local materials = JoyousSpring.get_materials_owned(
                         copy_table(sforce_targets), false, true)
                     if #materials >= 1 then
                         JoyousSpring.create_overlay_effect_selection(card, materials, 1, 1)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection == 1 then
+                if JoyousSpring.is_exit_selection_context(card, context) then
                     JoyousSpring.tribute(card, context.joy_selection)
                     card.ability.extra.active = true
 
@@ -893,9 +882,8 @@ JoyousSpring.Joker({
         if card.ability.extra.active then
             return false
         end
-        local materials = JoyousSpring.get_materials_owned(
+        return JoyousSpring.any_materials_owned(
             copy_table(sforce_targets), false, true)
-        return #materials >= 1
     end,
 })
 

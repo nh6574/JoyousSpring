@@ -246,7 +246,7 @@ JoyousSpring.Joker({
         end
     end,
     joy_set_cost = function(card)
-        if JoyousSpring.count_materials_owned({ { is_pendulum = true } }) > 0 then
+        if JoyousSpring.any_materials_owned({ { is_pendulum = true } }) then
             card.cost = 0
         end
     end,

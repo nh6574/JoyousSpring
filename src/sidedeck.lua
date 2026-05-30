@@ -522,7 +522,7 @@ end
 G.FUNCS.joy_can_side = function(e)
     local card = e.config.ref_table
     if not JoyousSpring.is_summon_type(card, "RITUAL") and not JoyousSpring.does_tribute_in_shop(card) and
-        (to_big(card.cost) > to_big(G.GAME.dollars - G.GAME.bankrupt_at)) and (card.cost > 0) then
+        (card.cost > (G.GAME.dollars - G.GAME.bankrupt_at)) and (card.cost > 0) then
         e.config.colour = G.C.UI.BACKGROUND_INACTIVE
         e.config.button = nil
     else

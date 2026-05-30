@@ -815,15 +815,14 @@ JoyousSpring.Joker({
         },
     },
     calculate = function(self, card, context)
-        if context.joy_activate_effect and context.joy_activated_card == card then
+        if JoyousSpring.is_activated_context(card, context) then
             local materials = JoyousSpring.get_materials_owned({ { monster_archetypes = { "MekkKnight" } } }, false, true)
             if next(materials) then
                 JoyousSpring.create_overlay_effect_selection(card, materials, card.ability.extra.tributes,
                     card.ability.extra.tributes)
             end
         end
-        if context.joy_exit_effect_selection and context.joy_card == card and
-            #context.joy_selection == card.ability.extra.tributes and G.GAME.blind.in_blind then
+        if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) and G.GAME.blind.in_blind then
             JoyousSpring.tribute(card, context.joy_selection)
             ease_hands_played(card.ability.extra.hands)
         end
@@ -847,8 +846,7 @@ JoyousSpring.Joker({
         if not G.GAME.blind.in_blind then
             return false
         end
-        local materials = JoyousSpring.get_materials_owned({ { monster_archetypes = { "MekkKnight" } } }, false, true)
-        return next(materials) and true or false
+        return JoyousSpring.any_materials_owned({ { monster_archetypes = { "MekkKnight" } } }, false, true)
     end,
     joker_display_def = function(JokerDisplay)
         return {

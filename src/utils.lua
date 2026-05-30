@@ -726,6 +726,16 @@ JoyousSpring.playing_cards_used = function(cards_used, playing_card_materials)
     return cards_used
 end
 
+JoyousSpring.is_activated_context = function(card, context)
+    return context.joy_activate_effect and context.joy_activated_card == card
+end
+
+JoyousSpring.is_exit_selection_context = function(card, context, amount)
+    return context.joy_exit_effect_selection and
+        context.joy_card == card and
+        (not amount and (#context.joy_selection >= 1) or #context.joy_selection == amount)
+end
+
 ---Runs **func** on all (supported) objects
 ---@param func string
 ---@param args {default_return:any, return_func:(fun(new:any, original:any):any), ignore_jokers:boolean, ignore_blinds:boolean,ignore_debuff:boolean, ignore_disabled_blind:boolean, pass_return:boolean, return_if_true:boolean}?
@@ -887,9 +897,4 @@ end
 
 JoyousSpring.get_consumable_quantity = function(card)
     return type(Card.getQty) == "function" and card:getQty() or 1
-end
-
---- Talisman compat
-to_big = to_big or function(num)
-    return num
 end

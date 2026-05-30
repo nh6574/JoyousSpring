@@ -176,7 +176,7 @@ JoyousSpring.Joker({
         end
     end,
     joy_set_cost = function(card)
-        if JoyousSpring.count_materials_owned({ { monster_archetypes = { "Kisikil" } } }) > 0 then
+        if JoyousSpring.any_materials_owned({ { monster_archetypes = { "Kisikil" } } }) then
             card.cost = 0
         end
     end
@@ -220,7 +220,7 @@ JoyousSpring.Joker({
         end
     end,
     joy_set_cost = function(card)
-        if JoyousSpring.count_materials_owned({ { monster_archetypes = { "Kisikil" } } }) > 0 then
+        if JoyousSpring.any_materials_owned({ { monster_archetypes = { "Kisikil" } } }) then
             card.cost = 0
         end
     end
@@ -262,7 +262,7 @@ JoyousSpring.Joker({
         end
     end,
     joy_set_cost = function(card)
-        if JoyousSpring.count_materials_owned({ { monster_archetypes = { "Lilla" } } }) > 0 then
+        if JoyousSpring.any_materials_owned({ { monster_archetypes = { "Lilla" } } }) then
             card.cost = 0
         end
     end
@@ -726,7 +726,7 @@ JoyousSpring.Joker({
         },
     },
     calculate = function(self, card, context)
-        if context.joy_activate_effect and context.joy_activated_card == card then
+        if JoyousSpring.is_activated_context(card, context) then
             local materials = JoyousSpring.get_materials_owned(
                 { { summon_type = "LINK", monster_archetypes = { "Kisikil" } }, { summon_type = "LINK", monster_archetypes = { "Lilla" } } },
                 false, true)
@@ -735,8 +735,7 @@ JoyousSpring.Joker({
                     card.ability.extra.tributes)
             end
         end
-        if context.joy_exit_effect_selection and context.joy_card == card and
-            #context.joy_selection == card.ability.extra.tributes and G.GAME.blind.in_blind then
+        if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) and G.GAME.blind.in_blind then
             JoyousSpring.tribute(card, context.joy_selection)
 
             G.GAME.chips = G.GAME.chips * 2
@@ -764,10 +763,9 @@ JoyousSpring.Joker({
         if not G.GAME.blind.in_blind then
             return false
         end
-        local materials = JoyousSpring.get_materials_owned(
+        return JoyousSpring.any_materials_owned(
             { { summon_type = "LINK", monster_archetypes = { "Kisikil" } }, { summon_type = "LINK", monster_archetypes = { "Lilla" } } },
-            false, true)
-        return #materials >= card.ability.extra.tributes
+            false, true, nil, card.ability.extra.tributes)
     end,
 })
 

@@ -371,7 +371,7 @@ JoyousSpring.Joker({
                     xmult = card.ability.extra.xmult
                 }
             end
-            if context.joy_activate_effect and context.joy_activated_card == card and not SMODS.is_eternal(card, card) and G.GAME.blind.in_blind and G.STATE == G.STATES.SELECTING_HAND then
+            if JoyousSpring.is_activated_context(card, context) and not SMODS.is_eternal(card, card) and G.GAME.blind.in_blind and G.STATE == G.STATES.SELECTING_HAND then
                 local tributes = {}
                 for _, joker in ipairs(G.jokers.cards) do
                     if not SMODS.is_eternal(joker, card) then

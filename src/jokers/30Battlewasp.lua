@@ -14,8 +14,8 @@ local count_owned_insects = function(properties)
     return JoyousSpring.count_materials_owned(properties)
 end
 
-local bee_bypass_room_check = function(card, from_booster)
-    return JoyousSpring.count_materials_owned({ { monster_type = "Insect" } }) > 0
+local wasp_bypass_room_check = function(card, from_booster)
+    return JoyousSpring.any_materials_owned({ { monster_type = "Insect" } })
 end
 
 -- Battlewasp - Pin the Bullseye
@@ -66,9 +66,9 @@ JoyousSpring.Joker({
             }))
         end
     end,
-    joy_bypass_room_check = bee_bypass_room_check,
+    joy_bypass_room_check = wasp_bypass_room_check,
     joy_set_cost = function(card)
-        if JoyousSpring.count_materials_owned({ { monster_type = "Insect" } }) > 0 then
+        if JoyousSpring.any_materials_owned({ { monster_type = "Insect" } }) then
             card.cost = 0
         end
     end
@@ -108,9 +108,9 @@ JoyousSpring.Joker({
             end
         end
     end,
-    joy_bypass_room_check = bee_bypass_room_check,
+    joy_bypass_room_check = wasp_bypass_room_check,
     joy_set_cost = function(card)
-        if JoyousSpring.count_materials_owned({ { monster_type = "Insect" } }) > 0 then
+        if JoyousSpring.any_materials_owned({ { monster_type = "Insect" } }) then
             card.cost = 0
         end
     end
@@ -145,15 +145,14 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card then
+                if JoyousSpring.is_activated_context(card, context) then
                     local materials = JoyousSpring.get_materials_owned({ { monster_type = "Insect" } }, nil, true)
                     if next(materials) then
                         JoyousSpring.create_overlay_effect_selection(card, materials, card.ability.extra.tributes,
                             card.ability.extra.tributes)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection >= 1 then
+                if JoyousSpring.is_exit_selection_context(card, context) then
                     JoyousSpring.tribute(card, context.joy_selection)
                     G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls + 1
                     calculate_reroll_cost(true)
@@ -162,7 +161,7 @@ JoyousSpring.Joker({
         end
     end,
     joy_can_activate = function(card)
-        return JoyousSpring.count_materials_owned({ { monster_type = "Insect" } }, nil, true) > 0
+        return JoyousSpring.any_materials_owned({ { monster_type = "Insect" } }, nil, true)
     end,
     add_to_deck = function(self, card, from_debuff)
         if not card.debuff and not from_debuff then
@@ -170,7 +169,7 @@ JoyousSpring.Joker({
                 { { monster_archetypes = { "Battlewasp" } } }, card.config.center.key, true)
         end
     end,
-    joy_bypass_room_check = bee_bypass_room_check,
+    joy_bypass_room_check = wasp_bypass_room_check,
 })
 
 -- Battlewasp - Twinbow the Attacker
@@ -208,7 +207,7 @@ JoyousSpring.Joker({
             end
         end
     end,
-    joy_bypass_room_check = bee_bypass_room_check,
+    joy_bypass_room_check = wasp_bypass_room_check,
 })
 
 -- Battlewasp - Arbalest the Rapidfire
@@ -242,7 +241,7 @@ JoyousSpring.Joker({
             JoyousSpring.revive_pseudorandom({ { monster_type = "Insect" } }, self.key, true)
         end
     end,
-    joy_bypass_room_check = bee_bypass_room_check,
+    joy_bypass_room_check = wasp_bypass_room_check,
 })
 
 -- Battlewasp - Rapier the Onslaught
@@ -274,7 +273,7 @@ JoyousSpring.Joker({
             odds = 100
         },
     },
-    joy_bypass_room_check = bee_bypass_room_check,
+    joy_bypass_room_check = wasp_bypass_room_check,
     joy_can_transfer_ability = function(self, other_card, card)
         return JoyousSpring.is_monster_type(other_card, "Insect")
     end,

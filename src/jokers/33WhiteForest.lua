@@ -29,14 +29,13 @@ end
 
 local wforest_calculate = function(self, card, context, effects, exceptions)
     if JoyousSpring.can_use_abilities(card) and not context.blueprint_card then
-        if context.joy_activate_effect and context.joy_activated_card == card then
+        if JoyousSpring.is_activated_context(card, context) then
             local materials = wforest_get_tributes(exceptions)
             if #materials >= 1 then
                 JoyousSpring.create_overlay_effect_selection(card, materials, 1, 1)
             end
         end
-        if context.joy_exit_effect_selection and context.joy_card == card and
-            #context.joy_selection == 1 and not card.ability.extra.active then
+        if JoyousSpring.is_exit_selection_context(card, context) and not card.ability.extra.active then
             local tributed = context.joy_selection[1]
             local set = wforest_get_set(tributed)
             if set then
@@ -190,8 +189,7 @@ JoyousSpring.Joker({
     end,
     joy_can_activate = function(card)
         return wforest_can_activate(card, {
-            exclude_traps = JoyousSpring.count_materials_owned({ { exclude_monster_archetypes = { "WhiteForest" } } }) <=
-                0,
+            exclude_traps = not JoyousSpring.any_materials_owned({ { exclude_monster_archetypes = { "WhiteForest" } } }),
             exclude_planets = not JoyousSpring.get_last_used_consumable("Planet")
         })
     end,
@@ -284,7 +282,7 @@ JoyousSpring.Joker({
     end,
     joy_can_activate = function(card)
         return wforest_can_activate(card, {
-            exclude_traps = JoyousSpring.count_materials_owned({ { facedown = true } }) <= 0,
+            exclude_traps = not JoyousSpring.any_materials_owned({ { facedown = true } }),
             exclude_planets = not JoyousSpring.get_last_used_consumable("Tarot")
         })
     end,
@@ -389,8 +387,8 @@ JoyousSpring.Joker({
     joy_can_activate = function(card)
         return wforest_can_activate(card, {
             exclude_planets = not JoyousSpring.get_set_tributed("Consumable", true, true),
-            exclude_spectrals = JoyousSpring.count_materials_in_graveyard({ { monster_archetypes = { "WhiteForest" } } },
-                true) <= 0
+            exclude_spectrals = not JoyousSpring.any_materials_in_graveyard(
+                { { monster_archetypes = { "WhiteForest" } } }, true)
         })
     end,
 })
@@ -780,8 +778,8 @@ JoyousSpring.Joker({
     end,
     joy_can_activate = function(card)
         return wforest_can_activate(card, {
-            exclude_tarot = JoyousSpring.count_materials_in_graveyard({ { monster_archetypes = { "WhiteForest" } } },
-                true) <= 0,
+            exclude_tarot = not JoyousSpring.any_materials_in_graveyard({ { monster_archetypes = { "WhiteForest" } } },
+                true),
         })
     end,
 })
@@ -941,14 +939,13 @@ JoyousSpring.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) and not context.blueprint_card then
-            if context.joy_activate_effect and context.joy_activated_card == card then
+            if JoyousSpring.is_activated_context(card, context) then
                 local materials = JoyousSpring.get_materials_owned({ { monster_type = "Spellcaster" } }, nil, true)
                 if #materials >= 1 then
                     JoyousSpring.create_overlay_effect_selection(card, materials, 1, 1)
                 end
             end
-            if context.joy_exit_effect_selection and context.joy_card == card and
-                #context.joy_selection == card.ability.extra.tributes and not card.ability.extra.active then
+            if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) and not card.ability.extra.active then
                 JoyousSpring.tribute(card, context.joy_selection)
 
                 card.ability.extra.active = true
@@ -968,7 +965,7 @@ JoyousSpring.Joker({
     end,
     joy_can_activate = function(card)
         return #G.jokers.cards < G.jokers.config.card_limit and
-            JoyousSpring.count_materials_owned({ { monster_type = "Spellcaster" } }, nil, true) > 0
+            JoyousSpring.any_materials_owned({ { monster_type = "Spellcaster" } }, nil, true)
     end,
 })
 

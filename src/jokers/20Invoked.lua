@@ -71,7 +71,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card then
+                if JoyousSpring.is_activated_context(card, context) then
                     local materials = {}
                     for i, joker in ipairs(G.jokers.cards) do
                         if joker ~= card and not SMODS.is_eternal(joker, card) then
@@ -83,8 +83,7 @@ JoyousSpring.Joker({
                             card.ability.extra.tributes)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection >= 1 then
+                if JoyousSpring.is_exit_selection_context(card, context) then
                     aleister_transform(card, context.joy_selection[1])
                 end
             end
@@ -161,7 +160,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card then
+                if JoyousSpring.is_activated_context(card, context) then
                     local materials = {}
                     for i, joker in ipairs(G.jokers.cards) do
                         if joker ~= card and not SMODS.is_eternal(joker, card) then
@@ -173,8 +172,7 @@ JoyousSpring.Joker({
                             card.ability.extra.tributes)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection >= 1 then
+                if JoyousSpring.is_exit_selection_context(card, context) then
                     aleister_transform(card, context.joy_selection[1])
                 end
             end
@@ -245,7 +243,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and not SMODS.is_eternal(card, card) then
+                if JoyousSpring.is_activated_context(card, context) and not SMODS.is_eternal(card, card) then
                     local materials = {}
                     for i, joker in ipairs(G.jokers.cards) do
                         if joker ~= card and not SMODS.is_eternal(joker, card) then
@@ -257,8 +255,7 @@ JoyousSpring.Joker({
                             card.ability.extra.tributes)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection >= 1 then
+                if JoyousSpring.is_exit_selection_context(card, context) then
                     invoked_detransform(card, context.joy_selection[1])
                 end
             end
@@ -408,7 +405,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and not SMODS.is_eternal(card, card) then
+                if JoyousSpring.is_activated_context(card, context) and not SMODS.is_eternal(card, card) then
                     local materials = {}
                     for i, joker in ipairs(G.jokers.cards) do
                         if joker ~= card and not SMODS.is_eternal(joker, card) then
@@ -420,8 +417,7 @@ JoyousSpring.Joker({
                             card.ability.extra.tributes)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection >= 1 then
+                if JoyousSpring.is_exit_selection_context(card, context) then
                     invoked_detransform(card, context.joy_selection[1])
                 end
             end
@@ -536,7 +532,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and not SMODS.is_eternal(card, card) then
+                if JoyousSpring.is_activated_context(card, context) and not SMODS.is_eternal(card, card) then
                     local materials = {}
                     for i, joker in ipairs(G.jokers.cards) do
                         if joker ~= card and not SMODS.is_eternal(joker, card) then
@@ -548,8 +544,7 @@ JoyousSpring.Joker({
                             card.ability.extra.tributes)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection >= 1 then
+                if JoyousSpring.is_exit_selection_context(card, context) then
                     invoked_detransform(card, context.joy_selection[1])
                 end
             end
@@ -636,7 +631,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and not SMODS.is_eternal(card, card) then
+                if JoyousSpring.is_activated_context(card, context) and not SMODS.is_eternal(card, card) then
                     local materials = {}
                     for i, joker in ipairs(G.jokers.cards) do
                         if joker ~= card and not SMODS.is_eternal(joker, card) then
@@ -648,8 +643,7 @@ JoyousSpring.Joker({
                             card.ability.extra.tributes)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection >= 1 then
+                if JoyousSpring.is_exit_selection_context(card, context) then
                     invoked_detransform(card, context.joy_selection[1])
                 end
             end
@@ -735,7 +729,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and not SMODS.is_eternal(card, card) then
+                if JoyousSpring.is_activated_context(card, context) and not SMODS.is_eternal(card, card) then
                     local materials = {}
                     for i, joker in ipairs(G.jokers.cards) do
                         if joker ~= card and not SMODS.is_eternal(joker, card) then
@@ -747,8 +741,7 @@ JoyousSpring.Joker({
                             card.ability.extra.tributes)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection >= 1 then
+                if JoyousSpring.is_exit_selection_context(card, context) then
                     invoked_detransform(card, context.joy_selection[1])
                 end
             end
@@ -834,7 +827,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and not SMODS.is_eternal(card, card) then
+                if JoyousSpring.is_activated_context(card, context) and not SMODS.is_eternal(card, card) then
                     local materials = {}
                     for i, joker in ipairs(G.jokers.cards) do
                         if joker ~= card and not SMODS.is_eternal(joker, card) then
@@ -846,8 +839,7 @@ JoyousSpring.Joker({
                             card.ability.extra.tributes)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection >= 1 then
+                if JoyousSpring.is_exit_selection_context(card, context) then
                     invoked_detransform(card, context.joy_selection[1])
                 end
             end
@@ -942,7 +934,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and not SMODS.is_eternal(card, card) then
+                if JoyousSpring.is_activated_context(card, context) and not SMODS.is_eternal(card, card) then
                     local materials = {}
                     for i, joker in ipairs(G.jokers.cards) do
                         if joker ~= card and not SMODS.is_eternal(joker, card) then
@@ -954,8 +946,7 @@ JoyousSpring.Joker({
                             card.ability.extra.tributes)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection >= 1 then
+                if JoyousSpring.is_exit_selection_context(card, context) then
                     invoked_detransform(card, context.joy_selection[1])
                 end
             end
@@ -1070,7 +1061,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and not SMODS.is_eternal(card, card) then
+                if JoyousSpring.is_activated_context(card, context) and not SMODS.is_eternal(card, card) then
                     local materials = {}
                     for i, joker in ipairs(G.jokers.cards) do
                         if joker ~= card and not SMODS.is_eternal(joker, card) then
@@ -1082,8 +1073,7 @@ JoyousSpring.Joker({
                             card.ability.extra.tributes)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection >= 1 then
+                if JoyousSpring.is_exit_selection_context(card, context) then
                     invoked_detransform(card, context.joy_selection[1])
                 end
             end
@@ -1139,15 +1129,14 @@ JoyousSpring.Joker({
         },
     },
     calculate = function(self, card, context)
-        if context.joy_activate_effect and context.joy_activated_card == card then
+        if JoyousSpring.is_activated_context(card, context) then
             local materials = JoyousSpring.get_materials_owned({ { summon_type = "FUSION" } })
             if #materials >= card.ability.extra.tributes then
                 JoyousSpring.create_overlay_effect_selection(card, materials, card.ability.extra.tributes,
                     card.ability.extra.tributes)
             end
         end
-        if context.joy_exit_effect_selection and context.joy_card == card and
-            #context.joy_selection == card.ability.extra.tributes then
+        if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
             JoyousSpring.tribute(card, context.joy_selection)
 
             for i = 1, card.ability.extra.creates do
@@ -1179,9 +1168,10 @@ JoyousSpring.Joker({
         end
     end,
     joy_can_activate = function(card)
-        local materials = JoyousSpring.get_materials_owned({ { summon_type = "FUSION" } })
+        local materials = JoyousSpring.any_materials_owned({ { summon_type = "FUSION" } }, nil, true, nil,
+            card.ability.extra.tributes)
         return not card.debuff and
-            (#G.jokers.cards + G.GAME.joker_buffer - card.ability.extra.tributes < G.jokers.config.card_limit and #materials >= card.ability.extra.tributes) and
+            (#G.jokers.cards + G.GAME.joker_buffer - card.ability.extra.tributes < G.jokers.config.card_limit and materials) and
             true or false
     end,
     joy_apply_to_jokers_added = function(self, card, added_card)

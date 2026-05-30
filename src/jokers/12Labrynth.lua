@@ -38,7 +38,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and not SMODS.is_eternal(card, card) then
+                if JoyousSpring.is_activated_context(card, context) and not SMODS.is_eternal(card, card) then
                     card.ability.extra.any_flipped = false
                     return {
                         message = localize("k_joy_flip_ex"),
@@ -141,7 +141,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and not SMODS.is_eternal(card, card) then
+                if JoyousSpring.is_activated_context(card, context) and not SMODS.is_eternal(card, card) then
                     local materials = {}
                     for i, joker in ipairs(G.jokers.cards) do
                         if joker ~= card and not SMODS.is_eternal(joker, card) then
@@ -153,8 +153,7 @@ JoyousSpring.Joker({
                             card.ability.extra.tributes)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection == card.ability.extra.tributes then
+                if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
                     card.ability.extra.any_flipped = false
                     local fiend_tributed = false
                     for i, joker in ipairs(context.joy_selection) do
@@ -264,7 +263,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and not SMODS.is_eternal(card, card) then
+                if JoyousSpring.is_activated_context(card, context) and not SMODS.is_eternal(card, card) then
                     local materials = {}
                     for i, joker in ipairs(G.jokers.cards) do
                         if joker ~= card and not SMODS.is_eternal(joker, card) then
@@ -276,8 +275,7 @@ JoyousSpring.Joker({
                             card.ability.extra.tributes)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection == card.ability.extra.tributes then
+                if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
                     card.ability.extra.any_flipped = false
                     local fiend_tributed = false
                     for i, joker in ipairs(context.joy_selection) do
@@ -349,7 +347,6 @@ JoyousSpring.Joker({
         if SMODS.is_eternal(card, card) or not G.GAME.blind.in_blind then
             return false
         end
-        local materials = {}
         for i, joker in ipairs(G.jokers.cards) do
             if joker ~= card and not SMODS.is_eternal(joker, card) then
                 return true
@@ -595,7 +592,7 @@ JoyousSpring.Joker({
         end
     end,
     joy_set_cost = function(card)
-        if JoyousSpring.count_materials_owned({ { monster_archetypes = { "Labrynth" } } }) > 0 then
+        if JoyousSpring.any_materials_owned({ { monster_archetypes = { "Labrynth" } } }) then
             card.cost = 0
         end
     end,

@@ -615,15 +615,15 @@ JoyousSpring.Joker({
         JoyousSpring.calculate_flip_effect(card, context)
         if JoyousSpring.can_use_abilities(card) then
             if JoyousSpring.is_flip_active(card) and not context.blueprint_card then
-                if not card.ability.extra.activated and context.joy_activate_effect and context.joy_activated_card == card then
+                if not card.ability.extra.activated and JoyousSpring.is_activated_context(card, context) then
                     local materials = JoyousSpring.get_materials_owned({ { can_flip = true }, { facedown = true } })
                     if next(materials) then
                         JoyousSpring.create_overlay_effect_selection(card, materials, card.ability.extra.flips,
                             card.ability.extra.flips, localize("k_joy_select"))
                     end
                 end
-                if not card.ability.extra.activated and context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection == card.ability.extra.flips then
+                if not card.ability.extra.activated and
+                    JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.flips) then
                     for _, selected_card in ipairs(context.joy_selection) do
                         JoyousSpring.flip(selected_card, card)
                     end
@@ -640,8 +640,7 @@ JoyousSpring.Joker({
         if card.ability.extra.activated or not JoyousSpring.is_flip_active(card) then
             return false
         end
-        local targets = JoyousSpring.get_materials_owned({ { can_flip = true }, { facedown = true } })
-        return next(targets) and true or false
+        return JoyousSpring.any_materials_owned({ { can_flip = true }, { facedown = true } })
     end,
     joy_can_transfer_ability = function(self, other_card, card)
         return JoyousSpring.is_summon_type(other_card, "FUSION")
@@ -1610,7 +1609,7 @@ JoyousSpring.Joker({
                 chips = card.ability.extra.chips * card.ability.extra.counters
             }
         end
-        if context.joy_activate_effect and context.joy_activated_card == card and card.ability.extra.counters >= card.ability.extra.remove and (#G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit) then
+        if JoyousSpring.is_activated_context(card, context) and card.ability.extra.counters >= card.ability.extra.remove and (#G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit) then
             card.ability.extra.counters = card.ability.extra.counters - card.ability.extra.remove
             JoyousSpring.revive_pseudorandom({ { summon_type = "FUSION" } }, 'j_joy_shaddoll_prison', true)
         end
@@ -1619,7 +1618,7 @@ JoyousSpring.Joker({
         if (card.ability.extra.counters < card.ability.extra.remove) or (#G.jokers.cards + G.GAME.joker_buffer >= G.jokers.config.card_limit) then
             return false
         end
-        return JoyousSpring.count_materials_in_graveyard({ { summon_type = "FUSION" } }, true) > 0
+        return JoyousSpring.any_materials_in_graveyard({ { summon_type = "FUSION" } }, true)
     end,
     joker_display_def = function(JokerDisplay)
         return {
