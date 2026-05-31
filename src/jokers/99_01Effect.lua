@@ -1177,7 +1177,7 @@ JoyousSpring.Joker({
 })
 
 JoyousSpring.token_pool["ringo"] = {
-    order = 9,
+    order = 8,
     name = "j_joy_token_ringo",
     atlas = "joy_Misc02",
     sprite_pos = { x = 0, y = 4 },

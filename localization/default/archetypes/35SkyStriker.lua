@@ -190,7 +190,7 @@ return {
                         "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
-                        "You can {C:attention}tribute 1{} {C:planet}Planet{} once, then",
+                        "Once, you can {C:attention}tribute 1{} {C:planet}Planet{} then",
                         "if {C:attention}3 or more{} were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
                         "creates {C:attention}1{} {C:planet}Planet{} for each poker hand discarded",
                         "for the rest of the round",
@@ -220,9 +220,9 @@ return {
                         "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
-                        "You can {C:attention}tribute 1{} {C:planet}Planet{} once, then",
+                        "Once, you can {C:attention}tribute 1{} {C:planet}Planet{} then",
                         "if {C:attention}3 or more{} were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
-                        "creates all {C:attention}tributed{} {C:planet}Planet{} cards",
+                        "creates all {C:planet}Planet{} cards {C:attention}tributed{} this round",
                         "before this card {C:attention}entered play{} as {C:dark_edition}Negative{}",
                     }
                 },
@@ -249,7 +249,7 @@ return {
                         "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
-                        "You can {C:attention}tribute 1{} {C:planet}Planet{} once, then",
+                        "Once, you can {C:attention}tribute 1{} {C:planet}Planet{} then",
                         "if {C:attention}3 or more{} were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
                         "creates a {C:dark_edition}Negative{} {C:planet}Planet{}",
                         "associated with each {C:joy_normal}\"Sky Striker Ace\"",
@@ -267,22 +267,20 @@ return {
                 name = "{C:joy_link}Sky Striker Ace - Kaina",
                 text = {
                     {
-                        "Makes all owned {C:planet}Planet{} cards",
-                        "{C:dark_edition}Negative{} when {C:attention}entering play{}"
-                    },
-                    {
-                        "Creates {C:attention}1 random {C:planet}Planet",
+                        "Makes all owned {C:planet}Planet{} cards {C:dark_edition}Negative{}, then",
+                        "creates {C:attention}1 random {C:planet}Planet",
                         "{s:0.9,C:inactive}(Must have room)",
                         "and adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
                         "{s:0.9,C:inactive}(not summoned this round, if possible){}",
                         "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
-                        "You can {C:attention}tribute 1{} {C:planet}Planet{} once, then",
+                        "Once, you can {C:attention}tribute 1{} {C:planet}Planet{} then",
                         "if {C:attention}3 or more{} {C:planet}Planet{} cards",
                         "were {C:attention}tributed{} this round {C:inactive}(#1#/3){}:",
                         "{C:attention}levels up{} the hand of each different",
-                        "{C:planet}Planet{} {C:attention}tributed{} this round",
+                        "{C:planet}Planet{} {C:attention}tributed{} while owned",
+                        "for the rest of the round"
                     }
                 },
                 joy_summon_conditions = {
@@ -307,7 +305,7 @@ return {
                         "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
-                        "You can {C:attention}tribute 1{} {C:planet}Planet{} once, then",
+                        "Once, you can {C:attention}tribute 1{} {C:planet}Planet{} then",
                         "if {C:attention}3 or more{} {C:planet}Planet{} cards",
                         "were {C:attention}tributed{} this round {C:inactive}(#2#/3){}:",
                         "{C:attention}revives 1{} {C:joy_normal}\"Sky Striker Ace\"{}",
@@ -325,7 +323,8 @@ return {
                 text = {
                     {
                         "{C:attention}Banishes{} all {C:attention}consumables{}",
-                        "except {C:planet}Planet{} cards when {C:attention}entering play{},",
+                        "except {C:planet}Planet{} cards when {C:attention}entering play{}",
+                        "until {C:attention}Blind{} is selected,",
                         "and if it did, creates {C:attention}1{} {C:dark_edition}Negative{}",
                         "{C:joy_token}\"Sky Striker Ace Token\"{}"
                     },
@@ -337,7 +336,7 @@ return {
                         "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
-                        "You can {C:attention}tribute 1{} {C:planet}Planet{} once, then",
+                        "Once, you can {C:attention}tribute 1{} {C:planet}Planet{} then",
                         "if {C:attention}3 or more{} {C:planet}Planet{} cards",
                         "were {C:attention}tributed{} this round {C:inactive}(#1#/3){}:",
                         "{C:attention}banishes{} all {C:joy_normal}\"Sky Striker\"{}",
@@ -398,10 +397,11 @@ return {
                     },
                     {
                         "Creates as many {C:tarot}High Priestess{}",
-                        "as possible at end of round"
+                        "as possible at end of round",
+                        "{C:inactive}(Must have room)"
                     },
                     {
-                        "You can {C:attention}tribute 1{} {C:planet}Planet{} once, then",
+                        "Once, you can {C:attention}tribute 1{} {C:planet}Planet{} then",
                         "if {C:attention}3 or more{} were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
                         "for the rest of the round,",
                         "{C:tarot}Tarot{} cards {C:attention}tributed{}",
@@ -431,7 +431,7 @@ return {
                         "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
-                        "You can {C:attention}tribute 1{} {C:spectral}Spectral{}",
+                        "Once, you can {C:attention}tribute 1{} {C:spectral}Spectral{}",
                         "to create {C:attention}#1#{} {C:dark_edition}Negative{}",
                         "{C:planet}Planet{} cards and a {C:joy_normal}\"Sky Striker\"{}",
                         "in the {C:joy_trap}Opponent{}'s area"
@@ -460,7 +460,7 @@ return {
                         "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
-                        "You can {C:attention}tribute 1{} {C:planet}Planet{} once, then",
+                        "Once, you can {C:attention}tribute 1{} {C:planet}Planet{} then",
                         "if {C:attention}3 or more{} were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
                         "creates {C:attention}1{} {C:joy_effect}\"Sky Striker Ace - Roze\"{}",
                     }
@@ -492,7 +492,7 @@ return {
                         "to the {C:attention}GY{} when {C:attention}Blind{} is selected"
                     },
                     {
-                        "You can {C:attention}tribute 1{} {C:planet}Planet{} once, then",
+                        "Once, you can {C:attention}tribute 1{} {C:planet}Planet{} then",
                         "if {C:attention}3 or more{} were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
                         "sell this card to {C:attention}revive 1{}",
                         "{C:joy_effect}\"Sky Striker Ace - Raye\"{}"
