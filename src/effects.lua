@@ -998,6 +998,28 @@ function Card:can_calculate(...)
     return ret
 end
 
+local card_selectable_from_pack_ref = Card.selectable_from_pack
+function Card:selectable_from_pack(pack)
+    local area, can_use = card_selectable_from_pack_ref(self, pack)
+    if not area then
+        local ret = JoyousSpring.calculate_prototype_function("select_from_pack", {
+            return_func = function(new, original)
+                if type(new) == "string" then
+                    return { area = new, can_use = original.can_use }
+                elseif type(new) == "table" then
+                    return { area = new.area or original.area, can_use = new.can_use or original.can_use }
+                elseif new == true then
+                    return { area = original.area or 'consumeables', can_use = original.can_use }
+                end
+                return original
+            end,
+            default_return = {}
+        }, self, pack)
+        return ret.area, ret.can_use or can_use
+    end
+    return area, can_use
+end
+
 --#endregion
 
 --#region Transfer Abilities

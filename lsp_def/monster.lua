@@ -33,6 +33,7 @@
 ---@field joy_prevent_summon? fun(self: JoyousSpring.Joker|table, card:table|Card, other_card:Card|table, card_list:Card[]|table?):boolean? Determines if *other_card* can be summoned
 ---@field joy_can_be_used_as_material? fun(self: JoyousSpring.Joker|table, card:table|Card, properties:material_properties, summon_type:summon_type):boolean? Determines if the joker can be used as material, if the return is true it will bypass eternal, if the return is nil it will not, if the return is false it will be blocked regardless.
 ---@field joy_can_calculate_in_side? fun(self: JoyousSpring.Joker|table, card:table|Card, calc_func:string?):boolean? Determines if it can calculate and call other functions in the side deck
+---@field joy_select_from_pack? fun(self: JoyousSpring.Joker|table, card:table|Card, other_card:Card|table, pack:SMODS.Booster|table?):string|{area?:string,can_use?:true}|true? Determines if *other_card* can be selected from a pack instead of (or as well as) used
 ---@field joy_can_transfer_ability? fun(self:JoyousSpring.Joker|table, other_card:Card|table, card:Card|table?):boolean? Determines if *self* transfers its ability to *other_card*. When transforming, `other_card.joy_transforming == self.key`
 ---@field joy_transfer_ability_calculate? fun(self:JoyousSpring.Joker|table, other_card:Card|table, context:CalcContext, config:table):table? Similar to `calculate` but for transferred abilities. `self` is the center for the material and `other_card` is the card with the effect
 ---@field joy_transfer_config? fun(self:JoyousSpring.Joker|table, other_card:Card|table):table? Similar to `config`, it returns the initial config table for the transferred ability
@@ -58,6 +59,7 @@
 ---@field joy_transfer_prevent_banish? fun(self: JoyousSpring.Joker|table, ability_card:table|Card, config:table, other_card:Card|table, banish_until:string):boolean? Determines if *other_card* can be banished but for transferred abilities
 ---@field joy_transfer_prevent_drag? fun(self: JoyousSpring.Joker|table, ability_card:table|Card, config:table, other_card:Card|table, area:CardArea|table):boolean? Determines if *other_card* can be dragged but for transferred abilities
 ---@field joy_transfer_prevent_summon? fun(self: JoyousSpring.Joker|table, ability_card:table|Card, config:table, other_card:Card|table, card_list:Card[]|table?):boolean? Determines if *other_card* can be summoned
+---@field joy_transfer_select_from_pack? fun(self: JoyousSpring.Joker|table, ability_card:table|Card, config:table, other_card:Card|table, pack:SMODS.Booster|table?):string|{area?:string,can_use?:true}|true? Determines if *other_card* can be selected from a pack instead of (or as well as) used
 ---@overload fun(self: JoyousSpring.Joker): JoyousSpring.Joker
 JoyousSpring.Joker = setmetatable({}, {
     __call = function(self)

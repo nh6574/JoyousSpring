@@ -26,6 +26,7 @@
 ---@field joy_prevent_banish? fun(self:SMODS.Blind|table, blind:table|Blind?, other_card:Card|table, banish_until:string):boolean? Determines if *other_card* can be banished
 ---@field joy_prevent_drag? fun(self:SMODS.Blind|table, blind:table|Blind?, other_card:Card|table, area:CardArea|table):boolean? Determines if *other_card* can be dragged
 ---@field joy_prevent_summon? fun(self:SMODS.Blind|table, blind:table|Blind?, other_card:Card|table, card_list:Card[]|table?):boolean? Determines if *other_card* can be summoned
+---@field joy_select_from_pack? fun(self:SMODS.Blind|table, blind:table|Blind?, other_card:Card|table, pack:SMODS.Booster|table?):string|{area?:string,can_use?:true}|true? Determines if *other_card* can be selected from a pack instead of (or as well as) used
 ---@field can_debuff? fun():boolean
 ---@field can_banish? fun():boolean
 ---@field can_destroy? fun():boolean

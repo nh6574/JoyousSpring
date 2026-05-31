@@ -86,6 +86,7 @@ end
 
 local wforest_add_booster_to_shop = function(seed)
     local pack = get_pack(seed, "Spectral").key
+    print(pack)
     if G.STATE == G.STATES.SHOP then
         SMODS.add_booster_to_shop(pack)
     else
@@ -967,6 +968,11 @@ JoyousSpring.Joker({
         return #G.jokers.cards < G.jokers.config.card_limit and
             JoyousSpring.any_materials_owned({ { monster_type = "Spellcaster" } }, nil, true)
     end,
+    joy_select_from_pack = function(self, card, other_card, pack)
+        if pack.kind == "Spectral" then
+            return { area = "consumeables", can_use = true }
+        end
+    end
 })
 
 JoyousSpring.collection_pool[#JoyousSpring.collection_pool + 1] = {

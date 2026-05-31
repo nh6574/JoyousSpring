@@ -185,10 +185,10 @@ return {
                         "{C:attention}1{} {C:joy_spell}\"Witch of the White Forest\"",
                         "to the shop when {C:attention}tributed{}"
                     },
-                    -- { -- TODO: add
-                    --     "Cards in {C:spectral}Spectral Packs{} can be",
-                    --     "saved to the consumable area"
-                    -- },
+                    {
+                        "Cards in {C:spectral}Spectral Packs{} can be",
+                        "saved to the consumable area"
+                    },
                     {
                         "Once, you can {C:attention}tribute 1{} {C:joy_normal}Spellcaster{}",
                         "to create {C:attention}1{} {C:joy_normal}Main Deck \"White Forest\"{}",

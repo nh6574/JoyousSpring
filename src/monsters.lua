@@ -1134,7 +1134,7 @@ JoyousSpring.get_materials_owned = function(property_list, different_names, for_
         elseif not property_list or #property_list == 0 then
             if not keys[joker.config.center_key] or not different_names then
                 table.insert(materials, joker)
-                if #materials >= limit then return materials end
+                if limit and #materials >= limit then return materials end
                 keys[joker.config.center_key] = true
             end
         else
@@ -1144,8 +1144,8 @@ JoyousSpring.get_materials_owned = function(property_list, different_names, for_
                 end
                 if JoyousSpring.is_material(joker, property, for_tribute and "TRIBUTE" or nil) then
                     table.insert(materials, joker)
-                    if #materials >= limit then return materials end
-                    keys[joker.config.censter_key] = true
+                    if limit and #materials >= limit then return materials end
+                    keys[joker.config.center_key] = true
                     break
                 end
             end
@@ -1157,7 +1157,7 @@ JoyousSpring.get_materials_owned = function(property_list, different_names, for_
             elseif not property_list or #property_list == 0 then
                 if not keys[joker.config.center_key] or not different_names then
                     table.insert(materials, joker)
-                    if #materials >= limit then return materials end
+                    if limit and #materials >= limit then return materials end
                     keys[joker.config.center_key] = true
                 end
             else
@@ -1167,7 +1167,7 @@ JoyousSpring.get_materials_owned = function(property_list, different_names, for_
                     end
                     if JoyousSpring.is_material(joker, property, for_tribute and "TRIBUTE" or nil) then
                         table.insert(materials, joker)
-                        if #materials >= limit then return materials end
+                        if limit and #materials >= limit then return materials end
                         keys[joker.config.center_key] = true
                         break
                     end
@@ -1219,14 +1219,14 @@ JoyousSpring.get_materials_in_graveyard = function(property_list, to_revive, dif
                 if not property_list or #property_list == 0 then
                     for i = 1, (different_names and 1 or count) do
                         table.insert(materials, key)
-                        if #materials >= limit then return materials end
+                        if limit and #materials >= limit then return materials end
                     end
                 else
                     for _, property in ipairs(property_list) do
                         if JoyousSpring.is_material_center(key, property) then
                             for i = 1, (different_names and 1 or count) do
                                 table.insert(materials, key)
-                                if #materials >= limit then return materials end
+                                if limit and #materials >= limit then return materials end
                             end
                             break
                         end
