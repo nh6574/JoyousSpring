@@ -81,11 +81,11 @@ return {
                 text = {
                     {
                         "Used {C:planet}Planet{} cards while this card is owned",
-                        "count as tributed for abilities",
+                        "count as {C:attention}tributed{} for abilities",
                     },
                     {
                         "Gains {X:mult,C:white}X#1#{} Mult for each",
-                        "{C:joy_link}Link{} summoned this run",
+                        "{C:joy_link}Link{} {C:attention}summoned{} this run",
                         "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)",
                     }
                 }
@@ -355,9 +355,8 @@ return {
                 name = "{C:joy_link}Sky Striker Ace - Azalea",
                 text = {
                     {
-                        "{C:attention}+#1#{} hand size this round",
-                        "for every {C:planet}Planet{} {C:attention}tributed{} this round",
-                        "{C:inactive}(Currently {C:attention}+#2#{}{C:inactive})"
+                        "Draws a card each time a {C:planet}Planet{}",
+                        "is {C:attention}tributed{} during a {C:attention}Blind{}"
                     },
                     {
                         "Creates {C:attention}1 random {C:planet}Planet",
@@ -396,17 +395,11 @@ return {
                         "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
-                        "Creates as many {C:tarot}High Priestess{}",
-                        "as possible at end of round",
-                        "{C:inactive}(Must have room)"
-                    },
-                    {
                         "Once, you can {C:attention}tribute 1{} {C:planet}Planet{} then",
                         "if {C:attention}3 or more{} were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
                         "for the rest of the round,",
-                        "{C:tarot}Tarot{} cards {C:attention}tributed{}",
-                        "count as {C:planet}Planet{} cards",
-                        "for {C:joy_normal}\"Sky Striker\"{} abilities"
+                        "create {C:attention}1{} {C:dark_edition}Negative{} {C:tarot}High Priestess{}",
+                        "each time a {C:planet}Planet{} card is {C:attention}tributed{}",
                     }
                 },
                 joy_summon_conditions = {
@@ -421,7 +414,8 @@ return {
                     {
                         "Creates as many {C:planet}Planet{} cards",
                         "for your most played hand as possible",
-                        "when {C:attention}Blind{} is selected"
+                        "when {C:attention}Blind{} is selected",
+                        "{C:inactive}(Must have room)"
                     },
                     {
                         "Creates {C:attention}1 random {C:planet}Planet",
@@ -523,7 +517,7 @@ return {
                     },
                     {
                         "You can {C:attention}tribute{} all {C:planet}Planet{} cards {C:inactive}(min. 3){}",
-                        "to reduce {C:attention}Blind{}'s requirement by {C:red}%#2#{}"
+                        "to reduce {C:attention}Blind{}'s requirement by {C:red}#2#%{}"
                     }
                 },
                 joy_summon_conditions = {

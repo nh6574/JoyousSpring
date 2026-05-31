@@ -624,6 +624,17 @@ JoyousSpring.most_owned_suit = function(seed)
     return (pseudorandom_element(SMODS.Suits, seed or "JoyousSpring") or {}).key or "Hearts"
 end
 
+JoyousSpring.most_played_hand = function()
+    local _handname, _played = 'High Card', -1
+    for hand_key, hand in pairs(G.GAME.hands) do
+        if hand.played > _played then
+            _played = hand.played
+            _handname = hand_key
+        end
+    end
+    return _handname
+end
+
 ---Checks if the *card*'s rarity is in *list*
 ---@param card Card|table
 ---@param list string[]

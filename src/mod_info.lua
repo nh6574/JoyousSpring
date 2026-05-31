@@ -742,6 +742,8 @@ end
 
 local create_archetype_loc_ui = function(archetype_prefix, parent)
     local name = localize("k_joy_archetype_" .. archetype_prefix)
+    --TODO: remove later
+    if JoyousSpring.annoying then print("k_joy_archetype_" .. archetype_prefix, name) end
     local nodes = {
         {
             n = G.UIT.R,

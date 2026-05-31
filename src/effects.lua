@@ -150,6 +150,9 @@ SMODS.current_mod.calculate = function(self, context)
         end
         G.GAME.joy_last_used[context.consumeable.ability.set] = context.consumeable.config.center.key
         G.GAME.joy_last_used["All"] = context.consumeable.config.center.key
+        G.GAME.joy_used_count = G.GAME.joy_used_count or {}
+        G.GAME.joy_used_count[context.consumeable.config.center.key] =
+            (G.GAME.joy_used_count[context.consumeable.config.center.key] or 0) + 1
     end
 
     -- Reset check if card is flipped by blind

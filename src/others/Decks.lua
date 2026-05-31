@@ -689,15 +689,28 @@ SMODS.Back {
 }
 
 -- Sky Striker Mobilize - Engage!
--- SMODS.Back {
---     key = "striker",
---     atlas = "Deck",
---     discovered = true,
---     pos = { x = 5, y = 4 },
---     apply = function(self, back)
-
---     end
--- }
+SMODS.Back {
+    key = "striker",
+    atlas = "Deck",
+    discovered = true,
+    pos = { x = 5, y = 4 },
+    calculate = function(self, back, context)
+        if context.after then
+            if not SMODS.last_hand_oneshot then
+                local planet = JoyousSpring.get_played_planet(context.scoring_name)
+                if planet then
+                    SMODS.add_card { key = planet, edition = 'e_negative' }
+                end
+            else
+                if G.GAME.hands[context.scoring_name] and G.GAME.hands[context.scoring_name].level > 1 then
+                    return {
+                        level_up = -(G.GAME.hands[context.scoring_name].level - 1),
+                    }
+                end
+            end
+        end
+    end
+}
 
 -- Blessing of the Voiceless Voice
 SMODS.Back {

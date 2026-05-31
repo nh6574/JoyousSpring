@@ -138,16 +138,17 @@ JoyousSpring.Joker({
     atlas = 'striker',
     pos = { x = 0, y = 0 },
     joy_alt_pos = { { x = 1, y = 0 } },
-    rarity = 1,
+    rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 8,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "transform", "link", "summon", "material" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -237,16 +238,17 @@ JoyousSpring.Joker({
     key = "striker_roze",
     atlas = 'striker',
     pos = { x = 2, y = 0 },
-    rarity = 1,
+    rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 10,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "enter", "extradeck", "link", "summon", "material", "tribute", 'revive' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -312,16 +314,17 @@ JoyousSpring.Joker({
     joy_treated_as = "k_joy_archetype_striker",
     atlas = 'striker',
     pos = { x = 3, y = 0 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 7,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * JoyousSpring.get_summoned_count("LINK") } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "link", "summon", },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -362,6 +365,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "link", },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -419,10 +423,10 @@ JoyousSpring.Joker({
     joy_treated_as = "k_joy_archetype_striker",
     atlas = 'striker',
     pos = { x = 5, y = 0 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 6,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.tags } }
     end,
@@ -460,10 +464,10 @@ JoyousSpring.Joker({
     joy_treated_as = "k_joy_archetype_striker",
     atlas = 'striker',
     pos = { x = 0, y = 1 },
-    rarity = 1,
+    rarity = 3,
     blueprint_compat = false,
     eternal_compat = false,
-    cost = 5,
+    cost = 10,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.creates } }
     end,
@@ -471,6 +475,7 @@ JoyousSpring.Joker({
         { "opp_joy_striker_ciela",                                     name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "enter", "opponent" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -520,6 +525,7 @@ JoyousSpring.OpponentCard {
         { "j_joy_striker_ciela",                                       name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -552,10 +558,10 @@ JoyousSpring.Joker({
     joy_treated_as = "k_joy_archetype_striker",
     atlas = 'striker',
     pos = { x = 1, y = 1 },
-    rarity = 1,
+    rarity = 3,
     blueprint_compat = false,
     eternal_compat = false,
-    cost = 5,
+    cost = 10,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.creates } }
     end,
@@ -563,6 +569,7 @@ JoyousSpring.Joker({
         { "opp_joy_striker_akash",                                     name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "enter", "opponent" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -608,6 +615,7 @@ JoyousSpring.OpponentCard {
         { "j_joy_striker_akash",                                       name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "revive", "link", "tribute" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -642,10 +650,10 @@ JoyousSpring.Joker({
     joy_treated_as = "k_joy_archetype_striker",
     atlas = 'striker',
     pos = { x = 2, y = 1 },
-    rarity = 1,
+    rarity = 3,
     blueprint_compat = false,
     eternal_compat = false,
-    cost = 5,
+    cost = 10,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.creates } }
     end,
@@ -653,6 +661,7 @@ JoyousSpring.Joker({
         { "opp_joy_striker_himmel",                                    name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "enter", "opponent" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -698,6 +707,7 @@ JoyousSpring.OpponentCard {
         { "j_joy_striker_himmel",                                      name = "k_joy_creates" },
         { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -732,13 +742,14 @@ JoyousSpring.Joker({
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 9,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.chips, card.ability.extra.chips * JoyousSpring.count_set_tributed("Planet"), JoyousSpring.count_set_tributed("Planet") } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "extradeck", "enter", "summon" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -825,13 +836,14 @@ JoyousSpring.Joker({
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 9,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.count_set_tributed("Planet"), JoyousSpring.count_set_tributed("Planet") } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "extradeck", "enter", "summon" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -910,13 +922,14 @@ JoyousSpring.Joker({
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 9,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.money, card.ability.extra.money * JoyousSpring.count_set_tributed("Planet"), JoyousSpring.count_set_tributed("Planet") } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "extradeck", "enter", "summon" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1008,13 +1021,14 @@ JoyousSpring.Joker({
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 9,
     loc_vars = function(self, info_queue, card)
         return { vars = { JoyousSpring.count_set_tributed("Planet") } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "extradeck", "enter", "summon" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1103,13 +1117,14 @@ JoyousSpring.Joker({
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 9,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.creates, JoyousSpring.count_set_tributed("Planet") } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "extradeck", "enter", "summon", "revive" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1193,13 +1208,14 @@ local zeke = JoyousSpring.Joker({
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 9,
     loc_vars = function(self, info_queue, card)
         return { vars = { JoyousSpring.count_set_tributed("Planet") } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "extradeck", "enter", "summon", "banish" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1290,16 +1306,17 @@ JoyousSpring.Joker({
     key = "striker_azalea",
     atlas = 'striker',
     pos = { x = 2, y = 2 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 9,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "extradeck", "enter", "summon", "transform" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1342,6 +1359,27 @@ JoyousSpring.Joker({
             },
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) and not context.blueprint_card then
+            if context.joy_tributed and context.joy_card.ability.set == 'Planet' then
+                SMODS.draw_cards(1)
+            end
+            if JoyousSpring.is_activated_context(card, context) then
+                local materials = JoyousSpring.get_consumable_set("Tarot")
+                if #materials >= 1 then
+                    JoyousSpring.create_overlay_effect_selection(card, materials, 1, 1)
+                end
+            end
+            if JoyousSpring.is_exit_selection_context(card, context) then
+                JoyousSpring.tribute(card, context.joy_selection)
+                JoyousSpring.transform_card(card, "j_joy_striker_azaleatemp", nil, "LINK", { self.key })
+            end
+        end
+    end,
+    joy_can_activate = function(card)
+        local materials = JoyousSpring.get_consumable_count("Tarot")
+        return materials >= 1
+    end,
     add_to_deck = function(self, card, from_debuff)
         if not from_debuff then
             if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
@@ -1361,16 +1399,21 @@ JoyousSpring.Joker({
     key = "striker_azaleatemp",
     atlas = 'striker',
     pos = { x = 1, y = 2 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 9,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return {
+            vars = { card.ability.extra.money, card.ability.extra.money *
+            ((G.GAME.joy_used_count or {}).c_high_priestess or 0),
+                JoyousSpring.count_set_tributed("Planet") }
+        }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "extradeck", "enter", "summon" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1391,10 +1434,46 @@ JoyousSpring.Joker({
                     }
                 }
             },
+            money = 1
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) and not context.blueprint_card then
+            if context.joy_tributed and context.joy_card.ability.set == 'Planet'
+                and card.ability.extra.active then
+                SMODS.add_card { key = "c_high_priestess", edition = 'e_negative' }
+            end
+            if JoyousSpring.is_activated_context(card, context) then
+                local materials = JoyousSpring.get_consumable_set("Planet")
+                if #materials >= 1 then
+                    JoyousSpring.create_overlay_effect_selection(card, materials, 1, 1)
+                end
+            end
+            if JoyousSpring.is_exit_selection_context(card, context) then
+                JoyousSpring.tribute(card, context.joy_selection)
+                card.ability.extra.activated = true
+
+                if JoyousSpring.count_set_tributed("Planet") >= 3 then
+                    card.ability.extra.active = true
+                end
+            end
+        end
+        if context.end_of_round and context.game_over == false and context.main_eval then
+            card.ability.extra.active = nil
+        end
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        card.ability.extra.active = nil
+    end,
+    joy_can_activate = function(card)
+        if card.ability.extra.activated then return false end
+        local materials = JoyousSpring.get_consumable_count("Planet")
+        return materials >= 1
+    end,
     add_to_deck = function(self, card, from_debuff)
         if not from_debuff then
+            card.ability.extra_value = card.ability.extra_value +
+                card.ability.extra.money * ((G.GAME.joy_used_count or {}).c_high_priestess or 0)
             local choices = striker_get_not_summoned_links(nil, true)
             local choice = pseudorandom_element(choices, self.key .. "_extra")
             if choice then
@@ -1409,16 +1488,17 @@ JoyousSpring.Joker({
     key = "striker_camellia",
     atlas = 'striker',
     pos = { x = 3, y = 2 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 9,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "extradeck", "enter", "summon", "opponent" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1439,8 +1519,49 @@ JoyousSpring.Joker({
                     }
                 }
             },
+            creates = 3
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) and not context.blueprint_card then
+            if context.setting_blind then
+                local most_played = JoyousSpring.most_played_hand()
+                local planet = JoyousSpring.get_played_planet(most_played)
+                if planet then
+                    local amount = G.consumeables.config.card_limit - #G.consumeables.cards
+                    for i = 1, amount do
+                        SMODS.add_card { key = planet }
+                    end
+                end
+            end
+            if JoyousSpring.is_activated_context(card, context) then
+                local materials = JoyousSpring.get_consumable_set("Spectral")
+                if #materials >= 1 then
+                    JoyousSpring.create_overlay_effect_selection(card, materials, 1, 1)
+                end
+            end
+            if JoyousSpring.is_exit_selection_context(card, context) then
+                JoyousSpring.tribute(card, context.joy_selection)
+                card.ability.extra.activated = true
+                for i = 1, card.ability.extra.creates do
+                    SMODS.add_card { set = 'Planet', edition = 'e_negative' }
+                end
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        local to_add = pseudorandom_element(
+                            { "opp_joy_striker_ciela", "opp_joy_striker_akash", "opp_joy_striker_himmel" }, self.key)
+                        SMODS.add_card { key = to_add, area = JoyousSpring.opponent_area }
+                        return true
+                    end
+                }))
+            end
+        end
+    end,
+    joy_can_activate = function(card)
+        if card.ability.extra.activated then return false end
+        local materials = JoyousSpring.get_consumable_count("Spectral")
+        return materials >= 1
+    end,
     add_to_deck = function(self, card, from_debuff)
         if not from_debuff then
             if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
@@ -1455,21 +1576,32 @@ JoyousSpring.Joker({
     end
 })
 
+local striker_get_level_amount = function()
+    local amount = 0
+    for _, hand in ipairs(G.GAME.hands) do
+        if hand.level > 1 then
+            amount = amount + hand.level - 1
+        end
+    end
+    return amount
+end
+
 -- Sky Striker Ace = Zero
 JoyousSpring.Joker({
     key = "striker_zero",
     atlas = 'striker',
     pos = { x = 0, y = 4 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 12,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * striker_get_level_amount(), JoyousSpring.count_set_tributed("Planet") } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "extradeck", "enter", "summon" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1490,8 +1622,37 @@ JoyousSpring.Joker({
                     }
                 }
             },
+            xmult = 0.2
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) and not context.blueprint_card then
+            if context.joker_main then
+                return {
+                    xmult = 1 + card.ability.extra.xmult * striker_get_level_amount()
+                }
+            end
+            if JoyousSpring.is_activated_context(card, context) then
+                local materials = JoyousSpring.get_consumable_set("Planet")
+                if #materials >= 1 then
+                    JoyousSpring.create_overlay_effect_selection(card, materials, 1, 1)
+                end
+            end
+            if JoyousSpring.is_exit_selection_context(card, context) then
+                JoyousSpring.tribute(card, context.joy_selection)
+                card.ability.extra.activated = true
+
+                if JoyousSpring.count_set_tributed("Planet") >= 3 then
+                    JoyousSpring.create_summon({ key = "j_joy_striker_roze" })
+                end
+            end
+        end
+    end,
+    joy_can_activate = function(card)
+        if card.ability.extra.activated then return false end
+        local materials = JoyousSpring.get_consumable_count("Planet")
+        return materials >= 1
+    end,
     add_to_deck = function(self, card, from_debuff)
         if not from_debuff then
             if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
@@ -1512,16 +1673,24 @@ JoyousSpring.Joker({
     joy_treated_as = "k_joy_archetype_striker_ace",
     atlas = 'striker',
     pos = { x = 5, y = 1 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 12,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return {
+            vars = {
+                card.ability.extra.mult,
+                card.ability.extra.mult *
+                JoyousSpring.count_materials_in_graveyard({ { monster_archetypes = { "SkyStriker" } } }),
+                JoyousSpring.count_set_tributed("Planet")
+            }
+        }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "extradeck", "enter", "summon", "graveyard", "revive" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1562,8 +1731,52 @@ JoyousSpring.Joker({
                     }
                 }
             },
+            sends = 2,
+            mult = 2
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) and not context.blueprint_card then
+            if context.setting_blind then
+                JoyousSpring.send_to_graveyard_pseudorandom({ { monster_archetypes = { "SkyStrikerAce" } } }, self.key,
+                    card.ability.extra.sends)
+            end
+            if context.joker_main then
+                return {
+                    mult = card.ability.extra.mult *
+                        JoyousSpring.count_materials_in_graveyard({ { monster_archetypes = { "SkyStriker" } } })
+                }
+            end
+            if JoyousSpring.is_activated_context(card, context) then
+                local materials = JoyousSpring.get_consumable_set("Planet")
+                if #materials >= 1 then
+                    JoyousSpring.create_overlay_effect_selection(card, materials, 1, 1)
+                end
+            end
+            if JoyousSpring.is_exit_selection_context(card, context) then
+                JoyousSpring.tribute(card, context.joy_selection)
+                card.ability.extra.activated = true
+
+                if JoyousSpring.count_set_tributed("Planet") >= 3 then
+                    card.ability.extra.active = true
+                end
+            end
+            if context.selling_self and card.ability.extra.active then
+                JoyousSpring.revive("j_joy_striker_raye", true)
+            end
+        end
+        if context.end_of_round and context.game_over == false and context.main_eval then
+            card.ability.extra.active = nil
+        end
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        card.ability.extra.active = nil
+    end,
+    joy_can_activate = function(card)
+        if card.ability.extra.activated then return false end
+        local materials = JoyousSpring.get_consumable_count("Planet")
+        return materials >= 1
+    end,
     add_to_deck = function(self, card, from_debuff)
         if not from_debuff then
             if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
@@ -1584,16 +1797,17 @@ JoyousSpring.Joker({
     joy_treated_as = "k_joy_archetype_striker_ace",
     atlas = 'striker',
     pos = { x = 1, y = 4 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 9,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.xmult, card.ability.extra.percent * 100 } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "extradeck", "enter", "summon" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1615,8 +1829,37 @@ JoyousSpring.Joker({
                     }
                 }
             },
+            xmult = 4,
+            percent = 0.25
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) and not context.blueprint_card then
+            if context.joker_main and (next(context.poker_hands["Five of a Kind"]) or
+                    next(context.poker_hands["Flush Five"]) or next(context.poker_hands["Flush House"])) then
+                return {
+                    xmult = card.ability.extra.xmult
+                }
+            end
+            if JoyousSpring.is_activated_context(card, context) then
+                local materials = JoyousSpring.get_consumable_set("Planet")
+                if #materials >= 3 then
+                    JoyousSpring.tribute(card, materials)
+                    return {
+                        xblindsize = 1 - card.ability.extra.percent
+                    }
+                end
+            end
+            if context.selling_self and card.ability.extra.active then
+                JoyousSpring.revive("j_joy_striker_raye", true)
+            end
+        end
+    end,
+    joy_can_activate = function(card)
+        if not G.GAME.blind.in_blind then return end
+        local materials = JoyousSpring.get_consumable_count("Planet")
+        return materials >= 3
+    end,
     add_to_deck = function(self, card, from_debuff)
         if not from_debuff then
             if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
@@ -1636,16 +1879,17 @@ JoyousSpring.Joker({
     key = "striker_areazero",
     atlas = 'striker',
     pos = { x = 3, y = 1 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 15,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "SkyStriker" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { "tribute", "link" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1654,7 +1898,34 @@ JoyousSpring.Joker({
             },
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.after and JoyousSpring.any_materials_owned({ { summon_type = "LINK" } }) then
+                local planet = JoyousSpring.get_played_planet(context.scoring_name)
+                if planet then
+                    local added = SMODS.add_card { key = planet, edition = "e_negative" }
+                    SMODS.debuff_card(added, true, self.key)
+                end
+            end
+        end
+        if context.joy_tributed_self or context.selling_self then
+            JoyousSpring.create_summon({ key = "j_joy_striker_raye" })
+        end
+    end,
 })
+
+local smods_showman_ref = SMODS.showman
+function SMODS.showman(card_key, ...)
+    if (G.P_CENTERS[card_key] or {}).set == "Planet" then
+        for _, joker in ipairs(SMODS.find_card("j_joy_striker_areazero")) do
+            if JoyousSpring.can_use_abilities(joker) then
+                return true
+            end
+        end
+    end
+
+    return smods_showman_ref(card_key, ...)
+end
 
 JoyousSpring.token_pool["striker"] = {
     order = 7,
