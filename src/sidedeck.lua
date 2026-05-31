@@ -348,6 +348,12 @@ G.FUNCS.joy_toggle_side_deck = function(e)
                 G.STATE_COMPLETE = false
                 G.STATE = G.STATES.BLIND_SELECT
                 G.CONTROLLER.locks.joy_toggle_side_deck = nil
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        SMODS.calculate_context({ joy_ending_side = true })
+                        return true
+                    end
+                }))
                 if not G.GAME.joy_blind_tutorial then
                     local blind_proto = G.P_BLINDS[G.GAME.round_resets.blind_choices.Boss]
                     if blind_proto and (blind_proto.original_mod or {}).id == "JoyousSpring" then

@@ -1052,7 +1052,7 @@ SMODS.current_mod.calculate = function(self, context)
         G.GAME.joy_mimi_armor_banish = nil
     end
 
-    if context.ending_shop and G.GAME.joy_mimi_fairy_reroll then
+    if context.joy_ending_side and G.GAME.joy_mimi_fairy_reroll then
         G.E_MANAGER:add_event(Event({
             func = function()
                 G.from_boss_tag = true
