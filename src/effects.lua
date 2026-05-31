@@ -104,16 +104,24 @@ SMODS.current_mod.calculate = function(self, context)
     -- Global counter for summoned cards
     if context.joy_summon then
         G.GAME.joy_summoned_count = G.GAME.joy_summoned_count or {}
-        G.GAME.joy_summoned_count["Total"] = (G.GAME.joy_summoned_count["Total"] or 0) +
-            1
-        G.GAME.joy_summoned_count[context.joy_summon_type] = (G.GAME.joy_summoned_count[context.joy_summon_type] or 0) +
-            1
+        G.GAME.joy_summoned_count["Total"] =
+            (G.GAME.joy_summoned_count["Total"] or 0) + 1
+        G.GAME.joy_summoned_count[context.joy_summon_type] =
+            (G.GAME.joy_summoned_count[context.joy_summon_type] or 0) + 1
+
+        G.GAME.joy_summoned_list = G.GAME.joy_summoned_list or {}
+        G.GAME.joy_summoned_list[context.joy_card.config.center_key] =
+            (G.GAME.joy_summoned_list[context.joy_card.config.center_key] or 0) + 1
 
         G.GAME.joy_summoned_count_round = G.GAME.joy_summoned_count_round or {}
-        G.GAME.joy_summoned_count_round["Total"] = (G.GAME.joy_summoned_count_round["Total"] or 0) +
-            1
-        G.GAME.joy_summoned_count_round[context.joy_summon_type] = (G.GAME.joy_summoned_count_round[context.joy_summon_type] or 0) +
-            1
+        G.GAME.joy_summoned_count_round["Total"] =
+            (G.GAME.joy_summoned_count_round["Total"] or 0) + 1
+        G.GAME.joy_summoned_count_round[context.joy_summon_type] =
+            (G.GAME.joy_summoned_count_round[context.joy_summon_type] or 0) + 1
+
+        G.GAME.current_round.joy_summoned_list = G.GAME.current_round.joy_summoned_list or {}
+        G.GAME.current_round.joy_summoned_list[context.joy_card.config.center_key] =
+            (G.GAME.current_round.joy_summoned_list[context.joy_card.config.center_key] or 0) + 1
     end
 
     -- Global counter for flipped cards
@@ -260,6 +268,7 @@ function SMODS.current_mod.reset_game_globals(run_start)
     G.GAME.current_round.joy_cards_banished = 0
     G.GAME.current_round.joy_cards_banished_by_type = {}
     G.GAME.current_round.joy_cards_banished_by_attribute = {}
+    G.GAME.current_round.joy_summoned_list = {}
     G.GAME.joy_purr_memory_apply = false
     G.GAME.joy_purr_friend_apply = false
 end

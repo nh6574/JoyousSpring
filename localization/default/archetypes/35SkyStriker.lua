@@ -21,13 +21,15 @@ return {
                         "to {C:attention}transform{} this card into",
                         "an appropriate {C:joy_normal}\"Sky Striker Ace\"{} {C:joy_link}Link{}",
                         "{C:inactive}(This is treated as a Link summon)",
-                        " ",
                         "A {C:joy_link}Link{} summoned this way gains the following ability:",
                         "{s:0.9,X:mult,C:white}X#1#{s:0.9} Mult if played hand contains",
                         "{s:0.9,C:attention}[hand for tributed Planet]{}",
                         "{s:0.9} ",
                         "{s:0.9,C:attention}Transforms{s:0.9} into {s:0.9,C:joy_effect}\"Sky Striker Ace - Raye\"{}",
-                        "{s:0.9}at end of round"
+                        "{s:0.9}at end of round",
+                        " ",
+                        "{s:0.9}A {s:0.9,C:joy_normal}\"Sky Striker Ace\" {s:0.9,C:attention}summoned{s:0.9} using this card",
+                        "{s:0.9}as {s:0.9,C:attention}material{s:0.9} also transfers this ability"
                     },
                 },
                 joy_transfer_ability = {
@@ -36,7 +38,10 @@ return {
                     "{C:attention}#2#{}",
                     " ",
                     "{C:attention}Transforms{} into {C:joy_effect}\"Sky Striker Ace - Raye\"{}",
-                    "at end of round"
+                    "at end of round",
+                    " ",
+                    "A {C:joy_normal}\"Sky Striker Ace\"{} {C:attention}summoned{} using this card",
+                    "as {C:attention}material{} also transfers this ability"
                 }
             },
             j_joy_striker_roze = {
@@ -108,7 +113,7 @@ return {
                     },
                     {
                         "Sell this card to create",
-                        "{C:attention}#2# Celestial Tags"
+                        "{C:attention}#2# Meteor Tags"
                     }
                 }
             },
@@ -387,6 +392,11 @@ return {
                         "{C:inactive}(Currently {C:money}+$#2#{}{C:inactive})"
                     },
                     {
+                        "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "{s:0.9,C:inactive}(not summoned this round, if possible){}",
+                        "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
+                    },
+                    {
                         "Creates as many {C:tarot}High Priestess{}",
                         "as possible at end of round"
                     },
@@ -517,7 +527,7 @@ return {
                     }
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2{} {C:attention}Jokers{},",
+                    "{C:attention}3{} {C:attention}Jokers{},",
                     "including a {C:joy_link}Link{}",
                     "OR {C:attention}Tribute a {C:planet}Planet X{}",
                     "{C:planet}Ceres{} or {C:planet}Eris{}",
@@ -531,7 +541,7 @@ return {
                 name = "{C:joy_effect}Sage of Benevolence - Ciela",
                 text = {
                     {
-                        "{C:attention}Level up{} the appropriate",
+                        "{C:green}#1# in #2#{} chance to {C:attention}level up{} the appropriate",
                         "poker hand for {C:attention}tributed{} {C:planet}Planet{} cards",
                     }
                 }
@@ -540,8 +550,9 @@ return {
                 name = "{C:joy_effect}Sage of Strength - Akash",
                 text = {
                     {
-                        "{C:attention}Revives 1 tributed{}",
-                        "{C:joy_link}Link{} at end of round"
+                        "{C:attention}Revives 1{} {C:joy_link}Link{}",
+                        "{C:attention}tributed{} this round",
+                        "at end of round"
                     }
                 }
             },
@@ -570,6 +581,7 @@ return {
         dictionary = {
             k_joy_archetype_striker = "Sky Striker",
             k_joy_archetype_striker_ace = "Sky Striker Ace",
+            k_joy_modded_hand = "Modded Poker Hands", -- As in, poker hands from mods
         }
     }
 }

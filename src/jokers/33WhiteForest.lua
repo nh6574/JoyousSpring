@@ -86,7 +86,6 @@ end
 
 local wforest_add_booster_to_shop = function(seed)
     local pack = get_pack(seed, "Spectral").key
-    print(pack)
     if G.STATE == G.STATES.SHOP then
         SMODS.add_booster_to_shop(pack)
     else

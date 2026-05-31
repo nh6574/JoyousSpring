@@ -182,6 +182,8 @@ JoyousSpring.Joker = setmetatable({}, {
 ---@field same_attribute boolean?
 ---@field different_types boolean?
 ---@field same_type boolean?
+---@field not_summoned_this_round boolean?
+---@field no_room boolean?
 
 ---@class summon_conditions
 ---@field type summon_type

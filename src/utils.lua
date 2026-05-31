@@ -475,8 +475,13 @@ end
 ---Get the count of the cards summoned this run
 ---@param type? summon_type
 ---@param this_round? boolean Checks for the round instead
+---@param key? string Checks for the specific joker instead
 ---@return integer
-JoyousSpring.get_summoned_count = function(type, this_round)
+JoyousSpring.get_summoned_count = function(type, this_round, key)
+    if key then
+        local table = not this_round and G.GAME.joy_summoned_list or G.GAME.current_round.joy_summoned_list
+        return table and table[key] or 0
+    end
     local table = not this_round and G.GAME.joy_summoned_count or G.GAME.joy_summoned_count_round
     return table and table[type or "Total"] or 0
 end
