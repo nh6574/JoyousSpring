@@ -181,7 +181,7 @@ JoyousSpring.Joker({
             },
             xmult = 0.05,
             creates = 1,
-            activated = true
+            activated = false
         },
     },
     calculate = function(self, card, context)
@@ -196,8 +196,7 @@ JoyousSpring.Joker({
                 card.ability.extra.activated = true
                 for i = 1, card.ability.extra.creates do
                     JoyousSpring.create_pseudorandom({ { is_pendulum = true, is_main_deck = true } },
-                        'j_joy_exceed', false, false,
-                        "e_negative")
+                        'j_joy_exceed', false, false, "e_negative")
                 end
             end
         end
