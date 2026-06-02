@@ -23,7 +23,7 @@ JoyousSpring.Joker({
         },
     },
     calculate = function(self, card, context)
-        if context.joy_activate_effect and context.joy_activated_card == card and G.GAME.blind.in_blind then
+        if JoyousSpring.is_activated_context(card, context) and G.GAME.blind.in_blind then
             ease_discard(card.ability.extra.discards)
             ease_hands_played(card.ability.extra.hands)
             G.GAME.blind.chips = math.floor(G.GAME.blind.chips + G.GAME.blind.chips * card.ability.extra.percent)
@@ -144,15 +144,14 @@ JoyousSpring.Joker({
         },
     },
     calculate = function(self, card, context)
-        if not card.ability.extra.activated and context.joy_activate_effect and context.joy_activated_card == card then
+        if not card.ability.extra.activated and JoyousSpring.is_activated_context(card, context) then
             local materials = JoyousSpring.get_materials_owned({ {} }, false, true)
             if #materials >= card.ability.extra.tributes then
                 JoyousSpring.create_overlay_effect_selection(card, materials, card.ability.extra.tributes,
                     card.ability.extra.tributes)
             end
         end
-        if context.joy_exit_effect_selection and context.joy_card == card and
-            #context.joy_selection == card.ability.extra.tributes then
+        if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
             JoyousSpring.tribute(card, context.joy_selection)
             card.ability.extra.activated = true
             for _, joker in ipairs(G.jokers.cards) do

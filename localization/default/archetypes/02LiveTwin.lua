@@ -165,6 +165,19 @@ return {
                     },
                 }
             },
+        },
+    },
+    JoyousSpring = {
+        Blurbs = {
+            ltwin = {
+                story = {
+                    "{C:gold}[From the \"S-Force\" storyline]{}",
+                    "To the public they're the popular streamer duo {C:joy_normal}\"Live{C:joy_normal,f:joy_font}☆{}{C:joy_normal}Twin\"{}... but their true identity is the beautiful cat burglar ladies {C:joy_normal}\"Evil{C:joy_normal,f:joy_font}★{}{C:joy_normal}Twin\"{}!",
+                },
+                gameplay = {
+                    "This theme focuses on basic scoring and gaining advantage through its {C:attention}reviving{} loop. Aim to {C:attention}summon{} {C:joy_link}Trouble Sunny{} every round!"
+                }
+            }
         }
     },
     misc = {

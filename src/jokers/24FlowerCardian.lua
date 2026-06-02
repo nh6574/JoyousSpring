@@ -13,7 +13,7 @@ local cardian_excavate = function(self, card, context)
 end
 
 local cardian_bypass_room_check = function(card, from_booster)
-    return JoyousSpring.count_materials_owned({ { monster_archetypes = { "FlowerCardian" } } }) > 0
+    return JoyousSpring.any_materials_owned({ { monster_archetypes = { "FlowerCardian" } } })
 end
 
 local cardian_is_hanafuda_month = function(card, months)

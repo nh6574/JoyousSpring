@@ -475,8 +475,13 @@ end
 ---Get the count of the cards summoned this run
 ---@param type? summon_type
 ---@param this_round? boolean Checks for the round instead
+---@param key? string Checks for the specific joker instead
 ---@return integer
-JoyousSpring.get_summoned_count = function(type, this_round)
+JoyousSpring.get_summoned_count = function(type, this_round, key)
+    if key then
+        local table = not this_round and G.GAME.joy_summoned_list or G.GAME.current_round.joy_summoned_list
+        return table and table[key] or 0
+    end
     local table = not this_round and G.GAME.joy_summoned_count or G.GAME.joy_summoned_count_round
     return table and table[type or "Total"] or 0
 end
@@ -619,6 +624,17 @@ JoyousSpring.most_owned_suit = function(seed)
     return (pseudorandom_element(SMODS.Suits, seed or "JoyousSpring") or {}).key or "Hearts"
 end
 
+JoyousSpring.most_played_hand = function()
+    local _handname, _played = 'High Card', -1
+    for hand_key, hand in pairs(G.GAME.hands) do
+        if hand.played > _played then
+            _played = hand.played
+            _handname = hand_key
+        end
+    end
+    return _handname
+end
+
 ---Checks if the *card*'s rarity is in *list*
 ---@param card Card|table
 ---@param list string[]
@@ -724,6 +740,16 @@ JoyousSpring.playing_cards_used = function(cards_used, playing_card_materials)
         cards_used[pcard.base.suit] = (cards_used[pcard.base.suit] or 0) + 1
     end
     return cards_used
+end
+
+JoyousSpring.is_activated_context = function(card, context)
+    return context.joy_activate_effect and context.joy_activated_card == card
+end
+
+JoyousSpring.is_exit_selection_context = function(card, context, amount)
+    return context.joy_exit_effect_selection and
+        context.joy_card == card and
+        (not amount and (#context.joy_selection >= 1) or #context.joy_selection == amount)
 end
 
 ---Runs **func** on all (supported) objects
@@ -887,9 +913,4 @@ end
 
 JoyousSpring.get_consumable_quantity = function(card)
     return type(Card.getQty) == "function" and card:getQty() or 1
-end
-
---- Talisman compat
-to_big = to_big or function(num)
-    return num
 end

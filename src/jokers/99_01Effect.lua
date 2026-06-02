@@ -298,7 +298,7 @@ JoyousSpring.Joker({
         end
     end,
     joy_set_cost = function(card)
-        if JoyousSpring.count_materials_owned({ { monster_type = "Cyberse" } }) > 0 then
+        if JoyousSpring.any_materials_owned({ { monster_type = "Cyberse" } }) then
             card.cost = 0
         end
     end
@@ -336,7 +336,7 @@ JoyousSpring.Joker({
         end
     end,
     joy_set_cost = function(card)
-        if JoyousSpring.count_materials_owned({ { monster_type = "Cyberse" } }) > 0 then
+        if JoyousSpring.any_materials_owned({ { monster_type = "Cyberse" } }) then
             card.cost = 0
         end
     end,
@@ -1106,7 +1106,7 @@ JoyousSpring.Joker({
     pos = { x = 3, y = 1 },
     rarity = 1,
     blueprint_compat = false,
-    eternal_compat = true,
+    eternal_compat = false,
     cost = 6,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mills, card.ability.extra.revives } }
@@ -1170,14 +1170,14 @@ JoyousSpring.Joker({
         end
     end,
     joy_set_cost = function(card)
-        if JoyousSpring.count_materials_owned({ { is_non_effect = true } }) > 0 then
+        if JoyousSpring.any_materials_owned({ { is_non_effect = true } }) then
             card.cost = 0
         end
     end
 })
 
 JoyousSpring.token_pool["ringo"] = {
-    order = 9,
+    order = 8,
     name = "j_joy_token_ringo",
     atlas = "joy_Misc02",
     sprite_pos = { x = 0, y = 4 },
@@ -1487,7 +1487,7 @@ JoyousSpring.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if context.joy_activate_effect and context.joy_activated_card == card then
+            if JoyousSpring.is_activated_context(card, context) then
                 local materials = JoyousSpring.get_materials_owned(
                     { { monster_type = "Rock" } }, false, true)
                 if #materials >= card.ability.extra.tributes then
@@ -1495,8 +1495,7 @@ JoyousSpring.Joker({
                         card.ability.extra.tributes)
                 end
             end
-            if context.joy_exit_effect_selection and context.joy_card == card and
-                #context.joy_selection == card.ability.extra.tributes then
+            if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
                 card.ability.extra.activated = true
                 JoyousSpring.tribute(card, context.joy_selection)
                 for _ = 1, card.ability.extra.adds do
@@ -1523,9 +1522,8 @@ JoyousSpring.Joker({
         if card.ability.extra.activated then
             return false
         end
-        local materials = JoyousSpring.get_materials_owned(
-            { { monster_type = "Rock" } }, false, true)
-        return #materials >= card.ability.extra.tributes
+        return JoyousSpring.any_materials_owned(
+            { { monster_type = "Rock" } }, false, true, nil, card.ability.extra.tributes)
     end,
     joker_display_def = function(JokerDisplay)
         ---@type JDJokerDefinition
@@ -1569,7 +1567,7 @@ JoyousSpring.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if context.joy_activate_effect and context.joy_activated_card == card then
+            if JoyousSpring.is_activated_context(card, context) then
                 local materials = JoyousSpring.get_materials_owned(
                     { { monster_type = "Rock" } }, false, true)
                 if #materials >= card.ability.extra.tributes then
@@ -1577,8 +1575,7 @@ JoyousSpring.Joker({
                         card.ability.extra.tributes)
                 end
             end
-            if context.joy_exit_effect_selection and context.joy_card == card and
-                #context.joy_selection == card.ability.extra.tributes and #G.jokers.cards + G.GAME.joker_buffer + card.ability.extra.creates - card.ability.extra.tributes <= G.jokers.config.card_limit then
+            if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) and #G.jokers.cards + G.GAME.joker_buffer + card.ability.extra.creates - card.ability.extra.tributes <= G.jokers.config.card_limit then
                 card.ability.extra.activated = true
                 JoyousSpring.tribute(card, context.joy_selection)
                 for _ = 1, card.ability.extra.creates do
@@ -1600,9 +1597,8 @@ JoyousSpring.Joker({
         if card.ability.extra.activated or not (#G.jokers.cards + G.GAME.joker_buffer + card.ability.extra.creates - card.ability.extra.tributes <= G.jokers.config.card_limit) then
             return false
         end
-        local materials = JoyousSpring.get_materials_owned(
-            { { monster_type = "Rock" } }, false, true)
-        return #materials >= card.ability.extra.tributes
+        return JoyousSpring.any_materials_owned(
+            { { monster_type = "Rock" } }, false, true, nil, card.ability.extra.tributes)
     end,
     joker_display_def = function(JokerDisplay)
         ---@type JDJokerDefinition
@@ -2442,10 +2438,10 @@ JoyousSpring.Joker({
         end
     end,
     joy_bypass_room_check = function(card, from_booster)
-        return JoyousSpring.count_materials_owned({ { monster_type = "Cyberse" } }) > 0
+        return JoyousSpring.any_materials_owned({ { monster_type = "Cyberse" } })
     end,
     joy_set_cost = function(card)
-        if JoyousSpring.count_materials_owned({ { monster_type = "Cyberse" } }) > 0 then
+        if JoyousSpring.any_materials_owned({ { monster_type = "Cyberse" } }) then
             card.cost = 0
         end
     end,

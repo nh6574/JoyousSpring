@@ -69,7 +69,7 @@ JoyousSpring.Joker({
                 end
             end
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and artifact_can_move(card) then
+                if JoyousSpring.is_activated_context(card, context) and artifact_can_move(card) then
                     SMODS.destroy_cards(card, nil, true)
                     inc_artifact_count()
                     G.E_MANAGER:add_event(Event({
@@ -149,7 +149,7 @@ JoyousSpring.Joker({
                 end
             end
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and artifact_can_move(card) then
+                if JoyousSpring.is_activated_context(card, context) and artifact_can_move(card) then
                     SMODS.destroy_cards(card, nil, true)
                     inc_artifact_count()
                     G.E_MANAGER:add_event(Event({
@@ -231,7 +231,7 @@ JoyousSpring.Joker({
                 end
             end
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and artifact_can_move(card) then
+                if JoyousSpring.is_activated_context(card, context) and artifact_can_move(card) then
                     SMODS.destroy_cards(card, nil, true)
                     inc_artifact_count()
                     G.E_MANAGER:add_event(Event({
@@ -326,7 +326,7 @@ JoyousSpring.Joker({
                 }
             end
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and artifact_can_move(card) then
+                if JoyousSpring.is_activated_context(card, context) and artifact_can_move(card) then
                     SMODS.destroy_cards(card, nil, true)
                     inc_artifact_count()
                     G.E_MANAGER:add_event(Event({
@@ -424,7 +424,7 @@ JoyousSpring.Joker({
                 end
             end
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and artifact_can_move(card) then
+                if JoyousSpring.is_activated_context(card, context) and artifact_can_move(card) then
                     SMODS.destroy_cards(card, nil, true)
                     inc_artifact_count()
                     G.E_MANAGER:add_event(Event({
@@ -514,7 +514,7 @@ JoyousSpring.Joker({
                 }
             end
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and artifact_can_move(card) then
+                if JoyousSpring.is_activated_context(card, context) and artifact_can_move(card) then
                     SMODS.destroy_cards(card, nil, true)
                     inc_artifact_count()
                     G.E_MANAGER:add_event(Event({
@@ -610,7 +610,7 @@ JoyousSpring.Joker({
                 end
             end
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and artifact_can_move(card) then
+                if JoyousSpring.is_activated_context(card, context) and artifact_can_move(card) then
                     SMODS.destroy_cards(card, nil, true)
                     inc_artifact_count()
                     G.E_MANAGER:add_event(Event({
@@ -691,7 +691,7 @@ JoyousSpring.Joker({
                 }
             end
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and artifact_can_move(card) then
+                if JoyousSpring.is_activated_context(card, context) and artifact_can_move(card) then
                     SMODS.destroy_cards(card, nil, true)
                     inc_artifact_count()
                     G.E_MANAGER:add_event(Event({
@@ -771,7 +771,7 @@ JoyousSpring.Joker({
                 }
             end
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and artifact_can_move(card) then
+                if JoyousSpring.is_activated_context(card, context) and artifact_can_move(card) then
                     SMODS.destroy_cards(card, nil, true)
                     inc_artifact_count()
                     G.E_MANAGER:add_event(Event({
@@ -864,7 +864,7 @@ JoyousSpring.Joker({
                 end
             end
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and artifact_can_move(card) then
+                if JoyousSpring.is_activated_context(card, context) and artifact_can_move(card) then
                     SMODS.destroy_cards(card, nil, true)
                     inc_artifact_count()
                     G.E_MANAGER:add_event(Event({
@@ -974,7 +974,7 @@ JoyousSpring.Joker({
                 }
             end
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and artifact_can_move(card) then
+                if JoyousSpring.is_activated_context(card, context) and artifact_can_move(card) then
                     SMODS.destroy_cards(card, nil, true)
                     inc_artifact_count()
                     G.E_MANAGER:add_event(Event({
@@ -1052,7 +1052,7 @@ JoyousSpring.Joker({
                 }
             end
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and artifact_can_move(card) then
+                if JoyousSpring.is_activated_context(card, context) and artifact_can_move(card) then
                     SMODS.destroy_cards(card, nil, true)
                     inc_artifact_count()
                     G.E_MANAGER:add_event(Event({

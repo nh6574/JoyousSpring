@@ -369,6 +369,18 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            mimi = {
+                story = {
+                    "Some ruins have remained since ancient times in a certain land. Rumor has it that the ruins are overflowing with treasure chests, packed to the brim with valuables. Yet another adventurer, hearing these rumors, heads to the ruins today. However, be warned: there is another rumor about the ruins. It is said that in their depths, evil creatures spawn new traps one after another, though whether this is true remains uncertain. All the adventurers who have barely made it back alive agree in unison: {C:attention}«I never want to see a {C:attention}treasure chest again!»{} There are also rumors about suspicious-looking treasure chests... well then, I wonder what will come out of the treasure chests today. Will it be a demon, or a snake? Will it be a guard dog, or a dragon?",
+                },
+                gameplay = {
+                    "{C:joy_normal}Mimighouls{} like playing in their own axis as they switch between areas and grant different effects. Manual {C:attention}flipping{} abilities will let you control the timing better!"
+                }
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_mimi = "Mimighoul",

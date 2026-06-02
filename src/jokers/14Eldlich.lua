@@ -55,7 +55,7 @@ JoyousSpring.Joker({
                 }
             end
             if not context.blueprint then
-                if not card.ability.extra.activated and context.joy_activate_effect and context.joy_activated_card == card then
+                if not card.ability.extra.activated and JoyousSpring.is_activated_context(card, context) then
                     local materials = JoyousSpring.get_materials_owned(
                         { { monster_type = "Zombie" }, { is_trap = true } }, false, true)
                     if next(materials) then
@@ -63,8 +63,7 @@ JoyousSpring.Joker({
                             card.ability.extra.tributes)
                     end
                 end
-                if not card.ability.extra.activated and context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection == card.ability.extra.tributes then
+                if not card.ability.extra.activated and JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
                     card.ability.extra.activated = true
                     JoyousSpring.tribute(card, context.joy_selection)
 
@@ -84,9 +83,7 @@ JoyousSpring.Joker({
         if card.ability.extra.activated or not (#G.jokers.cards + G.GAME.joker_buffer - card.ability.extra.tributes < G.jokers.config.card_limit) then
             return false
         end
-        local materials = JoyousSpring.get_materials_owned({ { monster_type = "Zombie" }, { is_trap = true } }, false,
-            true)
-        return next(materials) and true or false
+        return JoyousSpring.any_materials_owned({ { monster_type = "Zombie" }, { is_trap = true } }, false, true)
     end,
     joker_display_def = function(JokerDisplay)
         return {

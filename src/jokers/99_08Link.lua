@@ -181,7 +181,7 @@ JoyousSpring.Joker({
             },
             xmult = 0.05,
             creates = 1,
-            activated = true
+            activated = false
         },
     },
     calculate = function(self, card, context)
@@ -196,8 +196,7 @@ JoyousSpring.Joker({
                 card.ability.extra.activated = true
                 for i = 1, card.ability.extra.creates do
                     JoyousSpring.create_pseudorandom({ { is_pendulum = true, is_main_deck = true } },
-                        'j_joy_exceed', false, false,
-                        "e_negative")
+                        'j_joy_exceed', false, false, "e_negative")
                 end
             end
         end
@@ -226,7 +225,7 @@ JoyousSpring.Joker({
     pos = { x = 1, y = 6 },
     rarity = 2,
     blueprint_compat = false,
-    eternal_compat = true,
+    eternal_compat = false,
     cost = 7,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
@@ -267,7 +266,7 @@ JoyousSpring.Joker({
     pos = { x = 2, y = 6 },
     rarity = 2,
     blueprint_compat = false,
-    eternal_compat = true,
+    eternal_compat = false,
     cost = 7,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.h_size } }
@@ -578,7 +577,7 @@ JoyousSpring.Joker({
                         JoyousSpring.count_materials_in_graveyard({ { summon_type = "LINK" } })
                 }
             end
-            if context.joy_activate_effect and context.joy_activated_card == card and G.GAME.blind.in_blind then
+            if JoyousSpring.is_activated_context(card, context) and G.GAME.blind.in_blind then
                 local tributes = {}
                 for _, joker in ipairs(G.jokers.cards) do
                     if joker ~= card and not SMODS.is_eternal(joker, card) then
@@ -595,7 +594,7 @@ JoyousSpring.Joker({
         end
     end,
     joy_can_activate = function(card)
-        if not G.GAME.blind.in_blind or G.GAME.blind.chips <= to_big(0) then
+        if not G.GAME.blind.in_blind or G.GAME.blind.chips <= 0 then
             return false
         end
         for _, joker in ipairs(G.jokers.cards) do

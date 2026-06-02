@@ -845,7 +845,7 @@ JoyousSpring.Joker({
         },
     },
     add_to_deck = function(self, card, from_debuff)
-        if not JoyousSpring.is_perma_debuffed(card) then
+        if not JoyousSpring.is_perma_debuffed(card) and not from_debuff then
             G.hand:change_size(card.ability.extra.h_size)
         end
     end

@@ -20,16 +20,16 @@ return {
                         "You can {C:attention}tribute 1{} {C:planet}Planet{}",
                         "to {C:attention}transform{} this card into",
                         "an appropriate {C:joy_normal}\"Sky Striker Ace\"{} {C:joy_link}Link{}",
-                        "{C:inactive}(This is treated as a Link summon)"
-                    },
-                    {
-                        "A {C:joy_link}Link{} summoned using this card",
-                        "as {C:attention}material{} gains the following ability:",
+                        "{C:inactive}(This is treated as a Link summon)",
+                        "A {C:joy_link}Link{} summoned this way gains the following ability:",
                         "{s:0.9,X:mult,C:white}X#1#{s:0.9} Mult if played hand contains",
                         "{s:0.9,C:attention}[hand for tributed Planet]{}",
                         "{s:0.9} ",
                         "{s:0.9,C:attention}Transforms{s:0.9} into {s:0.9,C:joy_effect}\"Sky Striker Ace - Raye\"{}",
-                        "{s:0.9}at end of round"
+                        "{s:0.9}at end of round",
+                        " ",
+                        "{s:0.9}A {s:0.9,C:joy_normal}\"Sky Striker Ace\" {s:0.9,C:attention}summoned{s:0.9} using this card",
+                        "{s:0.9}as {s:0.9,C:attention}material{s:0.9} also transfers this ability"
                     },
                 },
                 joy_transfer_ability = {
@@ -38,7 +38,10 @@ return {
                     "{C:attention}#2#{}",
                     " ",
                     "{C:attention}Transforms{} into {C:joy_effect}\"Sky Striker Ace - Raye\"{}",
-                    "at end of round"
+                    "at end of round",
+                    " ",
+                    "A {C:joy_normal}\"Sky Striker Ace\"{} {C:attention}summoned{} using this card",
+                    "as {C:attention}material{} also transfers this ability"
                 }
             },
             j_joy_striker_roze = {
@@ -78,11 +81,11 @@ return {
                 text = {
                     {
                         "Used {C:planet}Planet{} cards while this card is owned",
-                        "count as tributed for abilities",
+                        "count as {C:attention}tributed{} for abilities",
                     },
                     {
                         "Gains {X:mult,C:white}X#1#{} Mult for each",
-                        "{C:joy_link}Link{} summoned this run",
+                        "{C:joy_link}Link{} {C:attention}summoned{} this run",
                         "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)",
                     }
                 }
@@ -110,7 +113,7 @@ return {
                     },
                     {
                         "Sell this card to create",
-                        "{C:attention}#2# Celestial Tags"
+                        "{C:attention}#2# Meteor Tags"
                     }
                 }
             },
@@ -180,15 +183,17 @@ return {
                         "{C:inactive}(Currently {C:chips}+#2#{} {C:inactive}Chips)",
                     },
                     {
-                        "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
-                        "{C:inactive}(not summoned this round, if possible){}",
+                        "Creates {C:attention}1 random {C:planet}Planet",
+                        "{s:0.9,C:inactive}(Must have room)",
+                        "and adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "{s:0.9,C:inactive}(not summoned this round, if possible){}",
                         "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
-                        "If {C:attention}3 or more{} {C:planet}Planet{} cards",
-                        "were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
-                        "this round, creates {C:attention}1{} {C:planet}Planet{}",
-                        "for each poker hand discarded",
+                        "Once, you can {C:attention}tribute 1{} {C:planet}Planet{} then",
+                        "if {C:attention}3 or more{} were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
+                        "creates {C:attention}1{} {C:planet}Planet{} for each poker hand discarded",
+                        "for the rest of the round",
                         "{C:inactive}(Must have room)"
                     }
                 },
@@ -208,16 +213,17 @@ return {
                         "{C:inactive}(Currently {C:mult}+#2#{} {C:inactive}Mult)",
                     },
                     {
-                        "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
-                        "{C:inactive}(not summoned this round, if possible){}",
+                        "Creates {C:attention}1 random {C:planet}Planet",
+                        "{s:0.9,C:inactive}(Must have room)",
+                        "and adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "{s:0.9,C:inactive}(not summoned this round, if possible){}",
                         "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
-                        "If {C:attention}3 or more{} {C:planet}Planet{} cards",
-                        "were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
-                        "creates all {C:attention}tributed{}",
-                        "{C:planet}Planet{} cards as {C:dark_edition}Negative{}",
-                        "when {C:attention}entering play{}"
+                        "Once, you can {C:attention}tribute 1{} {C:planet}Planet{} then",
+                        "if {C:attention}3 or more{} were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
+                        "creates all {C:planet}Planet{} cards {C:attention}tributed{} this round",
+                        "before this card {C:attention}entered play{} as {C:dark_edition}Negative{}",
                     }
                 },
                 joy_summon_conditions = {
@@ -236,13 +242,15 @@ return {
                         "{C:inactive}(Currently {C:money}+$#2#{C:inactive})",
                     },
                     {
-                        "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
-                        "{C:inactive}(not summoned this round, if possible){}",
+                        "Creates {C:attention}1 random {C:planet}Planet",
+                        "{s:0.9,C:inactive}(Must have room)",
+                        "and adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "{s:0.9,C:inactive}(not summoned this round, if possible){}",
                         "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
-                        "If {C:attention}3 or more{} {C:planet}Planet{} cards",
-                        "were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
+                        "Once, you can {C:attention}tribute 1{} {C:planet}Planet{} then",
+                        "if {C:attention}3 or more{} were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
                         "creates a {C:dark_edition}Negative{} {C:planet}Planet{}",
                         "associated with each {C:joy_normal}\"Sky Striker Ace\"",
                         "summoned this round at end of round",
@@ -259,20 +267,20 @@ return {
                 name = "{C:joy_link}Sky Striker Ace - Kaina",
                 text = {
                     {
-                        "Makes all owned {C:planet}Planet{} cards",
-                        "{C:dark_edition}Negative{} when {C:attention}entering play{}"
-                    },
-                    {
-                        "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
-                        "{C:inactive}(not summoned this round, if possible){}",
+                        "Makes all owned {C:planet}Planet{} cards {C:dark_edition}Negative{}, then",
+                        "creates {C:attention}1 random {C:planet}Planet",
+                        "{s:0.9,C:inactive}(Must have room)",
+                        "and adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "{s:0.9,C:inactive}(not summoned this round, if possible){}",
                         "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
-                        "If {C:attention}3 or more{} {C:planet}Planet{} cards",
+                        "Once, you can {C:attention}tribute 1{} {C:planet}Planet{} then",
+                        "if {C:attention}3 or more{} {C:planet}Planet{} cards",
                         "were {C:attention}tributed{} this round {C:inactive}(#1#/3){}:",
                         "{C:attention}levels up{} the hand of each different",
-                        "{C:planet}Planet{} {C:attention}tributed{} this round",
-                        "when {C:attention}entering play{}"
+                        "{C:planet}Planet{} {C:attention}tributed{} while owned",
+                        "for the rest of the round"
                     }
                 },
                 joy_summon_conditions = {
@@ -290,15 +298,17 @@ return {
                         "to create {C:attention}#1#{} {C:dark_edition}Negative{} {C:planet}Planet{} cards"
                     },
                     {
-                        "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
-                        "{C:inactive}(not summoned this round, if possible){}",
+                        "Creates {C:attention}1 random {C:planet}Planet",
+                        "{s:0.9,C:inactive}(Must have room)",
+                        "and adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "{s:0.9,C:inactive}(not summoned this round, if possible){}",
                         "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
-                        "If {C:attention}3 or more{} {C:planet}Planet{} cards",
+                        "Once, you can {C:attention}tribute 1{} {C:planet}Planet{} then",
+                        "if {C:attention}3 or more{} {C:planet}Planet{} cards",
                         "were {C:attention}tributed{} this round {C:inactive}(#2#/3){}:",
                         "{C:attention}revives 1{} {C:joy_normal}\"Sky Striker Ace\"{}",
-                        "when {C:attention}entering play{}"
                     }
                 },
                 joy_summon_conditions = {
@@ -313,17 +323,21 @@ return {
                 text = {
                     {
                         "{C:attention}Banishes{} all {C:attention}consumables{}",
-                        "except {C:planet}Planet{} cards when {C:attention}entering play{},",
+                        "except {C:planet}Planet{} cards when {C:attention}entering play{}",
+                        "until {C:attention}Blind{} is selected,",
                         "and if it did, creates {C:attention}1{} {C:dark_edition}Negative{}",
                         "{C:joy_token}\"Sky Striker Ace Token\"{}"
                     },
                     {
-                        "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
-                        "{C:inactive}(not summoned this round, if possible){}",
+                        "Creates {C:attention}1 random {C:planet}Planet",
+                        "{s:0.9,C:inactive}(Must have room)",
+                        "and adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "{s:0.9,C:inactive}(not summoned this round, if possible){}",
                         "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
-                        "If {C:attention}3 or more{} {C:planet}Planet{} cards",
+                        "Once, you can {C:attention}tribute 1{} {C:planet}Planet{} then",
+                        "if {C:attention}3 or more{} {C:planet}Planet{} cards",
                         "were {C:attention}tributed{} this round {C:inactive}(#1#/3){}:",
                         "{C:attention}banishes{} all {C:joy_normal}\"Sky Striker\"{}",
                         "at end of round until {C:attention}Blind{} is selected"
@@ -341,13 +355,14 @@ return {
                 name = "{C:joy_link}Sky Striker Ace - Azalea",
                 text = {
                     {
-                        "{C:attention}+#1#{} hand size this round",
-                        "for every {C:planet}Planet{} {C:attention}tributed{} this round",
-                        "{C:inactive}(Currently {C:attention}+#2#{}{C:inactive})"
+                        "Draws a card each time a {C:planet}Planet{}",
+                        "is {C:attention}tributed{} during a {C:attention}Blind{}"
                     },
                     {
-                        "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
-                        "{C:inactive}(not summoned this round, if possible){}",
+                        "Creates {C:attention}1 random {C:planet}Planet",
+                        "{s:0.9,C:inactive}(Must have room)",
+                        "and adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "{s:0.9,C:inactive}(not summoned this round, if possible){}",
                         "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
@@ -375,16 +390,16 @@ return {
                         "{C:inactive}(Currently {C:money}+$#2#{}{C:inactive})"
                     },
                     {
-                        "Creates as many {C:tarot}High Priestess{}",
-                        "as possible at end of round"
+                        "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "{s:0.9,C:inactive}(not summoned this round, if possible){}",
+                        "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
-                        "If {C:attention}3 or more{} {C:planet}Planet{} cards",
-                        "were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
+                        "Once, you can {C:attention}tribute 1{} {C:planet}Planet{} then",
+                        "if {C:attention}3 or more{} were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
                         "for the rest of the round,",
-                        "{C:tarot}Tarot{} cards {C:attention}tributed{}",
-                        "count as {C:planet}Planet{} cards",
-                        "for {C:joy_normal}\"Sky Striker\"{} abilities"
+                        "create {C:attention}1{} {C:dark_edition}Negative{} {C:tarot}High Priestess{}",
+                        "each time a {C:planet}Planet{} card is {C:attention}tributed{}",
                     }
                 },
                 joy_summon_conditions = {
@@ -399,15 +414,18 @@ return {
                     {
                         "Creates as many {C:planet}Planet{} cards",
                         "for your most played hand as possible",
-                        "when {C:attention}Blind{} is selected"
+                        "when {C:attention}Blind{} is selected",
+                        "{C:inactive}(Must have room)"
                     },
                     {
-                        "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
-                        "{C:inactive}(not summoned this round, if possible){}",
+                        "Creates {C:attention}1 random {C:planet}Planet",
+                        "{s:0.9,C:inactive}(Must have room)",
+                        "and adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "{s:0.9,C:inactive}(not summoned this round, if possible){}",
                         "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
-                        "You can {C:attention}tribute 1{} {C:spectral}Spectral{}",
+                        "Once, you can {C:attention}tribute 1{} {C:spectral}Spectral{}",
                         "to create {C:attention}#1#{} {C:dark_edition}Negative{}",
                         "{C:planet}Planet{} cards and a {C:joy_normal}\"Sky Striker\"{}",
                         "in the {C:joy_trap}Opponent{}'s area"
@@ -429,15 +447,16 @@ return {
                         "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
                     },
                     {
-                        "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
-                        "{C:inactive}(not summoned this round, if possible){}",
+                        "Creates {C:attention}1 random {C:planet}Planet",
+                        "{s:0.9,C:inactive}(Must have room)",
+                        "and adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "{s:0.9,C:inactive}(not summoned this round, if possible){}",
                         "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
-                        "If {C:attention}3 or more{} {C:planet}Planet{} cards",
-                        "were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
+                        "Once, you can {C:attention}tribute 1{} {C:planet}Planet{} then",
+                        "if {C:attention}3 or more{} were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
                         "creates {C:attention}1{} {C:joy_effect}\"Sky Striker Ace - Roze\"{}",
-                        "when {C:attention}entering play{}"
                     }
                 },
                 joy_summon_conditions = {
@@ -456,8 +475,10 @@ return {
                         "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
                     },
                     {
-                        "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
-                        "{C:inactive}(not summoned this round, if possible){}",
+                        "Creates {C:attention}1 random {C:planet}Planet",
+                        "{s:0.9,C:inactive}(Must have room)",
+                        "and adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "{s:0.9,C:inactive}(not summoned this round, if possible){}",
                         "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
@@ -465,8 +486,8 @@ return {
                         "to the {C:attention}GY{} when {C:attention}Blind{} is selected"
                     },
                     {
-                        "If {C:attention}3 or more{} {C:planet}Planet{} cards",
-                        "were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
+                        "Once, you can {C:attention}tribute 1{} {C:planet}Planet{} then",
+                        "if {C:attention}3 or more{} were {C:attention}tributed{} this round {C:inactive}(#3#/3){}:",
                         "sell this card to {C:attention}revive 1{}",
                         "{C:joy_effect}\"Sky Striker Ace - Raye\"{}"
                     }
@@ -488,17 +509,19 @@ return {
                         "{C:attention}Flush House{} or {C:attention}Flush Five{}"
                     },
                     {
-                        "Adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
-                        "{C:inactive}(not summoned this round, if possible){}",
+                        "Creates {C:attention}1 random {C:planet}Planet",
+                        "{s:0.9,C:inactive}(Must have room)",
+                        "and adds {C:attention}1{} {C:joy_normal}\"Sky Striker Ace\"{}",
+                        "{s:0.9,C:inactive}(not summoned this round, if possible){}",
                         "to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
                         "You can {C:attention}tribute{} all {C:planet}Planet{} cards {C:inactive}(min. 3){}",
-                        "to reduce {C:attention}Blind{}'s requirement by {C:red}%#2#{}"
+                        "to reduce {C:attention}Blind{}'s requirement by {C:red}#2#%{}"
                     }
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2{} {C:attention}Jokers{},",
+                    "{C:attention}3{} {C:attention}Jokers{},",
                     "including a {C:joy_link}Link{}",
                     "OR {C:attention}Tribute a {C:planet}Planet X{}",
                     "{C:planet}Ceres{} or {C:planet}Eris{}",
@@ -512,7 +535,7 @@ return {
                 name = "{C:joy_effect}Sage of Benevolence - Ciela",
                 text = {
                     {
-                        "{C:attention}Level up{} the appropriate",
+                        "{C:green}#1# in #2#{} chance to {C:attention}level up{} the appropriate",
                         "poker hand for {C:attention}tributed{} {C:planet}Planet{} cards",
                     }
                 }
@@ -521,8 +544,9 @@ return {
                 name = "{C:joy_effect}Sage of Strength - Akash",
                 text = {
                     {
-                        "{C:attention}Revives 1 tributed{}",
-                        "{C:joy_link}Link{} at end of round"
+                        "{C:attention}Revives 1{} {C:joy_link}Link{}",
+                        "{C:attention}tributed{} this round",
+                        "at end of round"
                     }
                 }
             },
@@ -538,10 +562,20 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            striker = {
+                story = {
+                    "{C:joy_spell}\"Sky Striker Mecha\"{}, developed using advanced technology, is designed to counter a certain powerful military empire. The girl entrusted with {C:joy_normal}\"Sky {C:joy_normal}Striker\"{}, the key to controlling these weapons, named {C:joy_effect}\"Raye\"{}, races across the battlefield in order to protect her homeland.",
+                },
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_striker = "Sky Striker",
             k_joy_archetype_striker_ace = "Sky Striker Ace",
+            k_joy_modded_hand = "Modded Poker Hands", -- As in, poker hands from mods
         }
     }
 }

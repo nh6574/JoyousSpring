@@ -174,6 +174,19 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            dogma = {
+                story = {
+                    "{C:gold}[From the \"Abyss\" storyline]{}",
+                    "{C:joy_spell}\"Dogmatika Nation\"{} was a land beloved by God, situated in the far north of the continent. The stigmata given to its people granted their hosts with special powers, referred to as miracles by the people. Those with especially powerful miraculous powers joined the glorious {C:joy_normal}Dogmatic Knights{}, battling against the heretics who did not have stigmata such as beastmen or fairies.",
+                },
+                gameplay = {
+                    "Gain power by sacrificing {C:joy_spell}Extra Deck{} {C:attention}Jokers{}. Summon the {C:joy_ritual}Rituals{} to gain even more advantage!"
+                }
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_dogma = "Dogmatika",

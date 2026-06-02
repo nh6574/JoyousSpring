@@ -152,7 +152,7 @@ JoyousSpring.Joker({
     pos = { x = 0, y = 1 },
     rarity = 1,
     blueprint_compat = false,
-    eternal_compat = true,
+    eternal_compat = false,
     cost = 7,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.fields_to_create, card.ability.extra.adds, card.ability.extra.cards_to_create } }
@@ -222,7 +222,7 @@ JoyousSpring.Joker({
     pos = { x = 1, y = 1 },
     rarity = 1,
     blueprint_compat = true,
-    eternal_compat = true,
+    eternal_compat = false,
     cost = 7,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.adds, card.ability.extra.playing_cards_to_create, card.ability.extra.cards_to_create } }

@@ -37,7 +37,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if not card.ability.extra.activated and context.joy_activate_effect and context.joy_activated_card == card then
+                if not card.ability.extra.activated and JoyousSpring.is_activated_context(card, context) then
                     local targets = JoyousSpring.get_materials_owned({ { can_flip = true } })
                     local materials = {}
                     for i, joker in ipairs(targets) do
@@ -50,8 +50,7 @@ JoyousSpring.Joker({
                             card.ability.extra.flips, localize("k_joy_select"))
                     end
                 end
-                if not card.ability.extra.activated and context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection == card.ability.extra.flips then
+                if not card.ability.extra.activated and JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.flips) then
                     for _, selected_card in ipairs(context.joy_selection) do
                         JoyousSpring.flip(selected_card, card)
                     end
@@ -77,7 +76,6 @@ JoyousSpring.Joker({
             return false
         end
         local targets = JoyousSpring.get_materials_owned({ { can_flip = true } })
-        local faceup_joker = false
         for _, joker in ipairs(targets) do
             if joker ~= card and joker.facing == 'front' then
                 return true
@@ -94,7 +92,7 @@ JoyousSpring.Joker({
     pos = { x = 1, y = 0 },
     rarity = 1,
     blueprint_compat = true,
-    eternal_compat = true,
+    eternal_compat = false,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.chips, card.ability.extra.chips * (JoyousSpring.count_flipped('back', { G.jokers }) + JoyousSpring.count_materials_owned({ { monster_archetypes = { "Subterror" } } })) } }
@@ -172,7 +170,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if not card.ability.extra.activated and context.joy_activate_effect and context.joy_activated_card == card then
+                if not card.ability.extra.activated and JoyousSpring.is_activated_context(card, context) then
                     local targets = JoyousSpring.get_materials_owned({ { can_flip = true } })
                     local materials = {}
                     for i, joker in ipairs(targets) do
@@ -185,8 +183,7 @@ JoyousSpring.Joker({
                             card.ability.extra.flips, localize("k_joy_select"))
                     end
                 end
-                if not card.ability.extra.activated and context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection == card.ability.extra.flips then
+                if not card.ability.extra.activated and JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.flips) then
                     for _, selected_card in ipairs(context.joy_selection) do
                         JoyousSpring.flip(selected_card, card)
                     end
@@ -250,7 +247,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card then
+                if JoyousSpring.is_activated_context(card, context) then
                     local targets = G.jokers.cards
                     local materials = {}
                     for i, joker in ipairs(targets) do
@@ -263,8 +260,7 @@ JoyousSpring.Joker({
                             card.ability.extra.tributes)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection == card.ability.extra.tributes then
+                if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
                     JoyousSpring.tribute(card, context.joy_selection)
                     JoyousSpring.tribute(card, { card })
                     for i = 1, card.ability.extra.revives do
@@ -298,8 +294,8 @@ JoyousSpring.Joker({
                 materials[#materials + 1] = joker
             end
         end
-        return next(materials) and JoyousSpring.count_materials_in_graveyard(
-            { { monster_archetypes = { "SubterrorBehemoth" } }, { monster_archetypes = { "Subterror" } } }, true) > 0
+        return next(materials) and JoyousSpring.any_materials_in_graveyard(
+            { { monster_archetypes = { "SubterrorBehemoth" } }, { monster_archetypes = { "Subterror" } } }, true)
     end,
 })
 
@@ -349,7 +345,7 @@ JoyousSpring.Joker({
         end
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if not card.ability.extra.activated and context.joy_activate_effect and context.joy_activated_card == card then
+                if not card.ability.extra.activated and JoyousSpring.is_activated_context(card, context) then
                     local targets = JoyousSpring.get_materials_owned({ { facedown = true }, { can_flip = true } })
                     local materials = {}
                     for i, joker in ipairs(targets) do
@@ -362,8 +358,7 @@ JoyousSpring.Joker({
                             card.ability.extra.flips, localize("k_joy_select"))
                     end
                 end
-                if not card.ability.extra.activated and context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection == card.ability.extra.flips then
+                if not card.ability.extra.activated and JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.flips) then
                     local flips = { front = 0, back = 0 }
                     for _, selected_card in ipairs(context.joy_selection) do
                         JoyousSpring.flip(selected_card, card)
@@ -1025,15 +1020,14 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if not card.ability.extra.activated and context.joy_activate_effect and context.joy_activated_card == card then
+                if not card.ability.extra.activated and JoyousSpring.is_activated_context(card, context) then
                     local targets = JoyousSpring.get_materials_owned({ { can_flip = true } })
                     if next(targets) then
                         JoyousSpring.create_overlay_effect_selection(card, targets, card.ability.extra.flips,
                             card.ability.extra.flips, localize("k_joy_select"))
                     end
                 end
-                if not card.ability.extra.activated and context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection == card.ability.extra.flips then
+                if not card.ability.extra.activated and JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.flips) then
                     for _, selected_card in ipairs(context.joy_selection) do
                         JoyousSpring.flip(selected_card, card)
                     end
@@ -1070,9 +1064,9 @@ JoyousSpring.Joker({
         if card.ability.extra.activated then
             return false
         end
-        local targets = JoyousSpring.get_materials_owned({ { can_flip = true } })
-        return #targets >= card.ability.extra.flips and
-            #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit
+        local targets = JoyousSpring.any_materials_owned({ { can_flip = true } }, nil, nil, nil,
+            card.ability.extra.flips)
+        return targets and #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit
     end,
     joker_display_def = function(JokerDisplay)
         return {
@@ -1127,15 +1121,14 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if not card.ability.extra.activated and context.joy_activate_effect and context.joy_activated_card == card then
+                if not card.ability.extra.activated and JoyousSpring.is_activated_context(card, context) then
                     local materials = JoyousSpring.get_materials_owned({ { facedown = true }, { can_flip = true } })
                     if next(materials) then
                         JoyousSpring.create_overlay_effect_selection(card, materials, card.ability.extra.flips,
                             card.ability.extra.flips, localize("k_joy_select"))
                     end
                 end
-                if not card.ability.extra.activated and context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection == card.ability.extra.flips then
+                if not card.ability.extra.activated and JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.flips) then
                     for _, selected_card in ipairs(context.joy_selection) do
                         JoyousSpring.flip(selected_card, card)
                     end
@@ -1161,8 +1154,7 @@ JoyousSpring.Joker({
         if card.ability.extra.activated then
             return false
         end
-        return JoyousSpring.count_materials_owned({ { facedown = true }, { can_flip = true } }) >
-            0
+        return JoyousSpring.any_materials_owned({ { facedown = true }, { can_flip = true } })
     end,
 })
 

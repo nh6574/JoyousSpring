@@ -160,6 +160,15 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            paleo = {
+                gameplay = {
+                    "These {C:attention}Jokers{} are great for general support, if you know how to time their {C:attention}flipping{}, but once the {C:joy_spell}Extra Deck{} {C:attention}Jokers{} enter play they're unstoppable!",
+                },
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_paleo = "Paleozoic",

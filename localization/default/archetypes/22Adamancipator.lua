@@ -194,6 +194,15 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            adaman = {
+                gameplay = {
+                    "Try to get as many {C:diamonds}Diamonds{} as possible to hit their abilities consistently! Once you have {C:joy_spell}Laputite{}, pair them up with other {C:attention}excavating{} cards."
+                }
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_adaman = "Adamancipator",

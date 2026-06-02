@@ -211,6 +211,18 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            solfa = {
+                story = {
+                    "Angels that reside in the {C:joy_spell}Doremi Realm{}, one of the {C:attention}Heavenly Realms{}. With the help of their angel and fairy friends, they play high level magic called {C:attention}\"Chords\"{}, and with that power, they purify the worlds below.",
+                },
+                gameplay = {
+                    "This theme supports {C:attention}numbered{} cards of {C:attention}even{} and {C:attention}odd{} ranks as well as {C:attention}poker hands{} that play them. Pair them up with other {C:joy_pendulum}Pendulum{}!"
+                }
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_solfa = "Solfachord",

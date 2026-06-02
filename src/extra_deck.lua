@@ -165,6 +165,9 @@ end
 
 G.FUNCS.joy_show_extra_deck = function(e)
     if JoyousSpring.extra_deck_area and #JoyousSpring.extra_deck_area.cards > 0 then
+        if not G.GAME.joy_show_extra_deck then
+            JoyousSpring.INFO_MENU.open("extra_deck", nil, true)
+        end
         G.GAME.joy_show_extra_deck = true
     end
     if G.GAME.joy_show_extra_deck then

@@ -215,7 +215,7 @@ JoyousSpring.Joker({
     pos = { x = 7, y = 3 },
     rarity = 1,
     blueprint_compat = false,
-    eternal_compat = true,
+    eternal_compat = false,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.percent * 100, card.ability.extra.current_percent * 100 } }
@@ -274,7 +274,7 @@ JoyousSpring.Joker({
     pos = { x = 0, y = 4 },
     rarity = 2,
     blueprint_compat = false,
-    eternal_compat = true,
+    eternal_compat = false,
     cost = 7,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, card.ability.extra.current_mult, card.ability.extra.percent * 100, card.ability.extra.current_percent * 100 } }
@@ -371,7 +371,7 @@ JoyousSpring.Joker({
                     xmult = card.ability.extra.xmult
                 }
             end
-            if context.joy_activate_effect and context.joy_activated_card == card and not SMODS.is_eternal(card, card) and G.GAME.blind.in_blind and G.STATE == G.STATES.SELECTING_HAND then
+            if JoyousSpring.is_activated_context(card, context) and not SMODS.is_eternal(card, card) and G.GAME.blind.in_blind and G.STATE == G.STATES.SELECTING_HAND then
                 local tributes = {}
                 for _, joker in ipairs(G.jokers.cards) do
                     if not SMODS.is_eternal(joker, card) then

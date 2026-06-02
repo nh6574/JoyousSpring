@@ -82,7 +82,7 @@ JoyousSpring.Joker({
         card.ability.extra.activated = nil
     end,
     joy_set_cost = function(card)
-        if JoyousSpring.count_materials_owned({ { monster_type = "Psychic" }, { monster_type = "Machine" } }) > 0 then
+        if JoyousSpring.any_materials_owned({ { monster_type = "Psychic" }, { monster_type = "Machine" } }) then
             card.cost = 0
         end
     end
@@ -144,7 +144,7 @@ JoyousSpring.Joker({
         card.ability.extra.activated = nil
     end,
     joy_set_cost = function(card)
-        if JoyousSpring.count_materials_owned({ { summon_type = "XYZ" } }) > 0 then
+        if JoyousSpring.any_materials_owned({ { summon_type = "XYZ" } }) then
             card.cost = 0
         end
     end
@@ -226,15 +226,14 @@ JoyousSpring.Joker({
                     end
                 end
             end
-            if context.joy_activate_effect and context.joy_activated_card == card then
+            if JoyousSpring.is_activated_context(card, context) then
                 local materials = JoyousSpring.get_materials_owned(
                     { { monster_type = "Machine" } }, false, true)
                 if #materials >= 1 then
                     JoyousSpring.create_overlay_effect_selection(card, materials, 1, 1)
                 end
             end
-            if context.joy_exit_effect_selection and context.joy_card == card and
-                #context.joy_selection == 1 then
+            if JoyousSpring.is_exit_selection_context(card, context) then
                 JoyousSpring.tribute(card, context.joy_selection)
 
                 for i = 1, 2 do
@@ -337,15 +336,14 @@ JoyousSpring.Joker({
                     end
                 end
             end
-            if context.joy_activate_effect and context.joy_activated_card == card then
+            if JoyousSpring.is_activated_context(card, context) then
                 local materials = JoyousSpring.get_materials_owned(
                     { { monster_type = "Machine" } }, false, true)
                 if #materials >= 1 then
                     JoyousSpring.create_overlay_effect_selection(card, materials, 1, 1)
                 end
             end
-            if context.joy_exit_effect_selection and context.joy_card == card and
-                #context.joy_selection == 1 then
+            if JoyousSpring.is_exit_selection_context(card, context) then
                 local xyz = thief_find_xyz(true)
                 if xyz then
                     JoyousSpring.tribute(card, context.joy_selection)
@@ -447,15 +445,14 @@ JoyousSpring.Joker({
                     end
                 end
             end
-            if context.joy_activate_effect and context.joy_activated_card == card then
+            if JoyousSpring.is_activated_context(card, context) then
                 local materials = JoyousSpring.get_materials_owned(
                     { { monster_type = "Machine" } }, false, true)
                 if #materials >= 1 then
                     JoyousSpring.create_overlay_effect_selection(card, materials, 1, 1)
                 end
             end
-            if context.joy_exit_effect_selection and context.joy_card == card and
-                #context.joy_selection == 1 then
+            if JoyousSpring.is_exit_selection_context(card, context) then
                 local materials_owned = JoyousSpring.get_materials_owned(
                     { { monster_type = "Machine" } })
                 local to_banish = {}
@@ -574,7 +571,7 @@ JoyousSpring.Joker({
                     end
                 end
             end
-            if context.joy_activate_effect and context.joy_activated_card == card then
+            if JoyousSpring.is_activated_context(card, context) then
                 local materials = JoyousSpring.get_materials_owned(
                     { { monster_type = "Machine" } }, false, true)
                 if #materials >= 1 then

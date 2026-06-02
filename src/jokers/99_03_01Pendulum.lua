@@ -436,7 +436,7 @@ JoyousSpring.Joker({
                     chips = card.ability.extra.current_chips
                 }
             end
-            if context.buying_card and JoyousSpring.is_pendulum_monster(context.card) then
+            if context.buying_card and JoyousSpring.is_pendulum_monster(context.card) and not context.buying_self then
                 card.ability.extra.current_chips = card.ability.extra.current_chips + card.ability.extra.chips
             end
         end

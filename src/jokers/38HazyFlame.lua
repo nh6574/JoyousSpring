@@ -240,14 +240,13 @@ JoyousSpring.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if context.joy_activate_effect and context.joy_activated_card == card then
+            if JoyousSpring.is_activated_context(card, context) then
                 local materials = JoyousSpring.get_materials_owned({ { is_eternal = true } })
                 if #materials >= 1 then
                     JoyousSpring.create_overlay_effect_selection(card, materials, 1, 1)
                 end
             end
-            if context.joy_exit_effect_selection and context.joy_card == card and
-                #context.joy_selection == 1 then
+            if JoyousSpring.is_exit_selection_context(card, context) then
                 JoyousSpring.tribute(card, context.joy_selection)
 
                 local choices = JoyousSpring.get_materials_owned({ { exclude_eternal = true } })
@@ -270,7 +269,7 @@ JoyousSpring.Joker({
         card.ability.extra.active = nil
     end,
     joy_can_activate = function(card)
-        return not card.ability.extra.active and JoyousSpring.count_materials_owned({ { is_eternal = true } }) > 0
+        return not card.ability.extra.active and JoyousSpring.any_materials_owned({ { is_eternal = true } })
     end,
     joy_can_be_used_as_material = hazy_can_be_used_as_material
 })
@@ -302,14 +301,13 @@ JoyousSpring.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if context.joy_activate_effect and context.joy_activated_card == card then
+            if JoyousSpring.is_activated_context(card, context) then
                 local materials = JoyousSpring.get_materials_owned({ { is_eternal = true } })
                 if #materials >= 1 then
                     JoyousSpring.create_overlay_effect_selection(card, materials, 1, 1)
                 end
             end
-            if context.joy_exit_effect_selection and context.joy_card == card and
-                #context.joy_selection == 1 then
+            if JoyousSpring.is_exit_selection_context(card, context) then
                 JoyousSpring.tribute(card, context.joy_selection)
 
                 local revived = JoyousSpring.revive_pseudorandom({ { monster_archetypes = { "HazyFlame" } } }, self.key)
@@ -328,9 +326,9 @@ JoyousSpring.Joker({
         card.ability.extra.active = nil
     end,
     joy_can_activate = function(card)
-        return not card.ability.extra.active and JoyousSpring.count_materials_owned({ { is_eternal = true } }) > 0
-            and JoyousSpring.count_materials_in_graveyard({ { monster_archetypes = { "HazyFlame" } },
-                { monster_attribute = "FIRE" } }) > 0
+        return not card.ability.extra.active and JoyousSpring.any_materials_owned({ { is_eternal = true } })
+            and JoyousSpring.any_materials_in_graveyard({ { monster_archetypes = { "HazyFlame" } },
+                { monster_attribute = "FIRE" } })
     end,
     joy_can_be_used_as_material = hazy_can_be_used_as_material
 })
@@ -362,14 +360,13 @@ JoyousSpring.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if context.joy_activate_effect and context.joy_activated_card == card then
+            if JoyousSpring.is_activated_context(card, context) then
                 local materials = JoyousSpring.get_materials_owned({ { is_eternal = true } })
                 if #materials >= 1 then
                     JoyousSpring.create_overlay_effect_selection(card, materials, 1, 1)
                 end
             end
-            if context.joy_exit_effect_selection and context.joy_card == card and
-                #context.joy_selection == 1 then
+            if JoyousSpring.is_exit_selection_context(card, context) then
                 JoyousSpring.tribute(card, context.joy_selection)
 
                 for i = 1, 2 do
@@ -388,7 +385,7 @@ JoyousSpring.Joker({
         card.ability.extra.active = nil
     end,
     joy_can_activate = function(card)
-        return not card.ability.extra.active and JoyousSpring.count_materials_owned({ { is_eternal = true } }) > 0
+        return not card.ability.extra.active and JoyousSpring.any_materials_owned({ { is_eternal = true } })
     end,
     joy_can_be_used_as_material = hazy_can_be_used_as_material
 })

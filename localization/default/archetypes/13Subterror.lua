@@ -221,6 +221,18 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            sub = {
+                story = {
+                    "{C:joy_spell}\"The Hidden City\"{}: A subterranean world, and a capital city where many intellectual races cohabitate. There is no sun or sky here, yet there is an abundance of nature. No one knows the origin of this world and how this world came to be what it is. In this underground world that many call home, there are beings feared as {C:attention}\"calamities\"{} from ancient times. The wicked eight dragons called the {C:joy_normal}\"Subterror {C:joy_normal}Behemoths\"{}. To the inhabitants of the subterrain, surviving and effectively hiding is a higher priority than finding food to eat. As long as these {C:attention}\"calamities\"{} exist, finding a safe haven is a difficult undertaking.",
+                },
+                gameplay = {
+                    "Based around {C:attention}flipping Jokers{}. Be careful, when a {C:attention}Joker{} is face-down it doesn't have any abilities! But to compensate, {C:joy_effect}Flip{} {C:attention}Jokers{} have powerful abilities when {C:attention}flipped{} face-up. Try finding ways to {C:attention}flip Jokers{} manually such as {C:joy_spell}The Hidden City{}."
+                }
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_sub = "Subterror",

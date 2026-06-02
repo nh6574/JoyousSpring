@@ -44,7 +44,7 @@ JoyousSpring.Joker({
         end
     end,
     joy_set_cost = function(card)
-        if JoyousSpring.count_materials_owned({ { rarity = 2 } }) > 0 then
+        if JoyousSpring.any_materials_owned({ { rarity = 2 } }) then
             card.cost = 0
         end
     end,
@@ -86,7 +86,7 @@ JoyousSpring.Joker({
         end
     end,
     joy_set_cost = function(card)
-        if JoyousSpring.count_materials_owned({ { rarity = 2 } }) > 0 then
+        if JoyousSpring.any_materials_owned({ { rarity = 2 } }) then
             card.cost = 0
         end
     end,
@@ -135,7 +135,7 @@ JoyousSpring.Joker({
         end
     end,
     joy_set_cost = function(card)
-        if JoyousSpring.count_materials_owned({ { rarity = 2 } }) > 0 then
+        if JoyousSpring.any_materials_owned({ { rarity = 2 } }) then
             card.cost = 0
         end
     end,
@@ -201,7 +201,7 @@ JoyousSpring.Joker({
         end
     end,
     joy_set_cost = function(card)
-        if JoyousSpring.count_materials_owned({ { rarity = 2 } }) > 0 then
+        if JoyousSpring.any_materials_owned({ { rarity = 2 } }) then
             card.cost = 0
         end
     end,
@@ -264,7 +264,7 @@ JoyousSpring.Joker({
         end
     end,
     joy_set_cost = function(card)
-        if JoyousSpring.count_materials_owned({ { rarity = 2 } }) > 0 then
+        if JoyousSpring.any_materials_owned({ { rarity = 2 } }) then
             card.cost = 0
         end
     end,

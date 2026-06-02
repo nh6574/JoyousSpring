@@ -117,7 +117,7 @@ JoyousSpring.Joker({
                 end
             end
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and purrely_can_activate() then
+                if JoyousSpring.is_activated_context(card, context) and purrely_can_activate() then
                     JoyousSpring.transform_card(card,
                         memory_suits[G.hand.highlighted[1].base.suit] or "j_joy_purr_ehappiness", false, "XYZ")
                     SMODS.destroy_cards(G.hand.highlighted[1], nil, true)
@@ -444,8 +444,7 @@ JoyousSpring.Joker({
                 end
             end
 
-            if context.joy_exit_effect_selection and context.joy_card == card and
-                #context.joy_selection == card.ability.extra.tributes then
+            if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
                 JoyousSpring.tribute(card, context.joy_selection)
                 JoyousSpring.ease_detach(card)
                 G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls + card.ability.extra.rerolls
@@ -711,14 +710,13 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card then
+                if JoyousSpring.is_activated_context(card, context) then
                     local materials = SMODS.merge_lists { SMODS.find_card("j_joy_purr_ehappiness"), SMODS.find_card("j_joy_purr_enoir") }
                     if next(materials) then
                         JoyousSpring.create_overlay_effect_selection(card, materials, 1, 1)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection == 1 then
+                if JoyousSpring.is_exit_selection_context(card, context) then
                     local to_transform = context.joy_selection[1]
                     JoyousSpring.transform_card(to_transform,
                         to_transform.config.center.key == "j_joy_purr_ehappiness" and "j_joy_purr_exhappiness" or

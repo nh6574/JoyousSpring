@@ -70,6 +70,15 @@ JoyousSpring.calculate_context = function(context)
 end
 
 SMODS.current_mod.calculate = function(self, context)
+    -- Tutorials
+    if context.card_added then
+        if not G.GAME.joy_obtained_joker and context.card.ability.set == "Joker" and
+            (context.card.config.center.original_mod or {}).id == "JoyousSpring" then
+            G.GAME.joy_obtained_joker = true
+            JoyousSpring.INFO_MENU.open("card_attributes", nil, true)
+        end
+    end
+
     -- Global counter for destroyed cards
     if context.remove_playing_cards then
         G.GAME.joy_cards_destroyed = G.GAME.joy_cards_destroyed and
@@ -95,16 +104,24 @@ SMODS.current_mod.calculate = function(self, context)
     -- Global counter for summoned cards
     if context.joy_summon then
         G.GAME.joy_summoned_count = G.GAME.joy_summoned_count or {}
-        G.GAME.joy_summoned_count["Total"] = (G.GAME.joy_summoned_count["Total"] or 0) +
-            1
-        G.GAME.joy_summoned_count[context.joy_summon_type] = (G.GAME.joy_summoned_count[context.joy_summon_type] or 0) +
-            1
+        G.GAME.joy_summoned_count["Total"] =
+            (G.GAME.joy_summoned_count["Total"] or 0) + 1
+        G.GAME.joy_summoned_count[context.joy_summon_type] =
+            (G.GAME.joy_summoned_count[context.joy_summon_type] or 0) + 1
+
+        G.GAME.joy_summoned_list = G.GAME.joy_summoned_list or {}
+        G.GAME.joy_summoned_list[context.joy_card.config.center_key] =
+            (G.GAME.joy_summoned_list[context.joy_card.config.center_key] or 0) + 1
 
         G.GAME.joy_summoned_count_round = G.GAME.joy_summoned_count_round or {}
-        G.GAME.joy_summoned_count_round["Total"] = (G.GAME.joy_summoned_count_round["Total"] or 0) +
-            1
-        G.GAME.joy_summoned_count_round[context.joy_summon_type] = (G.GAME.joy_summoned_count_round[context.joy_summon_type] or 0) +
-            1
+        G.GAME.joy_summoned_count_round["Total"] =
+            (G.GAME.joy_summoned_count_round["Total"] or 0) + 1
+        G.GAME.joy_summoned_count_round[context.joy_summon_type] =
+            (G.GAME.joy_summoned_count_round[context.joy_summon_type] or 0) + 1
+
+        G.GAME.current_round.joy_summoned_list = G.GAME.current_round.joy_summoned_list or {}
+        G.GAME.current_round.joy_summoned_list[context.joy_card.config.center_key] =
+            (G.GAME.current_round.joy_summoned_list[context.joy_card.config.center_key] or 0) + 1
     end
 
     -- Global counter for flipped cards
@@ -133,6 +150,9 @@ SMODS.current_mod.calculate = function(self, context)
         end
         G.GAME.joy_last_used[context.consumeable.ability.set] = context.consumeable.config.center.key
         G.GAME.joy_last_used["All"] = context.consumeable.config.center.key
+        G.GAME.joy_used_count = G.GAME.joy_used_count or {}
+        G.GAME.joy_used_count[context.consumeable.config.center.key] =
+            (G.GAME.joy_used_count[context.consumeable.config.center.key] or 0) + 1
     end
 
     -- Reset check if card is flipped by blind
@@ -251,6 +271,7 @@ function SMODS.current_mod.reset_game_globals(run_start)
     G.GAME.current_round.joy_cards_banished = 0
     G.GAME.current_round.joy_cards_banished_by_type = {}
     G.GAME.current_round.joy_cards_banished_by_attribute = {}
+    G.GAME.current_round.joy_summoned_list = {}
     G.GAME.joy_purr_memory_apply = false
     G.GAME.joy_purr_friend_apply = false
 end
@@ -987,6 +1008,28 @@ function Card:can_calculate(...)
             self.config.center:joy_can_calculate_in_side(self, "calculate")
     end
     return ret
+end
+
+local card_selectable_from_pack_ref = Card.selectable_from_pack
+function Card:selectable_from_pack(pack)
+    local area, can_use = card_selectable_from_pack_ref(self, pack)
+    if not area then
+        local ret = JoyousSpring.calculate_prototype_function("select_from_pack", {
+            return_func = function(new, original)
+                if type(new) == "string" then
+                    return { area = new, can_use = original.can_use }
+                elseif type(new) == "table" then
+                    return { area = new.area or original.area, can_use = new.can_use or original.can_use }
+                elseif new == true then
+                    return { area = original.area or 'consumeables', can_use = original.can_use }
+                end
+                return original
+            end,
+            default_return = {}
+        }, self, pack)
+        return ret.area, ret.can_use or can_use
+    end
+    return area, can_use
 end
 
 --#endregion

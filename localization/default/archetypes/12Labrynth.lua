@@ -148,6 +148,19 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            lab = {
+                story = {
+                    "According to legend and rumor, this castle was cursed, and the curse of the labyrinth would never be broken unless the true treasure lying deep within the castle was brought back. But according to others, the master of the castle was an immensely gorgeous princess, who was delicate as a white thread, and ephemeral as the moon. That night, a knight stepped foot into this castle swarming with rumors...",
+                },
+                gameplay = {
+                    "Centered around card {C:attention}flipping{}, {C:joy_normal}Labrynth{} likes being paired up with {C:joy_trap}Traps{}, {C:joy_effect}Flip{} {C:attention}Jokers{} and other archetypes that support them.",
+                    "{C:red}Tip{}: The {C:attention}flipping{} animations of {C:tarot}Tarot{} and {C:spectral}Spectral{} cards count towards their effects!"
+                }
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_lab = "Labrynth",

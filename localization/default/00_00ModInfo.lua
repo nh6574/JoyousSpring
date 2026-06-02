@@ -46,6 +46,8 @@ return {
 			k_joy_vanillaremade = "VanillaRemade",
 			k_joy_hotpotato = "Hot Potato",
 			k_joy_wormhole = "Wormhole",
+			k_joy_story = "Story",
+			k_joy_gameplay = "Gameplay"
 		},
 	},
 }

@@ -7,7 +7,7 @@ JoyousSpring.Joker({
     pos = { x = 1, y = 4 },
     rarity = 2,
     blueprint_compat = true,
-    eternal_compat = true,
+    eternal_compat = false,
     cost = 10,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult, 1 + (card.ability.extra.xmult * (G.GAME.joy_sauravis_uses or 0)) } }

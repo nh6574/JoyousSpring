@@ -335,7 +335,12 @@ return {
             b_joy_striker = {
                 name = "{C:joy_spell}Sky Striker Mobilize - Engage!",
                 text = {
-                    "TBD"
+                    "After a hand is played,",
+                    "creates a {C:dark_edition}Negative{} {C:planet}Planet{}",
+                    "for the played poker hand",
+                    "if the score {C:red}didn't catch fire{},",
+                    "otherwise, it resets",
+                    "its level to {C:attention}1{}"
                 }
             },
             b_joy_voice = {

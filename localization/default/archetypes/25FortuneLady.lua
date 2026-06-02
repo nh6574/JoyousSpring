@@ -274,6 +274,15 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            flady = {
+                gameplay = {
+                    "The {C:joy_normal}Fortune Lady{} naturally scale up as their {C:green}probabilities{} get higher. This also grants extra effects as they're able to trigger their effects more often. {C:joy_normal}Fortune Fairies{} are a great pair with them and other {C:green}probabilities{} {C:attention}Jokers{}!"
+                }
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_flady = "Fortune Lady",

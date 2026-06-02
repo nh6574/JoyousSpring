@@ -167,6 +167,14 @@ JoyousSpring.perform_summon = function(card, card_list, summon_type, playing_car
             card.ability.extra.joyous_spring.xyz_materials = card.ability.extra.joyous_spring.xyz_materials +
                 joker.ability.extra.joyous_spring.xyz_materials
         end
+
+        --TODO: Maybe unhardcode this too idk
+        if JoyousSpring.is_monster_archetype(card, "SkyStrikerAce") and
+            JoyousSpring.is_monster_archetype(joker, "SkyStrikerAce") and
+            joker.ability.extra.joyous_spring.material_effects.j_joy_striker_raye then
+            card.ability.extra.joyous_spring.material_effects.j_joy_striker_raye =
+                joker.ability.extra.joyous_spring.material_effects.j_joy_striker_raye
+        end
     end
 
     local dissolve_colours = { G.C.BLACK, G.C.JOY[summon_type], G.C.RED, G.C.GOLD, G.C.JOKER_GREY }
@@ -301,11 +309,11 @@ end
 local get_side_deck_cards = function()
     local cards = {}
     for _, joker in ipairs(JoyousSpring.side_deck_area.cards) do
-        if not JoyousSpring.is_field_spell(joker) then
+        if not JoyousSpring.is_field_spell(joker) and ((not JoyousSpring.is_extra_deck_monster(joker) and not JoyousSpring.is_summon_type(joker, "RITUAL")) or (joker.ability.joy_extra_values or {}).sidedeck_from_field) then
             cards[#cards + 1] = joker
         end
     end
-    return JoyousSpring.side_deck_area.cards
+    return cards
 end
 
 local function get_combinations(list, condition, max_size)
@@ -677,7 +685,9 @@ JoyousSpring.can_summon = function(card, card_list)
         local conditions = card.ability.extra.joyous_spring.summon_conditions
 
         for _, condition in ipairs(conditions) do
-            if JoyousSpring.can_summon_by_condition(condition, card_table) then
+            local restrictions = condition.restrictions or {}
+
+            if not (restrictions.not_summoned_this_round and JoyousSpring.get_summoned_count(nil, true, card.config.center_key) > 0) and JoyousSpring.can_summon_by_condition(condition, card_table) then
                 return true, JoyousSpring.get_card_limit(card) > 0 or
                     (#G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit + JoyousSpring.get_min_summon_materials(card))
             end
@@ -705,7 +715,10 @@ JoyousSpring.can_summon_with_combo = function(card, combo)
         local conditions = card.ability.extra.joyous_spring.summon_conditions
 
         for _, condition in ipairs(conditions) do
-            if JoyousSpring.fulfills_conditions(combo, condition) then
+            local restrictions = condition.restrictions or {}
+
+            if not (restrictions.not_summoned_this_round and JoyousSpring.get_summoned_count(nil, true, card.config.center_key) > 0) and
+                JoyousSpring.fulfills_conditions(combo, condition) then
                 local materials = 0
                 for _, material in ipairs(combo) do
                     if material.ability.set == "Joker" and not (JoyousSpring.get_card_limit(material) > 0)
@@ -713,7 +726,6 @@ JoyousSpring.can_summon_with_combo = function(card, combo)
                         materials = materials + 1
                     end
                 end
-                local restrictions = condition.restrictions or {}
                 local summon_with_no_room = restrictions.no_room or
                     (G.GAME.modifiers.joy_summon_no_room or {})[condition.type or ""]
                 return summon_with_no_room or JoyousSpring.get_card_limit(card) > 0 or

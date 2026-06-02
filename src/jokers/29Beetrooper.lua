@@ -15,7 +15,7 @@ local count_owned_insects = function(properties)
 end
 
 local bee_bypass_room_check = function(card, from_booster)
-    return JoyousSpring.count_materials_owned({ { monster_type = "Insect" } }) > 0
+    return JoyousSpring.any_materials_owned({ { monster_type = "Insect" } })
 end
 
 -- Beetrooper Scout Buggy
@@ -116,15 +116,14 @@ JoyousSpring.Joker({
                 }
             end
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card then
+                if JoyousSpring.is_activated_context(card, context) then
                     local materials = JoyousSpring.get_materials_owned({ { monster_type = "Insect" } }, nil, true)
                     if next(materials) then
                         JoyousSpring.create_overlay_effect_selection(card, materials, card.ability.extra.tributes,
                             card.ability.extra.tributes)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection >= 1 then
+                if JoyousSpring.is_exit_selection_context(card, context) then
                     JoyousSpring.tribute(card, context.joy_selection)
                     card.ability.extra.active = true
                 end
@@ -138,7 +137,7 @@ JoyousSpring.Joker({
         card.ability.extra.active = nil
     end,
     joy_can_activate = function(card)
-        return JoyousSpring.count_materials_owned({ { monster_type = "Insect" } }, nil, true) > 0
+        return JoyousSpring.any_materials_owned({ { monster_type = "Insect" } }, nil, true)
     end,
     joy_bypass_room_check = bee_bypass_room_check
 })
@@ -191,7 +190,7 @@ JoyousSpring.Joker({
     pos = { x = 1, y = 0 },
     rarity = 2,
     blueprint_compat = false,
-    eternal_compat = true,
+    eternal_compat = false,
     cost = 7,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
@@ -262,7 +261,7 @@ JoyousSpring.Joker({
     },
     calculate = function(self, card, context)
         if not context.blueprint_card then
-            if JoyousSpring.can_use_abilities(card) and context.joy_activate_effect and context.joy_activated_card == card then
+            if JoyousSpring.can_use_abilities(card) and JoyousSpring.is_activated_context(card, context) then
                 JoyousSpring.remove_from_graveyard(nil, nil, nil, { { monster_type = "Insect" } }, true)
                 JoyousSpring.add_to_extra_deck_pseudorandom({ { monster_archetypes = { "Beetrooper" } } },
                     self.key .. "_extra", true)
@@ -275,7 +274,7 @@ JoyousSpring.Joker({
         end
     end,
     joy_can_activate = function(card)
-        return JoyousSpring.count_materials_in_graveyard({ { monster_type = "Insect" } }) >= 5
+        return JoyousSpring.any_materials_in_graveyard({ { monster_type = "Insect" } }, nil, nil, 5)
     end,
     joy_bypass_room_check = bee_bypass_room_check
 })
@@ -444,7 +443,7 @@ JoyousSpring.Joker({
                 }
             end
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card then
+                if JoyousSpring.is_activated_context(card, context) then
                     local materials = JoyousSpring.get_materials_owned({ { monster_type = "Insect", is_effect = true } },
                         nil, true)
                     if next(materials) then
@@ -452,8 +451,7 @@ JoyousSpring.Joker({
                             card.ability.extra.tributes)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection >= 1 then
+                if JoyousSpring.is_exit_selection_context(card, context) then
                     JoyousSpring.tribute(card, context.joy_selection)
                     local creates = G.jokers.config.card_limit - #G.jokers.cards
                     for i = 1, creates do
@@ -465,7 +463,7 @@ JoyousSpring.Joker({
     end,
     joy_can_activate = function(card)
         return G.jokers.config.card_limit > #G.jokers.cards and
-            JoyousSpring.count_materials_owned({ { monster_type = "Insect" } }, nil, true) > 0
+            JoyousSpring.any_materials_owned({ { monster_type = "Insect" } }, nil, true)
     end,
 })
 

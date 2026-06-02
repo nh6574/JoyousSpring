@@ -277,7 +277,7 @@ return {
                         "when used as {C:attention}material{} for a {C:joy_synchro}Synchro{}",
                     },
                     {
-                        "Free if you own a non-{C:joy_effect}Effect{} {C:attention}Joker{}",
+                        "Free if you own a {C:joy_normal}Normal{} {C:attention}Joker{}",
                     },
                 }
             },

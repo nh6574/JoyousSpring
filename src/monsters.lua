@@ -1120,18 +1120,21 @@ end
 ---@param different_names boolean?
 ---@param for_tribute boolean?
 ---@param count_field_spell boolean?
+---@param limit true|integer?
 ---@return Card[]
-JoyousSpring.get_materials_owned = function(property_list, different_names, for_tribute, count_field_spell)
+JoyousSpring.get_materials_owned = function(property_list, different_names, for_tribute, count_field_spell, limit)
     if not G.jokers then return {} end
 
     local materials = {}
     local keys = {}
+    limit = limit == true and 1 or limit
 
     for _, joker in ipairs(SMODS.merge_lists({ G.jokers.cards, property_list and #property_list > 0 and JoyousSpring.opponent_area.cards or {} })) do
         if joker.getting_sliced then
         elseif not property_list or #property_list == 0 then
             if not keys[joker.config.center_key] or not different_names then
                 table.insert(materials, joker)
+                if limit and #materials >= limit then return materials end
                 keys[joker.config.center_key] = true
             end
         else
@@ -1141,6 +1144,7 @@ JoyousSpring.get_materials_owned = function(property_list, different_names, for_
                 end
                 if JoyousSpring.is_material(joker, property, for_tribute and "TRIBUTE" or nil) then
                     table.insert(materials, joker)
+                    if limit and #materials >= limit then return materials end
                     keys[joker.config.center_key] = true
                     break
                 end
@@ -1153,6 +1157,7 @@ JoyousSpring.get_materials_owned = function(property_list, different_names, for_
             elseif not property_list or #property_list == 0 then
                 if not keys[joker.config.center_key] or not different_names then
                     table.insert(materials, joker)
+                    if limit and #materials >= limit then return materials end
                     keys[joker.config.center_key] = true
                 end
             else
@@ -1162,6 +1167,7 @@ JoyousSpring.get_materials_owned = function(property_list, different_names, for_
                     end
                     if JoyousSpring.is_material(joker, property, for_tribute and "TRIBUTE" or nil) then
                         table.insert(materials, joker)
+                        if limit and #materials >= limit then return materials end
                         keys[joker.config.center_key] = true
                         break
                     end
@@ -1182,15 +1188,29 @@ JoyousSpring.count_materials_owned = function(property_list, different_names, fo
     return #JoyousSpring.get_materials_owned(property_list, different_names, for_tribute, count_field_spell)
 end
 
+---Checks if any material that fulfills the properties is owned
+---@param property_list material_properties[]
+---@param different_names boolean?
+---@param for_tribute boolean?
+---@param count_field_spell boolean?
+---@param limit integer?
+---@return boolean
+JoyousSpring.any_materials_owned = function(property_list, different_names, for_tribute, count_field_spell, limit)
+    return #JoyousSpring.get_materials_owned(property_list, different_names, for_tribute, count_field_spell, limit or 1) >=
+        (limit or 1)
+end
+
 ---Get all materials in graveyard that fulfill **property_list**
 ---@param property_list material_properties[]
 ---@param to_revive boolean? Checks if it can be revived
 ---@param different_names boolean?
+---@param limit true|integer?
 ---@return string[]
-JoyousSpring.get_materials_in_graveyard = function(property_list, to_revive, different_names)
+JoyousSpring.get_materials_in_graveyard = function(property_list, to_revive, different_names, limit)
     if not JoyousSpring.graveyard then return {} end
 
     local materials = {}
+    limit = limit == true and 1 or limit
     for key, t in pairs(JoyousSpring.graveyard) do
         local count = t.count
         local summonable = t.summonable
@@ -1199,12 +1219,14 @@ JoyousSpring.get_materials_in_graveyard = function(property_list, to_revive, dif
                 if not property_list or #property_list == 0 then
                     for i = 1, (different_names and 1 or count) do
                         table.insert(materials, key)
+                        if limit and #materials >= limit then return materials end
                     end
                 else
                     for _, property in ipairs(property_list) do
                         if JoyousSpring.is_material_center(key, property) then
                             for i = 1, (different_names and 1 or count) do
                                 table.insert(materials, key)
+                                if limit and #materials >= limit then return materials end
                             end
                             break
                         end
@@ -1223,6 +1245,17 @@ end
 ---@return integer
 JoyousSpring.count_materials_in_graveyard = function(property_list, to_revive, different_names)
     return #JoyousSpring.get_materials_in_graveyard(property_list, to_revive, different_names)
+end
+
+---Checks if any material that fulfills the properties is in the graveyard
+---@param property_list material_properties[]
+---@param to_revive boolean?
+---@param different_names boolean?
+---@param limit integer?
+---@return boolean
+JoyousSpring.any_materials_in_graveyard = function(property_list, to_revive, different_names, limit)
+    return #JoyousSpring.get_materials_in_graveyard(property_list, to_revive, different_names, limit or 1) >=
+        (limit or 1)
 end
 
 ---Get the keys to all matrerials in G.jokers and graveyard that fulfill **property_list**

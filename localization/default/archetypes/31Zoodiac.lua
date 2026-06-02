@@ -312,6 +312,18 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            zoo = {
+                story = {
+                    "{C:gold}[From the \"Dracoslayer\" storyline]{}",
+                },
+                gameplay = {
+                    "{C:joy_xyz}Xyz{} {C:attention}summon{} a really big {C:joy_normal}Zoodiac{} to unleash their true power!"
+                }
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_zoo = "Zoodiac",

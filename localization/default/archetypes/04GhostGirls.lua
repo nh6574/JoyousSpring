@@ -74,6 +74,15 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            yokai = {
+                gameplay = {
+                    "These {C:attention}Ghost Girls{} bring in high rewards, sometimes in exchange of some downsides."
+                }
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_yokai = "Ghost Girls",

@@ -25,6 +25,7 @@ SOFTWARE.
 ]]
 
 JoyousSpring.INFO_MENU = {}
+JoyousSpring.INFO_MENU.opened = {}
 
 function G.FUNCS.joy_utils_info_menu_switch_page(e)
     local config = e.config
@@ -58,7 +59,7 @@ function JoyousSpring.INFO_MENU.create_UIBox_definition(args)
     local function create_text_box(args)
         local desc_node = {}
         local loc_target = args.loc_target and copy_table(args.loc_target)
-        localize { type = 'descriptions', set = "JoyousSpringTutorial", loc_target = { text = loc_target, text_parsed = args.text_parsed }, nodes = desc_node, scale = 1, text_colour = G.C.UI.TEXT_LIGHT, vars = args.vars or {}, stylize = true, no_shadow = true }
+        localize { type = 'descriptions', set = "JoyousSpringTutorial", loc_target = { text = loc_target, text_parsed = args.text_parsed }, nodes = desc_node, scale = 1.2, text_colour = G.C.UI.TEXT_LIGHT, vars = args.vars or {}, stylize = true, no_shadow = true }
         desc_node = desc_from_rows(desc_node, true)
         desc_node.config.align = "cm"
 
@@ -153,7 +154,7 @@ function JoyousSpring.INFO_MENU.create_UIBox_definition(args)
         end
     end
 
-    G.PROFILES[G.SETTINGS.profile].first_time_disable = G.PROFILES[G.SETTINGS.profile].first_time_disable or {}
+    G.PROFILES[G.SETTINGS.profile].joy_first_time_disable = G.PROFILES[G.SETTINGS.profile].joy_first_time_disable or {}
 
     local ret = {
         n = G.UIT.ROOT,
@@ -190,7 +191,8 @@ function JoyousSpring.INFO_MENU.create_UIBox_definition(args)
                                                             create_toggle({
                                                                 label = localize("joy_tutorial_disable"),
                                                                 ref_table =
-                                                                    G.PROFILES[G.SETTINGS.profile].first_time_disable,
+                                                                    G.PROFILES[G.SETTINGS.profile]
+                                                                    .joy_first_time_disable,
                                                                 ref_value =
                                                                     menu_type,
                                                                 callback = function() end
@@ -336,9 +338,10 @@ function init_localization()
     end
 end
 
-function JoyousSpring.INFO_MENU.open(menu_type)
-    G.PROFILES[G.SETTINGS.profile].first_time_disable = G.PROFILES[G.SETTINGS.profile].first_time_disable or {}
-    if not G.PROFILES[G.SETTINGS.profile].first_time_disable[menu_type] then
-        JoyousSpring.INFO_MENU.create_menu { menu_type = menu_type }
+function JoyousSpring.INFO_MENU.open(menu_type, force, first_time, back_func)
+    G.PROFILES[G.SETTINGS.profile].joy_first_time_disable = G.PROFILES[G.SETTINGS.profile].joy_first_time_disable or {}
+    if force or (not G.PROFILES[G.SETTINGS.profile].joy_first_time_disable[menu_type] and (not first_time or not JoyousSpring.INFO_MENU.opened[menu_type])) then
+        JoyousSpring.INFO_MENU.opened[menu_type] = true
+        JoyousSpring.INFO_MENU.create_menu { menu_type = menu_type, back_func = back_func }
     end
 end

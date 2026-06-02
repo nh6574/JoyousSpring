@@ -477,6 +477,16 @@ return {
             }
         },
     },
+    JoyousSpring = {
+        Blurbs = {
+            cardian = {
+                gameplay = {
+                    "Don't get overwhelmed by the amount of text! There's only one thing {C:joy_normal}Flower Cardians{} care about and it's {C:joy_mod}Hanafuda{}. Try to get as many as possible and the {C:joy_normal}Cardians{} will just keep cycling in the meantime.",
+                    "{C:red}Tip{}: You don't need to focus on specific {C:attention}Koi Koi{} hands, try going for all {C:joy_link}Chaff{}, all {C:joy_link}Ribbons{} or all {C:joy_link}Animals{}!"
+                }
+            }
+        }
+    },
     misc = {
         poker_hands = {
             joy_cardian_chaff = "Chaff",

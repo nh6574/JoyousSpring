@@ -416,7 +416,7 @@ JoyousSpring.Joker({
                         SMODS.find_card("j_joy_centur_legatia")[1] or nil
                 }
             end
-            if context.joy_activate_effect and context.joy_activated_card == card then
+            if JoyousSpring.is_activated_context(card, context) then
                 local materials = JoyousSpring.get_materials_owned(
                     { { summon_type = "SYNCHRO" } }, false, true)
                 local index
@@ -432,8 +432,7 @@ JoyousSpring.Joker({
                     JoyousSpring.create_overlay_effect_selection(card, materials, 1, 1)
                 end
             end
-            if context.joy_exit_effect_selection and context.joy_card == card and
-                #context.joy_selection == 1 and not card.ability.eternal then
+            if JoyousSpring.is_exit_selection_context(card, context) and not card.ability.eternal then
                 JoyousSpring.tribute(card, context.joy_selection)
                 JoyousSpring.tribute(card, { card })
                 for i = 1, 2 do
@@ -445,9 +444,8 @@ JoyousSpring.Joker({
     end,
     joy_can_activate = function(card)
         if card.ability.eternal then return false end
-        local materials = JoyousSpring.get_materials_owned(
-            { { summon_type = "SYNCHRO" } }, false, true)
-        return #materials >= 2
+        return JoyousSpring.any_materials_owned(
+            { { summon_type = "SYNCHRO" } }, false, true, nil, 2)
     end,
     joy_can_calculate_in_side = function(self, card, calc_func)
         return calc_func == "calculate" and next(SMODS.find_card("j_joy_centur_legatia"))

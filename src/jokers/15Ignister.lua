@@ -159,7 +159,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card and not card.ability.extra.activated then
-                if context.joy_activate_effect and context.joy_activated_card == card then
+                if JoyousSpring.is_activated_context(card, context) then
                     local targets = JoyousSpring.get_materials_owned({ { monster_type = "Cyberse" } }, false, true)
                     local materials = {}
                     for i, joker in ipairs(targets) do
@@ -172,8 +172,7 @@ JoyousSpring.Joker({
                             card.ability.extra.tributes)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection == card.ability.extra.tributes then
+                if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
                     card.ability.extra.activated = true
                     JoyousSpring.tribute(card, context.joy_selection)
 
@@ -212,7 +211,7 @@ JoyousSpring.Joker({
         end
     end,
     joy_set_cost = function(card)
-        if JoyousSpring.count_materials_owned({ { monster_archetypes = { "Ignister" } } }) > 0 then
+        if JoyousSpring.any_materials_owned({ { monster_archetypes = { "Ignister" } } }) then
             card.cost = 0
         end
     end
@@ -553,7 +552,7 @@ JoyousSpring.Joker({
     pos = { x = 3, y = 0 },
     rarity = 2,
     blueprint_compat = false,
-    eternal_compat = true,
+    eternal_compat = false,
     cost = 8,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.money, card.ability.extra.banishes } }
@@ -679,7 +678,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card and not SMODS.is_eternal(card, card) then
+                if JoyousSpring.is_activated_context(card, context) and not SMODS.is_eternal(card, card) then
                     JoyousSpring.tribute(card, { card })
                     for i = 1, card.ability.extra.revives do
                         JoyousSpring.revive_pseudorandom({ { monster_type = "Cyberse" } },
@@ -696,8 +695,7 @@ JoyousSpring.Joker({
     end,
     joy_can_activate = function(card)
         return not SMODS.is_eternal(card, card) and
-            JoyousSpring.count_materials_in_graveyard({ { monster_type = "Cyberse" } },
-                true) > 0 or false
+            JoyousSpring.any_materials_in_graveyard({ { monster_type = "Cyberse" } }, true)
     end,
 })
 
@@ -708,7 +706,7 @@ JoyousSpring.Joker({
     pos = { x = 1, y = 2 },
     rarity = 3,
     blueprint_compat = false,
-    eternal_compat = true,
+    eternal_compat = false,
     cost = 12,
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },

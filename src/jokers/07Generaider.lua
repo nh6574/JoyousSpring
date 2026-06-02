@@ -135,7 +135,7 @@ JoyousSpring.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) and not context.blueprint_card then
-            if context.joy_activate_effect and context.joy_activated_card == card then
+            if JoyousSpring.is_activated_context(card, context) then
                 local materials = JoyousSpring.get_materials_owned(
                     { { monster_archetypes = { "Generaider" } }, { monster_type = "Spellcaster" } }, false, true)
                 if #materials >= card.ability.extra.tributes then
@@ -143,8 +143,7 @@ JoyousSpring.Joker({
                         card.ability.extra.tributes)
                 end
             end
-            if context.joy_exit_effect_selection and context.joy_card == card and
-                #context.joy_selection == card.ability.extra.tributes and JoyousSpring.are_there_blinds_to_disable_this_ante() then
+            if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) and JoyousSpring.are_there_blinds_to_disable_this_ante() then
                 JoyousSpring.tribute(card, context.joy_selection)
                 JoyousSpring.disable_all_active_blinds()
                 JoyousSpring.disable_next_boss_blinds()
@@ -155,9 +154,9 @@ JoyousSpring.Joker({
         if not JoyousSpring.are_there_blinds_to_disable_this_ante() then
             return false
         end
-        local materials = JoyousSpring.get_materials_owned(
-            { { monster_archetypes = { "Generaider" } }, { monster_type = "Spellcaster" } }, false, true)
-        return #materials >= card.ability.extra.tributes
+        return JoyousSpring.any_materials_owned(
+            { { monster_archetypes = { "Generaider" } }, { monster_type = "Spellcaster" } }, false, true, nil,
+            card.ability.extra.tributes)
     end,
     in_pool = function(self, args)
         return args and args.from_joyous
@@ -216,7 +215,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card then
+                if JoyousSpring.is_activated_context(card, context) then
                     local materials_owned = JoyousSpring.get_materials_owned(
                         { { monster_archetypes = { "Generaider" } }, { monster_type = "Wyrm" } }, false, true)
                     local materials = {}
@@ -230,8 +229,7 @@ JoyousSpring.Joker({
                             card.ability.extra.tributes)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection == card.ability.extra.tributes then
+                if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
                     JoyousSpring.tribute(card, context.joy_selection)
                     card.ability.extra.active = true
                 end
@@ -303,7 +301,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card then
+                if JoyousSpring.is_activated_context(card, context) then
                     local materials_owned = JoyousSpring.get_materials_owned(
                         { { monster_archetypes = { "Generaider" } }, { monster_type = "Spellcaster" } }, false, true)
                     local materials = {}
@@ -316,8 +314,7 @@ JoyousSpring.Joker({
                         JoyousSpring.create_overlay_effect_selection(card, materials, 1, 52)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection > 0 then
+                if JoyousSpring.is_exit_selection_context(card, context) then
                     local count = #context.joy_selection
                     JoyousSpring.tribute(card, context.joy_selection)
                     G.hand:change_size(count)
@@ -379,7 +376,7 @@ JoyousSpring.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) and not context.blueprint_card then
-            if context.joy_activate_effect and context.joy_activated_card == card then
+            if JoyousSpring.is_activated_context(card, context) then
                 local materials = JoyousSpring.get_materials_owned(
                     { { monster_archetypes = { "Generaider" } }, { monster_type = "Rock" } }, false, true)
                 if #materials >= card.ability.extra.tributes then
@@ -387,8 +384,7 @@ JoyousSpring.Joker({
                         card.ability.extra.tributes)
                 end
             end
-            if context.joy_exit_effect_selection and context.joy_card == card and
-                #context.joy_selection == card.ability.extra.tributes then
+            if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
                 JoyousSpring.tribute(card, context.joy_selection)
                 local choices = G.consumeables.cards
                 local to_banish = pseudorandom_element(choices, 'j_joy_generaider_utgarda')
@@ -402,9 +398,9 @@ JoyousSpring.Joker({
         if not (#G.consumeables.cards > 0) then
             return false
         end
-        local materials = JoyousSpring.get_materials_owned(
-            { { monster_archetypes = { "Generaider" } }, { monster_type = "Rock" } }, false, true)
-        return #materials >= card.ability.extra.tributes
+        return JoyousSpring.any_materials_owned(
+            { { monster_archetypes = { "Generaider" } }, { monster_type = "Rock" } }, false, true, nil,
+            card.ability.extra.tributes)
     end,
     in_pool = function(self, args)
         return args and args.from_joyous
@@ -442,7 +438,7 @@ JoyousSpring.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) and not context.blueprint_card then
-            if not card.ability.extra.activated and context.joy_activate_effect and context.joy_activated_card == card then
+            if not card.ability.extra.activated and JoyousSpring.is_activated_context(card, context) then
                 local materials = JoyousSpring.get_materials_owned(
                     { { monster_archetypes = { "Generaider" } }, { monster_type = "Plant" } }, false, true)
                 if #materials >= card.ability.extra.tributes then
@@ -450,8 +446,7 @@ JoyousSpring.Joker({
                         card.ability.extra.tributes)
                 end
             end
-            if not card.ability.extra.activated and context.joy_exit_effect_selection and context.joy_card == card and
-                #context.joy_selection == card.ability.extra.tributes then
+            if not card.ability.extra.activated and JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
                 card.ability.extra.activated = true
                 JoyousSpring.tribute(card, context.joy_selection)
                 for i = 1, card.ability.extra.cards_to_create do
@@ -469,9 +464,9 @@ JoyousSpring.Joker({
         if card.ability.extra.activated or not (#G.jokers.cards + G.GAME.joker_buffer - card.ability.extra.tributes < G.jokers.config.card_limit) then
             return false
         end
-        local materials = JoyousSpring.get_materials_owned(
-            { { monster_archetypes = { "Generaider" } }, { monster_type = "Plant" } }, false, true)
-        return #materials >= card.ability.extra.tributes
+        return JoyousSpring.any_materials_owned(
+            { { monster_archetypes = { "Generaider" } }, { monster_type = "Plant" } }, false, true, nil,
+            card.ability.extra.tributes)
     end,
     in_pool = function(self, args)
         return args and args.from_joyous
@@ -510,7 +505,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card then
+                if JoyousSpring.is_activated_context(card, context) then
                     local materials_owned = JoyousSpring.get_materials_owned(
                         { { monster_archetypes = { "Generaider" } }, { monster_type = "Machine" } }, false, true)
                     local materials = {}
@@ -524,8 +519,7 @@ JoyousSpring.Joker({
                             card.ability.extra.tributes)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection == card.ability.extra.tributes then
+                if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
                     JoyousSpring.tribute(card, context.joy_selection)
                     card.ability.extra.active = true
                 end
@@ -608,7 +602,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card then
+                if JoyousSpring.is_activated_context(card, context) then
                     local materials = JoyousSpring.get_materials_owned(
                         { { monster_archetypes = { "Generaider" } }, { monster_type = "BeastWarrior" } }, false, true)
                     if #materials >= card.ability.extra.tributes then
@@ -616,8 +610,7 @@ JoyousSpring.Joker({
                             card.ability.extra.tributes)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection == card.ability.extra.tributes then
+                if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
                     JoyousSpring.tribute(card, context.joy_selection)
                     ease_hands_played(card.ability.extra.hands)
                     ease_discard(card.ability.extra.discards)
@@ -629,9 +622,9 @@ JoyousSpring.Joker({
         if not (G.GAME.blind and G.GAME.blind.in_blind) then
             return false
         end
-        local materials = JoyousSpring.get_materials_owned(
-            { { monster_archetypes = { "Generaider" } }, { monster_type = "BeastWarrior" } }, false, true)
-        return #materials >= card.ability.extra.tributes
+        return JoyousSpring.any_materials_owned(
+            { { monster_archetypes = { "Generaider" } }, { monster_type = "BeastWarrior" } }, false, true, nil,
+            card.ability.extra.tributes)
     end,
     in_pool = function(self, args)
         return args and args.from_joyous
@@ -669,7 +662,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if not context.blueprint_card then
-                if context.joy_activate_effect and context.joy_activated_card == card then
+                if JoyousSpring.is_activated_context(card, context) then
                     local materials = JoyousSpring.get_materials_owned(
                         { { monster_archetypes = { "Generaider" } }, { monster_type = "Zombie" } }, false, true)
                     if #materials >= card.ability.extra.tributes then
@@ -677,8 +670,7 @@ JoyousSpring.Joker({
                             card.ability.extra.tributes)
                     end
                 end
-                if context.joy_exit_effect_selection and context.joy_card == card and
-                    #context.joy_selection == card.ability.extra.tributes then
+                if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
                     JoyousSpring.tribute(card, context.joy_selection)
                     for i = 1, card.ability.extra.revives do
                         JoyousSpring.revive_pseudorandom(
@@ -696,9 +688,9 @@ JoyousSpring.Joker({
         if not (G.GAME.blind and G.GAME.blind.in_blind) then
             return false
         end
-        local materials = JoyousSpring.get_materials_owned(
-            { { monster_archetypes = { "Generaider" } }, { monster_type = "Zombie" } }, false, true)
-        return #materials >= card.ability.extra.tributes
+        return JoyousSpring.any_materials_owned(
+            { { monster_archetypes = { "Generaider" } }, { monster_type = "Zombie" } }, false, true, nil,
+            card.ability.extra.tributes)
     end,
     in_pool = function(self, args)
         return args and args.from_joyous
@@ -889,15 +881,14 @@ JoyousSpring.Joker({
                 i = i + 1
             end
         end
-        if context.joy_activate_effect and context.joy_activated_card == card then
+        if JoyousSpring.is_activated_context(card, context) then
             local tokens = JoyousSpring.get_materials_owned({ { key = "j_joy_token", monster_archetypes = { "Generaider" } } })
             if #tokens >= card.ability.extra.tributes then
                 JoyousSpring.create_overlay_effect_selection(card, tokens, card.ability.extra.tributes,
                     card.ability.extra.tributes)
             end
         end
-        if context.joy_exit_effect_selection and context.joy_card == card and
-            #context.joy_selection == card.ability.extra.tributes then
+        if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
             JoyousSpring.tribute(card, context.joy_selection)
             card.ability.extra.used = true
 
@@ -912,10 +903,11 @@ JoyousSpring.Joker({
         end
     end,
     joy_can_activate = function(card)
-        local tokens = JoyousSpring.get_materials_owned({ { key = "j_joy_token", monster_archetypes = { "Generaider" } } })
+        local tokens = JoyousSpring.any_materials_owned(
+            { { key = "j_joy_token", monster_archetypes = { "Generaider" } } }, nil, true, nil,
+            card.ability.extra.tributes)
         return not card.debuff and
-            (not card.ability.extra.used and #G.jokers.cards + G.GAME.joker_buffer - card.ability.extra.tributes < G.jokers.config.card_limit and #tokens >= card.ability.extra.tributes) and
-            true or false
+            (not card.ability.extra.used and #G.jokers.cards + G.GAME.joker_buffer - card.ability.extra.tributes < G.jokers.config.card_limit and tokens)
     end,
     joker_display_def = function(JokerDisplay)
         ---@type JDJokerDefinition

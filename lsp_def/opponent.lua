@@ -37,6 +37,7 @@
 ---@field joy_prevent_banish? fun(self: JoyousSpring.OpponentCard|table, card:table|Card, other_card:Card|table, banish_until:string):boolean? Determines if *other_card* can be banished
 ---@field joy_prevent_drag? fun(self: JoyousSpring.OpponentCard|table, card:table|Card, other_card:Card|table, area:CardArea|table):boolean? Determines if *other_card* can be dragged
 ---@field joy_prevent_summon? fun(self:JoyousSpring.OpponentCard|table, card:table|Card, other_card:Card|table, card_list:Card[]|table?):boolean? Determines if *other_card* can be summoned
+---@field joy_select_from_pack? fun(self: JoyousSpring.OpponentCard|table, card:table|Card, other_card:Card|table, pack:SMODS.Booster|table?):string|{area?:string,can_use?:true}|true? Determines if *other_card* can be selected from a pack instead of (or as well as) used
 ---@overload fun(self: JoyousSpring.OpponentCard): JoyousSpring.OpponentCard
 JoyousSpring.OpponentCard = setmetatable({}, {
     __call = function(self)

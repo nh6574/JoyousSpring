@@ -597,6 +597,9 @@ SMODS.Consumable {
         "joy_cardian_lightflare",
     } },
     use = function(self, card, area, copier)
+        self.joy_level_up(card)
+    end,
+    joy_level_up = function(card)
         update_hand_text({ sound = 'button', volume = 0.7, pitch = 0.8, delay = 0.3 },
             { handname = localize('k_joy_all_koikoi_hands'), chips = '...', mult = '...', level = '' })
         G.E_MANAGER:add_event(Event({
@@ -632,9 +635,7 @@ SMODS.Consumable {
         }))
         update_hand_text({ sound = 'button', volume = 0.7, pitch = 0.9, delay = 0 }, { level = '+1' })
         delay(1.3)
-        for _, poker_hand_key in pairs(card.ability.joy_hand_types) do
-            level_up_hand(card, poker_hand_key, true)
-        end
+        SMODS.upgrade_poker_hands({ hands = card.ability.joy_hand_types, instant = true })
         update_hand_text({ sound = 'button', volume = 0.7, pitch = 1.1, delay = 0 },
             { mult = 0, chips = 0, handname = '', level = '' })
     end,

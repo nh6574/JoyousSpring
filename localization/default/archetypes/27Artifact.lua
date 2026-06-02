@@ -350,6 +350,19 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            artifact = {
+                story = {
+                    "The {C:joy_normal}\"Artifacts\"{} are ancient relics that once were used by heroes of other ages. They dwell in a {C:attention}\"Treasure Vault\"{} hidden beyond mountains. Using an energy source and their memories, they are able to manifest themselves in the form of those who wielded them in the past. However, it seems many of their memories are missing, and even without knowing why, they can merge together to work as one single {C:joy_normal}\"Artifact\"{}, one of those being the Memory-Severing Sword, {C:joy_xyz}\"Durendal\"{}, created with the power of {C:joy_effect}\"Beagalltach\"{} and {C:joy_effect}\"Moralltach\"{}.",
+                },
+                gameplay = {
+                    "{C:joy_normal}Artifacts{} provide some beneficial abilities in the {C:joy_trap}Opponent{}'s area, so don't be afraid to obtain them only to send them there.",
+                    "{C:red}Tip{}: You can also use them to get rid of annoying {C:attention}Blinds{} stolen by the {C:joy_trap}Opponent{}!"
+                }
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_artifact = "Artifact",

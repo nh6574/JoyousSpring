@@ -160,6 +160,20 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            witch = {
+                story = {
+                    "{C:gold}[From the \"Great Magic War\" storyline]{}",
+                    "In the magical city specializing in trade and commerce near {C:joy_spell}\"Endymion\"{}, the guild {C:joy_normal}\"Witchcrafter\"{}, who create various items and crafts by infusing them with magic by using each of their skills and specialties, have become the talk of the town. The ingenuity of their magical goods have even caught the eye of the {C:joy_normal}\"Master Magician\"{} himself.",
+                },
+                gameplay = {
+                    "Once you get a {C:joy_normal}Witchcrafter{} you have access to one of the best resource loops available at the cost of some {C:tarot}Tarot{} cards!",
+                    "{C:red}Tip{}: Use {C:joy_effect}Witchcrafter Edel{}'s ability before you finish the loop to keep going forever!"
+                }
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_witch = "Witchcrafter",

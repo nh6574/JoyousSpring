@@ -129,7 +129,7 @@ JoyousSpring.Joker({
 })
 
 JoyousSpring.token_pool["utchatzimime"] = {
-    order = 7,
+    order = 9,
     name = "j_joy_token_utchatzimime",
     atlas = "joy_Misc02",
     sprite_pos = { x = 1, y = 4 },
@@ -188,7 +188,7 @@ JoyousSpring.Joker({
 })
 
 JoyousSpring.token_pool["lamp"] = {
-    order = 8,
+    order = 10,
     name = "j_joy_token_lamp",
     atlas = "joy_Misc02",
     sprite_pos = { x = 7, y = 3 },
