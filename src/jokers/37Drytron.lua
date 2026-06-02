@@ -13,7 +13,7 @@ JoyousSpring.Joker({
     pos = { x = 0, y = 0 },
     rarity = 2,
     blueprint_compat = false,
-    eternal_compat = true,
+    eternal_compat = false,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult } }
@@ -72,7 +72,7 @@ JoyousSpring.Joker({
     pos = { x = 1, y = 0 },
     rarity = 2,
     blueprint_compat = false,
-    eternal_compat = true,
+    eternal_compat = false,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult, card.ability.extra.money, card.ability.extra.money * 2 } }
@@ -128,7 +128,7 @@ JoyousSpring.Joker({
     pos = { x = 2, y = 0 },
     rarity = 2,
     blueprint_compat = false,
-    eternal_compat = true,
+    eternal_compat = false,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult, card.ability.extra.h_size, card.ability.extra.h_size * 2 } }
@@ -184,7 +184,7 @@ JoyousSpring.Joker({
     pos = { x = 3, y = 0 },
     rarity = 2,
     blueprint_compat = false,
-    eternal_compat = true,
+    eternal_compat = false,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult } }
@@ -239,7 +239,7 @@ JoyousSpring.Joker({
     pos = { x = 1, y = 1 },
     rarity = 2,
     blueprint_compat = false,
-    eternal_compat = true,
+    eternal_compat = false,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult } }
@@ -295,7 +295,7 @@ JoyousSpring.Joker({
     pos = { x = 0, y = 1 },
     rarity = 2,
     blueprint_compat = false,
-    eternal_compat = true,
+    eternal_compat = false,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult } }
@@ -547,7 +547,7 @@ JoyousSpring.Joker({
     pos = { x = 1, y = 2 },
     rarity = 2,
     blueprint_compat = false,
-    eternal_compat = true,
+    eternal_compat = false,
     cost = 10,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult, card.ability.extra.current_xmult } }

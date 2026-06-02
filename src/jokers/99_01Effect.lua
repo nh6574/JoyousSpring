@@ -1106,7 +1106,7 @@ JoyousSpring.Joker({
     pos = { x = 3, y = 1 },
     rarity = 1,
     blueprint_compat = false,
-    eternal_compat = true,
+    eternal_compat = false,
     cost = 6,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mills, card.ability.extra.revives } }

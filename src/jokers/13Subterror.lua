@@ -92,7 +92,7 @@ JoyousSpring.Joker({
     pos = { x = 1, y = 0 },
     rarity = 1,
     blueprint_compat = true,
-    eternal_compat = true,
+    eternal_compat = false,
     cost = 5,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.chips, card.ability.extra.chips * (JoyousSpring.count_flipped('back', { G.jokers }) + JoyousSpring.count_materials_owned({ { monster_archetypes = { "Subterror" } } })) } }

@@ -552,7 +552,7 @@ JoyousSpring.Joker({
     pos = { x = 3, y = 0 },
     rarity = 2,
     blueprint_compat = false,
-    eternal_compat = true,
+    eternal_compat = false,
     cost = 8,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.money, card.ability.extra.banishes } }
@@ -706,7 +706,7 @@ JoyousSpring.Joker({
     pos = { x = 1, y = 2 },
     rarity = 3,
     blueprint_compat = false,
-    eternal_compat = true,
+    eternal_compat = false,
     cost = 12,
     joy_desc_cards = {
         { "j_joy_ignis_ailand", properties = { { monster_archetypes = { "Ignister" } } }, name = "k_joy_archetype" },
