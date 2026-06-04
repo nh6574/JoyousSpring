@@ -1047,7 +1047,7 @@ JoyousSpring.card_collection_UIBox = function(_pool, rows, args)
                     blurb.config.object:remove()
                     blurb.config.object = create_archetype_loc_ui(next_blurb, blurb)
                     blurb.config.joy_blurb = next_blurb
-                    blurb.UIBox:recalculate()
+                    --blurb.UIBox:recalculate()
                 end
             end
         end
