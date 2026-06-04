@@ -113,7 +113,7 @@ return {
                     },
                     {
                         "Sell this card to create",
-                        "{C:attention}#2# Meteor Tags"
+                        "{C:attention}#1# Meteor Tags"
                     }
                 }
             },
