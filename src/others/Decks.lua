@@ -670,6 +670,8 @@ SMODS.Back {
         G.E_MANAGER:add_event(Event({
             blockable = false,
             func = (function()
+                SMODS.add_card { key = "j_joy_dracotail_mululu", no_edition = true }
+
                 for _, pcard in ipairs(G.playing_cards) do
                     local poll = pseudorandom(self.key, 1, 3)
                     if poll == 1 then
