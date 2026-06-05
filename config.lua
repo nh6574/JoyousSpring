@@ -11,6 +11,7 @@ return {
 		j_joy_etwin_kisikil = 1,
 		j_joy_etwin_lilla = 1,
 		j_joy_dogma_ecclesia = 1,
+		j_joy_dogma_fleur = 1,
 		j_joy_yokai_ash = 1,
 		j_joy_yokai_belle = 1,
 		j_joy_lab_lady = 1,

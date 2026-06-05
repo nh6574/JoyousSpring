@@ -5,7 +5,7 @@
 JoyousSpring.Joker({
     key = "dogma_law",
     atlas = "Dogmatika",
-    pos = { x = 0, y = 2 },
+    pos = { x = 1, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,

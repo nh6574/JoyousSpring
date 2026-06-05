@@ -416,6 +416,7 @@ JoyousSpring.alt_arts = {
     "j_joy_etwin_kisikil",
     "j_joy_etwin_lilla",
     "j_joy_dogma_ecclesia",
+    "j_joy_dogma_fleur",
     "j_joy_yokai_ash",
     "j_joy_yokai_belle",
     "j_joy_lab_lady",
