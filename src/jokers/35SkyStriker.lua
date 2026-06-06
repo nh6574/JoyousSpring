@@ -1573,7 +1573,7 @@ JoyousSpring.Joker({
 
 local striker_get_level_amount = function()
     local amount = 0
-    for _, hand in ipairs(G.GAME.hands) do
+    for _, hand in pairs(G.GAME.hands) do
         if hand.level > 1 then
             amount = amount + hand.level - 1
         end
