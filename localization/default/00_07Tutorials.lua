@@ -18,7 +18,9 @@ return {
                                 "You can reread them or disable them entirely in the mod's menu,",
                                 "as well as the glossary for all the important keywords",
                                 " ",
-                                "Please let me know if anything is unclear so I can improve on it!"
+                                "Please let me know if anything is unclear so I can improve on it!",
+                                " ",
+                                "It is also not recommended to play this with any other content mods",
                             },
                             {
                                 "Make sure to check out the config in the mod's menu!",
