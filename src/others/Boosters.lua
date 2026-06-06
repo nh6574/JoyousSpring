@@ -495,7 +495,7 @@ JoyousSpring.secret_booster {
 JoyousSpring.secret_booster {
     key = "generate",
     joy_secret = {
-        properties = { { monster_archetypes = { "Dragonmaid" } }, { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Generaider" } } },
+        properties = { { monster_archetypes = { "Dragonmaid" } }, { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Generaider" } }, { monster_archetypes = { "SkyStriker" } }, },
         extra_keys = { "j_joy_invoked_meltdown", "j_joy_ipmasq", "j_joy_dracotail_mululu" },
         center = "j_joy_ipmasq"
     }
@@ -507,6 +507,15 @@ JoyousSpring.secret_booster {
         properties = { { monster_archetypes = { "Runick" } }, { monster_archetypes = { "Witchcrafter" } }, { monster_archetypes = { "WhiteForest" } } },
         extra_keys = { "j_joy_psy_delta", "j_joy_ignis_pikari", "j_joy_solfa_harmonia", "j_joy_shaddoll_hedgehog" },
         center = "j_joy_witch_verre"
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "planet",
+    joy_secret = {
+        properties = { { monster_archetypes = { "SkyStriker" } }, { monster_archetypes = { "WhiteForest" } }, { monster_archetypes = { "VirtualWorld" } } },
+        extra_keys = { "j_joy_psy_epsilon", "j_joy_flady_wind", "j_joy_zoo_bunny", "j_joy_stormshooter", "j_joy_foucault" },
+        center = "j_joy_striker_raye"
     }
 }
 
