@@ -633,6 +633,15 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            dm = {
+                gameplay = {
+                    "These cards are based around supporting other {C:joy_normal}Spellcaster{} archetypes and powering up {C:joy_normal}Normal{} {C:attention}Joker{} strategies!"
+                }
+            }
+        }
+    },
     misc = {
         dictionary = {
             k_joy_archetype_dm = "Dark Magician",

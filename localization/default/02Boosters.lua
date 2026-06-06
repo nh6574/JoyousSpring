@@ -149,6 +149,13 @@ return {
                     "that support {C:tarot}Tarot{} cards"
                 },
             },
+            p_secret_pack_joy_planet = {
+                name = "Celestial Bodies",
+                text = {
+                    "Choose {C:attention}#1#{} of up to {C:attention}#2#{} {C:joy_normal}Monster {C:attention}Jokers{}",
+                    "that support {C:planet}Planet{} cards"
+                },
+            },
             p_secret_pack_joy_poker_hand = {
                 name = "Tainted Outs",
                 text = {
