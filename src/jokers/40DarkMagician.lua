@@ -6,6 +6,36 @@ SMODS.Atlas({
     py = 95
 })
 
+local dm_family = {
+    "j_joy_dm_apprentice",
+    "j_joy_dm_chromagician",
+    "j_joy_dm_sorceress",
+    "j_joy_dm_darkillusion",
+    "j_joy_dm_robe",
+    "j_joy_dm_rod",
+    "j_joy_dm_souls",
+    "j_joy_dm_valkyria",
+    "j_joy_dm_kuri",
+    "j_joy_dm_conjurer",
+    "j_joy_dm_mahad",
+    "j_joy_dm_mana",
+    "j_joy_dm_timaeus",
+    "j_joy_dm_warlock",
+    "j_joy_dm_blackchaos",
+    "j_joy_dm_blackchaosmax",
+    "j_joy_dm_chaosritual",
+    "j_joy_dm_illusion",
+    "j_joy_dm_amulet",
+    "j_joy_dm_timaeusmagical",
+    "j_joy_dm_cavalry",
+    "j_joy_dm_dragoon",
+    "j_joy_dm_ebonillusion",
+    "j_joy_dm_ebonhigh",
+    "j_joy_dm_salvation",
+    properties = { { monster_archetypes = { "DarkMagician" } }, },
+    name = "k_joy_archetype"
+}
+
 -- Dark Magician
 JoyousSpring.Joker({
     key = "dm_dm",
@@ -20,7 +50,7 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
@@ -48,7 +78,7 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
@@ -74,7 +104,7 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
@@ -99,7 +129,7 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
@@ -124,7 +154,7 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
@@ -140,7 +170,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "dm_knight",
     atlas = 'dm',
-    pos = { x = 3, y = 2 },
+    pos = { x = 3, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -149,7 +179,7 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
@@ -175,7 +205,7 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
@@ -201,7 +231,7 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
@@ -226,7 +256,7 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
@@ -251,7 +281,32 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
+    },
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Spellcaster",
+                attribute = "DARK",
+            },
+        },
+    },
+})
+
+-- Magicians' Souls
+JoyousSpring.Joker({
+    key = "dm_souls",
+    atlas = 'dm',
+    pos = { x = 2, y = 2 },
+    rarity = 1,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_desc_cards = {
+        copy_table(dm_family)
     },
     config = {
         extra = {
@@ -276,38 +331,13 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
                 monster_type = "Spellcaster",
                 attribute = "LIGHT",
-            },
-        },
-    },
-})
-
--- Magicians' Souls
-JoyousSpring.Joker({
-    key = "dm_souls",
-    atlas = 'dm',
-    pos = { x = 2, y = 2 },
-    rarity = 1,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
-    },
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                monster_type = "Spellcaster",
-                attribute = "DARK",
             },
         },
     },
@@ -326,7 +356,7 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
@@ -351,7 +381,7 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
@@ -376,7 +406,7 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
@@ -401,7 +431,7 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
@@ -426,7 +456,7 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
@@ -451,7 +481,7 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
@@ -476,12 +506,11 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
-                is_effect = false,
                 monster_type = "Spellcaster",
                 attribute = "DARK",
                 summon_type = "RITUAL",
@@ -503,7 +532,7 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
@@ -529,7 +558,7 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
@@ -555,7 +584,7 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
@@ -563,85 +592,6 @@ JoyousSpring.Joker({
                 monster_type = "Spellcaster",
                 attribute = "DARK",
                 summon_type = "RITUAL",
-            },
-        },
-    },
-})
-
--- Dark Cavalry
-JoyousSpring.Joker({
-    key = "dm_cavalry",
-    atlas = 'dm',
-    pos = { x = 2, y = 4 },
-    rarity = 1,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
-    },
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                monster_type = "Spellcaster",
-                attribute = "DARK",
-                summon_type = "FUSION",
-            },
-        },
-    },
-})
-
--- Dark Magician of Destruction
-JoyousSpring.Joker({
-    key = "dm_destruction",
-    atlas = 'dm',
-    pos = { x = 4, y = 4 },
-    rarity = 1,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
-    },
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                monster_type = "Spellcaster",
-                attribute = "DARK",
-                summon_type = "FUSION",
-                monster_archetypes = { ["DarkMagician"] = true }
-            },
-        },
-    },
-})
-
--- Dark Magician the Dragon Knight
-JoyousSpring.Joker({
-    key = "dm_dragonknight",
-    atlas = 'dm',
-    pos = { x = 3, y = 4 },
-    rarity = 1,
-    blueprint_compat = false,
-    eternal_compat = true,
-    cost = 5,
-    loc_vars = function(self, info_queue, card)
-        return { vars = {} }
-    end,
-    joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
-    },
-    config = {
-        extra = {
-            joyous_spring = JoyousSpring.init_joy_table {
-                monster_type = "Dragon",
-                attribute = "DARK",
-                summon_type = "FUSION",
             },
         },
     },
@@ -660,7 +610,7 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
@@ -686,7 +636,7 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
@@ -699,11 +649,11 @@ JoyousSpring.Joker({
     },
 })
 
--- The Dark Magicians
+-- Dark Cavalry
 JoyousSpring.Joker({
-    key = "dm_magicians",
+    key = "dm_cavalry",
     atlas = 'dm',
-    pos = { x = 6, y = 4 },
+    pos = { x = 2, y = 4 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -712,7 +662,86 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
+    },
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Spellcaster",
+                attribute = "DARK",
+                summon_type = "FUSION",
+            },
+        },
+    },
+})
+
+-- Dark Magician the Dragon Knight
+JoyousSpring.Joker({
+    key = "dm_dragonknight",
+    atlas = 'dm',
+    pos = { x = 3, y = 4 },
+    rarity = 1,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_desc_cards = {
+        copy_table(dm_family)
+    },
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Dragon",
+                attribute = "DARK",
+                summon_type = "FUSION",
+            },
+        },
+    },
+})
+
+-- Dark Magician Girl the Dragon Knight
+JoyousSpring.Joker({
+    key = "dm_dmgknight",
+    atlas = 'dm',
+    pos = { x = 0, y = 4 },
+    rarity = 1,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_desc_cards = {
+        copy_table(dm_family)
+    },
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Dragon",
+                attribute = "DARK",
+                summon_type = "FUSION",
+                monster_archetypes = { ["DarkMagician"] = true }
+            },
+        },
+    },
+})
+
+-- Dark Magician of Destruction
+JoyousSpring.Joker({
+    key = "dm_destruction",
+    atlas = 'dm',
+    pos = { x = 4, y = 4 },
+    rarity = 1,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_desc_cards = {
+        copy_table(dm_family)
     },
     config = {
         extra = {
@@ -739,7 +768,7 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
@@ -752,11 +781,11 @@ JoyousSpring.Joker({
     },
 })
 
--- Dark Magician Girl the Dragon Knight
+-- The Dark Magicians
 JoyousSpring.Joker({
-    key = "dm_dmgknight",
+    key = "dm_magicians",
     atlas = 'dm',
-    pos = { x = 0, y = 4 },
+    pos = { x = 6, y = 4 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -765,12 +794,12 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
-                monster_type = "Dragon",
+                monster_type = "Spellcaster",
                 attribute = "DARK",
                 summon_type = "FUSION",
                 monster_archetypes = { ["DarkMagician"] = true }
@@ -792,7 +821,7 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
@@ -818,7 +847,7 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {
@@ -844,7 +873,7 @@ JoyousSpring.Joker({
         return { vars = {} }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "DarkMagician" } }, }, name = "k_joy_archetype" },
+        copy_table(dm_family)
     },
     config = {
         extra = {

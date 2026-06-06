@@ -29,8 +29,7 @@ return {
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:joy_ritual}Tribute {C:attention}2 Jokers{}",
-                    "OR {C:attention}1{} {C:joy_normal}Normal {C:attention}Joker{}",
+                    "{C:attention}1{} {C:joy_normal}Normal {C:attention}Joker{}",
                 }
             },
             j_joy_skullguardian = {

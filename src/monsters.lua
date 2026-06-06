@@ -458,7 +458,7 @@ JoyousSpring.is_opponent_card = function(card)
     return JoyousSpring.is_monster_card(card) and card.ability.set == "joy_Opponent"
 end
 
----Checks if *card* is treated as all matrerials for a summon type
+---Checks if *card* is treated as all materials for a summon type
 ---@param card Card|table
 ---@param summon_type summon_type
 ---@return boolean
@@ -1258,7 +1258,7 @@ JoyousSpring.any_materials_in_graveyard = function(property_list, to_revive, dif
         (limit or 1)
 end
 
----Get the keys to all matrerials in G.jokers and graveyard that fulfill **property_list**
+---Get the keys to all materials in G.jokers and graveyard that fulfill **property_list**
 ---@param property_list material_properties[]
 ---@param to_revive boolean? Checks if it can be revived
 ---@param different_names boolean?

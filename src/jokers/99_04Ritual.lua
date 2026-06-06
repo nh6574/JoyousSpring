@@ -102,19 +102,12 @@ JoyousSpring.Joker({
                     {
                         type = "RITUAL",
                         materials = {
-                            {},
-                            {},
-                        }
-                    },
-                    {
-                        type = "RITUAL",
-                        materials = {
                             { is_normal = true },
                         }
                     }
                 }
             },
-            mult = 50
+            mult = 20
         },
     },
     calculate = function(self, card, context)
