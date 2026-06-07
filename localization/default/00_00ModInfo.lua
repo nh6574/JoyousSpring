@@ -27,6 +27,7 @@ return {
 					"{C:joy_effect,button:joy_cryptid,u:joy_effect}Cryptid{}, {C:joy_effect,button:joy_elle,u:joy_effect}ellejokers.{}, {C:joy_effect,button:joy_lobcorp,u:joy_effect}Lobotomy Corporation{}",
 					"{C:joy_effect,button:joy_maximus,u:joy_effect}Maximus{}, {C:joy_effect,button:joy_ortalab,u:joy_effect}Ortalab",
 					"Tutorial system from {C:joy_effect,button:joy_ppu,u:joy_effect}Potato Patch Utils",
+					"Story blurbs taken from {C:joy_normal}yugipedia.com{} and {C:joy_normal}ygorganization.com{}",
 					" ",
 					"{C:joy_mod}Special Thanks{} to the folks in",
 					"the {C:joy_mod}JoyousSpring{}, {C:attention}Potato Patch{} and {C:attention}Balatro{} Discord servers <3",
