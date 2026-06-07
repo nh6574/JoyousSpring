@@ -312,12 +312,29 @@ JoyousSpring.count_as_tributed = function(card, for_ritual)
         G.GAME.current_round.joy_tributed_cards[card.config.center.key].for_ritual =
             G.GAME.current_round.joy_tributed_cards[card.config.center.key].for_ritual + 1
     end
-    if JoyousSpring.is_attribute(card, "LIGHT") then
-        G.GAME.joy_tributed_cards_LIGHT = (G.GAME.joy_tributed_cards_LIGHT or 0) + 1
-        G.GAME.current_round.joy_tributed_cards_LIGHT = (G.GAME.current_round.joy_tributed_cards_LIGHT or 0) + 1
-    end
     if card.ability.eternal then
         G.GAME.joy_tributed_cards_eternal = (G.GAME.joy_tributed_cards_eternal or 0) + 1
+    end
+
+    -- These don't use get_set_tributed because they may be trated as something else while owned
+    for _, key in ipairs(JoyousSpring.types_list) do
+        if JoyousSpring.is_monster_type(card, key) then
+            G.GAME["joy_tributed_cards_" .. key] = (G.GAME["joy_tributed_cards_" .. key] or 0) + 1
+            G.GAME.current_round["joy_tributed_cards_" .. key] =
+                (G.GAME.current_round["joy_tributed_cards_" .. key] or 0) + 1
+        end
+    end
+    for _, key in ipairs(JoyousSpring.attributes_list) do
+        if JoyousSpring.is_attribute(card, key) then
+            G.GAME["joy_tributed_cards_" .. key] = (G.GAME["joy_tributed_cards_" .. key] or 0) + 1
+            G.GAME.current_round["joy_tributed_cards_" .. key] =
+                (G.GAME.current_round["joy_tributed_cards_" .. key] or 0) + 1
+        end
+    end
+    if JoyousSpring.is_normal_monster(card) then
+        G.GAME.joy_tributed_cards_normal = (G.GAME.joy_tributed_cards_normal or 0) + 1
+        G.GAME.current_round.joy_tributed_cards_normal =
+            (G.GAME.current_round.joy_tributed_cards_normal or 0) + 1
     end
 end
 
@@ -1030,6 +1047,15 @@ function Card:selectable_from_pack(pack)
         return ret.area, ret.can_use or can_use
     end
     return area, can_use
+end
+
+local smods_showman_ref = SMODS.showman
+function SMODS.showman(card_key, ...)
+    if G.GAME.joy_tarot_showman and (G.P_CENTERS[card_key] or {}).set == "Tarot" then
+        return true
+    end
+
+    return smods_showman_ref(card_key, ...)
 end
 
 --#endregion

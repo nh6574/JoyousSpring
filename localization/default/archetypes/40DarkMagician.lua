@@ -71,7 +71,7 @@ return {
                         "{C:inactive}(Currently {C:chips}+#2#{}{C:inactive} Chips)"
                     },
                     {
-                        "Sends {C:attention}#2#{} {C:joy_normal}\"Dark Magician\"{} to the {C:attention}GY{}",
+                        "Sends {C:attention}#3#{} {C:joy_normal}\"Dark Magician\"{} to the {C:attention}GY{}",
                         "when {C:attention}Blind{} is selected"
                     },
                     {
@@ -353,7 +353,7 @@ return {
                     },
                     {
                         "{C:joy_normal}Spellcasters{} are also treated",
-                        "as {C:joy_normal}Normal{} {C:attention}Jokers{} for abilities"
+                        "as {C:joy_normal}Normal{} {C:attention}Jokers{}"
                     }
                 },
                 joy_summon_conditions = {
@@ -449,7 +449,7 @@ return {
                     {
                         "{X:chips,C:white}X#1#{} Chips for each",
                         "{C:joy_trap}Opponent{}'s card",
-                        "{C:inactive}(Currently {C:chips}X#2#{}{C:inactive} Chips)"
+                        "{C:inactive}(Currently {X:chips,C:white}X#2#{}{C:inactive} Chips)"
                     },
                     {
                         "Creates {C:attention}#3#{} {C:joy_normal}Normal Dragons{}",
@@ -517,7 +517,7 @@ return {
                 },
                 joy_summon_conditions = {
                     "{C:joy_normal}\"Dark Magician\"{}",
-                    "+ {C:attention}1+{} {C:joy_normal}Normal{} {C:attention}Joker{}",
+                    "+ {C:attention}1+{} {C:joy_normal}Normal{} {C:attention}Jokers{}",
                     "{C:inactive}(Except Tokens){}",
                     "Doesn't need room"
                 }

@@ -215,6 +215,9 @@ return {
                 name = "[Material]",
                 text = {
                     "Cards used to {C:attention}summon{} a {C:attention}Joker{}",
+                    " ",
+                    "{C:inactive}(Note: Materials lose any \"treated as\" ability after being used,{}",
+                    "{C:inactive}this might change in the future){}"
                 },
             },
             all_materials = {

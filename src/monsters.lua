@@ -241,8 +241,9 @@ end
 ---Checks if *card* belongs to *monster_type*
 ---@param card Card|table
 ---@param monster_type monster_type
+---@param raw true? To avoid recursivity on hooks
 ---@return boolean
-JoyousSpring.is_monster_type = function(card, monster_type)
+JoyousSpring.is_monster_type = function(card, monster_type, raw)
     local card_type = JoyousSpring.get_monster_type(card)
     return card_type == true or (card_type and card_type == monster_type)
 end
@@ -283,8 +284,9 @@ end
 ---Checks if *card* is *attribute*
 ---@param card Card|table
 ---@param attribute attribute
+---@param raw true? To avoid recursivity on hooks
 ---@return boolean
-JoyousSpring.is_attribute = function(card, attribute)
+JoyousSpring.is_attribute = function(card, attribute, raw)
     local card_attribute = JoyousSpring.get_attribute(card)
     return card_attribute == true or (card_attribute and card_attribute == attribute)
 end
@@ -349,8 +351,9 @@ end
 
 ---Checks if *card* is an Effect Joker
 ---@param card Card|table
+---@param raw true? To avoid recursivity on hooks
 ---@return boolean
-JoyousSpring.is_effect_monster = function(card)
+JoyousSpring.is_effect_monster = function(card, raw)
     if not JoyousSpring.is_monster_card(card or not JoyousSpring.has_joyous_table(card)) then
         return (JoyousSpring.get_extra_values(card) or {})
             .is_effect or false
@@ -378,8 +381,9 @@ end
 
 ---Checks if *card* is a Normal Joker
 ---@param card Card|table
+---@param raw true? To avoid recursivity on hooks
 ---@return boolean
-JoyousSpring.is_normal_monster = function(card)
+JoyousSpring.is_normal_monster = function(card, raw)
     return JoyousSpring.is_monster_card(card) and
         not (JoyousSpring.is_effect_monster(card) or JoyousSpring.is_extra_deck_monster(card) or JoyousSpring.is_field_spell(card))
 end
@@ -691,6 +695,10 @@ JoyousSpring.is_material = function(card, properties, summon_type)
     local set = card.ability.set
     local key = card.config.center_key
 
+    if key == "j_joy_normal_exodia" then
+        return false
+    end
+
     if set == "joy_Opponent" then
         local can_be_opponent = properties.allow_opponent or properties.is_opponent
         if not can_be_opponent then
@@ -920,6 +928,10 @@ end
 JoyousSpring.is_material_center = function(card_key, properties)
     local card_center = G.P_CENTERS[card_key]
     if not card_center then return false end
+
+    if card_key == "j_joy_normal_exodia" then
+        return properties.from_shop
+    end
 
     if properties.func and JoyousSpring.material_functions[properties.func] then
         if not JoyousSpring.material_functions[properties.func](card, properties.func_vars) then

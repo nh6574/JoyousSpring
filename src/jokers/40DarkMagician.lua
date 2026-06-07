@@ -95,7 +95,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return {
             vars = { card.ability.extra.mult, card.ability.extra.increases,
-                (card.ability.extra.mult + card.ability.extra.increases * #SMODS.find_card("j_joy_dm_dm")) *
+                (card.ability.extra.mult + card.ability.extra.increases * #SMODS.find_card("j_joy_dm_dm", true)) *
                 JoyousSpring.count_materials_in_graveyard({ { monster_type = "Spellcaster" } }) }
         }
     end,
@@ -117,7 +117,7 @@ JoyousSpring.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if context.joker_main then
                 return {
-                    mult = (card.ability.extra.mult + card.ability.extra.increases * #SMODS.find_card("j_joy_dm_dm")) *
+                    mult = (card.ability.extra.mult + card.ability.extra.increases * #SMODS.find_card("j_joy_dm_dm", true)) *
                         JoyousSpring.count_materials_in_graveyard({ { monster_type = "Spellcaster" } })
                 }
             end
@@ -131,10 +131,10 @@ JoyousSpring.Joker({
     key = "dm_apprentice",
     atlas = 'dm',
     pos = { x = 0, y = 1 },
-    rarity = 1,
+    rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 9,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult } }
     end,
@@ -174,10 +174,10 @@ JoyousSpring.Joker({
     key = "dm_valkyria",
     atlas = 'dm',
     pos = { x = 1, y = 2 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 7,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
@@ -234,10 +234,10 @@ JoyousSpring.Joker({
     key = "dm_chaos",
     atlas = 'dm',
     pos = { x = 4, y = 1 },
-    rarity = 1,
+    rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 9,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.tributes } }
     end,
@@ -304,10 +304,10 @@ JoyousSpring.Joker({
     key = "dm_darkillusion",
     atlas = 'dm',
     pos = { x = 5, y = 1 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 6,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.tarots, card.ability.extra.count } }
     end,
@@ -378,10 +378,10 @@ JoyousSpring.Joker({
     key = "dm_robe",
     atlas = 'dm',
     pos = { x = 6, y = 1 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 6,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.money } }
     end,
@@ -415,7 +415,7 @@ JoyousSpring.Joker({
                 }
             end
         end
-        if context.selling_self and next(SMODS.find_card("j_joy_dm_dm")) then
+        if context.selling_self and next(SMODS.find_card("j_joy_dm_dm", true)) then
             JoyousSpring.create_summon({ key = "j_joy_dm_salvation" })
         end
         if context.end_of_round and context.game_over == false and context.main_eval then
@@ -438,10 +438,10 @@ JoyousSpring.Joker({
     key = "dm_rod",
     atlas = 'dm',
     pos = { x = 0, y = 2 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 6,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
@@ -475,7 +475,7 @@ JoyousSpring.Joker({
                 }
             end
         end
-        if context.selling_self and next(SMODS.find_card("j_joy_dm_dm")) then
+        if context.selling_self and next(SMODS.find_card("j_joy_dm_dm", true)) then
             JoyousSpring.create_summon({ key = "j_joy_dm_salvation" })
         end
         if context.end_of_round and context.game_over == false and context.main_eval then
@@ -497,10 +497,10 @@ JoyousSpring.Joker({
     key = "dm_souls",
     atlas = 'dm',
     pos = { x = 2, y = 2 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 6,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.h_size, card.ability.extra.normals, card.ability.extra.h_size * math.floor(JoyousSpring.count_materials_owned({ { is_normal = true, exclude_tokens = true } }) / card.ability.extra.normals) } }
     end,
@@ -527,7 +527,7 @@ JoyousSpring.Joker({
                 G.GAME.round_resets.temp_handsize = (G.GAME.round_resets.temp_handsize or 0) + amount
             end
         end
-        if context.selling_self and next(SMODS.find_card("j_joy_dm_dm")) then
+        if context.selling_self and next(SMODS.find_card("j_joy_dm_dm", true)) then
             JoyousSpring.create_summon({ key = "j_joy_dm_salvation" })
         end
     end,
@@ -539,10 +539,10 @@ JoyousSpring.Joker({
     key = "dm_knight",
     atlas = 'dm',
     pos = { x = 3, y = 1 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 6,
     loc_vars = function(self, info_queue, card)
         return { vars = { 1 + JoyousSpring.count_materials_owned({ { is_normal = true, exclude_tokens = true } }) } }
     end,
@@ -575,10 +575,10 @@ JoyousSpring.Joker({
     key = "dm_warlock",
     atlas = 'dm',
     pos = { x = 1, y = 3 },
-    rarity = 1,
+    rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 7,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.percent * 100, card.ability.extra.percent * 200 } }
     end,
@@ -644,10 +644,10 @@ JoyousSpring.Joker({
     key = "dm_chromagician",
     atlas = 'dm',
     pos = { x = 1, y = 1 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 7,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult, card.ability.extra.sends } }
     end,
@@ -688,10 +688,10 @@ JoyousSpring.Joker({
     key = "dm_sorceress",
     atlas = 'dm',
     pos = { x = 2, y = 1 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 7,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.chips, card.ability.extra.chips * JoyousSpring.count_materials_in_graveyard({ { is_normal = true } }), card.ability.extra.sends } }
     end,
@@ -742,10 +742,10 @@ JoyousSpring.Joker({
     key = "dm_mahad",
     atlas = 'dm',
     pos = { x = 4, y = 2 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 7,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult } }
     end,
@@ -782,10 +782,10 @@ JoyousSpring.Joker({
     key = "dm_mana",
     atlas = 'dm',
     pos = { x = 5, y = 2 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 7,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xchips, card.ability.extra.tarots, card.ability.extra.count } }
     end,
@@ -830,10 +830,10 @@ JoyousSpring.Joker({
     key = "dm_kuri",
     atlas = 'dm',
     pos = { x = 3, y = 2 },
-    rarity = 1,
+    rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 6,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
@@ -851,8 +851,8 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
             if context.end_of_round and context.game_over and not G.GAME.joy_magikuriboh then
-                if next(SMODS.find_card("j_joy_dm_dm")) and
-                    next(SMODS.find_card("j_joy_dm_dmg")) then
+                if next(SMODS.find_card("j_joy_dm_dm", true)) and
+                    next(SMODS.find_card("j_joy_dm_dmg", true)) then
                     G.GAME.joy_magikuriboh = true
                     G.E_MANAGER:add_event(Event({
                         func = function()
@@ -889,7 +889,7 @@ JoyousSpring.Joker({
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 3,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
@@ -923,10 +923,10 @@ JoyousSpring.Joker({
     key = "dm_timaeus",
     atlas = 'dm',
     pos = { x = 6, y = 2 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 7,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult } }
     end,
@@ -994,9 +994,9 @@ JoyousSpring.Joker({
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 8,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.mult } }
     end,
     joy_desc_cards = {
         copy_table(dm_family)
@@ -1007,9 +1007,30 @@ JoyousSpring.Joker({
                 monster_type = "Spellcaster",
                 attribute = "DARK",
                 summon_type = "RITUAL",
+                summon_conditions = {
+                    {
+                        type = "RITUAL",
+                        materials = {
+                            { monster_type = "Spellcaster" },
+                        },
+                        restrictions = {
+                            no_room = true
+                        }
+                    }
+                }
             },
+            mult = 28
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    mult = card.ability.extra.mult
+                }
+            end
+        end
+    end,
 })
 
 -- Magician of Black Chaos MAX
@@ -1017,10 +1038,10 @@ JoyousSpring.Joker({
     key = "dm_blackchaosmax",
     atlas = 'dm',
     pos = { x = 6, y = 3 },
-    rarity = 1,
+    rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 11,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
@@ -1033,9 +1054,47 @@ JoyousSpring.Joker({
                 monster_type = "Spellcaster",
                 attribute = "DARK",
                 summon_type = "RITUAL",
+                summon_conditions = {
+                    {
+                        type = "RITUAL",
+                        materials = {
+                            { monster_type = "Spellcaster" },
+                            { monster_type = "Spellcaster" },
+                        },
+                        restrictions = {
+                            no_room = true
+                        }
+                    }
+                }
             },
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) and not context.blueprint_card then
+            if JoyousSpring.is_activated_context(card, context) then
+                local materials = JoyousSpring.get_materials_owned(
+                    { { is_normal = true } }, false, true)
+                JoyousSpring.tribute(card, materials)
+                JoyousSpring.disable_all_active_blinds()
+                JoyousSpring.disable_next_boss_blinds()
+            end
+            if context.ante_change and context.ante_end then
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        SMODS.add_card { set = 'Spectral', key_append = self.key }
+                        return true
+                    end
+                }))
+            end
+        end
+    end,
+    joy_can_activate = function(card)
+        if not JoyousSpring.are_there_blinds_to_disable_this_ante() then
+            return false
+        end
+        return JoyousSpring.any_materials_owned(
+            { { is_normal = true } }, false, true)
+    end,
 })
 
 -- Magician of Chaos
@@ -1043,12 +1102,12 @@ JoyousSpring.Joker({
     key = "dm_chaosritual",
     atlas = 'dm',
     pos = { x = 5, y = 3 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 10,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.tarots, card.ability.extra.count } }
     end,
     joy_desc_cards = {
         copy_table(dm_family)
@@ -1059,20 +1118,72 @@ JoyousSpring.Joker({
                 monster_type = "Spellcaster",
                 attribute = "DARK",
                 summon_type = "RITUAL",
+                summon_conditions = {
+                    {
+                        type = "RITUAL",
+                        materials = {
+                            { monster_type = "Spellcaster" },
+                            { monster_type = "Spellcaster" },
+                        },
+                        restrictions = {
+                            no_room = true
+                        }
+                    }
+                }
             },
+            tarots = 10,
+            count = 0
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.other_joker and context.other_joker.facing == "front" and context.other_joker.config.center_key == "j_joy_dm_dmg" then
+                return {
+                    xchips = card.ability.extra.xchips,
+                    message_card = context.other_joker
+                }
+            end
+            if context.joy_tributed and context.joy_card.ability.set == "Tarot" then
+                card.ability.extra.count = card.ability.extra.count + 1
+                if card.ability.extra.count >= card.ability.extra.tarots then
+                    while card.ability.extra.count >= card.ability.extra.tarots do
+                        local choices = JoyousSpring.get_materials_in_collection({ { monster_type = "Spellcaster", summon_type = "RITUAL" } })
+                        local choice = pseudorandom_element(choices, self.key)
+                        if choice then
+                            G.E_MANAGER:add_event(Event({
+                                func = function()
+                                    SMODS.add_card { key = choice, area = JoyousSpring.side_deck_area }
+                                    return true
+                                end
+                            }))
+                        end
+                        card.ability.extra.count = card.ability.extra.count - card.ability.extra.tarots
+                    end
+                end
+            end
+        end
+    end,
 })
+
+local joy_is_normal_monster_ref = JoyousSpring.is_normal_monster
+JoyousSpring.is_normal_monster = function(card, raw)
+    local ret = joy_is_normal_monster_ref(card, raw)
+    if not ret and not raw and
+        next(SMODS.find_card("j_joy_dm_chaosritual")) and JoyousSpring.is_monster_type(card, "Spellcaster", true) then
+        return true
+    end
+    return ret
+end
 
 -- Illusion of Chaos
 JoyousSpring.Joker({
     key = "dm_illusion",
     atlas = 'dm',
     pos = { x = 3, y = 3 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 10,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
@@ -1085,9 +1196,59 @@ JoyousSpring.Joker({
                 monster_type = "Spellcaster",
                 attribute = "DARK",
                 summon_type = "RITUAL",
+                summon_conditions = {
+                    {
+                        type = "RITUAL",
+                        materials = {
+                            { monster_type = "Spellcaster", min = 2 },
+                        },
+                        restrictions = {
+                            no_room = true
+                        }
+                    },
+                    {
+                        type = "RITUAL",
+                        materials = {
+                            { is_normal = true, min = 2 },
+                        },
+                        restrictions = {
+                            no_room = true
+                        }
+                    },
+                    {
+                        type = "RITUAL",
+                        materials = {
+                            { monster_type = "Spellcaster", min = 1 },
+                            { is_normal = true,             min = 1 },
+                        },
+                        restrictions = {
+                            no_room = true
+                        }
+                    }
+                }
             },
         },
     },
+    calculate = function(self, card, context)
+        if context.selling_self then
+            local choice = pseudorandom_element({ "j_joy_dm_robe", "j_joy_dm_rod", "j_joy_dm_souls" }, self.key)
+            JoyousSpring.create_summon { key = choice }
+        end
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        if not from_debuff then
+            local materials = JoyousSpring.get_materials(card)
+            local count = 0
+            for _, material in ipairs(materials) do
+                if JoyousSpring.is_material_center(material, { monster_type = "Spellcaster" }) then
+                    count = count + 1
+                end
+            end
+            for i = 1, count do
+                JoyousSpring.create_summon { key = "j_joy_dm_dm", edition = "e_negative" }
+            end
+        end
+    end
 })
 
 -- Amulet Dragon
@@ -1095,12 +1256,12 @@ JoyousSpring.Joker({
     key = "dm_amulet",
     atlas = 'dm',
     pos = { x = 1, y = 4 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 11,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.chips, card.ability.extra.chips * (G.GAME.joy_cards_banished_normal or 0) } }
     end,
     joy_desc_cards = {
         copy_table(dm_family)
@@ -1111,22 +1272,58 @@ JoyousSpring.Joker({
                 monster_type = "Dragon",
                 attribute = "DARK",
                 summon_type = "FUSION",
+                summon_conditions = {
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { key = "j_joy_dm_dm" },
+                            { monster_type = "Dragon" },
+                        },
+                        restrictions = {
+                            no_room = true
+                        }
+                    },
+                }
             },
+            chips = 25
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    chips = card.ability.extra.chips * (G.GAME.joy_cards_banished_normal or 0)
+                }
+            end
+            if context.setting_blind then
+                local revived = JoyousSpring.revive_pseudorandom({ { is_normal = true, monster_type = "Spellcaster" } },
+                    self.key .. "normal")
+                if revived then
+                    JoyousSpring.revive_pseudorandom({ { is_effect = true, monster_type = "Spellcaster" } },
+                        self.key .. "effect")
+                end
+            end
+        end
+    end,
 })
+
+local dm_get_timaeus_tributes = function()
+    return JoyousSpring.count_set_tributed("Tarot", true) +
+        JoyousSpring.count_set_tributed("Joker", true, { is_field_spell = true }) +
+        (G.GAME.joy_tributed_cards_normal or 0)
+end
 
 -- Timaeus the United Magical Dragon
 JoyousSpring.Joker({
     key = "dm_timaeusmagical",
     atlas = 'dm',
     pos = { x = 0, y = 5 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 11,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.xmult, 1 + (card.ability.extra.xmult * dm_get_timaeus_tributes()), card.ability.extra.money } }
     end,
     joy_desc_cards = {
         copy_table(dm_family)
@@ -1137,9 +1334,71 @@ JoyousSpring.Joker({
                 monster_type = "Dragon",
                 attribute = "LIGHT",
                 summon_type = "FUSION",
+                summon_conditions = {
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { key = "j_joy_dm_dm" },
+                            { monster_type = "Spellcaster" },
+                        },
+                        restrictions = {
+                            no_room = true
+                        }
+                    },
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { key = "j_joy_dm_dmg" },
+                            { monster_type = "Spellcaster" },
+                        },
+                        restrictions = {
+                            no_room = true
+                        }
+                    },
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { key = "j_joy_dm_dm" },
+                            { monster_type = "Dragon" },
+                        },
+                        restrictions = {
+                            no_room = true
+                        }
+                    },
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { key = "j_joy_dm_dmg" },
+                            { monster_type = "Dragon" },
+                        },
+                        restrictions = {
+                            no_room = true
+                        }
+                    },
+                }
             },
+            xmult = 0.1,
+            money = 20
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    xmult = 1 + (card.ability.extra.xmult * dm_get_timaeus_tributes())
+                }
+            end
+            if context.ante_change and context.ante_end then
+                local to_destroy = pseudorandom_element(JoyousSpring.opponent_area.cards, self.key)
+                if to_destroy then
+                    JoyousSpring.destroy_cards(to_destroy)
+                    return {
+                        dollars = card.ability.extra.money
+                    }
+                end
+            end
+        end
+    end,
 })
 
 -- Dark Cavalry
@@ -1147,12 +1406,12 @@ JoyousSpring.Joker({
     key = "dm_cavalry",
     atlas = 'dm',
     pos = { x = 2, y = 4 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 11,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.chips, card.ability.extra.chips * JoyousSpring.count_set_tributed("Tarot", true), card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         copy_table(dm_family)
@@ -1163,9 +1422,37 @@ JoyousSpring.Joker({
                 monster_type = "Spellcaster",
                 attribute = "DARK",
                 summon_type = "FUSION",
+                summon_conditions = {
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { key = "j_joy_dm_dm" },
+                            { monster_type = "Warrior" },
+                        },
+                        restrictions = {
+                            no_room = true
+                        }
+                    },
+                }
             },
+            chips = 40,
+            creates = 2
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    chips = card.ability.extra.chips * JoyousSpring.count_set_tributed("Tarot", true)
+                }
+            end
+            if context.setting_blind then
+                for i = 1, card.ability.extra.creates do
+                    JoyousSpring.create_pseudorandom({ { is_normal = true, monster_type = "Warrior" } }, self.key)
+                end
+            end
+        end
+    end,
 })
 
 -- Dark Magician the Dragon Knight
@@ -1173,12 +1460,12 @@ JoyousSpring.Joker({
     key = "dm_dragonknight",
     atlas = 'dm',
     pos = { x = 3, y = 4 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 11,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.xchips, card.ability.extra.xchips ^ (JoyousSpring.opponent_area and #JoyousSpring.opponent_area.cards or 0), card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         copy_table(dm_family)
@@ -1189,9 +1476,38 @@ JoyousSpring.Joker({
                 monster_type = "Dragon",
                 attribute = "DARK",
                 summon_type = "FUSION",
+                monster_archetypes = { ["DarkMagician"] = true },
+                summon_conditions = {
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { key = "j_joy_dm_dm" },
+                            { monster_type = "Dragon" },
+                        },
+                        restrictions = {
+                            no_room = true
+                        }
+                    },
+                }
             },
+            xchips = 2,
+            creates = 2
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    xchips = card.ability.extra.xchips ^ #JoyousSpring.opponent_area.cards
+                }
+            end
+            if context.setting_blind then
+                for i = 1, card.ability.extra.creates do
+                    JoyousSpring.create_pseudorandom({ { is_normal = true, monster_type = "Dragon" } }, self.key)
+                end
+            end
+        end
+    end,
 })
 
 -- Dark Magician Girl the Dragon Knight
@@ -1199,12 +1515,12 @@ JoyousSpring.Joker({
     key = "dm_dmgknight",
     atlas = 'dm',
     pos = { x = 0, y = 4 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 11,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.mult, card.ability.extra.mult * JoyousSpring.count_materials_in_graveyard({ { monster_type = "Spellcaster" } }), card.ability.extra.sends } }
     end,
     joy_desc_cards = {
         copy_table(dm_family)
@@ -1215,10 +1531,38 @@ JoyousSpring.Joker({
                 monster_type = "Dragon",
                 attribute = "DARK",
                 summon_type = "FUSION",
-                monster_archetypes = { ["DarkMagician"] = true }
+                monster_archetypes = { ["DarkMagician"] = true },
+                summon_conditions = {
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { key = "j_joy_dm_dmg" },
+                            { monster_type = "Dragon" },
+                        },
+                        restrictions = {
+                            no_room = true
+                        }
+                    },
+                }
             },
+            mult = 10,
+            sends = 2
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    mult = card.ability.extra.mult *
+                        JoyousSpring.count_materials_in_graveyard({ { monster_type = "Spellcaster" } })
+                }
+            end
+            if context.setting_blind then
+                JoyousSpring.send_to_graveyard_pseudorandom({ { is_normal = true, monster_type = "Spellcaster" } },
+                    self.key, card.ability.extra.sends)
+            end
+        end
+    end,
 })
 
 -- Dark Magician of Destruction
@@ -1226,12 +1570,12 @@ JoyousSpring.Joker({
     key = "dm_destruction",
     atlas = 'dm',
     pos = { x = 4, y = 4 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 11,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.xchips } }
     end,
     joy_desc_cards = {
         copy_table(dm_family)
@@ -1242,10 +1586,49 @@ JoyousSpring.Joker({
                 monster_type = "Spellcaster",
                 attribute = "DARK",
                 summon_type = "FUSION",
-                monster_archetypes = { ["DarkMagician"] = true }
+                monster_archetypes = { ["DarkMagician"] = true },
+                summon_conditions = {
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { key = "j_joy_dm_dm" },
+                            { monster_attribute = "LIGHT" },
+                        },
+                        restrictions = {
+                            no_room = true
+                        }
+                    },
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { key = "j_joy_dm_dm" },
+                            { monster_attribute = "DARK" },
+                        },
+                        restrictions = {
+                            no_room = true
+                        }
+                    },
+                }
             },
+            xchips = 2
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.other_joker and context.other_joker.facing == "front" and JoyousSpring.is_normal_monster(context.other_joker) and context.other_joker.config.center_key ~= "j_joy_token" then
+                return {
+                    xchips = card.ability.extra.xchips,
+                    message_card = context.other_joker
+                }
+            end
+        end
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        if not from_debuff then
+            JoyousSpring.create_pseudorandom(
+                { { monster_type = "Spellcaster", monster_attribute = "DARK", exclude_keys = { self.key } } }, self.key)
+        end
+    end
 })
 
 -- Red-Eyes Dark Dragoon
@@ -1253,12 +1636,15 @@ JoyousSpring.Joker({
     key = "dm_dragoon",
     atlas = 'dm',
     pos = { x = 5, y = 4 },
-    rarity = 1,
+    rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 15,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return {
+            vars = { card.ability.extra.xmult, card.ability.extra.current_xmult, card.ability.extra.money },
+            key = card.ability.extra.hidden and self.key .. "_alt" or nil
+        }
     end,
     joy_desc_cards = {
         copy_table(dm_family)
@@ -1269,9 +1655,65 @@ JoyousSpring.Joker({
                 monster_type = "Spellcaster",
                 attribute = "DARK",
                 summon_type = "FUSION",
+                summon_conditions = {
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { key = "j_joy_dm_dm" },
+                            { is_normal = true,   exclude_tokens = true, min = 1 },
+                        },
+                        restrictions = {
+                            no_room = true
+                        }
+                    },
+                }
             },
+            xmult = 3,
+            current_xmult = 1,
+            money = 20
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) or card.joy_faceup_before_blind then
+            if card.ability.extra.disable and
+                context.setting_blind and context.main_eval and
+                context.blind.boss and context.blind.boss.showdown then
+                card.ability.extra.faceup_before_blind = nil
+                if JoyousSpring.are_blinds_active() then
+                    JoyousSpring.disable_all_active_blinds()
+                    return { message = localize('ph_boss_disabled') }
+                end
+            end
+        end
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    xmult = card.ability.extra.current_xmult
+                }
+            end
+        end
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        if not from_debuff then
+            local materials = JoyousSpring.get_materials(card)
+            for _, material in ipairs(materials) do
+                if JoyousSpring.is_material_center(material, { is_normal = true }) then
+                    card.ability.extra.current_xmult = card.ability.extra.current_xmult * card.ability.extra.xmult
+                end
+                if JoyousSpring.is_material_center(material, { is_normal = true, monster_type = "Dragon" }) then
+                    card.ability.extra.disable = true
+                end
+                if material == "j_joy_normal_redeyesblackdragon" then
+                    card.ability.extra.hidden = true
+                end
+            end
+        end
+    end,
+    calc_dollar_bonus = function(self, card)
+        if card.ability.extra.hidden then
+            return card.ability.extra.money
+        end
+    end
 })
 
 -- The Dark Magicians
@@ -1282,7 +1724,7 @@ JoyousSpring.Joker({
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 9,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
@@ -1295,10 +1737,40 @@ JoyousSpring.Joker({
                 monster_type = "Spellcaster",
                 attribute = "DARK",
                 summon_type = "FUSION",
-                monster_archetypes = { ["DarkMagician"] = true }
+                monster_archetypes = { ["DarkMagician"] = true },
+                summon_conditions = {
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { key = "j_joy_dm_dm" },
+                            { monster_type = "Spellcaster" },
+                        },
+                        restrictions = {
+                            no_room = true
+                        }
+                    },
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { key = "j_joy_dm_dmg" },
+                            { monster_type = "Spellcaster" },
+                        },
+                        restrictions = {
+                            no_room = true
+                        }
+                    },
+                }
             },
         },
     },
+    calculate = function(self, card, context)
+        if context.joy_tributed_self then
+            JoyousSpring.create_summon { key = "j_joy_dm_dm" }
+            JoyousSpring.create_summon { key = "j_joy_dm_dmg" }
+            local choice = pseudorandom_element(dm_fusions, self.key)
+            JoyousSpring.add_to_extra_deck(choice)
+        end
+    end,
 })
 
 -- Ebon Illusion Magician
@@ -1306,12 +1778,12 @@ JoyousSpring.Joker({
     key = "dm_ebonillusion",
     atlas = 'dm',
     pos = { x = 2, y = 5 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 12,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.mult, card.ability.extra.joyous_spring.xyz_materials * card.ability.extra.mult, card.ability.extra.detach, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         copy_table(dm_family)
@@ -1322,9 +1794,57 @@ JoyousSpring.Joker({
                 monster_type = "Spellcaster",
                 attribute = "DARK",
                 summon_type = "XYZ",
+                summon_conditions = {
+                    {
+                        type = "XYZ",
+                        materials = {
+                            {
+                                monster_type = "Spellcaster",
+                                exclude_tokens = true,
+                                exclude_summon_types = { "XYZ", "LINK" },
+                            },
+                            {
+                                monster_type = "Spellcaster",
+                                exclude_tokens = true,
+                                exclude_summon_types = { "XYZ", "LINK" },
+                            },
+                        },
+                    },
+                }
             },
+            creates = 2,
+            mult = 5,
+            detach = 2
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    mult = card.ability.extra.joyous_spring.xyz_materials * card.ability.extra.mult
+                }
+            end
+            if not context.blueprint_card and not context.retrigger_joker and
+                context.joy_detach and context.joy_detaching_card == card then
+                JoyousSpring.ease_detach(card)
+
+                for i = 1, card.ability.extra.creates do
+                    JoyousSpring.create_pseudorandom({ {
+                        is_normal = true, monster_type = "Spellcaster"
+                    } }, card.config.center.key)
+                end
+            end
+            if context.joy_tributed and context.joy_card.ability.set == "Tarot" then
+                card.ability.extra.joyous_spring.xyz_materials = card.ability.extra.joyous_spring.xyz_materials + 1
+                return {
+                    message = localize("k_joy_attach")
+                }
+            end
+        end
+    end,
+    joy_can_detach = function(self, card)
+        return true
+    end
 })
 
 -- Ebon High Magician
@@ -1332,12 +1852,12 @@ JoyousSpring.Joker({
     key = "dm_ebonhigh",
     atlas = 'dm',
     pos = { x = 1, y = 5 },
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 12,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.chips, card.ability.extra.joyous_spring.xyz_materials * card.ability.extra.chips, card.ability.extra.detach, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         copy_table(dm_family)
@@ -1348,9 +1868,61 @@ JoyousSpring.Joker({
                 monster_type = "Spellcaster",
                 attribute = "DARK",
                 summon_type = "XYZ",
+                summon_conditions = {
+                    {
+                        type = "XYZ",
+                        materials = {
+                            {
+                                monster_type = "Spellcaster",
+                                exclude_tokens = true,
+                                exclude_summon_types = { "XYZ", "LINK" },
+                            },
+                            {
+                                monster_type = "Spellcaster",
+                                exclude_tokens = true,
+                                exclude_summon_types = { "XYZ", "LINK" },
+                            },
+                        },
+                    },
+                }
             },
+            chips = 25,
+            detach = 2,
+            creates = 3
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    chips = card.ability.extra.joyous_spring.xyz_materials * card.ability.extra.chips
+                }
+            end
+            if not context.blueprint_card and not context.retrigger_joker and
+                context.joy_detach and context.joy_detaching_card == card then
+                JoyousSpring.ease_detach(card)
+                G.GAME.joy_tarot_showman = true
+
+                for i = 1, card.ability.extra.creates do
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card { set = "Tarot", key_append = self.key }
+                            return true
+                        end
+                    }))
+                end
+            end
+            if context.joy_tributed and JoyousSpring.is_normal_monster(context.joy_card) then
+                card.ability.extra.joyous_spring.xyz_materials = card.ability.extra.joyous_spring.xyz_materials + 1
+                return {
+                    message = localize("k_joy_attach")
+                }
+            end
+        end
+    end,
+    joy_can_detach = function(self, card)
+        return true
+    end
 })
 
 -- Magician's Salvation
@@ -1361,7 +1933,7 @@ JoyousSpring.Joker({
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 5,
+    cost = 10,
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
@@ -1375,7 +1947,32 @@ JoyousSpring.Joker({
             },
         },
     },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joy_post_round_eval
+                and next(SMODS.find_card("j_joy_dm_dm")) and next(SMODS.find_card("j_joy_dm_dmg")) then
+                local choices = JoyousSpring.get_materials_owned({ { is_normal = true } })
+                for _, joker in ipairs(choices) do
+                    JoyousSpring.banish(joker, "blind_selected")
+                end
+            end
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                JoyousSpring.revive("j_joy_dm_dm")
+                JoyousSpring.revive("j_joy_dm_dmg")
+            end
+        end
+    end,
 })
+
+local joy_is_monster_type_ref = JoyousSpring.is_monster_type
+JoyousSpring.is_monster_type = function(card, monster_type, raw)
+    local ret = joy_is_monster_type_ref(card, monster_type, raw)
+    if not ret and not raw and monster_type == "Spellcaster" and
+        next(SMODS.find_card("j_joy_dm_salvation")) and JoyousSpring.is_normal_monster(card, true) then
+        return true
+    end
+    return ret
+end
 
 JoyousSpring.collection_pool[#JoyousSpring.collection_pool + 1] = {
     keys = { "dm" },

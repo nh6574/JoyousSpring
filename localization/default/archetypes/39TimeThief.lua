@@ -15,7 +15,7 @@ local perpetua = {
         },
         text = {
             "{C:green}#1# in #2#{} chance to create",
-            "a {C:joy_normal}Main Deck Machine{} at end of round",
+            "a {C:joy_normal}Main Deck {C:joy_effect}Effect {C:joy_normal}Machine{} at end of round",
         }
     },
     seal = {

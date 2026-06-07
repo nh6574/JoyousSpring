@@ -147,6 +147,9 @@ JoyousSpring.count_as_banished = function(card)
                 (G.GAME.current_round.joy_cards_banished_by_attribute[key] or 0) + 1
         end
     end
+    if JoyousSpring.is_normal_monster(card) then
+        G.GAME.joy_cards_banished_normal = (G.GAME.joy_cards_banished or 0) + 1
+    end
 end
 
 JoyousSpring.get_banished_areas = function()

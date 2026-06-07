@@ -112,7 +112,7 @@ JoyousSpring.Joker({
                 attribute = "FIRE",
                 monster_type = "Fiend",
             },
-            chips = 20,
+            chips = 10,
         },
     },
     calculate = function(self, card, context)
@@ -203,7 +203,8 @@ JoyousSpring.Joker({
         if not card.debuff and not from_debuff then
             for _ = 1, card.ability.extra.adds do
                 JoyousSpring.create_pseudorandom(
-                    { { monster_type = "Fiend", rarity = 1, is_main_deck = true }, { monster_type = "Fiend", rarity = 2, is_main_deck = true } },
+                    { { monster_type = "Fiend", rarity = 1, is_main_deck = true, is_effect = true },
+                        { monster_type = "Fiend", rarity = 2, is_main_deck = true, is_effect = true } },
                     "j_joy_tourguide", false, false, "e_negative")
             end
         end
@@ -1082,7 +1083,7 @@ JoyousSpring.Joker({
             if not context.blueprint_card and context.joy_returned and context.joy_returned_card == card then
                 for _ = 1, card.ability.extra.creates do
                     JoyousSpring.create_pseudorandom(
-                        { { monster_type = "Fish", is_main_deck = true } },
+                        { { monster_type = "Fish", is_main_deck = true, is_effect = true } },
                         'j_joy_beautunaful', true)
                 end
             end
@@ -1092,7 +1093,7 @@ JoyousSpring.Joker({
         if not from_debuff and not card.debuff then
             for _ = 1, card.ability.extra.creates do
                 JoyousSpring.create_pseudorandom(
-                    { { monster_type = "Fish", is_main_deck = true } },
+                    { { monster_type = "Fish", is_main_deck = true, is_effect = true } },
                     'j_joy_beautunaful', true)
             end
         end
@@ -1579,7 +1580,8 @@ JoyousSpring.Joker({
                 card.ability.extra.activated = true
                 JoyousSpring.tribute(card, context.joy_selection)
                 for _ = 1, card.ability.extra.creates do
-                    JoyousSpring.create_pseudorandom({ { monster_type = "Rock", is_main_deck = true } },
+                    JoyousSpring.create_pseudorandom(
+                        { { monster_type = "Rock", is_main_deck = true, is_effect = true } },
                         card.config.center.key, true)
                 end
             end
@@ -1651,7 +1653,8 @@ JoyousSpring.Joker({
             end
             if JoyousSpring.used_as_material(card, context) and JoyousSpring.count_materials_in_graveyard({ { monster_type = "Rock" } }) >= card.ability.extra.requirement then
                 for _ = 1, card.ability.extra.creates do
-                    JoyousSpring.create_pseudorandom({ { monster_type = "Rock", is_main_deck = true, rarity = 1 },
+                    JoyousSpring.create_pseudorandom(
+                        { { monster_type = "Rock", is_main_deck = true, rarity = 1, is_effect = true },
                             { monster_type = "Rock", is_main_deck = true, rarity = 2 } },
                         card.config.center.key, false, false, "e_negative")
                 end

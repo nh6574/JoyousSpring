@@ -40,7 +40,7 @@ return {
                 name = "{C:joy_effect}Tour Guide From the Underworld",
                 text = {
                     {
-                        "Creates {C:attention}#1#{} {C:dark_edition}Negative{} {C:joy_normal}Main Deck{}",
+                        "Creates {C:attention}#1#{} {C:dark_edition}Negative{} {C:joy_normal}Main Deck{} {C:joy_effect}Effect",
                         "{C:blue}Common{} or {C:green}Uncommon{} {C:joy_normal}Fiend{} when {C:attention}entering play{}",
                     },
                 }
@@ -250,7 +250,7 @@ return {
                 name = "{C:joy_effect}Beautunaful Princess",
                 text = {
                     {
-                        "Creates {C:attention}#1#{} {C:joy_normal}Fish{} when {C:attention}entering play{} and",
+                        "Creates {C:attention}#1#{} {C:joy_normal}Main Deck {C:joy_effect}Effect {C:joy_normal}Fish{} when {C:attention}entering play{} and",
                         "when it returns from {C:attention}banishment{}",
                         "{C:inactive}(Must have room)",
                     },
@@ -381,7 +381,7 @@ return {
                     },
                     {
                         "Once per ante, you can {C:attention}tribute #3#{} {C:joy_normal}Rock{} {C:attention}Joker{}",
-                        "to create {C:attention}#4#{} {C:joy_normal}Main Deck Rock{} {C:attention}Jokers{}",
+                        "to create {C:attention}#4#{} {C:joy_normal}Main Deck {C:joy_effect}Effect {C:joy_normal}Rock{} {C:attention}Jokers{}",
                         "{C:inactive}(Must have room)"
                     },
                 }
@@ -401,7 +401,7 @@ return {
                         "If this card is used as {C:attention}material{} when there are",
                         "{C:attention}#5#{} or more {C:joy_normal}Rock{} {C:attention}Jokers{} in the {C:attention}GY{},",
                         "creates {C:attention}#6#{} {C:dark_edition}Negative{} {C:blue}Common{} or {C:green}Uncommon{} {C:joy_normal}Main Deck{}",
-                        "{C:joy_normal}Rock{} {C:attention}Jokers{} but remove all {C:joy_normal}Rock{} {C:attention}Jokers{} from the {C:attention}GY{}"
+                        "{C:joy_effect}Effect {C:joy_normal}Rock{} {C:attention}Jokers{} but remove all {C:joy_normal}Rock{} {C:attention}Jokers{} from the {C:attention}GY{}"
                     },
                 }
             },

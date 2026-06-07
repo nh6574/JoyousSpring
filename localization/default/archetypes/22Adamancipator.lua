@@ -11,7 +11,7 @@ return {
                         "{C:inactive}(Currently {C:chips}+#3#{}{C:inactive} Chips)"
                     },
                     {
-                        "Once per ante, create {C:attention}#4#{} {C:joy_normal}Main Deck Rock{}",
+                        "Once per ante, create {C:attention}#4#{} {C:joy_normal}Main Deck {C:joy_effect}Effect {C:joy_normal}Rock{}",
                         "after {C:attention}#5#{} hands containing a {C:diamonds}Diamond{} {C:attention}Flush{} are played",
                         "{C:inactive}(Must have room) {C:inactive}(#6# remaining){}"
                     },
@@ -30,7 +30,7 @@ return {
                         "{C:inactive}(Currently {C:money}+$#3#{}{C:inactive})"
                     },
                     {
-                        "Once per ante, create {C:attention}#4#{} {C:joy_normal}Main Deck Rock{}",
+                        "Once per ante, create {C:attention}#4#{} {C:joy_normal}Main Deck {C:joy_effect}Effect {C:joy_normal}Rock{}",
                         "after {C:attention}#5#{} hands containing a {C:diamonds}Diamond{} {C:attention}Flush{} are played",
                         "{C:inactive}(Must have room) {C:inactive}(#6# remaining){}"
                     },
@@ -49,7 +49,7 @@ return {
                         "{C:inactive}(Currently {C:mult}+#3#{}{C:inactive} Mult)"
                     },
                     {
-                        "Once per ante, create {C:attention}#4#{} {C:joy_normal}Main Deck Rock{}",
+                        "Once per ante, create {C:attention}#4#{} {C:joy_normal}Main Deck {C:joy_effect}Effect {C:joy_normal}Rock{}",
                         "after {C:attention}#5#{} hands containing a {C:diamonds}Diamond{} {C:attention}Flush{} are played",
                         "{C:inactive}(Must have room) {C:inactive}(#6# remaining){}"
                     },
@@ -122,7 +122,7 @@ return {
                         "{C:attention}Excavate{} and check the top {C:attention}#1#{}:",
                         "{X:chips,C:white}X#2#{} extra Chips this round",
                         "for each {C:diamonds}Diamond{} excavated",
-                        "and create {C:attention}#3#{} {C:joy_normal}Main Deck Rock{} if {C:attention}#1#{} or more were excavated",
+                        "and create {C:attention}#3#{} {C:joy_normal}Main Deck {C:joy_effect}Effect {C:joy_normal}Rock{} if {C:attention}#1#{} or more were excavated",
                         "{C:inactive}(Currently {X:chips,C:white}X#4#{}{C:inactive} Chips)",
                     },
                     {
@@ -143,7 +143,7 @@ return {
                         "{C:attention}Excavate{} and check the top {C:attention}#1#{}:",
                         "{X:mult,C:white}X#2#{} extra Mult this round",
                         "for each {C:diamonds}Diamond{} excavated",
-                        "and create {C:attention}#3#{} {C:joy_normal}Main Deck Rock{} if {C:attention}#1#{} or more were excavated",
+                        "and create {C:attention}#3#{} {C:joy_normal}Main Deck {C:joy_effect}Effect {C:joy_normal}Rock{} if {C:attention}#1#{} or more were excavated",
                         "{C:inactive}(Currently {X:mult,C:white}X#4#{}{C:inactive} Mult)",
                     },
                     {
@@ -163,7 +163,7 @@ return {
                     {
                         "{C:attention}Excavate{} and check the top {C:attention}#1#{}:",
                         "{C:money}+$#2#{} for each {C:diamonds}Diamond{} excavated",
-                        "and create {C:attention}#3#{} {C:joy_normal}Main Deck Rock{} if {C:attention}#1#{} or more were excavated",
+                        "and create {C:attention}#3#{} {C:joy_normal}Main Deck {C:joy_effect}Effect {C:joy_normal}Rock{} if {C:attention}#1#{} or more were excavated",
                     },
                     {
                         "Scored {C:diamonds}Diamonds{} permanently gain",

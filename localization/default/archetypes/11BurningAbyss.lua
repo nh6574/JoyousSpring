@@ -147,7 +147,7 @@ return {
                     {
                         "Destroys itself if you own a non-{C:joy_normal}Fiend{}",
                         "{C:joy_normal}Monster{} {C:attention}Joker{} when {C:attention}Blind{} is selected",
-                        "and creates {C:attention}#1#{} {C:joy_normal}Main Deck Fiends{}",
+                        "and creates {C:attention}#1#{} {C:joy_normal}Main Deck{} {C:joy_effect}Effect {C:joy_normal}Fiends{}",
                         "{C:inactive}(Must have room){}",
                         "{s:0.9,C:inactive}(This also triggers on sell)",
                     },

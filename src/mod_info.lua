@@ -666,7 +666,7 @@ JoyousSpring.get_archetype_pool = function(pool)
         local found = false
         for archetype_index, archetype in ipairs(JoyousSpring.collection_pool) do
             for _, key in ipairs(archetype.keys) do
-                if center.original_key ~= "token" and ((center.original_key:sub(1, #key + 1) == key .. "_") or (key == "misc" and not found)) then
+                if center.original_key ~= "token" and ((center.original_key:sub(1, #key + 1) == key .. "_") or (key == "misc" and (center.original_key:sub(1, 7) ~= "normal_") and not found)) then
                     table.insert(archetype_pool[archetype_index], center)
                     found = true
                     break

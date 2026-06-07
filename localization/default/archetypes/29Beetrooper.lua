@@ -154,7 +154,7 @@ return {
                 name = "{C:joy_fusion}Beetrooper Cruel Saturnas",
                 text = {
                     {
-                        "Creates {C:attention}1{} {C:joy_normal}Main Deck Insect{}",
+                        "Creates {C:attention}1{} {C:joy_normal}Main Deck {C:joy_effect}Effect {C:joy_normal}Insect{}",
                         "when an {C:joy_normal}Insect{} is {C:attention}banished{}",
                         "{C:inactive}(Must have room)"
                     },
