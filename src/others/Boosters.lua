@@ -635,7 +635,7 @@ JoyousSpring.secret_booster {
             "j_joy_darkcat", "j_joy_dekoichi", "j_joy_searchlight", "j_joy_sternmystic", "j_joy_mof",
             "j_joy_lindbloom", "j_joy_quantumcat", "j_joy_tiki_curse", "j_joy_tiki_soul", "j_joy_apophis",
             "j_joy_zany", "j_joy_metrognome", "j_joy_bozu", "j_joy_disablaster", "j_joy_apollousa",
-            "j_joy_paleo_hallu", "j_joy_paleo_eldonia", "j_joy_mimi_archfiend", "j_joy_mimi_armor", "j_joy_artifact_cadu", "j_joy_hazy_grif", "j_joy_sforce_digamma", "j_joy_sforce_razor", "j_joy_sforce_dog", "j_joy_sforce_gravitino", "j_joy_sforce_platina", "j_joy_sforce_lapcewell"
+            "j_joy_paleo_hallu", "j_joy_paleo_eldonia", "j_joy_mimi_archfiend", "j_joy_mimi_armor", "j_joy_artifact_cadu", "j_joy_hazy_grif", "j_joy_sforce_digamma", "j_joy_sforce_razor", "j_joy_sforce_dog", "j_joy_sforce_gravitino", "j_joy_sforce_platina", "j_joy_sforce_lapcewell", "j_joy_dm_dmg"
         },
         center = "j_joy_fish_shif"
     }

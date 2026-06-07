@@ -752,6 +752,25 @@ JoyousSpring.is_exit_selection_context = function(card, context, amount)
         (not amount and (#context.joy_selection >= 1) or #context.joy_selection == amount)
 end
 
+JoyousSpring.get_type_attribute_allowlist = function(card_list)
+    local allowlist = {}
+
+    for _, joker in ipairs(card_list) do
+        if JoyousSpring.is_monster_card(joker) then
+            local monster_type = JoyousSpring.get_monster_type(joker)
+            local attribute = JoyousSpring.get_attribute(joker)
+            table.insert(allowlist,
+                {
+                    monster_type = monster_type ~= true and monster_type or nil,
+                    monster_attribute = attribute ~= true and attribute or nil
+                }
+            )
+        end
+    end
+
+    return allowlist
+end
+
 ---Runs **func** on all (supported) objects
 ---@param func string
 ---@param args {default_return:any, return_func:(fun(new:any, original:any):any), ignore_jokers:boolean, ignore_blinds:boolean,ignore_debuff:boolean, ignore_disabled_blind:boolean, pass_return:boolean, return_if_true:boolean}?

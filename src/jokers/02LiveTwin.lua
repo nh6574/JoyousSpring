@@ -738,15 +738,20 @@ JoyousSpring.Joker({
         if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) and G.GAME.blind.in_blind then
             JoyousSpring.tribute(card, context.joy_selection)
 
-            G.GAME.chips = G.GAME.chips * 2
-            if (G.GAME.chips >= G.GAME.blind.chips) then
-                G.STATE = G.STATES.HAND_PLAYED
-                G.STATE_COMPLETE = true
-                end_round()
-            end
-
             return {
-                message = localize("k_joy_activated_ex")
+                xscore = 2,
+                func = function()
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            if (G.GAME.chips >= G.GAME.blind.chips) then
+                                G.STATE = G.STATES.HAND_PLAYED
+                                G.STATE_COMPLETE = true
+                                end_round()
+                            end
+                            return true
+                        end
+                    }))
+                end
             }
         end
         if context.ending_shop and context.main_eval then
@@ -760,7 +765,7 @@ JoyousSpring.Joker({
         end
     end,
     joy_can_activate = function(card)
-        if not G.GAME.blind.in_blind then
+        if not G.GAME.blind.in_blind or G.GAME.chips <= 0 then
             return false
         end
         return JoyousSpring.any_materials_owned(

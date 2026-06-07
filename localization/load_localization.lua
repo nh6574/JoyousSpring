@@ -5,16 +5,17 @@ function joy_load_localization(lang)
     local localization = {}
     local localization_files = {}
 
-    local loc_src = SMODS.NFS.getDirectoryItems(SMODS.find_mod("JoyousSpring")[1].path .. "localization/" .. lang)
+    local loc_path = SMODS.find_mod("JoyousSpring")[1].path .. "localization/"
+
+    local loc_src = SMODS.NFS.getDirectoryItems(loc_path .. lang)
     for _, file in ipairs(loc_src) do
-        if SMODS.NFS.getInfo(SMODS.find_mod("JoyousSpring")[1].path .. "localization/" .. lang .. "/" .. file).type ~= "directory" then
+        if SMODS.NFS.getInfo(loc_path .. lang .. "/" .. file).type ~= "directory" then
             localization_files[#localization_files + 1] = assert(SMODS.load_file("localization/" .. lang .. "/" .. file,
                 "JoyousSpring"))()
         end
     end
 
-    local loc_archetypes_src = SMODS.NFS.getDirectoryItems(SMODS.find_mod("JoyousSpring")[1].path ..
-        "localization/" .. lang .. "/archetypes")
+    local loc_archetypes_src = SMODS.NFS.getDirectoryItems(loc_path .. lang .. "/archetypes")
     for _, file in ipairs(loc_archetypes_src) do
         localization_files[#localization_files + 1] = assert(SMODS.load_file(
             "localization/" .. lang .. "/archetypes/" .. file,

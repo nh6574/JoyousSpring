@@ -142,8 +142,7 @@ return {
                 text = {
                     {
                         "Once per round, you can {C:attention}tribute 1{} {C:tarot}Tarot{}",
-                        "to create {C:attention}1{} {C:joy_normal}Normal{} {C:attention}Joker{}",
-                        "and gain {C:money}$+#1#{}"
+                        "to create {C:attention}1{} {C:joy_normal}Normal{} {C:attention}Joker{} and gain {C:money}+$#1#{}"
                     },
                     {
                         "If you own {C:joy_normal}\"Dark Magician\"{} you can sell this card",
@@ -160,8 +159,7 @@ return {
                 text = {
                     {
                         "Once per round, you can {C:attention}tribute 1{} {C:joy_normal}Spellcaster{}",
-                        "to create {C:attention}1{} {C:joy_normal}Normal{} {C:attention}Joker{}",
-                        "and gain {C:money}$+#1#{}"
+                        "to create {C:attention}1{} {C:joy_normal}Normal{} {C:attention}Joker{} and gain {C:money}+$#1#{}"
                     },
                     {
                         "If you own {C:joy_normal}\"Dark Magician\"{} you can sell this card",
@@ -177,9 +175,9 @@ return {
                 name = "{C:joy_effect}Magicians' Souls",
                 text = {
                     {
-                        "{C:attention}+#1#{} hand size",
+                        "{C:attention}+#1#{} hand size each round",
                         "for each {C:attention}#2#{} {C:joy_normal}Normal{} {C:attention}Jokers{}",
-                        "{C:inactive}(Currently {C:attention}+#3#{})"
+                        "{C:inactive}(Except Tokens) (Currently {C:attention}+#3#{C:inactive})"
                     },
                     {
                         "If you own {C:joy_normal}\"Dark Magician\"{} you can sell this card",
@@ -199,7 +197,7 @@ return {
                         "or {C:attention}flipped{} face-down",
                     },
                     {
-                        "Creates {C:attention}#1#{} {C:joy_normal}Normal{} {C:attention}Joker{}",
+                        "Once per round, creates {C:attention}1{} {C:joy_normal}Normal{} {C:attention}Joker{}",
                         "when a {C:attention}consumable{} is {C:attention}tributed{}"
                     },
                     {
@@ -212,7 +210,7 @@ return {
                 name = "{C:joy_effect}Magikuriboh",
                 text = {
                     {
-                        "Prevents {C:red}Death{} and destroys itself",
+                        "Prevents {C:red}Death{} then destroys itself",
                         "if you own {C:joy_normal}\"Dark Magician\"{} and {C:joy_effect}\"Dark Magician Girl\"{}",
                         "This ability of {C:joy_effect}\"Magikuriboh\"{} can only be used once per game"
                     },
@@ -249,8 +247,7 @@ return {
                         "Each {C:joy_normal}\"Dark Magician\"{} gives {X:mult,C:white}X#1#{} Mult"
                     },
                     {
-                        "Creates {C:attention}1{} {C:joy_normal}\"Dark Magician\"{}",
-                        "at end of ante"
+                        "Creates {C:attention}1{} {C:joy_normal}\"Dark Magician\"{} at end of ante"
                     },
                     {
                         "Can be obtained from the shop even if you don't have room",
@@ -488,7 +485,7 @@ return {
                 name = "{C:joy_fusion}Dark Magician of Destruction",
                 text = {
                     {
-                        "Each {C:joy_normal}Normal{} {C:attention}Joker{} gives {C:chips}X#1#{} Chips",
+                        "Each {C:joy_normal}Normal{} {C:attention}Joker{} gives {X:chips,C:white}X#1#{} Chips",
                         "{C:inactive}(Except Tokens){}"
                     },
                     {
@@ -645,6 +642,7 @@ return {
     misc = {
         dictionary = {
             k_joy_archetype_dm = "Dark Magician",
+            ph_magikuriboh = "Saved by Magikuriboh",
         }
     }
 }
