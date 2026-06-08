@@ -120,7 +120,7 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 7,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * (G.GAME.joy_cards_destroyed or 0) + (G.GAME.joy_joker_cards_destroyed or 0), card.ability.extra.creates } }
+        return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * ((G.GAME.joy_cards_destroyed or 0) + (G.GAME.joy_joker_cards_destroyed or 0)), card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         { "opp_joy_artifact_aegis",                                  name = "k_joy_creates" },
