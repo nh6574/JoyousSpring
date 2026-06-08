@@ -38,9 +38,16 @@ local solfa_use = function(self, card, area, copier)
         JoyousSpring.post_consumable_change_use()
     end
 
-    JoyousSpring.level_up_hand(card, "Full House", false, 1)
-    JoyousSpring.level_up_hand(card, "Straight", false, 1)
-    JoyousSpring.level_up_hand(card, "Two Pair", false, 1)
+    if card.config.center_key == "j_joy_solfa_solfegia" then
+        JoyousSpring.level_up_hand(card, "joy_vw_xuanwu", false, 1)
+        JoyousSpring.level_up_hand(card, "joy_vw_qinglong", false, 1)
+        JoyousSpring.level_up_hand(card, "joy_vw_chuche", false, 1)
+        JoyousSpring.level_up_hand(card, "joy_vw_kauwloon", false, 1)
+    else
+        JoyousSpring.level_up_hand(card, "Full House", false, 1)
+        JoyousSpring.level_up_hand(card, "Straight", false, 1)
+        JoyousSpring.level_up_hand(card, "Two Pair", false, 1)
+    end
 end
 
 local solfa_count = function()
@@ -87,6 +94,115 @@ local count_all_cards = function(scoring_hand)
     end
     return false, false
 end
+
+-- Solfachord Primoa
+JoyousSpring.Joker({
+    key = "solfa_primoa",
+    atlas = "solfa",
+    pos = { x = 2, y = 2 },
+    rarity = 1,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.money } }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_pendulum = true,
+                attribute = "EARTH",
+                monster_type = "Fairy",
+                monster_archetypes = { ["Solfachord"] = true }
+            },
+            money = 5
+        },
+    },
+    use = function(self, card, area, copier)
+        JoyousSpring.revive_pseudorandom({ { monster_archetypes = { "Solfachord" }, exclude_keys = { self.key } } },
+            self.key, true)
+        JoyousSpring.level_up_hand(card, "Full House", false, 1)
+        JoyousSpring.level_up_hand(card, "Straight", false, 1)
+        JoyousSpring.level_up_hand(card, "Two Pair", false, 1)
+    end,
+    can_use = function(self, card)
+        return true
+    end,
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.before and G.GAME.current_round.hands_played == 0 then
+                local even = false
+                local odd = false
+                for _, pcard in ipairs(context.scoring_hand or {}) do
+                    if is_even(pcard) then
+                        even = true
+                    end
+                    if is_odd(pcard) then
+                        odd = true
+                    end
+                    if even and odd then
+                        return {
+                            dollars = pcard.ability.extra.money
+                        }
+                    end
+                end
+            end
+        end
+    end,
+})
+
+-- Solfachord Solfegia
+JoyousSpring.Joker({
+    key = "solfa_solfegia",
+    atlas = "solfa",
+    pos = { x = 1, y = 2 },
+    rarity = 1,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 4,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.change } }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_pendulum = true,
+                attribute = "LIGHT",
+                monster_type = "Fairy",
+                monster_archetypes = { ["Solfachord"] = true }
+            },
+            change = 3,
+            rank = '9',
+        },
+    },
+    use = solfa_use,
+    can_use = function(self, card)
+        return true
+    end,
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.repetition then
+                local count_all_scored, count_hand = count_all_cards(context.scoring_hand)
+
+                if context.cardarea == G.play then
+                    local id = context.other_card:get_id()
+                    if count_all_scored or id == 3 or id == 6 or id == 9 then
+                        return {
+                            repetitions = 1
+                        }
+                    end
+                end
+                if context.cardarea == G.hand and count_hand then
+                    if id == 3 or id == 6 or id == 9 then
+                        return {
+                            repetitions = 1
+                        }
+                    end
+                end
+            end
+        end
+    end,
+})
 
 -- DoSolfachord Cutia
 JoyousSpring.Joker({

@@ -440,6 +440,52 @@ JoyousSpring.Joker({
     end,
 })
 
+-- Dogmatika Lawbringer
+JoyousSpring.Joker({
+    key = "dogma_law",
+    atlas = "Dogmatika",
+    pos = { x = 1, y = 2 },
+    rarity = 2,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 7,
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.p_secret_pack_joy_ritual
+        return { vars = {} }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "LIGHT",
+                monster_type = "Spellcaster",
+                monster_archetypes = { ["Dogmatika"] = true },
+            },
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joy_tributed and JoyousSpring.is_attribute(context.joy_card, "LIGHT") then
+                if not card.ability.extra.active then
+                    JoyousSpring.add_secret_tag("p_secret_pack_joy_ritual")
+                    card.ability.extra.active = true
+                end
+                JoyousSpring.send_to_graveyard_pseudorandom({ { is_extra_deck = true } }, self.key, 1)
+            end
+        end
+        if context.end_of_round and context.game_over == false and context.main_eval then
+            card.ability.extra.active = nil
+        end
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        card.ability.extra.active = nil
+    end,
+    joy_set_cost = function(card)
+        if get_debuffed_ed_count() > 0 then
+            card.cost = 0
+        end
+    end,
+})
+
 -- Dogmatika Nexus
 JoyousSpring.Joker({
     key = "dogma_nexus",

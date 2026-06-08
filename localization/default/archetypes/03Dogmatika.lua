@@ -93,6 +93,22 @@ return {
                     },
                 },
             },
+            j_joy_dogma_law = {
+                name = "{C:joy_effect}Dogmatika Lawbringer",
+                text = {
+                    {
+                        "Once per round, gives a {C:attention}Rite of Initiation Secret Pack Tag{}",
+                        "when a {C:joy_light}LIGHT{} {C:attention}Joker{} is {C:attention}tributed{}"
+                    },
+                    {
+                        "Sends {C:attention}1{} {C:joy_spell}Extra Deck{} {C:attention}Joker{}",
+                        "to the {C:attention}GY{} when a {C:joy_light}LIGHT{} {C:attention}Joker{} is {C:attention}tributed{}"
+                    },
+                    {
+                        "Free if you own a debuffed {C:joy_spell}Extra Deck{} {C:attention}Joker{}",
+                    },
+                }
+            },
             j_joy_dogma_nexus = {
                 name = "{C:joy_effect}Dogmatika Nexus",
                 text = {

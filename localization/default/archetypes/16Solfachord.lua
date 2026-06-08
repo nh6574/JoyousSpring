@@ -1,6 +1,33 @@
 return {
     descriptions = {
         Joker = {
+            j_joy_solfa_primoa = {
+                name = "{C:joy_pendulum_effect}Solfachord Primoa",
+                joy_consumable = {
+                    "{C:attention}Revive 1{} {C:joy_normal}\"Solfachord\"{}",
+                    "{C:inactive}(Except \"Solfachord Primoa\"){}",
+                    "also level up {C:attention}Full House{}, {C:attention}Straight{} and {C:attention}Two Pair{}",
+                },
+                text = {
+                    {
+                        "{C:money}+$#1#{} if first scoring hand of round",
+                        "contains both even and odd ranks"
+                    }
+                }
+            },
+            j_joy_solfa_solfegia = {
+                name = "{C:joy_pendulum_effect}Solfachord Solfegia",
+                joy_consumable = {
+                    "Change rank of up to {C:attention}#1#{} selected cards to {C:attention}9{}",
+                    "also level up all {C:attention}Virtual World{} hands",
+                },
+                text = {
+                    {
+                        "Retriggers all scoring {C:attention}9{}s, {C:attention}6{}s and {C:attention}3{}s",
+                        "in played hand once"
+                    }
+                }
+            },
             j_joy_solfa_cutia = {
                 name = "{C:joy_pendulum_effect}DoSolfachord Cutia",
                 joy_consumable = {

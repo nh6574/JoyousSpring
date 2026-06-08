@@ -1,32 +1,6 @@
 return {
     descriptions = {
         Joker = {
-            --Dogmatika
-            j_joy_dogma_law = {
-                name = "{C:joy_effect}Dogmatika Lawbringer",
-                text = {
-                    {
-                        "TBD"
-                    }
-                }
-            },
-            -- Solfachord
-            j_joy_solfa_primoa = {
-                name = "{C:joy_pendulum_effect}Solfachord Primoa",
-                text = {
-                    {
-                        "TBD"
-                    }
-                }
-            },
-            j_joy_solfa_solfegia = {
-                name = "{C:joy_pendulum_effect}Solfachord Solfegia",
-                text = {
-                    {
-                        "TBD"
-                    }
-                }
-            },
             -- Effect
             j_joy_dimensionshifter = {
                 name = "{C:joy_effect}Dimension Shifter",
