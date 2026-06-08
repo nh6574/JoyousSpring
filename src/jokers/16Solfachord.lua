@@ -142,7 +142,7 @@ JoyousSpring.Joker({
                     end
                     if even and odd then
                         return {
-                            dollars = pcard.ability.extra.money
+                            dollars = card.ability.extra.money
                         }
                     end
                 end
