@@ -605,7 +605,7 @@ return {
                 text = {
                     {
                         "{C:chips}+#1#{} Chips",
-                        "{C:red}-#2#{} Chips for each card",
+                        "{C:chips}-#2#{} Chips for each card",
                         "in the {C:attention}GY{} {C:inactive}(min. 0){}",
                         "{C:inactive}(Currently {C:chips}+#3#{}{C:inactive} Chips)"
                     }
@@ -616,7 +616,7 @@ return {
                 text = {
                     {
                         "{C:mult}+#1#{} Mult",
-                        "{C:red}-#2#{} Mult for each card",
+                        "{C:mult}-#2#{} Mult for each card",
                         "in the {C:attention}GY{} {C:inactive}(min. 0){}",
                         "{C:inactive}(Currently {C:mult}+#3#{}{C:inactive} Mult)"
                     }
