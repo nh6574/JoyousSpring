@@ -311,7 +311,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "solfa_dreamia",
     atlas = 'solfa',
-    pos = { x = 2, y = 2 },
+    pos = { x = 2, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,

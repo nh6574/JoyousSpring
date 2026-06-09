@@ -94,7 +94,7 @@ JoyousSpring.Blind {
             JoyousSpring.blind_effects[self.key].active = true
         end
         if context.open_booster then
-            JoyousSpring.blind_effects[self.key].active = nil
+            JoyousSpring.blind_effects[self.key].active = true
         end
         if context.starting_shop or context.ending_shop then
             JoyousSpring.blind_effects[self.key].active = nil

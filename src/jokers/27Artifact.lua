@@ -466,7 +466,7 @@ JoyousSpring.OpponentCard {
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if context.setting_blind then
+            if context.end_of_round and context.game_over == false and context.main_eval then
                 JoyousSpring.create_pseudorandom({ { is_field_spell = true } }, card.config.center.key, true)
             end
         end

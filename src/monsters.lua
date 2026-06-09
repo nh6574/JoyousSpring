@@ -1227,7 +1227,10 @@ JoyousSpring.get_materials_in_graveyard = function(property_list, to_revive, dif
         local count = t.count
         local summonable = t.summonable
         if count > 0 then
-            if not (to_revive and (G.P_CENTERS[key].config.extra.joyous_spring.cannot_revive or summonable < 1)) then
+            local center = G.P_CENTERS[key]
+            local joyous_spring = center and type(center.config.extra) == "table" and
+                G.P_CENTERS[key].config.extra.joyous_spring or {}
+            if not (to_revive and (joyous_spring.cannot_revive or summonable < 1)) then
                 if not property_list or #property_list == 0 then
                     for i = 1, (different_names and 1 or count) do
                         table.insert(materials, key)
