@@ -1014,30 +1014,23 @@ JoyousSpring.Blind {
             if not JoyousSpring.can_use_abilities(card) then return end
             return other_card.facing == "front" and JoyousSpring.is_effect_monster(other_card)
         end,
-        joy_apply_to_jokers_added = function(self, card, added_card)
-            if JoyousSpring.is_effect_monster(added_card) and not JoyousSpring.is_perma_debuffed(added_card) then
-                SMODS.debuff_card(added_card, "prevent_debuff", self.key .. card.ability.extra.unique_count)
-            end
-        end,
-        add_to_deck = function(self, card, from_debuff)
-            if not from_debuff then
-                card.ability.extra.unique_count = #SMODS.find_card(self.key, true)
-            end
-            if not card.debuff then
-                for _, joker in ipairs(G.jokers.cards) do
-                    if JoyousSpring.is_effect_monster(joker) and not JoyousSpring.is_perma_debuffed(joker) then
-                        SMODS.debuff_card(joker, "prevent_debuff", self.key .. card.ability.extra.unique_count)
-                    end
-                end
-            end
-        end,
-        remove_from_deck = function(self, card, from_debuff)
-            for _, joker in ipairs(G.jokers.cards) do
-                SMODS.debuff_card(joker, false, self.key .. card.ability.extra.unique_count)
-            end
-        end,
     }
 }
+
+local mod_set_debuff_ref = SMODS.current_mod.set_debuff or function() end
+SMODS.current_mod.set_debuff = function(card)
+    if JoyousSpring.is_effect_monster(card) and not JoyousSpring.is_perma_debuffed(card) then
+        local has_lance = false
+        for _, joker in ipairs(JoyousSpring.opponent_area.cards) do
+            if joker.config.center.key == "opp_joy_forlance" and JoyousSpring.can_use_abilities(joker) then
+                has_lance = true
+                break
+            end
+        end
+        return has_lance and "prevent_debuff" or nil
+    end
+    return mod_set_debuff_ref(card)
+end
 
 -- Forbidden Scripture
 JoyousSpring.Blind {
@@ -1713,7 +1706,8 @@ JoyousSpring.Blind {
         end,
         add_to_deck = function(self, card, from_debuff)
             if not from_debuff then
-                card.ability.extra.unique_count = #SMODS.find_card(self.key, true)
+                G.GAME.joy_order_unique = (G.GAME.joy_order_unique or 0) + 1
+                card.ability.extra.unique_count = G.GAME.joy_order_unique
             end
             if not card.debuff and not JoyousSpring.is_perma_debuffed(card) then
                 if not from_debuff and JoyousSpring.should_trap_flip(card) then

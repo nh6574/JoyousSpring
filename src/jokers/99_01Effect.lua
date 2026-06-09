@@ -57,7 +57,8 @@ JoyousSpring.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not from_debuff then
-            card.ability.extra.unique_count = #SMODS.find_card(self.key, true)
+            G.GAME.joy_boarder_unique = (G.GAME.joy_boarder_unique or 0) + 1
+            card.ability.extra.unique_count = G.GAME.joy_boarder_unique
         end
         if not card.debuff then
             for _, joker in ipairs(JoyousSpring.get_materials_owned({ { is_main_deck = true, exclude_keys = { "j_joy_boarder" } } })) do
@@ -2460,4 +2461,292 @@ JoyousSpring.Joker({
             end
         }
     end
+})
+
+-- Maxx "C"
+JoyousSpring.Joker({
+    key = "maxxc",
+    atlas = "Misc03",
+    pos = { x = 3, y = 2 },
+    rarity = 4,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 12,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xmult, card.ability.extra.current_xmult } }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "EARTH",
+                monster_type = "Insect"
+            },
+            xmult = 0.5,
+            current_xmult = 1
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    xmult = card.ability.extra.current_xmult
+                }
+            end
+            if context.joy_summon then
+                card.ability.extra.current_xmult = card.ability.extra.current_xmult + card.ability.extra.xmult
+            end
+        end
+    end,
+    in_pool = function(self, args)
+        if args and args.source == "sho" then
+            return not (G.GAME.used_jokers[self.key] and not SMODS.showman(self.key)),
+                { override_base_checks = true }
+        end
+        return true
+    end
+})
+
+-- Dark Ruler Ha Des
+JoyousSpring.Joker({
+    key = "hades",
+    atlas = "Misc03",
+    pos = { x = 2, y = 1 },
+    rarity = 2,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 7,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Fiend"
+            },
+        },
+    },
+    calculate = function(self, card, context)
+        if context.card_added and context.card.ability.set == "joy_Opponent" then
+            SMODS.debuff_card(context.card, true, "j_joy_hades" .. (card.ability.extra.unique_count or 0))
+        end
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        if not from_debuff then
+            G.GAME.joy_hades_unique = (G.GAME.joy_hades_unique or 0) + 1
+            card.ability.extra.unique_count = G.GAME.joy_hades_unique
+        end
+        if not card.debuff then
+            for _, opponent in ipairs(JoyousSpring.opponent_area.cards) do
+                SMODS.debuff_card(opponent, true, "j_joy_hades" .. (card.ability.extra.unique_count or 0))
+            end
+        end
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        for _, opponent in ipairs(JoyousSpring.opponent_area.cards) do
+            SMODS.debuff_card(opponent, false, "j_joy_hades" .. (card.ability.extra.unique_count or 0))
+        end
+    end,
+    joy_prevent_revive = function(self, card, key)
+        return true
+    end,
+})
+
+-- Dimension Shifter
+JoyousSpring.Joker({
+    key = "dimensionshifter",
+    atlas = "Misc03",
+    pos = { x = 0, y = 0 },
+    rarity = 3,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 10,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * (G.GAME.current_round.joy_cards_banished or 0) } }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Spellcaster"
+            },
+            xmult = 0.1
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    xmult = 1 + card.ability.extra.xmult * (G.GAME.current_round.joy_cards_banished or 0)
+                }
+            end
+        end
+    end,
+})
+
+-- Droll & Lock Bird
+JoyousSpring.Joker({
+    key = "droll",
+    atlas = "Misc03",
+    pos = { x = 1, y = 0 },
+    rarity = 3,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 8,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "WIND",
+                monster_type = "Spellcaster"
+            },
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if (context.buying_card or context.open_booster)
+                and not card.ability.extra.active then
+                if context.card.cost > 0 then
+                    card.ability.extra.active = true
+                    return {
+                        dollars = context.card.cost
+                    }
+                end
+            end
+            if context.starting_shop or context.ending_shop then
+                card.ability.extra.active = nil
+            end
+        end
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        change_shop_size(1)
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        change_shop_size(-1)
+    end
+})
+
+-- Helios - The Primordial Sun
+JoyousSpring.Joker({
+    key = "helios",
+    atlas = "Misc03",
+    pos = { x = 3, y = 1 },
+    rarity = 2,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 4,
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.chips,
+                card.ability.extra.chips_minus,
+                math.max(0,
+                    card.ability.extra.chips - card.ability.extra.chips_minus * JoyousSpring.get_graveyard_count()),
+            }
+        }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "LIGHT",
+                monster_type = "Pyro"
+            },
+            chips = 400,
+            chips_minus = 10
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    chips = math.max(0,
+                        card.ability.extra.chips - card.ability.extra.chips_minus * JoyousSpring.get_graveyard_count())
+                }
+            end
+        end
+    end,
+})
+
+-- Helios Duo Megistus
+JoyousSpring.Joker({
+    key = "heliosduo",
+    atlas = "Misc03",
+    pos = { x = 4, y = 1 },
+    rarity = 2,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 4,
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.mult,
+                card.ability.extra.mult_minus,
+                math.max(0,
+                    card.ability.extra.mult - card.ability.extra.mult_minus * JoyousSpring.get_graveyard_count()),
+            },
+        }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "LIGHT",
+                monster_type = "Pyro"
+            },
+            mult = 100,
+            mult_minus = 2
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    mult = math.max(0,
+                        card.ability.extra.mult - card.ability.extra.mult_minus * JoyousSpring.get_graveyard_count())
+                }
+            end
+        end
+    end,
+})
+
+-- Helios Trice Megistus
+JoyousSpring.Joker({
+    key = "heliostrice",
+    atlas = "Misc03",
+    pos = { x = 5, y = 1 },
+    rarity = 2,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 7,
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.xmult,
+                card.ability.extra.xmult_minus,
+                math.max(1,
+                    card.ability.extra.xmult - card.ability.extra.xmult_minus * JoyousSpring.get_graveyard_count()),
+            },
+        }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "LIGHT",
+                monster_type = "Pyro"
+            },
+            xmult = 5,
+            xmult_minus = 0.1
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    xmult = math.max(1,
+                        card.ability.extra.xmult - card.ability.extra.xmult_minus * JoyousSpring.get_graveyard_count()),
+                }
+            end
+        end
+    end,
 })

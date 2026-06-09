@@ -2,22 +2,6 @@ return {
     descriptions = {
         Joker = {
             -- Effect
-            j_joy_dimensionshifter = {
-                name = "{C:joy_effect}Dimension Shifter",
-                text = {
-                    {
-                        "TBD"
-                    }
-                }
-            },
-            j_joy_droll = {
-                name = "{C:joy_effect}Droll & Lock Bird",
-                text = {
-                    {
-                        "TBD"
-                    }
-                }
-            },
             j_joy_kurikara = {
                 name = "{C:joy_effect}Kurikara Divincarnate",
                 text = {
@@ -58,38 +42,6 @@ return {
                     }
                 }
             },
-            j_joy_hades = {
-                name = "{C:joy_effect}Dark Ruler Ha Des",
-                text = {
-                    {
-                        "TBD"
-                    }
-                }
-            },
-            j_joy_helios = {
-                name = "{C:joy_effect}Helios - The Primordial Sun",
-                text = {
-                    {
-                        "TBD"
-                    }
-                }
-            },
-            j_joy_heliosduo = {
-                name = "{C:joy_effect}Helios Duo Megistus",
-                text = {
-                    {
-                        "TBD"
-                    }
-                }
-            },
-            j_joy_heliostrice = {
-                name = "{C:joy_effect}Helios Trice Megistus",
-                text = {
-                    {
-                        "TBD"
-                    }
-                }
-            },
             j_joy_magicalundertaker = {
                 name = "{C:joy_effect}Magical Undertaker",
                 text = {
@@ -108,14 +60,6 @@ return {
             },
             j_joy_mastertao = {
                 name = "{C:joy_effect}Master Tao the Chanter",
-                text = {
-                    {
-                        "TBD"
-                    }
-                }
-            },
-            j_joy_maxxc = {
-                name = "{C:joy_effect}Maxx \"C\"",
                 text = {
                     {
                         "TBD"

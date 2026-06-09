@@ -557,6 +557,82 @@ return {
                     }
                 }
             },
+            j_joy_maxxc = {
+                name = "{C:joy_effect}Maxx \"C\"",
+                text = {
+                    {
+                        "Gains {X:mult,C:white}X#1#{} Mult",
+                        "for each card {C:attention}summoned{}",
+                        "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
+                    }
+                }
+            },
+            j_joy_hades = {
+                name = "{C:joy_effect}Dark Ruler Ha Des",
+                text = {
+                    {
+                        "{C:joy_trap}Opponent{} cards are debuffed"
+                    },
+                    {
+                        "{C:attention}Jokers{} can't be {C:attention}revived{}"
+                    }
+                }
+            },
+            j_joy_dimensionshifter = {
+                name = "{C:joy_effect}Dimension Shifter",
+                text = {
+                    {
+                        "Gains {X:mult,C:white}X#1#{} Mult for each card",
+                        "{C:attention}banished{} this round",
+                        "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
+                    }
+                }
+            },
+            j_joy_droll = {
+                name = "{C:joy_effect}Droll & Lock Bird",
+                text = {
+                    {
+                        "Money spent on a purchase",
+                        "is {C:green}refunded{} once each shop"
+                    },
+                    {
+                        "{C:attention}+1{} card shop slots"
+                    }
+                }
+            },
+            j_joy_helios = {
+                name = "{C:joy_effect}Helios - The Primordial Sun",
+                text = {
+                    {
+                        "{C:chips}+#1#{} Chips",
+                        "{C:red}-#2#{} Chips for each card",
+                        "in the {C:attention}GY{} {C:inactive}(min. 0){}",
+                        "{C:inactive}(Currently {C:chips}+#3#{}{C:inactive} Chips)"
+                    }
+                }
+            },
+            j_joy_heliosduo = {
+                name = "{C:joy_effect}Helios Duo Megistus",
+                text = {
+                    {
+                        "{C:mult}+#1#{} Mult",
+                        "{C:red}-#2#{} Mult for each card",
+                        "in the {C:attention}GY{} {C:inactive}(min. 0){}",
+                        "{C:inactive}(Currently {C:mult}+#3#{}{C:inactive} Mult)"
+                    }
+                }
+            },
+            j_joy_heliostrice = {
+                name = "{C:joy_effect}Helios Trice Megistus",
+                text = {
+                    {
+                        "{X:mult,C:white}X#1#{} Mult",
+                        "{X:mult,C:white}-X#2#{} Mult for each card",
+                        "in the {C:attention}GY{} {C:inactive}(min. 1){}",
+                        "{C:inactive}(Currently {X:mult,C:white}X#3#{}{C:inactive} Mult)"
+                    }
+                }
+            },
         }
     },
 }
