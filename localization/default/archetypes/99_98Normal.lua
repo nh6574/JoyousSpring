@@ -27,6 +27,14 @@ return {
                     }
                 }
             },
+            j_joy_normal_slimetoad_alt = {
+                name = "{C:joy_normal}Frog The Jam",
+                text = {
+                    {
+                        "{E:1}A slime with the head of a frog, it attacks by croaking terribly.",
+                    }
+                }
+            },
             j_joy_normal_toadmaster = {
                 name = "{C:joy_normal}Toad Master",
                 text = {

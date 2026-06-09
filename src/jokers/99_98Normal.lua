@@ -174,7 +174,11 @@ local function make_normal_joker(list)
             cost = 1,
             joy_no_shop = true,
             loc_vars = function(self, info_queue, card)
-                return { vars = { "#" } } -- funny
+                return {
+                    vars = { "#" },                         -- funny
+                    key = self.key == "j_joy_normal_slimetoad" and math.random(1, 4) == 1 and
+                        "j_joy_normal_slimetoad_alt" or nil -- very funny
+                }
             end,
             config = {
                 extra = {
