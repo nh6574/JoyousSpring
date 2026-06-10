@@ -362,3 +362,40 @@ JoyousSpring.Joker({
         }
     end
 })
+
+-- Necrovalley
+JoyousSpring.Joker({
+    key = "necrovalley",
+    atlas = "Misc03",
+    pos = { x = 2, y = 3 },
+    rarity = 2,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 9,
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = { card.ability.extra.mult, card.ability.extra.mult_minus,
+                math.max(0, card.ability.extra.mult * JoyousSpring.get_graveyard_count() -
+                    card.ability.extra.mult_minus * (G.GAME.joy_joker_cards_revived or 0)) }
+        }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_field_spell = true
+            },
+            mult = 5,
+            mult_minus = 20
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    mult = math.max(0, card.ability.extra.mult * JoyousSpring.get_graveyard_count() -
+                        card.ability.extra.mult_minus * (G.GAME.joy_joker_cards_revived or 0))
+                }
+            end
+        end
+    end,
+})

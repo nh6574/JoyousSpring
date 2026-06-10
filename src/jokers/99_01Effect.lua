@@ -2628,6 +2628,221 @@ JoyousSpring.Joker({
     end
 })
 
+-- Kurikara Divincarnate
+JoyousSpring.Joker({
+    key = "kurikara",
+    atlas = "Misc03",
+    pos = { x = 2, y = 0 },
+    rarity = 3,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 9,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * JoyousSpring.count_set_tributed("Joker") } }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "FIRE",
+                monster_type = "Fairy"
+            },
+            xmult = 0.2,
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    xmult = 1 + card.ability.extra.xmult * JoyousSpring.count_set_tributed("Joker")
+                }
+            end
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                local tributed = JoyousSpring.get_set_tributed("Joker")
+                local properties = {}
+                for _, key in ipairs(tributed) do
+                    properties[#properties + 1] = { key = key }
+                end
+                if next(properties) then
+                    JoyousSpring.revive_pseudorandom(properties, self.key, true)
+                end
+            end
+        end
+    end,
+})
+
+-- Nibiru, the Primal Being
+JoyousSpring.Joker({
+    key = "nibiru",
+    atlas = "Misc03",
+    pos = { x = 3, y = 0 },
+    rarity = 3,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 9,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xmult } }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "LIGHT",
+                monster_type = "Rock"
+            },
+            xmult = 1.25
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.other_joker and context.other_joker.facing == "front" and JoyousSpring.is_normal_monster(context.other_joker) then
+                return {
+                    xmult = card.ability.extra.xmult,
+                    message_card = context.other_joker
+                }
+            end
+            if context.joy_tributed and JoyousSpring.is_extra_deck_monster(context.joy_card) then
+                JoyousSpring.summon_token("nibiru", "e_negative")
+            end
+        end
+    end,
+})
+
+JoyousSpring.token_pool["nibiru"] = {
+    order = 11,
+    name = "j_joy_token_nibiru",
+    atlas = "joy_Misc03",
+    sprite_pos = { x = 5, y = 4 },
+    joyous_spring = {
+        attribute = "LIGHT",
+        monster_type = "Rock",
+    }
+}
+
+-- Theia, the Primal Being
+JoyousSpring.Joker({
+    key = "theia",
+    atlas = "Misc03",
+    pos = { x = 1, y = 1 },
+    rarity = 3,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 9,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Rock"
+            },
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) and not context.blueprint_card then
+            if JoyousSpring.is_activated_context(card, context) then
+                local materials = JoyousSpring.get_materials_owned({ { rarity = 3 } }, false, true)
+                if #materials >= 1 then
+                    JoyousSpring.create_overlay_effect_selection(card, materials, 1, 1)
+                end
+            end
+            if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
+                JoyousSpring.tribute(card, context.joy_selection)
+                card.ability.extra.activated = true
+                JoyousSpring.create_pseudorandom({ { rarity = 3 } }, self.key)
+            end
+        end
+        if context.end_of_round and context.game_over == false and context.main_eval then
+            card.ability.extra.activated = nil
+        end
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        card.ability.extra.activated = nil
+    end,
+    joy_can_activate = function(card)
+        if card.ability.extra.activated then
+            return false
+        end
+        return JoyousSpring.any_materials_owned({ { rarity = 3 } }, false, true)
+    end,
+})
+
+-- Parasite Paracide
+JoyousSpring.Joker({
+    key = "parasiteparacide",
+    atlas = "Misc03",
+    pos = { x = 4, y = 0 },
+    joy_alt_pos = { { x = 5, y = 0 } },
+    rarity = 2,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 8,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xmult } }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "EARTH",
+                monster_type = "Insect",
+                is_flip = true
+            },
+            xmult = 1.1
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.other_opponent_joker then
+                return {
+                    xmult = card.ability.extra.xmult ^
+                        JoyousSpring.count_materials_owned({ { monster_type = "Insect" } }),
+                    message_card = context.other_opponent_joker
+                }
+            end
+        end
+    end,
+})
+
+-- Parasite Paranoid
+JoyousSpring.Joker({
+    key = "parasiteparanoid",
+    atlas = "Misc03",
+    pos = { x = 0, y = 1 },
+    rarity = 2,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 8,
+    loc_vars = function(self, info_queue, card)
+        local deck = (G.GAME.selected_back_key or {}).key
+        return { vars = { card.ability.extra.xmult }, key = deck == "b_joy_wasp" and self.key .. "_alt" or nil }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "EARTH",
+                monster_type = "Insect"
+            },
+            xmult = 1.2
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.other_joker and context.other_joker.facing == "front" and JoyousSpring.is_monster_type(context.other_joker, "Insect") then
+                local deck = (G.GAME.selected_back_key or {}).key
+                if deck == "b_joy_wasp" then
+                    return {
+                        xmult = card.ability.extra.xmult,
+                        message_card = context.other_joker
+                    }
+                end
+            end
+        end
+    end,
+    joy_get_monster_type = function(self, card, other_card, original_type)
+        if not JoyousSpring.can_use_abilities(card) then return end
+        return "Insect"
+    end
+})
+
 -- Helios - The Primordial Sun
 JoyousSpring.Joker({
     key = "helios",

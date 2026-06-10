@@ -600,6 +600,77 @@ return {
                     }
                 }
             },
+            j_joy_kurikara = {
+                name = "{C:joy_effect}Kurikara Divincarnate",
+                text = {
+                    {
+                        "Gains {X:mult,C:white}X#1#{} Mult for each {C:attention}Joker{}",
+                        "{C:attention}tributed{} this round",
+                        "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
+                    },
+                    {
+                        "{C:attention}Revives 1 Joker tributed{}",
+                        "this round at end of round"
+                    }
+                }
+            },
+            j_joy_nibiru = {
+                name = "{C:joy_effect}Nibiru, the Primal Being",
+                text = {
+                    {
+                        "Each {C:joy_normal}Normal{} {C:attention}Joker{} gives {X:mult,C:white}X#1#{}"
+                    },
+                    {
+                        "Creates a {C:dark_edition}Negative{} {C:joy_token}\"Primal Being Token\"{}",
+                        "when an {C:joy_spell}Extra Deck{} {C:attention}Joker{} is {C:attention}tributed{}"
+                    },
+                }
+            },
+            j_joy_token_nibiru = {
+                name = "{C:joy_token}Primal Being Token",
+                text = {
+                    {
+                        "This card can be used as any {C:joy_token}Token{}",
+                    },
+                }
+            },
+            j_joy_theia = {
+                name = "{C:joy_effect}Theia, the Primal Being",
+                text = {
+                    {
+                        "Once per round, you can {C:attention}tribute{}",
+                        "a {C:red}Rare{} {C:attention}Joker{} to",
+                        "create a different {C:red}Rare{} {C:attention}Joker{}"
+                    }
+                }
+            },
+            j_joy_parasiteparacide = {
+                name = "{C:joy_effect}Parasite Paracide",
+                text = {
+                    {
+                        "{C:joy_trap}Opponent{} cards give",
+                        "{X:mult,C:white}X#1#{} Mult for each {C:joy_normal}Insect{}"
+                    }
+                }
+            },
+            j_joy_parasiteparanoid = {
+                name = "{C:joy_effect}Parasite Paranoid",
+                text = {
+                    {
+                        "All {C:attention}Jokers{} are",
+                        "treated as {C:joy_normal}Insects{}",
+                    }
+                }
+            },
+            j_joy_parasiteparanoid_alt = {
+                name = "{C:joy_effect}Parasite Paranoid",
+                text = {
+                    {
+                        "All {C:joy_normal}Insects{}",
+                        "give {X:mult,C:white}X#1#{} Mult"
+                    }
+                }
+            },
             j_joy_helios = {
                 name = "{C:joy_effect}Helios - The Primordial Sun",
                 text = {

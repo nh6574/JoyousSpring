@@ -155,7 +155,7 @@ end
 
 local create_shop_card_ui_ref = create_shop_card_ui
 function create_shop_card_ui(card, type, area)
-    if JoyousSpring.is_pendulum_monster(card) then
+    if JoyousSpring.is_pendulum_monster(card) and not JoyousSpring.is_summon_type(card, "RITUAL") then
         G.E_MANAGER:add_event(Event({
             trigger = 'after',
             delay = 0.43,

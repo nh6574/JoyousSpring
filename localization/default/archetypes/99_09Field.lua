@@ -83,6 +83,16 @@ return {
                     },
                 }
             },
+            j_joy_necrovalley = {
+                name = "{C:joy_spell}Necrovalley",
+                text = {
+                    {
+                        "{C:mult}+#1#{} Mult for each card in the {C:attention}GY{}",
+                        "{C:mult}-#2#{} Mult for each {C:attention}Joker revived{} this run",
+                        "{C:inactive}(Currently {C:mult}+#3#{}{C:inactive} Mult) (min. +0)"
+                    }
+                }
+            },
         }
     },
 }

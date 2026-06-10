@@ -2,46 +2,6 @@ return {
     descriptions = {
         Joker = {
             -- Effect
-            j_joy_kurikara = {
-                name = "{C:joy_effect}Kurikara Divincarnate",
-                text = {
-                    {
-                        "TBD"
-                    }
-                }
-            },
-            j_joy_nibiru = {
-                name = "{C:joy_effect}Nibiru, the Primal Being",
-                text = {
-                    {
-                        "TBD"
-                    }
-                }
-            },
-            j_joy_theia = {
-                name = "{C:joy_effect}Theia, the Primal Being",
-                text = {
-                    {
-                        "TBD"
-                    }
-                }
-            },
-            j_joy_parasiteparacide = {
-                name = "{C:joy_effect}Parasite Paracide",
-                text = {
-                    {
-                        "TBD"
-                    }
-                }
-            },
-            j_joy_parasiteparanoid = {
-                name = "{C:joy_effect}Parasite Paranoid",
-                text = {
-                    {
-                        "TBD"
-                    }
-                }
-            },
             j_joy_magicalundertaker = {
                 name = "{C:joy_effect}Magical Undertaker",
                 text = {
@@ -99,14 +59,6 @@ return {
                 }
             },
             -- Field Spells
-            j_joy_necrovalley = {
-                name = "{C:joy_spell}Necrovalley",
-                text = {
-                    {
-                        "TBD"
-                    }
-                }
-            },
             j_joy_secretvillage = {
                 name = "{C:joy_spell}Secret Village of the Spellcasters",
                 text = {
@@ -151,15 +103,6 @@ return {
             },
             j_joy_phoboscobos = {
                 name = "{C:joy_xyz}Heretical Phobos Covos",
-                text = {
-                    {
-                        "TBD"
-                    }
-                }
-            },
-            -- Pendulum
-            j_joy_miracleraven = {
-                name = "{C:joy_pendulum_ritual}Miracle Raven",
                 text = {
                     {
                         "TBD"
