@@ -39,7 +39,7 @@ JoyousSpring.calculate_context = function(context)
             JoyousSpring.update_blind_effects_area()
         end
     end
-    if context.end_of_round and context.game_over == false and not context.individual and not context.repetition then
+    if context.joy_post_round_eval then
         for _, joker in ipairs(JoyousSpring.banish_boss_selected_area.cards) do
             joker:calculate_perishable()
         end
