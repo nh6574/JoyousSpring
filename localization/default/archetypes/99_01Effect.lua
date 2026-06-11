@@ -609,8 +609,8 @@ return {
                         "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
                     },
                     {
-                        "{C:attention}Revives 1 Joker tributed{}",
-                        "this round at end of round"
+                        "{C:attention}Revives 1 Joker{} with the same name",
+                        "as one {C:attention}tributed{} this round at end of round"
                     }
                 }
             },
