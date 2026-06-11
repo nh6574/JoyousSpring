@@ -1187,7 +1187,7 @@ JoyousSpring.Joker({
 local joy_is_normal_monster_ref = JoyousSpring.is_normal_monster
 JoyousSpring.is_normal_monster = function(card, raw)
     local ret = joy_is_normal_monster_ref(card, raw)
-    if not ret and not raw and
+    if not ret and not raw and G.jokers and
         next(SMODS.find_card("j_joy_dm_chaosritual")) and JoyousSpring.is_monster_type(card, "Spellcaster", true) then
         return true
     end
@@ -1488,7 +1488,7 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 11,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.xchips, card.ability.extra.xchips ^ (JoyousSpring.opponent_area and #JoyousSpring.opponent_area.cards or 0), card.ability.extra.creates } }
+        return { vars = { card.ability.extra.xchips, card.ability.extra.xchips ^ ((JoyousSpring.opponent_area or {}).cards and #JoyousSpring.opponent_area.cards or 0), card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         copy_table(dm_family)
@@ -1998,7 +1998,7 @@ JoyousSpring.Joker({
 local joy_is_monster_type_ref = JoyousSpring.is_monster_type
 JoyousSpring.is_monster_type = function(card, monster_type, raw)
     local ret = joy_is_monster_type_ref(card, monster_type, raw)
-    if not ret and not raw and monster_type == "Spellcaster" and
+    if not ret and not raw and G.jokers and monster_type == "Spellcaster" and
         next(SMODS.find_card("j_joy_dm_salvation")) and JoyousSpring.is_normal_monster(card, true) then
         return true
     end
