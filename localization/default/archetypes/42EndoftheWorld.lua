@@ -73,7 +73,7 @@ return {
                 name = "{C:joy_ritual}Demise, King of Armageddon",
                 text = {
                     {
-                        "Gives {C:mult}+#1#{} for each",
+                        "Gives {C:mult}+#1#{} Mult for each",
                         "scoring card in played hand,",
                         "then destroys them"
                     },
