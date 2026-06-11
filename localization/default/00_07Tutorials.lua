@@ -169,7 +169,7 @@ return {
                         name = "",
                         text = {
                             {
-                                "{C:joy_mod}Seletion Packs{} appear every shop and contain",
+                                "{C:joy_mod}Selection Packs{} appear every shop and contain",
                                 "{C:attention}4{} {C:joy_mod}Secret Packs{} that can be opened."
                             },
                             {
