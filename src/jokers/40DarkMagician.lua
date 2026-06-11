@@ -102,6 +102,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'graveyard', 'normal' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -141,6 +142,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'revive', 'normal', 'effect' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -184,6 +186,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'normal', 'tribute' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -244,6 +247,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'tribute', 'fieldspell', 'graveyard', 'banish', 'effect', 'normal' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -314,6 +318,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'tribute', 'revive', 'normal', 'fieldspell' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -388,6 +393,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'tribute', 'normal' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -443,11 +449,12 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 6,
     loc_vars = function(self, info_queue, card)
-        return { vars = {} }
+        return { vars = { card.ability.extra.money } }
     end,
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'tribute', 'normal' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -507,6 +514,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'normal' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -549,6 +557,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'normal' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -585,6 +594,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'tribute', 'normal', 'fieldspell' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -654,6 +664,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'normal', 'send', 'graveyard', 'revive' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -698,6 +709,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'normal', 'send', 'graveyard', 'revive' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -752,6 +764,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'normal' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -792,6 +805,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'normal', 'tribute' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -840,6 +854,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'fusion', 'extradeck', 'summon', 'normal' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -896,6 +911,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'normal' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -933,6 +949,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'fusion', 'extradeck', 'summon', 'normal', 'material' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1048,6 +1065,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'tribute', 'normal' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1112,6 +1130,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'tribute', 'normal', 'sidedeck' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1190,6 +1209,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'enter' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1266,6 +1286,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'normal', 'banish', 'revive', 'effect' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1328,6 +1349,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'fieldspell', 'normal', 'tribute', 'opponent' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1416,6 +1438,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'tribute', 'normal' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1470,6 +1493,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'opponent', 'normal' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1525,6 +1549,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'graveyard', 'normal', 'send' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1580,6 +1605,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'normal', 'enter' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1649,6 +1675,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'normal', 'summon', 'material' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1731,6 +1758,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'tribute', 'summon' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1788,6 +1816,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'xyz_material', 'normal', 'tribute' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1862,6 +1891,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'xyz_material', 'normal', 'tribute' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -1940,6 +1970,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         copy_table(dm_family)
     },
+    joy_glossary = { 'banish', 'normal', 'revive' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

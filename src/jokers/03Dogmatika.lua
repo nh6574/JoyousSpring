@@ -453,6 +453,7 @@ JoyousSpring.Joker({
         info_queue[#info_queue + 1] = G.P_CENTERS.p_secret_pack_joy_ritual
         return { vars = {} }
     end,
+    joy_glossary = { "tribute", 'extradeck_joker', 'graveyard', 'send' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

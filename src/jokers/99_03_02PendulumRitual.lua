@@ -10,8 +10,10 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 8,
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.p_secret_pack_joy_ritual
         return { vars = {} }
     end,
+    joy_glossary = { 'material', 'sidedeck', 'tribute' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

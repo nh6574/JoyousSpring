@@ -21,6 +21,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_eotw_breaking", properties = { { monster_archetypes = { "Ruin" } }, { monster_archetypes = { "Demise" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { 'tribute' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -79,6 +80,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_eotw_breaking", properties = { { monster_archetypes = { "Ruin" } }, { monster_archetypes = { "Demise" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { 'tribute' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -136,6 +138,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_eotw_breaking", properties = { { monster_archetypes = { "Ruin" } }, { monster_archetypes = { "Demise" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { 'material', 'summon' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -192,6 +195,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_eotw_breaking", properties = { { monster_archetypes = { "Ruin" } }, { monster_archetypes = { "Demise" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { 'tribute' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -256,6 +260,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_eotw_breaking", properties = { { monster_archetypes = { "Ruin" } }, { monster_archetypes = { "Demise" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { 'tribute' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -319,6 +324,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_eotw_breaking", properties = { { monster_archetypes = { "Ruin" } }, { monster_archetypes = { "Demise" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { 'material', 'summon' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -405,6 +411,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_eotw_breaking", properties = { { monster_archetypes = { "Ruin" } }, { monster_archetypes = { "Demise" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { 'graveyard' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -481,6 +488,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { "j_joy_eotw_breaking", properties = { { monster_archetypes = { "Ruin" } }, { monster_archetypes = { "Demise" } }, }, name = "k_joy_archetype" },
     },
+    joy_glossary = { 'tribute', 'ritual', 'sidedeck' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

@@ -46,7 +46,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.xmult, card.ability.extra.shop_add, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
+        { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon", properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "extradeck", "maindeck" },
     config = {
@@ -141,7 +141,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.chips, card.ability.extra.shop_add, card.ability.extra.creates, card.ability.extra.returns } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
+        { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon", properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "banish" },
     config = {
@@ -276,7 +276,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.mult, card.ability.extra.shop_add, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
+        { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon", properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "graveyard", "maindeck" },
     config = {
@@ -387,7 +387,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.mult, card.ability.extra.shop_add, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
+        { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon", properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "banish", "tuner", "synchro" },
     config = {
@@ -499,7 +499,7 @@ JoyousSpring.Joker({
         }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
+        { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon", properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "graveyard", "send", "extradeck" },
     config = {
@@ -607,7 +607,7 @@ JoyousSpring.Joker({
         }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
+        { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon", properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "graveyard", "revive" },
     config = {
@@ -724,7 +724,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.mult_add, card.ability.extra.mult_sub, math.max(0, (card.ability.extra.mult_add * count) - (card.ability.extra.mult_sub * sub)), card.ability.extra.mult_change, card.ability.extra.detach } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
+        { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon", properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "graveyard" },
     config = {
@@ -837,7 +837,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.detach, card.ability.extra.removes, card.ability.extra.xmult } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
+        { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon", properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "graveyard", "banish" },
     config = {
@@ -930,7 +930,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.detach, card.ability.extra.revives } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
+        { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon", properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "graveyard", "banish", "revive" },
     config = {
@@ -1007,7 +1007,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.detach, card.ability.extra.xmult, card.ability.extra.current_xmult, card.ability.extra.attach, card.ability.extra.banish } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
+        { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon", properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "attach", "banish" },
     config = {
@@ -1103,7 +1103,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.mills, card.ability.extra.chips, card.ability.extra.chips * JoyousSpring.get_graveyard_count() } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
+        { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon", properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "send", "graveyard" },
     config = {
@@ -1192,7 +1192,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.xchips } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
+        { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon", properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "send", "graveyard", "banish" },
     config = {

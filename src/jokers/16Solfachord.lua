@@ -107,6 +107,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.money } }
     end,
+    joy_glossary = { 'revive' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

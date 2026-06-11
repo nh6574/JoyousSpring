@@ -388,7 +388,7 @@ JoyousSpring.secret_booster {
     pos = { x = 0, y = 0 },
     joy_secret = {
         properties = { { summon_type = "RITUAL" }, { monster_archetypes = { "Dogmatika" } }, { monster_archetypes = { "Drytron" } }, { monster_archetypes = { "VoicelessVoice" } } },
-        extra_keys = { "j_joy_igniter", "j_joy_miradora" },
+        extra_keys = { "j_joy_igniter", "j_joy_miradora", "j_joy_eotw_breaking" },
         center = "j_joy_sauravis"
     }
 }
@@ -612,7 +612,8 @@ JoyousSpring.secret_booster {
         properties = { { monster_archetypes = { "Danger" } }, { monster_archetypes = { "HazyFlame" } } },
         extra_keys = { "j_joy_boarder", "j_joy_ghostbird", "j_joy_tiamaton", "j_joy_eccentrick", "j_joy_bishbaalkin",
             "j_joy_yokai_ash", "j_joy_yokai_belle", "j_joy_yokai_ogre", "j_joy_yokai_reaper", "j_joy_yokai_sister",
-            "j_joy_yokai_mourner", "j_joy_artifact_aegis", "j_joy_dracotail_urgula", "j_joy_dracotail_pan" },
+            "j_joy_yokai_mourner", "j_joy_artifact_aegis", "j_joy_dracotail_urgula", "j_joy_dracotail_pan", "j_joy_hades",
+            "j_joy_necrovalley", "j_joy_helios", "j_joy_heliosduo", "j_joy_heliostrice", },
         center = "j_joy_boarder"
     }
 }
@@ -635,7 +636,7 @@ JoyousSpring.secret_booster {
             "j_joy_darkcat", "j_joy_dekoichi", "j_joy_searchlight", "j_joy_sternmystic", "j_joy_mof",
             "j_joy_lindbloom", "j_joy_quantumcat", "j_joy_tiki_curse", "j_joy_tiki_soul", "j_joy_apophis",
             "j_joy_zany", "j_joy_metrognome", "j_joy_bozu", "j_joy_disablaster", "j_joy_apollousa",
-            "j_joy_paleo_hallu", "j_joy_paleo_eldonia", "j_joy_mimi_archfiend", "j_joy_mimi_armor", "j_joy_artifact_cadu", "j_joy_hazy_grif", "j_joy_sforce_digamma", "j_joy_sforce_razor", "j_joy_sforce_dog", "j_joy_sforce_gravitino", "j_joy_sforce_platina", "j_joy_sforce_lapcewell", "j_joy_dm_dmg"
+            "j_joy_paleo_hallu", "j_joy_paleo_eldonia", "j_joy_mimi_archfiend", "j_joy_mimi_armor", "j_joy_artifact_cadu", "j_joy_hazy_grif", "j_joy_sforce_digamma", "j_joy_sforce_razor", "j_joy_sforce_dog", "j_joy_sforce_gravitino", "j_joy_sforce_platina", "j_joy_sforce_lapcewell", "j_joy_dm_dmg", "j_joy_necrovalley", "j_joy_helios", "j_joy_heliosduo", "j_joy_heliostrice", "j_joy_nibiru"
         },
         center = "j_joy_fish_shif"
     }

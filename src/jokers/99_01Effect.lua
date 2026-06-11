@@ -2475,6 +2475,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult, card.ability.extra.current_xmult } }
     end,
+    joy_glossary = { 'summon' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -2518,6 +2519,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_glossary = { 'opponent', 'revive' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -2564,6 +2566,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * (G.GAME.current_round.joy_cards_banished or 0) } }
     end,
+    joy_glossary = { 'banish' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -2640,6 +2643,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * JoyousSpring.count_set_tributed("Joker") } }
     end,
+    joy_glossary = { 'tribute', 'revive' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -2682,6 +2686,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult } }
     end,
+    joy_glossary = { 'normal', 'extradeck_joker', 'tribute' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -2729,6 +2734,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_glossary = { 'tribute' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -2779,6 +2785,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult } }
     end,
+    joy_glossary = { 'opponent' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -2862,6 +2869,7 @@ JoyousSpring.Joker({
             }
         }
     end,
+    joy_glossary = { 'graveyard' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -2903,6 +2911,7 @@ JoyousSpring.Joker({
             },
         }
     end,
+    joy_glossary = { 'graveyard' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -2944,6 +2953,7 @@ JoyousSpring.Joker({
             },
         }
     end,
+    joy_glossary = { 'graveyard' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
