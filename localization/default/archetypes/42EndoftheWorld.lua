@@ -92,7 +92,7 @@ return {
                     {
                         "Once per round, you can destroy selected cards in hand",
                         "up to the number of {C:attention}materials{} used for its {C:attention}summon{}",
-                        "to give can extra {X:chips,C:white}X#1#{} Chips for each this round",
+                        "to give an extra {X:chips,C:white}X#1#{} Chips for each this round",
                         "{C:inactive}(Currently {X:chips,C:white}X#2#{}{C:inactive} Chips)"
                     },
                     {
