@@ -93,6 +93,22 @@ return {
                     }
                 }
             },
+            j_joy_secretvillage = {
+                name = "{C:joy_spell}Secret Village of the Spellcasters",
+                text = {
+                    {
+                        "Each {C:joy_normal}Spellcaster{} gives {X:mult,C:white}X#1#{} Mult"
+                    },
+                    {
+                        "{X:mult,C:white}X#2#{} Mult if you own",
+                        "no {C:joy_normal}Spellcasters{}"
+                    },
+                    {
+                        "Becomes {C:attention}Eternal{} when",
+                        "bought from the shop"
+                    }
+                }
+            },
         }
     },
 }

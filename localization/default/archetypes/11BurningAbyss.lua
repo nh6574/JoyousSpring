@@ -241,7 +241,7 @@ return {
                 name = "{C:joy_xyz}Beatrice, Lady of the Eternal",
                 text = {
                     {
-                        "Gains {X:mult,C:white}X#1#{} Mult for each {C:attention}Joker{} in the {C:attention}GY{}",
+                        "Gives an extra {X:mult,C:white}X#1#{} Mult for each {C:attention}Joker{} in the {C:attention}GY{}",
                         "{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}",
                     },
                     {

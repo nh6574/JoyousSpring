@@ -505,7 +505,7 @@ JoyousSpring.secret_booster {
     key = "tarot",
     joy_secret = {
         properties = { { monster_archetypes = { "Runick" } }, { monster_archetypes = { "Witchcrafter" } }, { monster_archetypes = { "WhiteForest" } } },
-        extra_keys = { "j_joy_psy_delta", "j_joy_ignis_pikari", "j_joy_solfa_harmonia", "j_joy_shaddoll_hedgehog" },
+        extra_keys = { "j_joy_psy_delta", "j_joy_ignis_pikari", "j_joy_solfa_harmonia", "j_joy_shaddoll_hedgehog", "j_joy_downerd", "j_joy_alchemic" },
         center = "j_joy_witch_verre"
     }
 }
@@ -596,7 +596,7 @@ JoyousSpring.secret_booster {
 JoyousSpring.secret_booster {
     key = "banish",
     joy_secret = {
-        properties = { { monster_archetypes = { "PSYFrame" } }, { monster_archetypes = { "Ghoti" } }, { monster_archetypes = { "SForce" } } },
+        properties = { { monster_archetypes = { "PSYFrame" } }, { monster_archetypes = { "Ghoti" } }, { monster_archetypes = { "SForce" } }, { monster_type = "Illusion" } },
         extra_keys = { "j_joy_fish_depths", "j_joy_mekk_purple", "j_joy_runick_sleipnir", "j_joy_ba_farfa",
             "j_joy_sub_uma", "j_joy_witch_potterie", "j_joy_shaddoll_ariel", "j_joy_paleo_dino", "j_joy_solfa_beautia",
             "j_joy_vw_nyannyan", "j_joy_flady_light", "j_joy_grenmaju", "j_joy_eater", "j_joy_beautunaful",
@@ -636,7 +636,7 @@ JoyousSpring.secret_booster {
             "j_joy_darkcat", "j_joy_dekoichi", "j_joy_searchlight", "j_joy_sternmystic", "j_joy_mof",
             "j_joy_lindbloom", "j_joy_quantumcat", "j_joy_tiki_curse", "j_joy_tiki_soul", "j_joy_apophis",
             "j_joy_zany", "j_joy_metrognome", "j_joy_bozu", "j_joy_disablaster", "j_joy_apollousa",
-            "j_joy_paleo_hallu", "j_joy_paleo_eldonia", "j_joy_mimi_archfiend", "j_joy_mimi_armor", "j_joy_artifact_cadu", "j_joy_hazy_grif", "j_joy_sforce_digamma", "j_joy_sforce_razor", "j_joy_sforce_dog", "j_joy_sforce_gravitino", "j_joy_sforce_platina", "j_joy_sforce_lapcewell", "j_joy_dm_dmg", "j_joy_necrovalley", "j_joy_helios", "j_joy_heliosduo", "j_joy_heliostrice", "j_joy_nibiru"
+            "j_joy_paleo_hallu", "j_joy_paleo_eldonia", "j_joy_mimi_archfiend", "j_joy_mimi_armor", "j_joy_artifact_cadu", "j_joy_hazy_grif", "j_joy_sforce_digamma", "j_joy_sforce_razor", "j_joy_sforce_dog", "j_joy_sforce_gravitino", "j_joy_sforce_platina", "j_joy_sforce_lapcewell", "j_joy_dm_dmg", "j_joy_necrovalley", "j_joy_helios", "j_joy_heliosduo", "j_joy_heliostrice", "j_joy_nibiru", "j_joy_taotao", "j_joy_downerd"
         },
         center = "j_joy_fish_shif"
     }
@@ -654,7 +654,7 @@ JoyousSpring.secret_booster {
             "j_joy_sub_city", "j_joy_shaddoll_apka", "j_joy_shaddoll_shekh", "j_joy_invoked_meltdown", "j_joy_apollousa",
             "j_joy_beyond", "j_joy_exceed", "j_joy_linguriboh", "j_joy_linkuriboh", "j_joy_ignis_kiruku", "j_joy_raster",
             "j_joy_xyzterritory", "j_joy_midbreaker", "j_joy_sauravis", "j_joy_generaider_loptr",
-            "j_joy_generaider_boss_stage", "j_joy_sforce_orrafist"
+            "j_joy_generaider_boss_stage", "j_joy_sforce_orrafist", "j_joy_taotao",
         },
         center = "j_joy_linkuriboh"
     }

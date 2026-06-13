@@ -90,3 +90,84 @@ JoyousSpring.Joker({
         end
     end,
 })
+
+-- Quintet Magician
+JoyousSpring.Joker({
+    key = "quintet",
+    atlas = "Misc03",
+    pos = { x = 0, y = 4 },
+    rarity = 3,
+    blueprint_compat = false,
+    eternal_compat = false,
+    cost = 15,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.rounds } }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Spellcaster",
+                summon_type = "FUSION",
+                summon_conditions = {
+                    {
+                        type = "FUSION",
+                        materials = {
+                            { monster_type = "Spellcaster" },
+                            { monster_type = "Spellcaster" },
+                            { monster_type = "Spellcaster" },
+                            { monster_type = "Spellcaster" },
+                            { monster_type = "Spellcaster" },
+                        },
+                    }
+                }
+            },
+            rounds = 3
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.modify_final_cashout then
+                card.ability.extra.rounds = card.ability.extra.rounds - 1
+                if card.ability.extra.rounds <= 0 then
+                    SMODS.destroy_cards(card)
+                end
+                return {
+                    modify = context.amount
+                }
+            end
+            if context.joy_selecting_hand and card.ability.extra.active then
+                G.GAME.chips = G.GAME.blind.chips
+                G.STATE = G.STATES.HAND_PLAYED
+                G.STATE_COMPLETE = true
+                end_round()
+                return {
+                    message = localize("k_joy_defeated")
+                }
+            end
+        end
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        if not from_debuff then
+            local materials = JoyousSpring.get_materials(card)
+            local hash = {}
+            local different_names = true
+            for _, material in ipairs(materials) do
+                if hash[material] then
+                    different_names = false
+                    break
+                end
+                hash[material] = true
+            end
+            if different_names then
+                card.ability.extra.active = true
+            end
+        end
+        if not card.debuff and G.STATE == G.STATES.SELECTING_HAND then
+            G.GAME.chips = G.GAME.blind.chips
+            G.STATE = G.STATES.HAND_PLAYED
+            G.STATE_COMPLETE = true
+            end_round()
+        end
+    end,
+})

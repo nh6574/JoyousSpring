@@ -151,6 +151,9 @@ JoyousSpring.Joker = SMODS.Joker:extend {
         if joyous_spring.summon_type and joyous_spring.summon_type ~= "NORMAL" and not glossary_hash[joyous_spring.summon_type:lower()] then
             joy_glossary[#joy_glossary + 1] = joyous_spring.summon_type:lower()
         end
+        if joyous_spring.monster_type == "Illusion" and not glossary_hash["illusion_joker"] then
+            joy_glossary[#joy_glossary + 1] = "illusion_joker"
+        end
         if joyous_spring.is_flip and not glossary_hash["flip"] then joy_glossary[#joy_glossary + 1] = "flip" end
         if joyous_spring.is_trap and not glossary_hash["trap"] then joy_glossary[#joy_glossary + 1] = "trap" end
         if joyous_spring.is_tuner and not glossary_hash["tuner"] then joy_glossary[#joy_glossary + 1] = "tuner" end

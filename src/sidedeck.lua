@@ -506,9 +506,31 @@ function Card:stop_drag()
     return card_stop_drag_ref(self)
 end
 
-G.FUNCS.joy_next_round_enable = function(e)
+local can_skip_side = function()
     if JoyousSpring.side_deck_area.config.card_limit >= #JoyousSpring.side_deck_area.cards or
         G.GAME.joy_skip_side then
+        return true
+    end
+    local has_maiden = false
+    for _, joker in ipairs(SMODS.find_card("j_joy_milleniummoon")) do
+        if JoyousSpring.can_use_abilities(joker) then
+            has_maiden = true
+            break
+        end
+    end
+    if has_maiden then
+        local count = 0
+        for _, joker in ipairs(JoyousSpring.side_deck_area.cards) do
+            if not JoyousSpring.is_monster_type(joker, "Illusion") then
+                count = count + 1
+            end
+        end
+        return JoyousSpring.side_deck_area.config.card_limit >= count
+    end
+end
+
+G.FUNCS.joy_next_round_enable = function(e)
+    if can_skip_side() then
         e.config.colour = G.C.RED
         e.config.button = 'joy_toggle_side_deck'
     else

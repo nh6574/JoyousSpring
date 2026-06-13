@@ -704,6 +704,86 @@ return {
                     }
                 }
             },
+            j_joy_magicalundertaker = {
+                name = "{C:joy_effect}Magical Undertaker",
+                text = {
+                    {
+                        "{C:joy_effect}FLIP{}: {C:attention}Revives 1{} {C:joy_normal}Spellcaster{}",
+                        "{C:inactive}(Doesn't need room)"
+                    },
+                    {
+                        "Gives {C:money}+$#1#{} when {C:attention}flipped{} face-down"
+                    }
+                }
+            },
+            j_joy_milleniummoon = {
+                name = "{C:joy_effect}Maiden of the Millennium Moon",
+                text = {
+                    {
+                        "You can buy {C:joy_normal}Spellcasters{}",
+                        "even without room"
+                    },
+                    {
+                        "{C:joy_normal}Illusions{} in the {C:joy_link}Side Deck{}",
+                        "don't take room"
+                    }
+                }
+            },
+            j_joy_mastertao = {
+                name = "{C:joy_effect}Master Tao the Chanter",
+                text = {
+                    {
+                        "{C:attention}Revives 1{} {C:joy_normal}Illusion{} when",
+                        "this card returns from {C:attention}banishment{} and,",
+                        "if it does, {C:attention}Boosters{} are free this shop"
+                    }
+                }
+            },
+            j_joy_taotao = {
+                name = "{C:joy_effect}Tao Tao the Chanter",
+                text = {
+                    {
+                        "{X:mult,C:white}X#1#{} Mult"
+                    },
+                    {
+                        "Returns from {C:attention}banishment{}",
+                        "when playing the last hand of round"
+                    }
+                }
+            },
+            j_joy_shurilane = {
+                name = "{C:joy_effect}Talons of Shurilane",
+                text = {
+                    {
+                        "Adds {C:attention}1{} {C:joy_normal}Illusion{}",
+                        "and {C:attention}1{} {C:joy_normal}Fiend{} to the shop",
+                        "when this card returns from {C:attention}banishment{}",
+                    }
+                }
+            },
+            j_joy_nightapprentice = {
+                name = "{C:joy_effect}Nightmare Apprentice",
+                text = {
+                    {
+                        "Gives {C:attention}1{} free {C:green}reroll{}",
+                        "when this card returns from {C:attention}banishment{}",
+                    }
+                }
+            },
+            j_joy_nightmagician = {
+                name = "{C:joy_effect}Nightmare Magician",
+                text = {
+                    {
+                        "{C:money}+$#1#{} at the start of the shop",
+                        "for each {C:joy_normal}Illusion{} owned",
+                        "{C:inactive}(Currently {C:money}+$#2#{}{C:inactive})"
+                    },
+                    {
+                        "Adds an {C:joy_normal}Illusion{} to the shop",
+                        "when an {C:joy_normal}Illusion{} is sold"
+                    }
+                }
+            },
         }
     },
 }

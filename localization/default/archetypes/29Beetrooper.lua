@@ -136,7 +136,7 @@ return {
                 name = "{C:joy_link}Giant Beetrooper Invincible Atlas",
                 text = {
                     {
-                        "Gains {X:mult,C:white}X#1#{} Mult for each {C:joy_normal}Insect{}",
+                        "Gives an extra {X:mult,C:white}X#1#{} Mult for each {C:joy_normal}Insect{}",
                         "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
                     },
                     {

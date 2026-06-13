@@ -2975,3 +2975,256 @@ JoyousSpring.Joker({
         end
     end,
 })
+
+-- Magical Undertaker
+JoyousSpring.Joker({
+    key = "magicalundertaker",
+    atlas = "Misc03",
+    pos = { x = 0, y = 2 },
+    rarity = 1,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 2,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.money } }
+    end,
+    joy_glossary = { 'revive', },
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Spellcaster",
+                is_flip = true
+            },
+            money = 4
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.calculate_flip_effect(card, context) then
+            JoyousSpring.revive_pseudorandom({ { monster_type = "Spellcaster" } }, self.key)
+        end
+        if context.joy_card_flipped and context.joy_card_flipped == card and
+            context.joy_card_flipped.facing == "back" then
+            return {
+                dollars = card.ability.extra.money
+            }
+        end
+    end,
+})
+
+-- Maiden of the Millennium Moon
+JoyousSpring.Joker({
+    key = "milleniummoon",
+    atlas = "Misc03",
+    pos = { x = 1, y = 2 },
+    rarity = 1,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_glossary = { 'sidedeck' },
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "LIGHT",
+                monster_type = "Illusion"
+            },
+        },
+    },
+    calculate = function(self, card, context)
+        JoyousSpring.calculate_illusion_banish(card, context)
+    end,
+})
+
+-- Master Tao the Chanter
+JoyousSpring.Joker({
+    key = "mastertao",
+    atlas = "Misc03",
+    pos = { x = 2, y = 2 },
+    rarity = 1,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 7,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_glossary = { 'revive' },
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "EARTH",
+                monster_type = "Illusion"
+            },
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joy_returned and context.joy_returned_card == card then
+                local revived = JoyousSpring.revive_pseudorandom({ { monster_type = "Illusion" } }, self.key, true)
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        if revived and not revived.getting_sliced then
+                            G.GAME.joy_free_boosters = true
+                        end
+                        return true
+                    end
+                }))
+            end
+        end
+        JoyousSpring.calculate_illusion_banish(card, context)
+    end,
+})
+
+-- Tao Tao the Chanter
+local taotao = JoyousSpring.Joker({
+    key = "taotao",
+    atlas = "Misc03",
+    pos = { x = 1, y = 3 },
+    rarity = 1,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 5,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xmult } }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_tuner = true,
+                attribute = "EARTH",
+                monster_type = "Illusion"
+            },
+            xmult = 4
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    xmult = card.ability.extra.xmult
+                }
+            end
+        end
+        JoyousSpring.calculate_illusion_banish(card, context)
+    end,
+})
+
+JoyousSpring.calculate_effects[#JoyousSpring.calculate_effects + 1] = {
+    key = "taotao",
+    center = taotao,
+    is_active = function(self, func)
+        return not not next(JoyousSpring.get_banished_cards("j_joy_taotao"))
+    end,
+    calculate = function(self, context)
+        if context.before and G.GAME.current_round.hands_left == 0 then
+            local banished = JoyousSpring.get_banished_cards("j_joy_taotao")
+            for _, banished_card in ipairs(banished) do
+                JoyousSpring.return_from_banish(banished_card)
+            end
+        end
+    end,
+}
+
+-- Talons of Shurilane
+JoyousSpring.Joker({
+    key = "shurilane",
+    atlas = "Misc03",
+    pos = { x = 0, y = 3 },
+    rarity = 1,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 7,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "LIGHT",
+                monster_type = "Illusion"
+            },
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joy_returned and context.joy_returned_card == card then
+                JoyousSpring.add_monster_tag_pseudorandom({ { monster_type = "Illusion" } }, self.key .. "_illusion")
+                JoyousSpring.add_monster_tag_pseudorandom({ { monster_type = "Fiend" } }, self.key .. "_fiend")
+            end
+        end
+        JoyousSpring.calculate_illusion_banish(card, context)
+    end,
+})
+
+-- Nightmare Apprentice
+JoyousSpring.Joker({
+    key = "nightapprentice",
+    atlas = "Misc03",
+    pos = { x = 4, y = 2 },
+    rarity = 1,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 4,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Illusion"
+            },
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joy_returned and context.joy_returned_card == card then
+                G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls + 1
+                calculate_reroll_cost(true)
+            end
+        end
+        JoyousSpring.calculate_illusion_banish(card, context)
+    end,
+})
+
+-- Nightmare Magician
+JoyousSpring.Joker({
+    key = "nightmagician",
+    atlas = "Misc03",
+    pos = { x = 5, y = 2 },
+    rarity = 2,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 7,
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = { card.ability.extra.money, card.ability.extra.money *
+            JoyousSpring.count_materials_owned({ { monster_type = "Illusion" } }) }
+        }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Illusion"
+            },
+            money = 1
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.starting_shop then
+                return {
+                    dollars = card.ability.extra.money *
+                        JoyousSpring.count_materials_owned({ { monster_type = "Illusion" } })
+                }
+            end
+            if context.selling_card and JoyousSpring.is_monster_type(context.card, "Illusion") then
+                JoyousSpring.add_monster_tag_pseudorandom({ { monster_type = "Illusion" } }, self.key)
+            end
+        end
+        JoyousSpring.calculate_illusion_banish(card, context)
+    end,
+})

@@ -171,7 +171,7 @@ return {
                 name = "{C:joy_ritual}Drytron Meteonis Draconids",
                 text = {
                     {
-                        "Gains {X:mult,C:white}X#1#{} for each {C:joy_normal}\"Drytron\"{}",
+                        "Gives an extra {X:mult,C:white}X#1#{} for each {C:joy_normal}\"Drytron\"{}",
                         "in the {C:attention}GY{}",
                         "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
                     }

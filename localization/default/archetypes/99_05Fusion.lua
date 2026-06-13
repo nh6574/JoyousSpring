@@ -29,6 +29,24 @@ return {
                     "but with different names",
                 }
             },
+            j_joy_quintet = {
+                name = "{C:joy_fusion}Quintet Magician",
+                text = {
+                    {
+                        "{C:attention}Doubles{} cash out rewards",
+                        "for the next {C:attention}#1#{} rounds",
+                        "then {C:red}destroys{} itself"
+                    },
+                    {
+                        "Immediately wins every {C:attention}Blind{}",
+                        "if {C:attention}summoned{} using {C:attention}Jokers{}",
+                        "with different names"
+                    }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}5 {C:joy_normal}Spellcasters{}",
+                }
+            },
         }
     },
 }

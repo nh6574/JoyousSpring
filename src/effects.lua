@@ -175,6 +175,19 @@ SMODS.current_mod.calculate = function(self, context)
                 SMODS.add_booster_to_shop(table.remove(G.GAME.joy_extra_packs, 1))
             end
         end
+
+        if G.GAME.joy_free_boosters then
+            for _, booster in ipairs(G.shop_booster.cards) do
+                booster.ability.couponed = true
+                booster:set_cost()
+            end
+            G.GAME.joy_free_boosters = nil
+        end
+
+        if G.GAME.joy_bankrupt then
+            G.GAME.joy_bankrupt = nil
+            ease_dollars(-G.GAME.dollars)
+        end
     end
 
     -- Global probability hit counter

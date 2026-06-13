@@ -94,6 +94,87 @@ return {
                     "{s:0.9,C:inactive}or {s:0.9,C:joy_token}Tokens{s:0.9,C:inactive})"
                 }
             },
+            j_joy_slacker = {
+                name = "{C:joy_xyz}Slacker Magician",
+                text = {
+                    {
+                        "{C:joy_xyz}Detach{} {C:attention}#1#{}:",
+                        "Disables the current active {C:attention}Blinds{}",
+                        "but sets money to {C:money}$0{} at the start of the shop"
+                    }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}2{} {C:blue}Common{} {C:attention}Jokers{}",
+                    "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, {s:0.9,C:joy_link}Links{}",
+                    "{s:0.9,C:inactive}or {s:0.9,C:joy_token}Tokens{s:0.9,C:inactive})",
+                }
+            },
+            j_joy_downerd = {
+                name = "{C:joy_xyz}Downerd Magician",
+                text = {
+                    {
+                        "Gives an extra {X:mult,C:white}X#1#{} for each",
+                        "{C:joy_xyz}Xyz{} {C:attention}material{}",
+                        "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)",
+                    },
+                    {
+                        "Attaches a {C:attention}material{} when a {C:tarot}Tarot{} is {C:attention}tributed{}"
+                    },
+                    {
+                        "Detaches a {C:attention}material{} at end of round"
+                    }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}2{} {C:joy_normal}Spellcasters{}",
+                    "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, {s:0.9,C:joy_link}Links{}",
+                    "{s:0.9,C:inactive}or {s:0.9,C:joy_token}Tokens{s:0.9,C:inactive})",
+                    "OR {C:attention}1{} {C:blue}Common{} {C:joy_xyz}Xyz{}",
+                    "{C:inactive}(Transfer its materials){}"
+                }
+            },
+            j_joy_alchemic = {
+                name = "{C:joy_xyz}Alchemic Magician",
+                text = {
+                    {
+                        "Gives an extra {X:mult,C:white}X#1#{} for each",
+                        "{C:tarot}Tarot{} {C:attention}tributed{} this round",
+                        "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
+                    },
+                    {
+                        "For the rest of the run after this card {C:attention}enters play{}",
+                        "{C:tarot}Tarot{} cards may appear multiple times"
+                    },
+                    {
+                        "Detaches a {C:attention}material{} at end of round,",
+                        "destroys itself when it reaches {C:attention}0{}",
+                        "and creates all {C:tarot}Tarot{} cards {C:attention}tributed{} this round"
+                    }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}3{} {C:joy_normal}Spellcasters{}",
+                    "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, {s:0.9,C:joy_link}Links{}",
+                    "{s:0.9,C:inactive}or {s:0.9,C:joy_token}Tokens{s:0.9,C:inactive})",
+                }
+            },
+            j_joy_phoboscobos = {
+                name = "{C:joy_xyz}Heretical Phobos Covos",
+                text = {
+                    {
+                        "{C:joy_xyz}Detach{} {C:attention}#1#{}:",
+                        "Gives {C:attention}1{} free {C:green}reroll{}",
+                        "for each {C:joy_normal}Illusion{}"
+                    },
+                    {
+                        "If {C:attention}summoned{} using an {C:joy_normal}Illusion{},",
+                        "attaches a {C:attention}material{} when it returns from {C:attention}banishment{}"
+                    }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}2{} {C:blue}Common{} {C:attention}Jokers{}",
+                    "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive}, {s:0.9,C:joy_link}Links{}",
+                    "{s:0.9,C:inactive}or {s:0.9,C:joy_token}Tokens{s:0.9,C:inactive})",
+                }
+            },
         }
     },
 }

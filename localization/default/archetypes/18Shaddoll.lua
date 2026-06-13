@@ -322,7 +322,7 @@ return {
                 name = "{C:joy_fusion}El Shaddoll Grysta",
                 text = {
                     {
-                        "Gains {X:chips,C:white}X#1#{} Chips for each {C:joy_normal}\"Shaddoll\"{} in the {C:attention}GY",
+                        "Gives an extra {X:chips,C:white}X#1#{} Chips for each {C:joy_normal}\"Shaddoll\"{} in the {C:attention}GY",
                         "{C:inactive}(Currently {X:chips,C:white}X#2#{} {C:inactive}Chips)",
                         "A {C:joy_fusion}Fusion{} summoned using this card",
                         "as {C:attention}material{} gains this ability",
@@ -334,7 +334,7 @@ return {
                     },
                 },
                 joy_transfer_ability = {
-                    "Gains {X:chips,C:white}X#1#{} Chips for each {C:joy_normal}\"Shaddoll\"{} in the {C:attention}GY",
+                    "Gives an extra {X:chips,C:white}X#1#{} Chips for each {C:joy_normal}\"Shaddoll\"{} in the {C:attention}GY",
                     "{C:inactive}(Currently {X:chips,C:white}X#2#{} {C:inactive}Chips)",
                 },
                 joy_summon_conditions = {
