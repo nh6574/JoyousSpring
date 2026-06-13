@@ -210,6 +210,7 @@ JoyousSpring.Joker({
     rarity = 4,
     blueprint_compat = false,
     eternal_compat = true,
+    discovered = false,
     cost = 50,
     config = {
         extra = {

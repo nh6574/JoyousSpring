@@ -165,7 +165,7 @@ JoyousSpring.get_banished_cards = function(key, ignore_debuff)
     local cards = {}
     for _, area in ipairs(JoyousSpring.get_banished_areas()) do
         for _, card in ipairs(area.cards) do
-            if (not key or key == card.config.center.key) and (not ignore_debuff or not card.debuff) then
+            if (not key or key == card.config.center.key or (key == "Playing Card" and JoyousSpring.is_playing_card(card))) and (not ignore_debuff or not card.debuff) then
                 cards[#cards + 1] = card
             end
         end

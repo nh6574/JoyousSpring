@@ -23,3 +23,7 @@ end
 JoyousSpring.material_functions.hanafuda_type_played_this_run = function(card, vars)
     return G.GAME.joy_hanafuda_type_played and (G.GAME.joy_hanafuda_type_played[vars.type] or 0) >= vars.min
 end
+
+JoyousSpring.material_functions.column = function(card, vars)
+    return card.area and card.area == G.jokers and JoyousSpring.get_joker_column(card) == vars.column
+end

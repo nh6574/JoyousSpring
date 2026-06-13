@@ -447,7 +447,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "slacker",
     atlas = "Misc03",
-    pos = { x = 4, y = 4 },
+    pos = { x = 4, y = 5 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -492,7 +492,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "downerd",
     atlas = "Misc03",
-    pos = { x = 2, y = 4 },
+    pos = { x = 2, y = 5 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -553,7 +553,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "alchemic",
     atlas = "Misc03",
-    pos = { x = 1, y = 4 },
+    pos = { x = 1, y = 5 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = false,
@@ -620,7 +620,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "phoboscobos",
     atlas = "Misc03",
-    pos = { x = 3, y = 4 },
+    pos = { x = 3, y = 5 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,

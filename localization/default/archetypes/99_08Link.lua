@@ -154,6 +154,19 @@ return {
                     "except {C:joy_token}Tokens"
                 }
             },
+            j_joy_gravitycontroller = {
+                name = "{C:joy_link}Gravity Controller",
+                text = {
+                    {
+                        "{C:mult}+#1#{} Mult for each currently",
+                        "{C:attention}banished{} playing card",
+                        "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
+                    }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}1 Joker{} in {C:attention}column 5{}",
+                }
+            },
         }
     },
 }

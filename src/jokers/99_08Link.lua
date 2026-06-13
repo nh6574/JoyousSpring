@@ -426,7 +426,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "wpball",
     atlas = "Misc03",
-    pos = { x = 2, y = 5 },
+    pos = { x = 0, y = 6 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -617,4 +617,48 @@ JoyousSpring.Joker({
             end
         }
     end
+})
+
+-- Gravity Controller
+JoyousSpring.Joker({
+    key = "gravitycontroller",
+    atlas = 'Misc03',
+    pos = { x = 1, y = 6 },
+    rarity = 2,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 10,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.mult, card.ability.extra.mult * #JoyousSpring.get_banished_cards("Playing Card", true) } }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                monster_type = "Psychic",
+                attribute = "DARK",
+                summon_type = "LINK",
+                summon_conditions = {
+                    {
+                        type = "LINK",
+                        materials = {
+                            {
+                                func = "column",
+                                func_vars = { column = 5 }
+                            },
+                        },
+                    },
+                }
+            },
+            mult = 20
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    mult = card.ability.extra.mult * #JoyousSpring.get_banished_cards("Playing Card", true)
+                }
+            end
+        end
+    end,
 })

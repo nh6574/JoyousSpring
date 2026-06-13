@@ -4,7 +4,7 @@
 JoyousSpring.Joker({
     key = "miracleraven",
     atlas = "Misc03",
-    pos = { x = 0, y = 5 },
+    pos = { x = 6, y = 5 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,

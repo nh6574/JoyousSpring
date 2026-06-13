@@ -17,6 +17,9 @@ if card and card.ability and (type(card.ability.extra) == "table" and
     card.ability.extra.joyous_spring or card.ability.joy_extra_values and next(card.ability.joy_extra_values)) then
     JoyousSpring.generate_info_ui(_c, info_queue, card, desc_nodes, specific_vars, full_UI_table)
 end
+if card and card.ability.joy_northwemko then
+    info_queue[#info_queue+1] = {set = "Other", key = "joy_northwemko"}
+end
 if card and card.joy_pcard_key then
     JoyousSpring.playing_card_description(_c, card, desc_nodes, info_queue)
     first_pass = nil

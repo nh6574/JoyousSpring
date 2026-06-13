@@ -2467,7 +2467,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "maxxc",
     atlas = "Misc03",
-    pos = { x = 3, y = 2 },
+    pos = { x = 1, y = 2 },
     rarity = 4,
     blueprint_compat = false,
     eternal_compat = true,
@@ -2511,7 +2511,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "hades",
     atlas = "Misc03",
-    pos = { x = 2, y = 1 },
+    pos = { x = 1, y = 1 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -2715,7 +2715,7 @@ JoyousSpring.token_pool["nibiru"] = {
     order = 11,
     name = "j_joy_token_nibiru",
     atlas = "joy_Misc03",
-    sprite_pos = { x = 5, y = 4 },
+    sprite_pos = { x = 5, y = 5 },
     joyous_spring = {
         attribute = "LIGHT",
         monster_type = "Rock",
@@ -2726,7 +2726,7 @@ JoyousSpring.token_pool["nibiru"] = {
 JoyousSpring.Joker({
     key = "theia",
     atlas = "Misc03",
-    pos = { x = 1, y = 1 },
+    pos = { x = 0, y = 1 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
@@ -2813,7 +2813,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "parasiteparanoid",
     atlas = "Misc03",
-    pos = { x = 0, y = 1 },
+    pos = { x = 6, y = 0 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -2854,7 +2854,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "helios",
     atlas = "Misc03",
-    pos = { x = 3, y = 1 },
+    pos = { x = 2, y = 1 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -2896,7 +2896,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "heliosduo",
     atlas = "Misc03",
-    pos = { x = 4, y = 1 },
+    pos = { x = 3, y = 1 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -2938,7 +2938,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "heliostrice",
     atlas = "Misc03",
-    pos = { x = 5, y = 1 },
+    pos = { x = 4, y = 1 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -2980,7 +2980,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "magicalundertaker",
     atlas = "Misc03",
-    pos = { x = 0, y = 2 },
+    pos = { x = 5, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -3016,7 +3016,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "milleniummoon",
     atlas = "Misc03",
-    pos = { x = 1, y = 2 },
+    pos = { x = 6, y = 1 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -3042,7 +3042,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "mastertao",
     atlas = "Misc03",
-    pos = { x = 2, y = 2 },
+    pos = { x = 0, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -3081,7 +3081,7 @@ JoyousSpring.Joker({
 local taotao = JoyousSpring.Joker({
     key = "taotao",
     atlas = "Misc03",
-    pos = { x = 1, y = 3 },
+    pos = { x = 5, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -3131,7 +3131,7 @@ JoyousSpring.calculate_effects[#JoyousSpring.calculate_effects + 1] = {
 JoyousSpring.Joker({
     key = "shurilane",
     atlas = "Misc03",
-    pos = { x = 0, y = 3 },
+    pos = { x = 4, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -3162,7 +3162,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "nightapprentice",
     atlas = "Misc03",
-    pos = { x = 4, y = 2 },
+    pos = { x = 2, y = 2 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -3193,7 +3193,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "nightmagician",
     atlas = "Misc03",
-    pos = { x = 5, y = 2 },
+    pos = { x = 3, y = 2 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,

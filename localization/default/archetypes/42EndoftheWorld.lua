@@ -147,7 +147,7 @@ return {
                     "{C:joy_ritual}\"Demise\"{}, the one who destroys the world with all his might, and {C:joy_ritual}\"Ruin\"{}, the one who brings about gentle destruction so that there may be rebirth. Their existences are two sides of the same coin - the moment one has finished their goal, the other appears to take their place, continuing the eternal cycle of the world's destruction.",
                 },
                 gameplay = {
-                    "General {C:joy_ritual}Ritual{} support that likes to be paired with {C:joy_normal}Dogmatika{}, {C:joy_normal}Voiceless {C:joy_normal}Voice{} or {C:joy_normal}Drytron{}."
+                    "Generic {C:joy_ritual}Ritual{} support that likes to be paired with {C:joy_normal}Dogmatika{}, {C:joy_normal}Voiceless {C:joy_normal}Voice{} or {C:joy_normal}Drytron{}."
                 }
             }
         }

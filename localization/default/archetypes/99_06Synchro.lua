@@ -92,6 +92,36 @@ return {
                     "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
                 }
             },
+            j_joy_gishilnodon = {
+                name = "{C:joy_synchro}Sea Dragon Lord Gishilnodon",
+                text = {
+                    {
+                        "Gains {C:chips}+#1#{} Chips when a {C:blue}Common{} {C:attention}Joker{}",
+                        "is used as {C:attention}material{} for a {C:joy_synchro}Synchro{}",
+                        "{C:inactive}(Currently {C:chips}+#2#{}{C:inactive} Chips)"
+                    }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}1{} {C:joy_synchro}Tuner{} +",
+                    "{C:attention}1{} {C:blue}Common{} non-{C:joy_synchro}Tuner{}",
+                    "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
+                }
+            },
+            j_joy_giganticastle = {
+                name = "{C:joy_synchro}Giganticastle",
+                text = {
+                    {
+                        "{C:mult}+#1#{} Mult for each non-{C:joy_synchro}Tuner{}",
+                        "used as {C:attention}material{} for its {C:attention}summon{}",
+                        "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
+                    }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}1{} {C:joy_synchro}Tuner{} +",
+                    "{C:attention}1+{} non-{C:joy_synchro}Tuner{}",
+                    "{s:0.9,C:inactive}(Except {s:0.9,C:joy_xyz}Xyz{s:0.9,C:inactive} or {s:0.9,C:joy_link}Links{}{s:0.9,C:inactive})",
+                }
+            },
         }
     },
 }

@@ -367,7 +367,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "necrovalley",
     atlas = "Misc03",
-    pos = { x = 2, y = 3 },
+    pos = { x = 6, y = 2 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -404,7 +404,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "secretvillage",
     atlas = "Misc03",
-    pos = { x = 3, y = 3 },
+    pos = { x = 0, y = 3 },
     rarity = 3,
     blueprint_compat = false,
     eternal_compat = true,
