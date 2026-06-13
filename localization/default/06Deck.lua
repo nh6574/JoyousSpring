@@ -24,7 +24,12 @@ return {
             b_joy_dogma = {
                 name = "{C:joy_spell}Nadir Servant",
                 text = {
-                    "TBD"
+                    "Start with",
+                    "{C:joy_effect,T:j_joy_dogma_ecclesia}\"Dogmatika Ecclesia, the Virtuous\"",
+                    " ",
+                    "All {C:joy_spell}Extra Deck{} {C:attention}Jokers{}",
+                    "in the shop are free",
+                    "but debuffed"
                 }
             },
             b_joy_yokai = {
@@ -57,7 +62,8 @@ return {
             b_joy_generaider = {
                 name = "{C:joy_trap}Generaider Boss Room",
                 text = {
-                    "TBD"
+                    "Start with",
+                    "{C:joy_spell,T:j_joy_generaider_boss_stage}\"Generaider Boss Stage\"",
                 }
             },
             b_joy_fish = {
@@ -74,13 +80,18 @@ return {
             b_joy_psy = {
                 name = "{C:joy_trap}PSY-Frame Accelerator",
                 text = {
-                    "TBD"
+                    "{C:joy_normal}Normal{} {C:attention}Jokers{}",
+                    "become {C:dark_edition}Negative{}",
+                    "when {C:attention}entering play{}"
                 }
             },
             b_joy_runick = {
                 name = "{C:joy_spell}Runick Tip",
                 text = {
-                    "TBD"
+                    "{C:attention}+8{} {C:attention}Consumable{} slots",
+                    " ",
+                    "Start with",
+                    "{C:joy_spell,T:j_joy_runick_fountain}\"Runick Fountain\"",
                 }
             },
             b_joy_ba = {
@@ -384,7 +395,9 @@ return {
             b_joy_dm = {
                 name = "{C:joy_spell}Dark Magic Inheritance",
                 text = {
-                    "TBD"
+                    "Creates a {C:dark_edition}Negative{}",
+                    "{C:joy_normal}Normal{} {C:attention}Joker{}",
+                    "when {C:attention}Blind{} is selected"
                 }
             },
             b_joy_sforce = {
@@ -393,6 +406,13 @@ return {
                     "Only {C:joy_normal}\"S-Force\"{}",
                     "related {C:joy_normal}Monster{} {C:attention}Jokers{}",
                     "can appear in the shop"
+                }
+            },
+            b_joy_eotw = {
+                name = "{C:joy_spell}End of the World",
+                text = {
+                    "{C:joy_ritual}Rituals{} become {C:dark_edition}Negative{}",
+                    "when {C:attention}entering play{}"
                 }
             },
         },

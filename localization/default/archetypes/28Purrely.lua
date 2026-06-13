@@ -420,7 +420,7 @@ return {
                 }
             },
         },
-        JoyPokerHand = { -- TODO: delete if not used
+        JoyPokerHand = {
             phd_joy_purr_yeap = {
                 name = "Purrelyeap!?",
                 text = {

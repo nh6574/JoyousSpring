@@ -690,7 +690,9 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        --TODO: Add hand description tooltip
+        if not card.fake_card then
+            info_queue[#info_queue + 1] = JoyousSpring.PokerHandDummies["phd_joy_purr_yeap"]
+        end
         return { vars = { card.ability.extra.attaches, card.ability.extra.requires } }
     end,
     joy_desc_cards = {

@@ -1044,14 +1044,7 @@ SMODS.PokerHand({
     mult = 4,
     l_chips = 15,
     l_mult = 2,
-    visible = function() -- TODO: replace with false once the info queue is added
-        if not G.jokers then return end
-        for _, joker in ipairs(SMODS.find_card("j_joy_purr_street")) do
-            if JoyousSpring.can_use_abilities(joker) then
-                return true
-            end
-        end
-    end,
+    visible = false,
     example = {
         { 'H_A', true },
         { 'D_J', true },
@@ -1105,6 +1098,50 @@ SMODS.PokerHand({
         return {}
     end
 })
+
+JoyousSpring.PokerHandDummy {
+    key = "purr_yeap",
+    generate_ui = function(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
+        SMODS.Center.generate_ui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
+        if desc_nodes ~= full_UI_table.main then
+            local cards = {}
+            local card_w = G.CARD_W * 0.6
+            local card_h = G.CARD_H * 0.6
+            table.insert(cards, Card(0, 0, card_w, card_h, G.P_CARDS['H_A'], G.P_CENTERS.c_base))
+            table.insert(cards, Card(0, 0, card_w, card_h, G.P_CARDS['D_J'], G.P_CENTERS.c_base))
+            table.insert(cards, Card(0, 0, card_w, card_h, G.P_CARDS['S_7'], G.P_CENTERS.c_base))
+            table.insert(cards, Card(0, 0, card_w, card_h, G.P_CARDS['C_3'], G.P_CENTERS.c_base))
+            G.joy_dummy_area = CardArea(
+                0, 0,
+                4.25 * card_w,
+                0.95 * card_h,
+                { card_limit = 5, type = 'title', highlight_limit = 0, collection = true }
+            )
+
+            for i, p_card in ipairs(cards) do
+                G.joy_dummy_area:emplace(p_card)
+            end
+
+            desc_nodes[#desc_nodes + 1] = {
+                {
+                    n = G.UIT.B,
+                    config = { w = 0, h = 0.1 },
+                },
+            }
+
+            desc_nodes[#desc_nodes + 1] = {
+                {
+                    n = G.UIT.R,
+                    config = { align = "cm", padding = 0.07, no_fill = true },
+                    nodes = {
+                        { n = G.UIT.O, config = { object = G.joy_dummy_area } }
+                    }
+                },
+            }
+        end
+    end,
+}
+
 
 local purr_friend_apply_seal = function(card)
     local conv_card = G.hand.highlighted[1]
