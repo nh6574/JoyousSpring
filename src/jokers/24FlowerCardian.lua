@@ -47,6 +47,15 @@ local cardian_end_of_round = function(self, card, context)
     end
 end
 
+local cardian_random_month_hanafuda = function(months, seed)
+    local pools = {}
+    for _, month in ipairs(months) do
+        pools[#pools + 1] = JoyousSpring.hanafuda_pool_by_month[month]
+    end
+    local pool = SMODS.merge_lists(pools)
+    return pseudorandom_element(pool, seed or "cardian_hanafuda") or "Willow"
+end
+
 -- Flower Cardian Pine
 JoyousSpring.Joker({
     key = "cardian_pine",
@@ -97,14 +106,16 @@ JoyousSpring.Joker({
             end
             if context.joy_excavated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.setting_blind then
                 local hit
+                if cardian_is_hanafuda_month(context.joy_excavated, { "january", "february" }) then
+                    card.joy_draw = true
+                    hit = true
+                end
                 if context.joy_excavated:is_suit("Spades") then
                     if not next(SMODS.get_enhancements(context.joy_excavated)) then
                         context.joy_excavated:set_ability("m_joy_hanafuda")
+                        context.joy_excavated.ability.extra.hanafuda = cardian_random_month_hanafuda(
+                            { "january", "february" }, self.key .. "_enhance")
                     end
-                    hit = true
-                end
-                if cardian_is_hanafuda_month(context.joy_excavated, { "january", "february" }) then
-                    card.joy_draw = true
                     hit = true
                 end
                 card.joy_hit = card.joy_hit or hit
@@ -174,14 +185,16 @@ JoyousSpring.Joker({
             end
             if context.joy_excavated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.setting_blind then
                 local hit
+                if cardian_is_hanafuda_month(context.joy_excavated, { "january", "february" }) then
+                    card.joy_draw = true
+                    hit = true
+                end
                 if context.joy_excavated:is_suit("Spades") then
                     if not next(SMODS.get_enhancements(context.joy_excavated)) then
                         context.joy_excavated:set_ability("m_joy_hanafuda")
+                        context.joy_excavated.ability.extra.hanafuda = cardian_random_month_hanafuda(
+                            { "january", "february" }, self.key .. "_enhance")
                     end
-                    hit = true
-                end
-                if cardian_is_hanafuda_month(context.joy_excavated, { "january", "february" }) then
-                    card.joy_draw = true
                     hit = true
                 end
                 card.joy_hit = card.joy_hit or hit
@@ -256,14 +269,16 @@ JoyousSpring.Joker({
             end
             if context.joy_excavated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.setting_blind then
                 local hit
+                if cardian_is_hanafuda_month(context.joy_excavated, { "march", "april" }) then
+                    card.joy_draw = true
+                    hit = true
+                end
                 if context.joy_excavated:is_suit("Hearts") then
                     if not next(SMODS.get_enhancements(context.joy_excavated)) then
                         context.joy_excavated:set_ability("m_joy_hanafuda")
+                        context.joy_excavated.ability.extra.hanafuda = cardian_random_month_hanafuda(
+                            { "march", "april" }, self.key .. "_enhance")
                     end
-                    hit = true
-                end
-                if cardian_is_hanafuda_month(context.joy_excavated, { "march", "april" }) then
-                    card.joy_draw = true
                     hit = true
                 end
                 card.joy_hit = card.joy_hit or hit
@@ -333,14 +348,16 @@ JoyousSpring.Joker({
             end
             if context.joy_excavated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.setting_blind then
                 local hit
+                if cardian_is_hanafuda_month(context.joy_excavated, { "march", "april" }) then
+                    card.joy_draw = true
+                    hit = true
+                end
                 if context.joy_excavated:is_suit("Hearts") then
                     if not next(SMODS.get_enhancements(context.joy_excavated)) then
                         context.joy_excavated:set_ability("m_joy_hanafuda")
+                        context.joy_excavated.ability.extra.hanafuda = cardian_random_month_hanafuda(
+                            { "march", "april" }, self.key .. "_enhance")
                     end
-                    hit = true
-                end
-                if cardian_is_hanafuda_month(context.joy_excavated, { "march", "april" }) then
-                    card.joy_draw = true
                     hit = true
                 end
                 card.joy_hit = card.joy_hit or hit
@@ -572,14 +589,16 @@ JoyousSpring.Joker({
             end
             if context.joy_excavated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.setting_blind then
                 local hit
+                if cardian_is_hanafuda_month(context.joy_excavated, { "august", "september" }) then
+                    card.joy_draw = true
+                    hit = true
+                end
                 if context.joy_excavated:is_suit("Clubs") then
                     if not next(SMODS.get_enhancements(context.joy_excavated)) then
                         context.joy_excavated:set_ability("m_joy_hanafuda")
+                        context.joy_excavated.ability.extra.hanafuda = cardian_random_month_hanafuda(
+                            { "august", "september" }, self.key .. "_enhance")
                     end
-                    hit = true
-                end
-                if cardian_is_hanafuda_month(context.joy_excavated, { "august", "september" }) then
-                    card.joy_draw = true
                     hit = true
                 end
                 card.joy_hit = card.joy_hit or hit
@@ -642,14 +661,16 @@ JoyousSpring.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if context.joy_excavated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.setting_blind then
                 local hit
+                if cardian_is_hanafuda_month(context.joy_excavated, { "august", "september" }) then
+                    card.joy_draw = true
+                    hit = true
+                end
                 if context.joy_excavated:is_suit("Clubs") then
                     if not next(SMODS.get_enhancements(context.joy_excavated)) then
                         context.joy_excavated:set_ability("m_joy_hanafuda")
+                        context.joy_excavated.ability.extra.hanafuda = cardian_random_month_hanafuda(
+                            { "august", "september" }, self.key .. "_enhance")
                     end
-                    hit = true
-                end
-                if cardian_is_hanafuda_month(context.joy_excavated, { "august", "september" }) then
-                    card.joy_draw = true
                     hit = true
                 end
                 if JoyousSpring.get_hanafuda(context.joy_excavated) then
@@ -808,14 +829,16 @@ JoyousSpring.Joker({
             end
             if context.joy_excavated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.setting_blind then
                 local hit
+                if cardian_is_hanafuda_month(context.joy_excavated, { "november" }) then
+                    card.joy_draw = true
+                    hit = true
+                end
                 if context.joy_excavated:is_face() then
                     if not next(SMODS.get_enhancements(context.joy_excavated)) then
                         context.joy_excavated:set_ability("m_joy_hanafuda")
+                        context.joy_excavated.ability.extra.hanafuda = cardian_random_month_hanafuda({ "november" },
+                            self.key .. "_enhance")
                     end
-                    hit = true
-                end
-                if cardian_is_hanafuda_month(context.joy_excavated, { "november" }) then
-                    card.joy_draw = true
                     hit = true
                 end
                 card.joy_hit = card.joy_hit or hit
@@ -878,12 +901,6 @@ JoyousSpring.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if context.joy_excavated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.setting_blind then
                 local hit
-                if context.joy_excavated:is_face() then
-                    if not next(SMODS.get_enhancements(context.joy_excavated)) then
-                        context.joy_excavated:set_ability("m_joy_hanafuda")
-                    end
-                    hit = true
-                end
                 if cardian_is_hanafuda_month(context.joy_excavated, { "november" }) then
                     for i = 1, card.ability.extra.revives do
                         local revived_card = JoyousSpring.revive_pseudorandom(
@@ -891,6 +908,14 @@ JoyousSpring.Joker({
                             'j_joy_cardian_calligrapher',
                             true
                         )
+                    end
+                    hit = true
+                end
+                if context.joy_excavated:is_face() then
+                    if not next(SMODS.get_enhancements(context.joy_excavated)) then
+                        context.joy_excavated:set_ability("m_joy_hanafuda")
+                        context.joy_excavated.ability.extra.hanafuda = cardian_random_month_hanafuda({ "november" },
+                            self.key .. "_enhance")
                     end
                     hit = true
                 end
@@ -962,14 +987,16 @@ JoyousSpring.Joker({
             end
             if context.joy_excavated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.setting_blind then
                 local hit
+                if cardian_is_hanafuda_month(context.joy_excavated, { "may", "december" }) then
+                    card.joy_draw = true
+                    hit = true
+                end
                 if context.joy_excavated:is_suit("Diamonds") then
                     if not next(SMODS.get_enhancements(context.joy_excavated)) then
                         context.joy_excavated:set_ability("m_joy_hanafuda")
+                        context.joy_excavated.ability.extra.hanafuda = cardian_random_month_hanafuda(
+                            { "may", "december" }, self.key .. "_enhance")
                     end
-                    hit = true
-                end
-                if cardian_is_hanafuda_month(context.joy_excavated, { "may", "december" }) then
-                    card.joy_draw = true
                     hit = true
                 end
                 card.joy_hit = card.joy_hit or hit
@@ -1039,14 +1066,16 @@ JoyousSpring.Joker({
             end
             if context.joy_excavated and context.joy_number <= card.ability.extra.excavates and context.joy_other_context.setting_blind then
                 local hit
+                if cardian_is_hanafuda_month(context.joy_excavated, { "may", "december" }) then
+                    card.joy_draw = true
+                    hit = true
+                end
                 if context.joy_excavated:is_suit("Diamonds") then
                     if not next(SMODS.get_enhancements(context.joy_excavated)) then
                         context.joy_excavated:set_ability("m_joy_hanafuda")
+                        context.joy_excavated.ability.extra.hanafuda = cardian_random_month_hanafuda(
+                            { "may", "december" }, self.key .. "_enhance")
                     end
-                    hit = true
-                end
-                if cardian_is_hanafuda_month(context.joy_excavated, { "may", "december" }) then
-                    card.joy_draw = true
                     hit = true
                 end
                 card.joy_hit = card.joy_hit or hit

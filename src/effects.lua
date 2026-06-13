@@ -287,6 +287,7 @@ function SMODS.current_mod.reset_game_globals(run_start)
     G.GAME.current_round.joy_summoned_list = {}
     G.GAME.joy_purr_memory_apply = false
     G.GAME.joy_purr_friend_apply = false
+    G.GAME.joy_verre = false
 end
 
 local card_eval_status_text_ref = card_eval_status_text

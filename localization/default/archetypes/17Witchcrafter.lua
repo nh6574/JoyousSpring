@@ -12,6 +12,8 @@ return {
                     {
                         "You can {C:attention}tribute{} this card and {C:attention}#2#{} {C:tarot}Tarot",
                         "to create {C:attention}#3#{} {C:joy_effect}\"Witchcrafter Potterie\"{}",
+                        "and make {C:tarot}Tarot{} cards able to appear",
+                        "multiple times this run",
                         "{C:inactive}(Must have room){}",
                     },
                 }
@@ -31,6 +33,8 @@ return {
                     {
                         "You can {C:attention}tribute{} this card and {C:attention}#3#{} {C:tarot}Tarot",
                         "to create {C:attention}#4#{} {C:joy_effect}\"Witchcrafter Pittore\"{}",
+                        "and make {C:tarot}Tarot{} cards able to appear",
+                        "multiple times this run",
                         "{C:inactive}(Must have room){}",
                     },
                 }
@@ -51,6 +55,8 @@ return {
                     {
                         "You can {C:attention}tribute{} this card and {C:attention}#6#{} {C:tarot}Tarot",
                         "to create {C:attention}#7#{} {C:joy_effect}\"Witchcrafter Schmietta\"{}",
+                        "and make {C:tarot}Tarot{} cards able to appear",
+                        "multiple times this run",
                         "{C:inactive}(Must have room){}",
                     },
                 }
@@ -71,6 +77,8 @@ return {
                     {
                         "You can {C:attention}tribute{} this card and {C:attention}#4#{} {C:tarot}Tarot",
                         "to create {C:attention}#5#{} {C:joy_effect}\"Witchcrafter Edel\"{}",
+                        "and make {C:tarot}Tarot{} cards able to appear",
+                        "multiple times this run",
                         "{C:inactive}(Must have room){}",
                     },
                 }
@@ -86,6 +94,8 @@ return {
                     {
                         "You can {C:attention}tribute{} this card and {C:attention}#4#{} {C:tarot}Tarot",
                         "to create {C:attention}#5#{} {C:joy_effect}\"Witchcrafter Haine\"{}",
+                        "and make {C:tarot}Tarot{} cards able to appear",
+                        "multiple times this run",
                         "{C:inactive}(Must have room){}",
                     },
                 }
@@ -104,6 +114,8 @@ return {
                     {
                         "You can {C:attention}tribute{} this card and {C:attention}#3#{} {C:tarot}Tarot",
                         "to create {C:attention}#4#{} {C:joy_effect}\"Witchcrafter Madame Verre\"{}",
+                        "and make {C:tarot}Tarot{} cards able to appear",
+                        "multiple times this run",
                         "{C:inactive}(Must have room){}",
                     },
                 }
