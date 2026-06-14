@@ -189,6 +189,7 @@ JoyousSpring.Joker({
                     card.ability.extra.mult_minus * (G.GAME.joy_cards_banished or 0)) }
         }
     end,
+    joy_glossary = { 'banish' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -264,6 +265,7 @@ JoyousSpring.Joker({
                     card.ability.extra.mult_minus * (G.GAME.joy_joker_cards_revived or 0)) }
         }
     end,
+    joy_glossary = { 'revive' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -329,6 +331,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult_gain, card.ability.extra.mult_gain_less, card.ability.extra.current_mult } }
     end,
+    joy_glossary = { 'tribute' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

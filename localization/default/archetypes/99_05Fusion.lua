@@ -103,7 +103,7 @@ return {
                         "{C:inactive}(Currently {C:mult}+#3#{}{C:inactive} Mult) (min. +0)"
                     },
                     {
-                        "You can tribute any selected {C:attention}Ace of Spades{} in hand",
+                        "You can {C:attention}tribute{} any selected {C:attention}Ace of Spades{} in hand",
                         "to {C:attention}double{} this card's current Mult for each"
                     }
                 },

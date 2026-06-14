@@ -263,6 +263,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.removes, card.ability.extra.mult, card.ability.extra.current_mult, card.ability.extra.sends } }
     end,
+    joy_glossary = { 'graveyard', 'normal', 'send' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -320,6 +321,7 @@ JoyousSpring.Joker({
             vars = { card.ability.extra.xchips },
         }
     end,
+    joy_glossary = { 'summon', 'material' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -421,6 +423,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_glossary = { 'tribute', 'revive', 'banish' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -479,6 +482,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
+    joy_glossary = { 'tribute', 'fieldspell', 'effect' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -530,6 +534,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xchips, card.ability.extra.current_xchips } }
     end,
+    joy_glossary = { 'summon' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

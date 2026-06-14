@@ -282,6 +282,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.chips, card.ability.extra.current_chips } }
     end,
+    joy_glossary = { 'material' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -338,6 +339,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, card.ability.extra.current_mult } }
     end,
+    joy_glossary = { 'material', 'tuner', 'summon' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

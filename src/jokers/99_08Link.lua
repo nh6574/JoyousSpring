@@ -631,6 +631,7 @@ JoyousSpring.Joker({
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, card.ability.extra.mult * #JoyousSpring.get_banished_cards("Playing Card", true) } }
     end,
+    joy_glossary = { 'column', 'banish' },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
