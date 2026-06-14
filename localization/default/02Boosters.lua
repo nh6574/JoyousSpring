@@ -177,6 +177,13 @@ return {
                     "that support {C:joy_normal}Fiends{}"
                 },
             },
+            p_secret_pack_joy_normal = {
+                name = "Law of the Normal",
+                text = {
+                    "Choose {C:attention}#1#{} of up to {C:attention}#2#{} {C:joy_normal}Monster {C:attention}Jokers{}",
+                    "that support {C:joy_normal}Normal{} {C:attention}Jokers{}"
+                },
+            },
             p_secret_pack_joy_cyberse = {
                 name = "Cyber-Enthusiasts",
                 text = {
