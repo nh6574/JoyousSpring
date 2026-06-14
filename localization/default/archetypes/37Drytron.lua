@@ -147,7 +147,7 @@ return {
                         "in the {C:joy_link}Side Deck{}"
                     },
                     {
-                        "Attach {C:attention}#1# {C:joy_xyz}material{} to this card",
+                        "{C:attention}Attach #1# material{} to this card",
                         "when a {C:attention}Joker{} is {C:attention}tributed{}",
                     },
                     {

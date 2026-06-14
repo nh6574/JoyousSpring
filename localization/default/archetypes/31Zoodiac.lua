@@ -183,7 +183,7 @@ return {
                 text = {
                     {
                         "{C:joy_xyz}Detach{} {C:attention}all{}:",
-                        "Attaches as many {C:joy_normal}\"Zoodiac\"{}",
+                        "{C:attention}Attaches{} as many {C:joy_normal}\"Zoodiac\"{}",
                         "from the {C:attention}GY{} to itself as possible",
                         "{C:inactive}(Doesn't transfer abilities){}"
                     },

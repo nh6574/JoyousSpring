@@ -108,7 +108,7 @@ return {
                         "when a {C:attention}material{} is detached",
                     },
                     {
-                        "Attaches a copy of the {C:attention}leftmost{} card in scored hand",
+                        "{C:attention}Attaches{} a copy of the {C:attention}leftmost{} card in scored hand",
                         "to the leftmost {C:joy_xyz}Xyz{} you own"
                     },
                     {
@@ -125,7 +125,7 @@ return {
                         "{C:inactive}(Must have room)"
                     },
                     {
-                        "Attaches a copy of the {C:attention}rightmost{} card in scored hand",
+                        "{C:attention}Attaches{} a copy of the {C:attention}rightmost{} card in scored hand",
                         "to the rightmost {C:joy_xyz}Xyz{} you own"
                     },
                     {
@@ -148,7 +148,7 @@ return {
                     {
                         "At end of round,",
                         "{C:attention}excavate{} and check the top {C:attention}3{}:",
-                        "Attach a random {C:attention}enhanced{} card excavated",
+                        "{C:attention}Attach{} a random {C:attention}enhanced{} card excavated",
                         "to the leftmost {C:joy_normal}\"Time Thief\"{} {C:joy_xyz}Xyz{} you own"
                     }
                 }
@@ -158,7 +158,7 @@ return {
                 text = {
                     {
                         "Once per round, you can {C:attention}tribute 1{} {C:joy_normal}Machine{} to",
-                        "attach up to {C:attention}#1#{} selected cards in hand",
+                        "{C:attention}attach{} up to {C:attention}#1#{} selected cards in hand",
                         "to the rightmost {C:joy_xyz}Xyz{} you own"
                     },
                     {
@@ -168,7 +168,7 @@ return {
                     {
                         "At end of round,",
                         "{C:attention}excavate{} and check the top {C:attention}3{}:",
-                        "Attach a random card with an {C:dark_edition}Edition{} excavated",
+                        "{C:attention}Attach{} a random card with an {C:dark_edition}Edition{} excavated",
                         "to the rightmost {C:joy_normal}\"Time Thief\"{} {C:joy_xyz}Xyz{} you own"
                     }
                 }
@@ -187,7 +187,7 @@ return {
                     {
                         "At end of round,",
                         "{C:attention}excavate{} and check the top {C:attention}3{}:",
-                        "Attach a random {C:attention}enhanced{} card excavated",
+                        "{C:attention}Attach{} a random {C:attention}enhanced{} card excavated",
                         "to the rightmost {C:joy_normal}\"Time Thief\"{} {C:joy_xyz}Xyz{} you own"
                     }
                 }
@@ -207,7 +207,7 @@ return {
                     {
                         "At end of round,",
                         "{C:attention}excavate{} and check the top {C:attention}3{}:",
-                        "Attach a random card with a {C:attention}Seal{} excavated",
+                        "{C:attention}Attach{} a random card with a {C:attention}Seal{} excavated",
                         "to the leftmost {C:joy_normal}\"Time Thief\"{} {C:joy_xyz}Xyz{} you own"
                     }
                 }
@@ -220,12 +220,12 @@ return {
                         "Once per round, {C:attention}revives 1{} {C:joy_normal}\"Time Thief\"{}",
                     },
                     {
-                        "Attaches a copy of the {C:attention}leftmost{} card",
+                        "{C:attention}Attaches{} a copy of the {C:attention}leftmost{} card",
                         "in scored hand to this card"
                     },
                     {
                         "Gains abilities based on the {C:attention}Playing Cards{}",
-                        "that have been attached",
+                        "that have been {C:attention}attached",
                         "{C:attention}(Check related cards to see!){}"
                     }
                 },
@@ -238,12 +238,12 @@ return {
                         "Once per round, {C:attention}revives 1{} {C:joy_normal}\"Time Thief\"{}",
                     },
                     {
-                        "Attaches a copy of the {C:attention}leftmost{} card",
+                        "{C:attention}Attaches{} a copy of the {C:attention}leftmost{} card",
                         "in scored hand to this card"
                     },
                     {
                         "Gains abilities based on the {C:attention}Playing Cards{}",
-                        "that have been attached"
+                        "that have been {C:attention}attached"
                     }
                 },
                 joy_extra_effects = { -- im too lazy to change how this works
@@ -281,14 +281,14 @@ return {
                     },
                     {
                         "{C:attention}Excavate{} and check the top {C:attention}1{}:",
-                        "Attaches it to this card, then applies the following depending on the suit:",
+                        "{C:attention}Attaches{} it to this card, then applies the following depending on the suit:",
                         "{C:hearts}Hearts{}: Gain a free shop {C:green}reroll{}",
                         "{C:diamonds}Diamonds{}: {C:money}+$#2#{}",
                         "{C:clubs}Clubs{}: Gets {C:attention}#3#{} {C:attention}Standard Tags{}",
                         "{C:spades}Spades{}: Creates a {C:dark_edition}Negative{} {C:attention}Enhancement{} {C:tarot}Tarot{}",
                     },
                     {
-                        "Gains abilities based on the {C:attention}Playing Cards{} that have been attached",
+                        "Gains abilities based on the {C:attention}Playing Cards{} that have been {C:attention}attached",
                         "{C:attention}(Check related cards to see!){}"
                     }
                 },
@@ -303,7 +303,7 @@ return {
                     },
                     {
                         "{C:attention}Excavate{} and check the top {C:attention}1{}:",
-                        "Attaches it to this card, then applies the following depending on the suit:",
+                        "{C:attention}Attaches{} it to this card, then applies the following depending on the suit:",
                         "{C:hearts}Hearts{}: Gain a free shop {C:green}reroll{}",
                         "{C:diamonds}Diamonds{}: {C:money}+$#2#{}",
                         "{C:clubs}Clubs{}: Gets {C:attention}#3#{} {C:attention}Standard Tags{}",
@@ -311,7 +311,7 @@ return {
                     },
                     {
                         "Gains abilities based on the {C:attention}Playing Cards{}",
-                        "that have been attached"
+                        "that have been {C:attention}attached"
                     }
                 },
                 joy_extra_effects = { -- im too lazy to change how this works
@@ -349,10 +349,10 @@ return {
                     },
                     {
                         "{C:attention}Excavate{} and check the top {C:attention}1{}:",
-                        "Attaches it to this card, then gain {C:money}+$#4#{} based on its rank",
+                        "{C:attention}Attaches{} it to this card, then gain {C:money}+$#4#{} based on its rank",
                     },
                     {
-                        "Gains abilities based on the {C:attention}Playing Cards{} that have been attached",
+                        "Gains abilities based on the {C:attention}Playing Cards{} that have been {C:attention}attached",
                         "{C:attention}(Check related cards to see!){}"
                     }
                 },
@@ -367,11 +367,11 @@ return {
                     },
                     {
                         "{C:attention}Excavate{} and check the top {C:attention}1{}:",
-                        "Attaches it to this card, then gain {C:money}+$#4#{} based on its rank",
+                        "{C:attention}Attaches{} it to this card, then gain {C:money}+$#4#{} based on its rank",
                     },
                     {
                         "Gains abilities based on the {C:attention}Playing Cards{}",
-                        "that have been attached"
+                        "that have been {C:attention}attached"
                     }
                 },
                 joy_extra_effects = { -- im too lazy to change how this works

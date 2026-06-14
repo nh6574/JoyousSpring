@@ -4,7 +4,7 @@ return {
             j_joy_ooze = {
                 name = "{C:joy_pendulum_xyz}Daidaratant the Ooze Giant",
                 joy_consumable = {
-                    "Attach {C:attention}#1# materials{} to a random {C:joy_xyz}Xyz{}"
+                    "{C:attention}Attach #1# materials{} to a random {C:joy_xyz}Xyz{}"
                 },
                 text = {
                     {

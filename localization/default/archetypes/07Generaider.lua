@@ -28,8 +28,8 @@ return {
                     },
                     {
                         "Destroys itself when {C:attention}Boss Blind{} is defeated to",
-                        "{C:attention}revive #2#{} {C:red}Rare{} {C:joy_normal}\"Generaider\"{}",
-                        "and creates {C:attention}#3#{} {C:joy_effect}\"Loptr, Shadow of the Generaider Bosses\"",
+                        "{C:attention}revive #2#{} {C:red}Rare{} {C:joy_normal}\"Generaider\"{} and creates {C:attention}#3#{}",
+                        "{C:joy_effect}\"Loptr, Shadow of the Generaider Bosses\"",
                         "{C:inactive}(Must have room)",
                     },
                 },
@@ -141,7 +141,7 @@ return {
                     {
                         "{C:joy_xyz}Detach{} {C:attention}#1#{}: Destroys all other {C:attention}Jokers{} and",
                         "creates a {C:joy_xyz}\"Jormungandr, Generaider Boss of Eternity\"{}",
-                        "attaching all cards in the {C:attention}GY{} to it as {C:joy_xyz}Xyz materials{}",
+                        "{C:attention}attaching{} all cards in the {C:attention}GY{} to it as {C:joy_xyz}Xyz materials{}",
                     },
                 },
                 joy_summon_conditions = {
@@ -161,7 +161,8 @@ return {
                     {
                         "Creates as many {C:joy_token}\"Generaider Tokens\"{}",
                         "as possible when {C:attention}Blind{} is selected",
-                        "{C:inactive}(\"Generaiders\" are treated as Negative){}",
+                        "{C:inactive}(Must have room, but \"Generaiders\"",
+                        "{C:inactive}are treated as Negative for this ability){}",
                     },
                     {
                         "Once per round, you can {C:attention}tribute #3#{}",

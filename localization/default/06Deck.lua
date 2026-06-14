@@ -304,7 +304,7 @@ return {
                     "Start with",
                     "{C:joy_spell,T:j_joy_xyzterritory}\"Xyz Territory\"{}",
                     " ",
-                    "Attach a {C:attention}material{}",
+                    "{C:attention}Attach{} a {C:attention}material{}",
                     "to each {C:joy_xyz}Xyz{}",
                     "when {C:attention}Blind{} is selected"
                 }

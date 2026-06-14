@@ -48,7 +48,7 @@ return {
                         "{C:attention}6{}: Destroy this card",
                     },
                     {
-                        "{C:green}#4# in #5#{} chance to attach {C:attention}#6#{} material to this card when {C:attention}Blind{} is selected"
+                        "{C:green}#4# in #5#{} chance to {C:attention}attach #6# material{} to this card when {C:attention}Blind{} is selected"
                     }
                 },
                 joy_summon_conditions = {
@@ -68,7 +68,7 @@ return {
                         "on {C:attention}Jokers{} permanently by a different random number from {C:attention}#2#{} to {C:attention}#3#{}",
                     },
                     {
-                        "{C:green}#4# in #5#{} chance to attach {C:attention}#6#{} material to this card when {C:attention}Blind{} is selected"
+                        "{C:green}#4# in #5#{} chance to {C:attention}attach #6# material{} to this card when {C:attention}Blind{} is selected"
                     }
                 },
                 joy_summon_conditions = {
@@ -118,10 +118,10 @@ return {
                         "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)",
                     },
                     {
-                        "Attaches a {C:attention}material{} when a {C:tarot}Tarot{} is {C:attention}tributed{}"
+                        "{C:attention}Attaches{} a {C:attention}material{} when a {C:tarot}Tarot{} is {C:attention}tributed{}"
                     },
                     {
-                        "Detaches a {C:attention}material{} at end of round"
+                        "{C:joy_xyz}Detaches{} a {C:attention}material{} at end of round"
                     }
                 },
                 joy_summon_conditions = {
@@ -166,7 +166,7 @@ return {
                     },
                     {
                         "If {C:attention}summoned{} using an {C:joy_normal}Illusion{},",
-                        "attaches a {C:attention}material{} when it returns from {C:attention}banishment{}"
+                        "{C:attention}attaches{} a {C:attention}material{} when it returns from {C:attention}banishment{}"
                     }
                 },
                 joy_summon_conditions = {

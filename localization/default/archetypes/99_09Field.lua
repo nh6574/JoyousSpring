@@ -37,7 +37,7 @@ return {
                 text = {
                     {
                         "Once per round, you can {C:attention}tribute #1#{} {C:attention}Joker{}",
-                        "to attach {C:attention}#2# material{} to each {C:joy_xyz}Xyz{}",
+                        "to {C:attention}attach #2# material{} to each {C:joy_xyz}Xyz{}",
                     },
                 }
             },

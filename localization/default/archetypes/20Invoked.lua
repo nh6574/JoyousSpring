@@ -241,10 +241,12 @@ return {
                 name = "{C:joy_spell}Magical Meltdown",
                 text = {
                     {
-                        "You can {C:attention}tribute #1#{} {C:joy_fusion}Fusions{} to create {C:attention}#2#{} {C:joy_effect}\"Aleister the Invoker\"",
+                        "You can {C:attention}tribute #1#{} {C:joy_fusion}Fusions{}",
+                        "to create {C:attention}#2#{} {C:joy_effect}\"Aleister the Invoker\"",
                     },
                     {
-                        "Gains {X:mult,C:white}X#3#{} Mult for each {C:joy_fusion}fusion{} summoned this run",
+                        "Gains {X:mult,C:white}X#3#{} Mult for each",
+                        "{C:joy_fusion}fusion{} summoned this run",
                         "{C:inactive}(Currently{} {X:mult,C:white}X#4#{} {C:inactive}Mult){}",
                     },
                     {

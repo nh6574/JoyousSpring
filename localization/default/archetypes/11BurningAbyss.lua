@@ -20,7 +20,7 @@ return {
                     {
                         "{C:mult}+#1#{} Mult",
                         "{C:mult}+#2#{} Mult for every {C:joy_normal}Fiend{} {C:attention}Joker{} in the {C:attention}GY{}",
-                        "{C:inactive}(Currently{} {C:mult}+#3#{} {C:inactive}Mult total){}",
+                        "{C:inactive}(Currently{} {C:mult}+#3#{} {C:inactive}Mult){}",
                     },
                     {
                         "Destroys itself if you own a non-{C:joy_normal}Fiend{}",

@@ -430,7 +430,7 @@ return {
                         "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
                     },
                     {
-                        "Attach {C:attention}#3# material{} to each {C:joy_xyz}Xyz{}",
+                        "{C:attention}Attach #3# material{} to each {C:joy_xyz}Xyz{}",
                         "when {C:attention}Boss Blind{} is selected"
                     },
                     {

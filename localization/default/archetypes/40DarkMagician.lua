@@ -577,7 +577,7 @@ return {
                         "{C:joy_normal}Normal Spellcasters{}"
                     },
                     {
-                        "Attaches a {C:attention}material{} when a",
+                        "{C:attention}Attaches{} a {C:attention}material{} when a",
                         "{C:tarot}Tarot{} is {C:attention}tributed{}"
                     }
                 },
@@ -599,7 +599,7 @@ return {
                         "{C:tarot}Tarot{} cards may appear multiple times"
                     },
                     {
-                        "Attaches a {C:attention}material{} when a",
+                        "{C:attention}Attaches{} a {C:attention}material{} when a",
                         "{C:joy_normal}Normal{} {C:attention}Joker{} is {C:attention}tributed{}"
                     }
                 },

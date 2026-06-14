@@ -5,7 +5,8 @@ return {
                 name = "{C:joy_effect}Dogmatika Ecclesia, the Virtuous",
                 text = {
                     {
-                        "Gains {X:mult,C:white}X#1#{} Mult for each {C:joy_spell}Extra Deck{} {C:attention}Joker{} sold",
+                        "Gains {X:mult,C:white}X#1#{} Mult for each",
+                        "{C:joy_spell}Extra Deck{} {C:attention}Joker{} sold",
                         "{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}",
                     },
                 },
