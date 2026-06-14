@@ -12,12 +12,16 @@ return {
 			joy_credits = {
 				name = " ",
 				text = {
-					"{C:joy_mod}Booster Art:{} IcyEthics",
+					"{C:joy_mod}Booster Art:{}",
+					"IcyEthics",
+					"{C:joy_mod}Mod Menu Icons:{}",
+					"lasagnafelidae",
 					" ",
 					"{C:joy_mod}Localization:{}",
 					"{C:attention}French:{} Keraloon",
 					"{C:attention}Simplified Chinese:{} Alophrine",
 					"{C:attention}Korean:{} voidu",
+					"{C:attention}Russian:{} amnesiaof",
 					" ",
 					"{C:joy_mod}Archetype Concepts:{}",
 					"{C:joy_link}@Ignister{}, {C:joy_xyz}Purrely{}: gyro/rina",
