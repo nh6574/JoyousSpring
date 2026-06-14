@@ -20,12 +20,12 @@ Check out the [Discord](https://discord.gg/Ac5FKpQCRV) for troubleshooting and c
 
 ## Screenshots
 
-<img src="screenshots/1.png" alt="Example 1" width="500">
-<img src="screenshots/2.png" alt="Example 2" width="500">
-<img src="screenshots/3.png" alt="Example 3" width="500">
-<img src="screenshots/4.png" alt="Example 4" width="500">
-<img src="screenshots/5.png" alt="Example 5" width="500">
-<img src="screenshots/6.png" alt="Example 6" width="500">
+<img src="screenshots/new1.png" alt="Example 1" width="500">
+<img src="screenshots/new2.png" alt="Example 2" width="500">
+<img src="screenshots/new3.png" alt="Example 3" width="500">
+<img src="screenshots/new4.png" alt="Example 4" width="500">
+<img src="screenshots/new5.png" alt="Example 5" width="500">
+<img src="screenshots/new6.png" alt="Example 6" width="500">
 
 ## Currently implemented
 
@@ -37,7 +37,7 @@ Check out the [Discord](https://discord.gg/Ac5FKpQCRV) for troubleshooting and c
 |<img src="https://static.wikitide.net/balatromodswiki/thumb/9/9c/Paleozoic_Dinomischus_%28JoyousSpring%29.png/100px-Paleozoic_Dinomischus_%28JoyousSpring%29.png"><br>[Paleozoic](https://balatromods.miraheze.org/wiki/JoyousSpring/Jokers/Paleozoic)|<img src="https://static.wikitide.net/balatromodswiki/thumb/2/26/Aleister_the_Invoker_%28JoyousSpring%29.png/100px-Aleister_the_Invoker_%28JoyousSpring%29.png"><br>[Invoked](https://balatromods.miraheze.org/wiki/JoyousSpring/Jokers/Invoked)|<img src="https://static.wikitide.net/balatromodswiki/thumb/c/cd/Danger%21_Tsuchinoko_%28JoyousSpring%29.png/100px-Danger%21_Tsuchinoko_%28JoyousSpring%29.png"><br>[Danger!](https://balatromods.miraheze.org/wiki/JoyousSpring/Jokers/Danger!)|<img src="https://static.wikitide.net/balatromodswiki/6/68/Adamancipator_Researcher_%28JoyousSpring%29.png"><br>[Adamancipator](https://balatromods.miraheze.org/wiki/JoyousSpring/Jokers/Adamancipator)|<img src="https://static.wikitide.net/balatromodswiki/0/09/Virtual_World_Mai-Hime_-_Lulu_%28JoyousSpring%29.png"><br>[Virtual World](https://balatromods.miraheze.org/wiki/JoyousSpring/Jokers/Virtual_World)|<img src="https://static.wikitide.net/balatromodswiki/e/e0/Flower_Cardian_Cherry_Blossom_with_Curtain_%28JoyousSpring%29.png"><br>[Flower Cardian](https://balatromods.miraheze.org/wiki/JoyousSpring/Jokers/Flower_Cardian)|
 |<img src="https://static.wikitide.net/balatromodswiki/f/fe/Fortune_Lady_Every_%28JoyousSpring%29.png"><br>[Fortune Lady](https://balatromods.miraheze.org/wiki/JoyousSpring/Jokers/Fortune_Lady)|||||<img src="https://static.wikitide.net/balatromodswiki/thumb/8/8e/Tour_Guide_From_the_Underworld_%28JoyousSpring%29.png/100px-Tour_Guide_From_the_Underworld_%28JoyousSpring%29.png"><br>[Free Agents](https://balatromods.miraheze.org/wiki/JoyousSpring/Jokers/Free_Agents)|
 
-<img src="screenshots/additions.png" alt="Additions">
+<img src="screenshots/newadditions.png" alt="Additions">
 <img src="screenshots/credits.png" alt="Credits">
 
 ## Recommended mods
