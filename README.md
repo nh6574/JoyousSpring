@@ -6,7 +6,8 @@ Adds modern Yu-Gi-Oh! cards and mechanics.
 
 1. Install [Steamodded](https://github.com/Steamopollys/Steamodded) [(version >1.0.0)](https://github.com/Steamodded/smods/wiki)
 2. Download the [latest release](https://github.com/nh6574/JoyousSpring/releases)
-3. Extract the zip file into its own folder inside your Balatro mods folder (%appdata%\Balatro\Mods)
+3. **Delete** your previous instalation if any
+4. Drag the zip file (or unzip it in its own folder) inside your Balatro mods folder (%appdata%\Balatro\Mods)
 
 Make sure to check the Glossary and the Config in Main Menu > Mods > JoyousSpring
 
@@ -25,8 +26,6 @@ Check out the [Discord](https://discord.gg/Ac5FKpQCRV) for troubleshooting and c
 <img src="screenshots/4.png" alt="Example 4" width="500">
 <img src="screenshots/5.png" alt="Example 5" width="500">
 <img src="screenshots/6.png" alt="Example 6" width="500">
-<img src="screenshots/7.png" alt="Example 7" width="500">
-<img src="screenshots/8.png" alt="Example 8" width="500">
 
 ## Currently implemented
 
@@ -39,28 +38,36 @@ Check out the [Discord](https://discord.gg/Ac5FKpQCRV) for troubleshooting and c
 |<img src="https://static.wikitide.net/balatromodswiki/f/fe/Fortune_Lady_Every_%28JoyousSpring%29.png"><br>[Fortune Lady](https://balatromods.miraheze.org/wiki/JoyousSpring/Jokers/Fortune_Lady)|||||<img src="https://static.wikitide.net/balatromodswiki/thumb/8/8e/Tour_Guide_From_the_Underworld_%28JoyousSpring%29.png/100px-Tour_Guide_From_the_Underworld_%28JoyousSpring%29.png"><br>[Free Agents](https://balatromods.miraheze.org/wiki/JoyousSpring/Jokers/Free_Agents)|
 
 <img src="screenshots/additions.png" alt="Additions">
+<img src="screenshots/credits.png" alt="Credits">
 
-## Recommended mods:
-### Mods with native support:
-* [JokerDisplay](https://github.com/nh6574/JokerDisplay) - Adds information under Jokers so you don't have to hover them. This mod adds native support. (Made by me too!)
-* [TheFamily](https://github.com/SleepyG11/TheFamilyBalatro) - Adds extra tabs to the side to save space on the screen. This mod adds native support (might add exclusive features in the future so it's recommended)
-* [CardSleeves](https://github.com/larswijn/CardSleeves) - Adds sleeves to decks for extra effects. This mod adds some.
-* [Handy](https://github.com/SleepyG11/HandyBalatro) - Adds QoL controls to the game. This mods supports some features natively.
-* [Unjankify](https://github.com/blazingulag/Unjankify) - Fixes some issues when playing with multiple mods like cardarea overlap. Includes JoyousSpring support.
+## Recommended mods
 
-### Other mods:
-* [Galdur](https://github.com/Eremel/Galdur) - Nicer deck selection (Highly Recommended)
-* [Glue](https://github.com/icyethics/Glue-For-Modpacks) - Utility to change shop slots, joker and consumable slots and rates
-* [Cartomancer](https://github.com/stupxd/Cartomancer) - Includes functionalities to help in runs with lots of cards either in the Joker area or Deck, alongside other QoL features
-* [Overflow](https://github.com/lord-ruby/Overflow) - Stacks consumables
-* [Banner](https://github.com/SylviBlossom/Banner) - Ban objects from appearing in a run
-* [Better Tags](https://github.com/WaffleDevs/BetterTags) - Stacks Tags
-* [DebugPlus](https://github.com/WilsontheWolf/DebugPlus) - Debug/Cheating tools. Useful even if you're not a developer to bypass crashes or give yourself some items to test
+### Mods with native support
 
-### Content mods with crossmod support:
-* [Paya's Terrible Additions](https://github.com/hayaunderscore/PayasTerribleAdditions) - "Joyous Spring" Legendary Joker that acts like Ash Blossom when JoyousSpring is installed
-* [AutumnMoodMechanics](https://github.com/AutumnMood924/AutumnMoodMechanics) - Adds Yu-Gi-Oh! typings to vanilla cards and many mods.
-* [TheAutumnCircus](https://github.com/AutumnMood924/TheAutumnCircus) - Adds JoyousSpring types natively plus other crossmod content between different mods using JoyousSpring mechanics
+- [JokerDisplay](https://github.com/nh6574/JokerDisplay) - Adds information under Jokers so you don't have to hover them. This mod adds native support. (Made by me too!)
+
+- [TheFamily](https://github.com/SleepyG11/TheFamilyBalatro) - Adds extra tabs to the side to save space on the screen. This mod adds native support (might add exclusive features in the future so it's recommended)
+- [CardSleeves](https://github.com/larswijn/CardSleeves) - Adds sleeves to decks for extra effects. This mod adds some.
+- [Handy](https://github.com/SleepyG11/HandyBalatro) - Adds QoL controls to the game. This mods supports some features natively.
+- [Unjankify](https://github.com/blazingulag/Unjankify) - Fixes some issues when playing with multiple mods like cardarea overlap. Includes JoyousSpring support.
+
+### Other mods
+
+- [Galdur](https://github.com/Eremel/Galdur) - Nicer deck selection (Highly Recommended)
+
+- [Glue](https://github.com/icyethics/Glue-For-Modpacks) - Utility to change shop slots, joker and consumable slots and rates
+- [Cartomancer](https://github.com/stupxd/Cartomancer) - Includes functionalities to help in runs with lots of cards either in the Joker area or Deck, alongside other QoL features
+- [Overflow](https://github.com/lord-ruby/Overflow) - Stacks consumables
+- [Banner](https://github.com/SylviBlossom/Banner) - Ban objects from appearing in a run
+- [Better Tags](https://github.com/WaffleDevs/BetterTags) - Stacks Tags
+- [DebugPlus](https://github.com/WilsontheWolf/DebugPlus) - Debug/Cheating tools. Useful even if you're not a developer to bypass crashes or give yourself some items to test
+
+### Content mods with crossmod support
+
+- [Paya's Terrible Additions](https://github.com/hayaunderscore/PayasTerribleAdditions) - "Joyous Spring" Legendary Joker that acts like Ash Blossom when JoyousSpring is installed
+
+- [AutumnMoodMechanics](https://github.com/AutumnMood924/AutumnMoodMechanics) - Adds Yu-Gi-Oh! typings to vanilla cards and many mods.
+- [TheAutumnCircus](https://github.com/AutumnMood924/TheAutumnCircus) - Adds JoyousSpring types natively plus other crossmod content between different mods using JoyousSpring mechanics
 
 ## Contributing
 
@@ -74,4 +81,4 @@ If you have any issues feel free to contact me on [Bluesky](https://bsky.app/pro
 
 And here's my [ko-fi link](https://ko-fi.com/nh6574) if you feel especially grateful.
 
-Also check out my Quality of Life mods [JokerDisplay](https://github.com/nh6574/JokerDisplay) and [PlayLog](https://github.com/nh6574/PlayLog)! 
+Also check out my Quality of Life mods [JokerDisplay](https://github.com/nh6574/JokerDisplay) and [PlayLog](https://github.com/nh6574/PlayLog)!
