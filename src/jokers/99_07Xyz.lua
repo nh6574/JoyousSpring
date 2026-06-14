@@ -441,3 +441,241 @@ JoyousSpring.Joker({
         }
     end
 })
+
+
+-- Slacker Magician
+JoyousSpring.Joker({
+    key = "slacker",
+    atlas = "Misc03",
+    pos = { x = 4, y = 5 },
+    rarity = 1,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 12,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.detach } }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "LIGHT",
+                monster_type = "Spellcaster",
+                summon_type = "XYZ",
+                summon_conditions = {
+                    {
+                        type = "XYZ",
+                        materials = {
+                            { rarity = 1, exclude_tokens = true, exclude_summon_types = { "XYZ", "LINK" } },
+                            { rarity = 1, exclude_tokens = true, exclude_summon_types = { "XYZ", "LINK" } },
+                        },
+                    },
+                }
+            },
+            detach = 2
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joy_detach and context.joy_detaching_card == card then
+                JoyousSpring.ease_detach(card)
+                JoyousSpring.disable_all_active_blinds()
+                G.GAME.joy_bankrupt = true
+            end
+        end
+    end,
+    joy_can_detach = function(self, card)
+        return JoyousSpring.are_blinds_active()
+    end,
+})
+
+-- Downerd Magician
+JoyousSpring.Joker({
+    key = "downerd",
+    atlas = "Misc03",
+    pos = { x = 2, y = 5 },
+    rarity = 2,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 12,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * card.ability.extra.joyous_spring.xyz_materials } }
+    end,
+    joy_glossary = { 'tribute' },
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Spellcaster",
+                summon_type = "XYZ",
+                summon_conditions = {
+                    {
+                        type = "XYZ",
+                        materials = {
+                            { monster_type = "Spellcaster", exclude_tokens = true, exclude_summon_types = { "XYZ", "LINK" } },
+                            { monster_type = "Spellcaster", exclude_tokens = true, exclude_summon_types = { "XYZ", "LINK" } },
+                        },
+                    },
+                    {
+                        type = "XYZ",
+                        materials = {
+                            { summon_type = "XYZ", rarity = 1 }
+                        },
+                        transfer_materials = true
+                    },
+                }
+            },
+            xmult = 0.2
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    xmult = 1 + card.ability.extra.xmult * card.ability.extra.joyous_spring.xyz_materials
+                }
+            end
+            if context.joy_tributed and context.joy_card.ability.set == "Tarot" then
+                card.ability.extra.joyous_spring.xyz_materials = card.ability.extra.joyous_spring.xyz_materials + 1
+                return {
+                    message = localize("k_joy_attach")
+                }
+            end
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                if card.ability.extra.joyous_spring.xyz_materials > 0 then
+                    JoyousSpring.ease_detach(card, 1)
+                end
+            end
+        end
+    end,
+})
+
+-- Alchemic Magician
+JoyousSpring.Joker({
+    key = "alchemic",
+    atlas = "Misc03",
+    pos = { x = 1, y = 5 },
+    rarity = 2,
+    blueprint_compat = false,
+    eternal_compat = false,
+    cost = 12,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * JoyousSpring.count_set_tributed("Tarot") } }
+    end,
+    joy_glossary = { 'tribute', "enter" },
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Spellcaster",
+                summon_type = "XYZ",
+                summon_conditions = {
+                    {
+                        type = "XYZ",
+                        materials = {
+                            { monster_type = "Spellcaster", exclude_tokens = true, exclude_summon_types = { "XYZ", "LINK" } },
+                            { monster_type = "Spellcaster", exclude_tokens = true, exclude_summon_types = { "XYZ", "LINK" } },
+                            { monster_type = "Spellcaster", exclude_tokens = true, exclude_summon_types = { "XYZ", "LINK" } },
+                        },
+                    },
+                }
+            },
+            xmult = 0.3
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    xmult = 1 + card.ability.extra.xmult * JoyousSpring.count_set_tributed("Tarot")
+                }
+            end
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                if card.ability.extra.joyous_spring.xyz_materials > 0 then
+                    JoyousSpring.ease_detach(card, 1)
+                end
+                if card.ability.extra.joyous_spring.xyz_materials <= 0 then
+                    SMODS.destroy_cards(card)
+                    local tarots = JoyousSpring.get_set_tributed("Tarot")
+
+                    for _, key in ipairs(tarots) do
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                SMODS.add_card({
+                                    key = key,
+                                })
+                                return true
+                            end
+                        }))
+                    end
+                end
+            end
+        end
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        G.GAME.joy_tarot_showman = true
+    end
+})
+
+-- Heretical Phobos Covos
+JoyousSpring.Joker({
+    key = "phoboscobos",
+    atlas = "Misc03",
+    pos = { x = 3, y = 5 },
+    rarity = 1,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 10,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.detach } }
+    end,
+    joy_glossary = { 'attach', 'material', 'summon' },
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Illusion",
+                summon_type = "XYZ",
+                summon_conditions = {
+                    {
+                        type = "XYZ",
+                        materials = {
+                            { rarity = 1, exclude_tokens = true, exclude_summon_types = { "XYZ", "LINK" } },
+                            { rarity = 1, exclude_tokens = true, exclude_summon_types = { "XYZ", "LINK" } },
+                        },
+                    },
+                }
+            },
+            detach = 2
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joy_detach and context.joy_detaching_card == card then
+                G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls +
+                    JoyousSpring.count_materials_owned({ { monster_type = "Illusion" } })
+                calculate_reroll_cost(true)
+            end
+            if context.joy_returned and card.ability.extra.active and context.joy_returned_card == card then
+                card.ability.extra.joyous_spring.xyz_materials = card.ability.extra.joyous_spring.xyz_materials + 1
+                return {
+                    message = localize("k_joy_attach")
+                }
+            end
+        end
+        JoyousSpring.calculate_illusion_banish(card, context)
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        if not from_debuff then
+            local materials = JoyousSpring.get_materials(card)
+            for _, material in ipairs(materials) do
+                if JoyousSpring.is_material_center(material, { monster_type = "Illusion" }) then
+                    card.ability.extra.active = true
+                    break
+                end
+            end
+        end
+    end,
+    joy_can_detach = function(self, card)
+        return true
+    end,
+})

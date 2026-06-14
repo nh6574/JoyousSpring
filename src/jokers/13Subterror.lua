@@ -1057,8 +1057,11 @@ JoyousSpring.Joker({
             end
         end
         if context.end_of_round and context.game_over == false and context.main_eval then
-            card.ability.extra.activated = false
+            card.ability.extra.activated = nil
         end
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        card.ability.extra.activated = nil
     end,
     joy_can_activate = function(card)
         if card.ability.extra.activated then

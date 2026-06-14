@@ -106,7 +106,7 @@ return {
                         "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
                     },
                     {
-                        "Gains {X:chips,C:white}X#3#{} Chips for each",
+                        "Gives an extra {X:chips,C:white}X#3#{} Chips for each",
                         "{C:joy_effect}\"Lo, the Prayers of the Voiceless Voice\"{}",
                         "in the {C:attention}GY{}",
                         "{C:inactive}(Currently {X:chips,C:white}X#4#{}{C:inactive} Chips)"

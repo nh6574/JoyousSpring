@@ -1,5 +1,12 @@
 --- MOD CONFIG
 
+SMODS.Atlas {
+    key = "icons",
+    path = "icons.png",
+    px = 34,
+    py = 34
+}
+
 SMODS.current_mod.description_loc_vars = function()
     return { background_colour = G.C.CLEAR, text_colour = G.C.WHITE, scale = 1.2 }
 end
@@ -61,35 +68,91 @@ SMODS.current_mod.custom_ui = function(modNodes)
         }
     }
 
+    local ui_icon_button = function(button, colour, pos)
+        return {
+            n = G.UIT.R,
+            config = { align = 'cm' },
+            nodes = {
+                {
+                    n = G.UIT.C,
+                    config = {
+                        align = "cm",
+                        r = 0.1,
+                        hover = true,
+                        minh = 0.8,
+                        shadow = true,
+                        colour = colour,
+                        minw = 0.8,
+                        button = button,
+                    },
+                    nodes = {
+                        {
+                            n = G.UIT.R,
+                            config = { align = "cm" },
+                            nodes = {
+                                {
+                                    n = G.UIT.O,
+                                    config = {
+                                        object = SMODS.create_sprite(0, 0, 0.8, 0.8, "joy_icons", pos)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+            }
+        }
+    end
+
     local discordgit = {
         {
             n = G.UIT.C,
             config = {
-                padding = 0.2,
+                padding = 0.07,
                 align = "cm",
             },
             nodes = {
-                UIBox_button({
-                    colour = G.C.JOY.LINK,
-                    minw = 3.85,
-                    button = "joy_discord",
-                    label = { localize('k_joy_discord') }
-                })
+                ui_icon_button("joy_discord", G.C.JOY.LINK, { x = 0, y = 1 })
             }
         },
         {
             n = G.UIT.C,
             config = {
-                padding = 0.2,
+                padding = 0.07,
                 align = "cm",
             },
             nodes = {
-                UIBox_button({
-                    colour = G.C.JOY.TRAP,
-                    minw = 3.85,
-                    button = "joy_github",
-                    label = { localize('k_joy_github') }
-                })
+                ui_icon_button("joy_github", HEX("1f1f1f"), { x = 1, y = 0 })
+            }
+        },
+        {
+            n = G.UIT.C,
+            config = {
+                padding = 0.07,
+                align = "cm",
+            },
+            nodes = {
+                ui_icon_button("joy_wiki", HEX("FFFFFF"), { x = 2, y = 0 })
+            }
+        },
+        {
+            n = G.UIT.C,
+            config = {
+                padding = 0.07,
+                align = "cm",
+            },
+            nodes = {
+                ui_icon_button("joy_bluesky", HEX("0886fe"), { x = 1, y = 1 })
+            }
+        },
+        {
+            n = G.UIT.C,
+            config = {
+                padding = 0.07,
+                align = "cm",
+            },
+            nodes = {
+                ui_icon_button("joy_kofi", HEX("60b7e0"), { x = 1, y = 2 })
             }
         },
     }
@@ -136,7 +199,7 @@ SMODS.current_mod.custom_ui = function(modNodes)
         nodes = {
             {
                 n = G.UIT.R,
-                config = { align = "cm", padding = 0.07, no_fill = true },
+                config = { align = "cm", padding = 0.01, no_fill = true },
                 nodes = discordgit
             },
             {
@@ -181,6 +244,18 @@ end
 
 function G.FUNCS.joy_github(e)
     love.system.openURL("https://github.com/nh6574/JoyousSpring")
+end
+
+function G.FUNCS.joy_wiki(e)
+    love.system.openURL("https://balatromods.miraheze.org/wiki/JoyousSpring")
+end
+
+function G.FUNCS.joy_bluesky(e)
+    love.system.openURL("https://bsky.app/profile/nh6574.com")
+end
+
+function G.FUNCS.joy_kofi(e)
+    love.system.openURL("https://ko-fi.com/nh6574")
 end
 
 function G.FUNCS.joy_jokerdisplay(e)
@@ -416,6 +491,7 @@ JoyousSpring.alt_arts = {
     "j_joy_etwin_kisikil",
     "j_joy_etwin_lilla",
     "j_joy_dogma_ecclesia",
+    "j_joy_dogma_fleur",
     "j_joy_yokai_ash",
     "j_joy_yokai_belle",
     "j_joy_lab_lady",
@@ -665,7 +741,7 @@ JoyousSpring.get_archetype_pool = function(pool)
         local found = false
         for archetype_index, archetype in ipairs(JoyousSpring.collection_pool) do
             for _, key in ipairs(archetype.keys) do
-                if center.original_key ~= "token" and ((center.original_key:sub(1, #key + 1) == key .. "_") or (key == "misc" and not found)) then
+                if center.original_key ~= "token" and ((center.original_key:sub(1, #key + 1) == key .. "_") or (key == "misc" and (center.original_key:sub(1, 7) ~= "normal_") and not found)) then
                     table.insert(archetype_pool[archetype_index], center)
                     found = true
                     break
@@ -1047,7 +1123,7 @@ JoyousSpring.card_collection_UIBox = function(_pool, rows, args)
                     blurb.config.object:remove()
                     blurb.config.object = create_archetype_loc_ui(next_blurb, blurb)
                     blurb.config.joy_blurb = next_blurb
-                    blurb.UIBox:recalculate()
+                    --blurb.UIBox:recalculate()
                 end
             end
         end

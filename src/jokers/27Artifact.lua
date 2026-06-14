@@ -120,7 +120,7 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 7,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * (G.GAME.joy_cards_destroyed or 0) + (G.GAME.joy_joker_cards_destroyed or 0), card.ability.extra.creates } }
+        return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * ((G.GAME.joy_cards_destroyed or 0) + (G.GAME.joy_joker_cards_destroyed or 0)), card.ability.extra.creates } }
     end,
     joy_desc_cards = {
         { "opp_joy_artifact_aegis",                                  name = "k_joy_creates" },
@@ -466,7 +466,7 @@ JoyousSpring.OpponentCard {
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) then
-            if context.setting_blind then
+            if context.end_of_round and context.game_over == false and context.main_eval then
                 JoyousSpring.create_pseudorandom({ { is_field_spell = true } }, card.config.center.key, true)
             end
         end

@@ -39,7 +39,7 @@ JoyousSpring.calculate_context = function(context)
             JoyousSpring.update_blind_effects_area()
         end
     end
-    if context.end_of_round and context.game_over == false and not context.individual and not context.repetition then
+    if context.joy_post_round_eval then
         for _, joker in ipairs(JoyousSpring.banish_boss_selected_area.cards) do
             joker:calculate_perishable()
         end
@@ -175,6 +175,19 @@ SMODS.current_mod.calculate = function(self, context)
                 SMODS.add_booster_to_shop(table.remove(G.GAME.joy_extra_packs, 1))
             end
         end
+
+        if G.GAME.joy_free_boosters then
+            for _, booster in ipairs(G.shop_booster.cards) do
+                booster.ability.couponed = true
+                booster:set_cost()
+            end
+            G.GAME.joy_free_boosters = nil
+        end
+
+        if G.GAME.joy_bankrupt then
+            G.GAME.joy_bankrupt = nil
+            ease_dollars(-G.GAME.dollars)
+        end
     end
 
     -- Global probability hit counter
@@ -274,6 +287,7 @@ function SMODS.current_mod.reset_game_globals(run_start)
     G.GAME.current_round.joy_summoned_list = {}
     G.GAME.joy_purr_memory_apply = false
     G.GAME.joy_purr_friend_apply = false
+    G.GAME.joy_verre = false
 end
 
 local card_eval_status_text_ref = card_eval_status_text
@@ -312,12 +326,29 @@ JoyousSpring.count_as_tributed = function(card, for_ritual)
         G.GAME.current_round.joy_tributed_cards[card.config.center.key].for_ritual =
             G.GAME.current_round.joy_tributed_cards[card.config.center.key].for_ritual + 1
     end
-    if JoyousSpring.is_attribute(card, "LIGHT") then
-        G.GAME.joy_tributed_cards_LIGHT = (G.GAME.joy_tributed_cards_LIGHT or 0) + 1
-        G.GAME.current_round.joy_tributed_cards_LIGHT = (G.GAME.current_round.joy_tributed_cards_LIGHT or 0) + 1
-    end
     if card.ability.eternal then
         G.GAME.joy_tributed_cards_eternal = (G.GAME.joy_tributed_cards_eternal or 0) + 1
+    end
+
+    -- These don't use get_set_tributed because they may be trated as something else while owned
+    for _, key in ipairs(JoyousSpring.types_list) do
+        if JoyousSpring.is_monster_type(card, key) then
+            G.GAME["joy_tributed_cards_" .. key] = (G.GAME["joy_tributed_cards_" .. key] or 0) + 1
+            G.GAME.current_round["joy_tributed_cards_" .. key] =
+                (G.GAME.current_round["joy_tributed_cards_" .. key] or 0) + 1
+        end
+    end
+    for _, key in ipairs(JoyousSpring.attributes_list) do
+        if JoyousSpring.is_attribute(card, key) then
+            G.GAME["joy_tributed_cards_" .. key] = (G.GAME["joy_tributed_cards_" .. key] or 0) + 1
+            G.GAME.current_round["joy_tributed_cards_" .. key] =
+                (G.GAME.current_round["joy_tributed_cards_" .. key] or 0) + 1
+        end
+    end
+    if JoyousSpring.is_normal_monster(card) then
+        G.GAME.joy_tributed_cards_normal = (G.GAME.joy_tributed_cards_normal or 0) + 1
+        G.GAME.current_round.joy_tributed_cards_normal =
+            (G.GAME.current_round.joy_tributed_cards_normal or 0) + 1
     end
 end
 
@@ -1030,6 +1061,15 @@ function Card:selectable_from_pack(pack)
         return ret.area, ret.can_use or can_use
     end
     return area, can_use
+end
+
+local smods_showman_ref = SMODS.showman
+function SMODS.showman(card_key, ...)
+    if G.GAME.joy_tarot_showman and (G.P_CENTERS[card_key] or {}).set == "Tarot" then
+        return true
+    end
+
+    return smods_showman_ref(card_key, ...)
 end
 
 --#endregion

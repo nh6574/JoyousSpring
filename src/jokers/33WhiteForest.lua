@@ -408,7 +408,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "WhiteForest" } }, }, name = "k_joy_archetype" },
     },
-    joy_glossary = { "tribute", "flip", "illusion_joker", "banish", "extradeck", "trap", "fieldspell", "material", "synchro" },
+    joy_glossary = { "tribute", "flip", "extradeck", "trap", "fieldspell", "material", "synchro" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {
@@ -583,7 +583,7 @@ JoyousSpring.Joker({
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "WhiteForest" } }, }, name = "k_joy_archetype" },
     },
-    joy_glossary = { "tribute", "banish", "illusion_joker", "trap", "fieldspell" },
+    joy_glossary = { "tribute", "trap", "fieldspell" },
     config = {
         extra = {
             joyous_spring = JoyousSpring.init_joy_table {

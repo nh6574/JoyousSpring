@@ -40,7 +40,7 @@ return {
                 name = "{C:joy_effect}Tour Guide From the Underworld",
                 text = {
                     {
-                        "Creates {C:attention}#1#{} {C:dark_edition}Negative{} {C:joy_normal}Main Deck{}",
+                        "Creates {C:attention}#1#{} {C:dark_edition}Negative{} {C:joy_normal}Main Deck{} {C:joy_effect}Effect",
                         "{C:blue}Common{} or {C:green}Uncommon{} {C:joy_normal}Fiend{} when {C:attention}entering play{}",
                     },
                 }
@@ -250,7 +250,7 @@ return {
                 name = "{C:joy_effect}Beautunaful Princess",
                 text = {
                     {
-                        "Creates {C:attention}#1#{} {C:joy_normal}Fish{} when {C:attention}entering play{} and",
+                        "Creates {C:attention}#1#{} {C:joy_normal}Main Deck {C:joy_effect}Effect {C:joy_normal}Fish{} when {C:attention}entering play{} and",
                         "when it returns from {C:attention}banishment{}",
                         "{C:inactive}(Must have room)",
                     },
@@ -381,7 +381,7 @@ return {
                     },
                     {
                         "Once per ante, you can {C:attention}tribute #3#{} {C:joy_normal}Rock{} {C:attention}Joker{}",
-                        "to create {C:attention}#4#{} {C:joy_normal}Main Deck Rock{} {C:attention}Jokers{}",
+                        "to create {C:attention}#4#{} {C:joy_normal}Main Deck {C:joy_effect}Effect {C:joy_normal}Rock{} {C:attention}Jokers{}",
                         "{C:inactive}(Must have room)"
                     },
                 }
@@ -401,7 +401,7 @@ return {
                         "If this card is used as {C:attention}material{} when there are",
                         "{C:attention}#5#{} or more {C:joy_normal}Rock{} {C:attention}Jokers{} in the {C:attention}GY{},",
                         "creates {C:attention}#6#{} {C:dark_edition}Negative{} {C:blue}Common{} or {C:green}Uncommon{} {C:joy_normal}Main Deck{}",
-                        "{C:joy_normal}Rock{} {C:attention}Jokers{} but remove all {C:joy_normal}Rock{} {C:attention}Jokers{} from the {C:attention}GY{}"
+                        "{C:joy_effect}Effect {C:joy_normal}Rock{} {C:attention}Jokers{} but remove all {C:joy_normal}Rock{} {C:attention}Jokers{} from the {C:attention}GY{}"
                     },
                 }
             },
@@ -430,7 +430,7 @@ return {
                         "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)"
                     },
                     {
-                        "Attach {C:attention}#3# material{} to each {C:joy_xyz}Xyz{}",
+                        "{C:attention}Attach #3# material{} to each {C:joy_xyz}Xyz{}",
                         "when {C:attention}Boss Blind{} is selected"
                     },
                     {
@@ -554,6 +554,233 @@ return {
                         "Free and doesn't need room",
                         "when obtained from the shop",
                         "if you own a {C:joy_normal}Cyberse{}"
+                    }
+                }
+            },
+            j_joy_maxxc = {
+                name = "{C:joy_effect}Maxx \"C\"",
+                text = {
+                    {
+                        "Gains {X:mult,C:white}X#1#{} Mult",
+                        "for each card {C:attention}summoned{}",
+                        "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
+                    }
+                }
+            },
+            j_joy_hades = {
+                name = "{C:joy_effect}Dark Ruler Ha Des",
+                text = {
+                    {
+                        "{C:joy_trap}Opponent{} cards are debuffed"
+                    },
+                    {
+                        "{C:attention}Jokers{} can't be {C:attention}revived{}"
+                    }
+                }
+            },
+            j_joy_dimensionshifter = {
+                name = "{C:joy_effect}Dimension Shifter",
+                text = {
+                    {
+                        "Gains {X:mult,C:white}X#1#{} Mult for each card",
+                        "{C:attention}banished{} this round",
+                        "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
+                    }
+                }
+            },
+            j_joy_droll = {
+                name = "{C:joy_effect}Droll & Lock Bird",
+                text = {
+                    {
+                        "Money spent on a purchase",
+                        "is {C:green}refunded{} once each shop"
+                    },
+                    {
+                        "{C:attention}+1{} card shop slots"
+                    }
+                }
+            },
+            j_joy_kurikara = {
+                name = "{C:joy_effect}Kurikara Divincarnate",
+                text = {
+                    {
+                        "Gains {X:mult,C:white}X#1#{} Mult for each {C:attention}Joker{}",
+                        "{C:attention}tributed{} this round",
+                        "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
+                    },
+                    {
+                        "{C:attention}Revives 1 Joker{} with the same name",
+                        "as one {C:attention}tributed{} this round at end of round"
+                    }
+                }
+            },
+            j_joy_nibiru = {
+                name = "{C:joy_effect}Nibiru, the Primal Being",
+                text = {
+                    {
+                        "Each {C:joy_normal}Normal{} {C:attention}Joker{} gives {X:mult,C:white}X#1#{}"
+                    },
+                    {
+                        "Creates a {C:dark_edition}Negative{} {C:joy_token}\"Primal Being Token\"{}",
+                        "when an {C:joy_spell}Extra Deck{} {C:attention}Joker{} is {C:attention}tributed{}"
+                    },
+                }
+            },
+            j_joy_token_nibiru = {
+                name = "{C:joy_token}Primal Being Token",
+                text = {
+                    {
+                        "This card can be used as any {C:joy_token}Token{}",
+                    },
+                }
+            },
+            j_joy_theia = {
+                name = "{C:joy_effect}Theia, the Primal Being",
+                text = {
+                    {
+                        "Once per round, you can {C:attention}tribute{}",
+                        "a {C:red}Rare{} {C:attention}Joker{} to",
+                        "create a different {C:red}Rare{} {C:attention}Joker{}"
+                    }
+                }
+            },
+            j_joy_parasiteparacide = {
+                name = "{C:joy_effect}Parasite Paracide",
+                text = {
+                    {
+                        "{C:joy_trap}Opponent{} cards give",
+                        "{X:mult,C:white}X#1#{} Mult for each {C:joy_normal}Insect{}"
+                    }
+                }
+            },
+            j_joy_parasiteparanoid = {
+                name = "{C:joy_effect}Parasite Paranoid",
+                text = {
+                    {
+                        "All {C:attention}Jokers{} are",
+                        "treated as {C:joy_normal}Insects{}",
+                    }
+                }
+            },
+            j_joy_parasiteparanoid_alt = {
+                name = "{C:joy_effect}Parasite Paranoid",
+                text = {
+                    {
+                        "All {C:joy_normal}Insects{}",
+                        "give {X:mult,C:white}X#1#{} Mult"
+                    }
+                }
+            },
+            j_joy_helios = {
+                name = "{C:joy_effect}Helios - The Primordial Sun",
+                text = {
+                    {
+                        "{C:chips}+#1#{} Chips",
+                        "{C:chips}-#2#{} Chips for each card",
+                        "in the {C:attention}GY{} {C:inactive}(min. 0){}",
+                        "{C:inactive}(Currently {C:chips}+#3#{}{C:inactive} Chips)"
+                    }
+                }
+            },
+            j_joy_heliosduo = {
+                name = "{C:joy_effect}Helios Duo Megistus",
+                text = {
+                    {
+                        "{C:mult}+#1#{} Mult",
+                        "{C:mult}-#2#{} Mult for each card",
+                        "in the {C:attention}GY{} {C:inactive}(min. 0){}",
+                        "{C:inactive}(Currently {C:mult}+#3#{}{C:inactive} Mult)"
+                    }
+                }
+            },
+            j_joy_heliostrice = {
+                name = "{C:joy_effect}Helios Trice Megistus",
+                text = {
+                    {
+                        "{X:mult,C:white}X#1#{} Mult",
+                        "{X:mult,C:white}-X#2#{} Mult for each card",
+                        "in the {C:attention}GY{} {C:inactive}(min. 1){}",
+                        "{C:inactive}(Currently {X:mult,C:white}X#3#{}{C:inactive} Mult)"
+                    }
+                }
+            },
+            j_joy_magicalundertaker = {
+                name = "{C:joy_effect}Magical Undertaker",
+                text = {
+                    {
+                        "{C:joy_effect}FLIP{}: {C:attention}Revives 1{} {C:joy_normal}Spellcaster{}",
+                        "{C:inactive}(Doesn't need room)"
+                    },
+                    {
+                        "Gives {C:money}+$#1#{} when {C:attention}flipped{} face-down"
+                    }
+                }
+            },
+            j_joy_milleniummoon = {
+                name = "{C:joy_effect}Maiden of the Millennium Moon",
+                text = {
+                    {
+                        "You can buy {C:joy_normal}Spellcasters{}",
+                        "even without room"
+                    },
+                    {
+                        "{C:joy_normal}Illusions{} in the {C:joy_link}Side Deck{}",
+                        "don't take room"
+                    }
+                }
+            },
+            j_joy_mastertao = {
+                name = "{C:joy_effect}Master Tao the Chanter",
+                text = {
+                    {
+                        "{C:attention}Revives 1{} {C:joy_normal}Illusion{} when",
+                        "this card returns from {C:attention}banishment{} and,",
+                        "if it does, {C:attention}Boosters{} are free this shop"
+                    }
+                }
+            },
+            j_joy_taotao = {
+                name = "{C:joy_effect}Tao Tao the Chanter",
+                text = {
+                    {
+                        "{X:mult,C:white}X#1#{} Mult"
+                    },
+                    {
+                        "Returns from {C:attention}banishment{}",
+                        "when playing the last hand of round"
+                    }
+                }
+            },
+            j_joy_shurilane = {
+                name = "{C:joy_effect}Talons of Shurilane",
+                text = {
+                    {
+                        "Adds {C:attention}1{} {C:joy_normal}Illusion{}",
+                        "and {C:attention}1{} {C:joy_normal}Fiend{} to the shop",
+                        "when this card returns from {C:attention}banishment{}",
+                    }
+                }
+            },
+            j_joy_nightapprentice = {
+                name = "{C:joy_effect}Nightmare Apprentice",
+                text = {
+                    {
+                        "Gives {C:attention}1{} free {C:green}reroll{}",
+                        "when this card returns from {C:attention}banishment{}",
+                    }
+                }
+            },
+            j_joy_nightmagician = {
+                name = "{C:joy_effect}Nightmare Magician",
+                text = {
+                    {
+                        "{C:money}+$#1#{} at the start of the shop",
+                        "for each {C:joy_normal}Illusion{} owned",
+                        "{C:inactive}(Currently {C:money}+$#2#{}{C:inactive})"
+                    },
+                    {
+                        "Adds an {C:joy_normal}Illusion{} to the shop",
+                        "when an {C:joy_normal}Illusion{} is sold"
                     }
                 }
             },

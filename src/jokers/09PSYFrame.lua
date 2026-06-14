@@ -509,10 +509,10 @@ JoyousSpring.Joker({
     key = "psy_zeta",
     atlas = 'PSYFrame',
     pos = { x = 0, y = 2 },
-    rarity = 3,
+    rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
-    cost = 10,
+    cost = 8,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.banishes } }
     end,
@@ -567,7 +567,7 @@ JoyousSpring.Joker({
     key = "psy_omega",
     atlas = 'PSYFrame',
     pos = { x = 1, y = 2 },
-    rarity = 3,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 10,

@@ -94,7 +94,7 @@ return {
                     {
                         "You can {C:attention}tribute 1{} {C:joy_normal}\"S-Force\"{}, {C:joy_normal}\"Evil{C:joy_normal,f:joy_font}★{}{C:joy_normal}Twin\"{}, {C:joy_normal}\"PSY-Frame\"{}, {C:joy_normal}\"Time Thief\"{},",
                         "{C:joy_link}\"I:P Masquerena\"{}, {C:joy_link}\"S:P Little Knight\"{}, or {C:joy_link}\"W:P Fancy Ball\"{}",
-                        "to disable the current active {C:attention}Boss Blinds{}",
+                        "to disable the current active {C:attention}Blinds{}",
                     }
                 }
             },

@@ -147,7 +147,7 @@ return {
                         "in the {C:joy_link}Side Deck{}"
                     },
                     {
-                        "Attach {C:attention}#1# {C:joy_xyz}material{} to this card",
+                        "{C:attention}Attach #1# material{} to this card",
                         "when a {C:attention}Joker{} is {C:attention}tributed{}",
                     },
                     {
@@ -171,7 +171,7 @@ return {
                 name = "{C:joy_ritual}Drytron Meteonis Draconids",
                 text = {
                     {
-                        "Gains {X:mult,C:white}X#1#{} for each {C:joy_normal}\"Drytron\"{}",
+                        "Gives an extra {X:mult,C:white}X#1#{} for each {C:joy_normal}\"Drytron\"{}",
                         "in the {C:attention}GY{}",
                         "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
                     }

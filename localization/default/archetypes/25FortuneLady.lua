@@ -172,7 +172,7 @@ return {
                         "{C:money}+$#1#{} when a listed {C:green}probability{} succeeds"
                     },
                     {
-                        "Once per ante, create {C:attention}#2#{} {C:joy_normal}Main Deck Spellcaster{}",
+                        "Once per ante, create {C:attention}#2#{} {C:joy_normal}Main Deck {C:joy_effect}Effect {C:joy_normal}Spellcaster{}",
                         "after {C:attention}#3#{} listed {C:green}probabilities{} succeed {C:inactive}(#4#/#3#){}",
                         "{C:inactive}(Must have room)"
                     },
@@ -278,7 +278,7 @@ return {
         Blurbs = {
             flady = {
                 gameplay = {
-                    "The {C:joy_normal}Fortune Lady{} naturally scale up as their {C:green}probabilities{} get higher. This also grants extra effects as they're able to trigger their effects more often. {C:joy_normal}Fortune Fairies{} are a great pair with them and other {C:green}probabilities{} {C:attention}Jokers{}!"
+                    "The {C:joy_normal}Fortune Lady{} naturally scale up as their {C:green}probabilities{} get higher. This also grants extra effects as they're able to trigger their effects more often. {C:joy_normal}Fortune Fairies{} are a great pair with them and other {C:green}probability{} {C:attention}Jokers{}!"
                 }
             }
         }

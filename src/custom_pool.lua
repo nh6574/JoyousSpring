@@ -3,13 +3,15 @@
 ---Filters a pool from SMODS.create_poll_pool by property_list
 ---@param pool {key:string|'UNAVAILABLE', type:string}[]
 ---@param property_list material_properties[]
+---@param from_shop boolean?
 ---@return table
-JoyousSpring.filter_weighted_pool_by_material = function(pool, property_list)
+JoyousSpring.filter_weighted_pool_by_material = function(pool, property_list, from_shop)
     local all_unavailable = true
     for _, card_data in ipairs(pool) do
         if card_data.key ~= "UNAVAILABLE" and property_list and #property_list > 0 then
             local is_material = false
             for _, property in ipairs(property_list) do
+                property.from_shop = property.from_shop or from_shop
                 if JoyousSpring.is_material_center(card_data.key, property) then
                     is_material = true
                     break
@@ -38,7 +40,8 @@ function SMODS.create_poll_pool(labels, args, ...)
     end
 
     if args and args.joy_monster_properties then
-        return JoyousSpring.filter_weighted_pool_by_material(ret, args.joy_monster_properties), labels
+        return JoyousSpring.filter_weighted_pool_by_material(ret, args.joy_monster_properties,
+            (args or {}).append == "sho"), labels
     end
 
     return ret, labels

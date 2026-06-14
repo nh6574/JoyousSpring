@@ -128,7 +128,7 @@ return {
                 name = "{C:joy_synchro}Centur-Ion Auxila",
                 text = {
                     {
-                        "Gains {X:mult,C:white}X#1#{} Mult",
+                        "Gives an extra {X:mult,C:white}X#1#{} Mult",
                         "for each card in the {C:joy_link}Side Deck{}",
                         "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
                     },

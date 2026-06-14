@@ -101,7 +101,8 @@ return {
                     },
                     {
                         "When a playing card is {C:attention}flipped{},",
-                        "{C:attention}flips{} a random card in hand face-down (and shuffles them)",
+                        "{C:attention}flips{} a random card in hand face-down",
+                        "(and shuffles them)",
                     },
                 }
             },

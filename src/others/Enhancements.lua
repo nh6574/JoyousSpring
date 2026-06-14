@@ -72,9 +72,12 @@ JoyousSpring.hanafuda_cards = {
 }
 
 JoyousSpring.hanafuda_pool = {}
+JoyousSpring.hanafuda_pool_by_month = {}
 
-for key, _ in pairs(JoyousSpring.hanafuda_cards) do
+for key, data in pairs(JoyousSpring.hanafuda_cards) do
     table.insert(JoyousSpring.hanafuda_pool, key)
+    JoyousSpring.hanafuda_pool_by_month[data.month] = JoyousSpring.hanafuda_pool_by_month[data.month] or {}
+    table.insert(JoyousSpring.hanafuda_pool_by_month[data.month], key)
 end
 
 JoyousSpring.get_hanafuda = function(card, default)

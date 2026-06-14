@@ -103,7 +103,7 @@ JoyousSpring.Joker({
     calculate = function(self, card, context)
         if context.joy_summon and not context.blueprint_card then
             if JoyousSpring.used_as_material(card, context) then
-                JoyousSpring.create_pseudorandom({ { monster_type = "Insect", is_main_deck = true } },
+                JoyousSpring.create_pseudorandom({ { monster_type = "Insect", is_main_deck = true, is_effect = true } },
                     self.key)
             end
         end

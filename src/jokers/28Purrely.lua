@@ -96,7 +96,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.excavates } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
+        { "c_joy_purr_friend", "c_joy_purr_happy", "c_joy_purr_sleepy", "c_joy_purr_pretty", "c_joy_purr_delicious", properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
     joy_glossary = { "excavate", "transform", "xyz" },
     config = {
@@ -148,7 +148,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.creates } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
+        { "c_joy_purr_friend", "c_joy_purr_happy", "c_joy_purr_sleepy", "c_joy_purr_pretty", "c_joy_purr_delicious", properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
     joy_glossary = { "excavate", "transform", "xyz" },
     config = {
@@ -247,7 +247,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.retriggers + count_seals_in_deck("happy", card.ability.extra.per), card.ability.extra.increases, card.ability.extra.per, card.ability.extra.detach, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
+        { "c_joy_purr_friend", "c_joy_purr_happy", "c_joy_purr_sleepy", "c_joy_purr_pretty", "c_joy_purr_delicious", properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
     joy_glossary = { "maindeck", "transform" },
     config = {
@@ -321,7 +321,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.retriggers + count_seals_in_deck("sleepy", card.ability.extra.per), card.ability.extra.increases, card.ability.extra.per, card.ability.extra.detach } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
+        { "c_joy_purr_friend", "c_joy_purr_happy", "c_joy_purr_sleepy", "c_joy_purr_pretty", "c_joy_purr_delicious", properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
     joy_glossary = { "excavate", "transform" },
     config = {
@@ -394,7 +394,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.retriggers + count_seals_in_deck("pretty", card.ability.extra.per), card.ability.extra.increases, card.ability.extra.per, card.ability.extra.detach, card.ability.extra.tributes, card.ability.extra.rerolls } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
+        { "c_joy_purr_friend", "c_joy_purr_happy", "c_joy_purr_sleepy", "c_joy_purr_pretty", "c_joy_purr_delicious", properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
     joy_glossary = { "tribute", "transform" },
     config = {
@@ -471,7 +471,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.retriggers + count_seals_in_deck("delicious", card.ability.extra.per), card.ability.extra.increases, card.ability.extra.per, card.ability.extra.detach, card.ability.extra.banishes } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
+        { "c_joy_purr_friend", "c_joy_purr_happy", "c_joy_purr_sleepy", "c_joy_purr_pretty", "c_joy_purr_delicious", properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
     joy_glossary = { "banish", "transform" },
     config = {
@@ -538,7 +538,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.xmult } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
+        { "c_joy_purr_friend", "c_joy_purr_happy", "c_joy_purr_sleepy", "c_joy_purr_pretty", "c_joy_purr_delicious", properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
     joy_glossary = { "transform" },
     config = {
@@ -620,7 +620,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.xchips } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
+        { "c_joy_purr_friend", "c_joy_purr_happy", "c_joy_purr_sleepy", "c_joy_purr_pretty", "c_joy_purr_delicious", properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
     joy_glossary = { "transform" },
     config = {
@@ -690,11 +690,13 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        --TODO: Add hand description tooltip
+        if not card.fake_card then
+            info_queue[#info_queue + 1] = JoyousSpring.PokerHandDummies["phd_joy_purr_yeap"]
+        end
         return { vars = { card.ability.extra.attaches, card.ability.extra.requires } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
+        { "c_joy_purr_friend", "c_joy_purr_happy", "c_joy_purr_sleepy", "c_joy_purr_pretty", "c_joy_purr_delicious", properties = { { monster_archetypes = { "Purrely" } }, }, name = "k_joy_archetype" },
     },
     joy_glossary = { "attach", "transform" },
     config = {

@@ -204,9 +204,9 @@ JoyousSpring.add_random_tag = function()
     local tag = Tag(tag_key)
     if tag.name == "Orbital Tag" then
         local _poker_hands = {}
-        for k, v in pairs(G.GAME.hands) do
-            if SMODS.is_poker_hand_visible(k) then
-                _poker_hands[#_poker_hands + 1] = k
+        for key, _ in pairs(G.GAME.hands) do
+            if SMODS.is_poker_hand_visible(key) then
+                _poker_hands[#_poker_hands + 1] = key
             end
         end
         tag.ability.orbital_hand = pseudorandom_element(_poker_hands, "joy_orbital")
@@ -307,8 +307,8 @@ end
 JoyousSpring.get_attribute_count = function(card_list, ignore_debuffed)
     local count = 0
     local attributes = JoyousSpring.get_material_attributes(card_list, ignore_debuffed)
-    for k, v in pairs(attributes) do
-        if v then
+    for _, attribute in pairs(attributes) do
+        if attribute then
             count = count + 1
         end
     end
@@ -400,8 +400,8 @@ end
 JoyousSpring.get_type_count = function(card_list, ignore_debuffed)
     local count = 0
     local types = JoyousSpring.get_material_types(card_list, ignore_debuffed)
-    for k, v in pairs(types) do
-        if v then
+    for _, mtype in pairs(types) do
+        if mtype then
             count = count + 1
         end
     end
@@ -750,6 +750,25 @@ JoyousSpring.is_exit_selection_context = function(card, context, amount)
     return context.joy_exit_effect_selection and
         context.joy_card == card and
         (not amount and (#context.joy_selection >= 1) or #context.joy_selection == amount)
+end
+
+JoyousSpring.get_type_attribute_allowlist = function(card_list)
+    local allowlist = {}
+
+    for _, joker in ipairs(card_list) do
+        if JoyousSpring.is_monster_card(joker) then
+            local monster_type = JoyousSpring.get_monster_type(joker)
+            local attribute = JoyousSpring.get_attribute(joker)
+            table.insert(allowlist,
+                {
+                    monster_type = monster_type ~= true and monster_type or nil,
+                    monster_attribute = attribute ~= true and attribute or nil
+                }
+            )
+        end
+    end
+
+    return allowlist
 end
 
 ---Runs **func** on all (supported) objects

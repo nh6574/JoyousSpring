@@ -20,7 +20,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.money, card.ability.extra.tributes, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "Eldlich" } }, { monster_archetypes = { "GoldenLand" } } }, name = "k_joy_archetype" },
+        { "c_joy_cursed_eldland", properties = { { monster_archetypes = { "Eldlich" } }, { monster_archetypes = { "GoldenLand" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "graveyard", "tribute", "trap", "maindeck" },
     config = {
@@ -122,7 +122,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.chips, card.ability.extra.discards } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "Eldlich" } }, { monster_archetypes = { "GoldenLand" } } }, name = "k_joy_archetype" },
+        { "c_joy_cursed_eldland", properties = { { monster_archetypes = { "Eldlich" } }, { monster_archetypes = { "GoldenLand" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "graveyard" },
     config = {
@@ -218,7 +218,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.mult, card.ability.extra.hands } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "Eldlich" } }, { monster_archetypes = { "GoldenLand" } } }, name = "k_joy_archetype" },
+        { "c_joy_cursed_eldland", properties = { { monster_archetypes = { "Eldlich" } }, { monster_archetypes = { "GoldenLand" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "graveyard" },
     config = {
@@ -314,7 +314,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.chips, card.ability.extra.banishes } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "Eldlich" } }, { monster_archetypes = { "GoldenLand" } } }, name = "k_joy_archetype" },
+        { "c_joy_cursed_eldland", properties = { { monster_archetypes = { "Eldlich" } }, { monster_archetypes = { "GoldenLand" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "graveyard", "banish" },
     config = {
@@ -400,7 +400,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.mult, card.ability.extra.revives } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "Eldlich" } }, { monster_archetypes = { "GoldenLand" } } }, name = "k_joy_archetype" },
+        { "c_joy_cursed_eldland", properties = { { monster_archetypes = { "Eldlich" } }, { monster_archetypes = { "GoldenLand" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "graveyard", "revive" },
     config = {
@@ -486,7 +486,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.xmult } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "Eldlich" } }, { monster_archetypes = { "GoldenLand" } } }, name = "k_joy_archetype" },
+        { "c_joy_cursed_eldland", properties = { { monster_archetypes = { "Eldlich" } }, { monster_archetypes = { "GoldenLand" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "graveyard", "trap", "flip" },
     config = {
@@ -578,8 +578,8 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.mills, card.ability.extra.revives } }
     end,
     joy_desc_cards = {
-        { "j_joy_eld_eldlich",                                                                                name = "k_joy_mills" },
-        { properties = { { monster_archetypes = { "Eldlich" } }, { monster_archetypes = { "GoldenLand" } } }, name = "k_joy_archetype" },
+        { "j_joy_eld_eldlich",    name = "k_joy_mills" },
+        { "c_joy_cursed_eldland", properties = { { monster_archetypes = { "Eldlich" } }, { monster_archetypes = { "GoldenLand" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "trap", "graveyard", "revive" },
     config = {

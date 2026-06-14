@@ -147,6 +147,9 @@ JoyousSpring.count_as_banished = function(card)
                 (G.GAME.current_round.joy_cards_banished_by_attribute[key] or 0) + 1
         end
     end
+    if JoyousSpring.is_normal_monster(card) then
+        G.GAME.joy_cards_banished_normal = (G.GAME.joy_cards_banished or 0) + 1
+    end
 end
 
 JoyousSpring.get_banished_areas = function()
@@ -162,7 +165,7 @@ JoyousSpring.get_banished_cards = function(key, ignore_debuff)
     local cards = {}
     for _, area in ipairs(JoyousSpring.get_banished_areas()) do
         for _, card in ipairs(area.cards) do
-            if (not key or key == card.config.center.key) and (not ignore_debuff or not card.debuff) then
+            if (not key or key == card.config.center.key or (key == "Playing Card" and JoyousSpring.is_playing_card(card))) and (not ignore_debuff or not card.debuff) then
                 cards[#cards + 1] = card
             end
         end
@@ -347,23 +350,25 @@ end
 
 local set_joker_win_ref = set_joker_win
 function set_joker_win(...)
-    for k, v in pairs(SMODS.merge_lists {
+    for _, joker in pairs(SMODS.merge_lists {
         JoyousSpring.field_spell_area.cards,
         JoyousSpring.banish_blind_selected_area.cards,
         JoyousSpring.banish_end_of_round_area.cards,
         JoyousSpring.banish_boss_selected_area.cards,
         JoyousSpring.banish_end_of_ante_area.cards
     }) do
-        if v.config.center_key and v.ability.set == 'Joker' then
-            G.PROFILES[G.SETTINGS.profile].joker_usage[v.config.center_key] = G.PROFILES[G.SETTINGS.profile].joker_usage
-                [v.config.center_key] or
-                { count = 1, order = v.config.center.order, wins = {}, losses = {}, wins_by_key = {}, losses_by_key = {} }
-            if G.PROFILES[G.SETTINGS.profile].joker_usage[v.config.center_key] then
-                G.PROFILES[G.SETTINGS.profile].joker_usage[v.config.center_key].wins = G.PROFILES[G.SETTINGS.profile]
-                    .joker_usage[v.config.center_key].wins or {}
-                G.PROFILES[G.SETTINGS.profile].joker_usage[v.config.center_key].wins[G.GAME.stake] = (G.PROFILES[G.SETTINGS.profile].joker_usage[v.config.center_key].wins[G.GAME.stake] or 0) +
+        if joker.config.center_key and joker.ability.set == 'Joker' then
+            G.PROFILES[G.SETTINGS.profile].joker_usage[joker.config.center_key] = G.PROFILES[G.SETTINGS.profile]
+                .joker_usage
+                [joker.config.center_key] or
+                { count = 1, order = joker.config.center.order, wins = {}, losses = {}, wins_by_key = {}, losses_by_key = {} }
+            if G.PROFILES[G.SETTINGS.profile].joker_usage[joker.config.center_key] then
+                G.PROFILES[G.SETTINGS.profile].joker_usage[joker.config.center_key].wins = G.PROFILES
+                    [G.SETTINGS.profile]
+                    .joker_usage[joker.config.center_key].wins or {}
+                G.PROFILES[G.SETTINGS.profile].joker_usage[joker.config.center_key].wins[G.GAME.stake] = (G.PROFILES[G.SETTINGS.profile].joker_usage[joker.config.center_key].wins[G.GAME.stake] or 0) +
                     1
-                G.PROFILES[G.SETTINGS.profile].joker_usage[v.config.center_key].wins_by_key[SMODS.stake_from_index(G.GAME.stake)] = (G.PROFILES[G.SETTINGS.profile].joker_usage[v.config.center_key].wins_by_key[SMODS.stake_from_index(G.GAME.stake)] or 0) +
+                G.PROFILES[G.SETTINGS.profile].joker_usage[joker.config.center_key].wins_by_key[SMODS.stake_from_index(G.GAME.stake)] = (G.PROFILES[G.SETTINGS.profile].joker_usage[joker.config.center_key].wins_by_key[SMODS.stake_from_index(G.GAME.stake)] or 0) +
                     1
             end
         end

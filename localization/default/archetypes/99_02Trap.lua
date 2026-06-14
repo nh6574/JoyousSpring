@@ -91,7 +91,7 @@ return {
                 text = {
                     {
                         "Gains {X:mult,C:white}X#1#{} Mult for each",
-                        "{C:attention}Joker{} summoned this run",
+                        "{C:attention}Joker summoned{} this run",
                         "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)",
                     },
                 }

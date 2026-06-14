@@ -561,7 +561,7 @@ JoyousSpring.Joker({
 
                 for _ = 1, card.ability.extra.creates do
                     JoyousSpring.create_pseudorandom(
-                        { { monster_type = "Fiend", is_main_deck = true, exclude_keys = { "j_joy_ba_scarm" } } },
+                        { { monster_type = "Fiend", is_main_deck = true, is_effect = true, exclude_keys = { "j_joy_ba_scarm" } } },
                         'j_joy_ba_scarm', true)
                 end
             end

@@ -64,13 +64,13 @@ return {
                     {
                         "An {C:joy_xyz}Xyz{} summoned using this card",
                         "as {C:attention}material{} gains the following ability:",
-                        "{s:0.9}Attach a {s:0.9,C:attention}material{}",
+                        "{s:0.9,C:attention}Attach {s:0.9}a {s:0.9,C:attention}material{}",
                         "{s:0.9}for each {s:0.9,C:attention}Eternal{} {s:0.9,C:attention}Joker{}",
                         "{s:0.9}when {s:0.9,C:attention}Boss Blind{s:0.9} is defeated",
                     },
                 },
                 joy_transfer_ability = {
-                    "Attach a {C:attention}material{}",
+                    "{C:attention}Attach{} a {C:attention}material{}",
                     "for each {C:attention}Eternal{} {C:attention}Joker{}",
                     "when {C:attention}Boss Blind{} is defeated",
                 }
@@ -127,7 +127,7 @@ return {
                         "{C:inactive}(Currently{} {C:mult}+#2#{} {C:inactive}Mult){}",
                     },
                     {
-                        "Attach a {C:attention}material{}",
+                        "{C:attention}Attach{} a {C:attention}material{}",
                         "for each {C:attention}Eternal{} {C:attention}Joker{}",
                         "when {C:attention}Boss Blind{} is defeated",
                     },

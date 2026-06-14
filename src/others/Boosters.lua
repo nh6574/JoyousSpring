@@ -388,7 +388,7 @@ JoyousSpring.secret_booster {
     pos = { x = 0, y = 0 },
     joy_secret = {
         properties = { { summon_type = "RITUAL" }, { monster_archetypes = { "Dogmatika" } }, { monster_archetypes = { "Drytron" } }, { monster_archetypes = { "VoicelessVoice" } } },
-        extra_keys = { "j_joy_igniter", "j_joy_miradora" },
+        extra_keys = { "j_joy_igniter", "j_joy_miradora", "j_joy_eotw_breaking" },
         center = "j_joy_sauravis"
     }
 }
@@ -477,7 +477,7 @@ JoyousSpring.secret_booster {
         extra_keys = {
             "j_joy_mekk_green", "j_joy_lab_lovely", "j_joy_lab_labyrinth", "j_joy_ignis_pegasus",
             "j_joy_elfobia", "j_joy_maxsix", "j_joy_catoblepas", "j_joy_coupleofaces", "j_joy_hallo", "j_joy_85",
-            "j_joy_67", "j_joy_futurevisions"
+            "j_joy_67", "j_joy_futurevisions", "j_joy_vennu"
         },
         center = "j_joy_flady_every"
     }
@@ -495,8 +495,8 @@ JoyousSpring.secret_booster {
 JoyousSpring.secret_booster {
     key = "generate",
     joy_secret = {
-        properties = { { monster_archetypes = { "Dragonmaid" } }, { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Generaider" } } },
-        extra_keys = { "j_joy_invoked_meltdown", "j_joy_ipmasq", "j_joy_dracotail_mululu" },
+        properties = { { monster_archetypes = { "Dragonmaid" } }, { monster_archetypes = { "Aleister" } }, { monster_archetypes = { "Generaider" } }, { monster_archetypes = { "SkyStriker" } }, },
+        extra_keys = { "j_joy_invoked_meltdown", "j_joy_ipmasq", "j_joy_dracotail_mululu", "j_joy_reshef" },
         center = "j_joy_ipmasq"
     }
 }
@@ -505,8 +505,17 @@ JoyousSpring.secret_booster {
     key = "tarot",
     joy_secret = {
         properties = { { monster_archetypes = { "Runick" } }, { monster_archetypes = { "Witchcrafter" } }, { monster_archetypes = { "WhiteForest" } } },
-        extra_keys = { "j_joy_psy_delta", "j_joy_ignis_pikari", "j_joy_solfa_harmonia", "j_joy_shaddoll_hedgehog" },
+        extra_keys = { "j_joy_psy_delta", "j_joy_ignis_pikari", "j_joy_solfa_harmonia", "j_joy_shaddoll_hedgehog", "j_joy_downerd", "j_joy_alchemic" },
         center = "j_joy_witch_verre"
+    }
+}
+
+JoyousSpring.secret_booster {
+    key = "planet",
+    joy_secret = {
+        properties = { { monster_archetypes = { "SkyStriker" } }, { monster_archetypes = { "WhiteForest" } }, { monster_archetypes = { "VirtualWorld" } } },
+        extra_keys = { "j_joy_psy_epsilon", "j_joy_flady_wind", "j_joy_zoo_bunny", "j_joy_stormshooter", "j_joy_foucault" },
+        center = "j_joy_striker_raye"
     }
 }
 
@@ -525,7 +534,7 @@ JoyousSpring.secret_booster {
     key = "playing_cards",
     joy_secret = {
         properties = { { monster_archetypes = { "Dracotail" } }, { monster_archetypes = { "TimeThief" } } },
-        extra_keys = { "j_joy_revgolem", "j_joy_tackcrusader", "j_joy_coupleofaces" },
+        extra_keys = { "j_joy_revgolem", "j_joy_tackcrusader", "j_joy_coupleofaces", "j_joy_mysterion", "j_joy_secreterion", "j_joy_acespades" },
         center = "j_joy_dracotail_arthalion"
     }
 }
@@ -567,6 +576,20 @@ JoyousSpring.secret_booster {
 }
 
 JoyousSpring.secret_booster {
+    key = "normal",
+    joy_secret = {
+        properties = { { monster_archetypes = { "DarkMagician" } }, },
+        extra_keys = { "j_joy_dm_apprentice", "j_joy_dm_chromagician", "j_joy_dm_sorceress", "j_joy_dm_darkillusion",
+            "j_joy_dm_robe", "j_joy_dm_rod", "j_joy_dm_souls", "j_joy_dm_valkyria", "j_joy_dm_kuri", "j_joy_dm_conjurer",
+            "j_joy_dm_mahad", "j_joy_dm_mana", "j_joy_dm_timaeus", "j_joy_dm_warlock", "j_joy_dm_blackchaos",
+            "j_joy_dm_blackchaosmax", "j_joy_dm_chaosritual", "j_joy_dm_illusion", "j_joy_dm_amulet", "j_joy_dm_timaeusmagical",
+            "j_joy_dm_cavalry", "j_joy_dm_dragoon", "j_joy_dm_ebonillusion", "j_joy_dm_ebonhigh", "j_joy_dm_salvation",
+            "j_joy_lycanthrope", "j_joy_chulainn" },
+        center = "j_joy_dm_dmg"
+    }
+}
+
+JoyousSpring.secret_booster {
     key = "uncommon",
     joy_secret = {
         properties = { { rarity = 2, is_monster = true }, },
@@ -579,7 +602,7 @@ JoyousSpring.secret_booster {
     key = "column",
     joy_secret = {
         properties = { { monster_archetypes = { "MekkKnight" } }, { monster_archetypes = { "SForce" } } },
-        extra_keys = { "j_joy_ghostbird", "j_joy_stormshooter", "j_joy_tiamaton", "j_joy_disablaster" },
+        extra_keys = { "j_joy_ghostbird", "j_joy_stormshooter", "j_joy_tiamaton", "j_joy_disablaster", "j_joy_gravitycontroller" },
         center = "j_joy_mekk_blue"
     }
 }
@@ -587,11 +610,11 @@ JoyousSpring.secret_booster {
 JoyousSpring.secret_booster {
     key = "banish",
     joy_secret = {
-        properties = { { monster_archetypes = { "PSYFrame" } }, { monster_archetypes = { "Ghoti" } }, { monster_archetypes = { "SForce" } } },
+        properties = { { monster_archetypes = { "PSYFrame" } }, { monster_archetypes = { "Ghoti" } }, { monster_archetypes = { "SForce" } }, { monster_type = "Illusion" } },
         extra_keys = { "j_joy_fish_depths", "j_joy_mekk_purple", "j_joy_runick_sleipnir", "j_joy_ba_farfa",
             "j_joy_sub_uma", "j_joy_witch_potterie", "j_joy_shaddoll_ariel", "j_joy_paleo_dino", "j_joy_solfa_beautia",
             "j_joy_vw_nyannyan", "j_joy_flady_light", "j_joy_grenmaju", "j_joy_eater", "j_joy_beautunaful",
-            "j_joy_leaffish", "j_joy_stpolice", "j_joy_spknight", "j_joy_progleo", "j_joy_futurevisions", "j_joy_artifact_lancea", "j_joy_wpball"
+            "j_joy_leaffish", "j_joy_stpolice", "j_joy_spknight", "j_joy_progleo", "j_joy_futurevisions", "j_joy_artifact_lancea", "j_joy_wpball", "j_joy_mysterion", "j_joy_gravitycontroller"
         },
         center = "j_joy_spknight"
     }
@@ -603,7 +626,8 @@ JoyousSpring.secret_booster {
         properties = { { monster_archetypes = { "Danger" } }, { monster_archetypes = { "HazyFlame" } } },
         extra_keys = { "j_joy_boarder", "j_joy_ghostbird", "j_joy_tiamaton", "j_joy_eccentrick", "j_joy_bishbaalkin",
             "j_joy_yokai_ash", "j_joy_yokai_belle", "j_joy_yokai_ogre", "j_joy_yokai_reaper", "j_joy_yokai_sister",
-            "j_joy_yokai_mourner", "j_joy_artifact_aegis", "j_joy_dracotail_urgula", "j_joy_dracotail_pan" },
+            "j_joy_yokai_mourner", "j_joy_artifact_aegis", "j_joy_dracotail_urgula", "j_joy_dracotail_pan", "j_joy_hades",
+            "j_joy_necrovalley", "j_joy_helios", "j_joy_heliosduo", "j_joy_heliostrice", "j_joy_garlandolf" },
         center = "j_joy_boarder"
     }
 }
@@ -626,7 +650,7 @@ JoyousSpring.secret_booster {
             "j_joy_darkcat", "j_joy_dekoichi", "j_joy_searchlight", "j_joy_sternmystic", "j_joy_mof",
             "j_joy_lindbloom", "j_joy_quantumcat", "j_joy_tiki_curse", "j_joy_tiki_soul", "j_joy_apophis",
             "j_joy_zany", "j_joy_metrognome", "j_joy_bozu", "j_joy_disablaster", "j_joy_apollousa",
-            "j_joy_paleo_hallu", "j_joy_paleo_eldonia", "j_joy_mimi_archfiend", "j_joy_mimi_armor", "j_joy_artifact_cadu", "j_joy_hazy_grif", "j_joy_sforce_digamma", "j_joy_sforce_razor", "j_joy_sforce_dog", "j_joy_sforce_gravitino", "j_joy_sforce_platina", "j_joy_sforce_lapcewell"
+            "j_joy_paleo_hallu", "j_joy_paleo_eldonia", "j_joy_mimi_archfiend", "j_joy_mimi_armor", "j_joy_artifact_cadu", "j_joy_hazy_grif", "j_joy_sforce_digamma", "j_joy_sforce_razor", "j_joy_sforce_dog", "j_joy_sforce_gravitino", "j_joy_sforce_platina", "j_joy_sforce_lapcewell", "j_joy_dm_dmg", "j_joy_necrovalley", "j_joy_helios", "j_joy_heliosduo", "j_joy_heliostrice", "j_joy_nibiru", "j_joy_taotao", "j_joy_downerd", "j_joy_northwemko", "j_joy_shinato", "j_joy_acespades", "j_joy_gishilnodon", "j_joy_giganticastle"
         },
         center = "j_joy_fish_shif"
     }
@@ -644,7 +668,7 @@ JoyousSpring.secret_booster {
             "j_joy_sub_city", "j_joy_shaddoll_apka", "j_joy_shaddoll_shekh", "j_joy_invoked_meltdown", "j_joy_apollousa",
             "j_joy_beyond", "j_joy_exceed", "j_joy_linguriboh", "j_joy_linkuriboh", "j_joy_ignis_kiruku", "j_joy_raster",
             "j_joy_xyzterritory", "j_joy_midbreaker", "j_joy_sauravis", "j_joy_generaider_loptr",
-            "j_joy_generaider_boss_stage", "j_joy_sforce_orrafist"
+            "j_joy_generaider_boss_stage", "j_joy_sforce_orrafist", "j_joy_taotao",
         },
         center = "j_joy_linkuriboh"
     }
@@ -654,7 +678,7 @@ JoyousSpring.secret_booster {
     key = "sforce",
     joy_secret = {
         properties = { { monster_archetypes = { "SForce" } }, { monster_archetypes = { "LiveTwin" } }, { monster_archetypes = { "EvilTwin" } }, { monster_archetypes = { "TimeThief" } }, { monster_archetypes = { "PSYFrame" } } },
-        extra_keys = { "j_joy_ipmasq", "j_joy_spknight", "j_joy_wpball" },
+        extra_keys = { "j_joy_ipmasq", "j_joy_spknight", "j_joy_wpball", "j_joy_gravitycontroller" },
         center = "j_joy_sforce_justify"
     }
 }

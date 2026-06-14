@@ -362,3 +362,81 @@ JoyousSpring.Joker({
         }
     end
 })
+
+-- Necrovalley
+JoyousSpring.Joker({
+    key = "necrovalley",
+    atlas = "Misc03",
+    pos = { x = 6, y = 2 },
+    rarity = 2,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 9,
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = { card.ability.extra.mult, card.ability.extra.mult_minus,
+                math.max(0, card.ability.extra.mult * JoyousSpring.get_graveyard_count() -
+                    card.ability.extra.mult_minus * (G.GAME.joy_joker_cards_revived or 0)) }
+        }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_field_spell = true
+            },
+            mult = 5,
+            mult_minus = 20
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    mult = math.max(0, card.ability.extra.mult * JoyousSpring.get_graveyard_count() -
+                        card.ability.extra.mult_minus * (G.GAME.joy_joker_cards_revived or 0))
+                }
+            end
+        end
+    end,
+})
+
+-- Secret Village of the Spellcasters
+JoyousSpring.Joker({
+    key = "secretvillage",
+    atlas = "Misc03",
+    pos = { x = 0, y = 3 },
+    rarity = 3,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 12,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xmult, card.ability.extra.neg_xmult } }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                is_field_spell = true,
+            },
+            xmult = 2,
+            neg_xmult = 0.25
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.other_joker and context.other_joker.facing == "front" and JoyousSpring.is_monster_type(context.other_joker, "Spellcaster") then
+                return {
+                    xmult = card.ability.extra.xmult,
+                    message_card = context.other_joker
+                }
+            end
+            if context.joker_main and not JoyousSpring.any_materials_owned({ { monster_type = "Spellcaster" } }) then
+                return {
+                    xmult = card.ability.extra.neg_xmult
+                }
+            end
+        end
+        if context.buying_self then
+            card:add_sticker("eternal", true)
+        end
+    end,
+})

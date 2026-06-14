@@ -209,6 +209,13 @@ G.FUNCS.check_for_buy_space = function(card)
         card.config.center:joy_bypass_room_check(card, false) then
         return true
     end
+    if JoyousSpring.is_monster_type(card, "Spellcaster") then
+        for _, joker in ipairs(SMODS.find_card("j_joy_milleniummoon")) do
+            if JoyousSpring.can_use_abilities(joker) then
+                return true
+            end
+        end
+    end
     return check_for_buy_space_ref(card)
 end
 
@@ -240,6 +247,15 @@ G.FUNCS.can_select_card = function(e)
         e.config.colour = G.C.GREEN
         e.config.button = 'use_card'
     else
+        if JoyousSpring.is_monster_type(card, "Spellcaster") then
+            for _, joker in ipairs(SMODS.find_card("j_joy_milleniummoon")) do
+                if JoyousSpring.can_use_abilities(joker) then
+                    e.config.colour = G.C.GREEN
+                    e.config.button = 'use_card'
+                    return
+                end
+            end
+        end
         can_select_card_ref(e)
     end
 end

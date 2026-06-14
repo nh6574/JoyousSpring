@@ -11,7 +11,7 @@ return {
                     },
                     {
                         "{C:attention}Excavate{} and check the top {C:attention}#3#{}:",
-                        "{s:0.9}- {s:0.9,C:spades}Spades{s:0.9}: Turns each into a random {s:0.9,C:attention}Hanafuda{s:0.9} card",
+                        "{s:0.9}- {s:0.9,C:spades}Spades{s:0.9}: Turns each into a {s:0.9,C:joy_link}January{s:0.9} or {s:0.9,C:joy_link}February {s:0.9,C:attention}Hanafuda{s:0.9} card",
                         "{s:0.9}- {s:0.9,C:joy_link}January{s:0.9} or {s:0.9,C:joy_link}February {s:0.9,C:attention}Hanafuda{s:0.9}: Draws {s:0.9,C:attention}#4#{s:0.9} card",
                         "{s:0.9}Otherwise, destroys itself and {s:0.9}creates {s:0.9,C:attention}#5#",
                         "{s:0.9,C:joy_effect}\"Flower Cardian Pine with Crane\"{s:0.9} banished until {s:0.9,C:attention}Boss Blind",
@@ -32,7 +32,7 @@ return {
                     },
                     {
                         "{C:attention}Excavate{} and check the top {C:attention}#2#{}:",
-                        "{s:0.9}- {s:0.9,C:spades}Spades{s:0.9}: Turns each into a random {s:0.9,C:attention}Hanafuda{s:0.9} card",
+                        "{s:0.9}- {s:0.9,C:spades}Spades{s:0.9}: Turns each into a {s:0.9,C:joy_link}January{s:0.9} or {s:0.9,C:joy_link}February {s:0.9,C:attention}Hanafuda{s:0.9} card",
                         "{s:0.9}- {s:0.9,C:joy_link}January{s:0.9} or {s:0.9,C:joy_link}February {s:0.9,C:attention}Hanafuda{s:0.9}: Draws {s:0.9,C:attention}#3#{s:0.9} card",
                         "{s:0.9}Otherwise, destroys itself and {s:0.9}creates {s:0.9,C:attention}#4#",
                         "{s:0.9,C:joy_effect}\"Flower Cardian Pine\"{s:0.9} banished until end of round",
@@ -54,7 +54,7 @@ return {
                     },
                     {
                         "{C:attention}Excavate{} and check the top {C:attention}#3#{}:",
-                        "{s:0.9}- {s:0.9,C:hearts}Hearts{s:0.9}: Turns each into a random {s:0.9,C:attention}Hanafuda{s:0.9} card",
+                        "{s:0.9}- {s:0.9,C:hearts}Hearts{s:0.9}: Turns each into a {s:0.9,C:joy_link}March{s:0.9} or {s:0.9,C:joy_link}April {s:0.9,C:attention}Hanafuda{s:0.9} card",
                         "{s:0.9}- {s:0.9,C:joy_link}March{s:0.9} or {s:0.9,C:joy_link}April {s:0.9,C:attention}Hanafuda{s:0.9}: Draws {s:0.9,C:attention}#4#{s:0.9} card",
                         "{s:0.9}Otherwise, destroys itself and {s:0.9}creates {s:0.9,C:attention}#5#",
                         "{s:0.9,C:joy_effect}\"Flower Cardian Cherry Blossom with Curtain\"{s:0.9} banished until {s:0.9,C:attention}Boss Blind",
@@ -75,7 +75,7 @@ return {
                     },
                     {
                         "{C:attention}Excavate{} and check the top {C:attention}#2#{}:",
-                        "{s:0.9}- {s:0.9,C:hearts}Hearts{s:0.9}: Turns each into a random {s:0.9,C:attention}Hanafuda{s:0.9} card",
+                        "{s:0.9}- {s:0.9,C:hearts}Hearts{s:0.9}: Turns each into a {s:0.9,C:joy_link}March{s:0.9} or {s:0.9,C:joy_link}April {s:0.9,C:attention}Hanafuda{s:0.9} card",
                         "{s:0.9}- {s:0.9,C:joy_link}March{s:0.9} or {s:0.9,C:joy_link}April {s:0.9,C:attention}Hanafuda{s:0.9}: Draws {s:0.9,C:attention}#3#{s:0.9} card",
                         "{s:0.9}Otherwise, destroys itself and {s:0.9}creates {s:0.9,C:attention}#4#",
                         "{s:0.9,C:joy_effect}\"Flower Cardian Cherry Blossom\"{s:0.9} banished until end of round",
@@ -139,7 +139,7 @@ return {
                     },
                     {
                         "{C:attention}Excavate{} and check the top {C:attention}#3#{}:",
-                        "{s:0.9}- {s:0.9,C:clubs}Clubs{s:0.9}: Turns each into a random {s:0.9,C:attention}Hanafuda{s:0.9} card",
+                        "{s:0.9}- {s:0.9,C:clubs}Clubs{s:0.9}: Turns each into a {s:0.9,C:joy_link}August{s:0.9} or {s:0.9,C:joy_link}September {s:0.9,C:attention}Hanafuda{s:0.9} card",
                         "{s:0.9}- {s:0.9,C:joy_link}August{s:0.9} or {s:0.9,C:joy_link}September {s:0.9,C:attention}Hanafuda{s:0.9}: Draws {s:0.9,C:attention}#4#{s:0.9} card",
                         "{s:0.9}Otherwise, destroys itself and {s:0.9}creates {s:0.9,C:attention}#5#",
                         "{s:0.9,C:joy_effect}\"Flower Cardian Zebra Grass with Moon\"{s:0.9} banished until {s:0.9,C:attention}Boss Blind",
@@ -156,7 +156,7 @@ return {
                 text = {
                     {
                         "{C:attention}Excavate{} and check the top {C:attention}#1#{}:",
-                        "{s:0.9}- {s:0.9,C:clubs}Clubs{s:0.9}: Turns each into a random {s:0.9,C:attention}Hanafuda{s:0.9} card",
+                        "{s:0.9}- {s:0.9,C:clubs}Clubs{s:0.9}: Turns each into a {s:0.9,C:joy_link}August{s:0.9} or {s:0.9,C:joy_link}September {s:0.9,C:attention}Hanafuda{s:0.9} card",
                         "{s:0.9}- {s:0.9,C:joy_link}August{s:0.9} or {s:0.9,C:joy_link}September {s:0.9,C:attention}Hanafuda{s:0.9}: Draws {s:0.9,C:attention}#2#{s:0.9} card",
                         "{s:0.9}for each excavated {s:0.9,C:attention}Hanafuda{s:0.9} card",
                         "{s:0.9}Otherwise, destroys itself and {s:0.9}creates {s:0.9,C:attention}#3#",
@@ -199,7 +199,7 @@ return {
                     },
                     {
                         "{C:attention}Excavate{} and check the top {C:attention}#3#{}:",
-                        "{s:0.9}- {s:0.9,C:attention}Face{s:0.9} card: Turns each into a random {s:0.9,C:attention}Hanafuda{s:0.9} card",
+                        "{s:0.9}- {s:0.9,C:attention}Face{s:0.9} card: Turns each into a {s:0.9,C:joy_link}November {s:0.9,C:attention}Hanafuda{s:0.9} card",
                         "{s:0.9}- {s:0.9,C:joy_link}November {s:0.9,C:attention}Hanafuda{s:0.9}: Draws {s:0.9,C:attention}#4#{s:0.9} card",
                         "{s:0.9}Otherwise, destroys itself and {s:0.9}creates {s:0.9,C:attention}#5#",
                         "{s:0.9,C:joy_effect}\"Flower Cardian Willow with Calligrapher\"{s:0.9} banished until {s:0.9,C:attention}Boss Blind",
@@ -216,7 +216,7 @@ return {
                 text = {
                     {
                         "{C:attention}Excavate{} and check the top {C:attention}#1#{}:",
-                        "{s:0.9}- {s:0.9,C:attention}Face{s:0.9} card: Turns each into a random {s:0.9,C:attention}Hanafuda{s:0.9} card",
+                        "{s:0.9}- {s:0.9,C:attention}Face{s:0.9} card: Turns each into a {s:0.9,C:joy_link}November {s:0.9,C:attention}Hanafuda{s:0.9} card",
                         "{s:0.9}- {s:0.9,C:joy_link}November {s:0.9,C:attention}Hanafuda{s:0.9}: {s:0.9,C:attention}Revive #2#{s:0.9} {s:0.9,C:joy_normal}\"Flower Cardian\"",
                         "{s:0.9}Otherwise, destroys itself and {s:0.9}creates {s:0.9,C:attention}#3#",
                         "{s:0.9,C:joy_effect}\"Flower Cardian Willow\"{s:0.9} banished until end of round",
@@ -238,7 +238,7 @@ return {
                     },
                     {
                         "{C:attention}Excavate{} and check the top {C:attention}#3#{}:",
-                        "{s:0.9}- {s:0.9,C:diamonds}Diamonds{s:0.9}: Turns each into a random {s:0.9,C:attention}Hanafuda{s:0.9} card",
+                        "{s:0.9}- {s:0.9,C:diamonds}Diamonds{s:0.9}: Turns each into a {s:0.9,C:joy_link}May{s:0.9} or {s:0.9,C:joy_link}December {s:0.9,C:attention}Hanafuda{s:0.9} card",
                         "{s:0.9}- {s:0.9,C:joy_link}May{s:0.9} or {s:0.9,C:joy_link}December {s:0.9,C:attention}Hanafuda{s:0.9}: Draws {s:0.9,C:attention}#4#{s:0.9} card",
                         "{s:0.9}Otherwise, destroys itself and {s:0.9}creates {s:0.9,C:attention}#5#",
                         "{s:0.9,C:joy_effect}\"Flower Cardian Paulownia with Phoenix\"{s:0.9} banished until {s:0.9,C:attention}Boss Blind",
@@ -259,7 +259,7 @@ return {
                     },
                     {
                         "{C:attention}Excavate{} and check the top {C:attention}#3#{}:",
-                        "{s:0.9}- {s:0.9,C:diamonds}Diamonds{s:0.9}: Turns each into a random {s:0.9,C:attention}Hanafuda{s:0.9} card",
+                        "{s:0.9}- {s:0.9,C:diamonds}Diamonds{s:0.9}: Turns each into a {s:0.9,C:joy_link}May{s:0.9} or {s:0.9,C:joy_link}December {s:0.9,C:attention}Hanafuda{s:0.9} card",
                         "{s:0.9}- {s:0.9,C:joy_link}May{s:0.9} or {s:0.9,C:joy_link}December {s:0.9,C:attention}Hanafuda{s:0.9}: Draws {s:0.9,C:attention}#3#{s:0.9} card",
                         "{s:0.9}Otherwise, destroys itself and {s:0.9}creates {s:0.9,C:attention}#4#",
                         "{s:0.9,C:joy_effect}\"Flower Cardian Paulownia\"{s:0.9} banished until end of round",
@@ -427,7 +427,7 @@ return {
                         "or in a {C:attention}Koi Koi{} hand",
                         "OR {C:mult}+1{} Mult and scores in {C:attention}Koi Koi{} hands",
                         "if it's {C:joy_link}Chaff",
-                        "{C:inactive}(Month/Type is random)"
+                        "{C:inactive}(Month/Type is random unless specified)"
                     }
                 }
             }

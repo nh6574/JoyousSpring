@@ -47,7 +47,7 @@ JoyousSpring.Joker({
             if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
                 JoyousSpring.tribute(card, context.joy_selection)
                 JoyousSpring.tribute(card, { card })
-
+                G.GAME.joy_tarot_showman = true
                 for i = 1, card.ability.extra.creates do
                     JoyousSpring.create_summon({
                         key = "j_joy_witch_potterie"
@@ -124,7 +124,7 @@ JoyousSpring.Joker({
             if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
                 JoyousSpring.tribute(card, context.joy_selection)
                 JoyousSpring.tribute(card, { card })
-
+                G.GAME.joy_tarot_showman = true
                 for i = 1, card.ability.extra.creates do
                     JoyousSpring.create_summon({
                         key = "j_joy_witch_pittore"
@@ -201,7 +201,7 @@ JoyousSpring.Joker({
                 monster_type = "Spellcaster",
                 monster_archetypes = { ["Witchcrafter"] = true }
             },
-            chips = 100,
+            chips = 40,
             current_chips = 0,
             creates_tarot = 1,
             consumables = 2,
@@ -224,7 +224,7 @@ JoyousSpring.Joker({
                 if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
                     JoyousSpring.tribute(card, context.joy_selection)
                     JoyousSpring.tribute(card, { card })
-
+                    G.GAME.joy_tarot_showman = true
                     for i = 1, card.ability.extra.creates do
                         JoyousSpring.create_summon({
                             key = "j_joy_witch_schmietta"
@@ -320,7 +320,7 @@ JoyousSpring.Joker({
                 monster_type = "Spellcaster",
                 monster_archetypes = { ["Witchcrafter"] = true }
             },
-            mult = 25,
+            mult = 10,
             current_mult = 0,
             creates_tarot = 1,
             tributes = 1,
@@ -340,7 +340,7 @@ JoyousSpring.Joker({
                 if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
                     JoyousSpring.tribute(card, context.joy_selection)
                     JoyousSpring.tribute(card, { card })
-
+                    G.GAME.joy_tarot_showman = true
                     for i = 1, card.ability.extra.creates do
                         JoyousSpring.create_summon({
                             key = "j_joy_witch_edel"
@@ -448,7 +448,7 @@ JoyousSpring.Joker({
             if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
                 JoyousSpring.tribute(card, context.joy_selection)
                 JoyousSpring.tribute(card, { card })
-
+                G.GAME.joy_tarot_showman = true
                 for i = 1, card.ability.extra.creates do
                     JoyousSpring.create_summon({
                         key = "j_joy_witch_haine"
@@ -517,7 +517,7 @@ JoyousSpring.Joker({
                 monster_type = "Spellcaster",
                 monster_archetypes = { ["Witchcrafter"] = true }
             },
-            money = 5,
+            money = 1,
             creates_tarot = 1,
             tributes = 1,
             creates = 1
@@ -535,7 +535,7 @@ JoyousSpring.Joker({
             if JoyousSpring.is_exit_selection_context(card, context, card.ability.extra.tributes) then
                 JoyousSpring.tribute(card, context.joy_selection)
                 JoyousSpring.tribute(card, { card })
-
+                G.GAME.joy_tarot_showman = true
                 for i = 1, card.ability.extra.creates do
                     JoyousSpring.create_summon({
                         key = "j_joy_witch_verre"
@@ -625,9 +625,9 @@ JoyousSpring.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         card.ability.extra.current_xmult = card.ability.extra.xmult * JoyousSpring.count_set_tributed("Tarot")
-        if not card.debuff and not from_debuff then
+        if not card.debuff and not from_debuff and not G.GAME.joy_verre then
             local tarots = JoyousSpring.get_set_tributed("Tarot")
-
+            G.GAME.joy_verre = true
             for _, key in ipairs(tarots) do
                 G.E_MANAGER:add_event(Event({
                     func = function()

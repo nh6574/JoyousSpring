@@ -15,7 +15,7 @@ return {
                 name = "{C:joy_effect}Ghost Reaper & Winter Cherries",
                 text = {
                     {
-                        "{X:mult,C:white}X#1#{} Mult for each",
+                        "Gives an extra {X:mult,C:white}X#1#{} Mult for each",
                         "{C:joy_spell}Extra Deck{} {C:attention}Joker{} in the {C:attention}GY{}",
                         "{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}",
                     },

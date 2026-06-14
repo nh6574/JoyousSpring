@@ -357,7 +357,7 @@ JoyousSpring.Joker({
     key = "runick_fountain",
     atlas = 'Runick',
     pos = { x = 0, y = 0 },
-    rarity = 3,
+    rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
     cost = 15,

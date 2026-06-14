@@ -769,7 +769,8 @@ JoyousSpring.Joker({
                 card.ability.extra.cards_used = card.ability.extra.cards_used or {}
                 local amounts = thief_calculate_used_amount(card.ability.extra.cards_used)
                 if SMODS.pseudorandom_probability(card, self.key .. "Edition", 1 + amounts.Edition, self.joy_extra_config.chance) then
-                    JoyousSpring.create_pseudorandom({ { monster_type = "Machine", is_main_deck = true } },
+                    JoyousSpring.create_pseudorandom(
+                        { { monster_type = "Machine", is_main_deck = true, is_effect = true } },
                         self.key .. "Edition_eff")
                     SMODS.calculate_effect({ message = localize("k_joy_add") }, card)
                 end

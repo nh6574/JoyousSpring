@@ -151,6 +151,9 @@ JoyousSpring.Joker = SMODS.Joker:extend {
         if joyous_spring.summon_type and joyous_spring.summon_type ~= "NORMAL" and not glossary_hash[joyous_spring.summon_type:lower()] then
             joy_glossary[#joy_glossary + 1] = joyous_spring.summon_type:lower()
         end
+        if joyous_spring.monster_type == "Illusion" and not glossary_hash["illusion_joker"] then
+            joy_glossary[#joy_glossary + 1] = "illusion_joker"
+        end
         if joyous_spring.is_flip and not glossary_hash["flip"] then joy_glossary[#joy_glossary + 1] = "flip" end
         if joyous_spring.is_trap and not glossary_hash["trap"] then joy_glossary[#joy_glossary + 1] = "trap" end
         if joyous_spring.is_tuner and not glossary_hash["tuner"] then joy_glossary[#joy_glossary + 1] = "tuner" end
@@ -241,8 +244,9 @@ end
 ---Checks if *card* belongs to *monster_type*
 ---@param card Card|table
 ---@param monster_type monster_type
+---@param raw true? To avoid recursivity on hooks
 ---@return boolean
-JoyousSpring.is_monster_type = function(card, monster_type)
+JoyousSpring.is_monster_type = function(card, monster_type, raw)
     local card_type = JoyousSpring.get_monster_type(card)
     return card_type == true or (card_type and card_type == monster_type)
 end
@@ -283,8 +287,9 @@ end
 ---Checks if *card* is *attribute*
 ---@param card Card|table
 ---@param attribute attribute
+---@param raw true? To avoid recursivity on hooks
 ---@return boolean
-JoyousSpring.is_attribute = function(card, attribute)
+JoyousSpring.is_attribute = function(card, attribute, raw)
     local card_attribute = JoyousSpring.get_attribute(card)
     return card_attribute == true or (card_attribute and card_attribute == attribute)
 end
@@ -349,8 +354,9 @@ end
 
 ---Checks if *card* is an Effect Joker
 ---@param card Card|table
+---@param raw true? To avoid recursivity on hooks
 ---@return boolean
-JoyousSpring.is_effect_monster = function(card)
+JoyousSpring.is_effect_monster = function(card, raw)
     if not JoyousSpring.is_monster_card(card or not JoyousSpring.has_joyous_table(card)) then
         return (JoyousSpring.get_extra_values(card) or {})
             .is_effect or false
@@ -378,8 +384,9 @@ end
 
 ---Checks if *card* is a Normal Joker
 ---@param card Card|table
+---@param raw true? To avoid recursivity on hooks
 ---@return boolean
-JoyousSpring.is_normal_monster = function(card)
+JoyousSpring.is_normal_monster = function(card, raw)
     return JoyousSpring.is_monster_card(card) and
         not (JoyousSpring.is_effect_monster(card) or JoyousSpring.is_extra_deck_monster(card) or JoyousSpring.is_field_spell(card))
 end
@@ -458,7 +465,7 @@ JoyousSpring.is_opponent_card = function(card)
     return JoyousSpring.is_monster_card(card) and card.ability.set == "joy_Opponent"
 end
 
----Checks if *card* is treated as all matrerials for a summon type
+---Checks if *card* is treated as all materials for a summon type
 ---@param card Card|table
 ---@param summon_type summon_type
 ---@return boolean
@@ -691,6 +698,10 @@ JoyousSpring.is_material = function(card, properties, summon_type)
     local set = card.ability.set
     local key = card.config.center_key
 
+    if key == "j_joy_normal_exodia" then
+        return false
+    end
+
     if set == "joy_Opponent" then
         local can_be_opponent = properties.allow_opponent or properties.is_opponent
         if not can_be_opponent then
@@ -920,6 +931,10 @@ end
 JoyousSpring.is_material_center = function(card_key, properties)
     local card_center = G.P_CENTERS[card_key]
     if not card_center then return false end
+
+    if card_key == "j_joy_normal_exodia" then
+        return properties.from_shop
+    end
 
     if properties.func and JoyousSpring.material_functions[properties.func] then
         if not JoyousSpring.material_functions[properties.func](card, properties.func_vars) then
@@ -1215,7 +1230,10 @@ JoyousSpring.get_materials_in_graveyard = function(property_list, to_revive, dif
         local count = t.count
         local summonable = t.summonable
         if count > 0 then
-            if not (to_revive and (G.P_CENTERS[key].config.extra.joyous_spring.cannot_revive or summonable < 1)) then
+            local center = G.P_CENTERS[key]
+            local joyous_spring = center and type(center.config.extra) == "table" and
+                G.P_CENTERS[key].config.extra.joyous_spring or {}
+            if not (to_revive and (joyous_spring.cannot_revive or summonable < 1)) then
                 if not property_list or #property_list == 0 then
                     for i = 1, (different_names and 1 or count) do
                         table.insert(materials, key)
@@ -1258,7 +1276,7 @@ JoyousSpring.any_materials_in_graveyard = function(property_list, to_revive, dif
         (limit or 1)
 end
 
----Get the keys to all matrerials in G.jokers and graveyard that fulfill **property_list**
+---Get the keys to all materials in G.jokers and graveyard that fulfill **property_list**
 ---@param property_list material_properties[]
 ---@param to_revive boolean? Checks if it can be revived
 ---@param different_names boolean?

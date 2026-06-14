@@ -43,15 +43,27 @@ SMODS.Back {
 }
 
 -- Nadir Servant
--- SMODS.Back {
---     key = "dogma",
---     atlas = "Deck",
---     discovered = true,
---     pos = { x = 2, y = 0 },
---     apply = function(self, back)
-
---     end
--- }
+SMODS.Back {
+    key = "dogma",
+    atlas = "Deck",
+    discovered = true,
+    pos = { x = 2, y = 0 },
+    apply = function(self, back)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                SMODS.add_card { key = "j_joy_dogma_ecclesia", no_edition = true }
+                return true
+            end
+        }))
+    end,
+    joy_create_card_for_shop = function(self, back, other_card, area)
+        if other_card and JoyousSpring.is_extra_deck_monster(other_card) then
+            other_card.ability.extra.joyous_spring.is_free = true
+            JoyousSpring.create_perma_debuffed_card(other_card, "Dogmatika")
+            other_card:set_cost()
+        end
+    end,
+}
 
 -- Haunted Shrine
 SMODS.Back {
@@ -113,15 +125,20 @@ SMODS.Back {
 }
 
 -- Generaider Boss Room
--- SMODS.Back {
---     key = "generaider",
---     atlas = "Deck",
---     discovered = true,
---     pos = { x = 6, y = 0 },
---     apply = function(self, back)
-
---     end
--- }
+SMODS.Back {
+    key = "generaider",
+    atlas = "Deck",
+    discovered = true,
+    pos = { x = 6, y = 0 },
+    apply = function(self, back)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                SMODS.add_card { key = "j_joy_generaider_boss_stage", no_edition = true }
+                return true
+            end
+        }))
+    end
+}
 
 -- Ghoti Chain
 SMODS.Back {
@@ -145,26 +162,34 @@ SMODS.Back {
 }
 
 -- PSY-Frame Accelerator
--- SMODS.Back {
---     key = "psy",
---     atlas = "Deck",
---     discovered = true,
---     pos = { x = 1, y = 1 },
---     apply = function(self, back)
-
---     end
--- }
+SMODS.Back {
+    key = "psy",
+    atlas = "Deck",
+    discovered = true,
+    pos = { x = 1, y = 1 },
+    calculate = function(self, back, context)
+        if context.card_added and JoyousSpring.is_normal_monster(context.card) then
+            context.card:set_edition('e_negative')
+        end
+    end
+}
 
 -- Runick Tip
--- SMODS.Back {
---     key = "runick",
---     atlas = "Deck",
---     discovered = true,
---     pos = { x = 2, y = 1 },
---     apply = function(self, back)
-
---     end
--- }
+SMODS.Back {
+    key = "runick",
+    atlas = "Deck",
+    discovered = true,
+    pos = { x = 2, y = 1 },
+    apply = function(self, back)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                G.consumeables:change_size(8)
+                SMODS.add_card { key = "j_joy_runick_fountain", no_edition = true }
+                return true
+            end
+        }))
+    end
+}
 
 -- The Traveler and the Burning Abyss
 SMODS.Back {
@@ -670,6 +695,8 @@ SMODS.Back {
         G.E_MANAGER:add_event(Event({
             blockable = false,
             func = (function()
+                SMODS.add_card { key = "j_joy_dracotail_mululu", no_edition = true }
+
                 for _, pcard in ipairs(G.playing_cards) do
                     local poll = pseudorandom(self.key, 1, 3)
                     if poll == 1 then
@@ -806,15 +833,17 @@ SMODS.Back {
 }
 
 -- Dark Magic Inheritance
--- SMODS.Back {
---     key = "dm",
---     atlas = "Deck",
---     discovered = true,
---     pos = { x = 3, y = 5 },
---     apply = function(self, back)
-
---     end
--- }
+SMODS.Back {
+    key = "dm",
+    atlas = "Deck",
+    discovered = true,
+    pos = { x = 3, y = 5 },
+    calculate = function(self, back, context)
+        if context.setting_blind then
+            JoyousSpring.create_pseudorandom({ { is_normal = true } }, self.key, nil, nil, "e_negative")
+        end
+    end
+}
 
 -- S-Force Showdown
 SMODS.Back {
@@ -833,5 +862,18 @@ SMODS.Back {
                 append = "sho"
             }
         }
+    end
+}
+
+-- End of the World
+SMODS.Back {
+    key = "eotw",
+    atlas = "Deck",
+    discovered = true,
+    pos = { x = 5, y = 5 },
+    calculate = function(self, back, context)
+        if context.card_added and JoyousSpring.is_summon_type(context.card, "RITUAL") then
+            context.card:set_edition('e_negative')
+        end
     end
 }

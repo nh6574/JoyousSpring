@@ -394,7 +394,8 @@ JoyousSpring.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         if not from_debuff then
-            card.ability.extra.unique_count = #SMODS.find_card("j_joy_spright_sprind", true)
+            G.GAME.joy_sprind_unique = (G.GAME.joy_sprind_unique or 0) + 1
+            card.ability.extra.unique_count = G.GAME.joy_sprind_unique
         end
         if not card.debuff then
             local spright_material = false

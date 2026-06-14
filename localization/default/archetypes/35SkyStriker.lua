@@ -113,7 +113,7 @@ return {
                     },
                     {
                         "Sell this card to create",
-                        "{C:attention}#2# Meteor Tags"
+                        "{C:attention}#1# Meteor Tags"
                     }
                 }
             },
@@ -442,7 +442,7 @@ return {
                 name = "{C:joy_link}Sky Striker Ace = Zero",
                 text = {
                     {
-                        "Gains {X:mult,C:white}X#1#{} Mult for each",
+                        "Gives an extra {X:mult,C:white}X#1#{} Mult for each",
                         "hand level over {C:attention}1{}",
                         "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
                     },

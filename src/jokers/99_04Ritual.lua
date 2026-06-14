@@ -102,19 +102,12 @@ JoyousSpring.Joker({
                     {
                         type = "RITUAL",
                         materials = {
-                            {},
-                            {},
-                        }
-                    },
-                    {
-                        type = "RITUAL",
-                        materials = {
                             { is_normal = true },
                         }
                     }
                 }
             },
-            mult = 50
+            mult = 20
         },
     },
     calculate = function(self, card, context)
@@ -145,7 +138,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "skullguardian",
     atlas = "Misc03",
-    pos = { x = 5, y = 3 },
+    pos = { x = 2, y = 3 },
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
@@ -186,7 +179,7 @@ JoyousSpring.Joker({
 JoyousSpring.Joker({
     key = "saffira",
     atlas = "Misc03",
-    pos = { x = 4, y = 3 },
+    pos = { x = 1, y = 3 },
     rarity = 2,
     blueprint_compat = false,
     eternal_compat = true,
@@ -256,4 +249,335 @@ JoyousSpring.Joker({
             end
         end
     end,
+})
+
+-- Cú Chulainn the Awakened
+JoyousSpring.Joker({
+    key = "chulainn",
+    atlas = 'Misc03',
+    pos = { x = 3, y = 3 },
+    rarity = 1,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 8,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.removes, card.ability.extra.mult, card.ability.extra.current_mult, card.ability.extra.sends } }
+    end,
+    joy_glossary = { 'graveyard', 'normal', 'send' },
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "LIGHT",
+                monster_type = "Warrior",
+                summon_type = "RITUAL",
+                summon_conditions = {
+                    {
+                        type = "RITUAL",
+                        materials = {
+                            {},
+                        }
+                    }
+                }
+            },
+            removes = 3,
+            mult = 5,
+            current_mult = 0,
+            sends = 1
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    mult = card.ability.extra.current_mult
+                }
+            end
+            if context.setting_blind then
+                JoyousSpring.send_to_graveyard_pseudorandom({ { is_normal = true } }, self.key .. "_send")
+            end
+            if context.end_of_round and context.game_over == false and context.main_eval then
+                local old_count = JoyousSpring.get_graveyard_count()
+                JoyousSpring.remove_from_graveyard(card.ability.extra.removes, self.key, nil,
+                    { { is_normal = true } })
+                local removed = old_count - JoyousSpring.get_graveyard_count()
+                card.ability.extra.current_mult = card.ability.extra.current_mult +
+                    card.ability.extra.mult * removed
+            end
+        end
+    end,
+})
+
+-- Divine Grace - Northwemko
+JoyousSpring.Joker({
+    key = "northwemko",
+    atlas = 'Misc03',
+    pos = { x = 4, y = 3 },
+    rarity = 2,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 8,
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = { card.ability.extra.xchips },
+        }
+    end,
+    joy_glossary = { 'summon', 'material' },
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "LIGHT",
+                monster_type = "Spellcaster",
+                summon_type = "RITUAL",
+                summon_conditions = {
+                    {
+                        type = "RITUAL",
+                        materials = {
+                            { monster_attribute = "LIGHT", min = 1 },
+                        }
+                    }
+                }
+            },
+            xchips = 4
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.individual and context.cardarea == G.play and
+                context.other_card.ability.joy_northwemko then
+                return {
+                    xchips = card.ability.extra.xchips
+                }
+            end
+            if JoyousSpring.is_activated_context(card, context) then
+                card.ability.extra.active = true
+
+                for _, pcard in ipairs(G.hand.highlighted) do
+                    pcard.ability.joy_northwemko = true
+                end
+            end
+        end
+    end,
+    joy_can_activate = function(card)
+        if card.ability.extra.active then
+            return false
+        end
+        local amount = #G.hand.highlighted
+        return amount > 0
+    end,
+})
+
+-- Shinato, King of a Higher Plane
+JoyousSpring.Joker({
+    key = "shinato",
+    atlas = 'Misc03',
+    pos = { x = 0, y = 4 },
+    rarity = 2,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 8,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xchips } }
+    end,
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "LIGHT",
+                monster_type = "Fairy",
+                summon_type = "RITUAL",
+                summon_conditions = {
+                    {
+                        type = "RITUAL",
+                        materials = {
+                            { monster_attribute = "LIGHT" },
+                            {},
+                        }
+                    }
+                }
+            },
+            xchips = 6
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    xchips = card.ability.extra.xchips
+                }
+            end
+            if context.after and SMODS.last_hand_oneshot then
+                SMODS.destroy_cards(card)
+            end
+        end
+    end,
+})
+
+-- Vennu, Bright Bird of Divinity
+JoyousSpring.Joker({
+    key = "vennu",
+    atlas = 'Misc03',
+    pos = { x = 1, y = 4 },
+    rarity = 3,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 12,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_glossary = { 'tribute', 'revive', 'banish' },
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "LIGHT",
+                monster_type = "Fairy",
+                summon_type = "RITUAL",
+                summon_conditions = {
+                    {
+                        type = "RITUAL",
+                        materials = {
+                            { monster_attribute = "LIGHT" },
+                            {},
+                        }
+                    }
+                }
+            },
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joy_tributed and context.joy_card.ability.set == "Joker"
+                and not card.ability.extra.active then
+                card.ability.extra.active = true
+                JoyousSpring.revive_pseudorandom({ { monster_attribute = "LIGHT" } }, self.key, true)
+            end
+            if context.joy_returned and context.joy_returned_card == card then
+                card.ability.extra.active_prob = true
+            end
+            if context.joy_probability_roll and card.ability.extra.active_prob then
+                JoyousSpring.guaranteed_probability = true
+                card.ability.extra.active_prob = false
+                return {
+                    message = localize("k_joy_activated_ex"),
+                    colour = G.C.GREEN,
+                }
+            end
+        end
+        if context.end_of_round and context.game_over == false and context.main_eval then
+            card.ability.extra.active = nil
+        end
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        card.ability.extra.active = nil
+    end
+})
+
+-- Reshef the Dark Being
+JoyousSpring.Joker({
+    key = "reshef",
+    atlas = 'Misc03',
+    pos = { x = 6, y = 3 },
+    rarity = 3,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 12,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
+    joy_glossary = { 'tribute', 'fieldspell', 'effect' },
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "LIGHT",
+                monster_type = "Fiend",
+                summon_type = "RITUAL",
+                summon_conditions = {
+                    {
+                        type = "RITUAL",
+                        materials = {
+                            {},
+                            {},
+                            {},
+                        }
+                    }
+                }
+            },
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if JoyousSpring.is_activated_context(card, context) then
+                local materials = JoyousSpring.get_materials_owned({ { is_field_spell = true } }, nil, true, true)
+                if #materials >= 1 then
+                    JoyousSpring.create_overlay_effect_selection(card, materials, 1, 1)
+                end
+            end
+            if JoyousSpring.is_exit_selection_context(card, context) and #G.jokers.cards < G.jokers.config.card_limit then
+                JoyousSpring.tribute(card, context.joy_selection)
+                JoyousSpring.create_pseudorandom({ { is_effect = true } }, self.key, true)
+            end
+        end
+    end,
+    joy_can_activate = function(card)
+        return #G.jokers.cards < G.jokers.config.card_limit and
+            JoyousSpring.any_materials_owned({ { is_field_spell = true } }, nil, true, true)
+    end,
+})
+
+-- Garlandolf, King of Destruction
+JoyousSpring.Joker({
+    key = "garlandolf",
+    atlas = 'Misc03',
+    pos = { x = 5, y = 3 },
+    rarity = 2,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 10,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xchips, card.ability.extra.current_xchips } }
+    end,
+    joy_glossary = { 'summon' },
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "DARK",
+                monster_type = "Fiend",
+                summon_type = "RITUAL",
+                summon_conditions = {
+                    {
+                        type = "RITUAL",
+                        materials = {
+                            { monster_attribute = "DARK" },
+                        },
+                        restrictions = {
+                            no_room = true
+                        }
+                    }
+                }
+            },
+            xchips = 1,
+            current_xchips = 1
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    xchips = card.ability.extra.current_xchips
+                }
+            end
+        end
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        if not from_debuff and card.ability.extra.joyous_spring.summoned then
+            local count = 0
+            local targets = {}
+            for _, joker in ipairs(G.jokers.cards) do
+                if not SMODS.is_eternal(joker, card) then
+                    count = count + 1
+                    targets[#targets + 1] = joker
+                end
+            end
+            SMODS.destroy_cards(targets)
+            card.ability.extra.current_xchips = card.ability.extra.xchips * count
+        end
+    end
 })

@@ -1000,7 +1000,8 @@ JoyousSpring.Joker({
                 if not card.ability.extra.activated and card.ability.extra.successes >= card.ability.extra.succeed then
                     card.ability.extra.activated = true
                     for i = 1, card.ability.extra.creates do
-                        JoyousSpring.create_pseudorandom({ { monster_type = "Spellcaster", is_main_deck = true } },
+                        JoyousSpring.create_pseudorandom(
+                            { { monster_type = "Spellcaster", is_main_deck = true, is_effect = true } },
                             card.config.center.key, true)
                     end
                 end

@@ -1149,11 +1149,6 @@ JoyousSpring.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) and not context.blueprint_card then
-            if context.joker_main then
-                return {
-                    mult = card.ability.extra.mult * JoyousSpring.count_set_tributed("Planet")
-                }
-            end
             if JoyousSpring.is_activated_context(card, context) then
                 local materials = SMODS.merge_lists({ JoyousSpring.get_materials_owned(
                     { { monster_archetypes = { "SkyStrikerAce" }, summon_type = "LINK" } }, nil, true),
@@ -1578,7 +1573,7 @@ JoyousSpring.Joker({
 
 local striker_get_level_amount = function()
     local amount = 0
-    for _, hand in ipairs(G.GAME.hands) do
+    for _, hand in pairs(G.GAME.hands) do
         if hand.level > 1 then
             amount = amount + hand.level - 1
         end

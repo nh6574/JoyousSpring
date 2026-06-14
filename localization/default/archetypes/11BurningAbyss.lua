@@ -20,7 +20,7 @@ return {
                     {
                         "{C:mult}+#1#{} Mult",
                         "{C:mult}+#2#{} Mult for every {C:joy_normal}Fiend{} {C:attention}Joker{} in the {C:attention}GY{}",
-                        "{C:inactive}(Currently{} {C:mult}+#3#{} {C:inactive}Mult total){}",
+                        "{C:inactive}(Currently{} {C:mult}+#3#{} {C:inactive}Mult){}",
                     },
                     {
                         "Destroys itself if you own a non-{C:joy_normal}Fiend{}",
@@ -147,7 +147,7 @@ return {
                     {
                         "Destroys itself if you own a non-{C:joy_normal}Fiend{}",
                         "{C:joy_normal}Monster{} {C:attention}Joker{} when {C:attention}Blind{} is selected",
-                        "and creates {C:attention}#1#{} {C:joy_normal}Main Deck Fiends{}",
+                        "and creates {C:attention}#1#{} {C:joy_normal}Main Deck{} {C:joy_effect}Effect {C:joy_normal}Fiends{}",
                         "{C:inactive}(Must have room){}",
                         "{s:0.9,C:inactive}(This also triggers on sell)",
                     },
@@ -241,7 +241,7 @@ return {
                 name = "{C:joy_xyz}Beatrice, Lady of the Eternal",
                 text = {
                     {
-                        "Gains {X:mult,C:white}X#1#{} Mult for each {C:attention}Joker{} in the {C:attention}GY{}",
+                        "Gives an extra {X:mult,C:white}X#1#{} Mult for each {C:attention}Joker{} in the {C:attention}GY{}",
                         "{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}",
                     },
                     {

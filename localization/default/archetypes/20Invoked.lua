@@ -196,7 +196,7 @@ return {
                         "to {C:attention}transform{} this card into {C:joy_effect}\"Aleister the Invoker\"",
                     },
                     {
-                        "Gains {X:mult,C:white}X#2#{} Mult for each {C:joy_fusion}Fusion{} in the {C:attention}GY{}",
+                        "Gives an extra {X:mult,C:white}X#2#{} Mult for each {C:joy_fusion}Fusion{} in the {C:attention}GY{}",
                         "{C:inactive}(Currently{} {X:mult,C:white}X#3#{} {C:inactive}Mult){}",
                     },
                     {
@@ -209,7 +209,7 @@ return {
                     "{s:0.8,C:inactive}(Supersedes other conditions)",
                 },
                 joy_transfer_ability = {
-                    "Gains {X:mult,C:white}X#1#{} Mult for each {C:joy_fusion}Fusion{} in the {C:attention}GY{}",
+                    "Gives an extra {X:mult,C:white}X#1#{} Mult for each {C:joy_fusion}Fusion{} in the {C:attention}GY{}",
                     "{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}",
                     " ",
                     "Sends {C:attention}#3#{} non-{C:joy_normal}\"Invoked\"{} {C:joy_fusion}Fusions{} to the {C:attention}GY{}",
@@ -241,10 +241,12 @@ return {
                 name = "{C:joy_spell}Magical Meltdown",
                 text = {
                     {
-                        "You can {C:attention}tribute #1#{} {C:joy_fusion}Fusions{} to create {C:attention}#2#{} {C:joy_effect}\"Aleister the Invoker\"",
+                        "You can {C:attention}tribute #1#{} {C:joy_fusion}Fusions{}",
+                        "to create {C:attention}#2#{} {C:joy_effect}\"Aleister the Invoker\"",
                     },
                     {
-                        "Gains {X:mult,C:white}X#3#{} Mult for each {C:joy_fusion}fusion{} summoned this run",
+                        "Gains {X:mult,C:white}X#3#{} Mult for each",
+                        "{C:joy_fusion}fusion{} summoned this run",
                         "{C:inactive}(Currently{} {X:mult,C:white}X#4#{} {C:inactive}Mult){}",
                     },
                     {

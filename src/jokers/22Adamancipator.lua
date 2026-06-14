@@ -62,7 +62,7 @@ JoyousSpring.Joker({
                 if card.ability.extra.hands_played >= card.ability.extra.hands then
                     for _ = 1, card.ability.extra.creates do
                         JoyousSpring.create_pseudorandom(
-                            { { monster_type = "Rock", is_main_deck = true }, },
+                            { { monster_type = "Rock", is_main_deck = true, is_effect = true }, },
                             'j_joy_adaman_analyzer', true)
                     end
                     card.ability.extra.activated = true
@@ -170,7 +170,7 @@ JoyousSpring.Joker({
                 if card.ability.extra.hands_played >= card.ability.extra.hands then
                     for _ = 1, card.ability.extra.creates do
                         JoyousSpring.create_pseudorandom(
-                            { { monster_type = "Rock", is_main_deck = true }, },
+                            { { monster_type = "Rock", is_main_deck = true, is_effect = true }, },
                             'j_joy_adaman_researcher', true)
                     end
                     card.ability.extra.activated = true
@@ -278,7 +278,7 @@ JoyousSpring.Joker({
                 if card.ability.extra.hands_played >= card.ability.extra.hands then
                     for _ = 1, card.ability.extra.creates do
                         JoyousSpring.create_pseudorandom(
-                            { { monster_type = "Rock", is_main_deck = true }, },
+                            { { monster_type = "Rock", is_main_deck = true, is_effect = true }, },
                             'j_joy_adaman_seeker', true)
                     end
                     card.ability.extra.activated = true
@@ -633,7 +633,7 @@ JoyousSpring.Joker({
                     card.ability.extra.activated = true
                     for _ = 1, card.ability.extra.creates do
                         JoyousSpring.create_pseudorandom(
-                            { { monster_type = "Rock", is_main_deck = true }, },
+                            { { monster_type = "Rock", is_main_deck = true, is_effect = true }, },
                             'j_joy_adaman_dragite', false)
                     end
                 end
@@ -726,7 +726,7 @@ JoyousSpring.Joker({
                     card.ability.extra.activated = true
                     for _ = 1, card.ability.extra.creates do
                         JoyousSpring.create_pseudorandom(
-                            { { monster_type = "Rock", is_main_deck = true }, },
+                            { { monster_type = "Rock", is_main_deck = true, is_effect = true }, },
                             'j_joy_adaman_raptite', false)
                     end
                 end
@@ -810,7 +810,7 @@ JoyousSpring.Joker({
                     card.ability.extra.activated = true
                     for _ = 1, card.ability.extra.creates do
                         JoyousSpring.create_pseudorandom(
-                            { { monster_type = "Rock", is_main_deck = true }, },
+                            { { monster_type = "Rock", is_main_deck = true, is_effect = true }, },
                             'j_joy_adaman_leonite', false)
                     end
                 end

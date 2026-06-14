@@ -1111,7 +1111,7 @@ local related_tab = function(t)
             table.insert(keys, key)
         end
     end
-    table.sort(keys, function(a, b) return JoyousSpring.card_order[a] < JoyousSpring.card_order[b] end)
+    table.sort(keys, function(a, b) return (JoyousSpring.card_order[a] or 0) < (JoyousSpring.card_order[b] or 0) end)
     local count = 0
     for j, key in ipairs(keys) do
         if count > 6 then
@@ -1132,7 +1132,8 @@ local related_tab = function(t)
         local added_card = SMODS.create_card({
             key = key,
             no_edition = true,
-            area = t.area_table[#t.area_table]
+            area = t.area_table[#t.area_table],
+            skip_materialize = true
         })
         G.GAME.used_jokers[key] = old_used_jokers
         t.area_table[#t.area_table]:emplace(added_card)

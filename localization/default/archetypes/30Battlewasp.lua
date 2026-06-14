@@ -22,7 +22,7 @@ return {
                 name = "{C:joy_effect}Battlewasp - Dart the Hunter",
                 text = {
                     {
-                        "Creates {C:attention}1{} {C:joy_normal}Main Deck Insect{}",
+                        "Creates {C:attention}1{} {C:joy_normal}Main Deck {C:joy_effect}Effect {C:joy_normal}Insect{}",
                         "when used as {C:attention}material{}",
                     },
                     {

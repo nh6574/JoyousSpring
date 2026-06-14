@@ -198,7 +198,7 @@ return {
                         "can't be debuffed"
                     },
                     {
-                        "Attach {C:attention}#1#{} material to a random {C:joy_xyz}Xyz{}",
+                        "{C:attention}Attach #1# material{} to a random {C:joy_xyz}Xyz{}",
                         "when {C:planet}\"My Friend Purrely\"{} would apply a Seal",
                         "{C:inactive}(Even if already applied){}"
                     },
@@ -299,14 +299,14 @@ return {
                     {
                         "A random {C:joy_xyz}Xyz{} {C:attention}Joker{} you own",
                         "gains the following ability:",
-                        "{s:0.9}Attach {s:0.9,C:attention}1 {s:0.9,C:joy_xyz}Xyz {s:0.9,C:attention}material{}",
+                        "{s:0.9,C:attention}Attach 1 material{}",
                         "{s:0.9}when a card is {C:attention,s:0.9}tributed{}",
                         "{s:0.9} ",
                         "{s:0.9,C:attention}Detaches 1 material{s:0.9} at end of round",
                     }
                 },
                 joy_transfer_ability = {
-                    "Attach {C:attention}1 {C:joy_xyz}Xyz {C:attention}material{}",
+                    "{C:attention}Attach 1 material{}",
                     "when a card is {C:attention}tributed{}",
                     " ",
                     "{C:attention}Detaches 1 material{} at end of round",
@@ -420,7 +420,7 @@ return {
                 }
             },
         },
-        JoyPokerHand = { -- TODO: delete if not used
+        JoyPokerHand = {
             phd_joy_purr_yeap = {
                 name = "Purrelyeap!?",
                 text = {

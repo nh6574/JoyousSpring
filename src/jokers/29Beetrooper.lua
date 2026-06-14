@@ -510,7 +510,8 @@ JoyousSpring.Joker({
             if context.joy_banished and JoyousSpring.is_monster_type(context.joy_banished_card, "Insect") then
                 G.E_MANAGER:add_event(Event({
                     func = function()
-                        JoyousSpring.create_pseudorandom({ { is_main_deck = true, monster_type = "Insect" } }, self.key,
+                        JoyousSpring.create_pseudorandom(
+                            { { is_main_deck = true, monster_type = "Insect", is_effect = true } }, self.key,
                             true)
                         return true
                     end

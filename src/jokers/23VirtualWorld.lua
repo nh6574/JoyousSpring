@@ -6,28 +6,9 @@ SMODS.Atlas({
     py = 95
 })
 
-local get_type_attribute_allowlist = function(card_list)
-    local allowlist = {}
-
-    for _, joker in ipairs(card_list) do
-        if JoyousSpring.is_monster_card(joker) then
-            local monster_type = JoyousSpring.get_monster_type(joker)
-            local attribute = JoyousSpring.get_attribute(joker)
-            table.insert(allowlist,
-                {
-                    monster_type = monster_type ~= true and monster_type or nil,
-                    monster_attribute = attribute ~= true and attribute or nil
-                }
-            )
-        end
-    end
-
-    return allowlist
-end
-
 local all_cards_in_gy_share_type_attribute = function()
     return JoyousSpring.get_graveyard_count() ==
-        JoyousSpring.count_materials_in_graveyard(get_type_attribute_allowlist(G.jokers.cards))
+        JoyousSpring.count_materials_in_graveyard(JoyousSpring.get_type_attribute_allowlist(G.jokers.cards))
 end
 
 local vw_played_hand = function(handname, context)
@@ -65,7 +46,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.xmult, card.ability.extra.shop_add, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
+        { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon", properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "extradeck", "maindeck" },
     config = {
@@ -160,7 +141,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.chips, card.ability.extra.shop_add, card.ability.extra.creates, card.ability.extra.returns } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
+        { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon", properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "banish" },
     config = {
@@ -295,7 +276,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.mult, card.ability.extra.shop_add, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
+        { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon", properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "graveyard", "maindeck" },
     config = {
@@ -406,7 +387,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.mult, card.ability.extra.shop_add, card.ability.extra.creates } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
+        { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon", properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "banish", "tuner", "synchro" },
     config = {
@@ -518,7 +499,7 @@ JoyousSpring.Joker({
         }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
+        { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon", properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "graveyard", "send", "extradeck" },
     config = {
@@ -626,7 +607,7 @@ JoyousSpring.Joker({
         }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
+        { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon", properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "graveyard", "revive" },
     config = {
@@ -743,7 +724,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.mult_add, card.ability.extra.mult_sub, math.max(0, (card.ability.extra.mult_add * count) - (card.ability.extra.mult_sub * sub)), card.ability.extra.mult_change, card.ability.extra.detach } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
+        { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon", properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "graveyard" },
     config = {
@@ -856,7 +837,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.detach, card.ability.extra.removes, card.ability.extra.xmult } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
+        { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon", properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "graveyard", "banish" },
     config = {
@@ -893,7 +874,7 @@ JoyousSpring.Joker({
             if context.joy_detach and context.joy_detaching_card == card then
                 JoyousSpring.ease_detach(card)
                 JoyousSpring.remove_from_graveyard(card.ability.extra.removes, card.config.center.key,
-                    get_type_attribute_allowlist(G.jokers.cards))
+                    JoyousSpring.get_type_attribute_allowlist(G.jokers.cards))
             end
             if context.joker_main and all_cards_in_gy_share_type_attribute() and vw_any_played(context) then
                 return {
@@ -909,7 +890,7 @@ JoyousSpring.Joker({
     end,
     joy_can_detach = function(self, card)
         return (JoyousSpring.get_graveyard_count() -
-            JoyousSpring.count_materials_in_graveyard(get_type_attribute_allowlist(G.jokers.cards))) > 0
+            JoyousSpring.count_materials_in_graveyard(JoyousSpring.get_type_attribute_allowlist(G.jokers.cards))) > 0
     end,
     joker_display_def = function(JokerDisplay)
         return {
@@ -949,7 +930,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.detach, card.ability.extra.revives } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
+        { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon", properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "graveyard", "banish", "revive" },
     config = {
@@ -984,8 +965,8 @@ JoyousSpring.Joker({
         if JoyousSpring.can_use_abilities(card) then
             if context.joy_detach and context.joy_detaching_card == card and not card.ability.extra.active then
                 JoyousSpring.ease_detach(card)
-                JoyousSpring.revive_pseudorandom(get_type_attribute_allowlist(G.jokers.cards), card.config.center.key,
-                    true)
+                JoyousSpring.revive_pseudorandom(JoyousSpring.get_type_attribute_allowlist(G.jokers.cards),
+                    card.config.center.key, true)
             end
             if context.joy_returned and context.joy_returned_card == card then
                 G.E_MANAGER:add_event(Event({
@@ -1005,7 +986,8 @@ JoyousSpring.Joker({
         end
     end,
     joy_can_detach = function(self, card)
-        return JoyousSpring.count_materials_in_graveyard(get_type_attribute_allowlist(G.jokers.cards), true) > 0
+        return JoyousSpring.count_materials_in_graveyard(JoyousSpring.get_type_attribute_allowlist(G.jokers.cards), true) >
+            0
     end,
 })
 
@@ -1025,7 +1007,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.detach, card.ability.extra.xmult, card.ability.extra.current_xmult, card.ability.extra.attach, card.ability.extra.banish } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
+        { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon", properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "attach", "banish" },
     config = {
@@ -1121,7 +1103,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.mills, card.ability.extra.chips, card.ability.extra.chips * JoyousSpring.get_graveyard_count() } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
+        { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon", properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "send", "graveyard" },
     config = {
@@ -1210,7 +1192,7 @@ JoyousSpring.Joker({
         return { vars = { card.ability.extra.xchips } }
     end,
     joy_desc_cards = {
-        { properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
+        { "c_joy_vw_xuanwu", "c_joy_vw_qinglong", "c_joy_vw_chuche", "c_joy_vw_kauwloon", properties = { { monster_archetypes = { "VirtualWorld" } } }, name = "k_joy_archetype" },
     },
     joy_glossary = { "send", "graveyard", "banish" },
     config = {
@@ -1254,7 +1236,7 @@ JoyousSpring.Joker({
     end,
     joy_can_be_sent_to_graveyard = function(self, card, choices)
         local vw_owned = JoyousSpring.get_materials_owned({ { monster_archetypes = { "VirtualWorld" } } })
-        return JoyousSpring.filter_material_keys_from_list(choices, get_type_attribute_allowlist(vw_owned))
+        return JoyousSpring.filter_material_keys_from_list(choices, JoyousSpring.get_type_attribute_allowlist(vw_owned))
     end,
     joker_display_def = function(JokerDisplay)
         return {

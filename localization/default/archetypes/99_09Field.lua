@@ -37,7 +37,7 @@ return {
                 text = {
                     {
                         "Once per round, you can {C:attention}tribute #1#{} {C:attention}Joker{}",
-                        "to attach {C:attention}#2# material{} to each {C:joy_xyz}Xyz{}",
+                        "to {C:attention}attach #2# material{} to each {C:joy_xyz}Xyz{}",
                     },
                 }
             },
@@ -81,6 +81,32 @@ return {
                         "{C:attention}Jokers{} are {C:attention}flipped{} face-down when {C:attention}Small{} or {C:attention}Big Blind{} are selected",
                         "and {C:attention}flipped{} face-up at end of round",
                     },
+                }
+            },
+            j_joy_necrovalley = {
+                name = "{C:joy_spell}Necrovalley",
+                text = {
+                    {
+                        "{C:mult}+#1#{} Mult for each card in the {C:attention}GY{}",
+                        "{C:mult}-#2#{} Mult for each {C:attention}Joker revived{} this run",
+                        "{C:inactive}(Currently {C:mult}+#3#{}{C:inactive} Mult) (min. +0)"
+                    }
+                }
+            },
+            j_joy_secretvillage = {
+                name = "{C:joy_spell}Secret Village of the Spellcasters",
+                text = {
+                    {
+                        "Each {C:joy_normal}Spellcaster{} gives {X:mult,C:white}X#1#{} Mult"
+                    },
+                    {
+                        "{X:mult,C:white}X#2#{} Mult if you own",
+                        "no {C:joy_normal}Spellcasters{}"
+                    },
+                    {
+                        "Becomes {C:attention}Eternal{} when",
+                        "bought from the shop"
+                    }
                 }
             },
         }

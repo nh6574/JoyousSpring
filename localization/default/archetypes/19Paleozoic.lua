@@ -21,8 +21,10 @@ return {
                 name = "{C:joy_trap}Paleozoic Dinomischus",
                 text = {
                     {
-                        "{C:joy_effect}FLIP{}: This card and {C:attention}#1#{} other {C:joy_trap}Trap{} {C:attention}banish{} at end of round",
-                        "until {C:attention}Blind{} is selected and {C:attention}revives #2#{} {C:joy_normal}\"Paleozoic\"",
+                        "{C:joy_effect}FLIP{}: This card and {C:attention}#1#{} other {C:joy_trap}Trap{}",
+                        "{C:attention}banish{} at end of round",
+                        "until {C:attention}Blind{} is selected",
+                        "and {C:attention}revives #2#{} {C:joy_normal}\"Paleozoic\"",
                     },
                     {
                         "Can't be debuffed",
@@ -109,7 +111,8 @@ return {
                 name = "{C:joy_link}Paleozoic Cambroraster",
                 text = {
                     {
-                        "Adds {C:attention}#1#{} {C:joy_xyz}Xyz{} {C:joy_normal}\"Paleozoic\"{} to the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
+                        "Adds {C:attention}#1#{} {C:joy_xyz}Xyz{} {C:joy_normal}\"Paleozoic\"{} to",
+                        "the {C:joy_spell}Extra Deck{} when {C:attention}entering play{}",
                     },
                     {
                         "{C:joy_normal}\"Paleozoic\"{} {C:attention}revive{} other cards as {C:dark_edition}Negative",
@@ -130,7 +133,7 @@ return {
                         "{C:inactive}(Currently {X:mult,C:white}X#3#{} {C:inactive}Mult)",
                     },
                     {
-                        "Attach {C:attention}#4# {C:attention}material{} to this card when a {C:joy_trap}Trap{} is flipped face-up",
+                        "{C:attention}Attach #4# material{} to this card when a {C:joy_trap}Trap{} is flipped face-up",
                     },
                     {
                         "Can't be debuffed",

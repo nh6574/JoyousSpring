@@ -269,3 +269,116 @@ JoyousSpring.Joker({
         end
     end
 })
+
+-- Sea Dragon Lord Gishilnodon
+JoyousSpring.Joker({
+    key = "gishilnodon",
+    atlas = 'Misc03',
+    pos = { x = 0, y = 5 },
+    rarity = 1,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 11,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.chips, card.ability.extra.current_chips } }
+    end,
+    joy_glossary = { 'material' },
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "WATER",
+                monster_type = "SeaSerpent",
+                summon_type = "SYNCHRO",
+                summon_conditions = {
+                    {
+                        type = "SYNCHRO",
+                        materials = {
+                            { is_tuner = true, exclude_summon_types = { "XYZ", "LINK" } },
+                            { rarity = 1,      exclude_tuners = true,                   exclude_summon_types = { "XYZ", "LINK" } },
+                        },
+                    }
+                }
+            },
+            chips = 30,
+            current_chips = 0
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    chips = card.ability.extra.current_chips
+                }
+            end
+            if context.joy_summon then
+                local count = 0
+                for _, material in ipairs(context.joy_summon_materials) do
+                    if type(material) == "string" then
+                        if G.P_CENTERS[material] and G.P_CENTERS[material].rarity == 1 then
+                            count = count + 1
+                        end
+                    elseif material:is_rarity(1) then
+                        count = count + 1
+                    end
+                end
+                card.ability.extra.current_chips = card.ability.extra.current_chips + card.ability.extra.chips * count
+            end
+        end
+    end,
+})
+
+-- Giganticastle
+JoyousSpring.Joker({
+    key = "giganticastle",
+    atlas = 'Misc03',
+    pos = { x = 6, y = 4 },
+    rarity = 2,
+    blueprint_compat = false,
+    eternal_compat = true,
+    cost = 12,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.mult, card.ability.extra.current_mult } }
+    end,
+    joy_glossary = { 'material', 'tuner', 'summon' },
+    config = {
+        extra = {
+            joyous_spring = JoyousSpring.init_joy_table {
+                attribute = "EARTH",
+                monster_type = "Rock",
+                summon_type = "SYNCHRO",
+                summon_conditions = {
+                    {
+                        type = "SYNCHRO",
+                        materials = {
+                            { is_tuner = true, exclude_summon_types = { "XYZ", "LINK" } },
+                            { min = 1,         exclude_tuners = true,                   exclude_summon_types = { "XYZ", "LINK" } },
+                        },
+                    }
+                }
+            },
+            mult = 20,
+            current_mult = 0
+        },
+    },
+    calculate = function(self, card, context)
+        if JoyousSpring.can_use_abilities(card) then
+            if context.joker_main then
+                return {
+                    mult = card.ability.extra.current_mult
+                }
+            end
+        end
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        if not from_debuff then
+            local count = 0
+            local materials = JoyousSpring.get_materials(card)
+            for _, material in ipairs(materials) do
+                if JoyousSpring.is_material_center(material, { exclude_tuners = true }) then
+                    count = count + 1
+                end
+            end
+            card.ability.extra.current_mult = card.ability.extra.mult * count
+        end
+    end
+})
