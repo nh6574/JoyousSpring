@@ -18,7 +18,7 @@ return {
 					"{C:attention}Французский:{} Keraloon",
 					"{C:attention}Китайский (упр.):{} Alophrine",
 					"{C:attention}Корейский:{} voidu",
-					"{C:attention}Русский:{} nh6574, amnesiaof",
+					"{C:attention}Русский:{} amnesiaof",
 					" ",
 					"{C:joy_mod}Концепции архетипов:{}",
 					"{C:joy_link}@Ignister{}, {C:joy_xyz}Purrely{}: gyro/rina",
