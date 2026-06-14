@@ -740,10 +740,14 @@ JoyousSpring.Joker({
                 end
             end
             local properties = JoyousSpring.get_type_attribute_allowlist(choices)
-            for _, property in ipairs(JoyousSpring.get_type_attribute_allowlist(choices)) do
+            for _, property in ipairs(properties) do
                 property.is_normal = true
             end
-            JoyousSpring.revive_pseudorandom(properties, self.key, true)
+            local revived
+            revived = JoyousSpring.revive_pseudorandom(properties, self.key)
+            while revived do
+                revived = JoyousSpring.revive_pseudorandom(properties, self.key)
+            end
         end
     end,
     joy_bypass_room_check = dm_bypass_room_check
