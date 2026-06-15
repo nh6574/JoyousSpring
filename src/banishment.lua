@@ -102,8 +102,13 @@ JoyousSpring.return_from_banish = function(card)
             area = G.jokers
         end
     elseif JoyousSpring.is_playing_card(card) then
-        G.hand:emplace(card)
-        area = G.hand
+        if next(G.hand.cards) then
+            G.hand:emplace(card)
+            area = G.hand
+        else
+            G.deck:emplace(card)
+            area = G.deck
+        end
     else
         G.consumeables:emplace(card)
         area = G.consumeables
