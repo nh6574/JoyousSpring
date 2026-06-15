@@ -1,5 +1,7 @@
 ---SUMMON
 
+JoyousSpring.summon_material_limit = 15
+
 --#region Perform Summon
 
 local function summon_from_booster(card)
@@ -556,7 +558,7 @@ JoyousSpring.get_summon_material_combo_by_condition = function(condition, card_l
     local card_list = card_list or G.jokers.cards
     local material_combos
 
-    if #card_list <= 15 then
+    if #card_list <= (JoyousSpring.limit_summons and 5 or JoyousSpring.summon_material_limit) then
         material_combos = {}
         local current_combos = get_combinations(card_list, condition)
 
@@ -614,7 +616,8 @@ JoyousSpring.get_all_summon_material_combos = function(card, card_list)
         end
     end
 
-    return material_combos, card_table and #card_table > 15 or false
+    return material_combos,
+        card_table and #card_table > (JoyousSpring.limit_summons and 5 or JoyousSpring.summon_material_limit) or false
 end
 
 ---Checks if there's any combination in **card_list** that fulfills **condition**
@@ -624,7 +627,7 @@ end
 JoyousSpring.can_summon_by_condition = function(condition, card_list)
     local card_list = card_list or G.jokers.cards
 
-    if #card_list <= 15 then
+    if #card_list <= (JoyousSpring.limit_summons and 5 or JoyousSpring.summon_material_limit) then
         local current_combos = get_combinations(card_list, condition)
 
         for _, combination in ipairs(current_combos) do
@@ -1229,7 +1232,7 @@ JoyousSpring.create_overlay_select_summon_materials = function(card, card_list)
             0,
             0,
             G.CARD_W * 4.95 *
-            (#material_list > 10 and 1.5 or #material_list > 15 and 2 or #material_list > 20 and 25 or 1),
+            (#material_list > 10 and 1.5 or #material_list > (JoyousSpring.limit_summons and 5 or JoyousSpring.summon_material_limit) and 2 or #material_list > 20 and 25 or 1),
             G.CARD_H,
             {
                 type = 'summon_materials',

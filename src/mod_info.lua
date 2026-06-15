@@ -478,6 +478,17 @@ local main_tab = function()
                                     })
                                 }
                             },
+                            {
+                                n = G.UIT.R,
+                                config = { align = "cr", padding = 0.01 },
+                                nodes = {
+                                    create_toggle({
+                                        label = localize('k_joy_limit_summons'),
+                                        ref_table = JoyousSpring,
+                                        ref_value = 'limit_summons'
+                                    })
+                                }
+                            },
                         }
                     },
                 }
