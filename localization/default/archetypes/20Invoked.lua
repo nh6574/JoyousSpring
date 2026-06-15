@@ -246,7 +246,7 @@ return {
                     },
                     {
                         "Gains {X:mult,C:white}X#3#{} Mult for each",
-                        "{C:joy_fusion}fusion{} summoned this run",
+                        "{C:joy_fusion}Fusion{} summoned this run",
                         "{C:inactive}(Currently{} {X:mult,C:white}X#4#{} {C:inactive}Mult){}",
                     },
                     {
