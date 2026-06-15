@@ -7,7 +7,7 @@ return {
                 text = {
                     "{C:attention}Jokers{} that {C:attention}enter play",
                     "this ante are",
-                    "banished until",
+                    "{C:attention}banished{} until",
                     "end of ante"
                 }
             },
