@@ -368,7 +368,7 @@ JoyousSpring.Joker({
                 monster_type = "Machine",
                 attribute = "LIGHT",
                 monster_archetypes = { ["Drytron"] = true },
-                {
+                summon_conditions = {
                     {
                         type = "XYZ",
                         materials = {

@@ -497,25 +497,25 @@ JoyousSpring.Joker({
                 summon_type = "SYNCHRO",
                 monster_type = "Illusion",
                 attribute = "LIGHT",
-                monster_archetypes = { ["WhiteForest"] = true }
-            },
-            summon_conditions = {
-                {
-                    type = "SYNCHRO",
-                    materials = {
-                        { is_tuner = true, monster_type = "Spellcaster", exclude_summon_types = { "XYZ", "LINK" } },
-                        { min = 1,         exclude_tuners = true,        exclude_summon_types = { "XYZ", "LINK" } },
+                monster_archetypes = { ["WhiteForest"] = true },
+                summon_conditions = {
+                    {
+                        type = "SYNCHRO",
+                        materials = {
+                            { is_tuner = true, monster_type = "Spellcaster", exclude_summon_types = { "XYZ", "LINK" } },
+                            { min = 1,         exclude_tuners = true,        exclude_summon_types = { "XYZ", "LINK" } },
+                        },
                     },
-                },
-                {
-                    type = "SYNCHRO",
-                    materials = {
-                        { is_tuner = true,              exclude_summon_types = { "XYZ", "LINK" } },
-                        { monster_type = "Spellcaster", exclude_tuners = true,                   exclude_summon_types = { "XYZ", "LINK" } },
-                        { optional = true,              exclude_tuners = true,                   exclude_summon_types = { "XYZ", "LINK" } },
-                    },
+                    {
+                        type = "SYNCHRO",
+                        materials = {
+                            { is_tuner = true,              exclude_summon_types = { "XYZ", "LINK" } },
+                            { monster_type = "Spellcaster", exclude_tuners = true,                   exclude_summon_types = { "XYZ", "LINK" } },
+                            { optional = true,              exclude_tuners = true,                   exclude_summon_types = { "XYZ", "LINK" } },
+                        },
+                    }
                 }
-            }
+            },
         },
     },
     calculate = function(self, card, context)
