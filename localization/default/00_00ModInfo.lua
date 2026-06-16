@@ -20,7 +20,7 @@ return {
 					"{C:joy_mod}Localization:{}",
 					"{C:attention}French:{} Keraloon",
 					"{C:attention}Simplified Chinese:{} Alophrine",
-					"{C:attention}Korean:{} voidu",
+					"{C:attention}Korean:{} voidu, sunning838",
 					"{C:attention}Russian:{} amnesiaof",
 					" ",
 					"{C:joy_mod}Archetype Concepts:{}",

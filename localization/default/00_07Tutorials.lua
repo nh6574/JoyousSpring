@@ -65,7 +65,7 @@ return {
                             },
                             {
                                 "These {C:attention}Jokers{} lose any attributes then had while in play,",
-                                "but can be used by other abilities that check the {C:attention}graveyard{} or {C:attention}revive Jokers{}."
+                                "but can be used by other abilities that check the {C:attention}Graveyard{} or {C:attention}revive Jokers{}."
                             },
                             {
                                 "{C:joy_spell}Special{} {C:attention}Jokers{} must be {C:attention}summoned{} before",
@@ -131,7 +131,7 @@ return {
                             },
                             {
                                 "Some can have abilities that last for the entire {C:attention}ante{},",
-                                "indicated by a card that appears at the top of the deck."
+                                "indicated by a card that appears above the deck."
                             },
                             {
                                 "When losing to a {C:attention}Blind{} from this mod, your {C:joy_trap}Opponent{}",
@@ -252,7 +252,7 @@ return {
                                 "They can also have an {C:joy_normal}Attribute{} (e.g. {C:joy_dark}DARK{})",
                                 "and a {C:joy_normal}Type{} (e.g. {C:joy_normal}Spellcaster{})",
                                 " ",
-                                "These are important for abiltities but don't affect gameplay otherwise,",
+                                "These are important for abilities but don't affect gameplay otherwise,",
                                 "except for the {C:joy_normal}Illusion{} type which has the inherent ability",
                                 "to {C:attention}banish{} before a {C:attention}Blind{}"
                             }

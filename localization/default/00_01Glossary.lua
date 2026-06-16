@@ -215,9 +215,6 @@ return {
                 name = "[Material]",
                 text = {
                     "Cards used to {C:attention}summon{} a {C:attention}Joker{}",
-                    " ",
-                    "{C:inactive}(Note: Materials lose any \"treated as\" ability after being used,{}",
-                    "{C:inactive}this might change in the future){}"
                 },
             },
             all_materials = {
@@ -233,7 +230,7 @@ return {
                 text = {
                     "Some cards may make {C:attention}Joker{} gain extra abilities, usually when used as {C:attention}material{}",
                     "If a {C:attention}Joker{} with a transferred ability is used for a {C:attention}summon{}",
-                    "it will {C:red}not{} transfer these abiltiies {C:inactive}(unless specified){}",
+                    "it will {C:red}not{} transfer these abilities {C:inactive}(unless specified){}",
                     " ",
                     "Press {C:attention}t{} while hovering a {C:attention}Joker{} to see its transferred abilities"
                 },
@@ -374,7 +371,7 @@ return {
             activated = {
                 name = "[Activated abilities]",
                 text = {
-                    "Cards that say \"You can\" have abiltiies that may be activated once the conditions are met",
+                    "Cards that say \"You can\" have abilities that may be activated once the conditions are met",
                     "\"{C:joy_xyz}Detach{} {C:attention}X{}\" abilities are also considered activated",
                     " ",
                     "To activate an ability click on the button under the {C:green}sell{} button"
@@ -433,7 +430,7 @@ return {
                     "Losing to any of these {C:attention}Blinds{}",
                     "(including previous {C:attention}Blinds{} that ante if it has ante-wide abilities)",
                     "will create a special card in the {C:joy_trap}Opponent{} area instead of causing a {C:red}game over",
-                    "This will only happen once per {C:attention}Blind{}, aften then the {C:attention}Blind{} becomes debuffed",
+                    "This will only happen once per {C:attention}Blind{}, and then the {C:attention}Blind{} becomes debuffed",
                 }
             },
             blind_card = {
