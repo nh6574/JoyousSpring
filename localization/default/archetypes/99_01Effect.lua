@@ -547,7 +547,7 @@ return {
                 text = {
                     {
                         "Each {C:joy_normal}Cyberse{} gives {C:chips}+#1#{} Chips",
-                        "for each discard used",
+                        "for each discard used this round",
                         "{C:inactive}(Currently {C:chips}+#2#{}{C:inactive} Chips)"
                     },
                     {
