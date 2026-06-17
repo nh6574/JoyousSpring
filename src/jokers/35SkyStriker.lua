@@ -972,8 +972,12 @@ JoyousSpring.Joker({
         if context.end_of_round and context.game_over == false and context.main_eval then
             card.ability.extra.money_gained = card.ability.extra.money * JoyousSpring.count_set_tributed("Planet")
             if JoyousSpring.can_use_abilities(card) and card.ability.extra.active then
-                local tributed = JoyousSpring.get_set_tributed("Joker", nil, nil,
-                    { monster_archetypes = { "SkyStrikerAce" } })
+                local tributed = {}
+                for key, _ in pairs(G.GAME.current_round.joy_summoned_list or {}) do
+                    if JoyousSpring.is_material_center(key, { monster_archetypes = { "SkyStrikerAce" } }) then
+                        tributed[#tributed + 1] = key
+                    end
+                end
                 for _, key in ipairs(tributed) do
                     local planet = striker_get_planet_for_link(key, self.key)
                     if planet then
@@ -1809,7 +1813,7 @@ JoyousSpring.Joker({
                 summon_type = "LINK",
                 monster_type = "Machine",
                 attribute = "DARK",
-                monster_archetypes = { ["SkyStriker"] = true },
+                monster_archetypes = { ["SkyStriker"] = true, ["SkyStrikerAce"] = true },
                 summon_conditions = {
                     {
                         type = "LINK",
