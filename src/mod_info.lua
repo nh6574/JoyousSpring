@@ -910,11 +910,13 @@ local create_archetype_loc_ui = function(archetype_prefix, parent)
             for loc_i, line in ipairs(loctable) do
                 local sublines = text_wrap(line, 40)
                 for _, subline in ipairs(sublines) do
-                    text_nodes[#text_nodes + 1] = {
-                        n = G.UIT.R,
-                        config = { align = "cm", minw = 1 },
-                        nodes = SMODS.localize_box(loc_parse_string(subline), { text_colour = G.C.UI.TEXT_LIGHT })
-                    }
+                    if subline ~= "" then
+                        text_nodes[#text_nodes + 1] = {
+                            n = G.UIT.R,
+                            config = { align = "cm", minw = 1 },
+                            nodes = SMODS.localize_box(loc_parse_string(subline), { text_colour = G.C.UI.TEXT_LIGHT })
+                        }
+                    end
                 end
                 if loc_i ~= #loctable then
                     text_nodes[#text_nodes + 1] = {
