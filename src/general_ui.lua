@@ -364,7 +364,7 @@ function Card:highlight(is_highlighted)
             self.children.use_button = UIBox {
                 definition = JoyousSpring.create_sell_and_use_buttons(self, {
                     sell = true,
-                    summon = not (self.ability.joy_extra_values or {}).sidedeck_from_field and (JoyousSpring.is_summon_type(self, "RITUAL") or JoyousSpring.does_tribute_in_shop(self)),
+                    summon = G.STATE == G.STATES.JOY_SIDE_DECK and (not (self.ability.joy_extra_values or {}).sidedeck_from_field and (JoyousSpring.is_summon_type(self, "RITUAL") or JoyousSpring.does_tribute_in_shop(self))),
                     can_summon = not (self.ability.joy_extra_values or {}).sidedeck_from_field and JoyousSpring.can_summon(self),
                     summon_type = not (self.ability.joy_extra_values or {}).sidedeck_from_field and (JoyousSpring.is_summon_type(self, "RITUAL" or JoyousSpring.does_tribute_in_shop(self))) and "RITUAL" or nil
                 }),
