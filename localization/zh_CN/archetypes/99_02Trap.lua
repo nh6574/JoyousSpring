@@ -29,7 +29,7 @@ return {
                 name = "{C:joy_trap}诅咒之像",
                 text = {
                     {
-                        "每张{C:joy_trap}陷阱{}使此卡{C:chips}+#1#{}筹码",
+                        "每张{C:joy_trap}陷阱{}使此卡牌{C:chips}+#1#{}筹码",
                         "{C:inactive}(当前 {C:chips}+#2#{}{C:inactive}筹码)",
                     },
                 }
@@ -38,7 +38,7 @@ return {
                 name = "{C:joy_trap}灵魂之像",
                 text = {
                     {
-                        "每张{C:joy_trap}陷阱{}使此卡{C:mult}+#1#{}倍率",
+                        "每张{C:joy_trap}陷阱{}使此卡牌{C:mult}+#1#{}倍率",
                         "{C:inactive}(当前 {C:mult}+#2#{}{C:inactive}倍率)",
                     },
                 }
@@ -47,8 +47,8 @@ return {
                 name = "{C:joy_trap}死灵 佐玛",
                 text = {
                     {
-                        "出售此卡使{C:attention}盲注{}要求降低 {C:red}#1#%{}",
-                        "每此卡被{C:attention}翻开{}一次",
+                        "出售此卡牌使{C:attention}盲注{}要求降低 {C:red}#1#%{}",
+                        "每此卡牌被{C:attention}翻开{}一次",
                         "{C:inactive}(当前 {C:red}#2#%{}{C:inactive})"
                     },
                 }
@@ -57,12 +57,12 @@ return {
                 name = "{C:joy_trap}地缚死灵 佐玛",
                 text = {
                     {
-                        "每此卡被{C:attention}翻开{}一次获得{C:mult}+#1#{}倍率",
+                        "每此卡牌被{C:attention}翻开{}一次获得{C:mult}+#1#{}倍率",
                         "{C:inactive}(当前 {C:mult}+#2#{}{C:inactive}倍率)",
                     },
                     {
-                        "出售此卡使{C:attention}盲注{}要求降低 {C:red}#3#%{}",
-                        "每此卡被{C:attention}翻开{}一次",
+                        "出售此卡牌使{C:attention}盲注{}要求降低 {C:red}#3#%{}",
+                        "每此卡牌被{C:attention}翻开{}一次",
                         "{C:inactive}(当前 {C:red}#4#%{}{C:inactive})"
                     },
                 }
@@ -71,12 +71,12 @@ return {
                 name = "{C:joy_trap}斩番",
                 text = {
                     {
-                        "若拥有{C:attention}#1#张以上小丑牌{}",
+                        "若拥有{C:attention}#1#张以上卡牌{}",
                         "则给予 {X:mult,C:white}X#1#{}倍率"
                     },
                     {
-                        "可{C:attention}解放{}此卡和所有其他",
-                        "{C:attention}小丑牌{}以赢得当前{C:attention}盲注{}"
+                        "可{C:attention}解放{}此卡牌和所有其他",
+                        "{C:attention}卡牌{}以赢得当前{C:attention}盲注{}"
                     },
                 }
             },
@@ -92,7 +92,7 @@ return {
                 name = "{C:joy_trap}碑像天使-亚兹卢恩死月弓碑",
                 text = {
                     {
-                        "每张本局游戏召唤的{C:attention}小丑牌{}",
+                        "每张本局游戏召唤的{C:attention}卡牌{}",
                         "获得 {X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}(当前 {X:mult,C:white}X#2#{}{C:inactive}倍率)",
                     },

@@ -5,17 +5,17 @@ return {
                 name = "{C:joy_effect}未界域的鹿角兔",
                 text = {
                     {
-                        "本局每触发{C:joy_normal}「未界域」{}能力时获得{C:chips}+#1#{}筹码",
+                        "本局每触发{C:joy_normal}“未界域”{}能力时获得{C:chips}+#1#{}筹码",
                         "选择{C:attention}盲注{}时额外获得{C:chips}+#2#{}筹码",
                         "{C:inactive}(当前 {C:chips}+#3#{}{C:inactive}筹码)"
                     },
                     {
-                        "选择{C:attention}盲注{}时销毁1张随机{C:attention}小丑牌{}",
+                        "选择{C:attention}盲注{}时销毁1张随机{C:attention}卡牌{}",
                         "{C:inactive}(包含自身)"
                     },
                     {
-                        "被{C:joy_normal}「未界域」{}能力销毁时",
-                        "生成{C:attention}#4#张{C:joy_normal}「未界域」{}卡牌",
+                        "被{C:joy_normal}“未界域”{}能力销毁时",
+                        "生成{C:attention}#4#张{C:joy_normal}“未界域”{}卡牌",
                         "{C:inactive}(需有空位)"
                     },
                 }
@@ -24,35 +24,35 @@ return {
                 name = "{C:joy_effect}未界域的槌子蛇",
                 text = {
                     {
-                        "本局每触发{C:joy_normal}「未界域」{}能力时获得{C:mult}+#1#{}倍率",
+                        "本局每触发{C:joy_normal}“未界域”{}能力时获得{C:mult}+#1#{}倍率",
                         "选择{C:attention}盲注{}时额外获得{C:mult}+#2#{}倍率",
                         "{C:inactive}(当前 {C:mult}+#3#{}{C:inactive}倍率)"
                     },
                     {
-                        "选择{C:attention}盲注{}时销毁1张随机{C:attention}小丑牌{}",
+                        "选择{C:attention}盲注{}时销毁1张随机{C:attention}卡牌{}",
                         "{C:inactive}(包含自身)"
                     },
                     {
-                        "被{C:joy_normal}「未界域」{}能力销毁时",
-                        "生成{C:attention}#4#张{C:joy_normal}「未界域」{}卡牌",
+                        "被{C:joy_normal}“未界域”{}能力销毁时",
+                        "生成{C:attention}#4#张{C:joy_normal}“未界域”{}卡牌",
                         "{C:inactive}(需有空位)"
                     },
                 }
             },
             j_joy_danger_chup = {
-                name = "{C:joy_effect}未界域的卓柏卡布拉",
+                name = "{C:joy_effect}未界域的卓柏卡牌布拉",
                 text = {
                     {
                         "回合结束时获得{C:money}+$#1#{}金钱",
                         "选择{C:attention}盲注{}时提升{C:money}#2#{}金钱"
                     },
                     {
-                        "选择{C:attention}盲注{}时销毁1张随机{C:attention}小丑牌{}",
+                        "选择{C:attention}盲注{}时销毁1张随机{C:attention}卡牌{}",
                         "{C:inactive}(包含自身)"
                     },
                     {
-                        "被{C:joy_normal}「未界域」{}能力销毁时",
-                        "{C:attention}复活 #3#张{C:joy_normal}「未界域」{}"
+                        "被{C:joy_normal}“未界域”{}能力销毁时",
+                        "{C:attention}复活 #3#张{C:joy_normal}“未界域”{}"
                     },
                 }
             },
@@ -64,12 +64,12 @@ return {
                         "选择{C:attention}盲注{}时提升{C:red}#2#{}次"
                     },
                     {
-                        "选择{C:attention}盲注{}时销毁1张随机{C:attention}小丑牌{}",
+                        "选择{C:attention}盲注{}时销毁1张随机{C:attention}卡牌{}",
                         "{C:inactive}(包含自身)"
                     },
                     {
-                        "被{C:joy_normal}「未界域」{}能力销毁时",
-                        "{C:attention}复活 #3#张{C:joy_normal}「未界域」{}"
+                        "被{C:joy_normal}“未界域”{}能力销毁时",
+                        "{C:attention}复活 #3#张{C:joy_normal}“未界域”{}"
                     },
                 }
             },
@@ -82,12 +82,12 @@ return {
                         "{s:0.9,C:inactive}(最高25%)"
                     },
                     {
-                        "选择{C:attention}盲注{}时销毁1张随机{C:attention}小丑牌{}",
+                        "选择{C:attention}盲注{}时销毁1张随机{C:attention}卡牌{}",
                         "{C:inactive}(包含自身)"
                     },
                     {
-                        "被{C:joy_normal}「未界域」{}能力销毁时",
-                        "在商店添加{C:attention}#3#张{C:joy_normal}「未界域」{}"
+                        "被{C:joy_normal}“未界域”{}能力销毁时",
+                        "在商店添加{C:attention}#3#张{C:joy_normal}“未界域”{}"
                     },
                 }
             },
@@ -99,12 +99,12 @@ return {
                         "选择{C:attention}盲注{}时提升{C:attention}#2#{}"
                     },
                     {
-                        "选择{C:attention}盲注{}时销毁1张随机{C:attention}小丑牌{}",
+                        "选择{C:attention}盲注{}时销毁1张随机{C:attention}卡牌{}",
                         "{C:inactive}(包含自身)"
                     },
                     {
-                        "被{C:joy_normal}「未界域」{}能力销毁时",
-                        "在商店添加{C:attention}#3#张{C:joy_normal}「未界域」{}"
+                        "被{C:joy_normal}“未界域”{}能力销毁时",
+                        "在商店添加{C:attention}#3#张{C:joy_normal}“未界域”{}"
                     },
                 }
             },
@@ -112,18 +112,18 @@ return {
                 name = "{C:joy_effect}未界域的大脚怪",
                 text = {
                     {
-                        "本局每触发{C:joy_normal}「未界域」{}能力时获得{X:mult,C:white}X#1#{}倍率",
+                        "本局每触发{C:joy_normal}“未界域”{}能力时获得{X:mult,C:white}X#1#{}倍率",
                         "选择{C:attention}盲注{}时额外获得{X:mult,C:white}X#2#{}倍率",
                         "{C:inactive}(当前 {X:mult,C:white}X#3#{}{C:inactive}倍率)"
                     },
                     {
-                        "选择{C:attention}盲注{}时销毁1张随机{C:attention}小丑牌{}",
+                        "选择{C:attention}盲注{}时销毁1张随机{C:attention}卡牌{}",
                         "{C:inactive}(包含自身)"
                     },
                     {
-                        "被{C:joy_normal}「未界域」{}能力销毁时",
-                        "销毁所有其他{C:attention}小丑牌{}",
-                        "并为每张生成{C:joy_normal}「未界域」{}卡牌",
+                        "被{C:joy_normal}“未界域”{}能力销毁时",
+                        "销毁所有其他{C:attention}卡牌{}",
+                        "并为每张生成{C:joy_normal}“未界域”{}卡牌",
                         "{C:inactive}(需有空位)"
                     },
                 }
@@ -132,16 +132,16 @@ return {
                 name = "{C:joy_effect}未界域的奥古布古",
                 text = {
                     {
-                        "{C:chips}+#1#{}筹码（{C:attention}墓地{}中每张{C:joy_normal}「未界域」{}）",
+                        "{C:chips}+#1#{}筹码（{C:attention}墓地{}中每张{C:joy_normal}“未界域”{}）",
                         "{C:inactive}(当前 {C:chips}+#2#{}{C:inactive}筹码)"
                     },
                     {
-                        "选择{C:attention}盲注{}时销毁1张随机{C:attention}小丑牌{}",
+                        "选择{C:attention}盲注{}时销毁1张随机{C:attention}卡牌{}",
                         "{C:inactive}(包含自身)"
                     },
                     {
-                        "被{C:joy_normal}「未界域」{}能力销毁时",
-                        "将{C:attention}#3#张{C:joy_normal}「未界域」{}送入{C:attention}墓地{}",
+                        "被{C:joy_normal}“未界域”{}能力销毁时",
+                        "将{C:attention}#3#张{C:joy_normal}“未界域”{}送入{C:attention}墓地{}",
                         "{C:inactive}(需有空位)"
                     },
                 }
@@ -150,19 +150,19 @@ return {
                 name = "{C:joy_effect}未界域的雷鸟",
                 text = {
                     {
-                        "本局每触发{C:joy_normal}「未界域」{}能力时获得{X:chips,C:white}X#1#{}筹码",
+                        "本局每触发{C:joy_normal}“未界域”{}能力时获得{X:chips,C:white}X#1#{}筹码",
                         "选择{C:attention}盲注{}时额外获得{X:chips,C:white}X#2#{}筹码",
                         "{C:inactive}(当前 {X:chips,C:white}X#3#{}{C:inactive}筹码)"
                     },
                     {
-                        "选择{C:attention}盲注{}时销毁1张随机{C:attention}小丑牌{}",
+                        "选择{C:attention}盲注{}时销毁1张随机{C:attention}卡牌{}",
                         "{C:inactive}(包含自身)"
                     },
                     {
-                        "被{C:joy_normal}「未界域」{}能力销毁时",
-                        "销毁{C:attention}#4#张其他{C:attention}小丑牌{}和所有{C:attention}消耗牌{}",
+                        "被{C:joy_normal}“未界域”{}能力销毁时",
+                        "销毁{C:attention}#4#张其他{C:attention}卡牌{}和所有{C:attention}消耗牌{}",
                         "并为每张销毁的{C:attention}消耗牌{}",
-                        "在商店添加1张{C:joy_normal}「未界域」{}"
+                        "在商店添加1张{C:joy_normal}“未界域”{}"
                     },
                 }
             },
@@ -170,11 +170,11 @@ return {
                 name = "{C:joy_spell}未界域-幽魔里亚大陆",
                 text = {
                     {
-                        "选择{C:attention}盲注{}时销毁1张随机{C:attention}小丑牌{}",
+                        "选择{C:attention}盲注{}时销毁1张随机{C:attention}卡牌{}",
                         "并获得{C:money}+$#1#{}金钱"
                     },
                     {
-                        "{C:joy_normal}「未界域」{}的{C:attention}复活{}和生成效果",
+                        "{C:joy_normal}“未界域”{}的{C:attention}复活{}和生成效果",
                         "会生成{C:dark_edition}全息{}卡牌"
                     },
                 }
@@ -183,19 +183,32 @@ return {
                 name = "{C:joy_spell}激动的未界域",
                 text = {
                     {
-                        "{C:mult}+#1#{}倍率（{C:attention}墓地{}中每张{C:joy_normal}「未界域」{}）",
+                        "{C:mult}+#1#{}倍率（{C:attention}墓地{}中每张{C:joy_normal}“未界域”{}）",
                         "{C:inactive}(当前 {C:mult}+#2#{}{C:inactive}倍率)"
                     },
                     {
                         "选择{C:attention}盲注{}时",
-                        "生成{C:attention}#3#张{C:joy_normal}「未界域」{}",
+                        "生成{C:attention}#3#张{C:joy_normal}“未界域”{}",
                         "{C:inactive}(需有空位)"
                     },
                     {
-                        "所有非{C:joy_normal}「未界域」{}卡牌会被弱化"
+                        "所有非{C:joy_normal}“未界域”{}卡牌会被弱化"
                     },
                 }
             },
+        }
+    },
+    JoyousSpring = {
+        Blurbs = {
+            danger = {
+                story = {
+                    "在广阔海洋中的某处，有一座孤岛，人们称其为地球上最后一片未被触及的角落。有人认为那或许是失落于时光中的传说之地。岛屿周围的水域总是汹涌不定，天气变幻莫测，仿佛大自然本身在试图拒绝任何试图踏足其上的人。因此，人类甚至从未能弄清这座岛屿的全貌，更不用说其中的生态系统了。但有一天，一支特别的队伍被秘密派遣去探索这座岛屿。当他们踏入这座岛时，前方究竟潜伏着怎样的危险呢？",
+                },
+                gameplay = {
+                    "{C:red}提示{}: 本主题与{C:attention}永恒{}配合极佳！",
+                    "仅此而已，有胆量的话就赌一把吧。"
+                }
+            }
         }
     },
     misc = {

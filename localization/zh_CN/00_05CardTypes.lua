@@ -47,6 +47,8 @@ return {
             k_joy_spell = "魔法",
             k_joy_trap = "陷阱",
             k_joy_fieldspell = "场地魔法",
+            k_joy_None = "无",
+            k_joy_always_treated = "总是被视作{C:joy_normal}#1#",
         }
     }
 }

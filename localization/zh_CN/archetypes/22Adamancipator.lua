@@ -15,7 +15,7 @@ return {
                         "{C:inactive}(需有空位) {C:inactive}(剩余#6#次)"
                     },
                     {
-                        "若拥有{C:joy_normal}岩石族{} {C:attention}小丑牌{}则免费"
+                        "若拥有{C:joy_normal}岩石族{}{C:attention}卡牌{}则免费"
                     }
                 }
             },
@@ -33,7 +33,7 @@ return {
                         "{C:inactive}(需有空位) {C:inactive}(剩余#6#次)"
                     },
                     {
-                        "若拥有{C:joy_normal}岩石族{} {C:attention}小丑牌{}则免费"
+                        "若拥有{C:joy_normal}岩石族{}{C:attention}卡牌{}则免费"
                     }
                 }
             },
@@ -51,7 +51,7 @@ return {
                         "{C:inactive}(需有空位) {C:inactive}(剩余#6#次)"
                     },
                     {
-                        "若拥有{C:joy_normal}岩石族{} {C:attention}小丑牌{}则免费"
+                        "若拥有{C:joy_normal}岩石族{}{C:attention}卡牌{}则免费"
                     }
                 }
             },
@@ -64,7 +64,7 @@ return {
                         "{C:inactive}(当前 {C:chips}+#2#{}{C:inactive}筹码)"
                     },
                     {
-                        "将此卡作为{C:attention}素材{}进行{C:joy_synchro}同调召唤{}时",
+                        "将此卡牌作为{C:attention}素材{}进行{C:joy_synchro}同调召唤{}时",
                         "召唤怪兽获得以下能力：",
                         "{s:0.9}每张牌组中的{s:0.9,C:diamonds}方片{s:0.9}提供{s:0.9,C:chips}+#1#{s:0.9}筹码"
                     }
@@ -83,7 +83,7 @@ return {
                         "{C:inactive}(当前 {C:money}+$#2#{}{C:inactive})"
                     },
                     {
-                        "将此卡作为{C:attention}素材{}进行{C:joy_synchro}同调召唤{}时",
+                        "将此卡牌作为{C:attention}素材{}进行{C:joy_synchro}同调召唤{}时",
                         "召唤怪兽获得以下能力：",
                         "{s:0.9}每张牌组中的{s:0.9,C:diamonds}方片{s:0.9}提供{s:0.9,C:money}+$#1#{s:0.9}金钱"
                     }
@@ -102,7 +102,7 @@ return {
                         "{C:inactive}(当前 {C:mult}+#2#{}{C:inactive}倍率)"
                     },
                     {
-                        "将此卡作为{C:attention}素材{}进行{C:joy_synchro}同调召唤{}时",
+                        "将此卡牌作为{C:attention}素材{}进行{C:joy_synchro}同调召唤{}时",
                         "召唤怪兽获得以下能力：",
                         "{s:0.9}每张牌组中的{s:0.9,C:diamonds}方片{s:0.9}提供{s:0.9,C:mult}+#1#{s:0.9}倍率"
                     }
@@ -127,7 +127,7 @@ return {
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}1张{C:joy_normal}岩石族{} {C:joy_synchro}调整{} +",
+                    "{C:attention}1张{C:joy_normal}岩石族{}{C:joy_synchro}调整{} +",
                     "{C:attention}1张非{C:joy_synchro}调整{}",
                     "{s:0.9,C:inactive}(除{s:0.9,C:joy_xyz}超量{s:0.9}或{s:0.9,C:joy_link}连接{s:0.9}外)"
                 }
@@ -147,7 +147,7 @@ return {
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}1张{C:joy_normal}岩石族{} {C:joy_synchro}调整{} +",
+                    "{C:attention}1张{C:joy_normal}岩石族{}{C:joy_synchro}调整{} +",
                     "{C:attention}1张非{C:joy_synchro}调整{}",
                     "{s:0.9,C:inactive}(除{s:0.9,C:joy_xyz}超量{s:0.9}或{s:0.9,C:joy_link}连接{s:0.9}外)"
                 }
@@ -166,7 +166,7 @@ return {
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}1张{C:joy_normal}岩石族{} {C:joy_synchro}调整{} +",
+                    "{C:attention}1张{C:joy_normal}岩石族{}{C:joy_synchro}调整{} +",
                     "{C:attention}1张非{C:joy_synchro}调整{}",
                     "{s:0.9,C:inactive}(除{s:0.9,C:joy_xyz}超量{s:0.9}或{s:0.9,C:joy_link}连接{s:0.9}外)"
                 }
@@ -183,10 +183,19 @@ return {
                     },
                     {
                         "选择{C:attention}盲注{}时{C:attention}发掘{}的卡牌",
-                        "会触发{C:joy_normal}「魔救」{}能力"
+                        "会触发{C:joy_normal}“魔救”{}能力"
                     }
                 }
             },
+        }
+    },
+    JoyousSpring = {
+        Blurbs = {
+            adaman = {
+                gameplay = {
+                    "尽可能多地获取{C:diamonds}方片{}牌，以稳定触发它们的能力！一旦你拥有{C:joy_spell}“勒皮他晶石”{}，就将它们与其他{C:attention}发掘{}牌搭配使用。"
+                }
+            }
         }
     },
     misc = {

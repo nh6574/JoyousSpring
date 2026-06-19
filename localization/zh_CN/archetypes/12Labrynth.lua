@@ -8,8 +8,8 @@ return {
                         "可解放{}此牌{C:attention}反转{}",
                         "手牌{C:attention}#1#{}张随机牌{C:inactive}(并洗牌){}",
                         "使其计分时永久获得{C:mult}+#2#{}倍率",
-                        "并尽可能{C:attention}复活 #3#{}张{C:blue}普通{}{C:joy_normal}「拉比林斯迷宫」{}",
-                        "{C:inactive}(「白银之城的狂时钟」除外){}",
+                        "并尽可能{C:attention}复活 #3#{}张{C:blue}普通{}{C:joy_normal}“白银之城”{}",
+                        "{C:inactive}(“白银之城的狂时钟”除外){}",
                     },
                 }
             },
@@ -17,7 +17,7 @@ return {
                 name = "{C:joy_effect}白银之城的火吹炉",
                 text = {
                     {
-                        "可解放{}此牌和另1张小丑牌",
+                        "可解放{}此牌和另1张卡牌",
                         "{C:attention}反转{}手牌{C:attention}#1#{}张随机牌{C:inactive}(并洗牌){}",
                         "使其计分时永久获得{C:chips}+#2#{}筹码",
                         "若解放了{C:joy_normal}恶魔族{}则获得{C:money}+$#3#{}金钱",
@@ -28,7 +28,7 @@ return {
                 name = "{C:joy_effect}白银之城的龙饰灯",
                 text = {
                     {
-                        "可解放{}此牌和另1张小丑牌",
+                        "可解放{}此牌和另1张卡牌",
                         "{C:attention}反转{}手牌{C:attention}#1#{}张随机牌{C:inactive}(并洗牌){}",
                         "使其计分时永久获得{C:money}+$#2#{}金钱",
                         "若解放了{C:joy_normal}恶魔族{}则生成{C:attention}#3#{}个随机标签",
@@ -47,7 +47,7 @@ return {
                     },
                     {
                         "若持有期间{C:attention}反转{}了{C:attention}#3#{}张或更多牌",
-                        "下个商店添加{C:green}罕见{}{C:joy_normal}「拉比林斯迷宫」{}",
+                        "下个商店添加{C:green}罕见{}{C:joy_normal}“白银之城”{}",
                         "{s:0.9,C:inactive}(本回合已反转#4#张)",
                     },
                 }
@@ -64,7 +64,7 @@ return {
                     },
                     {
                         "若持有期间{C:attention}反转{}了{C:attention}#3#{}张或更多牌",
-                        "下个商店添加{C:blue}普通{}{C:joy_normal}「拉比林斯迷宫」{}",
+                        "下个商店添加{C:blue}普通{}{C:joy_normal}“白银之城”{}",
                         "{s:0.9,C:inactive}(本回合已反转#4#张)",
                     },
                 }
@@ -79,11 +79,11 @@ return {
                     },
                     {
                         "若持有期间{C:attention}反转{}了{C:attention}#3#{}张或更多牌",
-                        "下个商店添加{C:red}稀有{}{C:joy_normal}「拉比林斯迷宫」{}",
+                        "下个商店添加{C:red}稀有{}{C:joy_normal}“白银之城”{}",
                         "{s:0.9,C:inactive}(本回合已反转#4#张)",
                     },
                     {
-                        "若拥有{C:joy_normal}「拉比林斯迷宫」{}则免费",
+                        "若拥有{C:joy_normal}“白银之城”{}则免费",
                     },
                 }
             },
@@ -133,7 +133,7 @@ return {
                 name = "{C:joy_spell}白银之迷宫城",
                 text = {
                     {
-                        "每张{C:attention}反转的小丑牌{}提供{C:money}+$#1#{}金钱",
+                        "每张{C:attention}反转的卡牌{}提供{C:money}+$#1#{}金钱",
                     },
                     {
                         "当游戏牌被{C:attention}反转{}时，有{C:green}#2#/#3#{}几率",
@@ -143,9 +143,22 @@ return {
             },
         }
     },
+    JoyousSpring = {
+        Blurbs = {
+            lab = {
+                story = {
+                    "根据传说与流言，这座城堡被诅咒了，除非带回深藏于城堡内的真正宝物，否则迷宫的诅咒永无破解之日。但另有传闻说，城堡的主人是一位倾城绝世的公主，她如白丝般纤柔，又似月光般虚幻。那一夜，一名骑士踏入了这座流言四起的城堡……",
+                },
+                gameplay = {
+                    "以卡牌{C:attention}反转{}为核心，{C:joy_normal}“白银之城”{}倾向与{C:joy_trap}陷{C:joy_trap}阱{}、{C:joy_effect}反转{}{C:attention}卡牌{}以及其他支持它们的系列搭配使用。",
+                    "{C:red}提示{}: {C:tarot}塔罗牌{}和{C:spectral}幻灵牌{}的{C:attention}反转{}动画也会计入它们的效果！"
+                }
+            }
+        }
+    },
     misc = {
         dictionary = {
-            k_joy_archetype_lab = "拉比林斯迷宫",
+            k_joy_archetype_lab = "白银之城",
         }
     }
 }

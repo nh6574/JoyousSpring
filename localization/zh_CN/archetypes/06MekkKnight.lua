@@ -15,7 +15,7 @@ return {
                     {
                         "本{C:attention}列{}的计分牌",
                         "提供点数×{C:mult}+#1#{}倍率",
-                        "{C:inactive}(当前位于第{} {C:attention}#2#{}{C:inactive}列){}",
+                        "{C:inactive}(当前位于第{}{C:attention}#2#{}{C:inactive}列){}",
                     },
                 },
             },
@@ -25,7 +25,7 @@ return {
                     {
                         "本{C:attention}列{}的打出的牌",
                         "可参与计分",
-                        "{C:inactive}(当前位于第{} {C:attention}#1#{}{C:inactive}列){}",
+                        "{C:inactive}(当前位于第{}{C:attention}#1#{}{C:inactive}列){}",
                     },
                     {
                         "每次触发能力使牌参与计分",
@@ -40,7 +40,7 @@ return {
                     {
                         "本{C:attention}列{}的计分牌",
                         "提供点数×{C:money}+$#1#{}金钱",
-                        "{C:inactive}(当前位于第{} {C:attention}#2#{}{C:inactive}列){}",
+                        "{C:inactive}(当前位于第{}{C:attention}#2#{}{C:inactive}列){}",
                     },
                 },
             },
@@ -50,8 +50,8 @@ return {
                     {
                         "本{C:attention}列{}的计分牌有{C:green}#1#/#2#{}几率",
                         "根据点数多次再次触发",
-                        "每张{C:joy_normal}「机界骑士」{}提高几率",
-                        "{C:inactive}(当前位于第{} {C:attention}#3#{}{C:inactive}列){}",
+                        "每张{C:joy_normal}“机界骑士”{}提高几率",
+                        "{C:inactive}(当前位于第{}{C:attention}#3#{}{C:inactive}列){}",
                     },
                 },
             },
@@ -61,7 +61,7 @@ return {
                     {
                         "本{C:attention}列{}的计分牌",
                         "提供点数×{C:chips}+#1#{}筹码",
-                        "{C:inactive}(当前位于第{} {C:attention}#2#{}{C:inactive}列){}",
+                        "{C:inactive}(当前位于第{}{C:attention}#2#{}{C:inactive}列){}",
                     },
                 },
             },
@@ -71,10 +71,10 @@ return {
                     {
                         "根据所在{C:attention}列{}获得能力",
                         "{V:1}1: 所有计分牌再次触发一次{}",
-                        "{V:2}2:{} {C:chips}+#1#{} {V:2}筹码{}",
-                        "{V:3}3:{} {C:mult}+#2#{} {V:3}倍率{}",
-                        "{V:4}4:{} {X:mult,C:white}X#3#{} {V:4}倍率{}",
-                        "{V:5}5+:{} {C:money}+$#4#{} {V:5}回合结束{}",
+                        "{V:2}2:{}{C:chips}+#1#{}{V:2}筹码{}",
+                        "{V:3}3:{}{C:mult}+#2#{}{V:3}倍率{}",
+                        "{V:4}4:{}{X:mult,C:white}X#3#{}{V:4}倍率{}",
+                        "{V:5}5+:{}{C:money}+$#4#{}{V:5}回合结束{}",
                     },
                 },
             },
@@ -84,7 +84,7 @@ return {
                     {
                         "选择{C:attention}盲注{}时{C:attention}除外{}",
                         "直到击败{C:attention}首领盲注{}后生成{C:attention}#1#{}张",
-                        "{C:joy_normal}主卡组「机界骑士」{}",
+                        "{C:joy_normal}主卡组“机界骑士”{}",
                         "{C:inactive}(需有空位){}",
                     },
                 },
@@ -94,29 +94,29 @@ return {
                 text = {
                     {
                         "相邻{C:attention}列{}的计分牌",
-                        "若该列有{C:joy_normal}「机界骑士」{}",
+                        "若该列有{C:joy_normal}“机界骑士”{}",
                         "提供{X:mult,C:white}X#1#{}倍率",
-                        "{C:inactive}(当前位于第{} {C:attention}#2#{} {C:inactive}和{} {C:attention}#3#{}{C:inactive}列){}",
+                        "{C:inactive}(当前位于第{}{C:attention}#2#{}{C:inactive}和{}{C:attention}#3#{}{C:inactive}列){}",
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2{}张小丑牌"
+                    "{C:attention}2{}张卡牌"
                 }
             },
             j_joy_mekk_spectrum = {
                 name = "{C:joy_link}星痕之机界骑士",
                 text = {
                     {
-                        "{C:joy_normal}「机界骑士」{}效果适用于",
+                        "{C:joy_normal}“机界骑士”{}效果适用于",
                         "所有打出的牌和{C:attention}列",
                     },
                     {
-                        "每回合可售出{C:attention}#1#{}张{C:joy_normal}「机界骑士」{}",
-                        "生成{C:attention}#1#{}张{C:dark_edition}负片{}版主卡组「机界骑士」",
+                        "每回合可售出{C:attention}#1#{}张{C:joy_normal}“机界骑士”{}",
+                        "生成{C:attention}#1#{}张{C:dark_edition}负片{}版主卡组“机界骑士”",
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}3{}张{C:joy_normal}「机界骑士」{}"
+                    "{C:attention}3{}张{C:joy_normal}“机界骑士”{}"
                 }
             },
             j_joy_mekkcrus_avramax = {
@@ -132,26 +132,40 @@ return {
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2+{}张{C:joy_spell}额外卡组{}召唤的小丑牌"
+                    "{C:attention}2+{}张{C:joy_spell}额外卡组{}召唤的卡牌"
                 }
             },
             j_joy_mekkleg_scars = {
                 name = "{C:joy_spell}星遗物印刻的伤痕",
                 text = {
                     {
-                        "每张{C:joy_normal}「机界骑士」{}提供{C:mult}+#1#{}倍率",
+                        "每张{C:joy_normal}“机界骑士”{}提供{C:mult}+#1#{}倍率",
                     },
                     {
                         "在{C:attention}盲注{}阶段可解放{C:attention}#2#{}张",
-                        "{C:joy_normal}「机界骑士」{}获得{C:blue}+#3#{}出牌次数",
+                        "{C:joy_normal}“机界骑士”{}获得{C:blue}+#3#{}出牌次数",
                     },
                     {
                         "当墓地有{C:attention}#4#{}张不同名的",
-                        "{C:joy_normal}「机界骑士」{}时售出此牌",
+                        "{C:joy_normal}“机界骑士”{}时售出此牌",
                         "可获胜当前{C:attention}盲注{}",
                     },
                 }
             },
+        }
+    },
+    JoyousSpring = {
+        Blurbs = {
+            mekk = {
+                story = {
+                    "{C:gold}[来自“星遗物”的故事线]{}",
+                    "{C:joy_normal}“机界骑士”{}，机械之域的支配者们，散发着彩虹的七色光辉显现。",
+                    "{C:joy_effect}“伊娃力丝”{}试图夺取封印在{C:joy_effect}“蓝天”{}核心中的圣杖。当{C:joy_normal}“机界骑士”{}们察觉到那圣杖实为掌管星辰乃至星球本身命运的‘键’时，{C:joy_effect}“蓝天”{}在此至暗时刻试图让{C:joy_normal}“奥拉姆”{}成为他的继承者。{C:joy_normal}“奥拉姆”{}向{C:joy_normal}“机界骑士”{}敞开心扉，继承了圣杖的力量。如今在他手中，‘键’化为双剑。",
+                },
+                gameplay = {
+                    "本主题侧重于通过巧妙的布局进行基础得分。请时刻注意卡牌的顺序。"
+                }
+            }
         }
     },
     misc = {

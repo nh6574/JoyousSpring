@@ -19,7 +19,7 @@ return {
             j_joy_hallo = {
                 name = "{C:joy_pendulum_normal}万万圣",
                 joy_consumable = {
-                    "永久提升所有{C:attention}小丑牌{}的{C:green}几率{}",
+                    "永久提升所有{C:attention}卡牌{}的{C:green}几率{}",
                     "随机增加{C:attention}#1#{}到{C:attention}#2#{}点"
                 },
                 text = {
@@ -66,7 +66,7 @@ return {
                 text = {
                     {
                         "{C:blue}+#1#{}点出牌次数，当选中{C:attention}盲注{}时",
-                        "若{C:joy_spell}额外卡组{}无卡"
+                        "若{C:joy_spell}额外卡组{}无卡牌"
                     },
                 }
             },
@@ -78,20 +78,20 @@ return {
                 text = {
                     {
                         "{C:attention}+#2#{}点手牌上限，当选中{C:attention}盲注{}时",
-                        "若{C:joy_spell}额外卡组{}无卡"
+                        "若{C:joy_spell}额外卡组{}无卡牌"
                     },
                 }
             },
             j_joy_zany = {
                 name = "{C:joy_pendulum_effect}横条邪斑马",
                 joy_consumable = {
-                    "若拥有{C:attention}#1#张或更少小丑牌{}（使用后）",
-                    "永久失去{C:red}#2#{}个{C:attention}小丑牌槽位{}",
-                    "并使所有{C:attention}小丑牌{}变为{C:dark_edition}多彩{}"
+                    "若拥有{C:attention}#1#张或更少卡牌{}（使用后）",
+                    "永久失去{C:red}#2#{}个{C:attention}卡牌槽位{}",
+                    "并使所有{C:attention}卡牌{}变为{C:dark_edition}多彩{}"
                 },
                 text = {
                     {
-                        "{X:mult,C:white}X#3#{}倍率，若拥有{C:attention}#1#张或更少小丑牌{}",
+                        "{X:mult,C:white}X#3#{}倍率，若拥有{C:attention}#1#张或更少卡牌{}",
                     },
                 }
             },
@@ -116,7 +116,7 @@ return {
                 },
                 text = {
                     {
-                        "每购买一张{C:joy_pendulum}灵摆{}，此卡获得{C:chips}+#2#{}筹码",
+                        "每购买一张{C:joy_pendulum}灵摆{}，此卡牌获得{C:chips}+#2#{}筹码",
                         "{C:inactive}(当前 {C:chips}+#3#{}{C:inactive}筹码)",
                     },
                 }
@@ -125,7 +125,7 @@ return {
                 name = "{C:joy_pendulum_effect}P.M.捕获者",
                 joy_consumable = {
                     "{C:attention}复活 #1#{}张{C:joy_pendulum}灵摆{}",
-                    "{C:inactive}(「P.M.捕获者」除外)"
+                    "{C:inactive}(“P.M.捕获者”除外)"
                 },
                 text = {
                     {
@@ -143,15 +143,15 @@ return {
                 text = {
                     {
                         "每张持有量最多的{C:joy_pendulum}灵摆{}",
-                        "此卡{C:mult}+#2#{}倍率",
+                        "此卡牌{C:mult}+#2#{}倍率",
                     },
                 }
             },
             j_joy_bozu = {
                 name = "{C:joy_pendulum_effect}雨天虹娃",
                 joy_consumable = {
-                    "随机{C:joy_normal}怪兽{} {C:attention}小丑牌{}获得",
-                    "此卡当前的筹码和倍率"
+                    "随机{C:joy_normal}怪兽{}{C:attention}卡牌{}获得",
+                    "此卡牌当前的筹码和倍率"
                 },
                 text = {
                     {
@@ -167,7 +167,7 @@ return {
             j_joy_disablaster = {
                 name = "{C:joy_pendulum_effect}无孔炮塔-无效爆破炮手",
                 joy_consumable = {
-                    "每此{C:attention}小丑牌{}能力",
+                    "每此{C:attention}卡牌{}能力",
                     "提升计分倍率，{C:money}+$#1#{}",
                     "{C:inactive}(当前 {C:money}+$#2#{}{C:inactive})"
                 },

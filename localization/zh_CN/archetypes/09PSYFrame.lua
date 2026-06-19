@@ -5,7 +5,7 @@ return {
                 name = "{C:joy_normal}PSY骨架驱动者",
                 text = {
                     {
-                        "{E:1}装备名为为「PSY骨架」的自律增幅器{}",
+                        "{E:1}装备名为为“PSY骨架”的自律增幅器{}",
                         "{E:1}驾驭闪电与安全部队作战的念动力士兵{}",
                     },
                 },
@@ -14,11 +14,11 @@ return {
                 name = "{C:joy_effect}PSY骨架装备·α",
                 text = {
                     {
-                        "获得时生成{C:attention}#1#{}张{C:joy_normal}「PSY骨架驱动者」{}",
+                        "获得时生成{C:attention}#1#{}张{C:joy_normal}“PSY骨架驱动者”{}",
                         "{C:inactive}(需有空位){}",
                     },
                     {
-                        "选择{C:attention}盲注{}时{C:attention}除外{}1张{C:joy_normal}「PSY骨架驱动者」{}",
+                        "选择{C:attention}盲注{}时{C:attention}除外{}1张{C:joy_normal}“PSY骨架驱动者”{}",
                         "直到回合结束，使手牌所有牌",
                         "提供{X:mult,C:white}X#2#{}倍率",
                     },
@@ -28,11 +28,11 @@ return {
                 name = "{C:joy_effect}PSY骨架装备·β",
                 text = {
                     {
-                        "获得时生成{C:attention}#1#{}张{C:joy_normal}「PSY骨架驱动者」{}",
+                        "获得时生成{C:attention}#1#{}张{C:joy_normal}“PSY骨架驱动者”{}",
                         "{C:inactive}(需有空位){}",
                     },
                     {
-                        "选择{C:attention}盲注{}时{C:attention}除外{}1张{C:joy_normal}「PSY骨架驱动者」{}",
+                        "选择{C:attention}盲注{}时{C:attention}除外{}1张{C:joy_normal}“PSY骨架驱动者”{}",
                         "直到回合结束，使所有计分牌",
                         "提供{X:mult,C:white}X#2#{}倍率",
                     },
@@ -42,12 +42,12 @@ return {
                 name = "{C:joy_effect}PSY骨架装备·γ",
                 text = {
                     {
-                        "获得时生成{C:attention}#1#{}张{C:joy_normal}「PSY骨架驱动者」{}",
+                        "获得时生成{C:attention}#1#{}张{C:joy_normal}“PSY骨架驱动者”{}",
                         "{C:inactive}(需有空位){}",
                     },
                     {
-                        "选择{C:attention}盲注{}时{C:attention}除外{}1张{C:joy_normal}「PSY骨架驱动者」{}",
-                        "直到回合结束，使所有小丑牌",
+                        "选择{C:attention}盲注{}时{C:attention}除外{}1张{C:joy_normal}“PSY骨架驱动者”{}",
+                        "直到回合结束，使所有卡牌",
                         "各提供{X:mult,C:white}X#2#{}倍率",
                     },
                 },
@@ -56,11 +56,11 @@ return {
                 name = "{C:joy_effect}PSY骨架装备·δ",
                 text = {
                     {
-                        "获得时生成{C:attention}#1#{}张{C:joy_normal}「PSY骨架驱动者」{}",
+                        "获得时生成{C:attention}#1#{}张{C:joy_normal}“PSY骨架驱动者”{}",
                         "{C:inactive}(需有空位){}",
                     },
                     {
-                        "选择{C:attention}盲注{}时{C:attention}除外{}1张{C:joy_normal}「PSY骨架驱动者」{}",
+                        "选择{C:attention}盲注{}时{C:attention}除外{}1张{C:joy_normal}“PSY骨架驱动者”{}",
                         "直到回合结束，使消耗牌区所有",
                         "{C:tarot}塔罗牌{}各提供{X:mult,C:white}X#2#{}倍率",
                     },
@@ -70,11 +70,11 @@ return {
                 name = "{C:joy_effect}PSY骨架装备·ε",
                 text = {
                     {
-                        "获得时生成{C:attention}#1#{}张{C:joy_normal}「PSY骨架驱动者」{}",
+                        "获得时生成{C:attention}#1#{}张{C:joy_normal}“PSY骨架驱动者”{}",
                         "{C:inactive}(需有空位){}",
                     },
                     {
-                        "选择{C:attention}盲注{}时{C:attention}除外{}1张{C:joy_normal}「PSY骨架驱动者」{}",
+                        "选择{C:attention}盲注{}时{C:attention}除外{}1张{C:joy_normal}“PSY骨架驱动者”{}",
                         "直到回合结束，使消耗牌区所有",
                         "{C:planet}星球牌{}各提供{X:mult,C:white}X#2#{}倍率",
                     },
@@ -84,12 +84,12 @@ return {
                 name = "{C:joy_effect}PSY骨架多线人",
                 text = {
                     {
-                        "此牌视为{C:joy_normal}「PSY骨架驱动者」{}",
-                        "用于{C:joy_normal}「PSY骨架」{}效果",
+                        "此牌视为{C:joy_normal}“PSY骨架驱动者”{}",
+                        "用于{C:joy_normal}“PSY骨架”{}效果",
                     },
                     {
                         "从{C:attention}除外{}返回时生成{C:attention}#1#{}张",
-                        "{C:joy_normal}主卡组「PSY骨架」{C:joy_effect}效果{}小丑牌",
+                        "{C:joy_normal}主卡组“PSY骨架”{C:joy_effect}效果{}卡牌",
                         "{C:inactive}(需有空位){}",
                     },
                 },
@@ -113,7 +113,7 @@ return {
                 name = "{C:joy_synchro}PSY骨架王·Ω",
                 text = {
                     {
-                        "此牌和另1张小丑牌",
+                        "此牌和另1张卡牌",
                         "回合结束时{C:attention}除外{}",
                         "直到选择{C:attention}盲注{}",
                     },
@@ -128,17 +128,17 @@ return {
                 name = "{C:joy_link}PSY骨架王·Λ",
                 text = {
                     {
-                        "{C:joy_normal}「PSY骨架」{}效果无需",
-                        "{C:attention}除外{} {C:joy_normal}「PSY骨架驱动者」{}即可生效",
+                        "{C:joy_normal}“PSY骨架”{}效果无需",
+                        "{C:attention}除外{}{C:joy_normal}“PSY骨架驱动者”{}即可生效",
                     },
                     {
-                        "当{C:joy_normal}念动力族{}小丑牌从{C:attention}除外{}返回时",
-                        "将{C:attention}#1#{}张{C:joy_normal}「PSY骨架」{}加入{C:joy_spell}额外卡组{}",
+                        "当{C:joy_normal}念动力族{}卡牌从{C:attention}除外{}返回时",
+                        "将{C:attention}#1#{}张{C:joy_normal}“PSY骨架”{}加入{C:joy_spell}额外卡组{}",
                         "{C:inactive}(需有空位){}",
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2{}张小丑牌",
+                    "{C:attention}2{}张卡牌",
                     "除{C:joy_token}衍生物{}外",
                 }
             },
@@ -149,11 +149,23 @@ return {
                         "每次召唤{C:joy_synchro}同调{}时获得{C:money}+$#1#{}金钱",
                     },
                     {
-                        "{C:joy_normal}念动力族{} {C:joy_synchro}同调{}",
+                        "{C:joy_normal}念动力族{}{C:joy_synchro}同调{}",
                         "召唤时变为{C:dark_edition}负片{}版",
                     },
                 }
             },
+        }
+    },
+    JoyousSpring = {
+        Blurbs = {
+            psy = {
+                story = {
+                    "{C:gold}[来自“治安战警队”的故事线]{}",
+                },
+                gameplay = {
+                    "本主题以牺牲一些额外槽位为代价，换取强大的得分能力。将它们与其他策略混合使用，以提升你的成长力！"
+                }
+            }
         }
     },
     misc = {

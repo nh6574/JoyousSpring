@@ -5,8 +5,8 @@ return {
                 name = "{C:joy_effect}花札卫-松",
                 text = {
                     {
-                        "打出的{C:joy_link}正月{}和{C:joy_link}二月{} {C:attention}花札牌{}",
-                        "每张提供{C:mult}+#1#{}倍率（每张持有或{C:attention}墓地{}中的{C:joy_normal}「花札卫」{}）",
+                        "打出的{C:joy_link}正月{}和{C:joy_link}二月{}{C:attention}花札牌{}",
+                        "每张提供{C:mult}+#1#{}倍率（每张持有或{C:attention}墓地{}中的{C:joy_normal}“花札卫”{}）",
                         "{C:inactive}(当前 {C:mult}+#2#{}{C:inactive}倍率)"
                     },
                     {
@@ -14,12 +14,12 @@ return {
                         "{s:0.9}- {s:0.9,C:spades}黑桃{s:0.9}：转化为随机{s:0.9,C:attention}花札牌{s:0.9}",
                         "{s:0.9}- {s:0.9,C:joy_link}正月{s:0.9}或{s:0.9,C:joy_link}二月{s:0.9}花札{s:0.9}：抽{s:0.9,C:attention}#4#{s:0.9}张牌",
                         "{s:0.9}否则销毁自身并生成{s:0.9,C:attention}#5#张",
-                        "{s:0.9,C:joy_effect}「花札卫-松上鹤」{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至{s:0.9,C:attention}BOSS盲注{s:0.9}）"
+                        "{s:0.9,C:joy_effect}“花札卫-松上鹤”{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至{s:0.9,C:attention}BOSS盲注{s:0.9}）"
                     },
                     {
-                        "若持有其他{C:joy_normal}「花札卫」{}",
+                        "若持有其他{C:joy_normal}“花札卫”{}",
                         "可在无空位时从商店获取，且",
-                        "回合结束时生成{C:attention}1张{C:joy_spell}「花之盛宴」{}"
+                        "回合结束时生成{C:attention}1张{C:joy_spell}“花合”{}"
                     }
                 }
             },
@@ -27,7 +27,7 @@ return {
                 name = "{C:joy_effect}花札卫-松上鹤",
                 text = {
                     {
-                        "手牌中的{C:joy_link}正月{}和{C:joy_link}二月{} {C:attention}花札牌{}",
+                        "手牌中的{C:joy_link}正月{}和{C:joy_link}二月{}{C:attention}花札牌{}",
                         "每张提供{C:mult}+#1#{}倍率"
                     },
                     {
@@ -35,12 +35,12 @@ return {
                         "{s:0.9}- {s:0.9,C:spades}黑桃{s:0.9}：转化为随机{s:0.9,C:attention}花札牌{s:0.9}",
                         "{s:0.9}- {s:0.9,C:joy_link}正月{s:0.9}或{s:0.9,C:joy_link}二月{s:0.9}花札{s:0.9}：抽{s:0.9,C:attention}#3#{s:0.9}张牌",
                         "{s:0.9}否则销毁自身并生成{s:0.9,C:attention}#4#张",
-                        "{s:0.9,C:joy_effect}「花札卫-松」{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至回合结束）"
+                        "{s:0.9,C:joy_effect}“花札卫-松”{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至回合结束）"
                     },
                     {
-                        "若持有其他{C:joy_normal}「花札卫」{}",
+                        "若持有其他{C:joy_normal}“花札卫”{}",
                         "可在无空位时从商店获取，且",
-                        "回合结束时生成{C:attention}1张{C:joy_spell}「花之盛宴」{}"
+                        "回合结束时生成{C:attention}1张{C:joy_spell}“花合”{}"
                     }
                 }
             },
@@ -48,8 +48,8 @@ return {
                 name = "{C:joy_effect}花札卫-樱",
                 text = {
                     {
-                        "打出的{C:joy_link}三月{}和{C:joy_link}四月{} {C:attention}花札牌{}",
-                        "每张提供{C:mult}+#1#{}倍率（每张持有或{C:attention}墓地{}中的{C:joy_normal}「花札卫」{}）",
+                        "打出的{C:joy_link}三月{}和{C:joy_link}四月{}{C:attention}花札牌{}",
+                        "每张提供{C:mult}+#1#{}倍率（每张持有或{C:attention}墓地{}中的{C:joy_normal}“花札卫”{}）",
                         "{C:inactive}(当前 {C:mult}+#2#{}{C:inactive}倍率)"
                     },
                     {
@@ -57,12 +57,12 @@ return {
                         "{s:0.9}- {s:0.9,C:hearts}红心{s:0.9}：转化为随机{s:0.9,C:attention}花札牌{s:0.9}",
                         "{s:0.9}- {s:0.9,C:joy_link}三月{s:0.9}或{s:0.9,C:joy_link}四月{s:0.9}花札{s:0.9}：抽{s:0.9,C:attention}#4#{s:0.9}张牌",
                         "{s:0.9}否则销毁自身并生成{s:0.9,C:attention}#5#张",
-                        "{s:0.9,C:joy_effect}「花札卫-樱上幕帘」{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至{s:0.9,C:attention}BOSS盲注{s:0.9}）"
+                        "{s:0.9,C:joy_effect}“花札卫-樱上幕帘”{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至{s:0.9,C:attention}BOSS盲注{s:0.9}）"
                     },
                     {
-                        "若持有其他{C:joy_normal}「花札卫」{}",
+                        "若持有其他{C:joy_normal}“花札卫”{}",
                         "可在无空位时从商店获取，且",
-                        "回合结束时生成{C:attention}1张{C:joy_spell}「花之盛宴」{}"
+                        "回合结束时生成{C:attention}1张{C:joy_spell}“花合”{}"
                     }
                 }
             },
@@ -70,7 +70,7 @@ return {
                 name = "{C:joy_effect}花札卫-樱上幕帘",
                 text = {
                     {
-                        "手牌中的{C:joy_link}三月{}和{C:joy_link}四月{} {C:attention}花札牌{}",
+                        "手牌中的{C:joy_link}三月{}和{C:joy_link}四月{}{C:attention}花札牌{}",
                         "每张提供{C:mult}+#1#{}倍率"
                     },
                     {
@@ -78,12 +78,12 @@ return {
                         "{s:0.9}- {s:0.9,C:hearts}红心{s:0.9}：转化为随机{s:0.9,C:attention}花札牌{s:0.9}",
                         "{s:0.9}- {s:0.9,C:joy_link}三月{s:0.9}或{s:0.9,C:joy_link}四月{s:0.9}花札{s:0.9}：抽{s:0.9,C:attention}#3#{s:0.9}张牌",
                         "{s:0.9}否则销毁自身并生成{s:0.9,C:attention}#4#张",
-                        "{s:0.9,C:joy_effect}「花札卫-樱」{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至回合结束）"
+                        "{s:0.9,C:joy_effect}“花札卫-樱”{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至回合结束）"
                     },
                     {
-                        "若持有其他{C:joy_normal}「花札卫」{}",
+                        "若持有其他{C:joy_normal}“花札卫”{}",
                         "可在无空位时从商店获取，且",
-                        "回合结束时生成{C:attention}1张{C:joy_spell}「花之盛宴」{}"
+                        "回合结束时生成{C:attention}1张{C:joy_spell}“花合”{}"
                     }
                 }
             },
@@ -91,20 +91,20 @@ return {
                 name = "{C:joy_effect}花札卫-牡丹上蝴蝶",
                 text = {
                     {
-                        "打出的{C:joy_link}六月{} {C:attention}花札牌{}提供{X:mult,C:white}X#1#{}倍率"
+                        "打出的{C:joy_link}六月{}{C:attention}花札牌{}提供{X:mult,C:white}X#1#{}倍率"
                     },
                     {
                         "{C:attention}发掘{}并检查顶部{C:attention}#2#张牌：",
                         "{s:0.9}- {s:0.9,C:joy_link}六月{s:0.9}花札{s:0.9}：抽{s:0.9,C:attention}#3#{s:0.9}张牌",
                         "{s:0.9}- {s:0.9,C:joy_link}光属性{s:0.9}花札{s:0.9}：向{s:0.9,C:joy_spell}额外卡组{s:0.9}",
-                        "{s:0.9}添加{s:0.9,C:attention}#4#{s:0.9}张{s:0.9,C:joy_normal}「花札卫」{s:0.9} {C:inactive}(需有空位)",
+                        "{s:0.9}添加{s:0.9,C:attention}#4#{s:0.9}张{s:0.9,C:joy_normal}“花札卫”{s:0.9}{C:inactive}(需有空位)",
                         "{s:0.9}否则销毁自身并生成{s:0.9,C:attention}#5#张",
-                        "{s:0.9,C:joy_normal}「花札卫」{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至回合结束）"
+                        "{s:0.9,C:joy_normal}“花札卫”{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至回合结束）"
                     },
                     {
-                        "若持有其他{C:joy_normal}「花札卫」{}",
+                        "若持有其他{C:joy_normal}“花札卫”{}",
                         "可在无空位时从商店获取，且",
-                        "回合结束时生成{C:attention}1张{C:joy_spell}「花之盛宴」{}"
+                        "回合结束时生成{C:attention}1张{C:joy_spell}“花合”{}"
                     }
                 }
             },
@@ -112,20 +112,20 @@ return {
                 name = "{C:joy_effect}花札卫-萩间猪",
                 text = {
                     {
-                        "打出的{C:joy_link}七月{} {C:attention}花札牌{}提供{X:mult,C:white}X#1#{}倍率"
+                        "打出的{C:joy_link}七月{}{C:attention}花札牌{}提供{X:mult,C:white}X#1#{}倍率"
                     },
                     {
                         "{C:attention}发掘{}并检查顶部{C:attention}#2#张牌：",
                         "{s:0.9}- {s:0.9,C:joy_link}七月{s:0.9}花札{s:0.9}：抽{s:0.9,C:attention}#3#{s:0.9}张牌",
                         "{s:0.9}- {s:0.9,C:joy_link}光属性{s:0.9}花札{s:0.9}：向{s:0.9,C:joy_spell}额外卡组{s:0.9}",
-                        "{s:0.9}添加{s:0.9,C:attention}#4#{s:0.9}张{s:0.9,C:joy_normal}「花札卫」{s:0.9} {C:inactive}(需有空位)",
+                        "{s:0.9}添加{s:0.9,C:attention}#4#{s:0.9}张{s:0.9,C:joy_normal}“花札卫”{s:0.9}{C:inactive}(需有空位)",
                         "{s:0.9}否则销毁自身并生成{s:0.9,C:attention}#5#张",
-                        "{s:0.9,C:joy_normal}「花札卫」{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至回合结束）"
+                        "{s:0.9,C:joy_normal}“花札卫”{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至回合结束）"
                     },
                     {
-                        "若持有其他{C:joy_normal}「花札卫」{}",
+                        "若持有其他{C:joy_normal}“花札卫”{}",
                         "可在无空位时从商店获取，且",
-                        "回合结束时生成{C:attention}1张{C:joy_spell}「花之盛宴」{}"
+                        "回合结束时生成{C:attention}1张{C:joy_spell}“花合”{}"
                     }
                 }
             },
@@ -133,8 +133,8 @@ return {
                 name = "{C:joy_effect}花札卫-芒",
                 text = {
                     {
-                        "打出的{C:joy_link}八月{}和{C:joy_link}九月{} {C:attention}花札牌{}",
-                        "每张提供{C:money}+$#1#{}金钱（每张持有或{C:attention}墓地{}中的{C:joy_normal}「花札卫」{}）",
+                        "打出的{C:joy_link}八月{}和{C:joy_link}九月{}{C:attention}花札牌{}",
+                        "每张提供{C:money}+$#1#{}金钱（每张持有或{C:attention}墓地{}中的{C:joy_normal}“花札卫”{}）",
                         "{C:inactive}(当前 {C:money}+$#2#{}{C:inactive})"
                     },
                     {
@@ -142,12 +142,12 @@ return {
                         "{s:0.9}- {s:0.9,C:clubs}梅花{s:0.9}：转化为随机{s:0.9,C:attention}花札牌{s:0.9}",
                         "{s:0.9}- {s:0.9,C:joy_link}八月{s:0.9}或{s:0.9,C:joy_link}九月{s:0.9}花札{s:0.9}：抽{s:0.9,C:attention}#4#{s:0.9}张牌",
                         "{s:0.9}否则销毁自身并生成{s:0.9,C:attention}#5#张",
-                        "{s:0.9,C:joy_effect}「花札卫-芒上月」{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至{s:0.9,C:attention}BOSS盲注{s:0.9}）"
+                        "{s:0.9,C:joy_effect}“花札卫-芒上月”{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至{s:0.9,C:attention}BOSS盲注{s:0.9}）"
                     },
                     {
-                        "若持有其他{C:joy_normal}「花札卫」{}",
+                        "若持有其他{C:joy_normal}“花札卫”{}",
                         "可在无空位时从商店获取，且",
-                        "回合结束时生成{C:attention}1张{C:joy_spell}「花之盛宴」{}"
+                        "回合结束时生成{C:attention}1张{C:joy_spell}“花合”{}"
                     }
                 }
             },
@@ -160,12 +160,12 @@ return {
                         "{s:0.9}- {s:0.9,C:joy_link}八月{s:0.9}或{s:0.9,C:joy_link}九月{s:0.9}花札{s:0.9}：每张发掘出的",
                         "{s:0.9,C:attention}花札牌{s:0.9}抽{s:0.9,C:attention}#2#{s:0.9}张牌",
                         "{s:0.9}否则销毁自身并生成{s:0.9,C:attention}#3#张",
-                        "{s:0.9,C:joy_effect}「花札卫-芒」{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至回合结束）"
+                        "{s:0.9,C:joy_effect}“花札卫-芒”{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至回合结束）"
                     },
                     {
-                        "若持有其他{C:joy_normal}「花札卫」{}",
+                        "若持有其他{C:joy_normal}“花札卫”{}",
                         "可在无空位时从商店获取，且",
-                        "回合结束时生成{C:attention}1张{C:joy_spell}「花之盛宴」{}"
+                        "回合结束时生成{C:attention}1张{C:joy_spell}“花合”{}"
                     }
                 }
             },
@@ -173,20 +173,20 @@ return {
                 name = "{C:joy_effect}花札卫-枫间鹿",
                 text = {
                     {
-                        "打出的{C:joy_link}十月{} {C:attention}花札牌{}提供{X:mult,C:white}X#1#{}倍率"
+                        "打出的{C:joy_link}十月{}{C:attention}花札牌{}提供{X:mult,C:white}X#1#{}倍率"
                     },
                     {
                         "{C:attention}发掘{}并检查顶部{C:attention}#2#张牌：",
                         "{s:0.9}- {s:0.9,C:joy_link}十月{s:0.9}花札{s:0.9}：抽{s:0.9,C:attention}#3#{s:0.9}张牌",
                         "{s:0.9}- {s:0.9,C:joy_link}光属性{s:0.9}花札{s:0.9}：在商店添加{s:0.9,C:attention}#4#{s:0.9}张",
-                        "{s:0.9,C:joy_normal}「花札卫」{s:0.9}",
+                        "{s:0.9,C:joy_normal}“花札卫”{s:0.9}",
                         "{s:0.9}否则销毁自身并生成{s:0.9,C:attention}#5#张",
-                        "{s:0.9,C:joy_normal}「花札卫」{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至回合结束）"
+                        "{s:0.9,C:joy_normal}“花札卫”{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至回合结束）"
                     },
                     {
-                        "若持有其他{C:joy_normal}「花札卫」{}",
+                        "若持有其他{C:joy_normal}“花札卫”{}",
                         "可在无空位时从商店获取，且",
-                        "回合结束时生成{C:attention}1张{C:joy_spell}「花之盛宴」{}"
+                        "回合结束时生成{C:attention}1张{C:joy_spell}“花合”{}"
                     }
                 }
             },
@@ -194,8 +194,8 @@ return {
                 name = "{C:joy_effect}花札卫-柳",
                 text = {
                     {
-                        "打出的{C:joy_link}十一月{} {C:attention}花札牌{}",
-                        "每张提供{C:money}+$#1#{}金钱（每张持有或{C:attention}墓地{}中的{C:joy_normal}「花札卫」{}）",
+                        "打出的{C:joy_link}十一月{}{C:attention}花札牌{}",
+                        "每张提供{C:money}+$#1#{}金钱（每张持有或{C:attention}墓地{}中的{C:joy_normal}“花札卫”{}）",
                         "{C:inactive}(当前 {C:money}+$#2#{}{C:inactive})"
                     },
                     {
@@ -203,12 +203,12 @@ return {
                         "{s:0.9}- {s:0.9,C:attention}人头牌{s:0.9}：转化为随机{s:0.9,C:attention}花札牌{s:0.9}",
                         "{s:0.9}- {s:0.9,C:joy_link}十一月{s:0.9}花札{s:0.9}：抽{s:0.9,C:attention}#4#{s:0.9}张牌",
                         "{s:0.9}否则销毁自身并生成{s:0.9,C:attention}#5#张",
-                        "{s:0.9,C:joy_effect}「花札卫-柳间小野道风」{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至{s:0.9,C:attention}BOSS盲注{s:0.9}）"
+                        "{s:0.9,C:joy_effect}“花札卫-柳间小野道风”{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至{s:0.9,C:attention}BOSS盲注{s:0.9}）"
                     },
                     {
-                        "若持有其他{C:joy_normal}「花札卫」{}",
+                        "若持有其他{C:joy_normal}“花札卫”{}",
                         "可在无空位时从商店获取，且",
-                        "回合结束时生成{C:attention}1张{C:joy_spell}「花之盛宴」{}"
+                        "回合结束时生成{C:attention}1张{C:joy_spell}“花合”{}"
                     }
                 }
             },
@@ -218,14 +218,14 @@ return {
                     {
                         "{C:attention}发掘{}并检查顶部{C:attention}#1#张牌：",
                         "{s:0.9}- {s:0.9,C:attention}人头牌{s:0.9}：转化为随机{s:0.9,C:attention}花札牌{s:0.9}",
-                        "{s:0.9}- {s:0.9,C:joy_link}十一月{s:0.9}花札{s:0.9}：{s:0.9,C:attention}复活 #2#{s:0.9}张{s:0.9,C:joy_normal}「花札卫」",
+                        "{s:0.9}- {s:0.9,C:joy_link}十一月{s:0.9}花札{s:0.9}：{s:0.9,C:attention}复活 #2#{s:0.9}张{s:0.9,C:joy_normal}“花札卫”",
                         "{s:0.9}否则销毁自身并生成{s:0.9,C:attention}#3#张",
-                        "{s:0.9,C:joy_effect}「花札卫-柳」{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至回合结束）"
+                        "{s:0.9,C:joy_effect}“花札卫-柳”{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至回合结束）"
                     },
                     {
-                        "若持有其他{C:joy_normal}「花札卫」{}",
+                        "若持有其他{C:joy_normal}“花札卫”{}",
                         "可在无空位时从商店获取，且",
-                        "回合结束时生成{C:attention}1张{C:joy_spell}「花之盛宴」{}"
+                        "回合结束时生成{C:attention}1张{C:joy_spell}“花合”{}"
                     }
                 }
             },
@@ -233,8 +233,8 @@ return {
                 name = "{C:joy_effect}花札卫-桐",
                 text = {
                     {
-                        "打出的{C:joy_link}五月{}和{C:joy_link}十二月{} {C:attention}花札牌{}",
-                        "每张提供{C:mult}+#1#{}倍率（每张持有或{C:attention}墓地{}中的{C:joy_normal}「花札卫」{}）",
+                        "打出的{C:joy_link}五月{}和{C:joy_link}十二月{}{C:attention}花札牌{}",
+                        "每张提供{C:mult}+#1#{}倍率（每张持有或{C:attention}墓地{}中的{C:joy_normal}“花札卫”{}）",
                         "{C:inactive}(当前 {C:mult}+#2#{}{C:inactive}倍率)"
                     },
                     {
@@ -242,12 +242,12 @@ return {
                         "{s:0.9}- {s:0.9,C:diamonds}方片{s:0.9}：转化为随机{s:0.9,C:attention}花札牌{s:0.9}",
                         "{s:0.9}- {s:0.9,C:joy_link}五月{s:0.9}或{s:0.9,C:joy_link}十二月{s:0.9}花札{s:0.9}：抽{s:0.9,C:attention}#4#{s:0.9}张牌",
                         "{s:0.9}否则销毁自身并生成{s:0.9,C:attention}#5#张",
-                        "{s:0.9,C:joy_effect}「花札卫-桐上凤凰」{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至{s:0.9,C:attention}BOSS盲注{s:0.9}）"
+                        "{s:0.9,C:joy_effect}“花札卫-桐上凤凰”{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至{s:0.9,C:attention}BOSS盲注{s:0.9}）"
                     },
                     {
-                        "若持有其他{C:joy_normal}「花札卫」{}",
+                        "若持有其他{C:joy_normal}“花札卫”{}",
                         "可在无空位时从商店获取，且",
-                        "回合结束时生成{C:attention}1张{C:joy_spell}「花之盛宴」{}"
+                        "回合结束时生成{C:attention}1张{C:joy_spell}“花合”{}"
                     }
                 }
             },
@@ -255,7 +255,7 @@ return {
                 name = "{C:joy_effect}花札卫-桐上凤凰",
                 text = {
                     {
-                        "手牌中的{C:joy_link}五月{}和{C:joy_link}十二月{} {C:attention}花札牌{}",
+                        "手牌中的{C:joy_link}五月{}和{C:joy_link}十二月{}{C:attention}花札牌{}",
                         "每张提供{C:mult}+#1#{}倍率"
                     },
                     {
@@ -263,12 +263,12 @@ return {
                         "{s:0.9}- {s:0.9,C:diamonds}方片{s:0.9}：转化为随机{s:0.9,C:attention}花札牌{s:0.9}",
                         "{s:0.9}- {s:0.9,C:joy_link}五月{s:0.9}或{s:0.9,C:joy_link}十二月{s:0.9}花札{s:0.9}：抽{s:0.9,C:attention}#3#{s:0.9}张牌",
                         "{s:0.9}否则销毁自身并生成{s:0.9,C:attention}#4#张",
-                        "{s:0.9,C:joy_effect}「花札卫-桐」{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至回合结束）"
+                        "{s:0.9,C:joy_effect}“花札卫-桐”{s:0.9}（{s:0.9,C:attention}除外{s:0.9}至回合结束）"
                     },
                     {
-                        "若持有其他{C:joy_normal}「花札卫」{}",
+                        "若持有其他{C:joy_normal}“花札卫”{}",
                         "可在无空位时从商店获取，且",
-                        "回合结束时生成{C:attention}1张{C:joy_spell}「花之盛宴」{}"
+                        "回合结束时生成{C:attention}1张{C:joy_spell}“花合”{}"
                     }
                 }
             },
@@ -282,7 +282,7 @@ return {
                     {
                         "若回合最后牌型为{C:attention}花札{}",
                         "回合结束时根据该牌型打出的{C:joy_link}兽族{}花札牌数量",
-                        "{C:attention}除外 #1#张小丑牌{}",
+                        "{C:attention}除外 #1#张卡牌{}",
                         "直到选择{C:attention}盲注{}"
                     }
                 },
@@ -298,7 +298,7 @@ return {
                 name = "{C:joy_synchro}花札卫-月花见",
                 text = {
                     {
-                        "首次抽牌时，每张{C:joy_normal}「花札卫」{}",
+                        "首次抽牌时，每张{C:joy_normal}“花札卫”{}",
                         "额外抽{C:attention}#1#张牌"
                     },
                     {
@@ -321,10 +321,10 @@ return {
                 name = "{C:joy_synchro}花札卫-五光",
                 text = {
                     {
-                        "每张{C:joy_normal}「花札卫」{}提供{X:mult,C:white}X#1#{}倍率"
+                        "每张{C:joy_normal}“花札卫”{}提供{X:mult,C:white}X#1#{}倍率"
                     },
                     {
-                        "{C:joy_mod}柳间小野道风{}和{C:joy_mod}菊上杯{} {C:attention}花札牌{}",
+                        "{C:joy_mod}柳间小野道风{}和{C:joy_mod}菊上杯{}{C:attention}花札牌{}",
                         "始终计分并提供{X:mult,C:white}X#2#{}倍率"
                     },
                     {
@@ -350,13 +350,13 @@ return {
                     },
                     {
                         "{C:attention}花札牌{}视为所有{C:joy_link}月份{}和{C:joy_link}种类{}",
-                        "用于其他{C:joy_normal}「花札卫」{}能力，且视为所有花色",
+                        "用于其他{C:joy_normal}“花札卫”{}能力，且视为所有花色",
                         "并不受{C:attention}盲注{}弱化影响"
                     },
                     {
                         "若打出牌型包含{C:attention}雨四光{}、{C:attention}月花见{}",
                         "或{C:attention}赤短青短{}",
-                        "{C:attention}复活 #3#张{C:dark_edition}负片{}的{C:joy_normal}「花札卫」{}"
+                        "{C:attention}复活 #3#张{C:dark_edition}负片{}的{C:joy_normal}“花札卫”{}"
                     }
                 },
                 joy_summon_conditions = {
@@ -379,7 +379,7 @@ return {
         },
         Tarot = {
             c_joy_cardian_gathering = {
-                name = "{C:joy_spell}花之盛宴",
+                name = "{C:joy_spell}花合",
                 text = {
                     "将所选卡牌",
                     "强化为{C:attention}#1#张花札牌"
@@ -428,31 +428,13 @@ return {
         },
         Back = {
             b_joy_hanafuda = {
-                name = "{C:joy_spell}叠花之术",
+                name = "{C:joy_spell}花积",
                 text = {
                     "开局获得",
                     "所有随机",
                     "{C:attention,T:m_joy_hanafuda}花札牌{}"
                 }
             }
-        },
-        Sleeve = {
-            sleeve_joy_hanafuda = {
-                name = "{C:joy_spell}花札牌组",
-                text = {
-                    "开局获得",
-                    "所有随机",
-                    "{C:attention,T:m_joy_hanafuda}花札牌{}"
-                }
-            },
-            sleeve_joy_hanafuda_alt = {
-                name = "{C:joy_spell}花札牌套",
-                text = {
-                    "开局获得所有{C:attention,T:m_joy_hanafuda}花札牌{}",
-                    "而非随机牌，额外获得",
-                    "{C:joy_mod}菊上杯"
-                }
-            },
         },
         Other = {
             joy_tooltip_koikoihand = {
@@ -462,6 +444,16 @@ return {
                 },
             }
         },
+    },
+    JoyousSpring = {
+        Blurbs = {
+            cardian = {
+                gameplay = {
+                    "不要被大量的文字吓倒！{C:joy_normal}“花札卫”{}只关心一件事，那就是{C:joy_mod}花札{}。尽可能多地收集花札，而{C:joy_normal}“花札卫”{}则会在此期间不断循环。",
+                    "{C:red}提示{}: 你不需要专注于特定的{C:attention}来来{}手牌，试着集齐所有{C:joy_link}杂牌{}、所有{C:joy_link}短册{}或所有{C:joy_link}种牌{}！"
+                }
+            }
+        }
     },
     misc = {
         poker_hands = {
@@ -482,7 +474,7 @@ return {
         },
         poker_hand_descriptions = {
             joy_cardian_chaff = {
-                "5张{C:joy_link}杂牌{} {C:attention}花札牌{}",
+                "5张{C:joy_link}杂牌{}{C:attention}花札牌{}",
                 "（或{C:joy_mod}菊上杯{}）"
             },
             joy_cardian_ribbons = {
@@ -490,36 +482,36 @@ return {
             },
             joy_cardian_blueribbon = {
                 "{C:joy_mod}牡丹上绶{}、{C:joy_mod}菊上绶{}",
-                "和{C:joy_mod}枫上绶{} {C:attention}花札牌{}",
+                "和{C:joy_mod}枫上绶{}{C:attention}花札牌{}",
                 "至多2张未计分牌"
             },
             joy_cardian_redpoem = {
                 "{C:joy_mod}松上绶{}、{C:joy_mod}樱上绶{}",
-                "和{C:joy_mod}梅上绶{} {C:attention}花札牌{}",
+                "和{C:joy_mod}梅上绶{}{C:attention}花札牌{}",
                 "至多2张未计分牌"
             },
             joy_cardian_redpoemblueribbon = {
                 "任意5张：{C:joy_mod}牡丹上绶{}、{C:joy_mod}菊上绶{}、",
                 "{C:joy_mod}枫上绶{}、{C:joy_mod}松上绶{}、",
-                "{C:joy_mod}樱上绶{}或{C:joy_mod}梅上绶{} {C:attention}花札牌{}",
+                "{C:joy_mod}樱上绶{}或{C:joy_mod}梅上绶{}{C:attention}花札牌{}",
             },
             joy_cardian_animals = {
-                "5张{C:joy_link}兽族{} {C:attention}花札牌{}",
+                "5张{C:joy_link}兽族{}{C:attention}花札牌{}",
             },
             joy_cardian_boardefly = {
                 "{C:joy_mod}萩间猪{}、{C:joy_mod}鹿上枫{}",
-                "和{C:joy_mod}蝶上牡丹{} {C:attention}花札牌{}",
+                "和{C:joy_mod}蝶上牡丹{}{C:attention}花札牌{}",
                 "至多2张{C:joy_link}兽族{}花札牌",
                 "和/或至多2张未计分牌"
             },
             joy_cardian_flowerviewing = {
                 "至多5张{C:joy_mod}菊上杯{}和",
-                "{C:joy_mod}樱上幕帘{} {C:attention}花札牌{}",
+                "{C:joy_mod}樱上幕帘{}{C:attention}花札牌{}",
                 "至多3张未计分牌"
             },
             joy_cardian_moonviewing = {
                 "至多5张{C:joy_mod}菊上杯{}和",
-                "{C:joy_mod}芒上月{} {C:attention}花札牌{}",
+                "{C:joy_mod}芒上月{}{C:attention}花札牌{}",
                 "至多3张未计分牌"
             },
             joy_cardian_moonflowerviewing = {
@@ -527,19 +519,19 @@ return {
                 "至多2张未计分牌"
             },
             joy_cardian_lightwave = {
-                "3张不同月份的{C:joy_link}光属性{} {C:attention}花札牌{}",
+                "3张不同月份的{C:joy_link}光属性{}{C:attention}花札牌{}",
                 "{C:inactive}(除柳间小野道风)"
             },
             joy_cardian_lightshower = {
-                "4张不同月份的{C:joy_link}光属性{} {C:attention}花札牌{}",
+                "4张不同月份的{C:joy_link}光属性{}{C:attention}花札牌{}",
                 "包含{C:joy_mod}柳间小野道风"
             },
             joy_cardian_lightshow = {
-                "4张不同月份的{C:joy_link}光属性{} {C:attention}花札牌{}",
+                "4张不同月份的{C:joy_link}光属性{}{C:attention}花札牌{}",
                 "{C:inactive}(除柳间小野道风)"
             },
             joy_cardian_lightflare = {
-                "5张不同{C:joy_link}月份{}的{C:joy_link}光属性{} {C:attention}花札牌{}",
+                "5张不同{C:joy_link}月份{}的{C:joy_link}光属性{}{C:attention}花札牌{}",
             },
         },
         dictionary = {
@@ -585,8 +577,8 @@ return {
             ["k_joy_hanafuda_Wisteria"] = "藤",
 
             ["k_joy_hanafuda_Water Iris with Bridge"] = "菖蒲上桥",
-            ["k_joy_hanafuda_Water Iris with Ribbon"] = "菖蒲上绶",
-            ["k_joy_hanafuda_Water Iris"] = "菖蒲",
+            ["k_joy_hanafuda_Water iris with Ribbon"] = "菖蒲上绶",
+            ["k_joy_hanafuda_Water iris"] = "菖蒲",
 
             ["k_joy_hanafuda_Peony with Butterfly"] = "牡丹上蝴蝶",
             ["k_joy_hanafuda_Peony with Ribbon"] = "牡丹上绶",

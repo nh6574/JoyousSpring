@@ -15,7 +15,7 @@ return {
                 name = "{C:joy_effect}浮幽樱",
                 text = {
                     {
-                        "墓地中每张{C:joy_spell}额外卡组{}小丑牌",
+                        "墓地中每张{C:joy_spell}额外卡组{}卡牌",
                         "提供{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}(当前{X:mult,C:white}X#2#{}{C:inactive}倍率){}",
                     },
@@ -26,9 +26,13 @@ return {
                 text = {
                     {
                         "打出/弃牌后，有{C:green}#1#/#2#{}几率",
-                        "不抽牌",
-                        "每次触发获得{X:mult,C:white}X#3#{}倍率",
-                        "{C:inactive}(当前{X:mult,C:white}X#4#{}{C:inactive}倍率){}",
+                        "不抽牌"
+                    },
+                    {
+                        "每当{C:joy_effect}“灰流丽”{}",
+                        "触发上一个能力时",
+                        "获得{X:mult,C:white}X#3#{}倍率",
+                        "{C:inactive}（当前{}{X:mult,C:white}X#4#{}{C:inactive}倍率）{}",
                     },
                 },
             },
@@ -36,7 +40,7 @@ return {
                 name = "{C:joy_effect}屋敷童",
                 text = {
                     {
-                        "每{C:attention}复活{}1张小丑牌",
+                        "每{C:attention}复活{}1张卡牌",
                         "获得{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}(当前{X:mult,C:white}X#2#{}{C:inactive}倍率){}",
                     },
@@ -60,7 +64,7 @@ return {
                 text = {
                     {
                         "永久弱化所有获得的",
-                        "{C:blue}普通{}和{C:green}罕见{}小丑牌",
+                        "{C:blue}普通{}和{C:green}罕见{}卡牌",
                     },
                     {
                         "每售出1张被弱化的牌",
@@ -69,6 +73,15 @@ return {
                     },
                 },
             },
+        }
+    },
+    JoyousSpring = {
+        Blurbs = {
+            yokai = {
+                gameplay = {
+                    "{C:attention}“幽鬼少女”{}会带来高回报，但有时需要以一些不利条件为代价。"
+                }
+            }
         }
     },
     misc = {

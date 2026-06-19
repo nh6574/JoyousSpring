@@ -139,7 +139,7 @@ return {
                         "每购买1张{C:joy_normal}“@火灵天星”{}获得{C:money}+$#1#{}",
                     },
                     {
-                        "出售此牌以{C:attention}除外 #2#{}张{C:joy_normal}“@火灵天星”{}",
+                        "出售此牌以{C:attention}放逐 #2#{}张{C:joy_normal}“@火灵天星”{}",
                         "直到选择{C:attention}盲注{}",
                     },
                 }
@@ -177,14 +177,14 @@ return {
                 }
             },
             j_joy_ignis_linkslayer = {
-                name = "{C:joy_effect}连接山猫屠杀者＠伊格尼斯者",
+                name = "{C:joy_effect}猞猁链接杀手@火灵天星",
                 text = {
                     {
-                        "可作任意{C:attention}素材{}用于{C:joy_link}连接{}召唤",
+                        "可作为{C:joy_link}连接{}召唤的任意{C:attention}素材{}使用",
                     },
                     {
-                        "作为{C:joy_normal}电子界{}召唤{C:attention}素材{}时，",
-                        "永久获得{C:red}+#1#{}弃牌次数",
+                        "作为{C:joy_normal}电子界{}怪兽的{C:attention}素材{}使用时",
+                        "永久获得{C:red}+#1#{}次弃牌次数",
                     }
                 }
             },
@@ -217,13 +217,13 @@ return {
                         "加入{C:joy_spell}额外卡组{}",
                     },
                     {
-                        "每份召唤{C:attention}属性{}提供{C:attention}+#2#个小丑牌槽",
+                        "每份召唤{C:attention}属性{}提供{C:attention}+#2#个卡牌槽",
                         "{C:inactive}(当前 {C:attention}+#3#{}{C:inactive})",
                         "用此牌作{C:attention}素材{}的{C:joy_link}连接{}获得此能力",
                     },
                 },
                 joy_transfer_ability = {
-                    "每份召唤{C:attention}属性{}提供{C:attention}+#1#个小丑牌槽",
+                    "每份召唤{C:attention}属性{}提供{C:attention}+#1#个卡牌槽",
                     "{C:inactive}(当前 {C:attention}+#2#{}{C:inactive})",
                 },
                 joy_summon_conditions = {
@@ -359,7 +359,7 @@ return {
                     {
                         "根据召唤{C:attention}素材{}获得能力：",
                         "{V:1}光属性{V:3}：回合结束{V:2}+$#3#{V:3}",
-                        "{V:4}暗属性{V:7}：回合结束生成{V:5}#4#{}{V:6}幻灵牌{V:7} {s:0.9,C:inactive}(需有空位)",
+                        "{V:4}暗属性{V:7}：回合结束生成{V:5}#4#{}{V:6}幻灵牌{V:7}{s:0.9,C:inactive}(需有空位)",
                         "{V:8}水属性{V:10}：{V:9}+#5#{V:10}筹码",
                         "{V:11}炎属性{V:13}：{V:12}+#6#{V:13}倍率",
                         "{V:14}风属性{V:17}：{V:15}#7#/#8#{V:17}几率生成所用{V:16}负片{V:17}版{V:18}幻灵牌",
@@ -380,7 +380,7 @@ return {
                     {
                         "根据召唤{C:attention}素材{}获得能力：",
                         "{V:1}光属性{V:3}：回合结束{V:2}+$#3#{V:3}",
-                        "{V:4}暗属性{V:7}：回合结束生成{V:5}#4#{}{V:6}幻灵牌{V:7} {s:0.9,C:inactive}(需有空位)",
+                        "{V:4}暗属性{V:7}：回合结束生成{V:5}#4#{}{V:6}幻灵牌{V:7}{s:0.9,C:inactive}(需有空位)",
                         "{V:8}水属性{V:10}：{V:9}+#5#{V:10}筹码",
                         "{V:11}炎属性{V:13}：{V:12}+#6#{V:13}倍率",
                         "{V:14}风属性{V:17}：{V:15}#7#/#8#{V:17}几率生成所用{V:16}负片{V:17}版{V:18}幻灵牌",
@@ -400,12 +400,22 @@ return {
                         "将{C:attention}#1#{}张{C:joy_normal}主卡组“@火灵天星”{}加入商店",
                     },
                     {
-                        "若回合结束时拥有{C:attention}#2#{}种不同{C:attention}属性{}的小丑牌，",
-                        "{C:attention}除外{}所有{C:joy_normal}电子界{}直到选择{C:attention}盲注{}",
+                        "若回合结束时拥有{C:attention}#2#{}种不同{C:attention}属性{}的卡牌，",
+                        "{C:attention}放逐{}所有{C:joy_normal}电子界{}直到选择{C:attention}盲注{}",
                         "但削弱所有非{C:joy_normal}电子界{}牌",
                     },
                 }
             },
+        }
+    },
+    JoyousSpring = {
+        Blurbs = {
+            ignis = {
+                gameplay = {
+                    "{C:joy_normal}“@火灵天星”{}围绕使用不同{C:attention}属性{}{C:attention}召唤{}{C:joy_normal}电子界{}展开。尝试将它们与其他{C:joy_normal}电子界自由势力{}搭配使用！",
+                    "尝试发现{C:joy_link}“电子界到临者@火灵天星”{}的秘密能力！"
+                }
+            }
         }
     },
     misc = {

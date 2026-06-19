@@ -10,11 +10,11 @@ return {
                     },
                     {
                         "作为{C:joy_link}连接{}的{C:attention}素材{}时",
-                        "生成{C:attention}#2#{}张{C:dark_edition}负片{} {C:spectral}幻灵牌{}",
+                        "生成{C:attention}#2#{}张{C:dark_edition}负片{}{C:spectral}幻灵牌{}",
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}1{}张{C:joy_normal}电子界族{} {C:joy_synchro}调整{} +",
+                    "{C:attention}1{}张{C:joy_normal}电子界族{}{C:joy_synchro}调整{} +",
                     "{C:attention}1{}张非调整{}",
                     "{s:0.9,C:inactive}({s:0.9,C:joy_xyz}超量{s:0.9,C:inactive}或{s:0.9,C:joy_link}连接{s:0.9,C:inactive}除外)",
                 }
@@ -23,13 +23,13 @@ return {
                 name = "{C:joy_synchro}究极幻神 奥特美特尔·比希巴尔金",
                 text = {
                     {
-                        "每张非弱化的{C:attention}小丑牌{}{C:mult}+#1#{}倍率",
+                        "每张非弱化的{C:attention}卡牌{}{C:mult}+#1#{}倍率",
                         "{C:inactive}(当前 {C:mult}+#2#{}{C:inactive}倍率)",
                     },
                     {
                         "回合结束时尽可能销毁所有其他非{C:joy_token}衍生物{}",
-                        "非弱化的{C:attention}小丑牌{}，并生成等量",
-                        "{C:dark_edition}负片{} {C:joy_token}「邪眼神衍生物」{}",
+                        "非弱化的{C:attention}卡牌{}，并生成等量",
+                        "{C:dark_edition}负片{}{C:joy_token}“邪眼神衍生物”{}",
                     },
                 },
                 joy_summon_conditions = {
@@ -42,7 +42,7 @@ return {
                 name = "{C:joy_token}邪眼神衍生物",
                 text = {
                     {
-                        "此卡可视为任意{C:joy_token}衍生物{}",
+                        "此卡牌可视为任意{C:joy_token}衍生物{}",
                     },
                 }
             },
@@ -51,8 +51,8 @@ return {
                 text = {
                     {
                         "作为{C:attention}素材{}时，添加{C:attention}#1#{}张",
-                        "{C:joy_normal}鱼族{} {C:joy_synchro}同调{}至{C:joy_spell}额外卡组{}",
-                        "并生成最多{C:attention}#2#{}张{C:joy_token}「灯衍生物」{}",
+                        "{C:joy_normal}鱼族{}{C:joy_synchro}同调{}至{C:joy_spell}额外卡组{}",
+                        "并生成最多{C:attention}#2#{}张{C:joy_token}“灯衍生物”{}",
                         "可视为{C:joy_synchro}同调{}的任意{C:attention}素材{}",
                         "{C:inactive}(需有空位)",
                     },
@@ -70,7 +70,7 @@ return {
                 name = "{C:joy_token}灯衍生物",
                 text = {
                     {
-                        "此卡可视为任意{C:joy_token}衍生物{}",
+                        "此卡牌可视为任意{C:joy_token}衍生物{}",
                     },
                     {
                         "可视为{C:joy_synchro}同调{}的任意{C:attention}素材{}",
@@ -95,6 +95,34 @@ return {
                     "{C:attention}1{}张{C:joy_synchro}调整{} +",
                     "{C:attention}1{}张非调整{}",
                     "{s:0.9,C:inactive}({s:0.9,C:joy_xyz}超量{s:0.9,C:inactive}或{s:0.9,C:joy_link}连接{s:0.9,C:inactive}除外)",
+                }
+            },
+            j_joy_gishilnodon = {
+                name = "{C:joy_synchro}神海龙 基希尔诺顿",
+                text = {
+                    {
+                        "当一张{C:blue}普通{}{C:attention}卡牌{}被用作{C:joy_synchro}同调{}的{C:attention}素材{}时，获得{C:chips}+#1#{}筹码",
+                        "{C:inactive}（当前{C:chips}+#2#{}{C:inactive}筹码）"
+                    }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}1{}张{C:joy_synchro}调整{} +",
+                    "{C:attention}1{}张{C:blue}普通{}非{C:joy_synchro}调整{}",
+                    "{s:0.9,C:inactive}（{s:0.9,C:joy_xyz}超量{s:0.9,C:inactive}或{s:0.9,C:joy_link}连接{s:0.9,C:inactive}除外）",
+                }
+            },
+            j_joy_giganticastle = {
+                name = "{C:joy_synchro}鬼岩城",
+                text = {
+                    {
+                        "用于其{C:attention}召唤{}的每张非{C:joy_synchro}调整{}{C:attention}素材{}提供{C:mult}+#1#{}倍率",
+                        "{C:inactive}（当前{C:mult}+#2#{}{C:inactive}倍率）"
+                    }
+                },
+                joy_summon_conditions = {
+                    "{C:attention}1{}张{C:joy_synchro}调整{} +",
+                    "{C:attention}1{}张以上非{C:joy_synchro}调整{}",
+                    "{s:0.9,C:inactive}（{s:0.9,C:joy_xyz}超量{s:0.9,C:inactive}或{s:0.9,C:joy_link}连接{s:0.9,C:inactive}除外）",
                 }
             },
         }

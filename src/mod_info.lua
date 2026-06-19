@@ -801,29 +801,116 @@ end
 local text_wrap = function(text, length)
     local ret = {}
     local line = ""
-    local sanitized_line = ""
-    local original = {}
-    local sanitized = {}
+    local line_width = 0
+    local active_tag = nil
+    local last_break_line = nil
+    local last_break_width = nil
+    local last_break_index = nil
 
-    for word in text:gmatch("%S+") do
-        original[#original + 1] = word
-        sanitized[#sanitized + 1] = string.gsub(word, "{.-}", "")
+    local function char_len_at(str, index)
+        local byte = str:byte(index)
+        if not byte then return 0 end
+        if byte < 0x80 then return 1 end
+        if byte < 0xE0 then return 2 end
+        if byte < 0xF0 then return 3 end
+        return 4
     end
 
-    for i, word in ipairs(original) do
-        local new_line = sanitized_line .. " " .. sanitized[i]
+    local function visible_width(char)
+        local byte = char:byte(1)
+        if not byte then return 0 end
+        return byte < 0x80 and 1 or 2
+    end
 
-        if #new_line > length then
-            ret[#ret + 1] = line
-            line = word
-            sanitized_line = sanitized[i]
+    local function push_line(value)
+        value = value:gsub("^%s+", ""):gsub("%s+$", "")
+        if value ~= "" then ret[#ret + 1] = value end
+    end
+
+    local function hard_break()
+        if active_tag and line:sub(-2) ~= "{}" then
+            push_line(line .. "{}")
+            line = active_tag
         else
-            line = line .. " " .. word
-            sanitized_line = new_line
+            push_line(line)
+            line = active_tag or ""
+        end
+        line_width = 0
+        last_break_line = nil
+        last_break_width = nil
+        last_break_index = nil
+    end
+
+    local function soft_break()
+        if not last_break_line then
+            hard_break()
+            return
+        end
+
+        local next_line = line:sub(last_break_index + 1):gsub("^%s+", "")
+        if active_tag and last_break_line:sub(-2) ~= "{}" then
+            push_line(last_break_line .. "{}")
+            line = active_tag .. next_line
+        else
+            push_line(last_break_line)
+            line = next_line
+        end
+        line_width = math.max(0, line_width - last_break_width)
+        last_break_line = nil
+        last_break_width = nil
+        last_break_index = nil
+    end
+
+    local i = 1
+    while i <= #text do
+        local token = nil
+        local token_width = 0
+
+        if text:sub(i, i) == "{" then
+            local close = text:find("}", i, true)
+            if close then
+                token = text:sub(i, close)
+                if token == "{}" then
+                    active_tag = nil
+                else
+                    active_tag = token
+                end
+                i = close + 1
+            end
+        end
+
+        if not token then
+            local len = char_len_at(text, i)
+            token = text:sub(i, i + len - 1)
+            token_width = visible_width(token)
+            i = i + len
+        end
+
+        if token_width > 0 and line_width + token_width > length then
+            if last_break_line and token ~= " " then
+                soft_break()
+            else
+                hard_break()
+            end
+        end
+
+        if line ~= "" or token ~= " " then
+            line = line .. token
+            line_width = line_width + token_width
+        end
+
+        if token == " " then
+            last_break_line = line
+            last_break_width = line_width
+            last_break_index = #line
+        elseif token_width > 1 and line_width < length then
+            last_break_line = line
+            last_break_width = line_width
+            last_break_index = #line
         end
     end
 
-    if ret[#ret] ~= line and line ~= "" then ret[#ret + 1] = line end
+    push_line(line)
     return ret
 end
 

@@ -13,13 +13,13 @@ return {
                     },
                     {
                         "{C:attention}青龙{}：每轮限1次，在商店添加{C:attention}#2#张",
-                        "{C:joy_spell}额外卡组{}的{C:joy_normal}「电脑堺」{}"
+                        "{C:joy_spell}额外卡组{}的{C:joy_normal}“电脑堺”{}"
                     },
                     {
                         "{C:attention}朱雀{}：销毁打出牌型中未计分的牌"
                     },
                     {
-                        "{C:attention}九龙{}：每轮限1次，生成{C:attention}#3#张{C:joy_normal}主卡组「电脑堺」{}",
+                        "{C:attention}九龙{}：每轮限1次，生成{C:attention}#3#张{C:joy_normal}主卡组“电脑堺”{}",
                         "{C:inactive}(需有空位)"
                     }
                 }
@@ -36,17 +36,17 @@ return {
                     },
                     {
                         "{C:attention}青龙{}：每轮限1次，在商店添加{C:attention}#2#张",
-                        "{C:joy_normal}「电脑堺」{} {C:planet}星球牌{}"
+                        "{C:joy_normal}“电脑堺”{}{C:planet}星球牌{}"
                     },
                     {
-                        "{C:attention}朱雀{}：回合结束时{C:attention}除外{}此卡和另1张{C:attention}小丑牌{}",
-                        "直到选择{C:attention}盲注{}，同时此卡变为{C:joy_synchro}调整{}"
+                        "{C:attention}朱雀{}：回合结束时{C:attention}除外{}此卡牌和另1张{C:attention}卡牌{}",
+                        "直到选择{C:attention}盲注{}，同时此卡牌变为{C:joy_synchro}调整{}"
                     },
                     {
-                        "{C:attention}九龙{}：生成{C:attention}#3#张{C:joy_normal}「电脑堺」{} {C:planet}星球牌{}",
+                        "{C:attention}九龙{}：生成{C:attention}#3#张{C:joy_normal}“电脑堺”{}{C:planet}星球牌{}",
                         "{C:inactive}(需有空位)",
-                        "若本回合此卡被{C:attention}除外{}，则取回",
-                        "{C:attention}#4#张随机被{C:attention}除外{}的小丑牌"
+                        "若本回合此卡牌被{C:attention}除外{}，则取回",
+                        "{C:attention}#4#张随机被{C:attention}除外{}的卡牌"
                     }
                 }
             },
@@ -62,7 +62,7 @@ return {
                     },
                     {
                         "{C:attention}青龙{}：每轮限1次，在商店添加{C:attention}#2#张",
-                        "{C:joy_normal}「电脑堺」{}（名称与{C:attention}墓地{}中相同）"
+                        "{C:joy_normal}“电脑堺”{}（名称与{C:attention}墓地{}中相同）"
                     },
                     {
                         "{C:attention}朱雀{}：销毁1张随机手牌（除{C:attention}3{}、{C:attention}6{}、",
@@ -70,7 +70,7 @@ return {
                     },
                     {
                         "{C:attention}九龙{}：每轮限1次，生成{C:attention}#3#张",
-                        "{C:joy_normal}主卡组「电脑堺」{}（名称与{C:attention}墓地{}中相同）",
+                        "{C:joy_normal}主卡组“电脑堺”{}（名称与{C:attention}墓地{}中相同）",
                         "{C:inactive}(需有空位)"
                     }
                 }
@@ -87,15 +87,15 @@ return {
                     },
                     {
                         "{C:attention}青龙{}：每轮限1次，在商店添加{C:attention}#2#张",
-                        "{C:joy_normal}「电脑堺」{} {C:planet}星球牌{}"
+                        "{C:joy_normal}“电脑堺”{}{C:planet}星球牌{}"
                     },
                     {
-                        "{C:attention}朱雀{}：回合结束时{C:attention}除外{}此卡",
-                        "直到选择{C:attention}BOSS盲注{}，同时此卡变为{C:joy_synchro}调整{}",
+                        "{C:attention}朱雀{}：回合结束时{C:attention}除外{}此卡牌",
+                        "直到选择{C:attention}BOSS盲注{}，同时此卡牌变为{C:joy_synchro}调整{}",
                         "并可作为任何{C:attention}素材{}用于{C:joy_synchro}同调召唤{}"
                     },
                     {
-                        "{C:attention}九龙{}：生成{C:attention}#3#张{C:dark_edition}负片{}的{C:joy_normal}「电脑堺」{} {C:planet}星球牌{}"
+                        "{C:attention}九龙{}：生成{C:attention}#3#张{C:dark_edition}负片{}的{C:joy_normal}“电脑堺”{}{C:planet}星球牌{}"
                     }
                 }
             },
@@ -112,7 +112,7 @@ return {
                         "{C:inactive}(当前 {C:chips}+#2#{}{C:inactive}筹码)"
                     },
                     {
-                        "{C:attention}青龙{}：将{C:attention}#3#张{C:joy_normal}「电脑堺」{}送入{C:attention}墓地{}"
+                        "{C:attention}青龙{}：将{C:attention}#3#张{C:joy_normal}“电脑堺”{}送入{C:attention}墓地{}"
                     },
                     {
                         "{C:attention}朱雀{}：从{C:attention}墓地{}移除最多{C:attention}#4#张",
@@ -123,7 +123,7 @@ return {
                     {
                         "{C:attention}九龙{}：每轮限1次，若{C:attention}墓地{}仅含{C:joy_normal}念动力族{}",
                         "或{C:joy_normal}幻龙族{}，向{C:joy_spell}额外卡组{}添加{C:attention}#8#张",
-                        "{C:joy_normal}「电脑堺」{}",
+                        "{C:joy_normal}“电脑堺”{}",
                         "{C:inactive}(需有空位)"
                     }
                 }
@@ -141,7 +141,7 @@ return {
                         "{C:inactive}(当前 {C:mult}+#2#{}{C:inactive}倍率)"
                     },
                     {
-                        "{C:attention}青龙{}：每轮限1次，{C:attention}复活 #3#张{C:joy_normal}「电脑堺」{}"
+                        "{C:attention}青龙{}：每轮限1次，{C:attention}复活 #3#张{C:joy_normal}“电脑堺”{}"
                     },
                     {
                         "{C:attention}朱雀{}：从{C:attention}墓地{}移除最多{C:attention}#4#张",
@@ -152,7 +152,7 @@ return {
                     {
                         "{C:attention}九龙{}：每轮限1次，若{C:attention}墓地{}仅含{C:joy_wind}风属性{}",
                         "或{C:joy_earth}地属性{}，{C:attention}复活 #8#张",
-                        "{C:dark_edition}负片{}的{C:joy_normal}「电脑堺」{}"
+                        "{C:dark_edition}负片{}的{C:joy_normal}“电脑堺”{}"
                     }
                 }
             },
@@ -160,7 +160,7 @@ return {
                 name = "{C:joy_xyz}电脑堺龙-龙龙",
                 text = {
                     {
-                        "{C:mult}+#1#{}倍率（{C:attention}墓地{}中每张与持有{C:attention}小丑牌{}",
+                        "{C:mult}+#1#{}倍率（{C:attention}墓地{}中每张与持有{C:attention}卡牌{}",
                         "共享{C:attention}属性{}的卡牌）",
                         "{C:mult}-#2#{}倍率（每张不共享的卡牌）{C:inactive}(最低{C:mult}+0{}{C:inactive})",
                         "{C:inactive}(当前 {C:mult}+#3#{}{C:inactive}倍率)",
@@ -169,13 +169,13 @@ return {
                         "数值分别变化{C:mult}+#4#{}/{C:mult}-#4#{}"
                     },
                     {
-                        "{C:joy_xyz}去除{} {C:attention}#5#{}：解锁{C:attention}电脑堺{}牌型",
+                        "{C:joy_xyz}去除{}{C:attention}#5#{}：解锁{C:attention}电脑堺{}牌型",
                         "并升级本回合打出的牌型"
                     }
                 },
                 joy_summon_conditions = {
                     "{C:attention}2+张{}相同{C:attention}类型{}",
-                    "和{C:attention}属性{}的{C:attention}小丑牌{}",
+                    "和{C:attention}属性{}的{C:attention}卡牌{}",
                     "{s:0.9,C:inactive}(除{s:0.9,C:joy_xyz}超量{s:0.9}、{s:0.9,C:joy_link}连接{s:0.9}或{s:0.9,C:joy_token}衍生物{s:0.9}外)"
                 }
             },
@@ -183,24 +183,24 @@ return {
                 name = "{C:joy_xyz}电脑堺甲-甲甲",
                 text = {
                     {
-                        "{C:joy_xyz}去除{} {C:attention}#1#{}：从{C:attention}墓地{}移除最多{C:attention}#2#张",
-                        "与持有{C:attention}小丑牌{}不共享{C:attention}类型{}和{C:attention}属性{}的卡牌"
+                        "{C:joy_xyz}去除{}{C:attention}#1#{}：从{C:attention}墓地{}移除最多{C:attention}#2#张",
+                        "与持有{C:attention}卡牌{}不共享{C:attention}类型{}和{C:attention}属性{}的卡牌"
                     },
                     {
-                        "若{C:attention}墓地{}所有卡牌均与持有{C:attention}小丑牌{}",
+                        "若{C:attention}墓地{}所有卡牌均与持有{C:attention}卡牌{}",
                         "共享{C:attention}类型{}和{C:attention}属性{}，则触发以下效果："
                     },
                     {
                         "打出{C:attention}电脑堺{}牌型时{X:mult,C:white}X#3#{}倍率"
                     },
                     {
-                        "回合结束时{C:attention}除外{}所有{C:attention}小丑牌{}",
+                        "回合结束时{C:attention}除外{}所有{C:attention}卡牌{}",
                         "直到选择{C:attention}盲注{}"
                     }
                 },
                 joy_summon_conditions = {
                     "{C:attention}2+张{}相同{C:attention}类型{}",
-                    "和{C:attention}属性{}的{C:attention}小丑牌{}",
+                    "和{C:attention}属性{}的{C:attention}卡牌{}",
                     "{s:0.9,C:inactive}(除{s:0.9,C:joy_xyz}超量{s:0.9}、{s:0.9,C:joy_link}连接{s:0.9}或{s:0.9,C:joy_token}衍生物{s:0.9}外)"
                 }
             },
@@ -208,18 +208,18 @@ return {
                 name = "{C:joy_xyz}电脑堺凰-凰凰",
                 text = {
                     {
-                        "若此卡从{C:attention}除外{}状态返回且{C:attention}墓地{}所有卡牌",
-                        "均与持有{C:attention}小丑牌{}共享{C:attention}类型{}和{C:attention}属性{}",
-                        "则为随机{C:attention}小丑牌{}添加{C:dark_edition}负片{}"
+                        "若此卡牌从{C:attention}除外{}状态返回且{C:attention}墓地{}所有卡牌",
+                        "均与持有{C:attention}卡牌{}共享{C:attention}类型{}和{C:attention}属性{}",
+                        "则为随机{C:attention}卡牌{}添加{C:dark_edition}负片{}"
                     },
                     {
-                        "{C:joy_xyz}去除{} {C:attention}#1#{}：{C:attention}复活 #2#张",
-                        "与持有{C:attention}小丑牌{}共享{C:attention}类型{}和{C:attention}属性{}的卡牌"
+                        "{C:joy_xyz}去除{}{C:attention}#1#{}：{C:attention}复活 #2#张",
+                        "与持有{C:attention}卡牌{}共享{C:attention}类型{}和{C:attention}属性{}的卡牌"
                     }
                 },
                 joy_summon_conditions = {
                     "{C:attention}2+张{}相同{C:attention}类型{}",
-                    "和{C:attention}属性{}的{C:attention}小丑牌{}",
+                    "和{C:attention}属性{}的{C:attention}卡牌{}",
                     "{s:0.9,C:inactive}(除{s:0.9,C:joy_xyz}超量{s:0.9}、{s:0.9,C:joy_link}连接{s:0.9}或{s:0.9,C:joy_token}衍生物{s:0.9}外)"
                 }
             },
@@ -227,7 +227,7 @@ return {
                 name = "{C:joy_xyz}电脑堺虎-虎虎",
                 text = {
                     {
-                        "{C:joy_xyz}去除{} {C:attention}#1#{}：本回合{X:mult,C:white}X#2#{}额外倍率",
+                        "{C:joy_xyz}去除{}{C:attention}#1#{}：本回合{X:mult,C:white}X#2#{}额外倍率",
                         "{C:inactive}(当前 {X:mult,C:white}X#3#{}{C:inactive}倍率)"
                     },
                     {
@@ -236,7 +236,7 @@ return {
                     },
                     {
                         "{C:attention}玄武{}或{C:attention}青龙{}：",
-                        "每张计分牌为此卡附加{C:attention}#4#素材{}"
+                        "每张计分牌为此卡牌附加{C:attention}#4#素材{}"
                     },
                     {
                         "{C:attention}朱雀{}或{C:attention}九龙{}：",
@@ -246,7 +246,7 @@ return {
                 },
                 joy_summon_conditions = {
                     "{C:attention}2+张{}相同{C:attention}类型{}",
-                    "和{C:attention}属性{}的{C:attention}小丑牌{}",
+                    "和{C:attention}属性{}的{C:attention}卡牌{}",
                     "{s:0.9,C:inactive}(除{s:0.9,C:joy_xyz}超量{s:0.9}、{s:0.9,C:joy_link}连接{s:0.9}或{s:0.9,C:joy_token}衍生物{s:0.9}外)"
                 }
             },
@@ -258,7 +258,7 @@ return {
                         "{C:joy_normal}念动力族{}或{C:joy_earth}地属性{}/{C:joy_normal}幻龙族{}送入{C:attention}墓地{}"
                     },
                     {
-                        "若{C:attention}墓地{}所有卡牌均与持有{C:attention}小丑牌{}",
+                        "若{C:attention}墓地{}所有卡牌均与持有{C:attention}卡牌{}",
                         "共享{C:attention}类型{}和{C:attention}属性{}，则触发以下效果："
                     },
                     {
@@ -284,12 +284,12 @@ return {
                 name = "{C:joy_synchro}电脑堺狐-仙仙",
                 text = {
                     {
-                        "仅当{C:attention}小丑牌{}与你的{C:joy_normal}「电脑堺」{}",
-                        "{C:attention}小丑牌{}共享{C:attention}类型{}和{C:attention}属性{}时",
+                        "仅当{C:attention}卡牌{}与你的{C:joy_normal}“电脑堺”{}",
+                        "{C:attention}卡牌{}共享{C:attention}类型{}和{C:attention}属性{}时",
                         "才能送入{C:attention}墓地{}"
                     },
                     {
-                        "若{C:attention}墓地{}所有卡牌均与持有{C:attention}小丑牌{}",
+                        "若{C:attention}墓地{}所有卡牌均与持有{C:attention}卡牌{}",
                         "共享{C:attention}类型{}和{C:attention}属性{}，则触发以下效果："
                     },
                     {
@@ -297,7 +297,7 @@ return {
                     },
                     {
                         "若打出牌型包含所需扑克牌型",
-                        "则触发{C:joy_normal}「电脑堺」{}能力"
+                        "则触发{C:joy_normal}“电脑堺”{}能力"
                     },
                     {
                         "打出{C:attention}电脑堺{}牌型时",
@@ -338,6 +338,19 @@ return {
                 },
             }
         },
+    },
+    JoyousSpring = {
+        Blurbs = {
+            vw = {
+                story = {
+                    "存在于电脑空间的巨大数字都市，{C:joy_normal}“电脑堺”{}。其首都是{C:joy_spell}“九龙”{}，那里使用特殊的算法来审查海量的信息与信号，履行确保处理正确无误的职责。在{C:joy_spell}“九龙”{}的四周，东、南、西、北四方各立着一座巨大的门，用以调查来自各地的信号。此外，每座门都配置了被称为‘四大神龙’的神圣守护兽。",
+                },
+                gameplay = {
+                    "将你的牌组精简为{C:attention}3{}、{C:attention}6{}和{C:attention}9{}。不用太担心墓地，因为它们的能力会自动为你整理好墓地。",
+                    "{C:red}提示{}: {C:joy_synchro}“仙仙”{}的效果可以把你每轮最好的手牌保留到下一轮，每一轮都能如此！"
+                }
+            }
+        }
     },
     misc = {
         poker_hands = {

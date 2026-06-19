@@ -6,16 +6,16 @@ return {
                 text = {
                     {
                         "{C:green}#1#/#2#{} 几率在回合结束时{C:attention}除外 #3#{}",
-                        "{C:joy_normal}「命运女郎」{} 直到选择{C:attention}盲注{}",
+                        "{C:joy_normal}“命运女郎”{} 直到选择{C:attention}盲注{}",
                     },
                     {
-                        "回合结束时给予 {C:money}$#4#{}X{C:green}分子{}",
-                        "{C:inactive}(上限 $#4#X#2#){}",
+                        "回合结束时给予 {C:money}$#4#{}×{C:green}分子{}",
+                        "{C:inactive}(上限 $#4#×#2#){}",
                         "{C:inactive}(当前 {C:money}+$#5#{}{C:inactive})"
                     },
                     {
                         "当卡牌被{C:attention}除外{}时",
-                        "永久提升所有{C:attention}小丑牌{}的{C:green}几率{} {C:attention}#6#{}"
+                        "永久提升所有{C:attention}卡牌{}的{C:green}几率{}{C:attention}#6#{}"
                     }
                 }
             },
@@ -27,13 +27,13 @@ return {
                         "所有其他{C:green}几率{}翻倍",
                     },
                     {
-                        "给予等同 {C:mult}+#3#{}X所有{C:joy_normal}「命运女郎」{} {C:green}分子{}的倍率",
-                        "{C:inactive}(上限 +#3#X#4#){}",
+                        "给予等同 {C:mult}+#3#{}×所有{C:joy_normal}“命运女郎”{}{C:green}分子{}的倍率",
+                        "{C:inactive}(上限 +#3#×#4#){}",
                         "{C:inactive}(当前 {C:mult}+#5#{}{C:inactive}倍率)"
                     },
                     {
                         "回合结束时永久提升",
-                        "所有{C:attention}小丑牌{}的{C:green}几率{} {C:attention}#6#{}"
+                        "所有{C:attention}卡牌{}的{C:green}几率{}{C:attention}#6#{}"
                     }
                 }
             },
@@ -45,12 +45,12 @@ return {
                         "打出牌型的{C:planet}星球牌{}",
                     },
                     {
-                        "每张{C:joy_normal}「命运女郎」{}给予等同 {C:chips}+#3#{}X其{C:green}分子{}的筹码",
-                        "{C:inactive}(上限 +#3#X分母){}",
+                        "每张{C:joy_normal}“命运女郎”{}给予等同 {C:chips}+#3#{}×其{C:green}分子{}的筹码",
+                        "{C:inactive}(上限 +#3#×分母){}",
                     },
                     {
-                        "回合结束时每张{C:joy_normal}「命运女郎」{}",
-                        "永久提升所有{C:attention}小丑牌{}的{C:green}几率{} {C:attention}#4#{}"
+                        "回合结束时每张{C:joy_normal}“命运女郎”{}",
+                        "永久提升所有{C:attention}卡牌{}的{C:green}几率{}{C:attention}#4#{}"
                     }
                 }
             },
@@ -64,13 +64,13 @@ return {
                         "{C:inactive}(当前 {C:attention}+#4#{}{C:inactive}点)"
                     },
                     {
-                        "给予等同 {C:chips}+#5#{}X{C:green}分子{}的筹码",
-                        "{C:inactive}(上限 +#5#X#2#){}",
+                        "给予等同 {C:chips}+#5#{}×{C:green}分子{}的筹码",
+                        "{C:inactive}(上限 +#5#×#2#){}",
                         "{C:inactive}(当前 {C:chips}+#6#{}{C:inactive}筹码)"
                     },
                     {
                         "回合结束时永久提升",
-                        "所有{C:attention}小丑牌{}的{C:green}几率{} {C:attention}#7#{}"
+                        "所有{C:attention}卡牌{}的{C:green}几率{}{C:attention}#7#{}"
                     }
                 }
             },
@@ -79,18 +79,18 @@ return {
                 text = {
                     {
                         "{C:green}#1#/#2#{} 几率在选中{C:attention}盲注{}时",
-                        "生成{C:attention}#3#{}张{C:joy_normal}主卡组「命运女郎」{}",
+                        "生成{C:attention}#3#{}张{C:joy_normal}主卡组“命运女郎”{}",
                         "{C:inactive}(需有空位)",
                     },
                     {
                         "每永久提升",
-                        "此卡的{C:green}分子{}时获得{X:mult,C:white}X#4#{}倍率",
+                        "此卡牌的{C:green}分子{}时获得{X:mult,C:white}X#4#{}倍率",
                         "{C:inactive}(当前 {X:mult,C:white}X#5#{}{C:inactive}倍率)"
                     },
                     {
-                        "当此卡{C:green}分子{}永久提升时",
-                        "永久提升所有{C:attention}小丑牌{}的{C:green}几率{} {C:attention}#6#{}",
-                        "{C:inactive}(「命运女郎·厄系」除外){}"
+                        "当此卡牌{C:green}分子{}永久提升时",
+                        "永久提升所有{C:attention}卡牌{}的{C:green}几率{}{C:attention}#6#{}",
+                        "{C:inactive}(“命运女郎·厄系”除外){}"
                     }
                 }
             },
@@ -99,17 +99,17 @@ return {
                 text = {
                     {
                         "{C:green}#1#/#2#{} 几率在选中{C:attention}盲注{}时{C:attention}复活{}",
-                        "{C:attention}#3#{}张{C:joy_normal}「命运女郎」{}",
+                        "{C:attention}#3#{}张{C:joy_normal}“命运女郎”{}",
                         "(或{C:joy_normal}魔法师{}若无可用)",
                     },
                     {
-                        "给予等同 {C:mult}+#4#{}X{C:green}分子{}的倍率",
-                        "{C:inactive}(上限 +#4#X#2#){}",
+                        "给予等同 {C:mult}+#4#{}×{C:green}分子{}的倍率",
+                        "{C:inactive}(上限 +#4#×#2#){}",
                         "{C:inactive}(当前 {C:mult}+#5#{}{C:inactive}倍率)"
                     },
                     {
                         "回合结束时每张{C:joy_normal}魔法师{}",
-                        "永久提升所有{C:attention}小丑牌{}的{C:green}几率{} {C:attention}#6#{}"
+                        "永久提升所有{C:attention}卡牌{}的{C:green}几率{}{C:attention}#6#{}"
                     }
                 }
             },
@@ -118,17 +118,17 @@ return {
                 text = {
                     {
                         "{C:green}#1#/#2#{} 几率在回合结束时{C:attention}除外{}",
-                        "所有{C:joy_normal}魔法师{} {C:attention}小丑牌{}",
+                        "所有{C:joy_normal}魔法师{}{C:attention}卡牌{}",
                         "直到选择{C:attention}盲注{}",
                     },
                     {
-                        "给予 {X:mult,C:white}X#3#{}X{C:green}分子{}倍率",
-                        "{C:inactive}(上限 X#3#X#2#){}",
+                        "给予 {X:mult,C:white}X#3#{}×{C:green}分子{}倍率",
+                        "{C:inactive}(上限 X#3#×#2#){}",
                         "{C:inactive}(当前 {X:mult,C:white}X#4#{}{C:inactive}倍率)"
                     },
                     {
                         "当卡牌从{C:attention}除外区{}返回时",
-                        "永久提升所有{C:attention}小丑牌{}的{C:green}几率{} {C:attention}#5#{}"
+                        "永久提升所有{C:attention}卡牌{}的{C:green}几率{}{C:attention}#5#{}"
                     }
                 }
             },
@@ -137,19 +137,19 @@ return {
                 text = {
                     {
                         "{C:green}#1#/#2#{} 几率本回合给予 {X:mult,C:white}X#3#{}倍率",
-                        "{C:green}#4#/#5#{} 几率在回合结束时{C:attention}除外 #6#{}张{C:joy_normal}「命运女郎」{}",
+                        "{C:green}#4#/#5#{} 几率在回合结束时{C:attention}除外 #6#{}张{C:joy_normal}“命运女郎”{}",
                         "直到选择{C:attention}盲注{}",
                         "{C:green}#7#/#8#{} 几率回合结束时给予 {C:money}+$#9#{}",
                         "{C:green}#10#/#11#{} 几率永久翻倍",
                         "所有计分牌的{C:green}几率{}",
                         "{C:green}#12#/#13#{} 几率在选中{C:attention}盲注{}时",
-                        "生成{C:attention}#14#{}张{C:joy_normal}「占卜魔女」{}",
+                        "生成{C:attention}#14#{}张{C:joy_normal}“占卜魔女”{}",
                         "{C:green}#15#/#16#{} 几率在选中{C:attention}盲注{}时{C:attention}复活 #17#{}张",
-                        "{C:joy_normal}「命运女郎」{}（或{C:joy_normal}魔法师{}）为{C:dark_edition}负片{}"
+                        "{C:joy_normal}“命运女郎”{}（或{C:joy_normal}魔法师{}）为{C:dark_edition}负片{}"
                     },
                     {
-                        "给予等同 {C:mult}+#18#{}X{C:green}分子{}的倍率",
-                        "{C:inactive}(上限 +#18#X#19#){}",
+                        "给予等同 {C:mult}+#18#{}×{C:green}分子{}的倍率",
+                        "{C:inactive}(上限 +#18#×#19#){}",
                         "{C:inactive}(当前 {C:mult}+#20#{}{C:inactive}倍率)"
                     },
                     {
@@ -175,7 +175,7 @@ return {
                         "{C:inactive}(#4#/#3#){C:inactive}(需有空位)"
                     },
                     {
-                        "若拥有{C:joy_normal}「命运女郎」{}时从商店获取",
+                        "若拥有{C:joy_normal}“命运女郎”{}时从商店获取",
                         "免费且不占空位"
                     }
                 }
@@ -185,7 +185,7 @@ return {
                 text = {
                     {
                         "每触发一次",
-                        "本局游戏的{C:green}几率{}使此卡{C:mult}+#1#{}倍率",
+                        "本局游戏的{C:green}几率{}使此卡牌{C:mult}+#1#{}倍率",
                         "{C:inactive}(当前 {C:mult}+#2#{}{C:inactive}倍率)"
                     },
                     {
@@ -193,7 +193,7 @@ return {
                         "变为{C:attention}幸运{}牌"
                     },
                     {
-                        "若拥有{C:joy_normal}「命运女郎」{}时从商店获取",
+                        "若拥有{C:joy_normal}“命运女郎”{}时从商店获取",
                         "免费且不占空位"
                     }
                 }
@@ -203,15 +203,15 @@ return {
                 text = {
                     {
                         "每触发一次",
-                        "本局游戏的{C:green}几率{}使此卡{C:chips}+#1#{}筹码",
+                        "本局游戏的{C:green}几率{}使此卡牌{C:chips}+#1#{}筹码",
                         "{C:inactive}(当前 {C:chips}+#2#{}{C:inactive}筹码)"
                     },
                     {
-                        "此卡从{C:attention}除外区{}返回后",
+                        "此卡牌从{C:attention}除外区{}返回后",
                         "下一次{C:green}几率{}必定触发"
                     },
                     {
-                        "若拥有{C:joy_normal}「命运女郎」{}时从商店获取",
+                        "若拥有{C:joy_normal}“命运女郎”{}时从商店获取",
                         "免费且不占空位"
                     }
                 }
@@ -221,16 +221,16 @@ return {
                 text = {
                     {
                         "每触发一次",
-                        "本局游戏的{C:green}几率{}使此卡{C:chips}+#1#{}筹码",
+                        "本局游戏的{C:green}几率{}使此卡牌{C:chips}+#1#{}筹码",
                         "{C:inactive}(当前 {C:chips}+#2#{}{C:inactive}筹码)"
                     },
                     {
                         "若本回合有{C:green}几率{}触发",
-                        "回合结束时{C:attention}除外{}此卡和{C:attention}#3#{}张其他{C:attention}小丑牌{}",
+                        "回合结束时{C:attention}除外{}此卡牌和{C:attention}#3#{}张其他{C:attention}卡牌{}",
                         "直到选择{C:attention}盲注{}"
                     },
                     {
-                        "若拥有{C:joy_normal}「命运女郎」{}时从商店获取",
+                        "若拥有{C:joy_normal}“命运女郎”{}时从商店获取",
                         "免费且不占空位"
                     }
                 }
@@ -240,7 +240,7 @@ return {
                 text = {
                     {
                         "每触发一次",
-                        "本局游戏的{C:green}几率{}使此卡{C:mult}+#1#{}倍率",
+                        "本局游戏的{C:green}几率{}使此卡牌{C:mult}+#1#{}倍率",
                         "{C:inactive}(当前 {C:mult}+#2#{}{C:inactive}倍率)"
                     },
                     {
@@ -248,7 +248,7 @@ return {
                         "{C:green}分母{}减半"
                     },
                     {
-                        "若拥有{C:joy_normal}「命运女郎」{}时从商店获取",
+                        "若拥有{C:joy_normal}“命运女郎”{}时从商店获取",
                         "免费且不占空位"
                     }
                 }
@@ -265,11 +265,20 @@ return {
                         "直到选择{C:attention}盲注{}"
                     },
                     {
-                        "若拥有{C:joy_normal}「命运女郎」{}时从商店获取",
+                        "若拥有{C:joy_normal}“命运女郎”{}时从商店获取",
                         "免费且不占空位"
                     }
                 }
             },
+        }
+    },
+    JoyousSpring = {
+        Blurbs = {
+            flady = {
+                gameplay = {
+                    "{C:joy_normal}“命运女郎”{}会随着自身{C:green}几率{}的提高而自然成长。这也赋予了额外效果，因为她们能更频繁地触发自己的能力。{C:joy_normal}“占卜魔女”{}与她们以及其他{C:green}几率{C:attention}卡牌{}是绝佳搭档！"
+                }
+            }
         }
     },
     misc = {

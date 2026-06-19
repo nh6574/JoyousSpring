@@ -12,8 +12,8 @@ return {
                         "计分后牌变为{C:attention}黄金牌{}",
                     },
                     {
-                        "每回合1次，可{C:attention}解放 #2#{}张{C:joy_normal}不死族{}或{C:joy_trap}陷阱{}小丑牌{}",
-                        "以生成{C:attention}#3#{}张{C:joy_normal}主卡组「黄金乡」{}",
+                        "每回合1次，可{C:attention}解放 #2#{}张{C:joy_normal}不死族{}或{C:joy_trap}陷阱{}卡牌{}",
+                        "以生成{C:attention}#3#{}张{C:joy_normal}主卡组“黄金乡”{}",
                         "{C:inactive}(需有空位)",
                     },
                 }
@@ -27,7 +27,7 @@ return {
                     },
                     {
                         "所有带强化的计分牌再次触发1次",
-                        "若拥有{C:joy_normal}「黄金卿」{}，手牌中的牌也生效",
+                        "若拥有{C:joy_normal}“黄金卿”{}，手牌中的牌也生效",
                     },
                     {
                         "{C:joy_effect}反转{}：本回合{C:red}+#2#{}次弃牌",
@@ -43,7 +43,7 @@ return {
                     },
                     {
                         "所有带强化的计分牌再次触发1次",
-                        "若拥有{C:joy_normal}「黄金卿」{}，手牌中的牌也生效",
+                        "若拥有{C:joy_normal}“黄金卿”{}，手牌中的牌也生效",
                     },
                     {
                         "{C:joy_effect}反转{}：本回合{C:blue}+#2#{}手牌上限",
@@ -59,10 +59,10 @@ return {
                     },
                     {
                         "所有带强化的计分牌再次触发1次",
-                        "若拥有{C:joy_normal}「黄金卿」{}，手牌中的牌也生效",
+                        "若拥有{C:joy_normal}“黄金卿”{}，手牌中的牌也生效",
                     },
                     {
-                        "{C:joy_effect}反转{}：回合结束时{C:attention}除外 #2#{}张{C:joy_normal}不死族{}",
+                        "{C:joy_effect}反转{}：回合结束时{C:attention}放逐 #2#{}张{C:joy_normal}不死族{}",
                         "直到选择{C:attention}盲注{}",
                     },
                 }
@@ -76,10 +76,10 @@ return {
                     },
                     {
                         "所有带强化的计分牌再次触发1次",
-                        "若拥有{C:joy_normal}「黄金卿」{}，手牌中的牌也生效",
+                        "若拥有{C:joy_normal}“黄金卿”{}，手牌中的牌也生效",
                     },
                     {
-                        "{C:joy_effect}反转{}：{C:attention}复活 #2#{}张{C:joy_normal}「黄金乡」{}{}或若无则复活{C:joy_trap}陷阱{}",
+                        "{C:joy_effect}反转{}：{C:attention}复活 #2#{}张{C:joy_normal}“黄金乡”{}{}或若无则复活{C:joy_trap}陷阱{}",
                     },
                 }
             },
@@ -99,7 +99,7 @@ return {
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}1{}张{C:joy_normal}「黄金卿」{} + {C:attention}1{}张{C:joy_normal}不死族{}"
+                    "{C:attention}1{}张{C:joy_normal}“黄金卿”{} + {C:attention}1{}张{C:joy_normal}不死族{}"
                 }
             },
             j_joy_eld_angel = {
@@ -111,14 +111,14 @@ return {
                         "{C:inactive}(或其反转能力激活时)",
                     },
                     {
-                        "若打出{C:attention}黄金国永生药{}牌型，将{C:attention}#1#{}张{C:joy_effect}「黄金卿」{}送入{C:attention}墓地{}",
+                        "若打出{C:attention}黄金国永生药{}牌型，将{C:attention}#1#{}张{C:joy_effect}“黄金卿”{}送入{C:attention}墓地{}",
                     },
                     {
-                        "此牌送入{C:attention}墓地{}时，{C:attention}复活 #2#{}张{C:joy_normal}「黄金卿」{}{C:dark_edition}负片{}版",
+                        "此牌送入{C:attention}墓地{}时，{C:attention}复活 #2#{}张{C:joy_normal}“黄金卿”{}{C:dark_edition}负片{}版",
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2张小丑牌{}，含1张{C:joy_trap}陷阱{}"
+                    "{C:attention}2张卡牌{}，含1张{C:joy_trap}陷阱{}"
                 }
             },
         },
@@ -133,6 +133,18 @@ return {
                 text = {
                     "5张{C:attention}黄金牌{}",
                 },
+            }
+        }
+    },
+    JoyousSpring = {
+        Blurbs = {
+            eld = {
+                story = {
+                    "智慧魔法石{C:joy_trap}“埃尔德里希尔”{}，以能为获得者带来‘无穷力量’而闻名。这颗曾将无数旅人引向灭亡的石头，最终落入了一位意志力超乎常人的男人手中。于是，{C:joy_effect}“黄金卿 黄金国巫妖”{}——一个贪欲无与伦比的存在——{C:joy_spell}“黄金国”{}的不朽统治者——诞生了。",
+                },
+                gameplay = {
+                    "{C:joy_effect}“黄金卿”{}实现了一种强大的{C:attention}黄金{}强化与{C:joy_trap}陷阱{}创造的循环。{C:joy_fusion}“堕落天使”{}可以帮助更快地达成这一点！"
+                }
             }
         }
     },

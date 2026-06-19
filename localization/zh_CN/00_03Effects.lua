@@ -18,6 +18,10 @@ return {
             k_joy_doubled = "已翻倍！",
             k_joy_increased = "已提升！",
             k_joy_attach = "已附着！",
+        },
+        v_dictionary = {
+            v_joy_xyzmaterials = "超量素材：#1#",
+            v_joy_counters = "计数器：#1#"
         }
     }
 }

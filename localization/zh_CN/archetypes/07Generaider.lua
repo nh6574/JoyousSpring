@@ -14,7 +14,7 @@ return {
                 text = {
                     {
                         "击败{C:attention}首领盲注{}时销毁自身",
-                        "生成{C:joy_spell}「王战的舞台」{}",
+                        "生成{C:joy_spell}“王战的舞台”{}",
                         "{C:inactive}(需有空位){}",
                     },
                 },
@@ -24,12 +24,12 @@ return {
                 text = {
                     {
                         "获得时将{C:attention}#1#{}张{C:red}稀有{}",
-                        "主卡组「王战」送入{C:attention}墓地{}",
+                        "主卡组“王战”送入{C:attention}墓地{}",
                     },
                     {
                         "击败{C:attention}首领盲注{}时销毁自身",
-                        "{C:attention}复活 #2#{}张{C:red}稀有{}「王战」{}",
-                        "并生成{C:attention}#3#{}张{C:joy_effect}「王战之影 洛普特」{}",
+                        "{C:attention}复活 #2#{}张{C:red}稀有{}“王战”{}",
+                        "并生成{C:attention}#3#{}张{C:joy_effect}“王战之影 洛普特”{}",
                         "{C:inactive}(需有空位)",
                     },
                 },
@@ -38,8 +38,8 @@ return {
                 name = "{C:joy_effect}轰界王战 哈尔王",
                 text = {
                     {
-                        "可解放{C:attention}#1#{}张{C:joy_normal}「王战」{}",
-                        "和/或{C:joy_normal}魔法师族{}小丑牌",
+                        "可解放{C:attention}#1#{}张{C:joy_normal}“王战”{}",
+                        "和/或{C:joy_normal}魔法师族{}卡牌",
                         "无效当前{C:attention}首领盲注{}",
                     },
                 },
@@ -48,8 +48,8 @@ return {
                 name = "{C:joy_effect}冰界王战 尼德霍格王",
                 text = {
                     {
-                        "可解放{C:attention}#1#{}张其他{C:joy_normal}「王战」{}",
-                        "和/或{C:joy_normal}幻龙族{}小丑牌",
+                        "可解放{C:attention}#1#{}张其他{C:joy_normal}“王战”{}",
+                        "和/或{C:joy_normal}幻龙族{}卡牌",
                         "使所有计分牌再次触发",
                     },
                 },
@@ -58,8 +58,8 @@ return {
                 name = "{C:joy_effect}剑界王战 弗罗德王",
                 text = {
                     {
-                        "可解放{}任意数量其他{C:joy_normal}「王战」{}",
-                        "和/或{C:joy_normal}战士族{}小丑牌",
+                        "可解放{}任意数量其他{C:joy_normal}“王战”{}",
+                        "和/或{C:joy_normal}战士族{}卡牌",
                         "获得等量手牌上限",
                     },
                 },
@@ -68,8 +68,8 @@ return {
                 name = "{C:joy_effect}虚界王战 乌特加德王",
                 text = {
                     {
-                        "可解放{C:attention}#1#{}张{C:joy_normal}「王战」{}",
-                        "和/或{C:joy_normal}岩石族{}小丑牌",
+                        "可解放{C:attention}#1#{}张{C:joy_normal}“王战”{}",
+                        "和/或{C:joy_normal}岩石族{}卡牌",
                         "将消耗牌区的1张牌{C:attention}除外{}",
                         "直到选择{C:attention}盲注{}",
                     },
@@ -79,9 +79,9 @@ return {
                 name = "{C:joy_effect}光界王战 玛多尔女王",
                 text = {
                     {
-                        "每回合可解放{C:attention}#1#{}张{C:joy_normal}「王战」{}",
-                        "和/或{C:joy_normal}植物族{}小丑牌生成{C:attention}#2#{}张",
-                        "{C:blue}普通{}或{C:green}罕见{}「王战」{}",
+                        "每回合可解放{C:attention}#1#{}张{C:joy_normal}“王战”{}",
+                        "和/或{C:joy_normal}植物族{}卡牌生成{C:attention}#2#{}张",
+                        "{C:blue}普通{}或{C:green}罕见{}“王战”{}",
                         "{C:inactive}(需有空位){}",
                     },
                 },
@@ -90,9 +90,9 @@ return {
                 name = "{C:joy_effect}铁界王战 矮人联合王",
                 text = {
                     {
-                        "每回合可解放{C:attention}#1#{}张其他{C:joy_normal}「王战」{}",
-                        "和/或{C:joy_normal}机械族{}小丑牌",
-                        "使所有{C:joy_normal}「王战」{}和{C:joy_normal}机械族{}",
+                        "每回合可解放{C:attention}#1#{}张其他{C:joy_normal}“王战”{}",
+                        "和/或{C:joy_normal}机械族{}卡牌",
+                        "使所有{C:joy_normal}“王战”{}和{C:joy_normal}机械族{}",
                         "提供{X:mult,C:white}X#2#{}倍率",
                     },
                 },
@@ -101,8 +101,8 @@ return {
                 name = "{C:joy_effect}炎界王战 纳吉尔法王",
                 text = {
                     {
-                        "可解放{C:attention}#1#{}张{C:joy_normal}「王战」{}",
-                        "和/或{C:joy_normal}兽战士族{}小丑牌",
+                        "可解放{C:attention}#1#{}张{C:joy_normal}“王战”{}",
+                        "和/或{C:joy_normal}兽战士族{}卡牌",
                         "获得{C:blue}+#2#{}出牌次数和{C:red}+#3#{}弃牌次数",
                     },
                 },
@@ -111,9 +111,9 @@ return {
                 name = "{C:joy_effect}死界王战 赫尔女王",
                 text = {
                     {
-                        "可解放{C:attention}#1#{}张{C:joy_normal}「王战」{}",
-                        "和/或{C:joy_normal}不死族{}小丑牌{C:attention}复活 #2#{}张",
-                        "{C:red}稀有{}「王战」{}为{C:dark_edition}负片{}版",
+                        "可解放{C:attention}#1#{}张{C:joy_normal}“王战”{}",
+                        "和/或{C:joy_normal}不死族{}卡牌{C:attention}复活 #2#{}张",
+                        "{C:red}稀有{}“王战”{}为{C:dark_edition}负片{}版",
                     },
                 },
             },
@@ -125,12 +125,12 @@ return {
                         "{C:inactive}(当前{C:mult}+#2#{}{C:inactive}倍率){}",
                     },
                     {
-                        "{C:joy_xyz}去除{} {C:attention}#3#{}个素材：永久",
+                        "{C:joy_xyz}去除{}{C:attention}#3#{}个素材：永久",
                         "增加{C:attention}+#4#{}手牌上限",
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2+{}张{C:red}稀有{}小丑牌",
+                    "{C:attention}2+{}张{C:red}稀有{}卡牌",
                     "{s:0.9,C:inactive}(除{s:0.9,C:joy_xyz}超量{s:0.9,C:inactive}、{s:0.9,C:joy_link}连接{}",
                     "{s:0.9,C:inactive}或{s:0.9,C:joy_token}衍生物{s:0.9,C:inactive})"
                 }
@@ -139,13 +139,13 @@ return {
                 name = "{C:joy_xyz}影界王战 雷瓦汀王",
                 text = {
                     {
-                        "{C:joy_xyz}去除{} {C:attention}#1#{}个素材：销毁所有其他小丑牌",
-                        "并生成{C:joy_xyz}「永界王战 欧姆刚德王」{}",
+                        "{C:joy_xyz}去除{}{C:attention}#1#{}个素材：销毁所有其他卡牌",
+                        "并生成{C:joy_xyz}“永界王战 欧姆刚德王”{}",
                         "将墓地所有牌作为其{C:joy_xyz}超量素材{}",
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}5{}张{C:red}稀有{}小丑牌",
+                    "{C:attention}5{}张{C:red}稀有{}卡牌",
                     "{s:0.9,C:inactive}(除{s:0.9,C:joy_xyz}超量{s:0.9,C:inactive}、{s:0.9,C:joy_link}连接{}",
                     "{s:0.9,C:inactive}或{s:0.9,C:joy_token}衍生物{s:0.9,C:inactive})"
                 }
@@ -154,23 +154,36 @@ return {
                 name = "{C:joy_spell}王战的舞台",
                 text = {
                     {
-                        "每张{C:joy_normal}「王战」{}根据持有期间",
+                        "每张{C:joy_normal}“王战”{}根据持有期间",
                         "解放的牌数提供{C:mult}+#1#{}倍率",
                         "{C:inactive}(当前{C:mult}+#2#{}{C:inactive}倍率)",
                     },
                     {
                         "选择{C:attention}盲注{}时",
-                        "尽可能生成{C:joy_token}「王战团队衍生物」{}",
-                        "{C:inactive}(「王战」视为负片版){}",
+                        "尽可能生成{C:joy_token}“王战团队衍生物”{}",
+                        "{C:inactive}(“王战”视为负片版){}",
                     },
                     {
                         "每回合可解放{C:attention}#3#{}张",
-                        "{C:joy_token}「王战团队衍生物」{}生成{C:attention}#4#{}张",
-                        "未拥有的{C:red}稀有{}主卡组「王战」{}",
+                        "{C:joy_token}“王战团队衍生物”{}生成{C:attention}#4#{}张",
+                        "未拥有的{C:red}稀有{}主卡组“王战”{}",
                         "{C:inactive}(需有空位){}",
                     },
                 },
             },
+        }
+    },
+    JoyousSpring = {
+        Blurbs = {
+            generaider = {
+                story = {
+                    "在击败所有九位{C:joy_normal}“王战”{}之后，造访巨大的石箱时，假面魔法师摘下面具，致以恭敬的一躬。{C:attention}«我为让您踏上如此漫长、无尽的{C:attention}旅程而深表歉意。但{C:attention}多亏了您的努力，石箱的{C:attention}封印已被解除»{}",
+                    "前方等待着的是额外关卡？究竟会有怎样的{C:joy_normal}“王战”{}在等待着呢！？",
+                },
+                gameplay = {
+                    "一旦你获得进入{C:joy_spell}“王战的舞台”{}的资格，所有{C:joy_normal}“王战”{}都将投入战斗。务必充分发挥他们的能力！"
+                }
+            }
         }
     },
     misc = {

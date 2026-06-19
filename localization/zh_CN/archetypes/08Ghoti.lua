@@ -7,7 +7,7 @@ return {
                     {
                         "回合结束时{C:attention}除外{}",
                         "直到选择{C:attention}盲注{}并",
-                        "{C:attention}复活 #1#{}张{C:joy_synchro}同调{}小丑牌",
+                        "{C:attention}复活 #1#{}张{C:joy_synchro}同调{}卡牌",
                     },
                 },
             },
@@ -41,7 +41,7 @@ return {
                     {
                         "回合结束时{C:attention}除外{}",
                         "直到选择{C:attention}盲注{}并",
-                        "{C:attention}复活 #1#{}张主卡组「魊影」{}",
+                        "{C:attention}复活 #1#{}张主卡组“魊影”{}",
                     },
                 },
             },
@@ -51,7 +51,7 @@ return {
                     {
                         "回合结束时{C:attention}除外{}",
                         "直到选择{C:attention}首领盲注{}并生成{C:attention}#1#{}张",
-                        "主卡组「魊影」{}",
+                        "主卡组“魊影”{}",
                         "{C:inactive}(需有空位){}",
                     },
                 },
@@ -65,7 +65,7 @@ return {
                     },
                     {
                         "从{C:attention}除外{}返回#2#{}次后",
-                        "将{C:attention}#1#{}张{C:joy_normal}「魊影」{}加入{C:joy_spell}额外卡组{}",
+                        "将{C:attention}#1#{}张{C:joy_normal}“魊影”{}加入{C:joy_spell}额外卡组{}",
                         "{C:inactive}(需有空位) (#3#/#2#){}",
                     },
                 },
@@ -76,7 +76,7 @@ return {
                     {
                         "回合结束时{C:attention}除外{}",
                         "直到选择{C:attention}首领盲注{}并复活{C:attention}#1#{}张",
-                        "{C:joy_synchro}调整{}小丑牌为{C:dark_edition}负片{}版",
+                        "{C:joy_synchro}调整{}卡牌为{C:dark_edition}负片{}版",
                     },
                 },
             },
@@ -90,7 +90,7 @@ return {
                     },
                     {
                         "从{C:attention}除外{}返回#2#{}次后",
-                        "生成{C:joy_spell}「最远方的宇宙」{}",
+                        "生成{C:joy_spell}“最远方的宇宙”{}",
                         "{C:inactive}(需有空位) (#3#/#2#){}",
                     },
                 },
@@ -106,12 +106,12 @@ return {
                     {
                         "回合结束时{C:attention}除外{}",
                         "直到选择{C:attention}盲注{}并",
-                        "将{C:attention}#3#{}张{C:joy_normal}「魊影」{}加入{C:joy_spell}额外卡组{}",
+                        "将{C:attention}#3#{}张{C:joy_normal}“魊影”{}加入{C:joy_spell}额外卡组{}",
                         "{C:inactive}(需有空位){}",
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}1{}张{C:joy_normal}鱼族{} {C:joy_synchro}调整{} +",
+                    "{C:attention}1{}张{C:joy_normal}鱼族{}{C:joy_synchro}调整{} +",
                     "{C:attention}1{}张非调整",
                     "{s:0.9,C:inactive}(除{s:0.9,C:joy_xyz}超量{s:0.9,C:inactive}或{s:0.9,C:joy_link}连接{}{s:0.9,C:inactive})",
                 }
@@ -125,7 +125,7 @@ return {
                         "{C:inactive}(当前{C:mult}+#2#{}{C:inactive}倍率){}",
                     },
                     {
-                        "此牌和1张非「魊影」小丑牌",
+                        "此牌和1张非“魊影”卡牌",
                         "回合结束时{C:attention}除外{}",
                         "直到选择{C:attention}盲注{}",
                     },
@@ -146,7 +146,7 @@ return {
                     },
                     {
                         "召唤时尽可能复活所有不同{C:joy_normal}鱼族{}",
-                        "{C:attention}小丑牌",
+                        "{C:attention}卡牌",
                     },
                     {
                         "回合结束时{C:attention}除外{}",
@@ -163,13 +163,13 @@ return {
                 name = "{C:joy_synchro}最远方的魊影",
                 text = {
                     {
-                        "此牌和所有非「魊影」小丑牌",
+                        "此牌和所有非“魊影”卡牌",
                         "回合结束时{C:attention}除外{}",
                         "直到选择{C:attention}盲注{}",
                     },
                 },
                 joy_summon_conditions = {
-                    "{C:attention}2{}张{C:joy_normal}鱼族{} {C:joy_synchro}调整{} +",
+                    "{C:attention}2{}张{C:joy_normal}鱼族{}{C:joy_synchro}调整{} +",
                     "{C:attention}1{}张{C:red}稀有{}非调整",
                     "{s:0.9,C:inactive}(除{s:0.9,C:joy_xyz}超量{s:0.9,C:inactive}或{s:0.9,C:joy_link}连接{}{s:0.9,C:inactive})",
                 }
@@ -183,6 +183,18 @@ return {
                     },
                 }
             },
+        }
+    },
+    JoyousSpring = {
+        Blurbs = {
+            fish = {
+                story = {
+                    "{C:joy_normal}“魊影”{}栖息于跨越永恒的高维度之中。此处既是终极的尽头，亦是起始的开端。",
+                },
+                gameplay = {
+                    "{C:joy_normal}“魊影”{}擅长{C:attention}除外{}，因此能与多种策略良好搭配，因为它们在商店中可以腾出{C:attention}卡牌{}槽位。{C:joy_synchro}“最远方的魊影”{}的效果几乎堪比全员{C:dark_edition}负片{}阵容！"
+                }
+            }
         }
     },
     misc = {
