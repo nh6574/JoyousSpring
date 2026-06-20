@@ -342,7 +342,6 @@ SMODS.Back {
     pos = { x = 2, y = 2 },
     config = { vouchers = { 'v_tarot_merchant', 'v_tarot_tycoon' } },
     apply = function(self, back)
-        G.GAME.modifiers.enable_eternals_in_shop = true
         G.E_MANAGER:add_event(Event({
             blockable = false,
             func = (function()
