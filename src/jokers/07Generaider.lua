@@ -685,9 +685,6 @@ JoyousSpring.Joker({
         end
     end,
     joy_can_activate = function(card)
-        if not (G.GAME.blind and G.GAME.blind.in_blind) then
-            return false
-        end
         return JoyousSpring.any_materials_owned(
             { { monster_archetypes = { "Generaider" } }, { monster_type = "Zombie" } }, false, true, nil,
             card.ability.extra.tributes)

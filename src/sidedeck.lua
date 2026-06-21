@@ -432,7 +432,7 @@ local card_stop_drag_ref = Card.stop_drag
 function Card:stop_drag()
     if G.STATE == G.STATES.JOY_SIDE_DECK and self.ability.set == "Joker" and self.area and
         (self.area == G.jokers or self.area == JoyousSpring.side_deck_area or self.area == JoyousSpring.extra_deck_area or
-            self.area == JoyousSpring.field_spell_area) then
+            self.area == JoyousSpring.field_spell_area) and not self.pinned and not JoyousSpring.prevent_drag(self) then
         local area = self.area
         for i, k in ipairs(G.CONTROLLER.collision_list) do
             if k == JoyousSpring.side_deck_area or k == G.jokers or k == JoyousSpring.extra_deck_area or
