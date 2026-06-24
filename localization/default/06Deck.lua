@@ -156,7 +156,7 @@ return {
                     "{C:attention}26 even{} and {C:attention}26 odd{}",
                     "ranks in the deck",
                     " ",
-                    "Adds a {C:joy_pendulum}Pendulums{}",
+                    "Adds a {C:joy_pendulum}Pendulum{}",
                     "to the shop when",
                     "a {C:joy_pendulum}Pendulum{} is used"
                 }
