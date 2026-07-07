@@ -131,12 +131,12 @@ return {
                 name = "{C:joy_xyz}历练纯爱妖精·幸福妖精",
                 text = {
                     {
-                        "带有{C:attention}回忆蜡封{}的计分卡牌提供{X:mult,C:white}X#1#{}倍率"
+                        "带有{C:attention}回忆蜡封{}的计分卡牌给予{X:mult,C:white}X#1#{}倍率"
                     },
                     {
                         "{C:joy_xyz}取除{}{C:attention}一半{C:inactive}（向上取整）{}：",
                         "本回合{C:planet}“我的纯爱妖精朋友”{}使用时",
-                        "提供其出售时的能力"
+                        "给予其出售时的能力"
                     },
                     {
                         "回合结束时生成等同于你拥有的",
@@ -157,7 +157,7 @@ return {
                 name = "{C:joy_xyz}历练纯爱妖精·黑暗妖精",
                 text = {
                     {
-                        "带有{C:attention}回忆蜡封{}的计分卡牌提供{X:chips,C:white}X#1#{}筹码"
+                        "带有{C:attention}回忆蜡封{}的计分卡牌给予{X:chips,C:white}X#1#{}筹码"
                     },
                     {
                         "{C:joy_normal}“纯爱妖精”{}的效果使游戏牌",
@@ -266,14 +266,14 @@ c_joy_purr_sleepy = {
                         "你拥有的一张随机{C:joy_xyz}超量{}{C:attention}卡牌{}",
                         "获得以下效果：",
                         "{s:0.9}选择{C:attention}盲注{}时，本回合根据每个{s:0.9,C:joy_xyz}超量{s:0.9}{s:0.9,C:attention}素材{}",
-                        "{s:0.9}提供{C:attention}+1{}手牌上限",
+                        "{s:0.9}给予{C:attention}+1{}手牌上限",
                         "{s:0.9} ",
                         "{s:0.9}回合结束时{C:attention}取除{}1个素材{s:0.9}",
                     }
                 },
                 joy_transfer_ability = {
                     "选择{C:attention}盲注{}时，本回合根据每个",
-                    "{C:joy_xyz}超量{}{C:attention}素材{}提供{C:attention}+1{}手牌上限",
+                    "{C:joy_xyz}超量{}{C:attention}素材{}给予{C:attention}+1{}手牌上限",
                     " ",
                     "回合结束时{C:attention}取除{}1个素材",
                 }
@@ -320,14 +320,14 @@ c_joy_purr_sleepy = {
                         "你拥有的一张随机{C:joy_xyz}超量{}{C:attention}卡牌{}",
                         "获得以下效果：",
                         "{s:0.9}本卡牌根据每个{s:0.9,C:joy_xyz}超量{s:0.9}{s:0.9,C:attention}素材{}",
-                        "{s:0.9}提供{C:mult}+#1#{}倍率",
+                        "{s:0.9}给予{C:mult}+#1#{}倍率",
                         "{s:0.9} ",
                         "{s:0.9}回合结束时{C:attention}取除{}1个素材{s:0.9}",
                     }
                 },
                 joy_transfer_ability = {
                     "本卡牌根据每个{C:joy_xyz}超量{}{C:attention}素材{}",
-                    "提供{C:mult}+#1#{}倍率",
+                    "给予{C:mult}+#1#{}倍率",
                     " ",
                     "回合结束时{C:attention}取除{}1个素材",
                 }
@@ -351,7 +351,7 @@ c_joy_purr_sleepy = {
                     "生成一张{C:joy_effect}“纯爱妖精”{}",
                     "{C:inactive}（必须有槽位）",
                     " ",
-                    "计分时提供{C:mult}+#3#{}倍率",
+                    "计分时给予{C:mult}+#3#{}倍率",
                     "每有一张其他不同花色的卡牌",
                     "增加{C:mult}+#3#{}倍率",
                     " ",
@@ -365,7 +365,7 @@ c_joy_purr_sleepy = {
                     "生成一张{C:joy_effect}“纯爱妖精·夜妖精”{}",
                     "{C:inactive}（必须有槽位）",
                     " ",
-                    "计分时提供{C:chips}+#4#{}筹码",
+                    "计分时给予{C:chips}+#4#{}筹码",
                     "每有一张其他不同花色的卡牌",
                     "增加{C:chips}+#4#{}筹码",
                     " ",
@@ -379,9 +379,9 @@ c_joy_purr_sleepy = {
                     "生成一张{C:joy_effect}“纯爱妖精”{}",
                     "{C:inactive}（必须有槽位）",
                     " ",
-                    "计分时提供{C:money}+$#5#{}金钱",
+                    "计分时给予{C:money}$#5#{}",
                     "每有一张其他不同花色的卡牌",
-                    "增加{C:money}+$#5#{}金钱",
+                    "可获得资金增加{C:money}$#5#{}",
                     " ",
                     "适用于基础{C:diamonds}方片{}"
                 }

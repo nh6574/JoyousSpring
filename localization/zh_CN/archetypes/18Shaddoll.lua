@@ -75,7 +75,7 @@ return {
                         "回合结束时{C:attention}反转{}{C:inactive}(即使里侧状态也生效)",
                     },
                     {
-                        "{C:joy_effect}反转{}：获得{C:money}+$#1#{}",
+                        "{C:joy_effect}反转{}：获得{C:money}$#1#{}",
                         "若有则{C:attention}复活 #2#{}张{C:joy_normal}“影依”{}",
                         "并将{C:attention}#3#{}张{C:joy_normal}主卡组“影依”{}送入{C:attention}墓地",
                     },
@@ -217,7 +217,7 @@ return {
                 name = "{C:joy_fusion}神影依·舍金纳迦",
                 text = {
                     {
-                        "墓地每张{C:joy_normal}“影依”{}提供{C:chips}+#1#{}筹码",
+                        "墓地每张{C:joy_normal}“影依”{}给予{C:chips}+#1#{}筹码",
                         "{C:inactive}(当前{C:chips}+#2#{}{C:inactive}筹码)",
                         "用此牌作{C:attention}素材{}的{C:joy_fusion}融合{}获得此能力",
                     },
@@ -260,7 +260,7 @@ return {
                 name = "{C:joy_fusion}神影依·米德拉什",
                 text = {
                     {
-                        "每张{C:joy_normal}“影依”{}、里侧{C:attention}卡牌{}或空{C:attention}小丑槽{}提供{X:mult,C:white}X#1#{}倍率",
+                        "每张{C:joy_normal}“影依”{}、里侧{C:attention}卡牌{}或空{C:attention}小丑槽{}给予{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}(当前{X:mult,C:white}X#2#{}{C:inactive}倍率)",
                         "用此牌作{C:attention}素材{}的{C:joy_fusion}融合{}获得此能力",
                     },
@@ -304,7 +304,7 @@ return {
                 name = "{C:joy_fusion}神影依·神子晶",
                 text = {
                     {
-                        "墓地每张{C:joy_normal}“影依”{}提供{X:chips,C:white}X#1#{}筹码",
+                        "墓地每张{C:joy_normal}“影依”{}给予{X:chips,C:white}X#1#{}筹码",
                         "{C:inactive}(当前{X:chips,C:white}X#2#{}{C:inactive}筹码)",
                         "用此牌作{C:attention}素材{}的{C:joy_fusion}融合{}获得此能力",
                     },
@@ -396,7 +396,7 @@ return {
                         "{C:inactive}(当前{C:attention}#2#{C:inactive})",
                     },
                     {
-                        "每{C:joy_token}计数器{}提供{C:chips}+#3#{}筹码",
+                        "每{C:joy_token}计数器{}给予{C:chips}+#3#{}筹码",
                         "{C:inactive}(当前{C:chips}+#4#{C:inactive}筹码)",
                     },
                     {

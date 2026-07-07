@@ -6,7 +6,7 @@ return {
                 text = {
                     {
                         "打出的{C:joy_link}正月{}和{C:joy_link}二月{}{C:attention}花札牌{}",
-                        "每张提供{C:mult}+#1#{}倍率（每张持有或{C:attention}墓地{}中的{C:joy_normal}“花札卫”{}）",
+                        "每张给予{C:mult}+#1#{}倍率（每张持有的或{C:attention}墓地{}中的{C:joy_normal}“花札卫”{}）",
                         "{C:inactive}(当前 {C:mult}+#2#{}{C:inactive}倍率)"
                     },
                     {
@@ -28,7 +28,7 @@ return {
                 text = {
                     {
                         "手牌中的{C:joy_link}正月{}和{C:joy_link}二月{}{C:attention}花札牌{}",
-                        "每张提供{C:mult}+#1#{}倍率"
+                        "每张给予{C:mult}+#1#{}倍率"
                     },
                     {
                         "{C:attention}发掘{}并检查顶部{C:attention}#2#张牌：",
@@ -49,7 +49,7 @@ return {
                 text = {
                     {
                         "打出的{C:joy_link}三月{}和{C:joy_link}四月{}{C:attention}花札牌{}",
-                        "每张提供{C:mult}+#1#{}倍率（每张持有或{C:attention}墓地{}中的{C:joy_normal}“花札卫”{}）",
+                        "每张给予{C:mult}+#1#{}倍率（每张持有的或{C:attention}墓地{}中的{C:joy_normal}“花札卫”{}）",
                         "{C:inactive}(当前 {C:mult}+#2#{}{C:inactive}倍率)"
                     },
                     {
@@ -71,7 +71,7 @@ return {
                 text = {
                     {
                         "手牌中的{C:joy_link}三月{}和{C:joy_link}四月{}{C:attention}花札牌{}",
-                        "每张提供{C:mult}+#1#{}倍率"
+                        "每张给予{C:mult}+#1#{}倍率"
                     },
                     {
                         "{C:attention}发掘{}并检查顶部{C:attention}#2#张牌：",
@@ -91,7 +91,7 @@ return {
                 name = "{C:joy_effect}花札卫-牡丹上蝴蝶",
                 text = {
                     {
-                        "打出的{C:joy_link}六月{}{C:attention}花札牌{}提供{X:mult,C:white}X#1#{}倍率"
+                        "打出的{C:joy_link}六月{}{C:attention}花札牌{}给予{X:mult,C:white}X#1#{}倍率"
                     },
                     {
                         "{C:attention}发掘{}并检查顶部{C:attention}#2#张牌：",
@@ -112,7 +112,7 @@ return {
                 name = "{C:joy_effect}花札卫-萩间猪",
                 text = {
                     {
-                        "打出的{C:joy_link}七月{}{C:attention}花札牌{}提供{X:mult,C:white}X#1#{}倍率"
+                        "打出的{C:joy_link}七月{}{C:attention}花札牌{}给予{X:mult,C:white}X#1#{}倍率"
                     },
                     {
                         "{C:attention}发掘{}并检查顶部{C:attention}#2#张牌：",
@@ -134,7 +134,7 @@ return {
                 text = {
                     {
                         "打出的{C:joy_link}八月{}和{C:joy_link}九月{}{C:attention}花札牌{}",
-                        "每张提供{C:money}+$#1#{}金钱（每张持有或{C:attention}墓地{}中的{C:joy_normal}“花札卫”{}）",
+                        "每张给予{C:money}$#1#{}（每张持有的或{C:attention}墓地{}中的{C:joy_normal}“花札卫”{}）",
                         "{C:inactive}(当前 {C:money}+$#2#{}{C:inactive})"
                     },
                     {
@@ -173,7 +173,7 @@ return {
                 name = "{C:joy_effect}花札卫-枫间鹿",
                 text = {
                     {
-                        "打出的{C:joy_link}十月{}{C:attention}花札牌{}提供{X:mult,C:white}X#1#{}倍率"
+                        "打出的{C:joy_link}十月{}{C:attention}花札牌{}给予{X:mult,C:white}X#1#{}倍率"
                     },
                     {
                         "{C:attention}发掘{}并检查顶部{C:attention}#2#张牌：",
@@ -195,7 +195,7 @@ return {
                 text = {
                     {
                         "打出的{C:joy_link}十一月{}{C:attention}花札牌{}",
-                        "每张提供{C:money}+$#1#{}金钱（每张持有或{C:attention}墓地{}中的{C:joy_normal}“花札卫”{}）",
+                        "每张给予{C:money}$#1#{}（每张持有的或{C:attention}墓地{}中的{C:joy_normal}“花札卫”{}）",
                         "{C:inactive}(当前 {C:money}+$#2#{}{C:inactive})"
                     },
                     {
@@ -234,7 +234,7 @@ return {
                 text = {
                     {
                         "打出的{C:joy_link}五月{}和{C:joy_link}十二月{}{C:attention}花札牌{}",
-                        "每张提供{C:mult}+#1#{}倍率（每张持有或{C:attention}墓地{}中的{C:joy_normal}“花札卫”{}）",
+                        "每张给予{C:mult}+#1#{}倍率（每张持有的或{C:attention}墓地{}中的{C:joy_normal}“花札卫”{}）",
                         "{C:inactive}(当前 {C:mult}+#2#{}{C:inactive}倍率)"
                     },
                     {
@@ -256,7 +256,7 @@ return {
                 text = {
                     {
                         "手牌中的{C:joy_link}五月{}和{C:joy_link}十二月{}{C:attention}花札牌{}",
-                        "每张提供{C:mult}+#1#{}倍率"
+                        "每张给予{C:mult}+#1#{}倍率"
                     },
                     {
                         "{C:attention}发掘{}并检查顶部{C:attention}#3#张牌：",
@@ -321,11 +321,11 @@ return {
                 name = "{C:joy_synchro}花札卫-五光",
                 text = {
                     {
-                        "每张{C:joy_normal}“花札卫”{}提供{X:mult,C:white}X#1#{}倍率"
+                        "每张{C:joy_normal}“花札卫”{}给予{X:mult,C:white}X#1#{}倍率"
                     },
                     {
                         "{C:joy_mod}柳间小野道风{}和{C:joy_mod}菊上杯{}{C:attention}花札牌{}",
-                        "始终计分并提供{X:mult,C:white}X#2#{}倍率"
+                        "始终计分并给予{X:mult,C:white}X#2#{}倍率"
                     },
                     {
                         "打出{C:attention}花札{}牌型时",
@@ -345,7 +345,7 @@ return {
                 name = "{C:joy_synchro}花札卫-雨四光",
                 text = {
                     {
-                        "每张发掘出的{C:attention}花札牌{}提供{C:mult}+#1#{}倍率",
+                        "每张发掘出的{C:attention}花札牌{}给予{C:mult}+#1#{}倍率",
                         "{C:inactive}(当前 {C:mult}+#2#{}{C:inactive}倍率)"
                     },
                     {
@@ -392,7 +392,7 @@ return {
                 text = {
                     {
                         "打出相同{C:joy_link}月份{}的另一张花札牌时",
-                        "或打出{C:attention}花札{}牌型时提供{C:mult}+#4#{}倍率"
+                        "或打出{C:attention}花札{}牌型时给予{C:mult}+#4#{}倍率"
                     },
                     {
                         "{C:joy_mod}#1#",
@@ -417,9 +417,9 @@ return {
                 name = "花札牌",
                 text = {
                     {
-                        "打出相同{C:joy_link}月份{}的另一张牌时提供{C:mult}+20{}/{C:mult}10{}/{C:mult}5{}倍率",
+                        "打出相同{C:joy_link}月份{}的另一张牌时给予{C:mult}+20{}/{C:mult}10{}/{C:mult}5{}倍率",
                         "或在{C:attention}花札{}牌型中计分",
-                        "若为{C:joy_link}杂牌{}则提供{C:mult}+1{}倍率",
+                        "若为{C:joy_link}杂牌{}则给予{C:mult}+1{}倍率",
                         "并在{C:attention}花札{}牌型中计分",
                         "{C:inactive}(月份/种类随机)"
                     }

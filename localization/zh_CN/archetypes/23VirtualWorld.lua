@@ -9,7 +9,7 @@ return {
                         "并根据打出牌型触发效果："
                     },
                     {
-                        "{C:attention}玄武{}：每张计分牌提供{X:mult,C:white}X#1#{}倍率"
+                        "{C:attention}玄武{}：每张计分牌给予{X:mult,C:white}X#1#{}倍率"
                     },
                     {
                         "{C:attention}青龙{}：每轮限1次，在商店添加{C:attention}#2#张",
@@ -32,7 +32,7 @@ return {
                         "并根据打出牌型触发效果："
                     },
                     {
-                        "{C:attention}玄武{}：每张计分牌提供{C:chips}+#1#{}筹码"
+                        "{C:attention}玄武{}：每张计分牌给予{C:chips}+#1#{}筹码"
                     },
                     {
                         "{C:attention}青龙{}：每轮限1次，在商店添加{C:attention}#2#张",
@@ -58,7 +58,7 @@ return {
                         "并根据打出牌型触发效果："
                     },
                     {
-                        "{C:attention}玄武{}：每张计分牌提供{C:mult}+#1#{}倍率"
+                        "{C:attention}玄武{}：每张计分牌给予{C:mult}+#1#{}倍率"
                     },
                     {
                         "{C:attention}青龙{}：每轮限1次，在商店添加{C:attention}#2#张",
@@ -83,7 +83,7 @@ return {
                         "并根据打出牌型触发效果："
                     },
                     {
-                        "{C:attention}玄武{}：每张{C:joy_normal}念动力族{}或{C:joy_normal}幻龙族{}提供{C:mult}+#1#{}倍率"
+                        "{C:attention}玄武{}：每张{C:joy_normal}念动力族{}或{C:joy_normal}幻龙族{}给予{C:mult}+#1#{}倍率"
                     },
                     {
                         "{C:attention}青龙{}：每轮限1次，在商店添加{C:attention}#2#张",
@@ -107,7 +107,7 @@ return {
                         "并根据打出牌型触发效果："
                     },
                     {
-                        "{C:attention}玄武{}：每张计分牌提供{C:chips}+#1#{}筹码",
+                        "{C:attention}玄武{}：每张计分牌给予{C:chips}+#1#{}筹码",
                         "（{C:attention}墓地{}中每张{C:joy_normal}念动力族{}或{C:joy_normal}幻龙族{}）",
                         "{C:inactive}(当前 {C:chips}+#2#{}{C:inactive}筹码)"
                     },
@@ -136,7 +136,7 @@ return {
                         "并根据打出牌型触发效果："
                     },
                     {
-                        "{C:attention}玄武{}：每张计分牌提供{C:mult}+#1#{}倍率",
+                        "{C:attention}玄武{}：每张计分牌给予{C:mult}+#1#{}倍率",
                         "（{C:attention}墓地{}中每张{C:joy_wind}风属性{}或{C:joy_earth}地属性{}）",
                         "{C:inactive}(当前 {C:mult}+#2#{}{C:inactive}倍率)"
                     },

@@ -37,7 +37,7 @@ return {
                 name = "{C:joy_effect}魔女术工匠·绘画女巫",
                 text = {
                     {
-                        "本回合每{C:attention}解放{}1张{C:tarot}塔罗牌提供{C:chips}+#1#{}筹码",
+                        "本回合每{C:attention}解放{}1张{C:tarot}塔罗牌给予{C:chips}+#1#{}筹码",
                         "{C:inactive}(当前{C:chips}+#2#{}{C:inactive}筹码)",
                     },
                     {
@@ -55,7 +55,7 @@ return {
                 name = "{C:joy_effect}魔女术工匠·锻造女巫",
                 text = {
                     {
-                        "本回合每{C:attention}解放{}1张{C:tarot}塔罗牌提供{C:mult}+#1#{}倍率",
+                        "本回合每{C:attention}解放{}1张{C:tarot}塔罗牌给予{C:mult}+#1#{}倍率",
                         "{C:inactive}(当前{C:mult}+#2#{}{C:inactive}倍率)",
                     },
                     {
@@ -87,7 +87,7 @@ return {
                 name = "{C:joy_effect}魔女术工匠·服装女巫",
                 text = {
                     {
-                        "获得时，本回合每{C:attention}解放{}1张{C:tarot}塔罗牌获得{C:money}+$#1#{}",
+                        "获得时，本回合每{C:attention}解放{}1张{C:tarot}塔罗牌获得{C:money}$#1#{}",
                     },
                     {
                         "若打出本回合{C:attention}最后一手牌{}，生成{C:attention}#2#{}张{C:dark_edition}负片{}{C:tarot}塔罗牌{}",
@@ -106,7 +106,7 @@ return {
                         "获得时，生成本回合所有{C:attention}解放{}{C:tarot}塔罗牌{}{C:dark_edition}负片{}版",
                     },
                     {
-                        "本回合每{C:attention}解放{}1张{C:tarot}塔罗牌提供{X:mult,C:white}X#1#{}倍率",
+                        "本回合每{C:attention}解放{}1张{C:tarot}塔罗牌给予{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}(当前{X:mult,C:white}X#2#{}{C:inactive}倍率)",
                     },
                 }
@@ -115,7 +115,7 @@ return {
                 name = "{C:joy_effect}魔女术人偶·阿鲁鲁女神",
                 text = {
                     {
-                        "本回合每{C:attention}解放{}1张{C:tarot}塔罗牌提供{C:mult}+#1#{}倍率",
+                        "本回合每{C:attention}解放{}1张{C:tarot}塔罗牌给予{C:mult}+#1#{}倍率",
                         "{C:inactive}(当前{C:mult}+#2#{}{C:inactive}倍率)",
                     },
                     {

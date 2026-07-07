@@ -55,7 +55,7 @@ return {
                 text = {
                     {
                         "出售此卡牌以禁用当前{C:attention}Boss盲注{}",
-                        "但{C:money}金钱{}归零",
+                        "但{C:money}资金{}归零",
                     },
                 },
                 joy_summon_conditions = {
@@ -160,7 +160,7 @@ return {
                 text = {
                     {
                         "当前每张被{C:attention}除外{}的游戏牌",
-                        "提供{C:mult}+#1#{}倍率",
+                        "给予{C:mult}+#1#{}倍率",
                         "{C:inactive}（当前{C:mult}+#2#{}{C:inactive}倍率）"
                     }
                 },

@@ -16,7 +16,7 @@ return {
                 text = {
                     {
                         "墓地中每张{C:joy_spell}额外卡组{}卡牌",
-                        "提供{X:mult,C:white}X#1#{}倍率",
+                        "给予{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}(当前{X:mult,C:white}X#2#{}{C:inactive}倍率){}",
                     },
                 },

@@ -15,7 +15,7 @@ return {
                 name = "{C:joy_effect}地中族刀匠",
                 text = {
                     {
-                        "每张{C:joy_normal}“地中族”{}或里侧{C:attention}卡牌{}提供{C:chips}+#1#{}筹码",
+                        "每张{C:joy_normal}“地中族”{}或里侧{C:attention}卡牌{}给予{C:chips}+#1#{}筹码",
                         "{C:inactive}(当前{C:chips}+#2#{}{C:inactive}筹码)",
                     },
                     {
@@ -52,7 +52,7 @@ return {
                     {
                         "每轮在{C:attention}盲注{}阶段1次，",
                         "可{C:attention}反转{}此牌及{C:attention}#1#{}张其他{C:attention}卡牌{}：",
-                        "本回合，每张里侧牌使此牌提供{X:mult,C:white}X#2#{}倍率",
+                        "本回合，每张里侧牌使此牌给予{X:mult,C:white}X#2#{}倍率",
                         "每张表侧牌使{C:attention}手牌上限+#3#{}",
                         "{s:0.9,C:inactive}(即使里侧状态也生效)",
                     },
@@ -70,7 +70,7 @@ return {
                 name = "{C:joy_effect}地中族邪界兽·亚得导水妖",
                 text = {
                     {
-                        "{C:joy_effect}反转{}：每张里侧牌本回合提供{X:mult,C:white}X#1#{}倍率",
+                        "{C:joy_effect}反转{}：每张里侧牌本回合给予{X:mult,C:white}X#1#{}倍率",
                     },
                     {
                         "获得时{C:attention}反转{}为里侧",
@@ -96,7 +96,7 @@ return {
                 name = "{C:joy_effect}地中族邪界兽·利古钻土蜥",
                 text = {
                     {
-                        "{C:joy_effect}反转{}：回合结束时{C:attention}放逐 #1#{}张其他{C:attention}卡牌{}",
+                        "{C:joy_effect}反转{}：回合结束时{C:attention}除外 #1#{}张其他{C:attention}卡牌{}",
                         "直到选择{C:attention}盲注{}",
                     },
                     {
@@ -110,7 +110,7 @@ return {
                 name = "{C:joy_effect}地中族邪界兽·爱奥荧冰精",
                 text = {
                     {
-                        "墓地每张{C:joy_normal}“地中族”{}或{C:joy_normal}水族{}提供{C:chips}+#1#{}筹码",
+                        "墓地每张{C:joy_normal}“地中族”{}或{C:joy_normal}水族{}给予{C:chips}+#1#{}筹码",
                         "{C:inactive}(当前{C:chips}+#2#{}{C:inactive}筹码)",
                     },
                     {
@@ -127,7 +127,7 @@ return {
                 name = "{C:joy_effect}地中族邪界兽·第勒钛电怪",
                 text = {
                     {
-                        "每张里侧牌提供{C:mult}+#1#{}倍率",
+                        "每张里侧牌给予{C:mult}+#1#{}倍率",
                         "{C:inactive}(当前{C:mult}+#2#{}{C:inactive}倍率)",
                     },
                     {
@@ -175,7 +175,7 @@ return {
                 name = "{C:joy_effect}地中族邪界兽·巴利灰谷主",
                 text = {
                     {
-                        "每张里侧牌提供{C:chips}+#1#{}筹码",
+                        "每张里侧牌给予{C:chips}+#1#{}筹码",
                         "{C:inactive}(当前{C:chips}+#2#{}{C:inactive}筹码)",
                     },
                     {
@@ -192,8 +192,8 @@ return {
                 name = "{C:joy_link}地中族邪界妖魔",
                 text = {
                     {
-                        "每份召唤{C:attention}素材{}提供{C:chips}+#1#{}筹码",
-                        "每张{C:joy_normal}“地中族”{}提供{C:mult}+#2#{}倍率",
+                        "每份召唤{C:attention}素材{}给予{C:chips}+#1#{}筹码",
+                        "每张{C:joy_normal}“地中族”{}给予{C:mult}+#2#{}倍率",
                         "{C:inactive}(当前{C:chips}+#3#{}筹码与{C:mult}+#4#{}{C:inactive}倍率)",
                     },
                     {
@@ -215,7 +215,7 @@ return {
                     },
                     {
                         "{C:attention}反转{C:joy_normal}怪兽{}卡牌{}为里侧时，或",
-                        "反转非{C:joy_normal}怪兽{}卡牌{}为表侧时，获得{C:money}+$#1#{}",
+                        "反转非{C:joy_normal}怪兽{}卡牌{}为表侧时，获得{C:money}$#1#{}",
                     },
                 }
             },

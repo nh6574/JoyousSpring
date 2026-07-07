@@ -31,8 +31,8 @@ return {
                         "{X:mult,C:white}X#1#{}倍率"
                     },
                     {
-                        "若被{C:attention}解放{}，获得{C:money}+$#2#{}金钱；",
-                        "若为{C:joy_ritual}仪式{}而{C:attention}解放{}则获得{C:money}+$#3#{}金钱"
+                        "若被{C:attention}解放{}，获得{C:money}$#2#{}；",
+                        "若为{C:joy_ritual}仪式{}而{C:attention}解放{}则获得{C:money}$#3#{}"
                     },
                     {
                         "视为{C:joy_ritual}仪式{}召唤的任何{C:attention}素材{}",
@@ -170,7 +170,7 @@ return {
                 text = {
                     {
                         "{C:attention}墓地{}中每张{C:joy_normal}“龙辉巧”{}",
-                        "提供{X:mult,C:white}X#1#{}倍率",
+                        "给予{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}（当前{X:mult,C:white}X#2#{}{C:inactive}倍率）"
                     }
                 },
@@ -198,7 +198,7 @@ return {
                 text = {
                     {
                         "用于其{C:attention}召唤{}的每张{C:joy_normal}“龙辉巧”{}",
-                        "提供{X:mult,C:white}X#1#{}倍率",
+                        "给予{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}（当前{X:mult,C:white}X#2#{}{C:inactive}倍率）",
                     },
                     {

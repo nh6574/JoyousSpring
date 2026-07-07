@@ -1,6 +1,34 @@
 return {
     descriptions = {
         Joker = {
+            j_joy_solfa_primoa = {
+                name = "{C:joy_pendulum_effect}七音服·普莉莫娅",
+                joy_consumable = {
+                    "{C:attention}复活1{}张{C:joy_normal}“七音服”{}",
+                    "{C:inactive}（“七音服·普莉莫娅”除外）{}",
+                    "并提升{C:attention}葫芦{}、{C:attention}顺子{}和{C:attention}两对{}等级",
+                },
+                text = {
+                    {
+                        "若每回合第一手计分牌",
+                        "同时包含偶数和奇数点数，",
+                        "则给予{C:money}$#1#{}"
+                    }
+                }
+            },
+            j_joy_solfa_solfegia = {
+                name = "{C:joy_pendulum_effect}七音服·索尔费吉娅",
+                joy_consumable = {
+                    "将最多{C:attention}#1#{}张选定牌的点数改为{C:attention}9{}",
+                    "并提升所有{C:attention}虚拟界{}牌型等级",
+                },
+                text = {
+                    {
+                        "打出手牌中所有计分的{C:attention}9{}、{C:attention}6{}和{C:attention}3{}",
+                        "再次触发一次"
+                    }
+                }
+            },
             j_joy_solfa_cutia = {
                 name = "{C:joy_pendulum_effect}多之七音服·丘蒂娅",
                 joy_consumable = {
@@ -9,7 +37,7 @@ return {
                 },
                 text = {
                     {
-                        "偶数牌计分时每张{C:joy_normal}“七音服”{}提供{C:mult}+#2#{}倍率",
+                        "偶数牌计分时每张{C:joy_normal}“七音服”{}给予{C:mult}+#2#{}倍率",
                         "{C:inactive}(当前{C:mult}+#3#{}{C:inactive}倍率)",
                     },
                     {
@@ -27,7 +55,7 @@ return {
                 },
                 text = {
                     {
-                        "奇数牌计分时每张{C:joy_normal}“七音服”{}提供{C:mult}+#2#{}倍率",
+                        "奇数牌计分时每张{C:joy_normal}“七音服”{}给予{C:mult}+#2#{}倍率",
                         "{C:inactive}(当前{C:mult}+#3#{}{C:inactive}倍率)",
                     },
                     {
@@ -43,7 +71,7 @@ return {
                 },
                 text = {
                     {
-                        "每张偶数点计分牌提供{C:chips}+#2#{}筹码",
+                        "每张偶数点计分牌给予{C:chips}+#2#{}筹码",
                         "{C:inactive}(当前{C:chips}+#3#{}{C:inactive}筹码)",
                     },
                     {
@@ -61,7 +89,7 @@ return {
                 },
                 text = {
                     {
-                        "每张奇数点计分牌提供{C:chips}+#2#{}筹码",
+                        "每张奇数点计分牌给予{C:chips}+#2#{}筹码",
                         "{C:inactive}(当前{C:chips}+#3#{}{C:inactive}筹码)",
                     },
                     {
@@ -110,12 +138,12 @@ return {
                 },
                 text = {
                     {
-                        "偶数点计分牌每张{C:joy_normal}“七音服”{}提供",
+                        "偶数点计分牌每张{C:joy_normal}“七音服”{}给予",
                         "额外{X:chips,C:white}X#2#{}筹码",
                         "{C:inactive}(当前 {X:chips,C:white}X#3#{}{C:inactive}筹码)",
                     },
                     {
-                        "回合结束时{C:attention}放逐 #4#{}张{C:joy_pendulum}灵摆{}",
+                        "回合结束时{C:attention}除外 #4#{}张{C:joy_pendulum}灵摆{}",
                         "直到选择{C:attention}盲注{}",
                     },
                 },
@@ -128,7 +156,7 @@ return {
                 },
                 text = {
                     {
-                        "奇数点计分牌每张{C:joy_normal}“七音服”{}提供",
+                        "奇数点计分牌每张{C:joy_normal}“七音服”{}给予",
                         "额外{X:mult,C:white}X#2#{}倍率",
                         "{C:inactive}(当前 {X:mult,C:white}X#3#{}{C:inactive}倍率)",
                     },
@@ -166,7 +194,7 @@ return {
                 name = "{C:joy_link}大钢琴之七音服·库莉娅",
                 text = {
                     {
-                        "每张{C:joy_pendulum}灵摆{}提供{C:chips}+#1#{}筹码",
+                        "每张{C:joy_pendulum}灵摆{}给予{C:chips}+#1#{}筹码",
                         "{C:inactive}(当前 {C:chips}+#2#{}{C:inactive}筹码)",
                     },
                     {
@@ -174,7 +202,7 @@ return {
                         "若可能则获得随机{C:attention}蜡封{}",
                     },
                     {
-                        "消耗{C:attention}#4#{}张{C:joy_pendulum}灵摆{}后获得{C:money}+$#3#{}",
+                        "消耗{C:attention}#4#{}张{C:joy_pendulum}灵摆{}后获得{C:money}$#3#{}",
                         "{C:inactive}(#5#/#4#)",
                     },
                     {

@@ -6,7 +6,7 @@ return {
                 text = {
                     {
                         "获得时，每拥有{C:attention}#1#{}张{C:joy_normal}“半龙女仆”",
-                        "提供{C:green}免费重掷{}机会",
+                        "给予1次{C:green}免费重掷{}机会",
                     },
                     {
                         "选择{C:attention}盲注{}时",
@@ -19,7 +19,7 @@ return {
                 text = {
                     {
                         "每张{C:joy_normal}“半龙女仆”",
-                        "提供{C:mult}+#1#{}倍率",
+                        "给予{C:mult}+#1#{}倍率",
                     },
                     {
                         "回合结束时{C:attention}转变{}为",
@@ -32,7 +32,7 @@ return {
                 text = {
                     {
                         "若拥有{C:attention}#2#{}张{C:joy_normal}“半龙女仆”",
-                        "获得时提供{C:attention}#1#个补充包标签{}",
+                        "获得时给予{C:attention}#1#个补充包标签{}",
                         "每多{C:attention}#3#{}张额外增加1个",
                         "并将{C:attention}#4#{}张{C:joy_normal}“半龙女仆”送入{C:attention}墓地{}",
                     },
@@ -47,7 +47,7 @@ return {
                 text = {
                     {
                         "每张{C:joy_normal}“半龙女仆”",
-                        "提供{X:mult,C:white}X#1#{}倍率",
+                        "给予{X:mult,C:white}X#1#{}倍率",
                     },
                     {
                         "回合结束时{C:attention}转变{}为",
@@ -73,7 +73,7 @@ return {
                 text = {
                     {
                         "墓地中每张{C:joy_normal}“半龙女仆”",
-                        "提供{C:mult}+#1#{}倍率",
+                        "给予{C:mult}+#1#{}倍率",
                         "{C:inactive}(当前{C:mult}+#2#{}{C:inactive}倍率)"
                     },
                     {
@@ -100,7 +100,7 @@ return {
                 text = {
                     {
                         "墓地中每张{C:joy_normal}“半龙女仆”",
-                        "提供{C:chips}+#1#{}筹码",
+                        "给予{C:chips}+#1#{}筹码",
                         "{C:inactive}(当前{C:chips}+#2#{}{C:inactive}筹码)"
                     },
                     {
@@ -114,7 +114,7 @@ return {
                 text = {
                     {
                         "若拥有{C:attention}#2#{}张{C:joy_normal}“半龙女仆”",
-                        "获得时提供{C:attention}#1#个优惠券标签{}",
+                        "获得时给予{C:attention}#1#个优惠券标签{}",
                         "每多{C:attention}#3#{}张额外增加1个",
                         "并将{C:attention}#4#{}张{C:joy_normal}“半龙女仆”送入{C:attention}墓地{}",
                     },
@@ -162,7 +162,7 @@ return {
                 name = "{C:joy_fusion}半龙女仆·龙女管家",
                 text = {
                     {
-                        "每张{C:joy_normal}“半龙女仆”提供",
+                        "每张{C:joy_normal}“半龙女仆”给予",
                         "{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}(当前{X:mult,C:white}X#2#{}{C:inactive}倍率){}",
                     },
@@ -204,7 +204,7 @@ return {
                     "{C:joy_normal}“半龙女仆”{}：为了主人和尊贵的客人，包揽所有家务，在她们的众多职责中，贴身侍奉主人是一份备受推崇的工作。"
                 },
                 gameplay = {
-                    "{C:joy_normal}“半龙女仆”{}{C:attention}卡牌{}会在{C:attention}盲注{}期间变形，根据你所拥有及位于{C:attention}墓地{}的{C:joy_normal}“半龙女仆”{}来提供得分，随后在商店期间复原以提供经济或成长。",
+                    "{C:joy_normal}“半龙女仆”{}{C:attention}卡牌{}会在{C:attention}盲注{}期间变形，根据你所拥有及位于{C:attention}墓地{}的{C:joy_normal}“半龙女仆”{}来给予得分，随后在商店期间复原以提供经济或成长。",
                     "尽量利用额外的经济来让尽可能多的{C:joy_normal}“半龙女仆”{}投入流通！"
                 }
             }

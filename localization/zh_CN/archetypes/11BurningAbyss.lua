@@ -19,7 +19,7 @@ return {
                 text = {
                     {
                         "{C:mult}+#1#{}倍率",
-                        "墓地每张{C:joy_normal}恶魔族{}卡牌额外提供{C:mult}+#2#{}倍率",
+                        "墓地每张{C:joy_normal}恶魔族{}卡牌额外给予{C:mult}+#2#{}倍率",
                         "{C:inactive}(当前共{C:mult}+#3#{}{C:inactive}倍率){}",
                     },
                     {
@@ -76,7 +76,7 @@ return {
                 name = "{C:joy_effect}彼岸的恶鬼 德拉基尼亚佐",
                 text = {
                     {
-                        "{C:joy_normal}恶魔族{}每张提供{C:chips}+#1#{}筹码",
+                        "{C:joy_normal}恶魔族{}每张给予{C:chips}+#1#{}筹码",
                     },
                     {
                         "获得时生成{C:attention}#2#{}张非{C:joy_spell}特殊{}的",
@@ -105,7 +105,7 @@ return {
                 name = "{C:joy_effect}彼岸的恶鬼 格拉菲亚卡牌内",
                 text = {
                     {
-                        "{C:joy_normal}恶魔族{}每张提供{C:mult}+#1#{}倍率",
+                        "{C:joy_normal}恶魔族{}每张给予{C:mult}+#1#{}倍率",
                     },
                     {
                         "获得时生成{C:attention}#2#{}张非{C:joy_spell}特殊{}的",
@@ -153,7 +153,7 @@ return {
                 name = "{C:joy_ritual}彼岸的鬼神 马拉布兰卡牌",
                 text = {
                     {
-                        "墓地每张{C:joy_normal}恶魔族{}提供{X:mult,C:white}X#1#{}倍率",
+                        "墓地每张{C:joy_normal}恶魔族{}给予{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}(当前{X:mult,C:white}X#2#{}{C:inactive}倍率){}",
                     },
                     {
@@ -184,7 +184,7 @@ return {
                 name = "{C:joy_xyz}彼岸的旅人 但丁",
                 text = {
                     {
-                        "墓地每张卡牌提供{C:mult}+#1#{}倍率",
+                        "墓地每张卡牌给予{C:mult}+#1#{}倍率",
                         "{C:inactive}(当前{C:mult}+#2#{}{C:inactive}倍率){}",
                     },
                     {
@@ -236,7 +236,7 @@ return {
                 name = "{C:joy_xyz}永远的淑女 贝阿特丽切",
                 text = {
                     {
-                        "墓地每张卡牌提供{X:mult,C:white}X#1#{}倍率",
+                        "墓地每张卡牌给予{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}(当前{X:mult,C:white}X#2#{}{C:inactive}倍率){}",
                     },
                     {

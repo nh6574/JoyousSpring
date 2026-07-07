@@ -24,7 +24,7 @@ return {
                 text = {
                     {
                         "{C:attention}发掘{}并检查顶部{C:attention}#1#张牌：",
-                        "每张发掘出的{C:diamonds}方片{}使本回合获得{C:money}+$#2#{}金钱",
+                        "每张发掘出的{C:diamonds}方片{}使本回合获得{C:money}$#2#{}",
                         "{C:inactive}(当前 {C:money}+$#3#{}{C:inactive})"
                     },
                     {
@@ -60,17 +60,17 @@ return {
                 text = {
                     {
                         "每张手牌中的{C:diamonds}方片{}使",
-                        "每张{C:joy_normal}岩石{}提供{C:chips}+#1#{}筹码",
+                        "每张{C:joy_normal}岩石{}给予{C:chips}+#1#{}筹码",
                         "{C:inactive}(当前 {C:chips}+#2#{}{C:inactive}筹码)"
                     },
                     {
                         "将此卡牌作为{C:attention}素材{}进行{C:joy_synchro}同调召唤{}时",
                         "召唤怪兽获得以下能力：",
-                        "{s:0.9}每张牌组中的{s:0.9,C:diamonds}方片{s:0.9}提供{s:0.9,C:chips}+#1#{s:0.9}筹码"
+                        "{s:0.9}每张牌组中的{s:0.9,C:diamonds}方片{s:0.9}给予{s:0.9,C:chips}+#1#{s:0.9}筹码"
                     }
                 },
                 joy_transfer_ability = {
-                    "每张牌组中的{C:diamonds}方片{}提供{C:chips}+#1#{}筹码",
+                    "每张牌组中的{C:diamonds}方片{}给予{C:chips}+#1#{}筹码",
                     "{C:inactive}(当前 {C:chips}+#2#{}{C:inactive}筹码)"
                 },
             },
@@ -79,17 +79,17 @@ return {
                 text = {
                     {
                         "每张手牌中的{C:diamonds}方片{}使",
-                        "每张{C:joy_normal}岩石{}提供{C:money}+$#1#{}金钱",
+                        "每张{C:joy_normal}岩石{}给予{C:money}$#1#{}",
                         "{C:inactive}(当前 {C:money}+$#2#{}{C:inactive})"
                     },
                     {
                         "将此卡牌作为{C:attention}素材{}进行{C:joy_synchro}同调召唤{}时",
                         "召唤怪兽获得以下能力：",
-                        "{s:0.9}每张牌组中的{s:0.9,C:diamonds}方片{s:0.9}提供{s:0.9,C:money}+$#1#{s:0.9}金钱"
+                        "{s:0.9}每张牌组中的{s:0.9,C:diamonds}方片{s:0.9}给予{s:0.9,C:money}$#1#{s:0.9}"
                     }
                 },
                 joy_transfer_ability = {
-                    "每张牌组中的{C:diamonds}方片{}提供{C:money}+$#1#{}金钱",
+                    "每张牌组中的{C:diamonds}方片{}给予{C:money}$#1#{}",
                     "{C:inactive}(当前 {C:money}+$#2#{}{C:inactive})"
                 },
             },
@@ -98,17 +98,17 @@ return {
                 text = {
                     {
                         "每张手牌中的{C:diamonds}方片{}使",
-                        "每张{C:joy_normal}岩石{}提供{C:mult}+#1#{}倍率",
+                        "每张{C:joy_normal}岩石{}给予{C:mult}+#1#{}倍率",
                         "{C:inactive}(当前 {C:mult}+#2#{}{C:inactive}倍率)"
                     },
                     {
                         "将此卡牌作为{C:attention}素材{}进行{C:joy_synchro}同调召唤{}时",
                         "召唤怪兽获得以下能力：",
-                        "{s:0.9}每张牌组中的{s:0.9,C:diamonds}方片{s:0.9}提供{s:0.9,C:mult}+#1#{s:0.9}倍率"
+                        "{s:0.9}每张牌组中的{s:0.9,C:diamonds}方片{s:0.9}给予{s:0.9,C:mult}+#1#{s:0.9}倍率"
                     }
                 },
                 joy_transfer_ability = {
-                    "每张牌组中的{C:diamonds}方片{}提供{C:mult}+#1#{}倍率",
+                    "每张牌组中的{C:diamonds}方片{}给予{C:mult}+#1#{}倍率",
                     "{C:inactive}(当前 {C:mult}+#2#{}{C:inactive}倍率)"
                 },
             },
@@ -122,8 +122,8 @@ return {
                         "{C:inactive}(当前 {X:chips,C:white}X#4#{}{C:inactive}筹码)"
                     },
                     {
-                        "打出的{C:diamonds}方片{}永久获得",
-                        "手牌持有时间{C:chips}+#5#{}额外筹码"
+                        "打出的{C:diamonds}方片{}永久获得：",
+                        "持有此牌{C:chips}+#5#{}额外筹码"
                     },
                 },
                 joy_summon_conditions = {
@@ -142,8 +142,8 @@ return {
                         "{C:inactive}(当前 {X:mult,C:white}X#4#{}{C:inactive}倍率)"
                     },
                     {
-                        "打出的{C:diamonds}方片{}永久获得",
-                        "手牌持有时间{C:mult}+#5#{}额外倍率"
+                        "打出的{C:diamonds}方片{}永久获得：",
+                        "持有此牌{C:mult}+#5#{}额外倍率"
                     },
                 },
                 joy_summon_conditions = {
@@ -157,12 +157,12 @@ return {
                 text = {
                     {
                         "{C:attention}发掘{}并检查顶部{C:attention}#1#张牌：",
-                        "每张发掘出的{C:diamonds}方片{}获得{C:money}+$#2#{}金钱",
+                        "每张发掘出的{C:diamonds}方片{}获得{C:money}$#2#{}",
                         "若发掘出{C:attention}#1#张或更多则生成{C:attention}#3#张{C:joy_normal}主卡组岩石{}"
                     },
                     {
-                        "打出的{C:diamonds}方片{}永久获得",
-                        "回合结束时手牌持有时间{C:money}+$#4#{}额外金钱"
+                        "打出的{C:diamonds}方片{}永久获得：",
+                        "回合结束时持有此牌额外{C:money}+$#4#{}"
                     },
                 },
                 joy_summon_conditions = {
@@ -175,7 +175,7 @@ return {
                 name = "{C:joy_spell}魔救之勒皮他晶石",
                 text = {
                     {
-                        "每张{C:joy_normal}岩石{}提供{C:mult}+#1#{}倍率"
+                        "每张{C:joy_normal}岩石{}给予{C:mult}+#1#{}倍率"
                     },
                     {
                         "选择{C:attention}盲注{}时",

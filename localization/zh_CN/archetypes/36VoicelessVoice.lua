@@ -41,13 +41,13 @@ return {
                         "获得以下效果：",
                         "{s:0.9}回合结束时，本回合每张被{C:attention}解放{}的",
                         "{s:0.9,C:joy_light}光属性{}{s:0.9,C:attention}卡牌{}",
-                        "{s:0.9}提供{C:money}+$#1#{s:0.9}金钱",
+                        "{s:0.9}给予{C:money}$#1#{s:0.9}",
                     },
                 },
                 joy_transfer_ability = {
                     "回合结束时，本回合每张被{C:attention}解放{}的",
                     "{C:joy_light}光属性{}{C:attention}卡牌{}",
-                    "提供{C:money}+$#1#{}金钱",
+                    "给予{C:money}$#1#{}",
                     "{C:inactive}（当前{C:money}+$#2#{}{C:inactive}）"
                 }
             },
@@ -67,13 +67,13 @@ return {
                         "获得以下效果：",
                         "{s:0.9}本回合每张被{C:attention}解放{}的",
                         "{s:0.9,C:joy_light}光属性{}{s:0.9,C:attention}卡牌{}",
-                        "{s:0.9}提供{C:chips}+#1#{s:0.9}筹码",
+                        "{s:0.9}给予{C:chips}+#1#{s:0.9}筹码",
                     },
                 },
                 joy_transfer_ability = {
                     "本回合每张被{C:attention}解放{}的",
                     "{C:joy_light}光属性{}{C:attention}卡牌{}",
-                    "提供{C:chips}+#1#{}筹码",
+                    "给予{C:chips}+#1#{}筹码",
                     "{C:inactive}（当前{C:chips}+#2#{}{C:inactive}筹码）"
                 }
             },
@@ -83,7 +83,7 @@ return {
                     {
                         "此卡{C:attention}上场{}的回合，{C:attention}墓地{}中",
                         "每张{C:joy_effect}“肃声的祈祷者 理”{}",
-                        "提供{C:attention}+#1#{}手牌上限",
+                        "给予{C:attention}+#1#{}手牌上限",
                         "{C:inactive}（当前{C:attention}+#2#{}{C:inactive}）"
                     },
                     {
@@ -101,13 +101,13 @@ return {
                     {
                         "本回合每张被{C:attention}解放{}的",
                         "{C:joy_light}光属性{}{C:attention}卡牌{}",
-                        "提供{C:mult}+#1#{}倍率",
+                        "给予{C:mult}+#1#{}倍率",
                         "{C:inactive}（当前{C:mult}+#2#{}{C:inactive}倍率）"
                     },
                     {
                         "{C:attention}墓地{}中每张",
                         "{C:joy_effect}“肃声的祈祷者 理”{}",
-                        "提供{X:chips,C:white}X#3#{}筹码",
+                        "给予{X:chips,C:white}X#3#{}筹码",
                         "{C:inactive}（当前{X:chips,C:white}X#4#{}{C:inactive}筹码）"
                     }
                 },

@@ -20,7 +20,7 @@ return {
                     {
                         "选择{C:attention}盲注{}时{C:attention}除外{}1张{C:joy_normal}“PSY骨架驱动者”{}",
                         "直到回合结束，使手牌所有牌",
-                        "提供{X:mult,C:white}X#2#{}倍率",
+                        "给予{X:mult,C:white}X#2#{}倍率",
                     },
                 },
             },
@@ -34,7 +34,7 @@ return {
                     {
                         "选择{C:attention}盲注{}时{C:attention}除外{}1张{C:joy_normal}“PSY骨架驱动者”{}",
                         "直到回合结束，使所有计分牌",
-                        "提供{X:mult,C:white}X#2#{}倍率",
+                        "给予{X:mult,C:white}X#2#{}倍率",
                     },
                 },
             },
@@ -48,7 +48,7 @@ return {
                     {
                         "选择{C:attention}盲注{}时{C:attention}除外{}1张{C:joy_normal}“PSY骨架驱动者”{}",
                         "直到回合结束，使所有卡牌",
-                        "各提供{X:mult,C:white}X#2#{}倍率",
+                        "各给予{X:mult,C:white}X#2#{}倍率",
                     },
                 },
             },
@@ -62,7 +62,7 @@ return {
                     {
                         "选择{C:attention}盲注{}时{C:attention}除外{}1张{C:joy_normal}“PSY骨架驱动者”{}",
                         "直到回合结束，使消耗牌区所有",
-                        "{C:tarot}塔罗牌{}各提供{X:mult,C:white}X#2#{}倍率",
+                        "{C:tarot}塔罗牌{}各给予{X:mult,C:white}X#2#{}倍率",
                     },
                 },
             },
@@ -76,7 +76,7 @@ return {
                     {
                         "选择{C:attention}盲注{}时{C:attention}除外{}1张{C:joy_normal}“PSY骨架驱动者”{}",
                         "直到回合结束，使消耗牌区所有",
-                        "{C:planet}星球牌{}各提供{X:mult,C:white}X#2#{}倍率",
+                        "{C:planet}星球牌{}各给予{X:mult,C:white}X#2#{}倍率",
                     },
                 },
             },
@@ -146,7 +146,7 @@ return {
                 name = "{C:joy_spell}PSY骨架回路",
                 text = {
                     {
-                        "每次召唤{C:joy_synchro}同调{}时获得{C:money}+$#1#{}金钱",
+                        "每次召唤{C:joy_synchro}同调{}时获得{C:money}$#1#{}",
                     },
                     {
                         "{C:joy_normal}念动力族{}{C:joy_synchro}同调{}",

@@ -69,12 +69,12 @@ return {
                         "使用此卡作为{C:attention}素材{}召唤的{C:joy_xyz}超量{}",
                         "获得以下效果：",
                         "{s:0.9}从{s:0.9,C:joy_xyz}超量{}中取除{s:0.9}{s:0.9,C:attention}素材{}时",
-                        "{s:0.9}每取除1个素材提供{C:money}+$#1#{s:0.9}金钱"
+                        "{s:0.9}每取除1个素材给予{C:money}$#1#{s:0.9}"
                     },
                 },
                 joy_transfer_ability = {
                     "从{C:joy_xyz}超量{}中取除{C:attention}素材{}时",
-                    "提供{C:money}+$#1#{}金钱"
+                    "给予{C:money}$#1#{}"
                 },
             },
             j_joy_zoo_ram = {
@@ -129,11 +129,11 @@ return {
                     {
                         "使用此卡作为{C:attention}素材{}召唤的{C:joy_xyz}超量{}",
                         "获得以下效果：",
-                        "{s:0.9}每张{C:joy_normal}“十二兽”{}提供{X:mult,C:white}X#2#{s:0.9}倍率"
+                        "{s:0.9}每张{C:joy_normal}“十二兽”{}给予{X:mult,C:white}X#2#{s:0.9}倍率"
                     },
                 },
                 joy_transfer_ability = {
-                    "每张{C:joy_normal}“十二兽”{}提供{X:mult,C:white}X#1#{}倍率",
+                    "每张{C:joy_normal}“十二兽”{}给予{X:mult,C:white}X#1#{}倍率",
                     "{C:inactive}（当前{X:mult,C:white}X#2#{}{C:inactive}倍率）"
                 },
                 joy_summon_conditions = {
@@ -160,12 +160,12 @@ return {
                         "使用此卡作为{C:attention}素材{}召唤的{C:joy_xyz}超量{}",
                         "获得以下效果：",
                         "{s:0.9}本局游戏中每张被{C:attention}复活{}的卡牌",
-                        "{s:0.9}提供{C:mult}+#2#{s:0.9}倍率"
+                        "{s:0.9}给予{C:mult}+#2#{s:0.9}倍率"
                     },
                 },
                 joy_transfer_ability = {
                     "本局游戏中每张被{C:attention}复活{}的卡牌",
-                    "提供{C:mult}+#1#{}倍率",
+                    "给予{C:mult}+#1#{}倍率",
                     "{C:inactive}（当前{C:mult}+#2#{}{C:inactive}倍率）"
                 },
                 joy_summon_conditions = {
@@ -193,12 +193,12 @@ return {
                         "使用此卡作为{C:attention}素材{}召唤的{C:joy_xyz}超量{}",
                         "获得以下效果：",
                         "{s:0.9}每个{s:0.9,C:joy_xyz}超量{}{s:0.9,C:attention}素材{}",
-                        "{s:0.9}提供{C:mult}+#1#{s:0.9}倍率"
+                        "{s:0.9}给予{C:mult}+#1#{s:0.9}倍率"
                     },
                 },
                 joy_transfer_ability = {
                     "每个{C:joy_xyz}超量{}{C:attention}素材{}",
-                    "提供{C:mult}+#1#{}倍率",
+                    "给予{C:mult}+#1#{}倍率",
                     "{C:inactive}（当前{C:mult}+#2#{}{C:inactive}倍率）"
                 },
                 joy_summon_conditions = {
@@ -249,7 +249,7 @@ j_joy_zoo_dragon = {
                         "销毁{C:attention}1{}张随机的{C:joy_trap}对手{}卡牌",
                         "（若无则销毁1张其他随机的{C:attention}卡牌{}），",
                         "若如此做，本回合每个",
-                        "{C:joy_xyz}超量{}{C:attention}素材{}提供{X:mult,C:white}X#2#{}倍率",
+                        "{C:joy_xyz}超量{}{C:attention}素材{}给予{X:mult,C:white}X#2#{}倍率",
                         "{C:inactive}（当前{X:mult,C:white}X#3#{}{C:inactive}倍率）"
                     },
                     {
@@ -292,12 +292,12 @@ j_joy_zoo_dragon = {
                         "使用此卡作为{C:attention}素材{}召唤的{C:joy_xyz}超量{}",
                         "获得以下效果：",
                         "{s:0.9}本局游戏中每张被{C:attention}召唤{}的{s:0.9,C:joy_xyz}超量{}",
-                        "{s:0.9}提供{C:mult}+#2#{s:0.9}倍率"
+                        "{s:0.9}给予{C:mult}+#2#{s:0.9}倍率"
                     },
                 },
                 joy_transfer_ability = {
                     "本局游戏中每张被{C:attention}召唤{}的{C:joy_xyz}超量{}",
-                    "提供{C:mult}+#1#{}倍率",
+                    "给予{C:mult}+#1#{}倍率",
                     "{C:inactive}（当前{C:mult}+#2#{}{C:inactive}倍率）"
                 },
                 joy_summon_conditions = {

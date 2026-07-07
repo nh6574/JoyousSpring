@@ -49,7 +49,7 @@ return {
                 name = "{C:joy_fusion}奥秘之龙冠",
                 text = {
                     {
-                        "本局游戏中每张被销毁的游戏牌提供{C:mult}+#1#{}倍率",
+                        "本局游戏中每张被销毁的游戏牌给予{C:mult}+#1#{}倍率",
                         "本局游戏中每张被{C:attention}除外{}的卡牌减少{C:mult}-#2#{}倍率",
                         "{C:inactive}（当前{C:mult}+#3#{}{C:inactive}倍率）（最低+0）"
                     },
@@ -66,7 +66,7 @@ return {
                 name = "{C:joy_fusion}圣秘之龙骑士",
                 text = {
                     {
-                        "本局游戏中每张被销毁的游戏牌提供{C:mult}+#1#{}倍率",
+                        "本局游戏中每张被销毁的游戏牌给予{C:mult}+#1#{}倍率",
                         "本局游戏中每张被{C:attention}复活{}的卡牌减少{C:mult}-#2#{}倍率",
                         "{C:inactive}（当前{C:mult}+#3#{}{C:inactive}倍率）（最低+0）"
                     },
@@ -84,8 +84,8 @@ return {
                 text = {
                     {
                         "根据打出手牌中的计分牌获得倍率：",
-                        "{C:attention}红桃2{}、{C:attention}红桃10{}或{C:attention}红桃J{}提供{C:mult}+#1#{}倍率",
-                        "{C:attention}黑桃2{}、{C:attention}黑桃10{}、{C:attention}黑桃J{}、{C:attention}方片6{}或{C:attention}黑桃A{}提供{C:mult}+#2#{}倍率",
+                        "{C:attention}红桃2{}、{C:attention}红桃10{}或{C:attention}红桃J{}给予{C:mult}+#1#{}倍率",
+                        "{C:attention}黑桃2{}、{C:attention}黑桃10{}、{C:attention}黑桃J{}、{C:attention}方片6{}或{C:attention}黑桃A{}给予{C:mult}+#2#{}倍率",
                         "{C:attention}梅花2{}、{C:attention}梅花10{}或{C:attention}梅花J{}减少{C:mult}-#1#{}倍率",
                         "{C:inactive}（当前{C:mult}+#3#{}{C:inactive}倍率）（最低+0）"
                     },

@@ -47,8 +47,8 @@ return {
                 text = {
                     {
                         "根据被{C:attention}解放{}的{C:joy_light}光属性{}{C:attention}卡牌{}数量获得能力：",
-                        "每张提供下回合{C:attention}+#1#{}手牌上限 {C:inactive}（+#3#）{}",
-                        "每{C:attention}3{}张提供下回合{C:red}+#2#{}弃牌次数 {C:inactive}（+#4#）{}",
+                        "每张给予下回合{C:attention}+#1#{}手牌上限 {C:inactive}（+#3#）{}",
+                        "每{C:attention}3{}张给予下回合{C:red}+#2#{}弃牌次数 {C:inactive}（+#4#）{}",
                         "每{C:attention}5{}张向{C:joy_link}副卡组{}添加一张",
                         "{C:joy_light}光属性{}{C:attention}卡牌{}{C:inactive}（#5#/5）{}",
                     }
@@ -83,7 +83,7 @@ return {
                         "一次，你可以发动此效果，使手牌中",
                         "选中的游戏牌（数量不超过此卡{C:attention}召唤{}",
                         "所用{C:attention}素材{}的数量）在打出手牌计分时",
-                        "提供{X:chips,C:white}X#1#{}筹码，",
+                        "给予{X:chips,C:white}X#1#{}筹码，",
                         "只要拥有此{C:joy_ritual}“救世之美神 诺斯维姆科”{}"
                     }
                 },
@@ -157,7 +157,7 @@ return {
                 name = "诺斯维姆科的恩惠",
                 text = {
                     "只要拥有{C:joy_ritual}“救世之美神 诺斯维姆科”{}，",
-                    "此卡在打出手牌计分时提供{X:chips,C:white}X4{}筹码",
+                    "此卡在打出手牌计分时给予{X:chips,C:white}X4{}筹码",
                 }
             }
         }

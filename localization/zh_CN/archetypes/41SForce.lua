@@ -48,7 +48,7 @@ return {
                     {
                         "{C:attention}墓地{}中每张{C:joy_normal}“邪恶★双子”{}、{C:joy_normal}“PSY骨架”{}、{C:joy_normal}“时间潜行者”{}、",
                         "{C:joy_link}“I：P百变莱娜”{}、{C:joy_link}“S：P小夜骑士”{}或{C:joy_link}“W：P变换舞夜”{}",
-                        "提供{C:chips}+#1#{}筹码",
+                        "给予{C:chips}+#1#{}筹码",
                         "{C:inactive}（当前{C:chips}+#2#{}{C:inactive}筹码）"
                     }
                 }
@@ -91,7 +91,7 @@ return {
                 text = {
                     {
                         "打出一手牌时，与此卡同一{C:attention}列{}的手牌中卡牌的{C:attention}点数{}",
-                        "乘以{C:money}+$#1#{}金钱，但两张卡牌在打出后都会",
+                        "乘以{C:money}+$#1#{}，但两张卡牌在打出后都会",
                         "{C:attention}除外{}直至选择{C:attention}首领盲注{}"
                     },
                     {
@@ -121,7 +121,7 @@ return {
                 text = {
                     {
                         "与{C:joy_normal}“治安战警队”{}同一{C:attention}列{}的手牌中卡牌的{C:attention}点数{}",
-                        "提供额外{X:chips,C:white}X#1#{}筹码，",
+                        "给予额外{X:chips,C:white}X#1#{}筹码，",
                         "但那些卡牌和此卡在打出后都会",
                         "{C:attention}除外{}直至选择{C:attention}首领盲注{}"
                     },
@@ -138,7 +138,7 @@ return {
                 text = {
                     {
                         "此{C:attention}列{}中打出的卡牌",
-                        "根据其{C:attention}点数{}提供{C:mult}+#1#{}倍率"
+                        "根据其{C:attention}点数{}给予{C:mult}+#1#{}倍率"
                     },
                     {
                         "每回合一次，你可以{C:attention}解放1{}张",
@@ -153,7 +153,7 @@ return {
                 text = {
                     {
                         "此{C:attention}列{}中打出的卡牌",
-                        "根据其{C:attention}点数{}提供{C:mult}+#1#{}倍率"
+                        "根据其{C:attention}点数{}给予{C:mult}+#1#{}倍率"
                     },
                     {
                         "每回合一次，你可以{C:attention}解放1{}张",
@@ -173,7 +173,7 @@ return {
                     {
                         "{C:attention}墓地{}中每张{C:joy_normal}“邪恶★双子”{}、{C:joy_normal}“PSY骨架”{}、{C:joy_normal}“时间潜行者”{}、",
                         "{C:joy_link}“I：P百变莱娜”{}、{C:joy_link}“S：P小夜骑士”{}或{C:joy_link}“W：P变换舞夜”{}",
-                        "提供{C:mult}+#1#{}倍率",
+                        "给予{C:mult}+#1#{}倍率",
                         "{C:inactive}（当前{C:mult}+#2#{}{C:inactive}倍率）"
                     },
                 },
@@ -204,7 +204,7 @@ return {
                 name = "{C:joy_link}治安战警队 正名者",
                 text = {
                     {
-                        "在{C:attention}第 #2#{} 列{}时提供{X:mult,C:white}X#1#{}倍率",
+                        "在{C:attention}第 #2#{} 列{}时给予{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}（每回合变换列数）{}"
                     },
                     {
@@ -222,7 +222,7 @@ return {
                 text = {
                     {
                         "每张被{C:attention}除外{}的游戏牌",
-                        "提供额外{X:chips,C:white}X#1#{}筹码",
+                        "给予额外{X:chips,C:white}X#1#{}筹码",
                         "{C:inactive}（当前{X:chips,C:white}X#2#{}{C:inactive}筹码）"
                     },
                     {

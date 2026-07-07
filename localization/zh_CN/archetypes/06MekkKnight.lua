@@ -14,7 +14,7 @@ return {
                 text = {
                     {
                         "本{C:attention}列{}的计分牌",
-                        "提供点数×{C:mult}+#1#{}倍率",
+                        "给予点数 X {C:mult}+#1#{}倍率",
                         "{C:inactive}(当前位于第{}{C:attention}#2#{}{C:inactive}列){}",
                     },
                 },
@@ -39,7 +39,7 @@ return {
                 text = {
                     {
                         "本{C:attention}列{}的计分牌",
-                        "提供点数×{C:money}+$#1#{}金钱",
+                        "给予点数 X {C:money}$#1#{}",
                         "{C:inactive}(当前位于第{}{C:attention}#2#{}{C:inactive}列){}",
                     },
                 },
@@ -60,7 +60,7 @@ return {
                 text = {
                     {
                         "本{C:attention}列{}的计分牌",
-                        "提供点数×{C:chips}+#1#{}筹码",
+                        "给予点数 X {C:chips}+#1#{}筹码",
                         "{C:inactive}(当前位于第{}{C:attention}#2#{}{C:inactive}列){}",
                     },
                 },
@@ -95,7 +95,7 @@ return {
                     {
                         "相邻{C:attention}列{}的计分牌",
                         "若该列有{C:joy_normal}“机界骑士”{}",
-                        "提供{X:mult,C:white}X#1#{}倍率",
+                        "给予{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}(当前位于第{}{C:attention}#2#{}{C:inactive}和{}{C:attention}#3#{}{C:inactive}列){}",
                     },
                 },
@@ -139,7 +139,7 @@ return {
                 name = "{C:joy_spell}星遗物印刻的伤痕",
                 text = {
                     {
-                        "每张{C:joy_normal}“机界骑士”{}提供{C:mult}+#1#{}倍率",
+                        "每张{C:joy_normal}“机界骑士”{}给予{C:mult}+#1#{}倍率",
                     },
                     {
                         "在{C:attention}盲注{}阶段可解放{C:attention}#2#{}张",

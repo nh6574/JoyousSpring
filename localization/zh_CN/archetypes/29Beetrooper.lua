@@ -13,7 +13,7 @@ return {
                 name = "{C:joy_effect}骑甲虫 侦察虫车兵",
                 text = {
                     {
-                        "每张{C:joy_normal}昆虫族{}提供{C:mult}+#1#{}倍率",
+                        "每张{C:joy_normal}昆虫族{}给予{C:mult}+#1#{}倍率",
                     },
                     {
                         "此卡牌{C:attention}上场{}时，尽可能多地生成",
@@ -30,12 +30,12 @@ return {
                 name = "{C:joy_effect}骑甲虫 鳞粉炸弹兵",
                 text = {
                     {
-                        "{C:attention}墓地{}中每张{C:joy_normal}昆虫族{}提供{C:mult}+#1#{}倍率",
+                        "{C:attention}墓地{}中每张{C:joy_normal}昆虫族{}给予{C:mult}+#1#{}倍率",
                         "{C:inactive}（当前{C:mult}+#2#{}{C:inactive}倍率）"
                     },
                     {
                         "你可以{C:attention}解放1{}张{C:joy_normal}昆虫族{}",
-                        "使本回合每张{C:joy_normal}昆虫族{}提供{X:mult,C:white}X#3#{}倍率"
+                        "使本回合每张{C:joy_normal}昆虫族{}给予{X:mult,C:white}X#3#{}倍率"
                     },
                     {
                         "若你拥有另一张{C:joy_normal}昆虫族{}，",
@@ -47,7 +47,7 @@ return {
                 name = "{C:joy_effect}骑甲虫 突击滚球兵",
                 text = {
                     {
-                        "回合结束时每张{C:joy_normal}昆虫族{}提供{C:money}+$#1#{}金钱",
+                        "回合结束时每张{C:joy_normal}昆虫族{}给予{C:money}$#1#{}",
                         "{C:inactive}（当前{C:money}+$#2#{}{C:inactive}）"
                     },
                     {
@@ -195,7 +195,7 @@ return {
                     "曾有一群人，他们如同骑手驾驭坐骑般指挥昆虫，协同行动以扩张领地。他们被称为{C:joy_normal}“骑甲虫”{}，掌握着惊人的军事力量与独特的战术。其中，自然以三只拥有最强力量的巨型甲虫最为出众，自从这些由{C:joy_fusion}“超骑甲虫 {C:joy_fusion}绝对大力独角仙”{}率领的巨型甲虫踏入战场的那一刻起，战斗便已宣告结束。",
                 },
                 gameplay = {
-                    "根据所有已知的空气动力学定律，蜜蜂绝不应该能占据{C:attention}卡牌{}槽位。全力以赴，尽可能多地获取{C:joy_normal}昆虫族{}吧！"
+                    "根据所有已知的空气动力学定律，蜜蜂绝不应该能占据{C:attention}卡牌{}槽位。全力以赴，尽可能多地获得{C:joy_normal}昆虫族{}吧！"
                 }
             }
         }

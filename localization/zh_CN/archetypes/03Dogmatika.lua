@@ -15,7 +15,7 @@ return {
                 name = "{C:joy_effect}教导的骑士 弗勒德莉丝",
                 text = {
                     {
-                        "每张{C:joy_normal}“教导”{}提供{C:mult}+#1#{}倍率",
+                        "每张{C:joy_normal}“教导”{}给予{C:mult}+#1#{}倍率",
                     },
                     {
                         "若拥有被弱化的{C:joy_spell}额外卡组{}卡牌则免费",
@@ -52,7 +52,7 @@ return {
                     {
                         "{C:chips}+#1#{}基础筹码",
                         "每张被弱化的{C:joy_spell}额外卡组{}卡牌",
-                        "额外提供{C:chips}+#2#{}筹码",
+                        "额外给予{C:chips}+#2#{}筹码",
                         "{C:inactive}(当前{C:chips}+#3#{C:inactive}筹码){}",
                     },
                     {
@@ -92,7 +92,7 @@ return {
                 text = {
                     {
                         "每{C:attention}#2#{}张被弱化的",
-                        "{C:joy_spell}额外卡组{}卡牌提供{C:attention}+#1#{}手牌上限",
+                        "{C:joy_spell}额外卡组{}卡牌给予{C:attention}+#1#{}手牌上限",
                         "{C:inactive}(当前{C:attention}+#3#{C:inactive}手牌上限){}",
                     },
                     {
@@ -110,7 +110,7 @@ return {
                 text = {
                     {
                         "每张被弱化的{C:joy_spell}额外卡组{}卡牌",
-                        "提供{C:mult}+#1#{}倍率",
+                        "给予{C:mult}+#1#{}倍率",
                         "{C:inactive}(当前{C:mult}+#2#{C:inactive}倍率){}",
                     },
                     {
@@ -134,7 +134,7 @@ return {
                     {
                         "每张{C:joy_normal}主卡组{}卡牌",
                         "根据被弱化的{C:joy_spell}额外卡组{}卡牌数量",
-                        "提供额外{X:mult,C:white}X#2#{}倍率",
+                        "给予额外{X:mult,C:white}X#2#{}倍率",
                         "{C:inactive}(当前{X:mult,C:white}X#3#{}{C:inactive}倍率){}",
                     },
                 },
@@ -147,7 +147,7 @@ return {
                 text = {
                     {
                         "每张被弱化的{C:joy_spell}额外卡组{}卡牌",
-                        "回合结束时提供{C:money}+$#1#{}金钱",
+                        "回合结束时给予{C:money}$#1#{}",
                         "{C:inactive}(当前{C:money}+$#2#{C:inactive}){}",
                     },
                     {

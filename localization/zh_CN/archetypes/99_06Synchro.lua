@@ -86,7 +86,7 @@ return {
                     },
                     {
                         "选中{C:attention}盲注{}时销毁{C:attention}#2#{}张随机",
-                        "{C:joy_spell}场地魔法{}以获取{C:money}+$#3#{}",
+                        "{C:joy_spell}场地魔法{}以获得{C:money}$#3#{}",
                         "然后生成{C:attention}#2#{}张{C:joy_spell}场地魔法{}",
                         "{C:inactive}(需有空位)",
                     },
@@ -115,7 +115,7 @@ return {
                 name = "{C:joy_synchro}鬼岩城",
                 text = {
                     {
-                        "用于其{C:attention}召唤{}的每张非{C:joy_synchro}调整{}{C:attention}素材{}提供{C:mult}+#1#{}倍率",
+                        "用于其{C:attention}召唤{}的每张非{C:joy_synchro}调整{}{C:attention}素材{}给予{C:mult}+#1#{}倍率",
                         "{C:inactive}（当前{C:mult}+#2#{}{C:inactive}倍率）"
                     }
                 },

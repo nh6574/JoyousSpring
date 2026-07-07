@@ -39,8 +39,8 @@ return {
                 name = "{C:joy_effect}阳炎兽 狮鹫",
                 text = {
                     {
-                        "每张{C:joy_fire}炎属性{}{C:attention}卡牌{}提供{C:mult}+#1#{}倍率，",
-                        "若为{C:attention}永恒{}则额外提供{X:mult,C:white}X#2#{}倍率"
+                        "每张{C:joy_fire}炎属性{}{C:attention}卡牌{}给予{C:mult}+#1#{}倍率，",
+                        "若为{C:attention}永恒{}则额外给予{X:mult,C:white}X#2#{}倍率"
                     },
                     {
                         "即使为{C:attention}永恒{}，",
@@ -80,7 +80,7 @@ return {
                 text = {
                     {
                         "每回合一次，你可以{C:attention}解放1{}张",
-                        "{C:attention}永恒卡牌{}以获得{C:money}+$#1#{}金钱",
+                        "{C:attention}永恒卡牌{}以获得{C:money}$#1#{}",
                         "并将一张随机的{C:attention}卡牌{}变为{C:attention}永恒{}"
                     },
                     {
@@ -124,7 +124,7 @@ return {
                 text = {
                     {
                         "每个{C:joy_xyz}超量{}{C:attention}素材{}",
-                        "提供{C:mult}+#1#{}倍率",
+                        "给予{C:mult}+#1#{}倍率",
                         "{C:inactive}（当前{}{C:mult}+#2#{}{C:inactive}倍率）{}",
                     },
                     {
@@ -135,7 +135,7 @@ return {
                     {
                         "根据{C:joy_xyz}超量{}{C:attention}素材{}数量获得以下能力：",
                         "{C:attention}5+{}：本局游戏中每张被{C:attention}解放{}的永恒卡牌{}",
-                        "额外提供{X:mult,C:white}X#3#{}倍率",
+                        "额外给予{X:mult,C:white}X#3#{}倍率",
                         "{C:inactive}（当前{X:mult,C:white}X#4#{}{C:inactive}倍率）",
                         "{C:attention}20+{}：{C:attention}永恒卡牌{}可在商店中出现，",
                         "若已可出现，则移除{C:attention}易腐{}和{C:attention}租赁{}",

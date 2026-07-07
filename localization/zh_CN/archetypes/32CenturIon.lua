@@ -30,7 +30,7 @@ return {
                     {
                         "用作{C:joy_synchro}同调{}的{C:attention}素材{}时，",
                         "在{C:joy_link}副卡组{}中生成{C:attention}1张易腐{}{C:joy_effect}“龙骑士 阿特莉”{}，",
-                        "并提供{C:attention}+#2#{}手牌上限直至回合结束"
+                        "并给予{C:attention}+#2#{}手牌上限直至回合结束"
                     }
                 }
             },
@@ -38,7 +38,7 @@ return {
                 name = "{C:joy_effect}影骑士 奇美莉亚",
                 text = {
                     {
-                        "打出一手牌时获得{C:money}+$#1#{}金钱"
+                        "打出一手牌时获得{C:money}$#1#{}"
                     },
                     {
                         "若此卡在{C:joy_link}副卡组{}中，",
@@ -76,7 +76,7 @@ return {
                     },
                     {
                         "若此卡在{C:joy_link}副卡组{}中，",
-                        "{C:attention}易腐{}卡牌提供{X:mult,C:white}X#2#{}倍率"
+                        "{C:attention}易腐{}卡牌给予{X:mult,C:white}X#2#{}倍率"
                     },
                     {
                         "用作{C:joy_synchro}同调{}的{C:attention}素材{}时，",
@@ -95,7 +95,7 @@ return {
                     {
                         "若此卡在{C:joy_link}副卡组{}中，",
                         "{C:attention}墓地{}中每张{C:joy_normal}“百夫长骑士”{}",
-                        "使{C:joy_synchro}同调{}提供{C:mult}+#1#{}倍率"
+                        "使{C:joy_synchro}同调{}给予{C:mult}+#1#{}倍率"
                     },
                     {
                         "用作{C:joy_synchro}同调{}的{C:attention}素材{}时，",

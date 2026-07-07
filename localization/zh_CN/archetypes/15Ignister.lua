@@ -17,7 +17,7 @@ return {
                 name = "{C:joy_effect}闪闪妖@火灵天星",
                 text = {
                     {
-                        "回合结束获得{C:money}+$#1#{}",
+                        "回合结束获得{C:money}$#1#{}",
                     },
                     {
                         "获得时生成{C:attention}#2#{}张随机{C:tarot}塔罗牌",
@@ -136,10 +136,10 @@ return {
                 name = "{C:joy_effect}阴云栗仔球@火灵天星",
                 text = {
                     {
-                        "每购买1张{C:joy_normal}“@火灵天星”{}获得{C:money}+$#1#{}",
+                        "每购买1张{C:joy_normal}“@火灵天星”{}获得{C:money}$#1#{}",
                     },
                     {
-                        "出售此牌以{C:attention}放逐 #2#{}张{C:joy_normal}“@火灵天星”{}",
+                        "出售此牌以{C:attention}除外 #2#{}张{C:joy_normal}“@火灵天星”{}",
                         "直到选择{C:attention}盲注{}",
                     },
                 }
@@ -217,13 +217,13 @@ return {
                         "加入{C:joy_spell}额外卡组{}",
                     },
                     {
-                        "每份召唤{C:attention}属性{}提供{C:attention}+#2#个卡牌槽",
+                        "每份召唤{C:attention}属性{}给予{C:attention}+#2#个卡牌槽",
                         "{C:inactive}(当前 {C:attention}+#3#{}{C:inactive})",
                         "用此牌作{C:attention}素材{}的{C:joy_link}连接{}获得此能力",
                     },
                 },
                 joy_transfer_ability = {
-                    "每份召唤{C:attention}属性{}提供{C:attention}+#1#个卡牌槽",
+                    "每份召唤{C:attention}属性{}给予{C:attention}+#1#个卡牌槽",
                     "{C:inactive}(当前 {C:attention}+#2#{}{C:inactive})",
                 },
                 joy_summon_conditions = {
@@ -262,15 +262,15 @@ return {
                     },
                     {
                         "回合结束时，每份召唤{C:attention}属性{}使手牌中",
-                        "计分牌获得{C:money}+$#2#{}",
-                        "{C:inactive}(当前 {C:money}+$#3#{}{C:inactive})",
+                        "计分牌获得{C:money}$#2#{}",
+                        "{C:inactive}(当前 {C:money}$#3#{}{C:inactive})",
                         "用此牌作{C:attention}素材{}的{C:joy_link}连接{}获得此能力",
                     },
                 },
                 joy_transfer_ability = {
                     "回合结束时，每份召唤{C:attention}属性{}使手牌中",
-                    "计分牌获得{C:money}+$#1#{}",
-                    "{C:inactive}(当前 {C:money}+$#2#{}{C:inactive})",
+                    "计分牌获得{C:money}$#1#{}",
+                    "{C:inactive}(当前 {C:money}$#2#{}{C:inactive})",
                 },
                 joy_summon_conditions = {
                     "{C:attention}2+张{C:joy_normal}电子界{}",
@@ -307,7 +307,7 @@ return {
                 name = "{C:joy_link}协心代码语者@火灵天星",
                 text = {
                     {
-                        "每张{C:joy_link}连接{}提供{X:mult,C:white}X#1#{}倍率",
+                        "每张{C:joy_link}连接{}给予{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}(当前 {X:mult,C:white}X#2#{}{C:inactive}倍率)",
                     },
                     {
@@ -353,7 +353,7 @@ return {
                 name = "{C:joy_link}电子界到临者@火灵天星",
                 text = {
                     {
-                        "每份召唤{C:attention}属性{}提供{X:mult,C:white}X#1#{}倍率",
+                        "每份召唤{C:attention}属性{}给予{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}(当前{X:mult,C:white}X#2#{}{C:inactive}倍率)",
                     },
                     {
@@ -374,7 +374,7 @@ return {
                 name = "{C:joy_link}电子界到临者@火灵天星",
                 text = {
                     {
-                        "每份召唤{C:attention}属性{}提供{X:mult,C:white}X#1#{}倍率",
+                        "每份召唤{C:attention}属性{}给予{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}(当前{X:mult,C:white}X#2#{}{C:inactive}倍率)",
                     },
                     {
@@ -401,7 +401,7 @@ return {
                     },
                     {
                         "若回合结束时拥有{C:attention}#2#{}种不同{C:attention}属性{}的卡牌，",
-                        "{C:attention}放逐{}所有{C:joy_normal}电子界{}直到选择{C:attention}盲注{}",
+                        "{C:attention}除外{}所有{C:joy_normal}电子界{}直到选择{C:attention}盲注{}",
                         "但削弱所有非{C:joy_normal}电子界{}牌",
                     },
                 }

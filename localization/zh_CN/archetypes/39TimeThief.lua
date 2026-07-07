@@ -152,7 +152,7 @@ return {
                 joy_extra_effects = {
                     m_bonus = {
                         text_description = {
-                            "每张提供{C:chips}+#1#{}筹码"
+                            "每张给予{C:chips}+#1#{}筹码"
                         },
                         text = {
                             "{C:chips}+#1#{}筹码"
@@ -160,7 +160,7 @@ return {
                     },
                     m_mult = {
                         text_description = {
-                            "每张提供{C:mult}+#1#{}倍率"
+                            "每张给予{C:mult}+#1#{}倍率"
                         },
                         text = {
                             "{C:mult}+#1#{}倍率"
@@ -180,23 +180,23 @@ return {
                     },
                     m_glass = {
                         text_description = {
-                            "每张提供额外{X:chips,C:white}X#1#{}筹码"
+                            "每张给予额外{X:chips,C:white}X#1#{}筹码"
                         },
                         text = {
-                            "额外提供{X:chips,C:white}X#1#{}筹码"
+                            "额外给予{X:chips,C:white}X#1#{}筹码"
                         }
                     },
                     m_steel = {
                         text_description = {
-                            "每张提供额外{X:chips,C:white}X#1#{}筹码"
+                            "每张给予额外{X:chips,C:white}X#1#{}筹码"
                         },
                         text = {
-                            "额外提供{X:chips,C:white}X#1#{}筹码"
+                            "额外给予{X:chips,C:white}X#1#{}筹码"
                         }
                     },
                     m_stone = {
                         text_description = {
-                            "每张提供{C:chips}+#1#{}筹码"
+                            "每张给予{C:chips}+#1#{}筹码"
                         },
                         text = {
                             "{C:chips}+#1#{}筹码"
@@ -204,26 +204,26 @@ return {
                     },
                     m_gold = {
                         text_description = {
-                            "每张提供额外{X:chips,C:white}X#1#{}筹码"
+                            "每张给予额外{X:chips,C:white}X#1#{}筹码"
                         },
                         text = {
-                            "额外提供{X:chips,C:white}X#1#{}筹码"
+                            "额外给予{X:chips,C:white}X#1#{}筹码"
                         }
                     },
                     m_lucky = {
                         text_description = {
-                            "每张提供额外{X:chips,C:white}X#1#{}筹码"
+                            "每张给予额外{X:chips,C:white}X#1#{}筹码"
                         },
                         text = {
-                            "额外提供{X:chips,C:white}X#1#{}筹码"
+                            "额外给予{X:chips,C:white}X#1#{}筹码"
                         }
                     },
                     m_joy_hanafuda = {
                         text_description = {
-                            "每张提供额外{X:chips,C:white}X#1#{}筹码"
+                            "每张给予额外{X:chips,C:white}X#1#{}筹码"
                         },
                         text = {
-                            "额外提供{X:chips,C:white}X#1#{}筹码"
+                            "额外给予{X:chips,C:white}X#1#{}筹码"
                         }
                     },
                     e_foil = {
@@ -349,7 +349,7 @@ return {
                         "{C:attention}发掘{}并检查牌顶的{C:attention}1{}张：",
                         "将其附着到此卡上，然后根据花色获得以下效果：",
                         "{C:hearts}红桃{}：获得一次免费商店{C:green}重掷{}",
-                        "{C:diamonds}方片{}：{C:money}+$#2#{}金钱",
+                        "{C:diamonds}方片{}：{C:money}+$#2#{}",
                         "{C:clubs}梅花{}：获得{C:attention}#3#{}个{C:attention}标准标签{}",
                         "{C:spades}黑桃{}：生成一张{C:dark_edition}负片{}{C:attention}强化{}{C:tarot}塔罗牌{}",
                     },
@@ -371,7 +371,7 @@ return {
                         "{C:attention}发掘{}并检查牌顶的{C:attention}1{}张：",
                         "将其附着到此卡上，然后根据花色获得以下效果：",
                         "{C:hearts}红桃{}：获得一次免费商店{C:green}重掷{}",
-                        "{C:diamonds}方片{}：{C:money}+$#2#{}金钱",
+                        "{C:diamonds}方片{}：{C:money}+$#2#{}",
                         "{C:clubs}梅花{}：获得{C:attention}#3#{}个{C:attention}标准标签{}",
                         "{C:spades}黑桃{}：生成一张{C:dark_edition}负片{}{C:attention}强化{}{C:tarot}塔罗牌{}",
                     },
@@ -383,7 +383,7 @@ return {
                 joy_extra_effects = {
                     m_bonus = {
                         text_description = {
-                            "每张提供{C:mult}+#1#{}倍率"
+                            "每张给予{C:mult}+#1#{}倍率"
                         },
                         text = {
                             "{C:mult}+#1#{}倍率"
@@ -391,7 +391,7 @@ return {
                     },
                     m_mult = {
                         text_description = {
-                            "每张提供{C:mult}+#1#{}倍率"
+                            "每张给予{C:mult}+#1#{}倍率"
                         },
                         text = {
                             "{C:mult}+#1#{}倍率"
@@ -408,7 +408,7 @@ return {
                     },
                     m_glass = {
                         text_description = {
-                            "每张提供{C:mult}+#1#{}倍率"
+                            "每张给予{C:mult}+#1#{}倍率"
                         },
                         text = {
                             "{C:mult}+#1#{}倍率"
@@ -416,7 +416,7 @@ return {
                     },
                     m_steel = {
                         text_description = {
-                            "每张提供{C:mult}+#1#{}倍率"
+                            "每张给予{C:mult}+#1#{}倍率"
                         },
                         text = {
                             "{C:mult}+#1#{}倍率"
@@ -424,7 +424,7 @@ return {
                     },
                     m_stone = {
                         text_description = {
-                            "每张提供{C:mult}+#1#{}倍率"
+                            "每张给予{C:mult}+#1#{}倍率"
                         },
                         text = {
                             "{C:mult}+#1#{}倍率"
@@ -432,7 +432,7 @@ return {
                     },
                     m_gold = {
                         text_description = {
-                            "每张提供{C:mult}+#1#{}倍率"
+                            "每张给予{C:mult}+#1#{}倍率"
                         },
                         text = {
                             "{C:mult}+#1#{}倍率"
@@ -440,7 +440,7 @@ return {
                     },
                     m_lucky = {
                         text_description = {
-                            "每张提供{C:mult}+#1#{}倍率"
+                            "每张给予{C:mult}+#1#{}倍率"
                         },
                         text = {
                             "{C:mult}+#1#{}倍率"
@@ -448,7 +448,7 @@ return {
                     },
                     m_joy_hanafuda = {
                         text_description = {
-                            "每张提供{C:mult}+#1#{}倍率"
+                            "每张给予{C:mult}+#1#{}倍率"
                         },
                         text = {
                             "{C:mult}+#1#{}倍率"
@@ -558,7 +558,7 @@ return {
                     },
                     {
                         "{C:attention}发掘{}并检查牌顶的{C:attention}1{}张：",
-                        "将其附着到此卡上，然后根据点数获得{C:money}+$#4#{}金钱",
+                        "将其附着到此卡上，然后根据点数获得{C:money}$#4#{}",
                     },
                     {
                         "根据已附着的{C:attention}游戏牌{}获得能力",
@@ -576,7 +576,7 @@ return {
                     },
                     {
                         "{C:attention}发掘{}并检查牌顶的{C:attention}1{}张：",
-                        "将其附着到此卡上，然后根据点数获得{C:money}+$#4#{}金钱",
+                        "将其附着到此卡上，然后根据点数获得{C:money}$#4#{}",
                     },
                     {
                         "根据已附着的{C:attention}游戏牌{}",
@@ -586,74 +586,74 @@ return {
                 joy_extra_effects = {
                     m_bonus = {
                         text_description = {
-                            "每张提供额外{X:chips,C:white}X#1#{}筹码"
+                            "每张给予额外{X:chips,C:white}X#1#{}筹码"
                         },
                         text = {
-                            "额外提供{X:chips,C:white}X#1#{}筹码"
+                            "额外给予{X:chips,C:white}X#1#{}筹码"
                         }
                     },
                     m_mult = {
                         text_description = {
-                            "每张提供额外{X:chips,C:white}X#1#{}筹码"
+                            "每张给予额外{X:chips,C:white}X#1#{}筹码"
                         },
                         text = {
-                            "额外提供{X:chips,C:white}X#1#{}筹码"
+                            "额外给予{X:chips,C:white}X#1#{}筹码"
                         }
                     },
                     m_wild = {
                         text_description = {
-                            "每张提供额外{X:chips,C:white}X#1#{}筹码"
+                            "每张给予额外{X:chips,C:white}X#1#{}筹码"
                         },
                         text = {
-                            "额外提供{X:chips,C:white}X#1#{}筹码"
+                            "额外给予{X:chips,C:white}X#1#{}筹码"
                         }
                     },
                     m_glass = {
                         text_description = {
-                            "每张提供额外{X:chips,C:white}X#1#{}筹码"
+                            "每张给予额外{X:chips,C:white}X#1#{}筹码"
                         },
                         text = {
-                            "额外提供{X:chips,C:white}X#1#{}筹码"
+                            "额外给予{X:chips,C:white}X#1#{}筹码"
                         }
                     },
                     m_steel = {
                         text_description = {
-                            "每张提供额外{X:chips,C:white}X#1#{}筹码"
+                            "每张给予额外{X:chips,C:white}X#1#{}筹码"
                         },
                         text = {
-                            "额外提供{X:chips,C:white}X#1#{}筹码"
+                            "额外给予{X:chips,C:white}X#1#{}筹码"
                         }
                     },
                     m_stone = {
                         text_description = {
-                            "每张提供额外{X:chips,C:white}X#1#{}筹码"
+                            "每张给予额外{X:chips,C:white}X#1#{}筹码"
                         },
                         text = {
-                            "额外提供{X:chips,C:white}X#1#{}筹码"
+                            "额外给予{X:chips,C:white}X#1#{}筹码"
                         }
                     },
                     m_gold = {
                         text_description = {
-                            "每张提供额外{X:chips,C:white}X#1#{}筹码"
+                            "每张给予额外{X:chips,C:white}X#1#{}筹码"
                         },
                         text = {
-                            "额外提供{X:chips,C:white}X#1#{}筹码"
+                            "额外给予{X:chips,C:white}X#1#{}筹码"
                         }
                     },
                     m_lucky = {
                         text_description = {
-                            "每张提供额外{X:chips,C:white}X#1#{}筹码"
+                            "每张给予额外{X:chips,C:white}X#1#{}筹码"
                         },
                         text = {
-                            "额外提供{X:chips,C:white}X#1#{}筹码"
+                            "额外给予{X:chips,C:white}X#1#{}筹码"
                         }
                     },
                     m_joy_hanafuda = {
                         text_description = {
-                            "每张提供额外{X:chips,C:white}X#1#{}筹码"
+                            "每张给予额外{X:chips,C:white}X#1#{}筹码"
                         },
                         text = {
-                            "额外提供{X:chips,C:white}X#1#{}筹码"
+                            "额外给予{X:chips,C:white}X#1#{}筹码"
                         }
                     },
                     e_foil = {
@@ -697,42 +697,42 @@ return {
                     },
                     red_seal = {
                         text_description = {
-                            "打出一手牌时，每张提供{C:money}+$#1#{}金钱"
+                            "打出一手牌时，每张给予{C:money}$#1#{}"
                         },
                         text = {
-                            "打出一手牌时提供{C:money}+$#1#{}金钱"
+                            "打出一手牌时给予{C:money}$#1#{}"
                         }
                     },
                     blue_seal = {
                         text_description = {
-                            "打出一手牌时，每张提供{C:money}+$#1#{}金钱"
+                            "打出一手牌时，每张给予{C:money}$#1#{}"
                         },
                         text = {
-                            "打出一手牌时提供{C:money}+$#1#{}金钱"
+                            "打出一手牌时给予{C:money}$#1#{}"
                         }
                     },
                     gold_seal = {
                         text_description = {
-                            "打出一手牌时，每张提供{C:money}+$#1#{}金钱"
+                            "打出一手牌时，每张给予{C:money}$#1#{}"
                         },
                         text = {
-                            "打出一手牌时提供{C:money}+$#1#{}金钱"
+                            "打出一手牌时给予{C:money}$#1#{}"
                         }
                     },
                     purple_seal = {
                         text_description = {
-                            "打出一手牌时，每张提供{C:money}+$#1#{}金钱"
+                            "打出一手牌时，每张给予{C:money}$#1#{}"
                         },
                         text = {
-                            "打出一手牌时提供{C:money}+$#1#{}金钱"
+                            "打出一手牌时给予{C:money}$#1#{}"
                         }
                     },
                     joy_purr_memory_seal = {
                         text_description = {
-                            "打出一手牌时，每张提供{C:money}+$#1#{}金钱"
+                            "打出一手牌时，每张给予{C:money}$#1#{}"
                         },
                         text = {
-                            "打出一手牌时提供{C:money}+$#1#{}金钱"
+                            "打出一手牌时给予{C:money}$#1#{}"
                         }
                     },
                 },

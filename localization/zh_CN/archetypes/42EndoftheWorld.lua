@@ -26,7 +26,7 @@ return {
                     },
                     {
                         "被{C:attention}解放{}时，每有1张",
-                        "其他{C:joy_ritual}仪式{}提供{C:money}+$#1#{}金钱"
+                        "其他{C:joy_ritual}仪式{}给予{C:money}$#1#{}"
                     }
                 },
                 joy_summon_conditions = {
@@ -74,12 +74,12 @@ return {
                 text = {
                     {
                         "打出手牌中每张计分卡牌",
-                        "提供{C:mult}+#1#{}倍率，",
+                        "给予{C:mult}+#1#{}倍率，",
                         "然后销毁它们"
                     },
                     {
                         "被{C:attention}解放{}时，每有1张",
-                        "其他{C:joy_ritual}仪式{}提供{C:money}+$#1#{}金钱"
+                        "其他{C:joy_ritual}仪式{}给予{C:money}$#1#{}"
                     }
                 },
                 joy_summon_conditions = {
@@ -92,7 +92,7 @@ return {
                     {
                         "每回合一次，你可以销毁手牌中选中的卡牌，",
                         "数量不超过其{C:attention}召唤{}所用{C:attention}素材{}的数量，",
-                        "本回合每张销毁的卡牌额外提供{X:chips,C:white}X#1#{}筹码",
+                        "本回合每张销毁的卡牌额外给予{X:chips,C:white}X#1#{}筹码",
                         "{C:inactive}（当前{X:chips,C:white}X#2#{}{C:inactive}筹码）"
                     },
                     {
@@ -109,7 +109,7 @@ return {
                 text = {
                     {
                         "{C:attention}墓地{}中每张{C:joy_ritual}仪式{}",
-                        "提供{C:mult}+#1#{}倍率",
+                        "给予{C:mult}+#1#{}倍率",
                         "{C:inactive}（当前{C:mult}+#2#{}{C:inactive}倍率）"
                     },
                     {
@@ -130,7 +130,7 @@ return {
                 text = {
                     {
                         "每当一张卡牌为{C:joy_ritual}仪式{}",
-                        "被{C:attention}解放{}时，提供{C:money}+$#1#{}金钱"
+                        "被{C:attention}解放{}时，给予{C:money}$#1#{}"
                     },
                     {
                         "每底注一次，当一张{C:joy_ritual}仪式{}",

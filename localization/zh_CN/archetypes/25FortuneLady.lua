@@ -9,8 +9,8 @@ return {
                         "{C:joy_normal}“命运女郎”{} 直到选择{C:attention}盲注{}",
                     },
                     {
-                        "回合结束时给予 {C:money}$#4#{}×{C:green}分子{}",
-                        "{C:inactive}(上限 $#4#×#2#){}",
+                        "回合结束时给予 {C:money}$#4#{} X {C:green}分子{}",
+                        "{C:inactive}(上限 $#4# X #2#){}",
                         "{C:inactive}(当前 {C:money}+$#5#{}{C:inactive})"
                     },
                     {
@@ -27,8 +27,8 @@ return {
                         "所有其他{C:green}几率{}翻倍",
                     },
                     {
-                        "给予等同 {C:mult}+#3#{}×所有{C:joy_normal}“命运女郎”{}{C:green}分子{}的倍率",
-                        "{C:inactive}(上限 +#3#×#4#){}",
+                        "给予等同 {C:mult}+#3#{} X 所有{C:joy_normal}“命运女郎”{}{C:green}分子{}的倍率",
+                        "{C:inactive}(上限 +#3# X #4#){}",
                         "{C:inactive}(当前 {C:mult}+#5#{}{C:inactive}倍率)"
                     },
                     {
@@ -45,8 +45,8 @@ return {
                         "打出牌型的{C:planet}星球牌{}",
                     },
                     {
-                        "每张{C:joy_normal}“命运女郎”{}给予等同 {C:chips}+#3#{}×其{C:green}分子{}的筹码",
-                        "{C:inactive}(上限 +#3#×分母){}",
+                        "每张{C:joy_normal}“命运女郎”{}给予等同 {C:chips}+#3#{} X 其{C:green}分子{}的筹码",
+                        "{C:inactive}(上限 +#3# X 分母){}",
                     },
                     {
                         "回合结束时每张{C:joy_normal}“命运女郎”{}",
@@ -64,8 +64,8 @@ return {
                         "{C:inactive}(当前 {C:attention}+#4#{}{C:inactive}点)"
                     },
                     {
-                        "给予等同 {C:chips}+#5#{}×{C:green}分子{}的筹码",
-                        "{C:inactive}(上限 +#5#×#2#){}",
+                        "给予等同 {C:chips}+#5#{} X {C:green}分子{}的筹码",
+                        "{C:inactive}(上限 +#5# X #2#){}",
                         "{C:inactive}(当前 {C:chips}+#6#{}{C:inactive}筹码)"
                     },
                     {
@@ -103,8 +103,8 @@ return {
                         "(或{C:joy_normal}魔法师{}若无可用)",
                     },
                     {
-                        "给予等同 {C:mult}+#4#{}×{C:green}分子{}的倍率",
-                        "{C:inactive}(上限 +#4#×#2#){}",
+                        "给予等同 {C:mult}+#4#{} X {C:green}分子{}的倍率",
+                        "{C:inactive}(上限 +#4# X #2#){}",
                         "{C:inactive}(当前 {C:mult}+#5#{}{C:inactive}倍率)"
                     },
                     {
@@ -122,8 +122,8 @@ return {
                         "直到选择{C:attention}盲注{}",
                     },
                     {
-                        "给予 {X:mult,C:white}X#3#{}×{C:green}分子{}倍率",
-                        "{C:inactive}(上限 X#3#×#2#){}",
+                        "给予 {X:mult,C:white}X#3#{} X {C:green}分子{}倍率",
+                        "{C:inactive}(上限 X#3# X #2#){}",
                         "{C:inactive}(当前 {X:mult,C:white}X#4#{}{C:inactive}倍率)"
                     },
                     {
@@ -139,7 +139,7 @@ return {
                         "{C:green}#1#/#2#{} 几率本回合给予 {X:mult,C:white}X#3#{}倍率",
                         "{C:green}#4#/#5#{} 几率在回合结束时{C:attention}除外 #6#{}张{C:joy_normal}“命运女郎”{}",
                         "直到选择{C:attention}盲注{}",
-                        "{C:green}#7#/#8#{} 几率回合结束时给予 {C:money}+$#9#{}",
+                        "{C:green}#7#/#8#{} 几率回合结束时给予 {C:money}$#9#{}",
                         "{C:green}#10#/#11#{} 几率永久翻倍",
                         "所有计分牌的{C:green}几率{}",
                         "{C:green}#12#/#13#{} 几率在选中{C:attention}盲注{}时",
@@ -148,8 +148,8 @@ return {
                         "{C:joy_normal}“命运女郎”{}（或{C:joy_normal}魔法师{}）为{C:dark_edition}负片{}"
                     },
                     {
-                        "给予等同 {C:mult}+#18#{}×{C:green}分子{}的倍率",
-                        "{C:inactive}(上限 +#18#×#19#){}",
+                        "给予等同 {C:mult}+#18#{} X {C:green}分子{}的倍率",
+                        "{C:inactive}(上限 +#18# X #19#){}",
                         "{C:inactive}(当前 {C:mult}+#20#{}{C:inactive}倍率)"
                     },
                     {

@@ -28,7 +28,7 @@ return {
                         "{C:inactive}(当前 {C:mult}+#2#{}{C:inactive}倍率)",
                     },
                     {
-                        "{C:joy_xyz}去除{}素材时给予 {C:money}+$#3#{}",
+                        "{C:joy_xyz}去除{}素材时给予 {C:money}$#3#{}",
                     },
                 }
             },
@@ -88,7 +88,7 @@ return {
                 name = "{C:joy_spell}王家长眠之谷",
                 text = {
                     {
-                        "{C:attention}墓地{}中每张卡牌提供{C:mult}+#1#{}倍率",
+                        "{C:attention}墓地{}中每张卡牌给予{C:mult}+#1#{}倍率",
                         "本局游戏中每张被{C:attention}复活{}的卡牌减少{C:mult}-#2#{}倍率",
                         "{C:inactive}（当前{C:mult}+#3#{}{C:inactive}倍率）（最低+0）"
                     }
@@ -98,11 +98,11 @@ return {
                 name = "{C:joy_spell}魔法族之里",
                 text = {
                     {
-                        "每张{C:joy_normal}魔法师族{}提供{X:mult,C:white}X#1#{}倍率"
+                        "每张{C:joy_normal}魔法师族{}给予{X:mult,C:white}X#1#{}倍率"
                     },
                     {
                         "若你没有{C:joy_normal}魔法师族{}，",
-                        "则提供{X:mult,C:white}X#2#{}倍率"
+                        "则给予{X:mult,C:white}X#2#{}倍率"
                     },
                     {
                         "从商店购买时",

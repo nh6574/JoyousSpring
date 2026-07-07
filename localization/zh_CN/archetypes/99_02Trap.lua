@@ -17,7 +17,7 @@ return {
                 text = {
                     {
                         "{C:joy_effect}翻开{}：每张{C:joy_trap}陷阱{}",
-                        "给予 {C:money}+$#1#{}"
+                        "给予 {C:money}$#1#{}"
                     },
                     {
                         "{C:joy_trap}陷阱{}不可被弱化",

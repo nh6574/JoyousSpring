@@ -6,7 +6,7 @@ return {
                 text = {
                     {
                         "打出手牌中每张被无效的牌",
-                        "提供{X:mult,C:white}X#1#{}倍率"
+                        "给予{X:mult,C:white}X#1#{}倍率"
                     },
                     {
                         "若{C:joy_trap}对手{}区域中的{C:joy_normal}“古遗物“{}",
@@ -52,7 +52,7 @@ return {
                 name = "{C:joy_effect}古遗物-商神杖",
                 text = {
                     {
-                        "手牌中每张卡牌提供倍率，",
+                        "手牌中每张卡牌给予倍率，",
                         "数值等于其点数乘以拥有的{C:joy_normal}“古遗物“{}数量"
                     },
                     {
@@ -68,7 +68,7 @@ return {
                 text = {
                     {
                         "拥有的或{C:joy_trap}对手{}区域中的每张{C:joy_normal}“古遗物“{}",
-                        "根据{C:attention}墓地{}中的每张{C:joy_spell}场地魔法{}提供{C:chips}+#1#{}筹码",
+                        "根据{C:attention}墓地{}中的每张{C:joy_spell}场地魔法{}给予{C:chips}+#1#{}筹码",
                         "{C:inactive}（当前{C:chips}+#2#{}{C:inactive}筹码）"
                     },
                     {
@@ -84,7 +84,7 @@ return {
                 text = {
                     {
                         "{C:attention}墓地{}中每张{C:joy_normal}“古遗物“{}",
-                        "提供{C:chips}+#1#{}筹码",
+                        "给予{C:chips}+#1#{}筹码",
                         "{C:inactive}（当前{C:chips}+#2#{}{C:inactive}筹码）"
                     },
                     {
@@ -116,7 +116,7 @@ return {
                 text = {
                     {
                         "本局游戏中每张被{C:attention}除外{}的卡牌",
-                        "提供{C:mult}+#1#{}倍率",
+                        "给予{C:mult}+#1#{}倍率",
                         "{C:inactive}（当前{C:mult}+#2#{}{C:inactive}倍率）"
                     },
                     {
@@ -132,7 +132,7 @@ return {
                 text = {
                     {
                         "本局游戏中每张被{C:attention}复活{}的卡牌",
-                        "提供{C:mult}+#1#{}倍率",
+                        "给予{C:mult}+#1#{}倍率",
                         "{C:inactive}（当前{C:mult}+#2#{}{C:inactive}倍率）"
                     },
                     {
@@ -148,7 +148,7 @@ return {
                 text = {
                     {
                         "本局游戏中每张被其效果{C:attention}摧毁{}的{C:attention}玻璃{}卡牌",
-                        "提供{X:chips,C:white}X#1#{}筹码",
+                        "给予{X:chips,C:white}X#1#{}筹码",
                         "{C:inactive}（当前{X:chips,C:white}X#2#{}{C:inactive}筹码）"
                     },
                     {
@@ -179,7 +179,7 @@ return {
                 name = "{C:joy_effect}古遗物-金刚杵",
                 text = {
                     {
-                        "每张{C:joy_trap}对手{}卡牌提供{X:chips,C:white}X#1#{}筹码",
+                        "每张{C:joy_trap}对手{}卡牌给予{X:chips,C:white}X#1#{}筹码",
                     },
                     {
                         "若{C:joy_trap}对手{}区域中的{C:joy_normal}“古遗物“{}",
@@ -359,7 +359,7 @@ opp_joy_artifact_chak = {
                     "{C:joy_normal}“古遗物”{}是曾由过往时代的英雄们所使用过的古代遗物。它们栖身于隐匿于群山之后的{C:attention}“宝物库”{}之中。借助能量来源与自身的记忆，它们能够以昔日持有者的姿态显现。然而，似乎有许多记忆都已缺失，即便不知缘由，它们也能合为一体，化作单一的{C:joy_normal}“古遗物”{}，其中之一便是凭借{C:joy_effect}“微怒剑”{}与{C:joy_effect}“巨怒剑”{}之力创造出的斩忆之剑，{C:joy_xyz}“恒常剑”{}。",
                 },
                 gameplay = {
-                    "{C:joy_normal}“古遗物”{}会在{C:joy_trap}对手{}场上提供一些有益的能力，因此尽管获取它们并将其送去对手场上，无需顾虑。",
+                    "{C:joy_normal}“古遗物”{}会在{C:joy_trap}对手{}场上给予一些有益的能力，因此尽管获取它们并将其送去对手场上，无需顾虑。",
                     "{C:red}提示{}: 你也可以利用它们来清除被{C:joy_trap}对手{}偷走的烦人{C:attention}盲注{}！"
                 }
             }

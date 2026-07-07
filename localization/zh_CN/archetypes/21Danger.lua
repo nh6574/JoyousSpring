@@ -43,8 +43,8 @@ return {
                 name = "{C:joy_effect}未界域的卓柏卡牌布拉",
                 text = {
                     {
-                        "回合结束时获得{C:money}+$#1#{}金钱",
-                        "选择{C:attention}盲注{}时提升{C:money}#2#{}金钱"
+                        "回合结束时获得{C:money}$#1#{}",
+                        "选择{C:attention}盲注{}时提升{C:money}#2#{}"
                     },
                     {
                         "选择{C:attention}盲注{}时销毁1张随机{C:attention}卡牌{}",
@@ -171,7 +171,7 @@ return {
                 text = {
                     {
                         "选择{C:attention}盲注{}时销毁1张随机{C:attention}卡牌{}",
-                        "并获得{C:money}+$#1#{}金钱"
+                        "并获得{C:money}$#1#{}"
                     },
                     {
                         "{C:joy_normal}“未界域”{}的{C:attention}复活{}和生成效果",

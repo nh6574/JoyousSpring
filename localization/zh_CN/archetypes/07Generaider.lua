@@ -93,7 +93,7 @@ return {
                         "每回合可解放{C:attention}#1#{}张其他{C:joy_normal}“王战”{}",
                         "和/或{C:joy_normal}机械族{}卡牌",
                         "使所有{C:joy_normal}“王战”{}和{C:joy_normal}机械族{}",
-                        "提供{X:mult,C:white}X#2#{}倍率",
+                        "给予{X:mult,C:white}X#2#{}倍率",
                     },
                 },
             },
@@ -121,7 +121,7 @@ return {
                 name = "{C:joy_xyz}永界王战 欧姆刚德王",
                 text = {
                     {
-                        "每个{C:joy_xyz}超量素材{}提供{C:mult}+#1#{}倍率",
+                        "每个{C:joy_xyz}超量素材{}给予{C:mult}+#1#{}倍率",
                         "{C:inactive}(当前{C:mult}+#2#{}{C:inactive}倍率){}",
                     },
                     {
@@ -155,7 +155,7 @@ return {
                 text = {
                     {
                         "每张{C:joy_normal}“王战”{}根据持有期间",
-                        "解放的牌数提供{C:mult}+#1#{}倍率",
+                        "解放的牌数给予{C:mult}+#1#{}倍率",
                         "{C:inactive}(当前{C:mult}+#2#{}{C:inactive}倍率)",
                     },
                     {

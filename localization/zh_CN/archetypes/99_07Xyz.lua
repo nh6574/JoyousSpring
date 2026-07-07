@@ -23,7 +23,7 @@ return {
                     {
                         "{C:joy_xyz}去除{}{C:attention}#1#{}个素材：本回合每张计分牌",
                         "计分后变为{C:attention}红蜡封{}{C:dark_edition}多彩{}{C:attention}玻璃{}牌",
-                        "但减少{C:money}金钱{}{C:red}#2#%{}",
+                        "但减少{C:money}资金{}{C:red}#2#%{}",
                     },
                 },
                 joy_summon_conditions = {
@@ -103,7 +103,7 @@ return {
                     {
                         "{C:joy_xyz}取除{}{C:attention}#1#{}：",
                         "禁用当前激活的{C:attention}盲注{}效果，",
-                        "但在商店开始时将金钱设为{C:money}$0{}"
+                        "但在商店开始时将资金设为{C:money}$0{}"
                     }
                 },
                 joy_summon_conditions = {
@@ -115,7 +115,7 @@ return {
                 name = "{C:joy_xyz}扫兴书呆魔术师",
                 text = {
                     {
-                        "每有1个{C:joy_xyz}超量{}{C:attention}素材{}额外提供{X:mult,C:white}X#1#{}倍率",
+                        "每有1个{C:joy_xyz}超量{}{C:attention}素材{}额外给予{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}（当前{X:mult,C:white}X#2#{}{C:inactive}倍率）",
                     },
                     {
@@ -136,7 +136,7 @@ return {
                 name = "{C:joy_xyz}炼金魔术师",
                 text = {
                     {
-                        "本回合每张被{C:attention}解放{}的{C:tarot}塔罗牌{}额外提供{X:mult,C:white}X#1#{}倍率",
+                        "本回合每张被{C:attention}解放{}的{C:tarot}塔罗牌{}额外给予{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}（当前{X:mult,C:white}X#2#{}{C:inactive}倍率）"
                     },
                     {
@@ -158,7 +158,7 @@ return {
                 text = {
                     {
                         "{C:joy_xyz}取除{}{C:attention}#1#{}：",
-                        "每有1张{C:joy_normal}幻神兽族{}提供{C:attention}1{}次免费{C:green}重掷{}"
+                        "每有1张{C:joy_normal}幻神兽族{}给予{C:attention}1{}次免费{C:green}重掷{}"
                     },
                     {
                         "若使用{C:joy_normal}幻神兽族{}{C:attention}召唤{}，",

@@ -13,7 +13,7 @@ return {
                 name = "{C:joy_effect}黑魔术少女",
                 text = {
                     {
-                        "{C:attention}墓地{}中每张{C:joy_normal}魔法师族{}提供{C:mult}+#1#{}倍率",
+                        "{C:attention}墓地{}中每张{C:joy_normal}魔法师族{}给予{C:mult}+#1#{}倍率",
                         "拥有的每张{C:joy_normal}“黑魔术师”{}使此倍率增加{C:mult}+#2#{}",
                         "{C:inactive}（当前{C:mult}+#3#{}{C:inactive}倍率）"
                     },
@@ -27,7 +27,7 @@ return {
                 name = "{C:joy_effect}幻想之见习魔导师",
                 text = {
                     {
-                        "每张{C:joy_normal}魔法师族{}提供{C:mult}+#1#{}倍率"
+                        "每张{C:joy_normal}魔法师族{}给予{C:mult}+#1#{}倍率"
                     },
                     {
                         "选择{C:attention}首领盲注{}时，你所拥有的",
@@ -45,7 +45,7 @@ return {
                 name = "{C:joy_effect}年代记魔术师",
                 text = {
                     {
-                        "每张{C:joy_normal}通常{}{C:attention}卡牌{}提供{X:mult,C:white}X#1#{}倍率",
+                        "每张{C:joy_normal}通常{}{C:attention}卡牌{}给予{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}（衍生物除外）{}"
                     },
                     {
@@ -68,7 +68,7 @@ return {
                 text = {
                     {
                         "{C:attention}墓地{}中每张{C:joy_normal}通常{}{C:attention}卡牌{}",
-                        "提供{C:chips}+#1#{}筹码",
+                        "给予{C:chips}+#1#{}筹码",
                         "{C:inactive}（当前{C:chips}+#2#{}{C:inactive}筹码）"
                     },
                     {
@@ -147,7 +147,7 @@ return {
                     {
                         "每回合一次，你可以{C:attention}解放1{}张{C:tarot}塔罗牌{}，",
                         "以生成{C:attention}1{}张{C:joy_normal}通常{}{C:attention}卡牌{}",
-                        "并获得{C:money}+$#1#{}金钱"
+                        "并获得{C:money}$#1#{}"
                     },
                     {
                         "若你拥有{C:joy_normal}“黑魔术师”{}，你可以出售此卡，",
@@ -165,7 +165,7 @@ return {
                     {
                         "每回合一次，你可以{C:attention}解放1{}张{C:joy_normal}魔法师族{}，",
                         "以生成{C:attention}1{}张{C:joy_normal}通常{}{C:attention}卡牌{}",
-                        "并获得{C:money}+$#1#{}金钱"
+                        "并获得{C:money}$#1#{}"
                     },
                     {
                         "若你拥有{C:joy_normal}“黑魔术师”{}，你可以出售此卡，",
@@ -182,7 +182,7 @@ return {
                 text = {
                     {
                         "每{C:attention}#2#{}张{C:joy_normal}通常{}{C:attention}卡牌{}",
-                        "每回合提供{C:attention}+#1#{}手牌上限",
+                        "每回合给予{C:attention}+#1#{}手牌上限",
                         "{C:inactive}（衍生物除外）（当前{C:attention}+#3#{C:inactive}）"
                     },
                     {
@@ -251,7 +251,7 @@ return {
                 name = "{C:joy_effect}守护神官 马哈德",
                 text = {
                     {
-                        "每张{C:joy_normal}“黑魔术师”{}提供{X:mult,C:white}X#1#{}倍率"
+                        "每张{C:joy_normal}“黑魔术师”{}给予{X:mult,C:white}X#1#{}倍率"
                     },
                     {
                         "底注结束时生成{C:attention}1{}张{C:joy_normal}“黑魔术师”{}"
@@ -266,7 +266,7 @@ return {
                 name = "{C:joy_effect}守护神官 玛娜",
                 text = {
                     {
-                        "每张{C:joy_effect}“黑魔术少女”{}提供{X:chips,C:white}X#1#{}筹码"
+                        "每张{C:joy_effect}“黑魔术少女”{}给予{X:chips,C:white}X#1#{}筹码"
                     },
                     {
                         "在{C:attention}#2#{}张{C:tarot}塔罗牌{}被{C:attention}解放{}后",
@@ -296,12 +296,12 @@ return {
                         "使用此卡作为{C:attention}素材{}召唤的{C:joy_fusion}融合{}",
                         "获得以下效果：",
                         "{s:0.9}其召唤所用每张{C:joy_normal}通常{}{s:0.9,C:attention}卡牌{}",
-                        "{s:0.9}提供{C:mult}+#1#{s:0.9}倍率",
+                        "{s:0.9}给予{C:mult}+#1#{s:0.9}倍率",
                     },
                 },
                 joy_transfer_ability = {
                     "其召唤所用每张{C:joy_normal}通常{}{C:attention}卡牌{}",
-                    "提供{C:mult}+#1#{}倍率",
+                    "给予{C:mult}+#1#{}倍率",
                     "{C:inactive}（当前{C:mult}+#2#{}{C:inactive}倍率）"
                 }
             },
@@ -394,7 +394,7 @@ return {
                     {
                         "本局游戏中每张被{C:attention}除外{}的",
                         "{C:joy_normal}通常{}{C:attention}卡牌{}",
-                        "提供{C:chips}+#1#{}筹码",
+                        "给予{C:chips}+#1#{}筹码",
                         "{C:inactive}（当前{C:chips}+#2#{}{C:inactive}筹码）"
                     },
                     {
@@ -417,12 +417,12 @@ return {
                     {
                         "本局游戏中每张被{C:attention}解放{}的",
                         "{C:tarot}塔罗牌{}、{C:joy_spell}场地魔法{}或{C:joy_normal}通常{}{C:attention}卡牌{}",
-                        "提供{X:mult,C:white}X#1#{}倍率",
+                        "给予{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}（当前{X:mult,C:white}X#2#{}{C:inactive}倍率）"
                     },
                     {
                         "底注结束时销毁{C:attention}1{}张{C:joy_trap}对手{}卡牌",
-                        "并获得{C:money}+$#3#{}金钱"
+                        "并获得{C:money}$#3#{}"
                     }
                 },
                 joy_summon_conditions = {
@@ -438,7 +438,7 @@ return {
                 text = {
                     {
                         "本局游戏中每张被{C:attention}解放{}的",
-                        "{C:tarot}塔罗牌{}提供{C:chips}+#1#{}筹码",
+                        "{C:tarot}塔罗牌{}给予{C:chips}+#1#{}筹码",
                         "{C:inactive}（当前{C:chips}+#2#{}{C:inactive}筹码）"
                     },
                     {
@@ -457,7 +457,7 @@ return {
                 text = {
                     {
                         "每张{C:joy_trap}对手{}卡牌",
-                        "提供{X:chips,C:white}X#1#{}筹码",
+                        "给予{X:chips,C:white}X#1#{}筹码",
                         "{C:inactive}（当前{X:chips,C:white}X#2#{}{C:inactive}筹码）"
                     },
                     {
@@ -476,7 +476,7 @@ return {
                 text = {
                     {
                         "{C:attention}墓地{}中每张{C:joy_normal}魔法师族{}",
-                        "提供{C:mult}+#1#{}倍率",
+                        "给予{C:mult}+#1#{}倍率",
                         "{C:inactive}（当前{C:mult}+#2#{}{C:inactive}倍率）"
                     },
                     {
@@ -494,7 +494,7 @@ return {
                 name = "{C:joy_fusion}毁灭之黑魔术师",
                 text = {
                     {
-                        "每张{C:joy_normal}通常{}{C:attention}卡牌{}提供{X:chips,C:white}X#1#{}筹码",
+                        "每张{C:joy_normal}通常{}{C:attention}卡牌{}给予{X:chips,C:white}X#1#{}筹码",
                         "{C:inactive}（衍生物除外）{}"
                     },
                     {
@@ -515,7 +515,7 @@ return {
                 text = {
                     {
                         "用于其{C:attention}召唤{}的每张{C:joy_normal}通常{}{C:attention}卡牌{}",
-                        "提供{X:mult,C:white}X#1#{}倍率",
+                        "给予{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}（当前{X:mult,C:white}X#2#{}{C:inactive}倍率）"
                     },
                     {
@@ -536,7 +536,7 @@ return {
                 text = {
                     {
                         "用于其{C:attention}召唤{}的每张{C:joy_normal}通常{}{C:attention}卡牌{}",
-                        "提供{X:mult,C:white}X#1#{}倍率",
+                        "给予{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}（当前{X:mult,C:white}X#2#{}{C:inactive}倍率）"
                     },
                     {
@@ -547,7 +547,7 @@ return {
                     {
                         "若用于其{C:attention}召唤{}的素材中包含",
                         "{C:joy_normal}“真红眼黑龙”{}，",
-                        "则回合结束时获得{C:money}+#3#{}金钱"
+                        "则回合结束时获得{C:money}$#3#{}"
                     },
                 },
                 joy_summon_conditions = {
@@ -579,7 +579,7 @@ return {
                 text = {
                     {
                         "每个{C:joy_xyz}超量{}{C:attention}素材{}",
-                        "提供{C:mult}+#1#{}倍率",
+                        "给予{C:mult}+#1#{}倍率",
                         "{C:inactive}（当前{}{C:mult}+#2#{}{C:inactive}倍率）{}",
                     },
                     {
@@ -601,7 +601,7 @@ return {
                 text = {
                     {
                         "每个{C:joy_xyz}超量{}{C:attention}素材{}",
-                        "提供{C:chips}+#1#{}筹码",
+                        "给予{C:chips}+#1#{}筹码",
                         "{C:inactive}（当前{}{C:chips}+#2#{}{C:inactive}筹码）{}",
                     },
                     {

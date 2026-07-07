@@ -24,7 +24,7 @@ return {
                         "以此方式召唤的{C:joy_link}连接{}获得以下效果：",
                         "{s:0.9}若打出的手牌包含",
                         "{s:0.9,C:attention}[对应被解放星球牌的牌型]{}，",
-                        "{s:0.9}则提供{X:mult,C:white}X#1#{s:0.9}倍率",
+                        "{s:0.9}则给予{X:mult,C:white}X#1#{s:0.9}倍率",
                         "{s:0.9} ",
                         "{s:0.9}回合结束时{C:attention}变形{}为{s:0.9,C:joy_effect}“闪刀姬-零衣”{}",
                         " ",
@@ -35,7 +35,7 @@ return {
                 joy_transfer_ability = {
                     "若打出的手牌包含",
                     "{C:attention}#2#{}，",
-                    "则提供{X:mult,C:white}X#1#{}倍率",
+                    "则给予{X:mult,C:white}X#1#{}倍率",
                     " ",
                     "回合结束时{C:attention}变形{}为{C:joy_effect}“闪刀姬-零衣”{}",
                     " ",
@@ -59,14 +59,14 @@ return {
                         "使用此卡作为{C:attention}素材{}召唤的{C:joy_link}连接{}",
                         "获得以下效果：",
                         "{s:0.9}本局游戏中每张被{C:attention}解放{}的{C:planet}星球牌{}",
-                        "{s:0.9}提供{C:mult}+#1#{s:0.9}倍率",
+                        "{s:0.9}给予{C:mult}+#1#{s:0.9}倍率",
                         "{s:0.9} ",
                         "{s:0.9}回合结束时{C:attention}复活1{}张{s:0.9,C:joy_effect}“闪刀姬-零衣”{}"
                     },
                 },
                 joy_transfer_ability = {
                     "本局游戏中每张被{C:attention}解放{}的{C:planet}星球牌{}",
-                    "提供{C:mult}+#1#{}倍率",
+                    "给予{C:mult}+#1#{}倍率",
                     "{C:inactive}（当前{C:mult}+#2#{}{C:inactive}倍率）",
                     " ",
                     "回合结束时{C:attention}复活1{}张{C:joy_effect}“闪刀姬-零衣”{}"
@@ -81,7 +81,7 @@ return {
                     },
                     {
                         "本局游戏中每张被{C:attention}召唤{}的{C:joy_link}连接{}",
-                        "提供{X:mult,C:white}X#1#{}倍率",
+                        "给予{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}（当前{X:mult,C:white}X#2#{}{C:inactive}倍率）",
                     }
                 }
@@ -93,7 +93,7 @@ return {
                         "若打出的手牌包含所拥有的",
                         "{C:joy_normal}“闪刀姬”{}{C:joy_link}连接{}",
                         "所对应{C:planet}星球牌{}的牌型，",
-                        "则提供{X:mult,C:white}X#1#{}倍率"
+                        "则给予{X:mult,C:white}X#1#{}倍率"
                     },
                     {
                         "出售此卡以生成",
@@ -157,8 +157,7 @@ return {
                 name = "{C:joy_spell}闪刀空域-零区",
                 text = {
                     {
-                        "{C:planet}星球牌{}可能出现",
-                        "多次"
+                        "{C:planet}星球牌{}可能出现多次"
                     },
                     {
                         "打出一手牌且你拥有{C:joy_link}连接{}时，",
@@ -176,7 +175,7 @@ return {
                 text = {
                     {
                         "本回合每张被{C:attention}解放{}的{C:planet}星球牌{}",
-                        "提供{C:chips}+#1#{}筹码",
+                        "给予{C:chips}+#1#{}筹码",
                         "{C:inactive}（当前{C:chips}+#2#{}{C:inactive}筹码）",
                     },
                     {
@@ -205,7 +204,7 @@ return {
                 text = {
                     {
                         "本回合每张被{C:attention}解放{}的{C:planet}星球牌{}",
-                        "提供{C:mult}+#1#{}倍率",
+                        "给予{C:mult}+#1#{}倍率",
                         "{C:inactive}（当前{C:mult}+#2#{}{C:inactive}倍率）",
                     },
                     {
@@ -233,7 +232,7 @@ return {
                 text = {
                     {
                         "回合结束时，本回合每张被{C:attention}解放{}的{C:planet}星球牌{}",
-                        "提供{C:money}+$#1#{}金钱",
+                        "给予{C:money}$#1#{}",
                         "{C:inactive}（当前{C:money}+$#2#{}{C:inactive}）",
                     },
                     {
@@ -370,8 +369,7 @@ j_joy_striker_azaleatemp = {
                 text = {
                     {
                         "此卡{C:attention}上场{}时，本局游戏中每张",
-                        "使用的{C:tarot}女祭司{}使其售价增加",
-                        "{C:money}+$#1#{}金钱",
+                        "使用的{C:tarot}女祭司{}使其售价增加{C:money}$#1#{}",
                         "{C:inactive}（当前{C:money}+$#2#{}{C:inactive}）"
                     },
                     {
@@ -427,7 +425,7 @@ j_joy_striker_azaleatemp = {
                 text = {
                     {
                         "每种牌型等级超过{C:attention}1{}的部分",
-                        "提供{X:mult,C:white}X#1#{}倍率",
+                        "给予{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}（当前{X:mult,C:white}X#2#{}{C:inactive}倍率）"
                     },
                     {
@@ -454,7 +452,7 @@ j_joy_striker_azaleatemp = {
                 text = {
                     {
                         "{C:attention}墓地{}中每张{C:joy_normal}“闪刀姬”{}",
-                        "提供{C:mult}+#1#{}倍率",
+                        "给予{C:mult}+#1#{}倍率",
                         "{C:inactive}（当前{C:mult}+#2#{}{C:inactive}倍率）"
                     },
                     {
@@ -488,7 +486,7 @@ j_joy_striker_azaleatemp = {
                     {
                         "若打出的手牌包含{C:attention}五条{}、",
                         "{C:attention}葫芦{}或{C:attention}同花五条{}，",
-                        "则提供{X:mult,C:white}X#1#{}倍率"
+                        "则给予{X:mult,C:white}X#1#{}倍率"
                     },
                     {
                         "此卡{C:attention}上场{}时，生成{C:attention}1{}张随机{C:planet}星球牌{}",

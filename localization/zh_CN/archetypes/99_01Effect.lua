@@ -148,7 +148,7 @@ return {
                 name = "{C:joy_effect}沙貘",
                 text = {
                     {
-                        "回合结束时给予 {C:money}+$#1#{}"
+                        "回合结束时给予 {C:money}$#1#{}"
                     },
                     {
                         "{C:joy_effect}反转{}：{C:attention}翻开 #2#{}张随机{C:attention}卡牌{}"
@@ -578,7 +578,7 @@ return {
                 text = {
                     {
                         "每张被{C:attention}召唤{}的卡牌",
-                        "提供{X:mult,C:white}X#1#{}倍率",
+                        "给予{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}（当前{X:mult,C:white}X#2#{}{C:inactive}倍率）"
                     }
                 }
@@ -599,7 +599,7 @@ return {
                 text = {
                     {
                         "本回合每张被{C:attention}除外{}的卡牌",
-                        "提供{X:mult,C:white}X#1#{}倍率",
+                        "给予{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}（当前{X:mult,C:white}X#2#{}{C:inactive}倍率）"
                     }
                 }
@@ -621,7 +621,7 @@ return {
                 text = {
                     {
                         "本回合每张被{C:attention}解放{}的{C:attention}卡牌{}",
-                        "提供{X:mult,C:white}X#1#{}倍率",
+                        "给予{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}（当前{X:mult,C:white}X#2#{}{C:inactive}倍率）"
                     },
                     {
@@ -634,7 +634,7 @@ return {
                 name = "{C:joy_effect}原始生命态 尼比鲁",
                 text = {
                     {
-                        "每张{C:joy_normal}通常{}{C:attention}卡牌{}提供{X:mult,C:white}X#1#{}倍率"
+                        "每张{C:joy_normal}通常{}{C:attention}卡牌{}给予{X:mult,C:white}X#1#{}倍率"
                     },
                     {
                         "当一张{C:joy_spell}额外卡组{}{C:attention}卡牌{}",
@@ -666,7 +666,7 @@ return {
                 text = {
                     {
                         "每张{C:joy_normal}昆虫族{}使{C:joy_trap}对手{}卡牌",
-                        "提供{X:mult,C:white}X#1#{}倍率"
+                        "给予{X:mult,C:white}X#1#{}倍率"
                     }
                 }
             },
@@ -684,7 +684,7 @@ return {
                 text = {
                     {
                         "每张{C:joy_normal}昆虫族{}",
-                        "提供{X:mult,C:white}X#1#{}倍率"
+                        "给予{X:mult,C:white}X#1#{}倍率"
                     }
                 }
             },
@@ -730,7 +730,7 @@ return {
                     },
                     {
                         "被{C:attention}反转{}为里侧表示时",
-                        "提供{C:money}+$#1#{}金钱"
+                        "给予{C:money}$#1#{}"
                     }
                 }
             },
@@ -784,7 +784,7 @@ return {
                 text = {
                     {
                         "此卡从{C:attention}除外区{}返回时，",
-                        "提供{C:attention}1{}次免费{C:green}重掷{}",
+                        "给予{C:attention}1{}次免费{C:green}重掷{}",
                     }
                 }
             },
@@ -793,7 +793,7 @@ return {
                 text = {
                     {
                         "商店开始时，每张拥有的{C:joy_normal}幻神兽族{}",
-                        "提供{C:money}+$#1#{}金钱",
+                        "给予{C:money}$#1#{}",
                         "{C:inactive}（当前{C:money}+$#2#{}{C:inactive}）"
                     },
                     {

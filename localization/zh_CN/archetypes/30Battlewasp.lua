@@ -5,7 +5,7 @@ return {
                 name = "{C:joy_effect}蜂军-必中之大头针蜂",
                 text = {
                     {
-                        "每张{C:joy_normal}“蜂军”{}提供{C:mult}+#1#{}倍率",
+                        "每张{C:joy_normal}“蜂军”{}给予{C:mult}+#1#{}倍率",
                         "{C:inactive}（当前{C:mult}+#2#{}{C:inactive}倍率）"
                     },
                     {
@@ -137,16 +137,16 @@ return {
                 text = {
                     {
                         "{C:joy_normal}昆虫族{}{C:joy_spell}特殊{}{C:attention}卡牌{}",
-                        "提供{X:mult,C:white}X#1#{}倍率"
+                        "给予{X:mult,C:white}X#1#{}倍率"
                     },
                     {
                         "使用此卡作为{C:attention}素材{}召唤的{C:joy_normal}昆虫族{}",
                         "获得以下效果：",
-                        "{s:0.9}每张{C:joy_normal}昆虫族{}提供{C:mult}+#1#{s:0.9}倍率"
+                        "{s:0.9}每张{C:joy_normal}昆虫族{}给予{C:mult}+#1#{s:0.9}倍率"
                     },
                 },
                 joy_transfer_ability = {
-                    "每张{C:joy_normal}昆虫族{}提供{C:mult}+#1#{}倍率",
+                    "每张{C:joy_normal}昆虫族{}给予{C:mult}+#1#{}倍率",
                     "{C:inactive}（当前{C:mult}+#2#{}{C:inactive}倍率）"
                 },
                 joy_summon_conditions = {
@@ -161,18 +161,18 @@ return {
                 text = {
                     {
                         "用作{C:joy_normal}昆虫族{}的{C:attention}素材{}时，",
-                        "每张{C:joy_normal}昆虫族{}提供{C:money}+$#1#{}金钱"
+                        "每张{C:joy_normal}昆虫族{}给予{C:money}$#1#{}"
                     },
                     {
                         "使用此卡作为{C:attention}素材{}召唤的{C:joy_normal}昆虫族{}",
                         "获得以下效果：",
                         "{s:0.9}底注结束时，{s:0.9,C:attention}墓地{}中每张{s:0.9,C:joy_normal}昆虫族{}",
-                        "{s:0.9}提供{C:money}+$#2#{s:0.9}金钱"
+                        "{s:0.9}给予{C:money}$#2#{s:0.9}"
                     },
                 },
                 joy_transfer_ability = {
                     "底注结束时，{C:attention}墓地{}中每张{C:joy_normal}昆虫族{}",
-                    "提供{C:money}+$#1#{}金钱",
+                    "给予{C:money}$#1#{}",
                     "{C:inactive}（当前{C:money}+$#2#{}{C:inactive}）"
                 },
                 joy_summon_conditions = {
@@ -188,7 +188,7 @@ return {
                     {
                         "{C:mult}+#1#{}倍率",
                         "若使用{C:joy_synchro}同调{}作为{C:attention}素材{}召唤，",
-                        "则额外提供{V:1}+#2#{V:2}倍率"
+                        "则额外给予{V:1}+#2#{V:2}倍率"
                     },
                     {
                         "使用此卡作为{C:attention}素材{}召唤的{C:joy_normal}昆虫族{}",
@@ -211,7 +211,7 @@ return {
                 text = {
                     {
                         "本局游戏中每张被{C:attention}除外{}的{C:joy_normal}昆虫族{}",
-                        "提供{C:mult}+#1#{}倍率",
+                        "给予{C:mult}+#1#{}倍率",
                         "{C:inactive}（当前{C:mult}+#2#{}{C:inactive}倍率）",
                         "使用此卡作为{C:attention}素材{}召唤的{C:joy_normal}昆虫族{}",
                         "获得此效果"
@@ -223,7 +223,7 @@ return {
                 },
                 joy_transfer_ability = {
                     "本局游戏中每张被{C:attention}除外{}的{C:joy_normal}昆虫族{}",
-                    "提供{C:mult}+#1#{}倍率",
+                    "给予{C:mult}+#1#{}倍率",
                     "{C:inactive}（当前{C:mult}+#2#{}{C:inactive}倍率）",
                 },
                 joy_summon_conditions = {

@@ -155,8 +155,10 @@ return {
                 },
                 text = {
                     {
-                        "选中{C:attention}盲注{}时，每张{C:joy_spell}额外卡组{}卡牌",
-                        "获得{C:chips}+#1#{}筹码，每空位获得{C:mult}+#2#{}倍率",
+                        "选中{C:attention}盲注{}时",
+                        "每张{C:joy_spell}额外卡组{}卡牌",
+                        "使此卡获得{C:chips}+#1#{}筹码",
+                        "每个空位使此卡获得{C:mult}+#2#{}倍率",
                         "{C:inactive}(当前 {C:chips}+#3#{}{C:inactive}筹码和{C:mult}+#4#{}{C:inactive}倍率)",
                     },
                 },

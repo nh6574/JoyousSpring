@@ -54,7 +54,7 @@ return {
                         "以{C:attention}转换{}此牌为{C:joy_effect}“召唤师 阿莱斯特”",
                     },
                     {
-                        "本局每{C:attention}解放{}1张卡牌提供{X:mult,C:white}X#2#{}倍率",
+                        "本局每{C:attention}解放{}1张卡牌给予{X:mult,C:white}X#2#{}倍率",
                         "{C:inactive}(当前{X:mult,C:white}X#3#{}{C:inactive}倍率)",
                     },
                     {
@@ -66,7 +66,7 @@ return {
                     "{s:0.8,C:inactive}(解放非怪兽牌时随机触发)",
                 },
                 joy_transfer_ability = {
-                    "本局每{C:attention}解放{}1张卡牌提供{X:mult,C:white}X#1#{}倍率",
+                    "本局每{C:attention}解放{}1张卡牌给予{X:mult,C:white}X#1#{}倍率",
                     "{C:inactive}(当前{X:mult,C:white}X#2#{}{C:inactive}倍率)",
                     " ",
                     "降低{C:joy_effect}怪兽包{}价格{C:money}$#3#"
@@ -80,7 +80,7 @@ return {
                         "以{C:attention}转换{}此牌为{C:joy_effect}“召唤师 阿莱斯特”",
                     },
                     {
-                        "本局每{C:attention}反转{}1张卡牌提供{X:mult,C:white}X#2#{}倍率",
+                        "本局每{C:attention}反转{}1张卡牌给予{X:mult,C:white}X#2#{}倍率",
                         "{C:inactive}(当前{X:mult,C:white}X#3#{}{C:inactive}倍率)",
                     },
                     {
@@ -93,7 +93,7 @@ return {
                     "{s:0.8,C:inactive}(解放非怪兽牌时随机触发)",
                 },
                 joy_transfer_ability = {
-                    "本局每{C:attention}反转{}1张卡牌提供{X:mult,C:white}X#1#{}倍率",
+                    "本局每{C:attention}反转{}1张卡牌给予{X:mult,C:white}X#1#{}倍率",
                     "{C:inactive}(当前{X:mult,C:white}X#2#{}{C:inactive}倍率)",
                     " ",
                     "选择{C:attention}盲注{}时{C:attention}反转 #3#{}张其他随机{C:attention}卡牌{}为表侧",
@@ -127,7 +127,7 @@ return {
                         "以{C:attention}转换{}此牌为{C:joy_effect}“召唤师 阿莱斯特”",
                     },
                     {
-                        "每张{C:joy_fusion}融合{}提供{X:mult,C:white}X#2#{}倍率",
+                        "每张{C:joy_fusion}融合{}给予{X:mult,C:white}X#2#{}倍率",
                     },
                 },
                 joy_summon_conditions = {
@@ -135,7 +135,7 @@ return {
                     "{s:0.8,C:inactive}(解放非怪兽牌时随机触发)",
                 },
                 joy_transfer_ability = {
-                    "每张{C:joy_fusion}融合{}提供{X:mult,C:white}X#1#{}倍率",
+                    "每张{C:joy_fusion}融合{}给予{X:mult,C:white}X#1#{}倍率",
                 }
             },
             j_joy_invoked_mage = {
@@ -186,7 +186,7 @@ return {
                         "以{C:attention}转换{}此牌为{C:joy_effect}“召唤师 阿莱斯特”",
                     },
                     {
-                        "墓地每张{C:joy_fusion}融合{}提供{X:mult,C:white}X#2#{}倍率",
+                        "墓地每张{C:joy_fusion}融合{}给予{X:mult,C:white}X#2#{}倍率",
                         "{C:inactive}(当前{X:mult,C:white}X#3#{}{C:inactive}倍率)",
                     },
                     {
@@ -198,7 +198,7 @@ return {
                     "{s:0.8,C:inactive}(优先于其他条件)",
                 },
                 joy_transfer_ability = {
-                    "墓地每张{C:joy_fusion}融合{}提供{X:mult,C:white}X#1#{}倍率",
+                    "墓地每张{C:joy_fusion}融合{}给予{X:mult,C:white}X#1#{}倍率",
                     "{C:inactive}(当前{X:mult,C:white}X#2#{}{C:inactive}倍率)",
                     " ",
                     "选择{C:attention}盲注{}时将{C:attention}#3#{}张非{C:joy_normal}“召唤兽”{}{C:joy_fusion}融合{}送入{C:attention}墓地",
@@ -232,7 +232,7 @@ return {
                         "可{C:attention}解放 #1#{}张{C:joy_fusion}融合{}以生成{C:attention}#2#{}张{C:joy_effect}“召唤师 阿莱斯特”",
                     },
                     {
-                        "本局每{C:joy_fusion}融合{}召唤提供{X:mult,C:white}X#3#{}倍率",
+                        "本局每{C:joy_fusion}融合{}召唤给予{X:mult,C:white}X#3#{}倍率",
                         "{C:inactive}(当前{X:mult,C:white}X#4#{}{C:inactive}倍率)",
                     },
                     {

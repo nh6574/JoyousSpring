@@ -85,7 +85,7 @@ return {
                 text = {
                     {
                         "本局游戏中每张被销毁的游戏牌",
-                        "提供{C:mult}+#1#{}倍率",
+                        "给予{C:mult}+#1#{}倍率",
                         "{C:inactive}（当前{C:mult}+#2#{}{C:inactive}倍率）",
                         "使用此卡作为{C:attention}素材{}召唤的{C:joy_fusion}融合{}获得此效果",
                     },
@@ -97,7 +97,7 @@ return {
                 },
                 joy_transfer_ability = {
                     "本局游戏中每张被销毁的游戏牌",
-                    "提供{C:mult}+#1#{}倍率",
+                    "给予{C:mult}+#1#{}倍率",
                     "{C:inactive}（当前{C:mult}+#2#{}{C:inactive}倍率）",
                 }
             },
@@ -106,7 +106,7 @@ return {
                 text = {
                     {
                         "本局游戏中每张被销毁的游戏牌",
-                        "提供{C:chips}+#1#{}筹码",
+                        "给予{C:chips}+#1#{}筹码",
                         "{C:inactive}（当前{C:chips}+#2#{}{C:inactive}筹码）",
                         "使用此卡作为{C:attention}素材{}召唤的{C:joy_fusion}融合{}获得此效果",
                     },
@@ -118,7 +118,7 @@ return {
                 },
                 joy_transfer_ability = {
                     "本局游戏中每张被销毁的游戏牌",
-                    "提供{C:chips}+#1#{}筹码",
+                    "给予{C:chips}+#1#{}筹码",
                     "{C:inactive}（当前{C:chips}+#2#{}{C:inactive}筹码）",
                 }
             },
@@ -127,7 +127,7 @@ return {
                 text = {
                     {
                         "此卡{C:attention}上场{}时，本局游戏中每张被销毁的游戏牌",
-                        "提供{C:money}+$#1#{}金钱",
+                        "给予{C:money}$#1#{}",
                         "并向{C:joy_spell}额外卡组{}添加一张{C:joy_normal}“星辰”{}",
                         "{C:inactive}（必须有槽位）"
                     },
@@ -189,7 +189,7 @@ return {
                 joy_extra_effects = {
                     m_bonus = {
                         text_description = {
-                            "每张提供{C:chips}+#1#{}筹码"
+                            "每张给予{C:chips}+#1#{}筹码"
                         },
                         text = {
                             "{C:chips}+#1#{}筹码"
@@ -197,7 +197,7 @@ return {
                     },
                     m_mult = {
                         text_description = {
-                            "每张提供{C:mult}+#1#{}倍率"
+                            "每张给予{C:mult}+#1#{}倍率"
                         },
                         text = {
                             "{C:mult}+#1#{}倍率"
@@ -216,29 +216,29 @@ return {
                     },
                     m_glass = {
                         text_description = {
-                            "额外提供{X:mult,C:white}X#1#{}倍率",
+                            "额外给予{X:mult,C:white}X#1#{}倍率",
                             "且每张销毁一张随机打出的牌"
                         },
                         text = {
-                            "额外提供{X:mult,C:white}X#1#{}倍率",
+                            "额外给予{X:mult,C:white}X#1#{}倍率",
                             "并销毁{C:attention}#2#{}张随机打出的牌"
                         }
                     },
                     m_steel = {
                         text_description = {
-                            "额外提供{X:mult,C:white}X#1#{}倍率",
+                            "额外给予{X:mult,C:white}X#1#{}倍率",
                             "且每张使手牌中持有的计分牌",
                             "再次触发最多{C:attention}#2#{}次"
                         },
                         text = {
-                            "额外提供{X:mult,C:white}X#1#{}倍率",
+                            "额外给予{X:mult,C:white}X#1#{}倍率",
                             "并使手牌中持有的计分牌",
                             "再次触发最多{C:attention}#2#{}次"
                         }
                     },
                     m_stone = {
                         text_description = {
-                            "每张提供{C:chips}+#1#{}筹码"
+                            "每张给予{C:chips}+#1#{}筹码"
                         },
                         text = {
                             "{C:chips}+#1#{}筹码"
@@ -247,10 +247,10 @@ return {
                     m_gold = {
                         text_description = {
                             "打出一手牌时",
-                            "每张提供{C:money}+$#1#{}金钱"
+                            "每张给予{C:money}$#1#{}"
                         },
                         text = {
-                            "打出一手牌时提供{C:money}+$#1#{}金钱"
+                            "打出一手牌时给予{C:money}$#1#{}"
                         }
                     },
                     m_lucky = {
@@ -275,7 +275,7 @@ return {
                     },
                     e_foil = {
                         text_description = {
-                            "每张提供{C:chips}+#1#{}筹码"
+                            "每张给予{C:chips}+#1#{}筹码"
                         },
                         text = {
                             "{C:chips}+#1#{}筹码"
@@ -283,7 +283,7 @@ return {
                     },
                     e_holo = {
                         text_description = {
-                            "每张提供{C:mult}+#1#{}倍率"
+                            "每张给予{C:mult}+#1#{}倍率"
                         },
                         text = {
                             "{C:mult}+#1#{}倍率"
@@ -291,10 +291,10 @@ return {
                     },
                     e_polychrome = {
                         text_description = {
-                            "每张额外提供{X:mult,C:white}X#1#{}倍率"
+                            "每张额外给予{X:mult,C:white}X#1#{}倍率"
                         },
                         text = {
-                            "额外提供{X:mult,C:white}X#1#{}倍率",
+                            "额外给予{X:mult,C:white}X#1#{}倍率",
                         }
                     },
                     red_seal = {
@@ -319,10 +319,10 @@ blue_seal = {
                     gold_seal = {
                         text_description = {
                             "打出一手牌时",
-                            "每张提供{C:money}+$#1#{}金钱"
+                            "每张给予{C:money}$#1#{}"
                         },
                         text = {
-                            "打出一手牌时提供{C:money}+$#1#{}金钱"
+                            "打出一手牌时给予{C:money}$#1#{}"
                         }
                     },
                     purple_seal = {

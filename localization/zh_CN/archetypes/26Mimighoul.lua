@@ -45,7 +45,7 @@ return {
                 name = "{C:joy_effect}迷拟宝箱鬼·三头犬",
                 text = {
                     {
-                        "{C:joy_spell}场地魔法{}提供{X:mult,C:white}X#1#{}倍率"
+                        "{C:joy_spell}场地魔法{}给予{X:mult,C:white}X#1#{}倍率"
                     },
                     {
                         "回合结束时{C:attention}反转{}{C:inactive}（即使里侧表示）",
@@ -137,7 +137,7 @@ return {
                 text = {
                     {
                         "{C:joy_trap}对手{}区域中的每张卡牌",
-                        "提供{X:mult,C:white}X#1#{}倍率"
+                        "给予{X:mult,C:white}X#1#{}倍率"
                     },
                     {
                         "{C:joy_trap}对手{}区域槽位翻倍",
@@ -261,7 +261,7 @@ return {
                 name = "{C:joy_effect}迷拟宝箱鬼·三头犬",
                 text = {
                     {
-                        "{C:joy_spell}场地魔法{}提供{X:mult,C:white}X#1#{}倍率"
+                        "{C:joy_spell}场地魔法{}给予{X:mult,C:white}X#1#{}倍率"
                     },
                     {
                         "若你没有{C:joy_normal}“迷拟宝箱鬼”{}",

@@ -6,7 +6,7 @@ return {
                 text = {
                     {
                         "每张{C:attention}黄金牌{}计分时，根据拥有或墓地中的",
-                        "{C:joy_normal}不死族{}数量获得{C:money}+$#1#{}",
+                        "{C:joy_normal}不死族{}数量获得{C:money}$#1#{}",
                     },
                     {
                         "计分后牌变为{C:attention}黄金牌{}",
@@ -62,7 +62,7 @@ return {
                         "若拥有{C:joy_normal}“黄金卿”{}，手牌中的牌也生效",
                     },
                     {
-                        "{C:joy_effect}反转{}：回合结束时{C:attention}放逐 #2#{}张{C:joy_normal}不死族{}",
+                        "{C:joy_effect}反转{}：回合结束时{C:attention}除外 #2#{}张{C:joy_normal}不死族{}",
                         "直到选择{C:attention}盲注{}",
                     },
                 }

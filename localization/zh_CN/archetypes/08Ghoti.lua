@@ -100,7 +100,7 @@ return {
                 text = {
                     {
                         "本局游戏每张{C:attention}除外{}牌",
-                        "提供{C:chips}+#1#{}筹码",
+                        "给予{C:chips}+#1#{}筹码",
                         "{C:inactive}(当前{C:chips}+#2#{}{C:inactive}筹码){}",
                     },
                     {
@@ -121,7 +121,7 @@ return {
                 text = {
                     {
                         "本局游戏每张{C:attention}除外{}牌",
-                        "提供{C:mult}+#1#{}倍率",
+                        "给予{C:mult}+#1#{}倍率",
                         "{C:inactive}(当前{C:mult}+#2#{}{C:inactive}倍率){}",
                     },
                     {
@@ -141,7 +141,7 @@ return {
                 text = {
                     {
                         "本局游戏每张{C:attention}除外{}牌",
-                        "提供{X:mult,C:white}X#1#{}倍率",
+                        "给予{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}(当前{X:mult,C:white}X#2#{}{C:inactive}倍率){}",
                     },
                     {
@@ -179,7 +179,7 @@ return {
                 text = {
                     {
                         "每次有牌{C:attention}除外{}时",
-                        "获得{C:money}+$#1#{}金钱",
+                        "给予{C:money}$#1#{}",
                     },
                 }
             },

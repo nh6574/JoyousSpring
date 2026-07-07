@@ -20,7 +20,7 @@ return {
                         "可解放{}此牌和另1张卡牌",
                         "{C:attention}反转{}手牌{C:attention}#1#{}张随机牌{C:inactive}(并洗牌){}",
                         "使其计分时永久获得{C:chips}+#2#{}筹码",
-                        "若解放了{C:joy_normal}恶魔族{}则获得{C:money}+$#3#{}金钱",
+                        "若解放了{C:joy_normal}恶魔族{}则获得{C:money}$#3#{}",
                     },
                 }
             },
@@ -30,7 +30,7 @@ return {
                     {
                         "可解放{}此牌和另1张卡牌",
                         "{C:attention}反转{}手牌{C:attention}#1#{}张随机牌{C:inactive}(并洗牌){}",
-                        "使其计分时永久获得{C:money}+$#2#{}金钱",
+                        "使其计分时永久获得{C:money}$#2#{}",
                         "若解放了{C:joy_normal}恶魔族{}则生成{C:attention}#3#{}个随机标签",
                     },
                 }
@@ -74,7 +74,7 @@ return {
                 text = {
                     {
                         "持有期间每张{C:attention}反转{}的游戏牌",
-                        "提供{C:chips}+#1#{}筹码",
+                        "给予{C:chips}+#1#{}筹码",
                         "{C:inactive}(当前{C:chips}+#2#{}{C:inactive}筹码){}",
                     },
                     {
@@ -92,7 +92,7 @@ return {
                 text = {
                     {
                         "墓地每张{C:joy_normal}恶魔族{}",
-                        "提供{C:mult}+#1#{}倍率",
+                        "给予{C:mult}+#1#{}倍率",
                         "{C:inactive}(当前{C:mult}+#2#{}{C:inactive}倍率){}",
                     },
                     {
@@ -109,7 +109,7 @@ return {
                         "每张{C:joy_normal}恶魔族{}提高几率",
                     },
                     {
-                        "每张被{C:attention}反转{}的牌提供{C:mult}+#3#{}倍率",
+                        "每张被{C:attention}反转{}的牌给予{C:mult}+#3#{}倍率",
                         "{C:inactive}(当前{C:mult}+#4#{}{C:inactive}倍率){}",
                     },
                 }
@@ -119,7 +119,7 @@ return {
                 text = {
                     {
                         "每张被{C:attention}反转{}的牌",
-                        "提供{X:mult,C:white}X#1#{}倍率",
+                        "给予{X:mult,C:white}X#1#{}倍率",
                         "{C:inactive}(当前{X:mult,C:white}X#2#{}{C:inactive}倍率){}",
                     },
                     {
@@ -133,7 +133,7 @@ return {
                 name = "{C:joy_spell}白银之迷宫城",
                 text = {
                     {
-                        "每张{C:attention}反转的卡牌{}提供{C:money}+$#1#{}金钱",
+                        "每张{C:attention}反转的卡牌{}给予{C:money}$#1#{}",
                     },
                     {
                         "当游戏牌被{C:attention}反转{}时，有{C:green}#2#/#3#{}几率",
