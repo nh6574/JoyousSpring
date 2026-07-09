@@ -333,7 +333,7 @@ JoyousSpring.Joker({
             if JoyousSpring.used_as_material(card, context) and JoyousSpring.is_monster_type(context.joy_card, "Insect") then
                 for i = 1, 2 do
                     JoyousSpring.create_pseudorandom({ { monster_archetypes = { "Beetrooper" }, is_main_deck = true } },
-                        self.key, true)
+                        self.key)
                 end
             end
         end
