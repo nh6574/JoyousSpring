@@ -86,7 +86,10 @@ local striker_get_not_summoned_links = function(empty_is_none, as_list)
             not_summoned[key] = true
         end
     end
-    local ret = next(not_summoned) and not_summoned or empty_is_none and {} or copy_table(striker_links)
+    local ret = next(not_summoned) and not_summoned or empty_is_none and {} or
+        (function()
+            local r = {}; for _, key in ipairs(striker_links) do r[#r + 1] = key end; return r
+        end)()
     if as_list then
         local other_ret = {}
         for key, _ in pairs(ret) do
@@ -130,6 +133,19 @@ local striker_get_planet_for_link = function(key, key_append)
         local choice, _ = pseudorandom_element(planet, key_append)
         return choice
     end
+end
+
+local striker_add_to_extra = function(self, card)
+    G.E_MANAGER:add_event(Event({
+        func = function()
+            local choices = striker_get_not_summoned_links(nil, true)
+            local choice = pseudorandom_element(choices, self.key .. "_extra")
+            if choice then
+                JoyousSpring.add_to_extra_deck(choice)
+            end
+            return true
+        end
+    }))
 end
 
 -- Sky Striker Ace - Raye
@@ -818,11 +834,7 @@ JoyousSpring.Joker({
             if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                 SMODS.add_card { set = 'Planet', key_append = self.key .. "_planet" }
             end
-            local choices = striker_get_not_summoned_links(nil, true)
-            local choice = pseudorandom_element(choices, self.key .. "_extra")
-            if choice then
-                JoyousSpring.add_to_extra_deck(choice)
-            end
+            striker_add_to_extra(self, card)
         end
     end
 })
@@ -904,11 +916,7 @@ JoyousSpring.Joker({
             if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                 SMODS.add_card { set = 'Planet', key_append = self.key .. "_planet" }
             end
-            local choices = striker_get_not_summoned_links(nil, true)
-            local choice = pseudorandom_element(choices, self.key .. "_extra")
-            if choice then
-                JoyousSpring.add_to_extra_deck(choice)
-            end
+            striker_add_to_extra(self, card)
         end
     end
 })
@@ -1001,11 +1009,7 @@ JoyousSpring.Joker({
             if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                 SMODS.add_card { set = 'Planet', key_append = self.key .. "_planet" }
             end
-            local choices = striker_get_not_summoned_links(nil, true)
-            local choice = pseudorandom_element(choices, self.key .. "_extra")
-            if choice then
-                JoyousSpring.add_to_extra_deck(choice)
-            end
+            striker_add_to_extra(self, card)
         end
     end,
     calc_dollar_bonus = function(self, card)
@@ -1104,11 +1108,7 @@ JoyousSpring.Joker({
             if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                 SMODS.add_card { set = 'Planet', key_append = self.key .. "_planet" }
             end
-            local choices = striker_get_not_summoned_links(nil, true)
-            local choice = pseudorandom_element(choices, self.key .. "_extra")
-            if choice then
-                JoyousSpring.add_to_extra_deck(choice)
-            end
+            striker_add_to_extra(self, card)
         end
     end
 })
@@ -1190,11 +1190,7 @@ JoyousSpring.Joker({
             if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                 SMODS.add_card { set = 'Planet', key_append = self.key .. "_planet" }
             end
-            local choices = striker_get_not_summoned_links(nil, true)
-            local choice = pseudorandom_element(choices, self.key .. "_extra")
-            if choice then
-                JoyousSpring.add_to_extra_deck(choice)
-            end
+            striker_add_to_extra(self, card)
         end
     end
 })
@@ -1274,11 +1270,7 @@ local zeke = JoyousSpring.Joker({
             if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                 SMODS.add_card { set = 'Planet', key_append = self.key .. "_planet" }
             end
-            local choices = striker_get_not_summoned_links(nil, true)
-            local choice = pseudorandom_element(choices, self.key .. "_extra")
-            if choice then
-                JoyousSpring.add_to_extra_deck(choice)
-            end
+            striker_add_to_extra(self, card)
         end
     end
 })
@@ -1384,11 +1376,7 @@ JoyousSpring.Joker({
             if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                 SMODS.add_card { set = 'Planet', key_append = self.key .. "_planet" }
             end
-            local choices = striker_get_not_summoned_links(nil, true)
-            local choice = pseudorandom_element(choices, self.key .. "_extra")
-            if choice then
-                JoyousSpring.add_to_extra_deck(choice)
-            end
+            striker_add_to_extra(self, card)
         end
     end
 })
@@ -1473,11 +1461,7 @@ JoyousSpring.Joker({
         if not from_debuff then
             card.ability.extra_value = card.ability.extra_value +
                 card.ability.extra.money * ((G.GAME.joy_used_count or {}).c_high_priestess or 0)
-            local choices = striker_get_not_summoned_links(nil, true)
-            local choice = pseudorandom_element(choices, self.key .. "_extra")
-            if choice then
-                JoyousSpring.add_to_extra_deck(choice)
-            end
+            striker_add_to_extra(self, card)
         end
     end
 })
@@ -1566,11 +1550,7 @@ JoyousSpring.Joker({
             if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                 SMODS.add_card { set = 'Planet', key_append = self.key .. "_planet" }
             end
-            local choices = striker_get_not_summoned_links(nil, true)
-            local choice = pseudorandom_element(choices, self.key .. "_extra")
-            if choice then
-                JoyousSpring.add_to_extra_deck(choice)
-            end
+            striker_add_to_extra(self, card)
         end
     end
 })
@@ -1657,11 +1637,7 @@ JoyousSpring.Joker({
             if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                 SMODS.add_card { set = 'Planet', key_append = self.key .. "_planet" }
             end
-            local choices = striker_get_not_summoned_links(nil, true)
-            local choice = pseudorandom_element(choices, self.key .. "_extra")
-            if choice then
-                JoyousSpring.add_to_extra_deck(choice)
-            end
+            striker_add_to_extra(self, card)
         end
     end
 })
@@ -1781,11 +1757,7 @@ JoyousSpring.Joker({
             if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                 SMODS.add_card { set = 'Planet', key_append = self.key .. "_planet" }
             end
-            local choices = striker_get_not_summoned_links(nil, true)
-            local choice = pseudorandom_element(choices, self.key .. "_extra")
-            if choice then
-                JoyousSpring.add_to_extra_deck(choice)
-            end
+            striker_add_to_extra(self, card)
         end
     end
 })
@@ -1864,11 +1836,7 @@ JoyousSpring.Joker({
             if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                 SMODS.add_card { set = 'Planet', key_append = self.key .. "_planet" }
             end
-            local choices = striker_get_not_summoned_links(nil, true)
-            local choice = pseudorandom_element(choices, self.key .. "_extra")
-            if choice then
-                JoyousSpring.add_to_extra_deck(choice)
-            end
+            striker_add_to_extra(self, card)
         end
     end
 })
