@@ -1352,7 +1352,7 @@ JoyousSpring.Joker({
     },
     calculate = function(self, card, context)
         if JoyousSpring.can_use_abilities(card) and not context.blueprint_card then
-            if context.joy_tributed and context.joy_card.ability.set == 'Planet' then
+            if context.joy_tributed and context.joy_card.ability.set == 'Planet' and #G.hand.cards > 0 then
                 SMODS.draw_cards(1)
             end
             if JoyousSpring.is_activated_context(card, context) then
