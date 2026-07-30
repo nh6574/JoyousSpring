@@ -87,6 +87,9 @@ JoyousSpring.send_to_graveyard = function(card, amount)
                     joy_summoned =
                         not not_summoned
                 })
+                if G.P_CENTERS[card] then
+                    G.P_CENTERS[card].discovered = true
+                end
                 if not JoyousSpring.graveyard[card] then JoyousSpring.graveyard[card] = { count = 0, summonable = 0 } end
                 JoyousSpring.graveyard[card].count = JoyousSpring.graveyard[card].count + 1
                 JoyousSpring.graveyard[card].summonable = JoyousSpring.graveyard[card].summonable +
