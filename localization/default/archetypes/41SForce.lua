@@ -149,7 +149,7 @@ return {
                 text = {
                     {
                         "Played card in this {C:attention}column{}",
-                        "give {C:mult}+#1#{} Mult times its {C:attention}rank{}"
+                        "gives {C:mult}+#1#{} Mult times its {C:attention}rank{}"
                     },
                     {
                         "Once per round, you can {C:attention}tribute 1{}",
