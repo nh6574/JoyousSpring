@@ -4,7 +4,7 @@ Adds modern Yu-Gi-Oh! cards and mechanics.
 
 ## Installation
 
-1. Install [Steamodded](https://github.com/Steamopollys/Steamodded) [(version >1.0.0)](https://github.com/Steamodded/smods/wiki)
+1. Install [Steamodded](https://github.com/Steamopollys/Steamodded) [(version >1.0.0)](https://docs.smods.dev/)
 2. Download the [latest release](https://github.com/nh6574/JoyousSpring/releases)
 3. **Delete** your previous instalation if any
 4. Drag the zip file (or unzip it in its own folder) inside your Balatro mods folder (%appdata%\Balatro\Mods)
