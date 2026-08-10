@@ -5,7 +5,7 @@ return {
                 name = "{C:joy_effect}Drytron Alpha Thuban",
                 text = {
                     {
-                        "{X:mult,C:white}X#1#{} mult"
+                        "{X:mult,C:white}X#1#{} Mult"
                     },
                     {
                         "If {C:attention}tributed{}, creates {C:attention}1{} {C:joy_ritual}Ritual{}",
@@ -28,7 +28,7 @@ return {
                 name = "{C:joy_effect}Drytron Beta Rastaban",
                 text = {
                     {
-                        "{X:mult,C:white}X#1#{} mult"
+                        "{X:mult,C:white}X#1#{} Mult"
                     },
                     {
                         "If {C:attention}tributed{}, {C:money}+$#2#{} or",
@@ -50,7 +50,7 @@ return {
                 name = "{C:joy_effect}Drytron Delta Altais",
                 text = {
                     {
-                        "{X:mult,C:white}X#1#{} mult"
+                        "{X:mult,C:white}X#1#{} Mult"
                     },
                     {
                         "If {C:attention}tributed{}, {C:attention}+#2#{} hand size",
@@ -73,7 +73,7 @@ return {
                 name = "{C:joy_effect}Drytron Gamma Eltanin",
                 text = {
                     {
-                        "{X:mult,C:white}X#1#{} mult"
+                        "{X:mult,C:white}X#1#{} Mult"
                     },
                     {
                         "If {C:attention}tributed{}, {C:attention}revives 1{} {C:joy_normal}\"Drytron\"{}",
@@ -96,7 +96,7 @@ return {
                 name = "{C:joy_effect}Drytron Zeta Aldhibah",
                 text = {
                     {
-                        "{X:mult,C:white}X#1#{} mult"
+                        "{X:mult,C:white}X#1#{} Mult"
                     },
                     {
                         "If {C:attention}tributed{}, creates {C:attention}1{} {C:joy_spell}\"Drytron Fafnir\"{}",
@@ -119,7 +119,7 @@ return {
                 name = "{C:joy_effect}Drytron Nu II",
                 text = {
                     {
-                        "{X:mult,C:white}X#1#{} mult"
+                        "{X:mult,C:white}X#1#{} Mult"
                     },
                     {
                         "If {C:attention}tributed{}, creates {C:attention}1{} non-{C:joy_ritual}Ritual{}",
