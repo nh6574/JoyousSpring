@@ -462,7 +462,7 @@ JoyousSpring.Joker({
     eternal_compat = true,
     cost = 10,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * (JoyousSpring.side_deck_area and #JoyousSpring.side_deck_area.cards or 0) } }
+        return { vars = { card.ability.extra.xmult, 1 + card.ability.extra.xmult * (JoyousSpring.side_deck_area and JoyousSpring.side_deck_area and #JoyousSpring.side_deck_area.cards or 0) } }
     end,
     joy_desc_cards = {
         { properties = { { monster_archetypes = { "CenturIon" } }, }, name = "k_joy_archetype" },
