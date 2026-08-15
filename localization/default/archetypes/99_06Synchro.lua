@@ -25,7 +25,7 @@ return {
                         "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)",
                     },
                     {
-                        "Destroys all other non-{C:joy_token}Token{} non-debuffed {C:attention}Jokers{}",
+                        "Destroys as many other non-{C:joy_token}Token{} non-debuffed {C:attention}Jokers{}",
                         "at end of round as possible and creates that many",
                         "{C:dark_edition}Negative{} {C:joy_token}\"Utchatzimime Tokens\"{}",
                     },
