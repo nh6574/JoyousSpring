@@ -3,5 +3,8 @@
   "version_number": "1.0.7",
   "website_url": "https://github.nh6574.com/JoyousSpring",
   "description": "Adds modern Yu-Gi-Oh! cards and mechanics.",
-  "dependencies": ["Thunderstore-lovely-0.9.0"]
+  "dependencies": [
+    "Thunderstore-lovely-0.9.0",
+    "Steamodded-Steamodded-1.1814.0"
+  ]
 }
