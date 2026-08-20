@@ -310,7 +310,7 @@ JoyousSpring.Joker({
                     chips = card.ability.extra.current_chips
                 }
             end
-            if context.joy_summon then
+            if context.joy_summon and context.joy_summon_materials then
                 local count = 0
                 for _, material in ipairs(context.joy_summon_materials) do
                     if type(material) == "string" then
