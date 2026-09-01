@@ -31,7 +31,7 @@ JoyousSpring.Joker({
     },
     set_sprites = function(self, card, front)
         if card.ability and card.ability.extra then
-            card.children.center.atlas.name = card.ability.extra.joyous_spring.token_atlas or "joy_Token"
+            card.children.center.atlas = G.ASSET_ATLAS[card.ability.extra.joyous_spring.token_atlas or "joy_Token"]
             card.children.center.sprite_pos = card.ability.extra.joyous_spring.token_sprite_pos or { x = 0, y = 0 }
             card.children.center:reset()
         end
