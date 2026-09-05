@@ -14,46 +14,4 @@ SMODS.current_mod.optional_features = {
     object_weights = true
 }
 
-local filelist = {
-    "utils",
-    "globals",
-    "mod_info",
-    "sidedeck",
-    "general_ui",
-    "card_ui",
-    "zones",
-    "extra_deck",
-    "graveyard",
-    "banishment",
-    "pendulum",
-    "summon",
-    "monsters",
-    "material_functions",
-    "effects",
-    "opponent",
-    "blind_everywhere_system",
-    "custom_pool",
-    "cross_mod",
-    "tutorials"
-}
-
-for _, file in ipairs(filelist) do
-    assert(SMODS.load_file("src/" .. file .. ".lua"))()
-end
-
--- Jokers
-local joker_src = SMODS.NFS.getDirectoryItems(SMODS.current_mod.path .. "src/jokers")
-for _, file in ipairs(joker_src) do
-    local number = tonumber(file:sub(1, 2))
-    if JoyousSpring.dev_content or (number <= 42) or (number == 99) then
-        sendInfoMessage("Loading " .. file, "JoyousSpring")
-        assert(SMODS.load_file("src/jokers/" .. file))()
-    end
-end
-
--- Others
-local others_src = SMODS.NFS.getDirectoryItems(SMODS.current_mod.path .. "src/others")
-for _, file in ipairs(others_src) do
-    sendInfoMessage("Loading " .. file, "JoyousSpring")
-    assert(SMODS.load_file("src/others/" .. file))()
-end
+assert(SMODS.load_folder("src/"))()
