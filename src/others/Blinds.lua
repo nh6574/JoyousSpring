@@ -172,7 +172,7 @@ JoyousSpring.Blind {
                     if #choices > 0 then
                         local joker = pseudorandom_element(choices, self.key .. "_tribute")
                         local key = joker.config.center.key
-                        JoyousSpring.tribute(blind, { joker })
+                        JoyousSpring.tribute(card, { joker })
                         JoyousSpring.revive_pseudorandom({ { rarity = rarity, exclude_keys = { key } } },
                             self.key .. "_revive",
                             true)
