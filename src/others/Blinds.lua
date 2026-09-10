@@ -245,7 +245,7 @@ JoyousSpring.Blind {
                             func = function()
                                 G.E_MANAGER:add_event(Event({
                                     func = function()
-                                        JoyousSpring.tribute(blind, { context.joy_card })
+                                        JoyousSpring.tribute(card, { context.joy_card })
                                         return true
                                     end
                                 }))
