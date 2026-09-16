@@ -692,7 +692,7 @@ JoyousSpring.Joker({
             if not context.blueprint_card then
                 if (context.joy_tributed and context.joy_card.ability.set == "Tarot") or (context.using_consumeable and context.consumeable.ability.set == 'Tarot') then
                     if context.using_consumeable then
-                        JoyousSpring.count_as_tributed(context.consumeable)
+                        JoyousSpring.count_as_tributed(context.consumeable, nil, card)
                     end
                     if next(SMODS.find_card("j_joy_witch_vicemadame")) then
                         card.ability.extra.current_mult = card.ability.extra.current_mult + card.ability.extra.mult

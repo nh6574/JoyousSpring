@@ -299,7 +299,7 @@ end
 
 ---Count card as being tributed
 ---@param card Card|table
-JoyousSpring.count_as_tributed = function(card, for_ritual)
+JoyousSpring.count_as_tributed = function(card, for_ritual, source)
     if not G.GAME.joy_tributed_cards[card.config.center.key] then
         G.GAME.joy_tributed_cards[card.config.center.key] = {
             set = card.ability.set,
@@ -350,6 +350,30 @@ JoyousSpring.count_as_tributed = function(card, for_ritual)
         G.GAME.current_round.joy_tributed_cards_normal =
             (G.GAME.current_round.joy_tributed_cards_normal or 0) + 1
     end
+    source = source or {}
+    if source.ability then
+        source.ability.joy_tributed = source.ability.joy_tributed or {}
+        if not JoyousSpring.is_playing_card(card) then
+            source.ability.joy_tributed[#source.ability.joy_tributed + 1] = card.config.center.key
+        end
+    end
+    local eval, post = eval_card(card,
+        {
+            joy_tributed_self = card,
+            joy_source = source.ability and source or nil,
+            joy_source_blind = not source.ability and source or nil,
+            joy_for_ritual = for_ritual
+        })
+    SMODS.trigger_effects({ eval, post }, card)
+    card.getting_sliced = true
+
+    SMODS.calculate_context({
+        joy_tributed = true,
+        joy_card = card,
+        joy_source = source.ability and source or nil,
+        joy_source_blind = not source.ability and source or nil,
+        joy_for_ritual = for_ritual
+    })
 end
 
 ---Tribute a card
@@ -361,29 +385,9 @@ JoyousSpring.tribute = function(card, card_list, for_ritual, dissolve_colours)
     if not card_list then return end
 
     for _, material in ipairs(card_list) do
-        JoyousSpring.count_as_tributed(material, for_ritual)
-        local eval, post = eval_card(material,
-            {
-                joy_tributed_self = material,
-                joy_source = card.ability and card or nil,
-                joy_source_blind = not card.ability and card or nil,
-                joy_for_ritual = for_ritual
-            })
-        SMODS.trigger_effects({ eval, post }, material)
+        JoyousSpring.count_as_tributed(material, for_ritual, card)
+
         JoyousSpring.destroy_cards(material, true, true, nil, dissolve_colours)
-        if card.ability then
-            card.ability.joy_tributed = card.ability.joy_tributed or {}
-            if not JoyousSpring.is_playing_card(material) then
-                card.ability.joy_tributed[#card.ability.joy_tributed + 1] = material.config.center.key
-            end
-        end
-        SMODS.calculate_context({
-            joy_tributed = true,
-            joy_card = material,
-            joy_source = card.ability and card or nil,
-            joy_source_blind = not card.ability and card or nil,
-            joy_for_ritual = for_ritual
-        })
     end
 end
 

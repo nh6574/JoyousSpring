@@ -359,7 +359,7 @@ JoyousSpring.Joker({
                 }
             end
             if context.using_consumeable and context.consumeable.ability.set == 'Planet' then
-                JoyousSpring.count_as_tributed(context.consumeable)
+                JoyousSpring.count_as_tributed(context.consumeable, nil, card)
             end
         end
     end,
