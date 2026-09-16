@@ -126,6 +126,8 @@ return {
                     {
                         "Creates all {C:tarot}Tarot{} {C:attention}tributed{} this round",
                         "as {C:dark_edition}Negative{} when {C:attention}entering play{}",
+                        "{C:joy_effect}\"Witchcrafter Madame Verre\"{} can only use",
+                        "this ability once per round"
                     },
                     {
                         "{X:mult,C:white}X#1#{} Mult for each {C:tarot}Tarot",
@@ -144,7 +146,7 @@ return {
                     },
                     {
                         "Used {C:tarot}Tarot{} cards while this card is owned",
-                        "count as tributed for abilities",
+                        "count as {C:attention}tributed{} for abilities",
                     },
                     {
                         "Free if you own a {C:joy_normal}\"Witchcrafter\"{}",
