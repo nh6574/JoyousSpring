@@ -251,7 +251,7 @@ return {
                     "回合结束时{C:attention}取除{}1个素材",
                 }
             },
-c_joy_purr_sleepy = {
+            c_joy_purr_sleepy = {
                 name = "{C:joy_spell}纯爱妖精瞌睡回忆",
                 text = {
                     {
@@ -408,7 +408,7 @@ c_joy_purr_sleepy = {
                 }
             },
         },
-        JoyPokerHand = { -- TODO: 如未使用则删除
+        JoyPokerHand = {
             phd_joy_purr_yeap = {
                 name = "纯爱妖精跳越！？",
                 text = {

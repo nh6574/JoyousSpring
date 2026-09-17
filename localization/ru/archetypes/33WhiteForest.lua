@@ -185,10 +185,10 @@ return {
                         "{C:attention}1{} {C:joy_spell}\"Ведьму Белого Леса\"{}",
                         "в магазин при {C:attention}жертвоприношении{}"
                     },
-                    -- { -- TODO: add
-                    --     "Cards in {C:spectral}Spectral Packs{} can be",
-                    --     "saved to the consumable area"
-                    -- },
+                    {
+                        "Cards in {C:spectral}Spectral Packs{} can be",
+                        "saved to the consumable area"
+                    },
                     {
                         "Один раз, вы можете {C:attention}пожертвовать 1{} {C:joy_normal}Заклинателя{}",
                         "чтобы создать {C:attention}1{} {C:joy_normal}Главная колода \"Белый Лес\"{}",
