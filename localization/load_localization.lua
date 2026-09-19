@@ -3,29 +3,10 @@
 
 function joy_load_localization(lang)
     local localization = {}
-    local localization_files = {}
-
-    local loc_path = SMODS.find_mod("JoyousSpring")[1].path .. "localization/"
-
-    local loc_src = SMODS.NFS.getDirectoryItems(loc_path .. lang)
-    for _, file in ipairs(loc_src) do
-        if SMODS.NFS.getInfo(loc_path .. lang .. "/" .. file).type ~= "directory" then
-            localization_files[#localization_files + 1] = assert(SMODS.load_file("localization/" .. lang .. "/" .. file,
-                "JoyousSpring"))()
-        end
-    end
-
-    local loc_archetypes_src = SMODS.NFS.getDirectoryItems(loc_path .. lang .. "/archetypes")
-    for _, file in ipairs(loc_archetypes_src) do
-        localization_files[#localization_files + 1] = assert(SMODS.load_file(
-            "localization/" .. lang .. "/archetypes/" .. file,
-            "JoyousSpring"))()
-    end
-
-    assert(SMODS.load_folder("localization/" .. lang, { order = "files_only" },
+    local localization_files = assert(SMODS.load_folder("localization/" .. lang, nil,
         "JoyousSpring"))()
 
-    for _, file in ipairs(localization_files) do
+    local function handle_file(file)
         for _, loc_type in ipairs({ "descriptions", "misc", "JoyousSpring" }) do
             if file[loc_type] then
                 if not localization[loc_type] then
@@ -42,6 +23,18 @@ function joy_load_localization(lang)
             end
         end
     end
+
+    local function iter_loc(files)
+        for _, result in pairs(files) do
+            if result[1] then
+                handle_file(result[1])
+            else
+                iter_loc(result)
+            end
+        end
+    end
+
+    iter_loc(localization_files)
 
     return localization
 end
