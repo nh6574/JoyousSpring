@@ -14,4 +14,4 @@ SMODS.current_mod.optional_features = {
     object_weights = true
 }
 
-assert(SMODS.load_folder("src/"))()
+assert(SMODS.load_folder("src", { order = "files_first" }))()

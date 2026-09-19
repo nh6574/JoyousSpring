@@ -22,6 +22,9 @@ function joy_load_localization(lang)
             "JoyousSpring"))()
     end
 
+    assert(SMODS.load_folder("localization/" .. lang, { order = "files_only" },
+        "JoyousSpring"))()
+
     for _, file in ipairs(localization_files) do
         for _, loc_type in ipairs({ "descriptions", "misc", "JoyousSpring" }) do
             if file[loc_type] then
